@@ -1,0 +1,7 @@
+{
+    "name": "atlas-web/illinois-framework-theme",
+    "description": "Basic Drupal theme that includes Illinois standards branding",
+    "type": "drupal-theme",
+    "minimum-stability": "dev",
+    "require": {}
+}
