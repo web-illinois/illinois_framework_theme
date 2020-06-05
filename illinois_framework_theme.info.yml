@@ -1,0 +1,21 @@
+name: 'Illinois Framework Theme'
+type: theme
+description: The Illinois Framework Theme
+core: 8.x
+# Defines the base theme
+base theme: stable
+# Defines libraries group in which we can add css/js.
+libraries:
+  - illinois_framework_theme/global-styling
+# Regions (default set provided if not defined, listed below)
+#regions:
+#  header: Header
+#  primary_menu: Primary Menu
+#  secondary_menu: Secondary Menu
+#  highlighted: Highlighted
+#  help: Help Information
+#  content: Content
+#  sidebar_first: 'First Sidebar'
+#  sidebar_second: 'Second Sidebar'
+#  footer: Footer
+#  breadcrumb: Breadcrumb
