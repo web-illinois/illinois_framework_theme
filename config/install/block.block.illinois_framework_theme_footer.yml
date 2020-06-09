@@ -9,7 +9,7 @@ dependencies:
     - illinois_framework_theme
 id: illinois_framework_theme_footer
 theme: illinois_framework_theme
-region: footer_fifth
+region: footer
 weight: 0
 provider: null
 plugin: 'system_menu_block:footer'

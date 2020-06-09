@@ -7,7 +7,7 @@ dependencies:
     - illinois_framework_theme
 id: illinois_framework_theme_help
 theme: illinois_framework_theme
-region: content
+region: help
 weight: -30
 provider: null
 plugin: help_block

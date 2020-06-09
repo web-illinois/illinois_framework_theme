@@ -15,7 +15,7 @@ libraries:
 #  highlighted: Highlighted
 #  help: Help Information
 #  content: Content
-#  sidebar_first: 'First Sidebar'
-#  sidebar_second: 'Second Sidebar'
+#  sidebar_first: 'Left Sidebar'
+#  sidebar_second: 'Right Sidebar'
 #  footer: Footer
 #  breadcrumb: Breadcrumb
