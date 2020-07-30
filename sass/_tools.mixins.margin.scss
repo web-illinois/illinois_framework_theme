@@ -1,0 +1,41 @@
+@mixin margin($pairs...) {
+  @each $margin, $value in $pairs {
+    .u-#{$margin} {
+
+      $i: 0;
+      @while $i <= 50 {
+        $pixels: $i * 1px;
+        $rems: ($i * 1rem)/16;
+        &--top-#{$i} {
+          margin-top: $pixels;
+          margin-top: $rems;
+        }
+        &--right-#{$i} {
+          margin-right: $pixels;
+          margin-right: $rems;
+        }
+        &--bottom-#{$i} {
+          margin-bottom: $pixels;
+          margin-bottom: $rems;
+        }
+        &--left-#{$i} {
+          margin-left: $pixels;
+          margin-left: $rems;
+        }
+        &--top-bottom-#{$i} {
+          margin: $pixels 0;
+          margin: $rems 0;
+        }
+        &--left-right-#{$i} {
+          margin: 0 $pixels;
+          margin: 0 $rems;
+        }
+        &--all-#{$i} {
+          margin: $pixels;
+          margin: $rems;
+        }
+        $i: $i + 1;
+      }
+    }
+  }
+}

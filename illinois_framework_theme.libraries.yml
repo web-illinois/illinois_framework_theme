@@ -1,4 +1,17 @@
 global-styling:
   css:
     component:
+      //cdn.brand.illinois.edu/web-toolkit/v0.1.0/toolkit.css: { type: external }
+    theme:
       css/style.css: {}
+  js:
+    https://emergency.publicaffairs.illinois.edu/illinois.js:
+      type: external
+      attributes:
+        async: true
+    https://enroll.illinois.edu/ping:
+      type: external
+      attributes:
+        async: true
+    //cdn.brand.illinois.edu/web-toolkit/v0.1.0/webcomponents-loader.js: { type: external }
+    //cdn.brand.illinois.edu/web-toolkit/v0.1.0/toolkit.js: { type: external }

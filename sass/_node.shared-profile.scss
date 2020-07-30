@@ -1,0 +1,21 @@
+.node-shared-profile {
+  float: left;
+
+  &__body {
+    float: left;
+  }
+  &__img--wrapper {
+    float: right;
+
+    img {
+      width: 100%;
+    }
+
+    &__major {
+      padding: 20px;
+    }
+    &__hometown {
+      padding: 20px;
+    }
+  }
+}

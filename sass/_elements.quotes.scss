@@ -1,0 +1,82 @@
+// Quotes
+//
+// Styleguide 4.7
+
+// Quote
+//
+// Markup:
+// <p><q>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
+// interdum est tortor, nec tincidunt justo iaculis a. Aliquam est nunc, ultrices
+// sit amet semper ac, pellentesque ut augue.</q></p>
+//
+// Styleguide 4.7.1
+
+// Blockquote
+//
+// Markup:
+// <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
+// interdum est tortor, nec tincidunt justo iaculis a. Aliquam est nunc, ultrices
+// sit amet semper ac, pellentesque ut augue.</blockquote>
+//
+// Styleguide 4.7.2
+
+// Blockquote with paragraph
+//
+// Markup:
+// <blockquote>
+//  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
+//  interdum est tortor, nec tincidunt justo iaculis a. Aliquam est nunc, ultrices
+//  sit amet semper ac, pellentesque ut augue.</p>
+// </blockquote>
+//
+// Styleguide 4.7.3
+
+// Blockquote with Multiple paragraphs
+//
+// Markup:
+// <blockquote>
+//  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
+//  interdum est tortor, nec tincidunt justo iaculis a. Aliquam est nunc, ultrices
+//  sit amet semper ac, pellentesque ut augue.</p>
+//  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
+//  interdum est tortor, nec tincidunt justo iaculis a. Aliquam est nunc, ultrices
+//  sit amet semper ac, pellentesque ut augue.</p>
+// </blockquote>
+//
+// Styleguide 4.7.4
+
+q {
+  quotes: """ """ "'" "'";
+}
+blockquote {
+  margin: 1rem 0 1rem 1rem;
+  padding: 0 20px 2px 20px;
+  border: none;
+  font-size: 25px; // same as beta
+  line-height: 35px; // same as beta
+  font-weight: 300; // same as beta
+  color: #807A77; // .ui-4
+  font-style: italic;
+
+  p {
+    font-size: 25px; // same as beta
+    line-height: 35px; // same as beta
+    font-weight: 300; // same as beta
+    color: #807A77; // .ui-4
+    font-style: italic;
+
+    // &:first-of-type {
+
+    //   &:before {
+    //     content: open-quote;
+    //   }
+    // }
+    &:last-of-type {
+      margin-bottom: 0;
+
+      // &:after {
+      //   content: close-quote;
+      // }
+    }
+  }
+}

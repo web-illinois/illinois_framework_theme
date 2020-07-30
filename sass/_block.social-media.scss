@@ -1,0 +1,31 @@
+.block--social-media {
+  padding: 30px 5% 30px;
+
+  .collage {
+    width: 100%;
+  }
+  .instagram {
+    left: 35%;
+    top: 43%;
+    position: absolute;
+    width: 10%;
+
+    @include breakpoint(medium-down) {
+      left: 30%;
+      top: 41%;
+      width: 14%;
+    }
+  }
+  .facebook {
+    right: 35%;
+    top: 43%;
+    position: absolute;
+    width: 10%;
+
+    @include breakpoint(medium-down) {
+      right: 30%;
+      top: 41%;
+      width: 14%;
+    }
+  }
+}

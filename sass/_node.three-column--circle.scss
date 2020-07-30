@@ -1,0 +1,77 @@
+.node--type-layer-three-column-circles {
+
+  .threecolcircle {
+
+    &__content {
+      display: flex;
+      @include breakpoint(tablet-down) {
+        display: initial;
+      }
+    }
+    &__col {
+      display: flex;
+      flex-wrap: wrap;
+      padding-top: 15px;
+      @include breakpoint(tablet-down) {
+        padding-top: 25px;
+        display: block;
+      }
+    }
+
+    &__image {
+      margin-bottom: 15px;
+      position: relative;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+
+        @include breakpoint(tablet-down) {
+          left: 15%;
+          position: relative;
+          width: 70%;
+        }
+
+        @include breakpoint(small) {
+          left: 20%;
+          position: relative;
+          width: 60%;
+        }
+      }
+
+      &:before {
+        content: '';
+        position: absolute;
+        bottom: 0px;
+        width: 57%;
+        height: 100%;
+        border-radius: 100%;
+        box-shadow: 0px 0px 0px 1000px white;
+        right: 22%;
+      }
+    }
+    &__body {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 auto;
+    }
+    &__button {
+      align-self: flex-end;
+      margin: 0 auto;
+
+      &--label {
+        &__text {
+          a {
+            &:after {
+              margin-top: 1px;
+            }
+          }
+
+        }
+        &__link {
+
+        }
+      }
+    }
+  }
+}

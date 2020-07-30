@@ -1,0 +1,16 @@
+ul#superfish-main {
+
+  li {
+
+    ul {
+      display: block;
+      width: 1220px !important;
+
+      li {
+        float: left;
+        display: inline !important;
+        width: auto;
+      }
+    }
+  }
+}
