@@ -1,0 +1,601 @@
+// Forms
+//
+// Styleguide 4.8
+
+// Submit Button
+//
+// Markup:
+// <form><input type="{{modifier_class}}"></input></form>
+//
+// submit - submit type
+//
+// Styleguide 4.8.1
+
+// Text Form
+//
+// Markup:
+// <form><input type="{{modifier_class}}" name="text"></input></form>
+//
+// text - text type
+//
+// Styleguide 4.8.2
+
+// Radio Button
+//
+// Markup:
+// <form><input type="{{modifier_class}}" name="radio" value="radio">Radio</input></form>
+//
+// radio - radio type
+//
+// Styleguide 4.8.3
+
+// Checkbox
+//
+// Markup:
+// <form><input type="{{modifier_class}}" name="checkbox" value="checkbox">Check the Checkbox</input></form>
+//
+// checkbox - checkbox type
+//
+// Styleguide 4.8.4
+
+form, .form {
+  padding: 0;
+  margin: 0;
+  @include font-size(16px);
+}
+
+form {
+
+  input[type="submit"] {
+    content: "";
+    cursor: pointer;
+    display: inline;
+    opacity: 0.9;
+    margin-top: 1rem;
+  }
+  input[type="text"] {
+    box-shadow: none;
+    display: inline;
+    margin: 0;
+    padding: 0 0 0 0.5rem;
+  }
+  input[type="radio"],
+  input[type="checkbox"] {
+    margin: 0 0 .8rem 0;
+  }
+  input[type="password"] {
+    margin: 0;
+  }
+  input[type="search"] {
+
+  }
+  input[type="number"] {
+
+  }
+  input[type="reset"] {
+
+  }
+
+  input[type="checkbox"] + label, input[type="radio"] + label {
+  display: inline-block;
+  margin-left: 0.5rem;
+  margin-right: 1rem;
+  margin-bottom: 0;
+  vertical-align: middle;
+  margin: 0 1rem 0 0.5rem;
+}
+
+  label {
+    font-size: $font-size--delta;
+    color: #13294B;
+    cursor: pointer;
+    display: block;
+    font-weight: 500;
+    line-height: 25px;
+    margin: 16px 0 0;
+    text-transform: none;
+  }
+}
+
+// Add asterisk to required field labels
+
+.form-required::after {
+  content: '';
+  vertical-align: super;
+  display: inline-block;
+  background-image: url(/core/misc/icons/ee0000/required.svg);
+  background-repeat: no-repeat;
+  background-size: 6px 6px;
+  width: 6px;
+  height: 6px;
+  margin: 0 0.3em;
+}
+
+// foundation-overides
+
+input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea {
+  border: 1px solid $color-ui-3;
+  color: $color-ui-text;
+}
+
+input[type="text"]:focus, input[type="password"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="month"]:focus, input[type="week"]:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="time"]:focus, input[type="url"]:focus, textarea:focus {
+  background: #fafafa;
+  border-color: $color-secondary-aces-lt-blue;
+  outline: none;
+  -webkit-box-shadow: 0 0 5px $color-secondary-aces-lt-blue;
+  -moz-box-shadow: 0 0 5px $color-secondary-aces-lt-blue;
+  box-shadow: 0 0 5px $color-secondary-aces-lt-blue;
+}
+
+#edit-name--description {
+  margin-top: 6px;
+}
+
+#edit-name--description.description {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+#edit-pass--description {
+  margin-top: 6px;
+}
+
+#edit-pass--description.description {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+span.fieldset-legend {
+  margin: 16px 0 16px 0;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-weight: 300;
+  font-size: 20px;
+}
+
+.webform-element-description {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  margin-top: 6px;
+}
+
+// Search Form
+//
+// Markup: search-form.html
+//
+// Styleguide 4.8.5
+
+// Search Form - Header
+//
+// Markup: search-form--header.html
+//
+// Styleguide 4.8.6
+
+.e-form {
+
+  &-search {
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+
+    &--header {
+      padding: 2px 0;
+
+      input[type="text"] {
+        background-color: #cdd4d7;
+        border: 0;
+        box-shadow: none;
+        display: inline;
+        font-size: 100%;
+        height: 32px;
+        margin: 0;
+        padding: 0 0 0 0.5rem;
+        width: 10em;
+      }
+      input[type="submit"] {
+        background: url("../images/aces-search.png") no-repeat scroll center center rgba(0,0,0,0);
+        width: 22px;
+        height: 22px;
+        border: 0;
+      }
+    }
+  }
+}
+
+//User Login Page
+#user-login-form {
+  .form-text {
+    @include breakpoint(phone) {
+      width: 100%;
+    }
+    @include breakpoint(tablet) {
+      width: 50%;
+    }
+    @include breakpoint(desktop-up) {
+      width: 33.3333333%;
+    }
+  }
+}
+#user-login-form {
+  // margin: 0 auto;
+  // max-width: 1200px;
+  // padding: 0 15px;
+}
+
+
+// ----- Progress Tracker -----
+
+
+// ----- Elements -----
+
+// Container element
+// .progress-tracker {
+//   display: flex;
+//   margin: 40px auto;
+//   padding: 0;
+//   list-style: none;
+// }
+
+// Step container that creates lines between steps
+  // .progress-step {
+  //   display: block;
+  //   position: relative;
+  //   flex: 1 1 0%;
+  //   margin: 0;
+  //   padding: 0;
+  //   min-width: $marker-size; // For a flexbox bug in firefox that wont allow the text overflow on the text
+
+    // Stops the last step growing
+    // &:last-child {
+    //   flex-grow: 0;
+    // }
+
+    // Path between markers, this is not created for the last step
+    // &:not(:last-child)::after {
+    //   content: '';
+    //   display: block;
+    //   position: absolute;
+    //   z-index: -10;
+    //   top: $path-position;
+    //   bottom: $path-position;
+    //   right: - $marker-size-half;
+    //   width: 100%;
+    //   height: $path-height;
+    //   transition: background-color $transition-duration;
+    // }
+
+    // Active state
+  //   &.is-active {
+  //     .progress-title {
+  //       font-weight: 400;
+  //     }
+  //   }
+  //
+  //   > a {
+  //     display: block;
+  //   }
+  //
+  // }
+
+// Progress marker
+    // .progress-marker {
+    //   display: flex;
+    //   justify-content: center;
+    //   align-items: center;
+    //   position: relative;
+    //   z-index: 20;
+    //   width: $marker-size;
+    //   height: $marker-size;
+    //   padding-bottom: 2px; // To align text within the marker
+    //   color: #fff;
+    //   font-weight: 400;
+    //   border: 2px solid transparent;
+    //   border-radius: 50%;
+    //   transition: background-color, border-color;
+    //   transition-duration: $transition-duration;
+    // }
+
+
+// Progress text
+  // .progress-text {
+  //   display: block;
+  //   padding: $text-padding-Y $text-padding-X;
+  //   overflow: hidden;
+  //   text-overflow: ellipsis;
+  // }
+  //   .progress-title {
+  //     margin-top: 0;
+  //   }
+
+
+// Step state mixin - The first arugment is required and the rest are optional, if you pass in null the value will not be changed.
+@mixin progress-state($marker-color-bg, $marker-color-border: null, $marker-color-text: null, $path-color: null, $text-color: null) {
+  .progress-marker {
+    color: $marker-color-text;
+    background-color: $marker-color-bg;
+    border-color: $marker-color-border;
+  }
+
+  &::after {
+    background-color: $path-color;
+  }
+
+  .progress-text, .progress-step > a .progress-text {
+    color: $text-color;
+  }
+}
+
+
+// States
+  .progress-step {
+
+    // Inactive - Default state
+    // @include progress-state($progress-color-grey-light, null, #fff, $progress-color-grey-light, $progress-color-grey-dark);
+
+    // Active state
+    &.is-active {
+      @include progress-state($color-primary-univ-orange);
+    }
+
+    // Complete state
+    &.is-complete {
+      @include progress-state($color-primary-univ-orange);
+    }
+
+    // Hover state
+    &:hover {
+      @include progress-state($color-secondary-aces-orange);
+    }
+
+  }
+
+.webform-progress-tracker .progress-step:hover .progress-marker {
+  background-color: #b6b6b6;
+}
+
+.webform-progress-tracker .progress-step.is-complete:hover .progress-marker {
+  background-color: $color-primary-univ-orange;
+}
+
+.webform-progress-tracker .progress-step.is-active:hover .progress-marker {
+  background-color: $color-secondary-aces-orange;
+}
+
+// webform overides
+
+.webform-element-help {
+  vertical-align: middle;
+
+  &:focus,&:active,&:hover {
+    border: 2px solid $color-primary-univ-orange;
+    background: $color-primary-univ-orange;
+  }
+}
+
+
+
+// ----- Modifiers -----
+
+// Center align markers and text
+// .progress-tracker--center {
+//
+//   .progress-step {
+//     text-align: center;
+//
+//     &:last-child {
+//       flex-grow: 1;
+//     }
+//
+//     &::after {
+//       right: -50%;
+//     }
+//   }
+//
+//     .progress-marker {
+//       margin-left: auto;
+//       margin-right: auto;
+//     }
+// }
+
+
+// Right align markers and text
+// .progress-tracker--right {
+//
+//   .progress-step {
+//     text-align: right;
+//
+//     &:last-child {
+//       flex-grow: 1;
+//     }
+//
+//     &::after {
+//       right: calc(-100% + #{$marker-size-half});
+//     }
+//   }
+//
+//     .progress-marker {
+//       margin-left: auto;
+//     }
+// }
+
+
+// Border around steps (Only for use without text)
+// .progress-tracker--border {
+//   padding: $progress-tracker-padding;
+//   border: 2px solid $progress-color-grey;
+//   border-radius: $marker-size + ($progress-tracker-padding * 2);
+// }
+
+
+// Spaces between markers
+// .progress-tracker--spaced {
+//
+//   .progress-step {
+//
+//     &::after {
+//       width: calc(100% - #{$marker-size + ($marker-spacing * 2)});
+//       margin-right: ($marker-size-half + $marker-spacing);
+//     }
+//   }
+//
+// }
+
+
+// Word below markers
+// .progress-tracker--word {
+//   padding-right: $progress-tracker-word-padding;
+//   overflow: hidden;
+//
+//   .progress-text {
+//     display: inline-block;
+//     white-space: nowrap;
+//   }
+//
+//     .progress-title {
+//       margin: 0;
+//     }
+//
+// }
+//
+//
+// .progress-tracker--word-center {
+//   padding-right: $progress-tracker-word-padding;
+//   padding-left: $progress-tracker-word-padding;
+//
+//   .progress-text {
+//     padding-right: 0;
+//     padding-left: 0;
+//     transform: translateX(calc(-50% + #{$marker-size-half}));
+//   }
+//
+// }
+//
+//
+// .progress-tracker--word-right {
+//   padding-right: 0;
+//   padding-left: $progress-tracker-word-padding;
+//
+//   .progress-text {
+//     padding-left: 0;
+//     transform: translateX(calc(-100% + #{$marker-size}));
+//   }
+//
+// }
+//
+//
+// // Text below markers
+// .progress-tracker--text {
+//
+//   .progress-step {
+//
+//     &:last-child {
+//       flex-grow: 1;
+//     }
+//   }
+//
+// }
+//
+//
+// // Text above markers
+// .progress-tracker--text-top {
+//
+//   .progress-step::after {
+//     top: auto;
+//   }
+//
+//     .progress-text {
+//       height: 100%;
+//     }
+//
+//     .progress-marker {
+//       bottom: $marker-size;
+//     }
+//
+// }
+//
+//
+// // Text inline with markers
+// .progress-tracker--text-inline {
+//
+//   .progress-step {
+//     display: flex;
+//   }
+//
+//     .progress-text {
+//       position: relative;
+//       z-index: 30;
+//       max-width: 70%;
+//       white-space: nowrap;
+//       padding-top: 0;
+//       padding-bottom: 0;
+//       background-color: #fff;
+//     }
+//
+//       .progress-title {
+//         margin: 0;
+//       }
+//
+// }
+//
+//
+// // Square markers
+// .progress-tracker--square {
+//
+//   .progress-step {
+//     padding-top: 0;
+//   }
+//
+//     .progress-marker {
+//       transform: scaleX(0.33) translateY(- $path-position);
+//       border-radius: 0;
+//     }
+//
+// }
+//
+//
+// // Overflow on small screens
+// @media (max-width: 399px) {
+//   .progress-tracker-mobile {
+//     overflow-x: auto;
+//
+//     .progress-tracker {
+//       min-width: 200%;
+//     }
+//   }
+// }
+//
+//
+// // Vertical layout
+// .progress-tracker--vertical {
+//   flex-direction: column;
+//
+//   .progress-step {
+//     flex: 1 1 auto;
+//
+//     &::after {
+//       right: auto;
+//       top: $marker-size-half;
+//       left: $path-position;
+//       width: $path-height;
+//       height: 100%;
+//     }
+//   }
+//
+//     .progress-marker {
+//       position: absolute;
+//       left: 0;
+//     }
+//
+//     .progress-text {
+//       padding-top: $marker-size-quarter;
+//       padding-left: $text-padding--vertical;
+//     }
+//
+//     .progress-step:not(:last-child) .progress-text {
+//       padding-bottom: $text-padding--vertical;
+//     }
+// }

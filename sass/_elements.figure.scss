@@ -1,0 +1,171 @@
+// Figure with Caption
+//
+// Markup: figure.html
+//
+// Styleguide 4.9
+
+// Figure Box with Caption
+//
+// The box width will adjust to the parent container.
+//
+// Markup: figure--box.html
+//
+// Styleguide 4.9.1
+
+
+//TODO: replace button classes background colors with ACES colors
+
+figure {
+  margin: 0;
+  padding: 0;
+
+  &.align-right {
+    padding: 20px;
+  }
+  &.align-left {
+    padding: 20px;
+  }
+
+  img {
+    width: 100%;
+  }
+  figcaption {
+    color: #9E9E9E;
+    font-family: $montserrat;
+    font-size: 13px;
+    font-size: 0.8125rem;
+    padding: 5px 0px;
+  }
+}
+.e-figure--box {
+  box-shadow: 0px 17px 16px -14px #141414;
+  overflow: hidden;
+  padding-bottom: 20px;
+  position: relative;
+  height: 273px;
+  background-position: top center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  width: 100%;
+
+  figcaption {
+    background-color: $color-site;
+    top: 221px;
+    color: #fff;
+    display: table;
+    font-family: $montserrat;
+    font-size: 16px;
+    font-weight: bold;
+    height: 52px;
+    line-height: 18px;
+    padding: 7px 15px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    transition: top 0.4s ease 0s;
+    z-index: 1;
+
+    span {
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
+  &__figcaption--title {
+    display: block;
+  }
+  &__figcaption--no-title {
+    display: none;
+  }
+  &--blur {
+    @include filter(blur,5px); //mixins.scss
+    background-position: top center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    height: 100%;
+    left: 0px;
+    overflow: hidden;
+    padding: 0px 10px;
+    position: absolute;
+    top: 221px;
+    transition: top 0.4s ease 0s;
+    width: 100%;
+    z-index: -1;
+  }
+  &__a {
+    left: 0;
+    position: relative;
+    top: 0;
+    width: 100%;
+  }
+  &__content {
+    background-color: rgba(255,255,255,0.75);
+    @include IE(11) {
+      background-color: rgba(255,255,255,0.85);
+    }
+    color: #000;
+    top: 223px;
+    padding: 10px;
+    position: absolute;
+    transition: top 0.4s ease 0s;
+    width: 100%;
+    z-index: 0;
+  }
+  &:hover {
+
+    figcaption {
+      background-color: rgba(255,255,255,0.9);
+      color: $color-site;
+      left: 0px;
+      top: 38px;
+      z-index: 1;
+
+      span {
+        height: 100%;
+        left: 0px;
+        overflow: hidden;
+        padding: 0px;
+        top: 90px;
+        width:100%;
+        z-index: 1;
+      }
+    }
+    .e-figure--box--blur {
+      background-position: center -40px !important;
+      background-repeat: no-repeat !important;
+      background-size: cover !important;
+      border: 1px solid transparent;
+      overflow: hidden;
+      top: 40px;
+      z-index: 0;
+    }
+    .e-figure--box__content {
+      @include IE(11) {
+        background-color: rgba(255,255,255,0.85);
+      }
+      height: 100%;
+      left: 0px;
+      overflow: hidden;
+      padding: 10px;
+      top: 90px;
+      width:100%;
+      z-index: 1;
+      height: 100%;
+    }
+  }
+}
+.e-figure--box__figure--no-body {
+
+  &:hover {
+
+    figcaption {
+      top: 221px;
+    }
+    .e-figure--box--blur {
+      display: none;
+    }
+    .e-figure--box__content {
+      background-color: transparent;
+      top: 223px;
+    }
+  }
+}

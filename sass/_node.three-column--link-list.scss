@@ -1,0 +1,85 @@
+.node--type-layer-three-column-link-list {
+
+  .threecollist {
+
+    &__wrapper {
+
+      &--content {
+        display: flex;
+        @include breakpoint(tablet-down) {
+          display: initial;
+        }
+      }
+    }
+
+    &__title {
+
+      &--link-list {
+        color: $color-primary-univ-blue;
+        display: flex;
+        align-items: center;
+
+        @include breakpoint(tablet-down) {
+          padding-bottom: 20px;
+        }
+      }
+    }
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+
+      @include breakpoint(tablet-down) {
+        float: left !important;
+      }
+    }
+    &__link {
+      padding: 10px 20px 10px 10px;
+      @include breakpoint(tablet-down) {
+        padding-top: 10px;
+      }
+
+      a {
+        color: $color-primary-univ-orange;
+        display: block;
+        margin-left: -10px;
+        text-decoration: none;
+
+        &:hover,
+        &:focus {
+          text-decoration: underline;
+        }
+
+      }
+      a[href*="//"]:not([href*="aces.illinois.edu"]):not( [href^='#'] ):not( [href^='/'] ) {
+
+        &:after {
+          //content: '\f176';
+          content: '\f08e';
+          color: $color-primary-univ-orange;
+          display: inline-block;
+          font-family: 'FontAwesome';
+          font-size: smaller;
+          margin-top: 1px;
+          padding-left: 4px;
+          position: absolute;
+          text-decoration: underline;
+          //transform: rotate(40deg);
+        }
+        &:after {
+          text-decoration: none;  //IE 8=11 Hack
+        }
+      }
+      &--border {
+        border-top: 1px solid $color-ui-6;
+        margin-left: -10px;
+        padding-bottom: 20px;
+
+        // @include breakpoint(tablet-down) {
+        //   width: 50%;
+        //   margin-right: -50%;
+        //   margin-top: -10px;
+        // }
+      }
+    }
+  }
+}

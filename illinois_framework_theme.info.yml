@@ -7,15 +7,15 @@ base theme: stable
 # Defines libraries group in which we can add css/js.
 libraries:
   - illinois_framework_theme/global-styling
-# Regions (default set provided if not defined, listed below)
-#regions:
-#  header: Header
-#  primary_menu: Primary Menu
-#  secondary_menu: Secondary Menu
-#  highlighted: Highlighted
-#  help: Help Information
-#  content: Content
-#  sidebar_first: 'Left Sidebar'
-#  sidebar_second: 'Right Sidebar'
-#  footer: Footer
-#  breadcrumb: Breadcrumb
+# Regions
+regions:
+  header: Header
+  primary_menu: Primary Menu
+  secondary_menu: Secondary Menu
+  highlighted: Highlighted
+  help: Help Information
+  content: Content
+  sidebar_first: 'Left Sidebar'
+  sidebar_second: 'Right Sidebar'
+  footer: Footer
+  breadcrumb: Breadcrumb

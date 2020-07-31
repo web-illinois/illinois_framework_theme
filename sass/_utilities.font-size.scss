@@ -1,0 +1,117 @@
+// Font Size
+//
+// The various font sizes and uses for those font sizes in the WMS template.
+//
+// Markup:
+// <div class="{{modifier_class}}">Text Font Size</div>
+//
+//
+// .u-font-size--giga - Used for display
+// .u-font-size--mega - Used for display
+// .u-font-size--xxxl -
+// .u-font-size--xxl -
+// .u-font-size--xl -
+// .u-font-size--l -
+// .u-font-size--m -
+// .u-font-size--s -
+// .u-font-size--xs -
+// .u-font-size--xxs -
+// .u-font-size--xxxs -
+//
+// Styleguide 8.5
+
+// Used for display
+.u-font-size--giga {
+  @include font-size(76px); //4.75rem
+  font-weight: 300;
+}
+.aces--type-giga {
+  @include font-size(76px); //4.75rem
+  font-weight: 300;
+}
+.u-font-size--mega {
+  @include font-size(54px); //3.375rem
+  font-weight: 300;
+}
+.aces--type-mega {
+  @include font-size(54px); //3.375rem
+  font-weight: 300;
+}
+
+// Normal sizes
+.u-font-size--alpha {
+  @include font-size(36px); //2.25rem
+  font-weight: 300;
+}
+.aces--type-alpha {
+  @include font-size(36px); //2.25rem
+  font-weight: 300;
+}
+.u-font-size--beta {
+  @include font-size(28px); //1.75rem
+  font-weight: 300;
+}
+.aces--type-beta {
+  @include font-size(28px); //1.75rem
+  font-weight: 300;
+}
+.u-font-size--gamma {
+  @include font-size(20px); //1.25rem
+  font-weight: 300;
+}
+.aces--type-gamma {
+  @include font-size(20px); //1.25rem
+  font-weight: 300;
+}
+.u-font-size--delta {
+  @include font-size(18px); //1.125rem
+  font-weight: 600;
+}
+.aces--type-delta {
+  @include font-size(18px); //1.125rem
+  font-weight: 600;
+}
+.u-font-size--epsilon {
+  @include font-size(16px); //1rem
+  font-weight: 600;
+}
+.aces--type-epsilon {
+  @include font-size(16px); //1rem
+  font-weight: 500;
+}
+.u-font-size--zeta {
+  @include font-size(14px); //0.875rem
+  font-weight: 500;
+}
+.aces--type-zeta {
+  @include font-size(14px); //0.875rem
+  font-weight: 500;
+}
+.u-font-size--omega {
+  @include font-size(12px); //0.75rem
+  font-weight: 500;
+}
+.aces--type-omega {
+  @include font-size(12px); //0.75rem
+  font-weight: 500;
+}
+
+//Other styles
+.u-font-size--caption {
+  font-size: 12px; //0.75rem
+  line-height: 1.5;
+}
+.aces--type-caption {
+  font-size: 12px; //0.75rem
+  font-weight: 400;
+  line-height: 1.5;
+}
+.u-font-size--legal {
+  font-size: 11px; //0.6875rem
+  line-height: 1.5;
+}
+.aces--type-legal {
+  font-size: 11px; //0.6875rem
+  font-weight: 400;
+  line-height: 1.5;
+}

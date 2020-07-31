@@ -1,0 +1,11 @@
+.field-collection-container {
+
+ .field-collection-view {
+    border-bottom: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+.field-collection-container:last-of-type {
+    border-bottom: none;
+}

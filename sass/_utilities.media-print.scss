@@ -1,0 +1,148 @@
+@media print {
+
+
+  h1 {
+      color: #000;
+      background: none;
+   }
+
+  h2, h3 {
+    page-break-after: avoid;
+  }
+
+  body, article {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  article {
+  //  page-break-before: always;
+  }
+
+  ul, img {
+   page-break-inside: avoid;
+  }
+
+  header {
+    padding: 0;
+  }
+
+  @page {
+    margin: 0 2cm 2cm 2cm;
+  }
+
+  a[href]:after{
+    content:"";
+  }
+  a[href]:before{
+    content:"";
+  }
+
+  .searchform {
+    display: none;
+  }
+
+  ul.tabs.primary {
+    display: none;
+  }
+
+  .gaussian-hero-panel .gaussian-hero {
+    height: auto;
+  }
+
+  .sectionheading {
+    margin-top: 30pt;
+  }
+
+  .sectionoverview {
+    margin-top: 18pt;
+  }
+
+  .page-title-wrapper {
+    margin-top: -20pt;
+  }
+
+  .pane-content .pane-4box-image{
+    -webkit-print-color-adjust: exact;
+  }
+
+  .large-3 {
+    width: 25%;
+  }
+
+  .column, .columns {
+    position: relative;
+    padding-left: 0.9375em;
+    padding-right: 0.9375em;
+    float: left;
+  }
+
+  .medium-6 {
+    width: 50%;
+  }
+
+  .column, .columns {
+    position: relative;
+    padding-left: 0.9375em;
+    padding-right: 0.9375em;
+    float: left;
+  }
+
+  .pane-4box-image * {
+    position: static;
+  }
+
+  .pane-4box .pane-4box-image figure .pane-4box-background-link {
+    height: auto;
+  }
+
+  .pane-4box .pane-4box-image figure .pane-4box-background {
+    background: none;
+  }
+
+  .pane-4box .pane-4box-image figure .pane-4box-figcaption {
+    position: static;
+  }
+
+  .pane-4box-blur {
+    background-image: none;
+  }
+
+  .pane-1box-background {
+    display: none;
+  }
+
+  .pane-1box-body {
+    width: 100vw !important;
+  }
+
+  .field-collection-view ul.field-collection-view-links {
+    display: none;
+  }
+  .region-header {
+    #idbar {
+      display: none;
+    }
+    header {
+      img {
+        width: 35%;
+      }
+    }
+    .block-tb-megamenu {
+      display: none;
+    }
+  }
+  .region-content {
+    .node-hero-layer {
+      display: none;
+    }
+  }
+  .region-footer {
+    .bottom-navigation,
+    .aces-links,
+    .univ-links {
+      display: none;
+    }
+  }
+}
