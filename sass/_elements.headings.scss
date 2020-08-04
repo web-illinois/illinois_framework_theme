@@ -50,22 +50,3 @@ h6 {
   margin-top: 0.2rem;
   margin-bottom: 0.5rem;
 }
-// h1.u-font-size--xl {
-//   @include breakpoint(phone) {
-//     @include font-size(24px); //u-font-size--l
-//   }
-// }
-// h2.u-font-size--xl {
-//   @include breakpoint(phone) {
-//     @include font-size(24px); //u-font-size--l
-//   }
-// }
-// h3.u-font-size--m {
-//   @include breakpoint(phone) {
-//     @include font-size(18px);
-//   }
-// }
-h1.front {
-  height: 0px;
-  visibility: hidden;
-}
