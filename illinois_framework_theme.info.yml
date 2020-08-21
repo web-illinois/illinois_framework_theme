@@ -1,12 +1,17 @@
 name: 'Illinois Framework Theme'
 type: theme
-description: The Illinois Framework Theme
+description: 'The Illinois Framework Theme'
 core: 8.x
-# Defines the base theme
-base theme: stable
+core_version_requirement: ^8 || ^9
+base theme: bootstrap4
+
+stylesheets-remove:
+  - '@bootstrap4/css/style.css'
+
 # Defines libraries group in which we can add css/js.
 libraries:
   - illinois_framework_theme/global-styling
+
 # Regions
 regions:
   header: Header
