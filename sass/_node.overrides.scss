@@ -1,0 +1,39 @@
+/*
+ *  Remove the header layer on section page layers at the top of the page
+ *  International Engagements
+ *
+ *  This is an example - the actual node ids may change
+*/
+ .node-7021 {
+   .layer-background__header {
+     display: none;
+   }
+ }
+
+// Home/Front, About, Academics, International, and Advancement overrides
+// Removed .node-24 2/5/20 for ExploreACES
+.node--type-layer-one-column-text {
+  &.node-14, &.node-29, &.node-112, &.node-117 {
+      .layer-background__header {
+        border-bottom: 20px solid white;
+      }
+    }
+}
+
+// International, ITCS, and Research overrides
+.node--type-layer-two-column-text-img {
+  &.node-156, &.node-20 {
+    .layer-background__header {
+      border-bottom: 20px solid white;
+    }
+  }
+}
+
+// Tentative Extension overrides
+.node--type-layer-three-column-circles {
+  &.node-121 {
+      .layer-background__header {
+        border-bottom: 20px solid white;
+      }
+    }
+}

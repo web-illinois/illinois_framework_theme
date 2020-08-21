@@ -1,0 +1,137 @@
+/*
+
+Using this file to make changes to /giving even though it's no longer a tpl file
+Can use these styles if it's decided later to turn the basic page into a block file
+
+*/
+
+.fund-option ul {
+  list-style-type: none;
+  margin-bottom: 0;
+  padding-left:0;
+}
+
+.fund-option ul:after {
+  clear:both;
+}
+
+.fund-option li {
+  float:left;
+  margin:10px 10px 20px 0;
+  width:12%;
+  height:50px;
+  position:relative;
+
+  @include breakpoint(phone) {
+    width: 30%;
+  }
+
+  @include breakpoint(tablet) {
+    width: 20%;
+  }
+}
+
+.fund-option label, .fund-option input {
+  display:block;
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+}
+.fund-option input[type="radio"] {
+  opacity:0.01;
+  z-index:100;
+
+  + label {
+    font-weight: 600;
+    line-height: 28px;
+    margin-left: 0;
+    margin-right: .625rem;
+  }
+}
+.fund-option input[type="radio"]:checked + label {
+  background: $color-primary-univ-blue;
+  color:#fff;
+}
+.fund-option label {
+  @include border-radius(4px);
+  padding:10px;
+  border:1px solid #ccc;
+  cursor:pointer;
+  z-index: 95;
+  text-align:center;
+}
+.fund-option label:hover {
+  background: $color-ui-6;
+}
+.hidden {
+  display:none;
+}
+
+.form {
+  &--giving {
+    &__selects {
+      clear: both;
+    }
+
+    &__continue {
+      margin-top: 20px;
+
+      @include breakpoint(phone) {
+        text-align: center;
+      }
+    }
+
+    &__notice {
+      color: #9E9E9E;
+      font-size: 13px;
+      font-size: 0.8125rem;
+      // margin-top: -16px;
+      padding: 5px 0px;
+    }
+  }
+}
+
+#otherAmount {
+  margin-bottom: 0;
+  height: auto;
+}
+
+
+
+
+//old tpl styles below
+
+.page-giving {
+
+  &__wrapper {
+
+  }
+  .form--giving {
+    border: 1px solid #CCC7C6;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    padding:15px;
+    position: relative;
+
+    form {
+      font-size: 110%;
+      margin: 0;
+      padding: 12px 0;
+
+      input[type="text"] {
+        margin: 0 0 1rem 0;
+      }
+    }
+    &__title {
+      color: $color-site;
+    }
+    &__notice {
+      font-size: smaller;
+      line-height: normal;
+      padding: 10px 0px;
+      text-align: left;
+    }
+  }
+}

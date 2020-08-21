@@ -1,0 +1,184 @@
+
+/* Directory Template
+ * ==========================================================================
+ */
+
+
+/* Individual Profiles */
+
+ .notprimary {
+  display: none;
+ }
+
+.directory--profile {
+
+  &__name__banner {
+    background-color: $color-primary-univ-orange;
+    height: 150px;
+    width: 100%;
+
+    @include breakpoint(mobile-down) {
+      min-height: 150px;
+      height: auto;
+      padding: 0px 0px 55px;
+    }
+  }
+
+  &__name {
+    color: white;
+    font-size: 48px;
+    font-weight: 500;
+    padding-top: 38px;
+    padding-left: 10px;
+
+    @include breakpoint(phone) {
+      font-size: $font-size--beta;
+    }
+  }
+
+  &__title {
+    color: $color-primary-univ-blue;
+    font-size: 24px;
+  }
+
+  &__email {
+    margin-bottom: 4px;
+
+    a {
+      border-bottom: 1px solid $color-primary-univ-orange;
+      color: $color-ui-text;
+
+      &:hover {
+        color: $color-primary-univ-orange;
+      }
+    }
+  }
+
+  &__phone {
+    margin-bottom: 8px;
+  }
+
+  &__bio {
+    padding-top: 20px;
+
+    h2 {
+      display: none;
+    }
+
+    p {
+      font-size: 16px; // not sure why we changed the default p font-size +jjd+
+    }
+  }
+
+  &__photo {
+    @include border-radius(4px);
+    margin-top: -30px;
+    padding: 10px;
+    background-color: white;
+  }
+
+  &__roles {
+    padding-left: 10px;
+  }
+
+}
+
+
+/* Directory Gallery of People */
+
+.directory--list {
+
+  &__heading {
+    padding-left: 10px;
+    margin-bottom: 10px;
+    margin-top: 30px;
+  }
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+
+  &__wrapper {
+    display: flex;
+    padding: 10px;
+    min-height: 300px;
+
+    &--inner {
+      border-bottom: 3px solid $color-primary-univ-orange;
+      @include border-radius(4px);
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* x offset = 0, y offset = 2, blur = 4 */
+      background-color: rgba($color-secondary-aces-lt-blue, 0.2);
+      min-height: 300px;
+      padding: 15px 15px 50px 15px;
+      width: 100%;
+    }
+
+  }
+
+  &__photo {
+    @include border-radius(4px);
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    transition: opacity .4s;
+    transition-timing-function: ease;
+
+    &:hover {
+      @include opacity(0.8);
+    }
+  }
+
+
+
+  &__name {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+
+    a {
+      background: none;
+      font-size: 20px;
+      font-weight: 100;
+      text-shadow: none;
+    }
+  }
+
+  &__title {
+    font-size: .75em;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+  }
+
+}
+
+/* Directory list of People */
+
+.extDirectory {
+
+  &Person {
+    margin: 10px 0 10px 0;
+    display: inline-block;
+    width: 100%;
+  }
+
+  &Name {
+    margin-bottom: 3px;
+
+    &.columns{
+      padding-left: 5px;
+    }
+  }
+
+  &Title {
+
+    &.columns{
+      padding-left: 5px;
+    }
+  }
+}

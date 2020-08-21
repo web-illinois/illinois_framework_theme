@@ -1,0 +1,385 @@
+// Font Awesome Icons
+//
+// The list of font awesome icons used by WMS
+//
+// Markup:
+// <i class="fa {{modifier_class}} u-font-size-xxl" aria-hidden="true"></i>
+//
+// fa-external-link - External Link
+// fa-file-pdf-o - PDF File
+// fa-twitter - Twitter Icon
+// fa-file-powerpoint-o - PowerPoint File
+//
+// Styleguide 2.1
+$site-url: 'dev.aces.illinois.edu';
+
+.region-primary-menu,
+#block-side-nav {
+  a[href*="//"]:not([href*="#{$site-url}"]):not( [href^='#'] ):not( [href^='/'] ) {
+
+    &:after {
+      //content: '\f176';
+      content: '\f08e';
+      color: inherit;
+      display: inline-block;
+      font-family: 'FontAwesome';
+      font-size: smaller;
+      padding-left: 4px;
+      text-decoration: underline;
+      position: absolute;
+      //transform: rotate(40deg);
+    }
+    &:after {
+      text-decoration: none;  //IE 8=11 Hack
+    }
+  }
+}
+.region-content p,
+.region-content h2,
+.region-content h3,
+.region-content h4,
+.region-content h5,
+.region-content ul > li{
+  a[href*="//"]:not([href*="#{$site-url}"]):not( [href^='#'] ):not( [href^='/'] ) {
+    margin-right: 17px;
+
+    &:after {
+      //content: '\f176';
+      content: '\f08e';
+      color: #444;
+      display: inline-block;
+      font-family: 'FontAwesome';
+      font-size: smaller;
+      padding-left: 4px;
+      text-decoration: underline;
+      position: relative;
+      width: 0;
+      //transform: rotate(40deg);
+    }
+    &:hover {
+      &:after {
+        color: $color-primary-univ-orange;
+      }
+    }
+    &:after {
+      text-decoration: none;  //IE 8=11 Hack
+    }
+  }
+}
+.region-primary-menu {
+  a[href*="//"]:not([href*="#{$site-url}"]):not( [href^='#'] ):not( [href^='/'] ) {
+
+    &:after {
+     // margin-top: 7px;
+    }
+    &:hover {
+      &:after {
+        color: $color-primary-univ-orange;
+      }
+    }
+  }
+}
+.snapchat-icon,
+.instagram-icon,
+.facebook-icon,
+.twitter-icon,
+.linkedin-icon {
+  margin-left: 10px;
+}
+#block-side-nav {
+  a[href*='#'] {
+
+    &:after {
+      display: inline-block;
+      font-family: 'FontAwesome';
+      padding-left: 4px;
+      color: $color-primary-univ-orange;
+      content: '\f041';
+      position: absolute;
+    }
+  }
+}
+#block-side-nav {
+  a[href*="//"]:not([href*="#{$site-url}"]):not( [href^='#'] ):not( [href^='/'] ) {
+
+    &:after {
+      //content: '\f176';
+      content: '\f08e';
+      color: $color-primary-univ-orange;
+      display: inline-block;
+      font-family: 'FontAwesome';
+      font-size: smaller;
+      padding-left: 4px;
+      text-decoration: underline;
+      position: absolute;
+      //transform: rotate(40deg);
+    }
+    &:after {
+      text-decoration: none;  //IE 8=11 Hack
+    }
+  }
+}
+  // f041
+
+// i.fa {
+//   color: $color-default-text;
+//   font-size: smaller;
+//   padding-left: 3px;
+
+//   &.fa-external-link,
+//   &.fa-file-pdf-o,
+//   &.fa-twitter,
+//   &.fa-file-powerpoint-o {
+//     color: #b1b1b1;
+//   }
+// }
+.region-content,
+.region-primary-menu {
+  // Add Font Awesome Icons automatically to content
+  a[href$=".pdf"],
+  a[href$=".PDF"] {
+    margin-right: 17px;
+
+    &:after {
+      content: '\f1c1';
+      display: inline-block;
+      font-family: 'FontAwesome';
+      font-size: smaller;
+      padding-left: 3px;
+      text-decoration: underline;
+      width: 0;
+    }
+    &:after {
+      text-decoration: none;  //IE 8=11 Hack
+    }
+    &.e-button {
+      &--ghost,
+      &--action,
+      &--primary-color,
+      &--secondary-color,
+      &--secondary,
+      &--slider,
+      &--success,
+      &--alert {
+        &:after {
+          color: inherit !important;
+        }
+      }
+    }
+  }
+
+  a[href$=".doc"],
+  a[href$=".docx"] {
+    margin-right: 17px;
+
+    &:after {
+      content: "\f1c2";
+      display: inline-block;
+      font-family: 'FontAwesome';
+      font-size: smaller;
+      padding-left: 3px;
+      text-decoration: underline;
+      width: 0;
+    }
+    &:after {
+      text-decoration: none;  //IE 8=11 Hack
+    }
+    &.e-button {
+      &--ghost,
+      &--action,
+      &--primary-color,
+      &--secondary-color,
+      &--secondary,
+      &--slider,
+      &--success,
+      &--alert {
+        &:after {
+          color: inherit !important;
+        }
+      }
+    }
+  }
+  a[href$=".xls"],
+  a[href$=".xlsx"] {
+    margin-right: 17px;
+
+    &:after {
+      content: "\f1c3";
+      display: inline-block;
+      font-family: 'FontAwesome';
+      font-size: smaller;
+      padding-left: 3px;
+      text-decoration: underline;
+      width: 0;
+    }
+    &:after {
+      text-decoration: none;  //IE 8=11 Hack
+    }
+    &.e-button {
+      &--ghost,
+      &--action,
+      &--primary-color,
+      &--secondary-color,
+      &--secondary,
+      &--slider,
+      &--success,
+      &--alert {
+        &:after {
+          color: inherit !important;
+        }
+      }
+    }
+  }
+  a[href$=".ppt"],
+  a[href$=".pptx"] {
+    margin-right: 17px;
+
+    &:after {
+      content: "\f1c4";
+      display: inline-block;
+      font-family: 'FontAwesome';
+      font-size: smaller;
+      padding-left: 3px;
+      text-decoration: underline;
+      width: 0;
+    }
+    &:after {
+      text-decoration: none;  //IE 8=11 Hack
+    }
+    &.e-button {
+      &--ghost,
+      &--action,
+      &--primary-color,
+      &--secondary-color,
+      &--secondary,
+      &--slider,
+      &--success,
+      &--alert {
+        &:after {
+          color: inherit !important;
+        }
+      }
+    }
+  }
+  a.button[href$=".pdf"],
+  a.button[href$=".PDF"],
+  a.e-button[href$=".PDF"],
+  a.e-button[href$=".pdf"],
+  a.button[href$=".doc"],
+  a.button[href$=".docx"],
+  a.e-button[href$=".doc"],
+  a.e-button[href$=".docx"],
+  a.button[href$=".xls"],
+  a.button[href$=".xlsx"],
+  a.e-button[href$=".xls"],
+  a.e-button[href$=".xlsx"],
+  a.button[href$=".ppt"],
+  a.button[href$=".pptx"],
+  a.e-button[href$=".ppt"],
+  a.e-button[href$=".pptx"] {
+
+    &:after {
+      color: inherit !important;
+      display: inline-block;
+      font-size: smaller;
+      text-decoration: none;
+    }
+  }
+  // a[href*="//"]:not([href*="aces.illinois.edu"]):not( [href^='#'] ):not( [href^='/'] ) {
+
+  //   &:after {
+  //     content: "\f35d";
+  //     color: #b1b1b1 !important;
+  //     display: inline-block;
+  //     font-family: 'FontAwesome';
+  //     font-size: smaller;
+  //     padding-left: 3px;
+  //     text-decoration: underline;
+  //   }
+  //   &:after {
+  //     text-decoration: none;  //IE 8=11 Hack
+  //   }
+  //   &.e-button {
+  //     &--ghost,
+  //     &--action,
+  //     &--primary-color,
+  //     &--secondary-color,
+  //     &--secondary,
+  //     &--slider,
+  //     &--success,
+  //     &--alert {
+  //       &:after {
+  //         color: inherit !important;
+  //       }
+  //     }
+  //   }
+  // }
+  a.e-button[href*="//"]:not([href*="#{$site-url}"]):not( [href^='#'] ):not( [href^='/'] ),
+  a.button[href*="//"]:not([href*="#{$site-url}"]):not( [href^='#'] ):not( [href^='/'] ) {
+
+    &:after {
+      content: "\f08e";
+      color: inherit !important;
+      display: inline-block;
+      font-family: 'FontAwesome';
+      font-size: smaller;
+      padding-left: 3px;
+      position: relative;
+      text-decoration: none;
+    }
+  }
+  a[href^="mailto:"] {
+    margin-right: 17px;
+
+    &:after {
+      content: "\f0e0";
+      display: inline-block;
+      font-family: 'FontAwesome';
+      font-size: smaller;
+      padding-left: 3px;
+      text-decoration: underline;
+      width: 0;
+    }
+    &:after {
+      text-decoration: none;  //IE 8=11 Hack
+    }
+  }
+  a.e-button[href^="mailto:"],
+  a.button[href^="mailto:"] {
+
+    &:after {
+      color: inherit !important;
+      content: "\f0e0";
+      display: inline-block;
+      font-family: 'FontAwesome';
+      font-size: smaller;
+      padding-left: 3px;
+      text-decoration: none;
+    }
+  }
+
+  button {
+
+  > a[href$=".pdf"],
+    a[href$=".PDF"],
+    a[href$=".doc"],
+    a[href$=".docx"],
+    a[href$=".xls"],
+    a[href$=".xlsx"],
+    a[href$=".ppt"],
+    a[href$=".pptx"],
+    a[href^="mailto:"] {
+      &:after {
+        color: inherit !important;
+      }
+    }
+  }
+  .node-box__box {
+    a {
+       &:after {
+        content: " " !important;
+        display: table !important;
+      }
+    }
+  }
+}

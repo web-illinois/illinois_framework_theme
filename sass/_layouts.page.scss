@@ -1,0 +1,73 @@
+.l-page {
+
+  &__wrapper {
+    padding: 0;
+    margin: 0;
+  }
+  &__title {
+
+    display: none;
+
+    h1 {
+      font-weight: 100;
+      letter-spacing: -1px;
+    }
+    @include breakpoint(phone) {
+      h1 {
+        @include font-size(24px);
+      }
+    }
+    @include breakpoint(tablet-up) {
+      h1 {
+        @include font-size(32px);
+      }
+    }
+    @include breakpoint(desktop-up) {
+      h1 {
+        @include font-size(40px);
+      }
+    }
+
+    &--hero {
+      background-color: rgba(255, 255, 255, 0.3);
+      position: relative;
+      width: 100%;
+      z-index: 97;
+      overflow: hidden;
+
+      @include IE(11) {
+        background-color: rgba(200, 200, 200, 0.5);
+      }
+      @include IE(10) {
+        background-color: rgba(200, 200, 200, 0.5);
+      }
+
+      h1 {
+        text-shadow: 3px 3px 5px #666;
+      }
+
+      @include breakpoint(phone) {
+        bottom: 290px;
+
+        h1 {
+          @include font-size(50px);
+          font-size: 7.0vw !important;
+        }
+      }
+      @include breakpoint(tablet-up) {
+        bottom: 304px;
+
+        h1 {
+          @include font-size(60px);
+        }
+      }
+      @include breakpoint(desktop-up) {
+        bottom: 332px;
+
+        h1 {
+          @include font-size(80px);
+        }
+      }
+    }
+  }
+}

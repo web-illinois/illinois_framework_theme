@@ -1,0 +1,17 @@
+@mixin min-width($pairs...) {
+  @each $min-width, $value in $pairs {
+    .u-#{$min-width} {
+
+      $i: 0;
+      @while $i <= 200 {
+        $pixels: $i * 1px;
+        $rems: ($i * 1rem)/16;
+        &--#{$i} {
+          min-width: $pixels;
+          min-width: $rems;
+        }
+        $i: $i + 10;
+      }
+    }
+  }
+}

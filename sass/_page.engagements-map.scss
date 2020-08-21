@@ -1,0 +1,34 @@
+.engagements-map {
+
+  &__header {
+    background-color: $color-primary-univ-orange;
+
+    &--name {
+      height: 150px;
+      margin-top: 0;
+      padding-top: 48px;
+      color: white;
+      font-size: 48px;
+      text-align: left;
+      position: relative;
+
+      @include breakpoint(tablet-down) {
+        @include font-size($font-size--alpha);
+      }
+      @include breakpoint(phone) {
+        @include font-size($font-size--beta);
+      }
+    }
+  }
+  &__body {
+     @include font-size($font-size--gamma);
+    padding: 20px 0 !important;
+  }
+
+  // mobile
+  @include breakpoint(phone) {
+    #map {
+      height: 550px;
+    }
+  }
+}

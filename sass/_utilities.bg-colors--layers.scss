@@ -1,0 +1,426 @@
+.u-bg-color--white-white {
+  background-color: unset;
+  // position: relative;
+  // bottom: -100px;
+
+   .layer-background {
+
+    &__header {
+      vertical-align: middle;
+      border-bottom: 100px solid white;
+      border-left: 1440px solid white;
+      border-top-left-radius:0px;
+      height: 0;
+      width: 1440px;
+    }
+    &__container {
+      padding: 40px 0px;
+      background-color: white;
+    }
+    &__footer {
+      margin-bottom: -100px;
+      // background-color: transparent;
+      vertical-align: middle;
+      border-top: 100px solid white;
+      border-right: 1440px solid white;
+      border-bottom-right-radius:0px;
+      height: 0;
+      width: 1440px;
+    }
+  }
+
+  .u-layer {
+
+    &__title {
+      color: $color-primary-univ-orange !important;
+    }
+    &__image {
+      @include breakpoint(small) {
+        padding-top: 30px;
+      }
+    }
+    &__body {
+      color: $color-ui-text !important;
+    }
+    &__button {
+
+      &--label {
+
+        &__link {
+          color: $color-primary-univ-blue !important;
+        }
+        &__text {
+          a {
+            -webkit-transition: color 0.1s linear, border-color 0.1s linear;
+            transition: color 0.1s linear, border-color 0.1s linear;
+
+            &:hover {
+              border-bottom: 2px solid $color-primary-univ-blue !important;
+            }
+          }
+        }
+      }
+      &--ghost {
+
+      > a.e-button--ghost {
+          background-color: white;
+          border: 2px solid $color-primary-univ-orange !important;
+          box-shadow: unset;
+          color: $color-primary-univ-orange !important;
+
+          &:hover,
+          &:focus {
+            background-color: $color-ui-6;
+            border: 2px solid $color-primary-univ-orange !important;
+          }
+          &:active {
+            background-color: $color-ui-6;
+            border: 2px solid $color-primary-univ-orange !important;
+          }
+          > a {
+            color: $color-primary-univ-orange !important;
+          }
+        }
+      }
+    }
+    &__divider {
+      border: 1px solid $color-primary-univ-blue !important;
+      height: 100%;
+      position: absolute;
+      right: 50%;
+      width: 1px;
+      @include breakpoint(small) {
+        display: none;
+      }
+    }
+    &__circle {
+
+      &:before {
+        box-shadow: 0px 0px 0px 1000px white;
+      }
+    }
+  }
+}
+.u-bg-color--univ-blue {
+  // position: relative;
+  // bottom: -100px;
+  background-color: unset;
+
+  .layer-background {
+
+    &__header {
+      vertical-align: middle;
+      border-bottom: 100px solid $color-primary-univ-blue;
+      border-left: 1440px solid white;
+      border-top-left-radius:0px;
+      height: 0;
+      width: 1440px;
+    }
+    &__container {
+      background-color: $color-primary-univ-blue;
+      padding: 40px 0px;
+
+    }
+    &__footer {
+      margin-bottom: -100px;
+      vertical-align: middle;
+      border-top: 100px solid $color-primary-univ-blue;
+      border-right: 1440px solid white;
+      border-bottom-right-radius:0px;
+      height: 0;
+      width: 1440px;
+    }
+  }
+
+  .u-layer {
+
+    &__title {
+      color: $color-primary-univ-orange !important;
+    }
+    &__image {
+      @include breakpoint(small) {
+        padding-top: 30px;
+      }
+    }
+    &__body {
+      color: white !important;
+
+      a {
+        color: white;
+        background-size: 0 1px, 0 1px, 1px 1px;
+        text-shadow: none;
+        transition: color 0.15s linear;
+
+        &:hover {
+          opacity: 0.6;
+        }
+      }
+      p,div {
+        a,
+        a:hover {
+          color: white;
+          background-size: 0 1px, 0 1px, 1px 1px;
+          text-shadow: none;
+        }
+      }
+    }
+    &__button {
+
+      &--label {
+
+        &__link {
+          color: white !important;
+        }
+        &__text {
+
+          a {
+            -webkit-transition: color 0.1s linear, border-color 0.1s linear;
+            transition: color 0.1s linear, border-color 0.1s linear;
+
+            &:hover {
+              border-bottom: 2px solid white !important;
+            }
+          }
+        }
+      }
+    }
+    &__divider {
+      border: 1px solid $color-primary-univ-orange !important;
+      height: 100%;
+      position: absolute;
+      right: 50%;
+      width: 1px;
+      @include breakpoint(small) {
+        display: none;
+      }
+    }
+    &__circle {
+
+      &:before {
+        box-shadow: 0px 0px 0px 1000px $color-primary-univ-blue;
+      }
+    }
+  }
+}
+.u-bg-color--univ-orange {
+  // position: relative;
+  // bottom: -100px;
+  background-color: unset;
+
+  .layer-background {
+
+    &__header {
+      vertical-align: middle;
+      border-bottom: 100px solid $color-primary-univ-orange;
+      border-left: 1440px solid white;
+      border-top-left-radius:0px;
+      height: 0;
+      width: 1440px;
+    }
+    &__container {
+      background-color: $color-primary-univ-orange;
+      padding: 40px 0px;
+    }
+    &__footer {
+      vertical-align: middle;
+      border-top: 100px solid $color-primary-univ-orange;
+      border-right: 1440px solid white;
+      border-bottom-right-radius:0px;
+      height: 0;
+      width: 1440px;
+      margin-bottom: -100px;
+    }
+  }
+
+  .u-layer {
+
+    &__title {
+      color: $color-primary-univ-blue !important;
+    }
+    &__image {
+      @include breakpoint(small) {
+        padding-top: 30px;
+      }
+    }
+    &__body {
+      color: white !important;
+    }
+    &__button {
+
+      &--label {
+
+        &__link {
+          color: white !important;
+
+          &:after {
+            content: none;
+          }
+        }
+        &__text {
+
+          > a {
+            text-decoration: none;
+            border-bottom: 2px solid $color-primary-univ-blue;
+            -webkit-transition: color 0.1s linear, border-color 0.1s linear;
+            transition: color 0.1s linear, border-color 0.1s linear;
+
+            &:hover {
+              border-bottom: 2px solid white;
+            }
+
+          }
+          &:after {
+            font-family: 'FontAwesome';
+            content: '\f054';
+            color: $color-primary-univ-blue;
+          }
+        }
+      }
+      > a.button {
+        background-color: $color-primary-univ-blue-hex !important;
+        background-color: $color-primary-univ-blue !important;
+        border-color: $color-primary-univ-blue-hex !important;
+
+        &:hover,
+        &:focus,
+        &:active {
+          background-color: darken($color-primary-univ-blue, 10%) !important;
+          border-color: darken($color-primary-univ-blue, 10%) !important;
+        }
+      }
+    }
+    &__divider {
+      border: 1px solid $color-primary-univ-blue !important;
+      height: 100%;
+      position: absolute;
+      right: 50%;
+      width: 1px;
+      @include breakpoint(small) {
+        display: none;
+      }
+    }
+    &__circle {
+
+      &:before {
+        box-shadow: 0px 0px 0px 1000px $color-primary-univ-orange;
+      }
+    }
+  }
+}
+.u-bg-color--ui-6 {
+  background-color: unset;
+  // position: relative;
+  // bottom: -100px;
+
+  .layer-background {
+
+    &__header {
+      vertical-align: middle;
+      border-bottom: 100px solid $color-ui-6;
+      border-left: 1440px solid white;
+      border-top-left-radius:0px;
+      height: 0;
+      width: 1440px;
+    }
+    &__container {
+      background-color: $color-ui-6;
+      padding: 40px 0px;
+    }
+    &__footer {
+      margin-bottom: -100px;
+      vertical-align: middle;
+      border-top: 100px solid $color-ui-6;
+      border-right: 1440px solid white;
+      border-bottom-right-radius:0px;
+      height: 0;
+      width: 1440px;
+    }
+  }
+
+  .u-layer {
+
+    &__title {
+      color: $color-primary-univ-orange !important;
+    }
+    &__image {
+      @include breakpoint(small) {
+        padding-top: 30px;
+      }
+    }
+    &__body {
+      color: $color-ui-text !important;
+    }
+    &__button {
+
+      &--label {
+
+        &__link {
+          color: $color-primary-univ-blue !important;
+        }
+        &__text {
+
+          > a {
+            text-decoration: none;
+            border-bottom: 2px solid $color-primary-univ-orange;
+            -webkit-transition: color 0.1s linear, border-color 0.1s linear;
+            transition: color 0.1s linear, border-color 0.1s linear;
+
+            &:hover {
+              border-bottom: 2px solid $color-primary-univ-blue;
+            }
+
+          }
+          // &:after {
+          //   font-family: 'FontAwesome';
+          //   content: '\f054';
+          //   color: $color-primary-univ-orange;
+          // }
+        }
+      }
+      &--ghost {
+
+      > a.e-button--ghost {
+          background-color: white;
+          border: 2px solid $color-primary-univ-orange !important;
+          box-shadow: unset;
+          color: $color-primary-univ-orange !important;
+
+          &:hover,
+          &:focus {
+            background-color: rgba(white, 0.1);
+            border: 2px solid $color-primary-univ-orange !important;
+          }
+          &:active {
+            background-color: rgba(white, 0.2);
+            border: 2px solid $color-primary-univ-orange !important;
+          }
+          > a {
+            color: $color-primary-univ-orange !important;
+          }
+        }
+      }
+    }
+    &__divider {
+      border: 1px solid $color-primary-univ-orange !important;
+      height: 100%;
+      position: absolute;
+      right: 50%;
+      width: 1px;
+      @include breakpoint(small) {
+        display: none;
+      }
+    }
+    &__circle {
+
+      &:before {
+        box-shadow: 0px 0px 0px 1000px $color-ui-6;
+      }
+    }
+  }
+}
+.u-layer__divider--left {
+  left: 42% !important;
+}
+.u-layer__divider--right {
+  right: 42% !important;
+}

@@ -1,0 +1,66 @@
+.secondary-color {
+  @include opacity(0.6);
+}
+.disabled-color {
+  @include opacity(0.3);
+}
+// Font Color
+//
+// Various Font Colors used in the WMS template.
+//
+// Markup:
+// <p class="u-font-size--l {{modifier_class}}">Font Colors</p>
+//
+// .u-color--white - White
+// .u-color--default - Default
+// .u-color--accent - Accent
+// .u-color--primary-dark-blue - Primary Dark Blue
+// .u-color--primary-blue - Primary Blue
+// .u-color--primary-light-blue - Primary Light Blue
+// .u-color--primary-red - Primary Red
+// .u-color--primary-orange - Primary Orange
+// .u-color--primary-dark-grey - Primary Dark Grey
+// .u-color--primary-light-grey - Primary Light Grey
+// .u-color--secondary-dark-blue - Secondary Dark Blue
+// .u-color--secondary-blue - Secondary Blue
+// .u-color--secondary-light-blue - Secondary Light Blue
+// .u-color--secondary-red - Secondary Red
+// .u-color--secondary-orange - Secondary Orange
+// .u-color--secondary-light-grey - Secondary Light Grey
+// .u-color--tertiary-dark-green Tertiary Dark Green
+// .u-color--tertiary-green - Tertiary Green
+// .u-color--tertiary-light-green - Tertiary Light Green
+// .u-color--tertiary-light-blue - Tertiary Light Blue
+//
+// Styleguide 8.1
+
+// mixin dark light black and white
+@include darklightmix-colors(
+  white-white                       rgba(255,255,255,1),
+  default                           rgba(68,68,68,1),
+  accent                            $color-accent-100-opacity,
+  site                              $color-site-100-opacity,
+  action                            $color-action-100-opacity,
+  univ-orange                       rgba(232,74,39,1),
+  univ-blue                         rgba(19,41,75,1),
+  univ-grey                         rgba(94,99,103,1),
+  univ-silver                       rgba(167,169,172,1),
+  aces-orange                       rgba(243,112,56,1),
+  aces-dk-blue                      rgba(23,54,96,1),
+  aces-blue                         rgba(69,84,110,1),
+  aces-lt-blue                      rgba(164,181,201,1),
+  tert-blue                         rgba(25,83,126,1),
+  tert-brown                        rgba(83,61,51,1),
+  tert-green                        rgba(149,196,61,1),
+  tert-teal                         rgba(206,235,238,1),
+  ui-1                              rgba(252,236,233,1),
+  ui-2                              rgba(222,226,233,1),
+  ui-3                              rgba(208,212,216,1),
+  ui-4                              rgba(128,122,119,1),
+  ui-5                              rgba(165,172,175,1),
+  ui-6                              rgba(246,246,246,1),
+  ui-text                           rgba(68,68,68,1),
+  util-error                        rgba(226,13,13,1),
+  util-positive                     rgba(45,204,112,1),
+  util-neutral                      rgba(19,151,225,1)
+);
