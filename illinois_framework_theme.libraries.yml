@@ -1,8 +1,7 @@
 global-styling:
   css:
     component:
-      #//cdn.brand.illinois.edu/web-toolkit/v0.1.0/toolkit.css: { type: external }
-      web-components/web-components.css: {}
+      //cdn.brand.illinois.edu/web-toolkit/v0.1.0/toolkit.css: { type: external }
     theme:
       css/style.css: {}
   js:
@@ -14,6 +13,5 @@ global-styling:
       type: external
       attributes:
         async: true
-    #//cdn.brand.illinois.edu/web-toolkit/v0.1.0/webcomponents-loader.js: { type: external }
-    #//cdn.brand.illinois.edu/web-toolkit/v0.1.0/toolkit.js: { type: external }
-    web-components/components.js: {}
+    //cdn.brand.illinois.edu/web-toolkit/v0.1.0/webcomponents-loader.js: { type: external }
+    //cdn.brand.illinois.edu/web-toolkit/v0.1.0/toolkit.js: { type: external }

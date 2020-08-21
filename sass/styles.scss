@@ -41,21 +41,30 @@
 */
 
 @import "foundation"; // stripped down foundation
-@import "settings.globals"; 
-@import "settings.colors"; 
-@import "settings.font-size"; 
+@import "settings.globals"; //Done
+@import "settings.colors"; //Done
+@import "settings.fonts"; //Done
+@import "settings.font-size"; //Done
+
+// from bluebox.scss need to be converted
 @import "foundation-override";
+// @import "sitewide/footer";
 
 // Mixins
 //
 // Styleguide 1.0
-@import "tools.mixins.font-size"; 
+@import "tools.mixins.font-size"; //Done
 @import "tools.mixins.filter";
+@import "tools.mixins.color";
+@import "tools.mixins.linear-gradient";
 @import "tools.mixins.border-radius";
+// @import "tools.mixins.font-face";
+@import "tools.mixins.site-container";
 @import "tools.mixins.padding";
 @import "tools.mixins.margin";
 @import "tools.mixins.media-queries";
 @import "tools.mixins.font-weight";
+@import "tools.mixins.min-width";
 @import "tools.animations.keyframes";
 
 // Resets and Fonts
@@ -64,6 +73,7 @@
 @import "generic.normalize";
 @import "generic.box-sizing";
 @import "generic.reset";
+//@import "generic.fonts"; //Removed
 @import "generic.fa";
 @import "generic.icons";
 @import "generic.drupal";
@@ -73,28 +83,32 @@
 //
 // Styleguide 3.0
 @import "layouts.regions";
+@import "layouts.page";
+@import "layouts.panels";
 @import "layouts.header";
 @import "layouts.footer";
+//@import "layouts.pane-content";
 
 // Elements
 //
 // Styleguide 4.0
 @import "elements.page";
-@import "elements.headings"; 
+@import "elements.headings"; //Done didn't add classes to headings
 @import "elements.links";
 @import "elements.lists";
 @import "elements.images";
-@import "elements.paragraph"; 
+@import "elements.paragraph"; //Done
 @import "elements.quotes";
 @import "elements.forms";
 @import "elements.figure";
+@import "elements.field-collection";
 @import "elements.buttons";
 @import "elements.labels";
 
 // Objects
 //
 // Styleguide 5.0
-
+@import "objects.media";
 
 // Components
 //
@@ -113,25 +127,78 @@
 // Content Types
 //
 // Styleguide 7.0
+@import "node.box";
+@import "node.accordion";
+@import "node.title-overview";
+@import "node.three-column--circle";
+@import "node.three-column--cards";
+@import "node.three-column--link-list";
+@import "node.two-column";
+@import "node.two-column--txt-img";
+@import "node.two-column--video";
+@import "node.two-column--hero";
+@import "node.two-column--txt";
+@import "node.one-column--txt";
+@import "node.shared-event";
+@import "node.shared-news";
+@import "node.hero-layer";
 @import "node.webform";
+@import "node.webform--strategic-plan-feedback";
+@import "node.shared-profile";
+@import "node.basic-page";
+@import "node.legacynews";
 @import "node.news";
 @import "node.blog";
+@import "node.location";
+@import "node.hero-layer-642";
+//@import "node.overrides"; //must be at the bottoms
+
 
 // Views
+@import "view.calendar";
+@import "view.faqs";
+@import "view.funding-types";
+@import "view.blog";
 
 // Blocks
+@import "block.hero-layer-highlight";
+@import "block.news-tile";
+@import "block.side-nav";
+@import "block.keep-reading";
+@import "block.aces-news";
+@import "block.aces-news--taxonomy-list";
+@import "block.aces-news--archive";
+@import "block.aces-directory";
 @import "block.search";
-
+//@import "block.office-hours";
+@import "block.social-media";
+@import "block.overrides";
 
 // Pages
 //
 // Styleguide 7.7
-
+@import "page.directory";
+@import "page.author";
+@import "page.taxonomy-term";
+@import "page.giving";
+@import "page.engagements-map";
+//@import "site/shared_profile";
+//@import "node.section-page";
 
 // Utility Classes
 //
 // Styleguide 8.0
 @import "utilities.media-print";
+@import "utilities.colors";
+@import "utilities.bg-colors";
+@import "utilities.bg-colors--layers";
+// @import "utilities.bg-images";
+@import "utilities.text-transform";
+@import "utilities.font-size"; //Done
+// @import "utilities.font-family";
+@import "utilities.font-weight";
 @import "utilities.padding";
 @import "utilities.margin";
+@import "utilities.min-width";
+//@import "utilities.foundation";
 @import "ie--11"; //IE 11 overrides

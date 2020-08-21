@@ -1,0 +1,123 @@
+// Font Weights
+//
+// Various Font Weights used in the WMS template.
+//
+// Markup:
+// <p class="u-font-size--l u-font-family--proxima-nova {{modifier_class}}">Font Weights</p>
+//
+// .u-font-weight--lighter - Lighter relative to the parent
+// .u-font-weight--bolder - BGolder relative to the parent
+// .u-font-weight--inherit - Inherit global font weight
+// .u-font-weight--initial - Initial value of normal
+// .u-font-weight--unset - Unset the font weight
+// .u-font-weight--thin - 100 Weight
+// .u-font-weight--extra-light - 200 Weight
+// .u-font-weight--ultra-light - 200 Weight
+// .u-font-weight--light - 300 Weight
+// .u-font-weight--normal - 400 Weight
+// .u-font-weight--book - 400 Weight
+// .u-font-weight--regular - 400 Weight
+// .u-font-weight--medium - 500 Weight
+// .u-font-weight--semi-bold - 600 Weight
+// .u-font-weight--demi-bold - 600 Weight
+// .u-font-weight--bold - 700 Weight
+// .u-font-weight--extra-bold - 800 Weight
+// .u-font-weight--ultra-bold - 900 Weight
+// .u-font-weight--heavy - 900 Weight
+// .u-font-weight--ultra - 900 Weight
+// .u-font-weight--ultra-black - 900 Weight
+// .u-font-weight--extra-ultra - 900 Weight
+//
+// Styleguide 8.3
+
+// 100
+.u-font-weight--thin {
+  @include font-weight(thin);
+}
+// 200
+.u-font-weight--extra-light {
+  @include font-weight(extra-light);
+}
+// 200
+.u-font-weight--ultra-light {
+  @include font-weight(ultra-light);
+}
+// 300
+.u-font-weight--light {
+  @include font-weight(light);
+}
+// 400
+.u-font-weight--normal {
+  @include font-weight(normal);
+}
+// 400
+.u-font-weight--book {
+  @include font-weight(book);
+}
+// 400
+.u-font-weight--regular {
+  @include font-weight(regular);
+}
+// 500
+.u-font-weight--medium {
+  @include font-weight(medium);
+}
+// 600
+.u-font-weight--semi-bold {
+  @include font-weight(semi-bold);
+}
+// 600
+.u-font-weight--demi-bold {
+  @include font-weight(demi-bold);
+}
+// 700
+.u-font-weight--bold {
+  @include font-weight(bold);
+}
+// 800
+.u-font-weight--extra-bold {
+  @include font-weight(extra-bold);
+}
+// 900
+.u-font-weight--ultra-bold {
+  @include font-weight(ultra-bold);
+}
+// 900
+.u-font-weight--heavy {
+  @include font-weight(heavy);
+}
+// 900
+.u-font-weight--black {
+  @include font-weight(black);
+}
+// 900
+.u-font-weight--ultra {
+  @include font-weight(ultra);
+}
+// 900
+.u-font-weight--ultra-black {
+  @include font-weight(ultra-black);
+}
+// 900
+.u-font-weight--extra-ultra {
+  @include font-weight(extra-ultra);
+}
+
+// Relative to the parent
+.u-font-weight--lighter {
+  font-weight: lighter;
+}
+.u-font-weight--bolder {
+  font-weight: bolder;
+}
+
+// Global Font Weights
+.u-font-weight--inherit {
+  font-weight: inherit;
+}
+.u-font-weight--initial {
+  font-weight: initial;
+}
+.u-font-weight--unset {
+  font-weight: unset;
+}

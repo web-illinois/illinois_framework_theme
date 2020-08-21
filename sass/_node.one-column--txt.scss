@@ -1,0 +1,50 @@
+.node--type-layer-one-column-text {
+
+  .onecoltxt {
+
+    &__title{
+
+    }
+    &__body {
+
+    }
+    &__button {
+
+      @include breakpoint(medium) {
+
+      }
+      @include breakpoint(small) {
+        padding-bottom: 14px;
+        &:last-of-type {
+          padding-bottom: 0px;
+        }
+
+      }
+
+      > a {
+        font-size: $font-size--zeta;
+        font-weight: 500;
+        padding: 10px 15px;
+        text-transform: uppercase;
+
+        @include breakpoint(medium) {
+
+        }
+        @include breakpoint(small) {
+          width: 100%;
+
+        }
+      }
+
+      &__multiple {
+
+        @include breakpoint(medium) {
+          width: 100%;
+          }
+        @include breakpoint(small) {
+
+        }
+      }
+    }
+  }
+}

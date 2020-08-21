@@ -1,0 +1,103 @@
+
+/* Author Template
+ * ==========================================================================
+ */
+.node--type-author {
+
+  .row {
+
+    .large-10.columns {
+
+      @include breakpoint(tablet-down) {
+        padding: 0;
+      }
+    }
+  }
+}
+
+.author--profile {
+
+  &__category {
+    font-size: 24px;
+    padding: 10px 0 0 0;
+
+    @include breakpoint(tablet-down) {
+      padding: 20px 0 0;
+    }
+
+    &--wrapper {
+      margin-top: 20px;
+    }
+
+    &--hr {
+      border-color: $color-primary-univ-orange;
+      margin: 10px 0px;
+      width: 42%;
+    }
+
+    &--small {
+      font-size: 18px;
+      font-weight: 500;
+
+      &--hr {
+      border-color: gray;
+      margin: 10px 0px;
+      width: 25%;
+      }
+    }
+
+  }
+
+  &__name__banner {
+    background-color: $color-primary-univ-orange;
+    height: auto;
+    min-height: 150px;
+    width: 100%;
+  }
+
+  &__name {
+    color: white;
+    font-size: 48px;
+    font-weight: 500;
+    padding: 38px 10px;
+
+    @include breakpoint(tablet-down) {
+      @include font-size(36px);
+    }
+    @include breakpoint(phone) {
+      @include font-size(28px);
+    }
+  }
+
+  &__title {
+    color: white;
+    font-size: 36px;
+    font-weight: 300;
+    padding-left: 10px;
+
+    @include breakpoint(tablet-down) {
+      @include font-size(28px);
+    }
+    @include breakpoint(phone) {
+      @include font-size(20px);
+    }
+  }
+
+  &__blog {
+
+    &__wrapper {
+      padding: 10px 0 0 0;
+    }
+    &-title {
+      font-size: 1.5rem;
+      line-height: 1.25rem;
+      margin-top: 10px;
+    }
+    &-date {
+      font-size: 0.75rem;
+      line-height: 0.9375rem;
+      margin-top: 10px;
+    }
+  }
+
+}

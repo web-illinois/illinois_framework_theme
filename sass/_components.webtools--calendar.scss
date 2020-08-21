@@ -44,8 +44,14 @@
 		text-shadow: none !important;
 	}
 
+	a {
+		text-shadow: 0.03em 0 $color-ui-6, -0.03em 0 $color-ui-6, 0 0.03em $color-ui-6, 0 -0.03em $color-ui-6, 0.06em 0 $color-ui-6, -0.06em 0 $color-ui-6, 0.09em 0 $color-ui-6, -0.09em 0 $color-ui-6, 0.12em 0 $color-ui-6, -0.12em 0 $color-ui-6, 0.15em 0 $color-ui-6, -0.15em 0 $color-ui-6 !important;
+	}
 
 	&.grid-view {
+		a {
+			text-shadow: 0.03em 0 #fff, -0.03em 0 #fff, 0 0.03em #fff, 0 -0.03em #fff, 0.06em 0 #fff, -0.06em 0 #fff, 0.09em 0 #fff, -0.09em 0 #fff, 0.12em 0 #fff, -0.12em 0 #fff, 0.15em 0 #fff, -0.15em 0 #fff !important;
+		}
 
 		.event-entries {
 			padding: 0 15px 15px 15px;
@@ -306,4 +312,73 @@
 
 #no-events {
 	padding: 0 20px 20px 20px;
+}
+
+// #ws-calendar-container #ws-calendar-content .entry.recurring-event .title a:before {
+// 	background-color: $color-ui-5 !important;
+// 	margin-top: 10px;
+// }
+
+// on aces.illinois.edu
+
+.edu-il-ws-5784-1-content {
+	background: $color-ui-6;
+	@include border-radius(4px);
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* x offset = 0, y offset = 2, blur = 4 */
+	margin-top: 10px;
+}
+
+#edu-il-ws-5784-1-content-list {
+	list-style-type: none;
+	padding-right: 15px;
+
+	li {
+		border-bottom: 1px solid $color-ui-2;
+		margin-bottom: 10px;
+		padding-bottom: 20px;
+		padding-top: 10px;
+
+		&:last-of-type {
+			border-bottom: none;
+		}
+	}
+}
+
+.edu-il-ws-5784-1-item-title {
+	@include font-size($font-size--beta, auto);
+	margin-bottom: 10px;
+}
+
+.edu-il-ws-5784-1-item-title a, .edu-il-ws-5784-1-item-title a:link {
+	// color: $color-primary-univ-orange;
+	@include font-size($font-size--beta, auto);
+	text-decoration: none;
+	text-shadow: none;
+}
+.edu-il-ws-5784-1-item-title a:hover, .edu-il-ws-5784-1-item-title a:active, .edu-il-ws-5784-1-item-title a:focus {
+	color: $color-primary-univ-orange;
+	// border-bottom:1px solid $color-ui-text;
+}
+.edu-il-ws-5784-1-time, .edu-il-ws-5784-1-extra-info {
+	display:inline-block;
+}
+
+.edu-il-ws-5784-1-time, .edu-il-ws-5784-1-location {
+	font-size: smaller;
+}
+
+.edu-il-ws-5784-1-extra-info {
+	margin-top: 10px;
+	display: block;
+}
+
+.edu-il-ws-5784-1-label {
+	font-size: smaller;
+	text-transform: uppercase;
+	font-weight: bolder;
+	display: block;
+}
+
+.edu-il-ws-5784-1-function {
+  text-transform: capitalize;
 }

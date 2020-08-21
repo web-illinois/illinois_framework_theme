@@ -1,0 +1,782 @@
+/* Header
+ * Hero layer and Hero swap layer
+ * ========================================================================== */
+.node-hero-layer {
+  height: 430px;
+
+  .sectionheading {
+    background-color: rgba(255, 255, 255, 0.3);
+    z-index: 1 !important;
+    position: relative;
+    top: -220px;
+    width: 100%;
+  }
+}
+
+.node-hero-layer--panel {
+
+  &__wrapper {
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    overflow: hidden;
+    position: relative;
+    top: -220px;
+    z-index: 0 !important;
+  }
+
+  &__content {
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: top center;
+    height: 650px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+
+    @media only screen and (max-width: 1400px) and (orientation: portrait) {
+      background-size: auto 100%;
+    }
+    @media only screen and (min-width: 480px) and (max-width: 1400px) and (orientation: portrait) {
+      background-position: center center;
+    }
+    @media only screen and (max-width: 1024px) and (orientation: landscape) {
+      background-size: auto auto;
+    }
+    @media only screen and (min-width: 1025px) and (max-width: 1400px) and (orientation: landscape) {
+      //height: 850px;
+      background-size: cover;
+    }
+    @media only screen and (min-width: 1401px) and (max-width: 99999999em) {
+      background-size: 100% auto;
+    }
+  }
+  &__header {
+    @include filter(blur,10px);
+    height: 214px;
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0px;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: auto auto;
+    z-index: 0;
+
+    @media only screen and (max-width: 479px) and (orientation: landscape) {
+      height: 180px;
+    }
+    @media only screen and (min-width: 480px) and (max-width: 639px) and (orientation: portrait) {
+      height: 182px;
+      background-size: auto 100%;
+      background-position: center center;
+    }
+    @media only screen and (min-width: 480px) and (max-width: 639px) and (orientation: landscape) {
+      height: 193px;
+    }
+    @media only screen and (min-width: 640px) and (max-width: 767px) and (orientation: landscape) {
+      height: 188px;
+    }
+    @media only screen and (min-width: 640px) and (max-width: 767px) and (orientation: portrait) {
+      height: 188px;
+      background-size: auto 100%;
+      background-position: center center;
+    }
+    @media only screen and (min-width: 768px) and (max-width: 959px) and (orientation: landscape) {
+      height: 207px;
+    }
+    @media only screen and (min-width: 960px) and (max-width: 1400px) and (orientation: landscape) {
+      height: 214px;
+    }
+    @media only screen and (min-width: 1025px) and (max-width: 1400px) and (orientation: landscape) {
+      background-size: cover;
+    }
+    @media only screen and (min-width: 768px) and (max-width: 1400px) and (orientation: portrait) {
+      height: 208px;
+      background-size: auto 100%;
+      background-position: center center;
+
+    }
+    @media only screen and (min-width: 1401px) and (max-width: 99999999em) {
+      background-size: 100% auto;
+    }
+  }
+  &__footer {
+    @include filter(blur,10px);
+    height: 123px;
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: inherit;
+    width: 100%;
+    z-index: 0;
+
+    @media only screen and (min-width: 480px) and (max-width: 1400px) and (orientation: portrait) {
+      background-size: auto 100%;
+      background-position: center center;
+    }
+    @media only screen and (min-width: 1025px) and (max-width: 1400px) and (orientation: landscape) {
+      background-size: cover;
+    }
+    @media only screen and (min-width: 1401px) and (max-width: 99999999em) {
+      background-size: 100% auto;
+    }
+  }
+}
+.region-header {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: top center;
+  background-size: auto auto;
+  width: 100%;
+
+  @media only screen and (min-width: 480px) and (max-width: 1400px) and (orientation: portrait) {
+    background-size: auto 100%;
+    background-position: center center;
+  }
+  @media only screen and (min-width: 1025px) and (max-width: 1400px) and (orientation: landscape) {
+    background-size: cover;
+  }
+  @media only screen and (min-width: 1401px) and (max-width: 99999999em) {
+    background-size: 100% auto;
+  }
+
+  #block-block-1 {
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: auto auto;
+    background-position: top center;
+    position: relative;
+    z-index: 2;
+
+    @media only screen and (min-width: 480px) and (max-width: 1400px) and (orientation: portrait) {
+      background-size: auto 100%;
+      background-position: center center;
+    }
+    @media only screen and (min-width: 1025px) and (max-width: 1400px) and (orientation: landscape) {
+      background-size: cover;
+      background-position: top center;
+    }
+    @media only screen and (min-width: 1401px) and (max-width: 99999999em) {
+      background-size: 100% auto;
+    }
+  }
+  #block-block-3 {
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: auto auto;
+    bottom: 0;
+    height: 200px;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+
+    @media only screen and (min-width: 480px) and (max-width: 1400px) and (orientation: portrait) {
+      background-size: auto 100%;
+      background-position: center center;
+    }
+    @media only screen and (min-width: 1025px) and (max-width: 1400px) and (orientation: landscape) {
+      background-size: cover;
+    }
+    @media only screen and (min-width: 1401px) and (max-width: 99999999em) {
+      background-size: 100% auto;
+    }
+
+    .content {
+      height: 200px;
+      background-color: rgba(255,255,255,0.5);
+    }
+  }
+}
+.front {
+  .node-hero-layer--panel {
+
+    &__wrapper {
+
+    }
+    &__header {
+
+        background-size: inherit !important;
+        background-position: inherit;
+        background-attachment: inherit;
+
+    }
+    // &__content {
+    //   @include breakpoint(tablet) {
+    //     background-attachment: scroll;
+    //     //background-position: top center;
+    //     background-repeat: no-repeat;
+    //     background-size: auto 750px !important;
+    //   }
+    //   @include breakpoint(phone) {
+    //     background-size: auto 667px !important;
+    //   }
+    // }
+    // &__footer {
+    //   @include breakpoint(tablet) {
+    //     background-attachment: scroll;
+    //     //background-position: top center;
+    //     background-repeat: no-repeat;
+    //     background-size: auto 750px;
+    //     background-position: center -330px;
+    //   }
+    //   @include breakpoint(phone) {
+    //     background-position: center -230px !important;
+    //     background-size: auto 667px !important;
+    //   }
+    // }
+  }
+}
+.gaussian-hero.frontpage {
+  &__footer {
+    height: 215px;
+  }
+}
+// header background color override for pages with hero images
+.node-hero-layer--panel,
+.frontpage {
+
+  .region-header {
+    background-color: transparent !important;
+  }
+}
+.hero-slider {
+  height: 430px;
+  // top: -220px;
+
+  .slick-track {}
+
+  .node-hero-layer {
+    height: 650px;
+
+    .node-hero-layer--panel {
+
+      &__header {
+
+      }
+      &__footer {
+
+      }
+    }
+    .sectionheading {
+
+    }
+    .sectionoverview {
+      display:none;
+    }
+  }
+}
+@media only screen and (max-width: 479px) {
+  .node-hero-layer--panel {
+    &__header {
+     // height: 184px;
+    }
+    &__footer {
+      bottom: -5px;
+      height: 75px;
+      left: 0px;
+      right: 0px;
+    }
+  }
+}
+@media only screen and (min-width : 480px) and (max-width : 639px) {
+  .node-hero-layer--panel {
+
+    &__header {
+     // height: 184px;
+    }
+    &__footer {
+      bottom: -15px;
+      height: 75px;
+      left: 0px;
+      right: 0px;
+    }
+  }
+}
+@media only screen and (min-width : 640px) and (max-width : 767px) {
+  .node-hero-layer--panel {
+
+    &__header {
+     // height: 208px;
+    }
+    &__footer {
+      bottom: -10px;
+      height: 87px;
+      left: 0px;
+      right: 0px;
+    }
+  }
+}
+@media only screen and (min-width : 768px) and (max-width : 959px) {
+  .node-hero-layer--panel {
+
+    &__footer {
+      bottom: -10px;
+      height: 97px;
+      left: 0px;
+      right: 0px;
+    }
+  }
+}
+@media only screen and (min-width : 960px) and (max-width : 1024px) {
+  .node-hero-layer--panel {
+
+    &__footer {
+      bottom: -10px;
+      height: 97px;
+      left: 0px;
+      right: 0px;
+    }
+  }
+}
+.front.node-hero-layer {
+  height: 530px;
+}
+.front .node-hero-layer--panel {
+
+  &__content {
+    height: 750px !important;
+    @include breakpoint(tablet) {
+      background-attachment: scroll;
+      background-repeat: no-repeat;
+      background-position: center 0px;
+      background-size: auto 750px;
+    }
+    @include breakpoint(phone) {
+      background-attachment: scroll;
+      background-position: center 203px;
+      background-repeat: no-repeat;
+      background-size: auto 667px;
+    }
+    // background-attachment: scroll;
+    // background-size: auto 750px;
+    // background-position: center 203px;
+  }
+  &__footer {
+    bottom: 0px;
+    height: 220px;
+
+    @include breakpoint(tablet) {
+      background-attachment: scroll;
+      background-size: inherit;
+      background-position: center -530px;
+    }
+
+    @include breakpoint(phone) {
+      background-attachment: scroll;
+      background-position: center -230px;
+      background-size: auto 667px;
+      height: 320px;
+    }
+  }
+}
+// Mobile device styles for hero
+.node-hero-layer--panel {
+  &__content {
+    //iphone 6 Portrait
+    @media only screen  and (min-device-width : 375px)  and (max-device-width : 375px) and (orientation : portrait) {
+      background-attachment: scroll;
+      background-position: center 200px;
+      background-repeat: no-repeat;
+      background-size: auto 667px;
+    }
+    @media only screen  and (min-device-width : 414px)  and (max-device-width : 414px) and (orientation : portrait) {
+      background-attachment: scroll;
+      background-position: center 200px;
+      background-repeat: no-repeat;
+      background-size: auto 667px;
+    }
+    @media only screen and (min-device-width: 600px) and (max-device-width: 600px) and (orientation: portrait) {
+      background-attachment: scroll;
+      background-repeat: no-repeat;
+      background-position: center 200px;
+      background-size: auto 750px;
+    }
+    //iphone 6 landscape
+    @media only screen and (min-device-width : 667px)  and (max-device-width : 667px) and (orientation : landscape) {
+      background-attachment: scroll;
+      background-position: center 203px;
+      background-repeat: no-repeat;
+      background-size: auto 667px;
+    }
+    //iPad retina
+    @media only screen
+    and (min-device-width : 768px)
+    and (max-device-width : 1024px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+      background-attachment: scroll;
+      background-repeat: no-repeat;
+      background-position: center 0px;
+      background-size: auto 750px;
+    }
+    //ipad 1 and 2
+    @media only screen
+    and (min-device-width : 768px)
+    and (max-device-width : 1024px)
+    and (-webkit-min-device-pixel-ratio: 1) {
+      background-attachment: scroll;
+      background-repeat: no-repeat;
+      background-position: center 0px;
+      background-size: auto 750px;
+    }
+  }
+  &__wrapper {
+    @media only screen and (min-device-width: 600px) and (max-device-width: 600px) and (orientation: portrait) {
+      background-attachment: scroll;
+      background-position: center 200px;
+      background-size: auto 750px;
+      background-repeat: no-repeat;
+    }
+    //iPad retina
+    @media only screen
+    and (min-device-width : 768px)
+    and (max-device-width : 1024px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+      background-attachment: scroll;
+      background-position: center 0px;
+      background-size: auto 750px;
+      background-repeat: no-repeat;
+    }
+    //ipad 1 and 2
+    @media only screen
+    and (min-device-width : 768px)
+    and (max-device-width : 1024px)
+    and (-webkit-min-device-pixel-ratio: 1) {
+      background-attachment: scroll;
+      background-position: center 0px;
+      background-size: auto 750px;
+      background-repeat: no-repeat;
+    }
+  }
+  &__header {
+    //iPad retina
+    @media only screen
+    and (min-device-width : 768px)
+    and (max-device-width : 1024px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+      background-attachment: scroll;
+      background-position: center 0px;
+      background-size: auto 750px;
+      background-repeat: no-repeat;
+    }
+    //ipad 1 and 2
+    @media only screen
+    and (min-device-width : 768px)
+    and (max-device-width : 1024px)
+    and (-webkit-min-device-pixel-ratio: 1) {
+      background-attachment: scroll;
+      background-position: center 0px;
+      background-size: auto 750px;
+      background-repeat: no-repeat;
+    }
+  }
+  &__footer {
+    //iphone 6 Portrait
+    @media only screen  and (min-device-width : 375px)  and (max-device-width : 375px) and (orientation : portrait) {
+      background-attachment: scroll;
+      background-repeat: no-repeat;
+      background-size: auto 667px;
+      background-position: center -379px;
+      bottom: 0;
+    }
+    @media only screen  and (min-device-width : 414px)  and (max-device-width : 414px) and (orientation : portrait) {
+      background-attachment: scroll;
+      background-repeat: no-repeat;
+      background-size: auto 667px;
+      background-position: center -379px;
+      bottom: 0;
+    }
+    @media only screen and (min-device-width: 600px) and (max-device-width: 600px) and (orientation: portrait) {
+      background-attachment: scroll;
+      background-repeat: no-repeat;
+      background-size: auto 750px;
+      background-position: center -362px;
+    }
+    //iphone 6 landscape
+    @media only screen and (min-device-width : 667px)  and (max-device-width : 667px) and (orientation : landscape) {
+      background-attachment: scroll;
+      background-repeat: no-repeat;
+      background-size: auto 667px;
+      background-position: center -380px;
+    }
+    //iPad retina
+    @media only screen
+    and (min-device-width : 768px)
+    and (max-device-width : 1024px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+      background-attachment: scroll;
+      background-repeat: no-repeat;
+      background-size: auto 750px;
+      background-position: center -562px;
+    }
+    //ipad 1 and 2
+    @media only screen
+    and (min-device-width : 768px)
+    and (max-device-width : 1024px)
+    and (-webkit-min-device-pixel-ratio: 1) {
+      background-attachment: scroll;
+      background-repeat: no-repeat;
+      background-size: auto 750px;
+      background-position: center -562px;
+    }
+  }
+}
+.front  {
+  .node-hero-layer--panel {
+    &__content {
+      //iphone 6 Portrait
+      @media only screen  and (min-device-width : 375px)  and (max-device-width : 375px) and (orientation : portrait) {
+        background-attachment: scroll;
+        background-position: center 100px;
+        background-repeat: no-repeat;
+        background-size: auto 667px;
+      }
+      @media only screen  and (min-device-width : 414px)  and (max-device-width : 414px) and (orientation : portrait) {
+        background-attachment: scroll;
+        background-position: center 100px;
+        background-repeat: no-repeat;
+        background-size: auto 667px;
+      }
+      @media only screen and (min-device-width: 600px) and (max-device-width: 600px) and (orientation: portrait) {
+        background-attachment: scroll;
+        background-position: top center;
+        background-repeat: no-repeat;
+        background-size: auto 750px;
+      }
+      //iphone 5 landscape
+      @media only screen and (min-device-width: 568px) and (max-device-width: 568px) and (orientation: landscape) {
+        background-attachment: scroll;
+        background-position: center 203px;
+        background-repeat: no-repeat;
+        background-size: auto 667px;
+      }
+      //Galaxy S5
+      @media only screen and (min-device-width: 640px) and (max-device-width: 640px) and (orientation: landscape)  {
+        background-attachment: scroll;
+        background-position: center 203px;
+        background-repeat: no-repeat;
+        background-size: auto 667px;
+      }
+      //iphone 6 landscape
+      @media only screen and (min-device-width : 667px)  and (max-device-width : 667px) and (orientation : landscape) {
+        background-attachment: scroll;
+        background-position: center 203px;
+        background-repeat: no-repeat;
+        background-size: auto 667px;
+      }
+      //iPad retina
+      @media only screen
+      and (min-device-width : 768px)
+      and (max-device-width : 1024px)
+      and (-webkit-min-device-pixel-ratio: 2) {
+        background-attachment: scroll;
+        background-position: center 0px;
+        background-size: 100% 750px;
+        background-repeat: no-repeat;
+      }
+      //iPad retina
+      @media only screen
+      and (min-device-width : 768px)
+      and (max-device-width : 1024px)
+      and (-webkit-min-device-pixel-ratio: 2)
+      and (orientation: portrait) {
+        background-attachment: scroll;
+        background-position: center 0px;
+        background-size: auto 750px;
+        background-repeat: no-repeat;
+      }
+      //ipad 1 and 2
+      @media only screen
+      and (min-device-width : 768px)
+      and (max-device-width : 1024px)
+      and (-webkit-min-device-pixel-ratio: 1) {
+        background-attachment: scroll;
+        background-position: center 0px;
+        background-size: auto 750px;
+        background-repeat: no-repeat;
+      }
+      //ipad 1 and 2
+      @media only screen
+      and (min-device-width : 768px)
+      and (max-device-width : 1024px)
+      and (-webkit-min-device-pixel-ratio: 1)
+      and (orientation : landscape) {
+        background-attachment: scroll;
+        background-position: center 0px;
+        background-size: 100% 750px;
+        background-repeat: no-repeat;
+      }
+    }
+    &__wrapper {
+      //iPad retina
+      @media only screen
+      and (min-device-width : 768px)
+      and (max-device-width : 1024px)
+      and (-webkit-min-device-pixel-ratio: 2) {
+        background-attachment: scroll;
+        background-position: center 0px;
+        background-size: 100% 750px;
+        background-repeat: no-repeat;
+      }
+      //iPad retina
+      @media only screen
+      and (min-device-width : 768px)
+      and (max-device-width : 1024px)
+      and (-webkit-min-device-pixel-ratio: 2)
+      and (orientation: portrait) {
+        background-attachment: scroll;
+        background-position: center 0px;
+        background-size: auto 750px;
+        background-repeat: no-repeat;
+      }
+      //ipad 1 and 2
+      @media only screen
+      and (min-device-width : 768px)
+      and (max-device-width : 1024px)
+      and (-webkit-min-device-pixel-ratio: 1) {
+        background-attachment: scroll;
+        background-position: center 0px;
+        background-size: auto 750px;
+        background-repeat: no-repeat;
+      }
+    }
+    &__header {
+      //iPad retina
+      @media only screen
+      and (min-device-width : 768px)
+      and (max-device-width : 1024px)
+      and (-webkit-min-device-pixel-ratio: 2) {
+        background-attachment: scroll;
+        background-position: center 0px;
+        background-size: 100% 750px;
+        background-repeat: no-repeat;
+      }
+      //iPad retina
+      @media only screen
+      and (min-device-width : 768px)
+      and (max-device-width : 1024px)
+      and (-webkit-min-device-pixel-ratio: 2)
+      and (orientation: portrait) {
+        background-attachment: scroll;
+        background-position: center 0px;
+        background-size: auto 750px;
+        background-repeat: no-repeat;
+      }
+      //ipad 1 and 2
+      @media only screen
+      and (min-device-width : 768px)
+      and (max-device-width : 1024px)
+      and (-webkit-min-device-pixel-ratio: 1) {
+        background-attachment: scroll;
+        background-position: center 0px;
+        background-size: auto 750px;
+        background-repeat: no-repeat;
+      }
+    }
+    &__footer {
+      //iphone 6 Portrait
+      @media only screen  and (min-device-width : 375px)  and (max-device-width : 375px) and (orientation : portrait) {
+        background-attachment: scroll;
+        background-repeat: no-repeat;
+        background-size: auto 667px;
+        background-position: center -330px;
+      }
+      @media only screen  and (min-device-width : 414px)  and (max-device-width : 414px) and (orientation : portrait) {
+        background-attachment: scroll;
+        background-repeat: no-repeat;
+        background-size: auto 667px;
+        background-position: center -330px;
+      }
+      @media only screen and (min-device-width: 600px) and (max-device-width: 600px) and (orientation: portrait) {
+        background-attachment: scroll;
+        background-repeat: no-repeat;
+        background-size: auto 750px;
+        background-position: center -330px;
+      }
+      //iphone 5 landscape
+      @media only screen and (min-device-width: 568px) and (max-device-width: 568px) and (orientation: landscape) {
+        background-attachment: scroll;
+        //background-position: top center;
+        background-repeat: no-repeat;
+        background-size: auto 667px;
+        background-position: center -227px;
+      }
+      //Galaxy S5
+      @media only screen and (min-device-width: 640px) and (max-device-width: 640px) and (orientation: landscape)  {
+        background-attachment: scroll;
+        background-position: center -227px;
+        background-repeat: no-repeat;
+        background-size: auto 667px;
+      }
+      //iphone 6 landscape
+      @media only screen and (min-device-width : 667px)  and (max-device-width : 667px) and (orientation : landscape) {
+        background-attachment: scroll;
+        //background-position: top center;
+        background-repeat: no-repeat;
+        background-size: auto 667px;
+        background-position: center -327px;
+      }
+      //iPad retina
+      @media only screen
+      and (min-device-width : 768px)
+      and (max-device-width : 1024px)
+      and (-webkit-min-device-pixel-ratio: 2) {
+        background-attachment: scroll;
+        background-repeat: no-repeat;
+        background-size: 100% 750px;
+        background-position: center -530px;
+      }
+      //iPad retina
+      @media only screen
+      and (min-device-width : 768px)
+      and (max-device-width : 1024px)
+      and (-webkit-min-device-pixel-ratio: 2)
+      and (orientation: portrait) {
+        background-attachment: scroll;
+        background-position: center -530px;
+        background-size: auto 750px;
+        background-repeat: no-repeat;
+      }
+      //ipad 1 and 2
+      @media only screen
+      and (min-device-width : 768px)
+      and (max-device-width : 1024px)
+      and (-webkit-min-device-pixel-ratio: 1) {
+        background-attachment: scroll;
+        background-repeat: no-repeat;
+        background-size: auto 750px;
+        background-position: center -530px;
+      }
+      //ipad 1 and 2
+      @media only screen
+      and (min-device-width : 768px)
+      and (max-device-width : 1024px)
+      and (-webkit-min-device-pixel-ratio: 1)
+      and (orientation : landscape) {
+        background-attachment: scroll;
+        background-repeat: no-repeat;
+        background-size: 100% 750px;
+        background-position: center -530px;
+      }
+    }
+  }
+}
+//Nexus 6 landscape
+@media only screen and (min-device-width: 732px) and (max-device-width: 732px) and (orientation: landscape) {
+}
+.page-overview {
+  background-color: #FFF;
+  padding: 20px 0px;
+
+  &.overview {
+    padding: 10px 0px;
+    font-size: 1.3em;
+    line-height: 1.3em;
+    font-style: italic;
+  }
+}

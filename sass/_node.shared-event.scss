@@ -1,0 +1,64 @@
+.node-shared-event {
+
+  &__wrapper {
+
+    &--content {
+      margin-top: 8px;
+    }
+  }
+
+  &__title {
+    color: $color-site;
+  }
+  &__image {
+    display: block;
+    padding: 0 0 16px 16px;
+
+    @include breakpoint(mobile-down) {
+      display: none;
+    }
+  }
+  &__label {
+    margin-bottom: 8px;
+  }
+  &__date {
+    margin-bottom: 4px;
+  }
+  &__date.u-font-size--m {
+    @include breakpoint(phone) {
+      @include font-size(16px); //u-font-size--s
+    }
+  }
+  &__location {
+
+  }
+  &__location.u-font-size--m {
+    @include breakpoint(phone) {
+      @include font-size(16px); //u-font-size--s
+    }
+  }
+  &__body {
+
+  }
+  i.fa {
+
+    &.fa-clock-o {
+      font-size: 21px;
+      line-height: 28px;
+      @include breakpoint(phone) {
+        font-size: 17px;
+        line-height: 22px;
+      }
+    }
+    &.fa-map-marker {
+      font-size: 21px;
+      line-height: 28px;
+      padding-left: 6px;
+      padding-right: 3px;
+      @include breakpoint(phone) {
+        font-size: 17px;
+        line-height: 22px;
+      }
+    }
+  }
+}

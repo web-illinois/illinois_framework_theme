@@ -27,3 +27,86 @@ img {
     visibility: hidden;
   }
 }
+
+// Image Thumbnail
+//
+// Markup:
+// <div class="row">
+//   <div class="small-4 columns" style="width:25%;">
+//     <img class="{{modifier_class}}" src="../images/alma.jpg" alt="Photo of Alma.">
+//   </div>
+// </div>
+//
+// .e-img--thumbnail - Thumbnail Image
+//
+// Styleguide 4.5.3
+
+.e-img {
+
+  &--thumbnail {
+    border: solid 4px white;
+    -webkit-box-shadow: 0 0 0 1px rgba(10, 10, 10, 0.2);
+    box-shadow: 0 0 0 1px rgba(10, 10, 10, 0.2);
+    display: inline-block;
+    line-height: 0;
+    max-width: 100%;
+    -webkit-transition: -webkit-box-shadow 200ms ease-out;
+    transition: box-shadow 200ms ease-out;
+    border-radius: 0;
+    margin-bottom: 1rem;
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 0 6px 1px rgba($color-primary-univ-blue, 0.5);
+    }
+
+    &__a {
+      transition: box-shadow 200ms ease-out;
+
+      &:hover,
+      &:focus {
+        box-shadow: 0 0 6px 1px rgba($color-primary-univ-blue, 0.5);
+      }
+      img {
+        box-shadow: none;
+      }
+    }
+  }
+  &--square {
+
+  }
+  &--circle {
+
+  }
+  &--wordmark {
+
+  }
+  &--giving {
+    padding-top: 8px;
+  }
+  &--illinois {
+    height: 33px;
+    padding: 2px 0;
+  }
+  &--aces {
+    height: 33px;
+    margin-left: 8px;
+    padding: 6px 0;
+
+    img {
+      display: block;
+      opacity: 0.9;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+  &--department {
+    margin: 15px 0px;
+  }
+  &--college {
+    margin: 15px 0px;
+  }
+}
+
