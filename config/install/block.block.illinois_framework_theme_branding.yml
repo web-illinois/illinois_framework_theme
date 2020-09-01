@@ -7,7 +7,7 @@ dependencies:
     - illinois_framework_theme
 id: illinois_framework_theme_branding
 theme: illinois_framework_theme
-region: header
+region: nav_branding
 weight: 0
 provider: null
 plugin: system_branding_block

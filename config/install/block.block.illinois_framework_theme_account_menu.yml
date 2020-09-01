@@ -9,7 +9,7 @@ dependencies:
     - illinois_framework_theme
 id: illinois_framework_theme_account_menu
 theme: illinois_framework_theme
-region: secondary_menu
+region: nav_additional
 weight: 0
 provider: null
 plugin: 'system_menu_block:account'

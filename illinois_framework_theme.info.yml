@@ -15,12 +15,13 @@ libraries:
 # Regions
 regions:
   header: Header
-  primary_menu: Primary Menu
-  secondary_menu: Secondary Menu
+  nav_branding: 'Navigation branding region'
+  nav_main: 'Main navigation region'
+  nav_additional: 'Additional navigation region (eg search form, social icons, etc)'
+  breadcrumb: Breadcrumbs
   highlighted: Highlighted
   help: Help Information
-  content: Content
-  sidebar_first: 'Left Sidebar'
-  sidebar_second: 'Right Sidebar'
+  content: 'Main content'
+  sidebar_first: 'Sidebar first'
+  sidebar_second: 'Sidebar second'
   footer: Footer
-  breadcrumb: Breadcrumb
