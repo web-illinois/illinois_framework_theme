@@ -9,6 +9,4 @@
 // Include parent theme with all things Bootstrap for full override.
 // Relative path to this styles.scss file.
 // Example: @import "../../../../../themes/contrib/bootstrap4/scss/style";
-@import "../../../themes/contrib/bootstrap4/scss/style";
-// OR to go back to Bootstrap 4.4.1
-//@import "[DOCROOT]/themes/contrib/bootstrap4/scss/style-4-4";
+@import "../../../../themes/contrib/bootstrap4/scss/style";
