@@ -3,13 +3,6 @@ features:
   comment_user_picture: true
   comment_user_verification: true
   favicon: 1
-logo:
-  use_default: 0
-  path: profiles/contrib/illinois-framework/illinois_logo.png
-favicon:
-  use_default: 0
-  path: profiles/contrib/illinois-framework/favicon.ico
-  mimetype: image/vnd.microsoft.icon
 b4_top_container: container
 b4_body_schema: none
 b4_body_bg_schema: none
