@@ -1,0 +1,130 @@
+// Primary Colors
+$color-primary-univ-orange:               rgb(232,74,39);
+$color-primary-univ-orange-hex:           #E84A27;
+$color-primary-univ-blue:                 rgb(19,41,75);
+$color-primary-univ-blue-hex:             #13294B;
+$color-primary-univ-grey:                 rgb(94,99,103);
+$color-primary-univ-grey-hex:             #5E6367;
+$color-primary-univ-silver:               rgb(167,169,172);
+$color-primary-univ-silver-hex:           #A7A9AC;
+
+// Secondary Colors
+$color-secondary-aces-orange:             rgb(243,112,56);
+$color-secondary-aces-orange-hex:         #F37038;
+$color-secondary-aces-dk-blue:            rgb(23,54,96);
+$color-secondary-aces-dk-blue-hex:        #173660;
+$color-secondary-aces-blue:               rgb(69,84,110);
+$color-secondary-aces-blue-hex:           #45546E;
+$color-secondary-aces-lt-blue:            rgb(164,181,201);
+$color-secondary-aces-lt-blue-hex:        #A4B5C9;
+
+// Tertiary Colors
+$color-tertiary-blue:                     rgb(25,83,126);
+$color-tertiary-blue-hex:                 #19537E;
+$color-tertiary-brown:                    rgb(83,61,51);
+$color-tertiary-brown-hex:                #533D33;
+$color-tertiary-green:                    rgb(149,196,61);
+$color-tertiary-green-hex:                #95C43D;
+$color-tertiary-teal:                     rgb(206,235,238);
+$color-tertiary-teal-hex:                 #CEEBEE;
+
+// UI Colors
+$color-ui-1:                              rgb(252,236,233);
+$color-ui-1-hex:                          #FCECE9;
+$color-ui-2:                              rgb(222,226,233);
+$color-ui-2-hex:                          #DEE2E9;
+$color-ui-3:                              rgb(208,212,216);
+$color-ui-3-hex:                          #D0D4D8;
+$color-ui-4:                              rgb(128,122,119);
+$color-ui-4-hex:                          #807A77;
+$color-ui-5:                              rgb(165,172,175);
+$color-ui-5-hex:                          #A5ACAF;
+$color-ui-6:                              rgb(246,246,246);
+$color-ui-6-hex:                          #F6F6F6;
+$color-ui-text:                           rgb(68,68,68);
+$color-ui-text-hex:                       #444444;
+
+//Utility Colors
+$color-utility-error:                     rgb(226,13,13);
+$color-utility-error-hex:                 #E20D0D;
+$color-utility-positive:                  rgb(45,204,112);
+$color-utility-positive-hex:              #2DCC70;
+$color-utility-neutral:                   rgb(19,151,225);
+$color-utility-neutral-hex:               #1397E1;
+
+// //Overlay Colors
+// $color-overlay-hero-dark:                 rgba(43,43,43,.85); // #2B2B2B
+// $color-overlay-image-dark:                rgba(65,65,65,.65); // #414141
+
+
+$color-site:                              rgb(0,82,109);
+$color-site-hex:                          #00526D;
+$color-site-100-opacity:                  transparentize($color-site, 0);
+$color-action:                            rgb(116,178,87);
+$color-action-hex:                        #74B257;
+$color-action-100-opacity:                transparentize($color-action, 0);
+$color-accent:                            rgb(255,216,99);
+$color-accent-hex:                        #FFD863;
+$color-accent-100-opacity:                transparentize($color-accent, 0);
+$color-footer-background:                 #002c3a;
+$color-footer-header:                     #74b25c;
+$color-aces-header-background:            #09203b;
+
+// Illinois Visual Identity Standards Colors
+$color-illinois-orange:                   rgba(232,74,39,1);   // #E84A27
+$color-illinois-blue:                     rgba(19,41,75,1);    // #13294B
+$color-illinois-gray:                     rgba(112,115,114,1); // #707372
+$color-illinois-silver:                   rgba(214,214,209,1); // #A5ACAF
+
+// University Branding Colors 2020
+$illini-orange:                     rgba(255,85,46,1);
+$altgeld-orange:                    #DD3403;
+$illini-blue:                       rgba(19,41,75,1);
+$alma-mater:                        rgba(30,56,119,1);
+$alma-mater-light:                  #4D69A0;
+$alma-mater-lighter:                #849BC1;
+$alma-mater-lightest:               #AFC7DB;
+$industrial-blue:                   rgba(29,88,167,1);
+$industrial-blue-light:             #5783BC;
+$industrial-blue-lighter:           #90AED5;
+$industrial-blue-lightest:          #CAD9EF;
+$arches-blue:                       rgba(0,159,212,1);
+$arches-blue-light:                 #7FC3E1;
+$arches-blue-lighter:               #A6D7EB;
+$arches-blue-lightest:              #D2EBF5;
+$cloud:                             rgba(248,250,252,1);
+$cloud-dark:                        #E8E9EB;
+$cloud-darker:                      #DDDEDE;
+$cloud-darkest:                     #D2D2D2;
+$heritage-orange:                   rgba(245,130,30,1);
+$heritage-orange-dark:              #E56E15;
+$heritage-orange-darker:            #CE5E11;
+$heritage-orange-darkest:           #B74D04;
+
+//main menu
+// $main-menu-background-color:              transparentize($color-site, 0.20);
+// $main-menu-mobile-background-color:       $color-site;
+// $main-menu-mobile-level-2-background-color: mix(white,$color-site,10%);
+// $main-menu-mobile-level-3-background-color: white; //mix(white,$color-site,15%);
+// $main-menu-open-background-color:         transparentize(mix(white,$color-site,20%), 0.20);
+// $main-menu-hover-background-color:        transparentize(mix(white,$color-site,40%), 0.20);
+// $main-menu-active-background-color:       transparentize(mix(white,$color-site,60%), 0.20);
+// $main-menu-fixed-background-color:        transparentize($color-site, 0.05);
+
+$color-default-text:                      rgba(68,68,68,1);
+$color-default-text-dark:                 darken($color-default-text, 15%);
+$color-shadow:                            rgba(0, 0, 0, 0.05);
+$color-btn:         $color-primary-univ-orange;
+$color-btn-hover:   darken($color-primary-univ-orange, 15%);
+$blue-sapphire:                     #081B3B;
+$orange-carrot:                     #EA8024;
+$green-pigmentgreen:                #597521;
+$green-wasabi:                      #7D9B41;
+$yellow-lightgoldenrodyellow:       #F8FCE5;
+$color-menu-link-active:             $orange-carrot;
+
+// // foundation overrides
+$color-accordion-active-link-background:          $green-pigmentgreen;
+$color-accordion-link-background:                 $green-wasabi;
+$color-accordion-hover-link-background:           $green-wasabi;
+$color-accordion-content-active-background:       $yellow-lightgoldenrodyellow;

@@ -26,22 +26,50 @@
  * @ingroup themeable
  */
 #}
-
+{#{{ kint(if_megamenu.if_menu_select) }}#}
+{% if logged_in == 1 %}
+  {% set logged_in_class = 'logged-in' %}
+{% else %}
+  {% set logged_in_class = 'logged-out' %}
+{% endif %}
+{% if if_megamenu.if_menu_select %}
+  {% set menu_type = if_megamenu.if_menu_select %}
+{% else %}
+  {% set menu_type = 'simple' %}
+{% endif %}
 <!DOCTYPE html>
 <html{{ html_attributes }}>
   <head>
     <base href="{{ base_path_success ~ directory }}/" />
     <head-placeholder token="{{ placeholder_token }}">
     <title>{{ head_title|safe_join(' | ') }} :: University of Illinois</title>
-    <link rel="icon" href="https://cdn.brand.illinois.edu/favicon.ico">
     <css-placeholder token="{{ placeholder_token }}">
     <js-placeholder token="{{ placeholder_token }}">
   </head>
-  <body{{ attributes }}>
+  {%
+  set classes = [
+    logged_in_class,
+    'theme_dagobah',
+    menu_type
+  ]
+  %}
+  <body{{ attributes.addClass(classes) }}>
   {#
-    Keyboard navigation/accessibility link to main content section in
-    page.html.twig.
+    Low vision navigation/accessibility toggle switch
   #}
+    <div class="row switch-container">
+      <div class="switch-wrapper">
+        <label class="switch" for="checkbox">
+          <input type="checkbox" id="checkbox"/>
+          <div class="slider round"></div>
+        </label>
+      </div>
+    </div>
+    {#
+      Keyboard navigation/accessibility link to main content section in
+      page.html.twig.
+    #}
+{#    {{ kint() }}#}
     <div role="link">
       <a href="{{ canoncial_url }}#main-content" class="visually-hidden focusable">
         {{ 'Skip to main content'|t }}
@@ -50,5 +78,9 @@
     {{ page_top }}
     {{ page }}
     {{ page_bottom }}
+    <js-bottom-placeholder token="{{ placeholder_token }}">
+{#    <a name="return to top" role="link" id="return-to-top">#}
+{#      <img alt="return to top button" src="{{ '/' ~ theme_path ~ '/images/top-button.png' }}" />#}
+{#    </a>#}
   </body>
 </html>

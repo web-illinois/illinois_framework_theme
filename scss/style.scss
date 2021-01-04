@@ -10,3 +10,19 @@
 // Relative path to this styles.scss file.
 // Example: @import "../../../../../themes/contrib/bootstrap4/scss/style";
 @import "../../../../themes/contrib/bootstrap4/scss/style";
+
+// settings
+@import "settings.colors";
+
+//tools
+@import "tools.mixins.media-queries";
+
+// layout
+@import "layouts.header";
+@import "layouts.footer";
+
+// components
+@import "components.main-menu--branding--simple";
+@import "components.main-menu--branding--mega";
+@import "components.return-to-top";
+@import "components.one-trust-cookie";

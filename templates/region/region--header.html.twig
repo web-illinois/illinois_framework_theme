@@ -1,0 +1,126 @@
+{#
+/**
+ * @file
+ * Theme override to display a region.
+ *
+ * Available variables:
+ * - content: The content for this region, typically blocks.
+ * - attributes: HTML attributes for the region <div>.
+ * - region: The name of the region variable as defined in the theme's
+ *   .info.yml file.
+ *
+ * @see template_preprocess_region()
+ */
+#}
+{%
+  set classes = [
+    'region',
+    'region-' ~ region|clean_class,
+    'l-region',
+    'l-region-' ~ region|clean_class,
+  ]
+%}
+
+
+{% if content %}
+{#  <header{{ attributes.addClass(classes) }} role="banner">#}
+    <!-- begin header --><!--div class="l-header__wrapper--uofi">
+<div class="row">
+<div class="large-12 columns">
+<div class="left"><a href="https://illinois.edu">University of Illinois Urbana-Champaign</a></div>
+</div>
+</div>
+</div>
+
+<div class="l-header__wrapper--aces">
+<div class="row">
+<div class="large-12 columns">
+<div class="l-header--block-i left"><a href="https://illinois.edu"><img alt="University of Illinois at Urbana-Champaign Block I logo" src="images/BlockI-Logo-Full-Color-RGB.png" /> </a></div>
+
+<div class="l-header--college-name left"><a href="https://aces.illinois.edu">College of Agricultural, Consumer and Environmental Sciences</a></div>
+
+<div class="l-header__buttons right"><a class="button u-font-size--omega u-margin--right-5 u-min-width--80" href="/apply">Apply</a> <a class="button button--secondary u-font-size--omega u-min-width--80" href="/giving/give-now">Make Gift</a></div>
+
+<div class="right" id="block-search"><a href="#"><i class="fa fa-search"><span>search</span></i></a>
+
+<form action="/search/node" aria-label="search form" class="search__form--hidden" role="search"><input aria-label="search box" class="search__box" name="query" placeholder="Search ..." type="text" /> <input aria-label="search value" class="search__submit" type="submit" value=" " />&nbsp;</form>
+</div>
+
+<div class="l-header__mobile-menu-icon"><a href="#" id="show-mobile-menu"><i class="fa fa-bars">&nbsp;</i> </a>
+
+<div class="l-header__mobile--show-mobile-menu"><a href="#" id="show-mobile-menu">Show Mobile Menu</a></div>
+<a href="#" id="show-mobile-menu"> </a></div>
+</div>
+</div>
+{% if if_megamenu.if_menu_select %}
+  {% set menu_type = if_megamenu.if_menu_select %}
+{% else %}
+  {% set menu_type = 'simple' %}
+{% endif %}
+</div-->
+<header{{ attributes.addClass(classes) }} role="banner">
+  <il-header>
+    <il-unit-wordmark>
+      {% if if_secondary_site_title %}
+      <div class="site_identification two-titles" name="site">
+          {% if if_secondary_site_link %}
+            <a class="site_identification--secondary--site-title" href="{{ if_secondary_site_link }}">{{ if_secondary_site_title }}</a>
+          {% else %}
+            <div class="site_identification--secondary--site-title" href="#">{{ if_secondary_site_title }}</div>
+          {% endif %}
+          <div class="site_identification--primary__wrapper">
+            <a class="site_identification--primary--site-title" href="/">{{ drupal_config('system.site', 'name') | raw }}</a>
+      {% else %}
+        <div class="site_identification one-title" name="site">
+          <a class="site_identification--primary-site-title flex-fill" href="/">{{ drupal_config('system.site', 'name') | raw }}</a>
+      {% endif %}
+        <div class="d-flex flex-fill mainnav-toggler">
+          <div id="header-search-container">
+            <form class="form-inline" method="get" role="search" action="/search/node" id="search-form">
+              <div class="input-group">
+                <input type="text" class="form-control" name="query" placeholder="Search" aria-label="search form" aria-describedby="search-form" />
+                <div class="input-group-append">
+                  <button type="submit" value="Submit" form="search-form" class="input-group-text">
+                    <i class="fa fa-search"></i><span class="sr-only">Search</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div id="mainnav-toggler-container">
+
+              <button id="navbar-toggler" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainnav" aria-controls="mainnav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="icon"></span> <span class="label sr-only">Menu</span>
+              </button>
+              <div class="l-header__buttons right">
+                <a class="button u-font-size--omega u-margin--right-5 u-min-width--80" href="/apply">Apply to ACES</a>
+                <a class="button button--secondary u-font-size--omega u-min-width--80" href="/giving/give-now">Make a Gift</a>
+              </div>
+          </div>
+        </div>
+      </div>
+            {% if if_secondary_site_title %}
+            </div>
+            {% endif %}
+        <div role="status">
+          <!-- OneTrust Cookies Consent Notice (Production CDN, illinois.edu, en-GB) start -->
+          <script src="https://cdn.cookielaw.org/consent/fd31c61a-15d6-4769-9802-5eafcc1098ba.js" type="text/javascript" charset="UTF-8"></script>
+          <script type="text/javascript">
+            function OptanonWrapper() { }
+          </script>
+          <!-- OneTrust Cookies Consent Notice (Production CDN, illinois.edu, en-GB) end -->
+        </div>
+    </il-unit-wordmark>
+    <div class="main-navigation" slot="menu">
+      <div class="main-navigation">
+{#       <il-menu-button></il-menu-button>#}
+          {{ drupal_entity('block', 'sitetheme_main_menu', check_access=false) }}
+
+
+      </div>
+    </div>
+  </il-header>
+
+</header>
+  {#  </header>#}
+{% endif %}

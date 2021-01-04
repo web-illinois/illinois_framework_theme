@@ -1,0 +1,116 @@
+{#
+/**
+ * @file
+ * Theme override to display a region.
+ *
+ * Available variables:
+ * - content: The content for this region, typically blocks.
+ * - attributes: HTML attributes for the region <div>.
+ * - region: The name of the region variable as defined in the theme's
+ *   .info.yml file.
+ *
+ * @see template_preprocess_region()
+ */
+#}
+{%
+  set classes = [
+    'region',
+    'region-' ~ region|clean_class,
+    'l-region',
+    'l-region-' ~ region|clean_class,
+  ]
+%}
+{% if content %}
+  <footer{{ attributes.addClass(classes) }} role="contentinfo">
+{#    {{ content }}#}
+    <il-footer>
+      <div slot="social">
+        <a aria-label="Find us on Facebook" href="https://www.facebook.com/ACESIllinois/"><i class="fa fa-facebook"></i></a>
+        <a aria-label="Find us on Instagram" href="https://www.instagram.com/acesillinois/"><i class="fa fa-instagram"></i></a>
+        <a aria-label="Follow us on Twiter" href="https://twitter.com/ACESIllinois"><i class="fa fa-twitter"></i></a>
+        <a aria-label="Subscribe to our YouTube Channel" href="https://www.youtube.com/user/ACESAcademicPrograms"><i class="fa fa-youtube-play"></i></a>
+        <a aria-label="Follow us on LinkedIn" href="https://www.linkedin.com/showcase/college-of-aces/"><i class="fa fa-linkedin"></i></a>
+      </div>
+        <div class="footer--site-name">
+{#          <a href="/">{{ drupal_config('system.site', 'name')| raw }}</a>#}
+        </div>
+        <address>
+          227 Mumford Hall MC 710,<br/>
+          1301 W Gregory Dr.<br/>
+          Urbana, IL 61801<br/>
+          <dl class="footer--email">email: <a href="mailto:aces@illinois.edu">aces@illinois.edu</a></dl>
+        </address>
+
+      <div slot="links">
+        <div>
+          <h3>College Resources</h3>
+          <ul>
+            <li><a href="/about/contact">Contact us</a></li>
+            <li><a href="https://aces.illinois.edu/future-students">Future Students</a></li>
+            <li><a href="https://aces.illinois.edu/academics/student-resources">Current Students</a></li>
+            <li><a href="https://acesalumni.illinois.edu/">Alumni</a></li>
+            <li><a href="/visit">Visit</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>University Resources</h3>
+          <ul>
+            <li><a href="https://illinois.edu/admissions/">Admissions</a></li>
+            <li><a href="https://uif.uillinois.edu/">Giving</a></li>
+            <li><a href="https://illinois.edu/about/index.html">About Illinois</a></li>
+            <li><a href="https://covid19.illinois.edu/">Coronavirus (COVID-19)</a></li>
+          </ul>
+          <div id="google_translate_element"></div>
+          <script>
+            function googleTranslateElementInit() {
+              new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+              }, 'google_translate_element');
+            }
+          </script>
+          <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        </div>
+
+      </div>
+{#      <div slot="actions">#}
+{#        #}
+{#      </div>#}
+      {% if if_secondary_site_title and if_secondary_site_link %}
+      <div slot="parent">
+        {# primary unit information (i.e. College Name) #}
+          <a href="{{ if_secondary_site_link }}">{{ if_secondary_site_title| raw }}</a>
+      </div>
+      {% elseif if_secondary_site_title %}
+        <div slot="parent">
+          {# primary unit information (i.e. College Name) #}
+         {{ if_secondary_site_title| raw }}
+        </div>
+      {% else %}
+        <div slot="parent" class="no-title"></div>
+      {% endif %}
+    </il-footer>
+
+    <il-back-to-top></il-back-to-top>
+
+    <div class="footer--subfooter">
+      <div class="large-12 columns u-padding--left-right-0">
+        <div class="footer--subfooter--cookie-pref large-3 columns u-padding--left-0">
+          <button class="optanon-aces optanon-show-settings">Cookie Settings</button>
+  {#        <div class="large-12 small-12 columns optanon-aces"><a class="optanon-show-settings">Cookie Settings</a>#}
+        </div>
+        <div class="footer--subfooter--links large-9 columns u-padding--left-0">
+          <ul class="footer--subfooter--links__list u-padding--left-0">
+            <li class="footer--subfooter--links__list--item"><a href="https://illinois.edu/resources/website/copyright.html">Copyright</a></li>
+            <li class="footer--subfooter--links__list--item"><a href="https://www.vpaa.uillinois.edu/resources/web_privacy">Privacy Policy</a></li>
+            <li class="footer--subfooter--links__list--item"><a href="https://aces.illinois.edu/college-bylaws">Departmental Bylaws</a></li>
+            <li class="footer--subfooter--links__list--item"><a href="/user">Login</a></li>
+            <li class="footer--subfooter--links__list--item"><a href="https://inside.aces.illinois.edu/">Inside ACES (Fac/Staff)</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+{% endif %}
