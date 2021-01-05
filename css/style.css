@@ -11462,12 +11462,12 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
  * NOTE: megamenu transition styles are in a <style> tag in each page.
  */
 :root {
-  --il-mega-menu-max-width: 1440px;
+  --il-mega-menu-max-width: 1180px;
 }
 
 /* display menus according to selected menu type */
 @media all {
-  body.mega div#block-sitetheme-main-menu {
+  body.mega div#block-mainnavigation {
     display: none !important;
   }
   body.mega div.region-primary-menu {

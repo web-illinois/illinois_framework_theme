@@ -6,14 +6,14 @@
  * NOTE: megamenu transition styles are in a <style> tag in each page.
  */
 :root {
-  --il-mega-menu-max-width: 1440px;
+  --il-mega-menu-max-width: 1180px;
 }
 /* display menus according to selected menu type */
 @media all {
 
   body {
     &.mega {
-      div#block-sitetheme-main-menu {
+      div#block-mainnavigation {
         display: none !important;
       }
       //div#block-mainnavigation {
