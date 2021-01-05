@@ -13,5 +13,14 @@ global-styling:
       type: external
       attributes:
         async: true
-    //cdn.brand.illinois.edu/web-toolkit/v0.1.0/webcomponents-loader.js: { type: external }
-    //cdn.brand.illinois.edu/web-toolkit/v0.1.0/toolkit.js: { type: external }
+    js/navmenu.js: {}
+#    //cdn.brand.illinois.edu/web-toolkit/v0.1.0/webcomponents-loader.js: { type: external }
+#    //cdn.brand.illinois.edu/web-toolkit/v0.1.0/toolkit.js: { type: external }
+web-components:
+  js:
+    js/components.js: {}
+  css:
+    theme:
+      css/web-components/fonts.css: {}
+      css/web-components/colors.css: {}
+      css/web-components/components.css: {}

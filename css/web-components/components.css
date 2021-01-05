@@ -1,0 +1,1472 @@
+:root {
+  --il-orange: #ff552e;
+  --il-altgeld: #dd3403;
+  --il-blue: #13294b;
+  --il-alma-mater: #1e3877;
+  --il-alma-mater-1: #4d69a0;
+  --il-alma-mater-2: #849bc1;
+  --il-alma-mater-3: #afc7db;
+  --il-industrial-blue: #1d58a7;
+  --il-industrial-blue-1: #5783bc;
+  --il-industrial-blue-2: #90aed5;
+  --il-industrial-blue-3: #cad9ef;
+  --il-arches-blue: #009fd4;
+  --il-arches-blue-1: #7fc3e1;
+  --il-arches-blue-2: #a6d7eb;
+  --il-arches-blue-3: #d2ebf5;
+  --il-cloud: #f8fafc;
+  --il-cloud-1: #e8e9eb;
+  --il-cloud-2: #dddede;
+  --il-cloud-3: #d2d2d2;
+  --il-heritage-orange: #f5821e;
+  --il-heritage-orange-1: #e56e15;
+  --il-heritage-orange-2: #ce5e11;
+  --il-heritage-orange-3: #b74d04;
+}
+@font-face {
+  font-family: "Fjalla One";
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/fjalla-one/fjalla-one-400.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat";
+  font-weight: 200;
+  font-style: normal;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-200.eot") format("embedded-opentype"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-200.woff2") format("woff2"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-200.woff") format("woff"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-200.otf") format("opentype"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-200.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat";
+  font-weight: 200;
+  font-style: italic;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-200-italic.eot") format("embedded-opentype"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-200-italic.woff2") format("woff2"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-200-italic.woff") format("woff"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-200-italic.otf") format("opentype"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-200-italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat";
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-300.eot") format("embedded-opentype"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-300.woff2") format("woff2"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-300.woff") format("woff"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-300.otf") format("opentype"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-300.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat";
+  font-weight: 300;
+  font-style: italic;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-300-italic.eot") format("embedded-opentype"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-300-italic.woff2") format("woff2"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-300-italic.woff") format("woff"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-300-italic.otf") format("opentype"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-300-italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat";
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-400.eot") format("embedded-opentype"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-400.woff2") format("woff2"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-400.woff") format("woff"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-400.otf") format("opentype"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-400.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat";
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-400.eot") format("embedded-opentype"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-400.woff2") format("woff2"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-400.woff") format("woff"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-400.otf") format("opentype"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-400.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat";
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-400.eot") format("embedded-opentype"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-400.woff2") format("woff2"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-400.woff") format("woff"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-400.otf") format("opentype"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-400.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat";
+  font-weight: 400;
+  font-style: italic;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-400-italic.eot") format("embedded-opentype"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-400-italic.woff2") format("woff2"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-400-italic.woff") format("woff"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-400-italic.otf") format("opentype"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-400-italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat";
+  font-weight: 400;
+  font-style: italic;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-400-italic.eot") format("embedded-opentype"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-400-italic.woff2") format("woff2"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-400-italic.woff") format("woff"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-400-italic.otf") format("opentype"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-400-italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat";
+  font-weight: 400;
+  font-style: italic;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-400-italic.eot") format("embedded-opentype"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-400-italic.woff2") format("woff2"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-400-italic.woff") format("woff"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-400-italic.otf") format("opentype"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-400-italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-600.eot") format("embedded-opentype"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-600.woff2") format("woff2"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-600.woff") format("woff"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-600.otf") format("opentype"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-600.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-style: italic;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-600-italic.eot") format("embedded-opentype"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-600-italic.woff2") format("woff2"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-600-italic.woff") format("woff"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-600-italic.otf") format("opentype"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-600-italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat";
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-700.eot") format("embedded-opentype"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-700.woff2") format("woff2"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-700.woff") format("woff"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-700.otf") format("opentype"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-700.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat";
+  font-weight: 700;
+  font-style: italic;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-700-italic.eot") format("embedded-opentype"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-700-italic.woff2") format("woff2"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-700-italic.woff") format("woff"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-700-italic.otf") format("opentype"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-700-italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat";
+  font-weight: 800;
+  font-style: normal;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-800.eot") format("embedded-opentype"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-800.woff2") format("woff2"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-800.woff") format("woff"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-800.otf") format("opentype"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-800.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat";
+  font-weight: 800;
+  font-style: italic;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-800-italic.eot") format("embedded-opentype"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-800-italic.woff2") format("woff2"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-800-italic.woff") format("woff"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-800-italic.otf") format("opentype"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-800-italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat";
+  font-weight: 900;
+  font-style: normal;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-900.eot") format("embedded-opentype"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-900.woff2") format("woff2"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-900.woff") format("woff"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-900.otf") format("opentype"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-900.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat";
+  font-weight: 900;
+  font-style: italic;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-900-italic.eot") format("embedded-opentype"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-900-italic.woff2") format("woff2"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-900-italic.woff") format("woff"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-900-italic.otf") format("opentype"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-900-italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat Alternate";
+  font-weight: 200;
+  font-style: normal;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-200.eot") format("embedded-opentype"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-200.woff2") format("woff2"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-200.woff") format("woff"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-200.otf") format("opentype"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-200.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat Alternate";
+  font-weight: 200;
+  font-style: italic;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-200-italic.eot") format("embedded-opentype"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-200-italic.woff2") format("woff2"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-200-italic.woff") format("woff"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-200-italic.otf") format("opentype"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-200-italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat Alternate";
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-300.eot") format("embedded-opentype"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-300.woff2") format("woff2"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-300.woff") format("woff"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-300.otf") format("opentype"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-300.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat Alternate";
+  font-weight: 300;
+  font-style: italic;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-300-italic.eot") format("embedded-opentype"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-300-italic.woff2") format("woff2"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-300-italic.woff") format("woff"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-300-italic.otf") format("opentype"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-300-italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat Alternate";
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-400.eot") format("embedded-opentype"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-400.woff2") format("woff2"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-400.woff") format("woff"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-400.otf") format("opentype"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-400.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat Alternate";
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-400.eot") format("embedded-opentype"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-400.woff2") format("woff2"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-400.woff") format("woff"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-400.otf") format("opentype"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-400.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat Alternate";
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-400.eot") format("embedded-opentype"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-400.woff2") format("woff2"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-400.woff") format("woff"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-400.otf") format("opentype"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-400.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat Alternate";
+  font-weight: 400;
+  font-style: italic;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-400-italic.eot") format("embedded-opentype"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-400-italic.woff2") format("woff2"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-400-italic.woff") format("woff"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-400-italic.otf") format("opentype"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-400-italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat Alternate";
+  font-weight: 400;
+  font-style: italic;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-400-italic.eot") format("embedded-opentype"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-400-italic.woff2") format("woff2"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-400-italic.woff") format("woff"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-400-italic.otf") format("opentype"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-400-italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat Alternate";
+  font-weight: 400;
+  font-style: italic;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-400-italic.eot") format("embedded-opentype"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-400-italic.woff2") format("woff2"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-400-italic.woff") format("woff"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-400-italic.otf") format("opentype"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-400-italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat Alternate";
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-600.eot") format("embedded-opentype"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-600.woff2") format("woff2"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-600.woff") format("woff"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-600.otf") format("opentype"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-600.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat Alternate";
+  font-weight: 600;
+  font-style: italic;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-600-italic.eot") format("embedded-opentype"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-600-italic.woff2") format("woff2"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-600-italic.woff") format("woff"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-600-italic.otf") format("opentype"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-600-italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat Alternate";
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-700.eot") format("embedded-opentype"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-700.woff2") format("woff2"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-700.woff") format("woff"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-700.otf") format("opentype"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-700.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat Alternate";
+  font-weight: 700;
+  font-style: italic;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-700-italic.eot") format("embedded-opentype"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-700-italic.woff2") format("woff2"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-700-italic.woff") format("woff"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-700-italic.otf") format("opentype"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-700-italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat Alternate";
+  font-weight: 800;
+  font-style: normal;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-800.eot") format("embedded-opentype"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-800.woff2") format("woff2"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-800.woff") format("woff"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-800.otf") format("opentype"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-800.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat Alternate";
+  font-weight: 800;
+  font-style: italic;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-800-italic.eot") format("embedded-opentype"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-800-italic.woff2") format("woff2"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-800-italic.woff") format("woff"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-800-italic.otf") format("opentype"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-800-italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat Alternate";
+  font-weight: 900;
+  font-style: normal;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-900.eot") format("embedded-opentype"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-900.woff2") format("woff2"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-900.woff") format("woff"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-900.otf") format("opentype"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-900.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat Alternate";
+  font-weight: 900;
+  font-style: italic;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-900-italic.eot") format("embedded-opentype"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-900-italic.woff2") format("woff2"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-900-italic.woff") format("woff"), url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-900-italic.otf") format("opentype"),
+  url("https://cdn.brand.illinois.edu/fonts/montserrat/montserrat-alt-900-italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Source Sans";
+  font-weight: 200;
+  font-style: normal;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-200.woff2") format("woff2"), url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-200.woff") format("woff"),
+  url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-200.otf") format("opentype"), url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-200.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Source Sans";
+  font-weight: 200;
+  font-style: italic;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-200-italic.woff2") format("woff2"), url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-200-italic.woff") format("woff"),
+  url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-200-italic.otf") format("opentype"), url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-200-italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Source Sans";
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-300.woff2") format("woff2"), url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-300.woff") format("woff"),
+  url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-300.otf") format("opentype"), url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-300.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Source Sans";
+  font-weight: 300;
+  font-style: italic;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-300-italic.woff2") format("woff2"), url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-300-italic.woff") format("woff"),
+  url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-300-italic.otf") format("opentype"), url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-300-italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Source Sans";
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-400.woff2") format("woff2"), url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-400.woff") format("woff"),
+  url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-400.otf") format("opentype"), url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-400.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Source Sans";
+  font-weight: 400;
+  font-style: italic;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-400-italic.woff2") format("woff2"), url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-400-italic.woff") format("woff"),
+  url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-400-italic.otf") format("opentype"), url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-400-italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Source Sans";
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-600.woff2") format("woff2"), url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-600.woff") format("woff"),
+  url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-600.otf") format("opentype"), url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-600.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Source Sans";
+  font-weight: 600;
+  font-style: italic;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-600-italic.woff2") format("woff2"), url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-600-italic.woff") format("woff"),
+  url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-600-italic.otf") format("opentype"), url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-600-italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Source Sans";
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-700.woff2") format("woff2"), url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-700.woff") format("woff"),
+  url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-700.otf") format("opentype"), url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-700.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Source Sans";
+  font-weight: 700;
+  font-style: italic;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-700-italic.woff2") format("woff2"), url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-700-italic.woff") format("woff"),
+  url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-700-italic.otf") format("opentype"), url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-700-italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Source Sans";
+  font-weight: 900;
+  font-style: normal;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-900.woff2") format("woff2"), url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-900.woff") format("woff"),
+  url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-900.otf") format("opentype"), url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-900.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Source Sans";
+  font-weight: 900;
+  font-style: italic;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-900-italic.woff2") format("woff2"), url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-900-italic.woff") format("woff"),
+  url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-900-italic.otf") format("opentype"), url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-900-italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Source Sans Variable";
+  font-style: normal;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-var.woff2") format("woff2"), url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-var.woff") format("woff"),
+  url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-var.otf") format("opentype"), url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-var.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Source Sans Variable";
+  font-style: italic;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-var-italic.woff2") format("woff2"), url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-var-italic.woff") format("woff"),
+  url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-var-italic.otf") format("opentype"), url("https://cdn.brand.illinois.edu/fonts/source-sans/source-sans-var-italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Source Serif";
+  font-weight: 200;
+  font-style: normal;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-200.woff2") format("woff2"), url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-200.woff") format("woff"),
+  url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-200.otf") format("opentype"), url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-200.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Source Serif";
+  font-weight: 200;
+  font-style: italic;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-200-italic.woff2") format("woff2"), url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-200-italic.woff") format("woff"),
+  url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-200-italic.otf") format("opentype"), url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-200-italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Source Serif";
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-300.woff2") format("woff2"), url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-300.woff") format("woff"),
+  url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-300.otf") format("opentype"), url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-300.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Source Serif";
+  font-weight: 300;
+  font-style: italic;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-300-italic.woff2") format("woff2"), url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-300-italic.woff") format("woff"),
+  url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-300-italic.otf") format("opentype"), url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-300-italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Source Serif";
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-400.woff2") format("woff2"), url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-400.woff") format("woff"),
+  url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-400.otf") format("opentype"), url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-400.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Source Serif";
+  font-weight: 400;
+  font-style: italic;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-400-italic.woff2") format("woff2"), url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-400-italic.woff") format("woff"),
+  url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-400-italic.otf") format("opentype"), url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-400-italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Source Serif";
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-600.woff2") format("woff2"), url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-600.woff") format("woff"),
+  url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-600.otf") format("opentype"), url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-600.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Source Serif";
+  font-weight: 600;
+  font-style: italic;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-600-italic.woff2") format("woff2"), url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-600-italic.woff") format("woff"),
+  url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-600-italic.otf") format("opentype"), url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-600-italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Source Serif";
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-700.woff2") format("woff2"), url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-700.woff") format("woff"),
+  url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-700.otf") format("opentype"), url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-700.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Source Serif";
+  font-weight: 700;
+  font-style: italic;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-700-italic.woff2") format("woff2"), url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-700-italic.woff") format("woff"),
+  url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-700-italic.otf") format("opentype"), url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-700-italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Source Serif";
+  font-weight: 900;
+  font-style: normal;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-900.woff2") format("woff2"), url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-900.woff") format("woff"),
+  url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-900.otf") format("opentype"), url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-900.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Source Serif";
+  font-weight: 900;
+  font-style: italic;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-900-italic.woff2") format("woff2"), url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-900-italic.woff") format("woff"),
+  url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-900-italic.otf") format("opentype"), url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-900-italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Source Serif Variable";
+  font-style: normal;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-var.woff2") format("woff2"), url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-var.woff") format("woff"),
+  url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-var.otf") format("opentype"), url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-var.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Source Serif Variable";
+  font-style: italic;
+  font-stretch: normal;
+  font-display: swap;
+  src: url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-var-italic.woff2") format("woff2"), url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-var-italic.woff") format("woff"),
+  url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-var-italic.otf") format("opentype"), url("https://cdn.brand.illinois.edu/fonts/source-serif/source-serif-var-italic.ttf") format("truetype");
+}
+:root {
+  --il-fjalla-one: "Fjalla One", sans-serif;
+  --il-montserrat: "Montserrat", sans-serif;
+  --il-montserrat-alt: "Montserrat Alternate", sans-serif;
+  --il-source-sans: "Source Sans Variable", "Source Sans", sans-serif;
+  --il-source-serif: "Source Serif Variable", "Source Serif", serif;
+}
+.il-formatted {
+  font-weight: 400;
+  color: var(--il-blue);
+  font-family: var(--il-source-sans);
+  font-size: 18px;
+  line-height: 1.5em;
+  max-width: 100%;
+}
+@supports (font-variation-settings: normal) {
+  .il-formatted {
+    font-weight: normal;
+    font-variation-settings: "wght" 400;
+  }
+}
+.il-formatted a {
+  color: var(--il-industrial-blue);
+}
+.il-formatted h1 {
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-weight: 900;
+  color: var(--il-blue);
+  font-family: var(--il-source-sans);
+  font-size: 32px;
+  line-height: 1.3em;
+  margin-bottom: 16px;
+}
+@supports (font-variation-settings: normal) {
+  .il-formatted h1 {
+    font-weight: normal;
+    font-variation-settings: "wght" 900;
+  }
+}
+.il-formatted h2 {
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+  color: var(--il-blue);
+  font-size: 24px;
+  font-family: var(--il-source-sans);
+  line-height: 1.3em;
+  margin-top: 24px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+@supports (font-variation-settings: normal) {
+  .il-formatted h2 {
+    font-weight: normal;
+    font-variation-settings: "wght" 700;
+  }
+}
+.il-formatted h3 {
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+  font-size: 22px;
+  font-family: var(--il-source-sans);
+  color: var(--il-blue);
+  line-height: 1.3em;
+  margin-top: 22px;
+  margin-bottom: 11px;
+}
+@supports (font-variation-settings: normal) {
+  .il-formatted h3 {
+    font-weight: normal;
+    font-variation-settings: "wght" 700;
+  }
+}
+.il-formatted h4 {
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+  font-size: 18px;
+  font-family: var(--il-source-sans);
+  color: var(--il-blue);
+  line-height: 1.3em;
+  margin-top: 36px;
+  margin-bottom: 12px;
+}
+@supports (font-variation-settings: normal) {
+  .il-formatted h4 {
+    font-weight: normal;
+    font-variation-settings: "wght" 700;
+  }
+}
+.il-formatted h3 + h4 {
+  margin-top: 18px;
+}
+.il-formatted h5 {
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  font-family: var(--il-source-sans);
+  color: var(--il-blue);
+  line-height: 1.3em;
+  margin-top: 36px;
+  margin-bottom: 12px;
+}
+.il-formatted h6 {
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-family: var(--il-source-sans);
+  color: var(--il-blue);
+  line-height: 1.3em;
+  margin-top: 36px;
+  margin-bottom: 12px;
+}
+.il-formatted p {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 1.5em;
+}
+.il-formatted strong {
+  font-weight: 700;
+  color: var(--il-blue);
+}
+@supports (font-variation-settings: normal) {
+  .il-formatted strong {
+    font-weight: normal;
+    font-variation-settings: "wght" 700;
+  }
+}
+.il-formatted mark {
+  background-color: var(--il-cloud);
+}
+.il-formatted hr {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: var(--il-industrial-blue);
+  border: 0;
+  height: 1px;
+  margin-bottom: 1.5em;
+}
+.il-formatted blockquote {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  margin: 0 48px 18px;
+}
+.il-formatted ul,
+.il-formatted ol {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.il-formatted ol li::marker {
+  color: var(--il-blue);
+}
+.il-formatted ol ol {
+  list-style-type: lower-alpha;
+}
+.il-formatted ol ol ol {
+  list-style-type: lower-roman;
+}
+.il-formatted ul {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.il-formatted ul li {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+  padding-left: 40px;
+}
+.il-formatted ul li::after {
+  box-sizing: border-box;
+  content: "";
+  position: absolute;
+  height: 8px;
+  width: 8px;
+  border: 2px solid var(--il-blue);
+  border-radius: 50%;
+  top: 10px;
+  left: 20px;
+  background-color: var(--il-blue);
+  opacity: 0.75;
+}
+.il-formatted ul li li::after {
+  background-color: transparent;
+}
+.il-formatted p + ul,
+.il-formatted p + ol {
+  margin-top: -10px;
+}
+.il-formatted li {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.il-formatted dt {
+  font-weight: bold;
+  margin-top: 12px;
+}
+.il-formatted dt:first-of-type {
+  margin-top: 0;
+}
+.il-formatted dfn {
+  font-style: normal;
+  font-weight: bold;
+}
+.il-formatted figure {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  margin: 1.5em 0;
+}
+@media (min-width: 800px) {
+  .il-formatted figure.il-left {
+    clear: left;
+    float: left;
+    margin: 0 1.5em 1em 0;
+  }
+  .il-formatted figure.il-right {
+    clear: right;
+    float: right;
+    margin: 0 0 1em 1.5em;
+  }
+}
+.il-formatted figcaption {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  padding: 0 0 0.25em;
+  border-bottom: 1px solid #ccc;
+}
+.il-formatted table {
+  box-sizing: border-box;
+  border-collapse: collapse;
+  border: 1px solid var(--il-cloud);
+  max-width: 100%;
+  overflow: auto;
+}
+.il-formatted th {
+  text-align: left;
+  vertical-align: top;
+  font-weight: 700;
+  padding: 0.5em 1em;
+  border: 1px solid white;
+}
+.il-formatted thead th {
+  background-color: var(--il-blue);
+  color: white;
+  font-family: var(--il-source-serif);
+}
+.il-formatted tbody th {
+  color: var(--il-blue);
+  border: 1px solid var(--il-cloud);
+}
+.il-formatted td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.5em 1em;
+  border: 1px solid var(--il-cloud);
+  color: var(--il-blue);
+}
+.il-formatted tr:nth-child(even) {
+  background-color: #eee;
+}
+.il-formatted pre {
+  position: relative;
+  max-width: 100%;
+  overflow: auto;
+}
+.il-page,
+.il-page-with-sidebar {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  min-height: 100vh;
+  max-width: 100vw;
+}
+.il-page > header,
+.il-page > .il-header,
+.il-page-with-sidebar > header,
+.il-page-with-sidebar > .il-header {
+  grid-area: header;
+}
+.il-page > main,
+.il-page > .il-main,
+.il-page-with-sidebar > main,
+.il-page-with-sidebar > .il-main {
+  box-sizing: border-box;
+  grid-area: main;
+  padding: 60px 40px 40px 40px;
+  overflow: auto;
+}
+.il-page > .il-sidebar,
+.il-page-with-sidebar > .il-sidebar {
+  box-sizing: border-box;
+  grid-area: sidebar;
+  padding: 60px 30px 40px 40px;
+}
+.il-page > footer,
+.il-page > .il-footer,
+.il-page-with-sidebar > footer,
+.il-page-with-sidebar > .il-footer {
+  grid-area: footer;
+}
+.il-page {
+  grid-template-areas: "header" "main" "footer";
+  grid-template-rows: auto 1fr auto;
+}
+@media (min-width: 1200px) {
+  .il-page {
+    grid-template-columns: 1fr 1200px 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: "header header header" ". main ." "footer footer footer";
+  }
+}
+.il-page > .il-sidebar {
+  display: none;
+}
+@media (max-width: 599px) {
+  .il-page-with-sidebar {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "header" "main" "sidebar" "footer";
+  }
+}
+@media (min-width: 600px) {
+  .il-page-with-sidebar > main,
+  .il-page-with-sidebar > .il-main {
+    padding-left: 30px;
+  }
+}
+@media (min-width: 600px) and (max-width: 1199px) {
+  .il-page-with-sidebar {
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: "header header" "sidebar main" "footer footer";
+  }
+}
+@media (min-width: 1200px) {
+  .il-page-with-sidebar {
+    grid-template-columns: 1fr 400px 800px 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: "header header header header" ". sidebar main ." "footer footer footer footer";
+  }
+}
+il-footer a {
+  color: inherit;
+  text-decoration: none;
+  text-decoration: underline;
+}
+il-footer ul,
+il-footer dl {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 1.5em;
+}
+il-footer ul:last-child,
+il-footer dl:last-child {
+  margin-bottom: 0;
+}
+il-footer ul {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+il-footer ul li {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  margin-bottom: 0.5em;
+}
+il-footer ul li:last-of-type {
+  margin-bottom: 0;
+}
+il-footer dt {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  clear: both;
+  float: left;
+  margin-right: 0.66em;
+}
+il-footer dt::after {
+  content: ":";
+}
+il-footer dd {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+il-footer *[slot="links"] ul {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+il-footer *[slot="links"] ul li {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  margin-bottom: 0.5em;
+}
+il-footer *[slot="links"] ul li:last-of-type {
+  margin-bottom: 0;
+}
+il-footer *[slot="links"] ul a {
+  color: inherit;
+  text-decoration: none;
+  text-decoration: underline;
+}
+il-footer *[slot="links"] > ul,
+il-footer *[slot="links"] > div {
+  margin-bottom: 40px;
+}
+il-footer *[slot="links"] > ul:last-child,
+il-footer *[slot="links"] > div:last-child {
+  margin-bottom: 0;
+}
+il-footer *[slot="links"] h2,
+il-footer *[slot="links"] h3,
+il-footer *[slot="links"] h4,
+il-footer *[slot="links"] h5,
+il-footer *[slot="links"] h6 {
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+  margin-bottom: 1em;
+}
+@supports (font-variation-settings: normal) {
+  il-footer *[slot="links"] h2,
+  il-footer *[slot="links"] h3,
+  il-footer *[slot="links"] h4,
+  il-footer *[slot="links"] h5,
+  il-footer *[slot="links"] h6 {
+    font-weight: normal;
+    font-variation-settings: "wght" 700;
+  }
+}
+il-footer *[slot="links"] h2 + ul a,
+il-footer *[slot="links"] h3 + ul a,
+il-footer *[slot="links"] h4 + ul a,
+il-footer *[slot="links"] h5 + ul a,
+il-footer *[slot="links"] h6 + ul a {
+  display: block;
+  padding: 4px 0;
+  text-decoration: underline;
+}
+il-footer *[slot="links"] ul.il-featured,
+il-footer *[slot="links"] ul.il-buttons {
+  display: flex;
+  flex-direction: column;
+}
+il-footer *[slot="links"] ul.il-featured a,
+il-footer *[slot="links"] ul.il-buttons a {
+  box-sizing: border-box;
+  display: block;
+  font-weight: bold;
+  line-height: 40px;
+  border-radius: 20px;
+  text-align: center;
+  padding: 0 20px;
+  text-decoration: none;
+  transition: all var(--transition-speed);
+}
+il-footer *[slot="links"] ul.il-featured a:hover,
+il-footer *[slot="links"] ul.il-featured a:focus,
+il-footer *[slot="links"] ul.il-buttons a:hover,
+il-footer *[slot="links"] ul.il-buttons a:focus {
+  background-color: white;
+}
+@media (min-width: 800px) {
+  il-footer *[slot="links"] ul.il-featured,
+  il-footer *[slot="links"] ul.il-buttons {
+    grid-column-end: span 2;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  il-footer *[slot="links"] ul.il-featured li,
+  il-footer *[slot="links"] ul.il-buttons li {
+    margin: 0 16px 16px 0;
+  }
+  il-footer *[slot="links"] ul.il-featured a,
+  il-footer *[slot="links"] ul.il-buttons a {
+    min-width: 80px;
+    white-space: nowrap;
+  }
+}
+il-footer *[slot="social"] {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+il-footer *[slot="social"] a,
+il-footer *[slot="social"] il-social-link {
+  margin-right: 20px;
+}
+@media (min-width: 800px) {
+  il-footer *[slot="links"] {
+    grid-area: links;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 40px;
+  }
+  il-footer *[slot="links"] > ul,
+  il-footer *[slot="links"] > div {
+    margin-bottom: 0;
+  }
+}
+il-header {
+  --il-menu-toggle-display: block;
+}
+il-header a {
+  color: inherit;
+  text-decoration: none;
+}
+@media (min-width: 600px) {
+  il-header {
+    --il-menu-toggle-display: none;
+  }
+}
+.il-main-nav {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: var(--il-source-sans);
+}
+@media (max-width: 599px) {
+  .il-main-nav {
+    background-color: var(--il-cloud-1);
+    padding: 30px 40px;
+  }
+  .il-main-nav > ul {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .il-main-nav > ul > li {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: relative;
+    border-bottom: 1px solid var(--il-industrial-blue);
+    padding-right: 30px;
+  }
+  .il-main-nav > ul > li:after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 10px;
+    right: -12px;
+    background: url(images/main-nav-mobile-chevron-down.svg) center center no-repeat;
+    background-size: 16px 16px;
+    cursor: pointer;
+  }
+  .il-main-nav > ul > li > a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: 700;
+    display: block;
+    padding: 12px 0 14px;
+    font-size: 22px;
+    line-height: 1.5em;
+  }
+  @supports (font-variation-settings: normal) {
+    .il-main-nav > ul > li > a {
+      font-weight: normal;
+      font-variation-settings: "wght" 700;
+    }
+  }
+  .il-main-nav > ul > li > ul {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    padding-left: 15px;
+    padding-bottom: 10px;
+    display: none;
+  }
+  .il-main-nav > ul > li > ul > li {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .il-main-nav > ul > li > ul > li > a {
+    color: inherit;
+    text-decoration: none;
+    padding: 6px 0;
+    display: block;
+    font-size: 20px;
+    line-height: 1.5;
+    color: var(--il-blue);
+  }
+}
+@media (min-width: 600px) {
+  .il-main-nav {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: var(--il-source-sans);
+    background-color: var(--il-cloud-1);
+    border-left: 1px solid var(--il-cloud-1);
+    border-right: 1px solid var(--il-cloud-1);
+  }
+  .il-main-nav .heading {
+    height: 1px;
+    left: -9999vw;
+    overflow: hidden;
+    position: absolute;
+    width: 1px;
+  }
+  .il-main-nav > ul {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+  }
+  .il-main-nav > ul > li {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: relative;
+  }
+  .il-main-nav > ul > li > a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: 700;
+    display: block;
+    padding: 0 55px;
+    font-size: 18px;
+    line-height: 50px;
+    color: var(--il-blue);
+  }
+  @supports (font-variation-settings: normal) {
+    .il-main-nav > ul > li > a {
+      font-weight: normal;
+      font-variation-settings: "wght" 700;
+    }
+  }
+  .il-main-nav > ul > li > ul {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin: 0 -1px;
+    padding: 26px 35px 39px 60px;
+    border-width: 0 1px 1px;
+    border-style: none solid solid;
+    border-color: var(--il-cloud-1);
+    min-width: 300px;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .il-main-nav > ul > li > ul > li {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .il-main-nav > ul > li > ul > li a {
+    color: inherit;
+    text-decoration: none;
+    color: var(--il-blue);
+    display: block;
+    line-height: 2;
+  }
+  .il-main-nav > ul > li > ul > li ul {
+    display: none;
+  }
+  .il-main-nav > ul > li.il-main-nav__top-level-item--expanded {
+    background-color: white;
+  }
+  .il-main-nav > ul > li.il-main-nav__top-level-item--expanded > a {
+    color: var(--il-orange);
+  }
+  .il-main-nav > ul > li.il-main-nav__top-level-item--expanded > ul {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+il-section-nav {
+  font-family: var(--il-source-sans);
+}
+il-section-nav ul {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+}
+il-section-nav li {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+  padding-left: 30px;
+}
+il-section-nav button {
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  color: inherit;
+  font-family: inherit;
+  text-decoration: none;
+  display: block;
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  left: 0;
+  top: 0;
+  white-space: nowrap;
+  text-indent: 30px;
+  cursor: pointer;
+}
+il-section-nav button span {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 6px;
+  top: 11px;
+  width: 12px;
+  height: 2px;
+  background-color: var(--il-alma-mater-3);
+}
+il-section-nav button[aria-expanded="false"] span::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 5px;
+  top: -5px;
+  width: 2px;
+  height: 12px;
+  background-color: var(--il-alma-mater-3);
+}
+il-section-nav button[aria-expanded="false"] ~ ul {
+  display: none;
+}
+il-section-nav button:hover span,
+il-section-nav button:hover span::after,
+il-section-nav button:focus span,
+il-section-nav button:focus span::after {
+  background-color: var(--il-orange);
+}
+il-section-nav a {
+  color: var(--il-blue);
+  display: block;
+  position: relative;
+}
+il-section-nav a:first-child::before {
+  display: block;
+  position: absolute;
+  content: "";
+  width: 6px;
+  height: 6px;
+  top: 9px;
+  left: -21px;
+  border-radius: 50%;
+  background-color: var(--il-alma-mater-3);
+}
+il-section-nav a:hover,
+il-section-nav a:focus {
+  color: var(--il-industrial-blue);
+}
+il-section-nav a:hover::before,
+il-section-nav a:focus::before {
+  background-color: var(--il-orange);
+}
+il-unit-wordmark a {
+  color: inherit;
+  text-decoration: none;
+  padding-right: 10px;
+}

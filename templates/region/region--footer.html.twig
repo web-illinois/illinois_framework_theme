@@ -32,7 +32,9 @@
         <a aria-label="Follow us on LinkedIn" href="https://www.linkedin.com/showcase/college-of-aces/"><i class="fa fa-linkedin"></i></a>
       </div>
         <div class="footer--site-name">
-{#          <a href="/">{{ drupal_config('system.site', 'name')| raw }}</a>#}
+{#          {% if drupal_config('system.site', 'name') %}#}
+{#            <a href="/">{{ drupal_config('system.site', 'name')| raw }}</a>#}
+{#          {% endif %}#}
         </div>
         <address>
           227 Mumford Hall MC 710,<br/>
