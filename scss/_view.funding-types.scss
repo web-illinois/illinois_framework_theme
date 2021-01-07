@@ -1,0 +1,42 @@
+$accordion-background-color:     #246E83;
+
+.view-funding-types {
+  margin-top: 10px;
+
+  &__title {
+    font-family: $montserrat;
+    font-size: $font-size--gamma;
+    font-weight: 300;
+    margin-bottom: 0px;
+    padding: 10px 0 3px 0;
+
+    a {
+      border-bottom: 1px solid $color-primary-univ-orange;
+
+      &:hover {
+        color: $color-secondary-aces-orange;
+      }
+    }
+  }
+
+  &__funding-type {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 0;
+  }
+
+  &__sponsor-label, &__target-group-label, &__closing-date-label {
+    // color: $color-ui-4;
+  }
+
+  &__page-title {
+    // font-size: 2rem;
+    // font-weight: 500;
+  }
+
+}
+
+.funding-list {
+  list-style-type: none;
+  padding-left: 0;
+}

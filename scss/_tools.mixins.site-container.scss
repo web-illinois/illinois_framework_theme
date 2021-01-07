@@ -1,0 +1,6 @@
+//restrict the width and margin for the site container
+@mixin site-container {
+  margin: 0 auto !important;
+  max-width: $base-site-width !important;
+  padding: 0 10px !important;
+}

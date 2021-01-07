@@ -1,0 +1,91 @@
+/* from article https://www.specbee.com/blogs/how-toggle-between-dark-and-light-mode-drupal-8-or-9-based-user-preference
+ * modified for use on development environments
+ */
+html[data-theme='dark'] {
+  filter: invert(100%);
+
+  .region-content {
+    background-color: white;
+  }
+  footer {
+    margin-top: 0;
+    padding-top: 100px;
+  }
+}
+html[data-theme='light'] {
+  filter: none;
+}
+
+.switch-container {
+  position: relative;
+  height: 0px;
+  padding: 0 calc(5% + 10px);
+  max-width: 1440px;
+  margin: 0 auto;
+  z-index: 99;
+  @media screen and (max-width: 767px) {
+    padding: 0 3%;
+  }
+}
+.switch-wrapper {
+  float: right;
+
+  @media screen and (max-width: 767px) {
+    padding-right: 10px;
+  }
+}
+
+.switch {
+  display: inline-block;
+  height: 18px;
+  position: relative;
+  width: 40px;
+  top: 10px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  background-color: white;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.4s;
+}
+
+.slider:before {
+  background-color: rgb(255, 196, 0);
+  bottom: 1px;
+  content: '';
+  height: 14px;
+  left: 2px;
+  position: absolute;
+  transition: 0.4s;
+  width: 14px;
+}
+
+input:checked + .slider {
+  background-color: rgb(36, 36, 36);
+}
+
+input:checked + .slider:before {
+  transform: translateX(19px);
+  content: url("night.svg");
+  background-color: rgb(59, 116, 223);
+}
+
+.slider.round {
+  border-radius: 34px;
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}

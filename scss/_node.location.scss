@@ -1,0 +1,155 @@
+.location {
+
+  &__left-column {
+
+  }
+  &__right-column {
+    @include breakpoint(mobile-down) {
+      padding: 0 15px !important;
+    }
+  }
+
+  &__wrapper {
+    background-color: $color-primary-univ-orange;
+    min-height: 150px;
+    width: 100%;
+
+    @include breakpoint(mobile-down) {
+      min-height: 150px;
+      height: auto;
+      padding: 0;
+    }
+  }
+  &__title {
+    color: white;
+    font-size: 48px;
+    font-weight: 500;
+    padding-top: 38px;
+    padding-left: 0;
+
+    @include breakpoint(phone) {
+      font-size: $font-size--beta;
+    }
+  }
+  &__subtitle {
+
+    color: $color-primary-univ-orange;
+    @include font-size($font-size--beta);
+    font-weight: 300;
+    padding: 20px 0 10px;
+  }
+  &__image {
+    @include border-radius(4px);
+    margin-top: -30px;
+    padding: 10px;
+    background-color: white;
+  }
+  &__tags {
+    padding-left: 10px;
+  }
+  &__date {
+    display: inline;
+
+    &--year {
+      float: left;
+      font-weight: 500;
+      @include font-size($font-size--zeta);
+    }
+    &--present {
+      float: left;
+      font-weight: 500;
+      @include font-size($font-size--zeta);
+    }
+  }
+  &__body {
+    padding-top: 20px;
+
+    h2 {
+      display: none;
+    }
+
+    p {
+      font-size: 16px;
+    }
+  }
+  &__faculty {
+
+    &__wrapper {
+      padding-bottom: 15px;
+
+    }
+    &__header {
+      @include font-size($font-size--gamma);
+      font-weight: 300;
+      padding: 15px 0 10px 0;
+    }
+    &__people {
+      padding: 5px 0;
+
+    }
+  }
+  &__institutions {
+    padding: 5px 0;
+
+    &__wrapper {
+      padding-bottom: 15px;
+
+    }
+    &__header {
+      @include font-size($font-size--gamma);
+      font-weight: 300;
+      padding: 15px 0 10px 0;
+    }
+  }
+  &__departments {
+    padding: 5px 0;
+
+    &__wrapper {
+      padding-bottom: 15px;
+
+    }
+    &__header {
+      @include font-size($font-size--gamma);
+      font-weight: 300;
+      padding: 15px 0 10px 0;
+    }
+  }
+  &__button {
+    &__wrapper {
+      padding-top: 40px;
+    }
+
+    &:before {
+      content:"\f053";
+      font-family: 'FontAwesome';
+      font-size: smaller;
+      font-weight: 100;
+      padding-right: 5px;
+    }
+  }
+  &__field-categories {
+
+      &--ul {
+        @include font-size(10px);
+        font-weight: normal;
+        padding-left: 0 !important;
+      }
+      &--li {
+        @include font-size(10px);
+        font-weight: 500;
+        padding: 4px 0 !important;
+        text-transform: uppercase;
+        list-style-type: none;
+
+        a {
+          background: none;
+          text-shadow: none;
+        }
+
+        span {
+          color: $color-primary-univ-orange;
+          padding-right: 8px;
+        }
+      }
+    }
+}

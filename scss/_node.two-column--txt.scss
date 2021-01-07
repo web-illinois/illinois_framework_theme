@@ -1,0 +1,117 @@
+.node--type-layer-two-column-text {
+  position: relative;
+
+  &.blueleft {
+
+    .layer-background__footer {
+      // margin-bottom: -100px;
+      // vertical-align: middle;
+      // border-bottom: 100px solid transparent;
+      // border-right: 1440px solid white;
+      // border-bottom-right-radius: 0px;
+      // height: 100px;
+      // width: 1440px;
+      // border-left: 700px solid blue;
+      // margin-left: 0;
+      // margin-top: 40px;
+    }
+  }
+
+  .layer-background__container--orangeright,
+  .layer-background__container--orangeleft,
+  .layer-background__container--blueright,
+  .layer-background__container--blueleft {
+    padding: 40px 0px;
+  }
+
+
+
+  .twocoltxt {
+
+    &__title {
+
+    }
+    &__subtitle {
+      margin-left: -2px;
+    }
+    &__content {
+
+      &--right {
+        padding-top: 40px;
+        margin-bottom: -40px;
+      }
+      &--left {
+        padding-top: 40px;
+        margin-bottom: -40px;
+      }
+
+    }
+    &__body {
+
+    }
+    &__orangeright {
+      border-bottom: 500px solid $color-primary-univ-orange;
+      border-left: 100px solid transparent;
+      border-right: 0px solid transparent;
+      height: 0;
+      position: absolute;
+      right: 0;
+    }
+    &__orangeleft {
+      border-top: 300px solid $color-primary-univ-orange;
+      border-left: 0px solid transparent;
+      border-right: 100px solid transparent;
+      height: 0;
+      position: absolute;
+      left: 0;
+    }
+    &__blueright {
+      border-bottom: 500px solid $color-secondary-aces-dk-blue;
+      border-left: 100px solid transparent;
+      border-right: 0px solid transparent;
+      height: 0;
+      position: absolute;
+      right: 0;
+    }
+    &__blueleft {
+      border-top: 300px solid $color-secondary-aces-dk-blue;
+      border-left: 0px solid transparent;
+      border-right: 100px solid transparent;
+      height: 0;
+      position: absolute;
+      left: 0;
+    }
+    &__button--label {
+      float: left;
+      @include breakpoint(tablet-down) {
+        float: none;
+      }
+
+      &__link {
+
+      }
+      &__text {
+
+        > a {
+          text-decoration: none;
+          -webkit-transition: color 0.1s linear, border-color 0.1s linear;
+          transition: color 0.1s linear, border-color 0.1s linear;
+
+          &:after {
+            content: '\f054';
+            color: $color-primary-univ-orange;
+            float: right;
+            font-family: 'FontAwesome';
+            font-size: smaller;
+            margin-left: 6px;
+            margin-top: 6px;
+            position: absolute;
+          }
+          &:hover {
+            border-bottom: 2px solid $color-primary-univ-blue !important;
+          }
+        }
+      }
+    }
+  }
+}

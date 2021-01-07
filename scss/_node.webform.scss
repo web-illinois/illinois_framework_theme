@@ -1,0 +1,93 @@
+.webform-client-form {
+  fieldset {
+    //border: none;
+  }
+
+  label {
+    text-transform: none;
+  }
+
+  input.form-checkbox, input.form-radio {
+    vertical-align: baseline;
+  }
+
+  input[type="checkbox"] + label, input[type="radio"] + label {
+    display: inline-block;
+    margin-right: 1rem;
+    margin-bottom: 0;
+    vertical-align: baseline;
+  }
+
+  input[type="file"], input[type="checkbox"], input[type="radio"], select {
+    margin: 0 0 3px 0;
+  }
+
+  form input[type="radio"], form input[type="checkbox"] {
+    margin-right: 3px;
+  }
+  .webform-component {
+    margin-left: 0;
+  }
+  .form-type-checkboxes,
+  .form-radios,
+  .webform-component-checkboxes {
+    .form-item {
+      margin: 0 0 3px 0;
+    }
+  }
+  .form-text,
+  .form-select,
+  .fieldset-description {
+    @include breakpoint(large-up) {
+      width: 33.3333333%;
+    }
+    @include breakpoint(medium) {
+      width: 50%;
+    }
+    @include breakpoint(small) {
+      width: 100%;
+    }
+  }
+  .form-textarea-wrapper,
+  .webform-component-fieldset {
+    @include breakpoint(large-up) {
+      width: 50%;
+    }
+    @include breakpoint(medium) {
+      width: 75%;
+    }
+    @include breakpoint(small) {
+      width: 100%;
+    }
+  }
+  .fieldset-wrapper {
+    .form-textarea-wrapper,
+    .fieldset-description {
+      width: 100%;
+    }
+  }
+}
+
+.webform-inline-container {
+	display: flex;
+
+	.webform-inline-item {
+		margin-right: 15px;
+	}
+}
+
+.webform-fieldset-special-event {
+  legend {
+    width: 100%;
+    background-color: $color-primary-univ-blue;
+    color: white;
+    text-align: center;
+  }
+
+  border: none;
+  margin-top:20px;
+}
+
+.webform-label-no-margin {
+  margin:0;
+}

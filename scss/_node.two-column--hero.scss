@@ -1,0 +1,212 @@
+.node--type-layer-two-column-hero {
+  overflow: hidden;
+
+  .row {
+    @include breakpoint(tablet-down) {
+      padding: 0;
+    }
+  }
+
+  .twocolhero {
+
+    &__container {
+      overflow: hidden;
+
+      @include breakpoint(tablet-down) {
+        padding: 0 calc(5% + 10px);
+      }
+      @media screen and (max-width: 767px) {
+        padding: 0 calc(3% + 10px);
+      }
+    }
+    &__content {
+
+      &__wrapper {
+        height: 100%;
+        position: absolute;
+        top: 0;
+        overflow: hidden;
+        z-index: 0;
+
+        @include breakpoint(tablet-down) {
+          background-color: $color-primary-univ-blue !important;
+          padding-bottom: 40px !important;
+          position: relative !important;
+        }
+      }
+
+      &--left {
+        height: 100%;
+
+        &:after {
+          content: " ";
+          background-color: rgba($color-primary-univ-blue, 0.8);
+          width: calc(200%);
+          height: 100%;
+          position: absolute;
+          right: 0px;
+          top: 0;
+          z-index: 1;
+          transform: skew(-10deg, 0deg);
+          box-shadow: 0px 0px 20px #000;
+          -webkit-backface-visibility: hidden;
+          display: block;
+
+          @include breakpoint(tablet-down) {
+            display: none !important;
+          }
+        }
+      }
+      &--right {
+        height: 100%;
+        overflow: hidden;
+        position: absolute;
+        right: 10px;
+
+
+
+        &:after {
+          content: " ";
+          background-color: rgba(19, 41, 75, 0.8);
+          width: 150px;
+          height: 100%;
+          position: absolute;
+          right: -60px;
+          top: 0;
+          transform: skew(-10deg, 0deg);
+          box-shadow: 0px 0px 20px #000;
+          -webkit-backface-visibility: hidden;
+          display: block;
+
+          @media only screen and (max-width: 1300px) {
+            display: none !important;
+          }
+        }
+      }
+    }
+    &__body {
+      margin-bottom: 15px;
+      z-index: 2;
+      @media only screen and (min-width: 1025px) and (max-width: 1200px) {
+        padding: 0;
+      }
+
+
+      p {
+         color: white;
+         font-size: $font-size--epsilon;
+         font-weight: 500;
+
+        @media only screen and (min-width: 1201px) and (max-width: 1300px) {
+          //@include font-size(14px);
+        }
+        @media only screen and (min-width: 1025px) and (max-width: 1200px) {
+          @include font-size($font-size--zeta);
+          margin-bottom: 10px;
+          padding: 10px 0px 10px 5px;
+        }
+        @media only screen and (max-width: 640px) {
+          @include font-size($font-size--zeta);
+        }
+      }
+    }
+    &__image {
+    }
+    &__title {
+      z-index: 2;
+      padding: 40px 10px 20px;
+
+      h1 {
+        color: white;
+        font-weight: 600;
+        text-shadow: 0px 1px 1px $color-primary-univ-orange;
+
+        @media only screen and (min-width: 1201px) and (max-width: 1300px) {
+          @include font-size(28px);
+        }
+        @media only screen and (min-width: 1025px) and (max-width: 1200px) {
+          @include font-size(24px);
+        }
+        @media only screen and (max-width: 767px) {
+          
+        }
+        @media only screen and (max-width: 640px) {
+          @include font-size(24px);
+        }
+        // @include breakpoint(mobile-down) {
+        //   @include font-size(24px);
+        //   padding: 25px 0px 10px 5px !important;
+        // }
+      }
+    }
+    &__buttons {
+      @media only screen and (min-width: 1025px) and (max-width: 1200px) {
+        padding: 0px 0px 0px 5px;
+      }
+    }
+    &__button {
+      text-transform: uppercase;
+      z-index: 2;
+      padding: 15px 20px !important;
+      font-weight: 600 !important;
+
+      @media only screen and (min-width: 1201px) and (max-width: 1300px) {
+        @include font-size($font-size--omega);
+      }
+      @media only screen and (min-width: 1025px) and (max-width: 1200px) {
+        @include font-size(11px);
+      }
+      @media only screen and (max-width: 640px) {
+        width: 100% !important;
+        margin-bottom: 15px !important;
+      }
+
+      &--ghost {
+        background-color: transparent !important;
+        border: 3px solid white !important;
+        box-shadow: unset !important;
+        color: white !important;
+        margin-right: 20px;
+        padding: 15px 20px !important;
+        font-weight: 600 !important;
+
+        @media only screen and (min-width: 1201px) and (max-width: 1300px) {
+          @include font-size($font-size--omega);
+          border: 2px solid white !important;
+        }
+        @media only screen and (min-width: 1025px) and (max-width: 1200px) {
+          @include font-size(11px);
+          border: 2px solid white !important;
+        }
+
+        &:hover,
+        &:focus {
+          border: 3px solid $color-ui-2 !important;
+          color: $color-ui-2 !important;
+
+          @media only screen and (min-width: 1025px) and (max-width: 1300px) {
+            border: 2px solid $color-ui-2 !important;
+          }
+        }
+        &:active {
+          border: 3px solid $color-ui-2 !important;
+          color: $color-ui-2 !important;
+
+           @media only screen and (min-width: 1025px) and (max-width: 1300px) {
+            border: 2px solid $color-ui-2 !important;
+          }
+        }
+        > a {
+          color: $color-ui-2 !important;
+        }
+      }
+    }
+  }
+
+  //node overrides
+  &.node-7237 {
+    .twocolhero__content__wrapper {
+      display: none;
+    }
+  }
+}

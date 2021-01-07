@@ -1,0 +1,44 @@
+// Font Family
+//
+// Various Fonts used in the WMS template.
+//
+// Markup:
+// <div class="u-font-size--xxxl {{modifier_class}}">Font Family</div>
+//
+// .u-font-family--roboto - Roboto Font Family
+// .u-font-family--roboto-condensed - Roboto Condensed Font Family
+// .u-font-family--roboto-slab - Roboto Slab Font Family
+// .u-font-family--roboto-mono - Roboto Mono Font Family
+// .u-font-family--akzidenz - Akzidenz Grotesk Font Family
+// .u-font-family--proxima-nova - Proxima Nova Font Family
+// .u-font-family--proxima-nova-alt-condensed - Proxima Nova Alt Condensed Font Family
+// .u-font-family--orator - Orator Condensed Font Family
+//
+// Styleguide 8.6
+
+.u-font-family--akzidenz {
+  font-family: $montserrat;
+}
+.u-font-family--proxima-nova {
+  font-family: $montserrat;
+
+  &-alt-condensed {
+    font-family: $montserrat;
+  }
+}
+.u-font-family--orator {
+  font-family: $montserrat;
+}
+.u-font-family--roboto {
+  font-family: $montserrat;
+
+  &-condensed {
+    font-family: $montserrat;
+  }
+  &-slab {
+    font-family: $montserrat;
+  }
+  &-mono {
+    font-family: $montserrat;
+  }
+}

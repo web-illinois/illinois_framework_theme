@@ -1,0 +1,98 @@
+.l-region {
+
+  &-header {
+    background-color: #FFFFFF;
+
+    @media only screen and (max-width: 979px) {
+
+    }
+
+    #block-block-1 {
+      background-color: #FFFFFF;
+
+      @media only screen and (max-width: 979px) {
+
+      }
+    }
+  }
+  &-primary-menu {
+    //background-color: unset; horizontal menu only
+    background-color: $cloud-dark;
+
+    @media only screen and (max-width: 979px) {
+
+    }
+  }
+  &-highlighted {
+
+  }
+  &-title {
+    .page-title {
+      display: none;
+    }
+  }
+  &-tabs {
+    @include site-container;
+
+    nav.tabs {
+      ul {
+        border-bottom: 1px solid #bbb;
+        border-collapse: collapse;
+        height: auto;
+        line-height: normal;
+        list-style: none;
+        margin: 5px;
+        padding: 0 0 0 1em;
+        white-space: nowrap;
+
+        li {
+          margin: 0;
+          padding: 0;
+          display: inline;
+
+          a {
+            background-color: #ddd;
+            border-color: #bbb;
+            border-style: solid solid none solid;
+            border-width: 1px;
+            color: #444;
+            height: auto;
+            margin-right: 0.5em;
+            padding: 0 1em;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+  &-content {
+    .node-basic-page-w-pictures,
+    .node-page {
+      padding: 10px 0;
+    }
+
+  }
+}
+
+.panel-panel {
+
+  .node-basic-page-w-pictures,
+  .node-page {
+    @include site-container;
+  }
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+   /* IE10/11-specific styles go here */
+  .l-region {
+
+    &-primary-menu {
+
+      @media only screen and (min-width: 979px) {
+        //height: 70px;
+      }
+      @media only screen and (min-width: 1024px) {
+        //height: 64px;
+      }
+    }
+  }
+}

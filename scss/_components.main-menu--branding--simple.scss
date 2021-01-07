@@ -8,7 +8,7 @@
 
 /* header */
 @media all {
-  body.theme_dagobah {
+  body {
     header {
       position: relative;
       width: 100%;
@@ -113,7 +113,6 @@
         color: var(--il-blue);
         display: flex;
         flex-direction: row;
-        align-items: center;
         font-family: var(--il-source-sans);
 
         a:focus {
@@ -293,7 +292,7 @@
 
 /* mainnav toggler button */
 @media all {
-  body.theme_dagobah {
+  body {
     #block-search {
       /*display: none;*/
     }
@@ -347,7 +346,7 @@
 @media all {
   /* main nav bar */
 
-  body.theme_dagobah header .navbar {
+  body header .navbar {
     background-color: var(--il-cloud-1);
 
     /*//display: flex;*/
@@ -659,15 +658,12 @@
 
   /* mega menu panel */
 
-  /*body.theme_dagobah header .navbar .dropdown-menu.tile-list {*/
-  /*	width: 100%;*/
 
-  /*}*/
 }
 
 /* childnav */
 @media all {
-  body.theme_dagobah {
+  body {
     &.home.landing #childnav {
       display: none;
     }
@@ -703,7 +699,7 @@
     position: relative;
   }
 
-  body.theme_dagobah #childnav li {
+  body #childnav li {
     display: flex;
     flex-wrap: nowrap;
 
@@ -723,7 +719,7 @@
 }
 
 @media screen and (max-width: 1200px) {
-  body.theme_dagobah header .navbar ul {
+  body header .navbar ul {
     font-size: 0.8rem;
   }
 
@@ -731,7 +727,7 @@
     padding: 0.8rem 0.5rem;
   }
 
-  body.theme_dagobah header .navbar {
+  body header .navbar {
     section .nav-item > a.nav-link {
       font-size: 0.8rem;
     }
@@ -748,7 +744,7 @@
 }
 
 @media screen and (max-width: 979px) {
-  body.theme_dagobah {
+  body {
     #mainnav-toggler-container {
       width: auto;
 
@@ -915,15 +911,13 @@
     }
   }
 
-  /*body.theme_dagobah header .campus {*/
-  /*	display: none;*/
-  /*}*/
+
 
   /* search */
 }
 
 @media screen and (max-width: 575px) {
-  body.theme_dagobah {
+  body {
     header {
       .site .parent_name {
         display: none;
@@ -977,9 +971,7 @@
     }
   }
 
-  /*body.theme_dagobah header .navbar .nav-item > a.nav-link {*/
-  /*  border-top: 1px solid var(--il-cloud-1);*/
-  /*}*/
+
 }
 /* tiles */
 @media all {

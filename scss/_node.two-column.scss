@@ -1,0 +1,23 @@
+.node-two-column {
+
+  &__title {
+    @include breakpoint(phone) {
+      @include font-size(40px);
+    }
+    @include breakpoint(tablet) {
+      @include font-size(50px);
+    }
+    @include font-size(60px);
+  }
+  &__sub-title {
+    opacity: 0.6;
+
+    @include breakpoint(phone) {
+      @include font-size(24px);
+    }
+    @include breakpoint(tablet) {
+      @include font-size(28px);
+    }
+    @include font-size(32px);
+  }
+}

@@ -14,26 +14,23 @@
 #}
 {%
   set classes = [
-    'region',
-    'region-' ~ region|clean_class,
-    'l-region',
-    'l-region-' ~ region|clean_class,
-  ]
+  'region',
+  'region-' ~ region|clean_class,
+  'l-region',
+  'l-region-' ~ region|clean_class,
+]
 %}
-
-
 {% if content %}
 {% if if_megamenu.if_menu_select %}
   {% set menu_type = if_megamenu.if_menu_select %}
 {% else %}
   {% set menu_type = 'simple' %}
 {% endif %}
-</div-->
-<header{{ attributes.addClass(classes) }} role="banner">
-  <il-header>
-    <il-unit-wordmark>
-      {% if if_secondary_site_title %}
-      <div class="site_identification two-titles" name="site">
+  <header{{ attributes.addClass(classes) }} role="banner">
+    <il-header>
+      <il-unit-wordmark>
+        {% if if_secondary_site_title %}
+        <div class="site_identification two-titles" name="site">
           {% if if_secondary_site_link %}
             <a class="site_identification--secondary--site-title" href="{{ if_secondary_site_link }}">{{ if_secondary_site_title }}</a>
           {% else %}
@@ -41,55 +38,53 @@
           {% endif %}
           <div class="site_identification--primary__wrapper">
             <a class="site_identification--primary--site-title" href="/">{{ drupal_config('system.site', 'name') | raw }}</a>
-      {% else %}
-        <div class="site_identification one-title" name="site">
-          <a class="site_identification--primary-site-title flex-fill" href="/">{{ drupal_config('system.site', 'name') | raw }}</a>
-      {% endif %}
-        <div class="d-flex flex-fill mainnav-toggler">
-          <div id="header-search-container">
-            <form class="form-inline" method="get" role="search" action="/search/node" id="search-form">
-              <div class="input-group">
-                <input type="text" class="form-control" name="query" placeholder="Search" aria-label="search form" aria-describedby="search-form" />
-                <div class="input-group-append">
-                  <button type="submit" value="Submit" form="search-form" class="input-group-text">
-                    <i class="fa fa-search"></i><span class="sr-only">Search</span>
+            {% else %}
+            <div class="site_identification one-title" name="site">
+              <a class="site_identification--primary-site-title flex-fill" href="/">{{ drupal_config('system.site', 'name') | raw }}</a>
+              {% endif %}
+              <div class="d-flex flex-fill mainnav-toggler">
+                <div id="header-search-container">
+                  <form class="form-inline" method="get" role="search" action="/search/node" id="search-form">
+                    <div class="input-group">
+                      <input type="text" class="form-control" name="query" placeholder="Search" aria-label="search form" aria-describedby="search-form" />
+                      <div class="input-group-append">
+                        <button type="submit" value="Submit" form="search-form" class="input-group-text">
+                          <i class="fa fa-search"></i><span class="sr-only">Search</span>
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div id="mainnav-toggler-container">
+
+                  <button id="navbar-toggler" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainnav" aria-controls="mainnav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="icon"></span> <span class="label sr-only">Menu</span>
                   </button>
+{#                  <div class="l-header__buttons right">#}
+{#                    <a class="button u-font-size--omega u-margin--right-5 u-min-width--80" href="/apply">Apply to ACES</a>#}
+{#                    <a class="button button--secondary u-font-size--omega u-min-width--80" href="/giving/give-now">Make a Gift</a>#}
+{#                  </div>#}
                 </div>
               </div>
-            </form>
-          </div>
-          <div id="mainnav-toggler-container">
-
-              <button id="navbar-toggler" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainnav" aria-controls="mainnav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="icon"></span> <span class="label sr-only">Menu</span>
-              </button>
-              <div class="l-header__buttons right">
-                <a class="button u-font-size--omega u-margin--right-5 u-min-width--80" href="/apply">Apply to ACES</a>
-                <a class="button button--secondary u-font-size--omega u-min-width--80" href="/giving/give-now">Make a Gift</a>
-              </div>
-          </div>
-        </div>
-      </div>
-            {% if if_secondary_site_title %}
             </div>
-            {% endif %}
-        <div role="status">
-          <!-- OneTrust Cookies Consent Notice (Production CDN, illinois.edu, en-GB) start -->
-          <script src="https://cdn.cookielaw.org/consent/fd31c61a-15d6-4769-9802-5eafcc1098ba.js" type="text/javascript" charset="UTF-8"></script>
-          <script type="text/javascript">
-            function OptanonWrapper() { }
-          </script>
-          <!-- OneTrust Cookies Consent Notice (Production CDN, illinois.edu, en-GB) end -->
+            {% if if_secondary_site_title %}
+          </div>
+          {% endif %}
+{#          <div role="status">#}
+{#            <!-- OneTrust Cookies Consent Notice (Production CDN, illinois.edu, en-GB) start -->#}
+{#            <script src="https://cdn.cookielaw.org/consent/fd31c61a-15d6-4769-9802-5eafcc1098ba.js" type="text/javascript" charset="UTF-8"></script>#}
+{#            <script type="text/javascript">#}
+{#              function OptanonWrapper() { }#}
+{#            </script>#}
+{#            <!-- OneTrust Cookies Consent Notice (Production CDN, illinois.edu, en-GB) end -->#}
+{#          </div>#}
+      </il-unit-wordmark>
+      <div class="main-navigation" slot="menu">
+        <div class="main-navigation">
+          {#       <il-menu-button></il-menu-button>#}
+          {{ drupal_entity('block', 'sitetheme_main_menu', check_access=false) }}
         </div>
-    </il-unit-wordmark>
-    <div class="main-navigation" slot="menu">
-      <div class="main-navigation">
-{#       <il-menu-button></il-menu-button>#}
-          {{ drupal_entity('block', 'illinois_framework_theme_main_menu', check_access=false) }}
       </div>
-    </div>
-  </il-header>
-
-</header>
-  {#  </header>#}
+    </il-header>
+  </header>
 {% endif %}

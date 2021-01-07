@@ -511,7 +511,7 @@ button.compact .icon {
     width: 100%;
 }
 .campus > div {
-    padding: 4px calc(5% + 10px);
+    padding: 4px 10px;
     font: 700 10px/1em var(--il-montserrat);
     letter-spacing: 1px;
     text-align: left;
@@ -541,11 +541,10 @@ button.compact .icon {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 0 5%;
 }
 @media screen and (max-width: 767px) {
   .site > div {
-    padding: 0 3%;
+
   }
 }
 .site .identity {
