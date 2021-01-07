@@ -11,13 +11,12 @@ stylesheets-remove:
 # Defines libraries group in which we can add css/js.
 libraries:
   - illinois_framework_theme/global-styling
+  - illinois_framework_theme/web-components
 
 # Regions
 regions:
   header: Header
-  nav_branding: 'Navigation branding region'
   nav_main: 'Main navigation region'
-  nav_additional: 'Additional navigation region (eg search form, social icons, etc)'
   breadcrumb: Breadcrumbs
   highlighted: Highlighted
   help: Help Information

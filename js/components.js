@@ -507,7 +507,7 @@ button.compact .icon {
 .campus > div, .site > div {
     box-sizing: border-box;
     margin: 0 auto;
-    max-width: 1440px;
+    max-width: 1200px;
     width: 100%;
 }
 .campus > div {
