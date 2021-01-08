@@ -1,24 +1,25 @@
+uuid: 63089be4-778d-43ac-91a8-9227967f6928
 langcode: en
 status: true
 dependencies:
-  config:
-    - system.menu.footer
+  content:
+    - 'block_content:basic:39143637-0f4b-421f-a454-5904131d2406'
   module:
-    - system
+    - block_content
   theme:
     - illinois_framework_theme
-id: illinois_framework_theme_footer
+id: footer
 theme: illinois_framework_theme
 region: footer
 weight: 0
 provider: null
-plugin: 'system_menu_block:footer'
+plugin: 'block_content:39143637-0f4b-421f-a454-5904131d2406'
 settings:
-  id: 'system_menu_block:footer'
-  label: 'Footer menu'
-  provider: system
-  label_display: '0'
-  level: 1
-  depth: 0
-  expand_all_items: false
+  id: 'block_content:39143637-0f4b-421f-a454-5904131d2406'
+  label: Footer
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
 visibility: {  }
