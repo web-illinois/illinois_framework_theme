@@ -13,10 +13,10 @@
 
   body {
     &.mega {
-      div#block-mainnavigation {
+      div#block-illinois-framework-theme-main-menu {
         display: none !important;
       }
-      //div#block-mainnavigation {
+      //div#block-illinois-framework-theme-main-menu {
       //  button.btn-navbar {
       //    display: none !important;
       //  }
@@ -55,7 +55,7 @@
   div.region-primary-menu {
     background-color: white;
   }
-  #block-mainnavigation {
+  #block-illinois-framework-theme-main-menu {
     max-width: var(--il-mega-menu-max-width);
     margin: 0 auto;
     padding: 0 calc(5% + 10px);
@@ -2133,7 +2133,7 @@
 }
 
 // simple menu overrides
-#block-mainnavigation {
+#block-illinois-framework-theme-main-menu {
   .tb-megamenu {
     ul.nav {
       li.tb-megamenu-item.level-1.simple.open {
@@ -2149,7 +2149,7 @@
     #mainnav-toggler-container {
       display: block;
     }
-    #block-mainnavigation {
+    #block-illinois-framework-theme-main-menu {
       max-width: var(--il-mega-menu-max-width);
       margin: 0 auto;
       padding: 0 calc(5% + 10px);

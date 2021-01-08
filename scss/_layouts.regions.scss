@@ -32,7 +32,9 @@
     }
   }
   &-tabs {
-    @include site-container;
+    margin: 0 auto !important;
+    max-width: $base-site-width !important;
+    padding: 0 10px !important;
 
     nav.tabs {
       ul {
@@ -78,7 +80,9 @@
 
   .node-basic-page-w-pictures,
   .node-page {
-    @include site-container;
+    margin: 0 auto !important;
+    max-width: $base-site-width !important;
+    padding: 0 10px !important;
   }
 }
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {

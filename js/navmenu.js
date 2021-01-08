@@ -35,14 +35,14 @@ jQuery(function ($) {
   });
 
   // var handleKeyboard = function(mm_timeout) {
-    $("#block-sitetheme-main-menu").on('keydown', function(event) {
+    $("#block-illinois-framework-theme-main-menu").on('keydown', function(event) {
 
       // Hide the menu quickly without animating. This is triggered when
       // pressing the ESC key.
       var hideMenuFast = function() {
-        $('#block-sitetheme-main-menu').find('.dropdown-toggle').attr('aria-expanded', 'false');
-        $('#block-sitetheme-main-menu').find('.nav-item').removeClass('show');
-        $('#block-sitetheme-main-menu').find('.dropdown-menu').removeClass('show');
+        $('#block-illinois-framework-theme-main-menu').find('.dropdown-toggle').attr('aria-expanded', 'false');
+        $('#block-illinois-framework-theme-main-menu').find('.nav-item').removeClass('show');
+        $('#block-illinois-framework-theme-main-menu').find('.dropdown-menu').removeClass('show');
       }
       // ESC
       if (event.keyCode == 27) {
@@ -52,9 +52,9 @@ jQuery(function ($) {
 
       // Right arrow
       if (event.keyCode == 39) {
-        var $openItem = $('#block-sitetheme-main-menu').find('li.menu-item--level-1.show');
+        var $openItem = $('#block-illinois-framework-theme-main-menu').find('li.menu-item--level-1.show');
         if ($openItem.length === 0) {
-          $openItem = $('#block-sitetheme-main-menu').find('a:focus, span:focus').closest('.menu-item--level-1');
+          $openItem = $('#block-illinois-framework-theme-main-menu').find('a:focus, span:focus').closest('.menu-item--level-1');
         }
         var $nextItem = $openItem.next('li.menu-item--level-1');
         hideMenuFast($openItem, 100);
@@ -66,9 +66,9 @@ jQuery(function ($) {
 
       // Left arrow
       if (event.keyCode == 37) {
-        var $openItem = $('#block-sitetheme-main-menu').find('li.menu-item--level-1.show');
+        var $openItem = $('#block-illinois-framework-theme-main-menu').find('li.menu-item--level-1.show');
         if ($openItem.length === 0) {
-          $openItem = $('#block-sitetheme-main-menu').find('a:focus, span:focus').closest('.menu-item--level-1');
+          $openItem = $('#block-illinois-framework-theme-main-menu').find('a:focus, span:focus').closest('.menu-item--level-1');
         }
         var $nextItem = $openItem.prev('li.menu-item--level-1');
         hideMenuFast($openItem, 100);
@@ -88,7 +88,7 @@ jQuery(function ($) {
   // });
 
   // add active link class on simple menu
-  $("#block-sitetheme-main-menu li.active section li a.nav-link").each(function(){
+  $("#block-illinois-framework-theme-main-menu li.active section li a.nav-link").each(function(){
     var pathname = window.location.pathname;
     var hash = window.location.hash;
     if($(this).attr('href') == pathname+hash) {

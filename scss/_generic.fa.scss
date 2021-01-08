@@ -11,29 +11,11 @@
 // fa-file-powerpoint-o - PowerPoint File
 //
 // Styleguide 2.1
+
+// TODO: Update external links and icons using javascript and adding
+//       a class class like .link--external or .link--pdf to the element
 $site-url: 'aces.illinois.edu';
 
-.region-primary-menu,
-#block-side-nav {
-  a[href*="//"]:not([href*="#{$site-url}"]):not( [href^='#'] ):not( [href^='/'] ) {
-
-    &:after {
-      //content: '\f176';
-      content: '\f08e';
-      color: inherit;
-      display: inline-flex;
-      font-family: 'FontAwesome';
-      font-size: smaller;
-      padding-left: 4px;
-      text-decoration: underline;
-      position: relative;
-      //transform: rotate(40deg);
-    }
-    &:after {
-      text-decoration: none;  //IE 8=11 Hack
-    }
-  }
-}
 #block-sitetheme-main-menu {
   a[href*="//"]:not([href*="#{$site-url}"]):not( [href^='#'] ):not( [href^='/'] ) {
 
