@@ -110,6 +110,7 @@
       //}
 
       .site_identification {
+        align-items: center;
         color: var(--il-blue);
         display: flex;
         flex-direction: row;
@@ -195,7 +196,7 @@
       position: absolute;
       min-height: 30px;
       width: 40px;
-      right: 245px;
+      right: 10px;
 
       button {
         all: revert;

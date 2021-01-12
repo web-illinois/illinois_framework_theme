@@ -1,102 +1,22 @@
 .l-region {
 
-  &-header {
+  &--header {
     background-color: #FFFFFF;
-
-    @media only screen and (max-width: 979px) {
-
-    }
-
-    #block-block-1 {
-      background-color: #FFFFFF;
-
-      @media only screen and (max-width: 979px) {
-
-      }
-    }
   }
-  &-primary-menu {
-    //background-color: unset; horizontal menu only
-    background-color: $cloud-dark;
 
-    @media only screen and (max-width: 979px) {
-
-    }
+  &--highlighted {
+    width: var(--il-mega-menu-max-width);
+    margin: auto;
   }
-  &-highlighted {
-
+  &--tabs {
+    width: var(--il-mega-menu-max-width);
+    margin: auto;
   }
-  &-title {
-    .page-title {
-      display: none;
-    }
+  &--content {
+    width: var(--il-mega-menu-max-width);
+    margin: auto;
   }
-  &-tabs {
-    margin: 0 auto !important;
-    max-width: $base-site-width !important;
-    padding: 0 10px !important;
-
-    nav.tabs {
-      ul {
-        border-bottom: 1px solid #bbb;
-        border-collapse: collapse;
-        height: auto;
-        line-height: normal;
-        list-style: none;
-        margin: 5px;
-        padding: 0 0 0 1em;
-        white-space: nowrap;
-
-        li {
-          margin: 0;
-          padding: 0;
-          display: inline;
-
-          a {
-            background-color: #ddd;
-            border-color: #bbb;
-            border-style: solid solid none solid;
-            border-width: 1px;
-            color: #444;
-            height: auto;
-            margin-right: 0.5em;
-            padding: 0 1em;
-            text-decoration: none;
-          }
-        }
-      }
-    }
-  }
-  &-content {
-    .node-basic-page-w-pictures,
-    .node-page {
-      padding: 10px 0;
-    }
-
-  }
-}
-
-.panel-panel {
-
-  .node-basic-page-w-pictures,
-  .node-page {
-    margin: 0 auto !important;
-    max-width: $base-site-width !important;
-    padding: 0 10px !important;
-  }
-}
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-   /* IE10/11-specific styles go here */
-  .l-region {
-
-    &-primary-menu {
-
-      @media only screen and (min-width: 979px) {
-        //height: 70px;
-      }
-      @media only screen and (min-width: 1024px) {
-        //height: 64px;
-      }
-    }
+  &--footer {
+    padding: 2rem 0;
   }
 }

@@ -1,7 +1,5 @@
 global-styling:
   css:
-    component:
-      //cdn.brand.illinois.edu/web-toolkit/v0.1.0/toolkit.css: { type: external }
     theme:
       fonts/font-awesome-4.7.0/css/font-awesome.css: {}
       css/web-components/fonts.css: {}
@@ -19,11 +17,3 @@ global-styling:
         async: true
     js/navmenu.js: {}
     js/components.js: {}
-#web-components:
-#  js:
-#    js/components.js: {}
-#  css:
-#    theme:
-#      css/web-components/fonts.css: {}
-#      css/web-components/colors.css: {}
-#      css/web-components/components.css: {}

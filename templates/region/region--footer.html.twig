@@ -17,10 +17,11 @@
     'region',
     'region-' ~ region|clean_class,
     'l-region',
-    'l-region-' ~ region|clean_class,
+    'l-region--' ~ region|clean_class,
   ]
 %}
 {% if content %}
+
   <footer{{ attributes.addClass(classes) }} role="contentinfo">
 {#    {{ content }}#}
     <il-footer>
@@ -31,18 +32,17 @@
         <a aria-label="Subscribe to our YouTube Channel" href="https://www.youtube.com/user/ACESAcademicPrograms"><i class="fa fa-youtube-play"></i></a>
         <a aria-label="Follow us on LinkedIn" href="https://www.linkedin.com/showcase/college-of-aces/"><i class="fa fa-linkedin"></i></a>
       </div>
-        <div class="footer--site-name">
-{#          {% if drupal_config('system.site', 'name') %}#}
-{#            <a href="/">{{ drupal_config('system.site', 'name')| raw }}</a>#}
-{#          {% endif %}#}
-        </div>
-        <address>
-          227 Mumford Hall MC 710,<br/>
-          1301 W Gregory Dr.<br/>
-          Urbana, IL 61801<br/>
-          <dl class="footer--email">email: <a href="mailto:aces@illinois.edu">aces@illinois.edu</a></dl>
-        </address>
-
+      <div class="footer--site-name">
+        {% if drupal_config('system.site', 'name') %}
+          <a href="/">{{ drupal_config('system.site', 'name')| raw }}</a>
+        {% endif %}
+      </div>
+      <address>
+        227 Mumford Hall MC 710,<br/>
+        1301 W Gregory Dr.<br/>
+        Urbana, IL 61801<br/>
+        <dl class="footer--email">email: <a href="mailto:aces@illinois.edu">aces@illinois.edu</a></dl>
+      </address>
       <div slot="links">
         <div>
           <h3>College Resources</h3>
@@ -97,22 +97,16 @@
     <il-back-to-top></il-back-to-top>
 
     <div class="footer--subfooter">
-      <div class="large-12 columns u-padding--left-right-0">
-        <div class="footer--subfooter--cookie-pref large-3 columns u-padding--left-0">
-          <button class="optanon-aces optanon-show-settings">Cookie Settings</button>
-  {#        <div class="large-12 small-12 columns optanon-aces"><a class="optanon-show-settings">Cookie Settings</a>#}
-        </div>
-        <div class="footer--subfooter--links large-9 columns u-padding--left-0">
-          <ul class="footer--subfooter--links__list u-padding--left-0">
+      <div class="col-lg-12">
+        <div class="footer--subfooter--links col-lg-12">
+          <ul class="footer--subfooter--links__list">
+            <button class="optanon-show-settings optanon-override">Cookie Settings</button>
             <li class="footer--subfooter--links__list--item"><a href="https://illinois.edu/resources/website/copyright.html">Copyright</a></li>
             <li class="footer--subfooter--links__list--item"><a href="https://www.vpaa.uillinois.edu/resources/web_privacy">Privacy Policy</a></li>
-            <li class="footer--subfooter--links__list--item"><a href="https://aces.illinois.edu/college-bylaws">Departmental Bylaws</a></li>
             <li class="footer--subfooter--links__list--item"><a href="/user">Login</a></li>
-            <li class="footer--subfooter--links__list--item"><a href="https://inside.aces.illinois.edu/">Inside ACES (Fac/Staff)</a></li>
           </ul>
         </div>
       </div>
     </div>
   </footer>
-
 {% endif %}

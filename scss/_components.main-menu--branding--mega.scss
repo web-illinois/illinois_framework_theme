@@ -6,7 +6,7 @@
  * NOTE: megamenu transition styles are in a <style> tag in each page.
  */
 :root {
-  --il-mega-menu-max-width: 1180px;
+  --il-mega-menu-max-width: 1140px;
 }
 /* display menus according to selected menu type */
 @media all {
@@ -43,7 +43,8 @@
         display: none;
       }
       div.mainnav-toggler {
-        display: block !important;
+        //display: block !important;
+        align-items: center;
       }
     }
   }
@@ -58,10 +59,9 @@
   #block-illinois-framework-theme-main-menu {
     max-width: var(--il-mega-menu-max-width);
     margin: 0 auto;
-    padding: 0 calc(5% + 10px);
 
     @media screen and (max-width: 767px) {
-      padding: 0 3%;
+
     }
 
     .tb-megamenu {
