@@ -57,7 +57,7 @@
 .wms-custom-search {
   padding: 0;
   margin-top: 10px; //1px is all that is needed to move block down below secondary navigation
-  font-family: $font-primary;
+  font-family: var(--il-sans-source);
 
   .gsc-control-cse,
   .gsc-thumbnail-inside,
@@ -69,14 +69,14 @@
   }
   .gsc-table-result {
     border: none !important;
-    font-family: $montserrat !important;
+    font-family: var(--il-sans-source) !important;
     width: 80% !important;
   }
 }
 #cse-search-form {
   #___gcse_0 {
     .gsc-control-cse {
-      font-family: $montserrat;
+      font-family: var(--il-sans-source) !important;
       .gsc-control-wrapper-cse {
 
         form.gsc-search-box {
@@ -118,33 +118,33 @@
   border: none;
 }
 .gs-webResult.gs-result a.gs-title:visited, .gs-webResult.gs-result a.gs-title:visited b, .gs-imageResult a.gs-title:visited, .gs-imageResult a.gs-title:visited b {
-  color: $color-ui-5 !important;
+  color: var(--il-cloud-3) !important;
 }
 .gs-webResult.gs-result a.gs-title:visited:hover, .gs-webResult.gs-result a.gs-title:visited:hover b, .gs-imageResult a.gs-title:visited:hover, .gs-imageResult a.gs-title:visited:hover b {
-  color: $color-primary-univ-orange !important;
+  color: var(--il-orange) !important;
 }
 .gs-result .gs-title, .gs-result .gs-title * {
-  color: $color-ui-text !important;
+  color: #000 !important;
   text-decoration: none !important;
   height: 1.4em !important;
 
   a {
-    border-bottom: 1px solid $color-primary-univ-orange !important;
+    border-bottom: 1px solid var(--il-orange) !important;
 
     &:hover {
-      color: $color-primary-univ-orange !important;
+      color: var(--il-orange) !important;
     }
   }
 }
 .gs-webResult div.gs-visibleUrl, .gs-imageResult div.gs-visibleUrl {
-  color: $color-tertiary-blue !important;
+  color: var(--il-industrial-blue-1) !important;
 }
 .gcsc-branding {
   display: none !important;
 }
 .gsc-results .gsc-cursor-box .gsc-cursor-current-page {
-  color: $color-primary-univ-orange !important;
+  color: var(--il-orange) !important;
 }
 .gsc-results .gsc-cursor-box .gsc-cursor-page {
-  color: $color-primary-univ-orange !important;
+  color: var(--il-orange) !important;
 }

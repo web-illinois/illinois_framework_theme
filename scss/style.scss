@@ -9,67 +9,43 @@
 // Include parent theme with all things Bootstrap for full override.
 // Relative path to this styles.scss file.
 // Example: @import "../../../../../themes/contrib/bootstrap4/scss/style";
-@import "../../../../themes/contrib/bootstrap4/scss/style";
-
-@import "settings.globals"; //Done
-@import "settings.colors"; //Done
-@import "settings.fonts"; //Done
-@import "settings.font-size"; //Done
-
-// from bluebox.scss need to be converted
-//@import "foundation-override";
-// @import "sitewide/footer";
+@import '../../../../themes/contrib/bootstrap4/dist/bootstrap/4.5.3/scss/bootstrap';
 
 // Mixins
 //
 // Styleguide 1.0
-
 @import "tools.mixins.media-queries";
-@import "tools.mixins.font-weight";
-
 
 // Resets and Fonts
 //
 // Styleguide 2.0
-@import "generic.normalize";
 @import "generic.fa";
 
 // Elements
 //
 // Styleguide 3.0
-@import "elements.headings"; //Done didn't add classes to headings
-@import "elements.links";
-//@import "elements.buttons";
-
+@import "elements.headings";
 
 // Layouts
 //
 // Styleguide 4.0
 @import "layouts.regions";
-//@import "layouts.page";
-//@import "layouts.panels";
-@import "layouts.header";
-@import "layouts.footer";
+@import "layouts.region--header";
+@import "layouts.region--footer";
 //@import "layouts.pane-content";
 
 // Components
 //
 // Styleguide 6.0
-@import "components.main-menu--branding--simple";
-@import "components.main-menu--branding--mega";
 @import "components.gdpr";
 @import "components.one-trust-cookie";
 @import "components.google-translate";
 
 // Blocks
+@import "block.main-menu--simple";
+@import "block.main-menu--mega";
 @import "block.search";
 
 // Utility Classes
-//
-// Styleguide 8.0
-
-//@import "utilities.font-weight";
-//@import "utilities.padding";
-//@import "utilities.min-width";
-@import "ie--11"; //IE 11 overrides
+@import "ie--11";
 

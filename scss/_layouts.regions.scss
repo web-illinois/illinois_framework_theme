@@ -5,16 +5,21 @@
   }
 
   &--highlighted {
-    width: var(--il-mega-menu-max-width);
     margin: auto;
+    max-width: var(--il-framework--max-width);
+    padding: 0 10px;
+    width: 100%;
   }
   &--tabs {
-    width: var(--il-mega-menu-max-width);
     margin: auto;
+    max-width: var(--il-framework--max-width);
+    width: 100%;
   }
   &--content {
-    width: var(--il-mega-menu-max-width);
     margin: auto;
+    max-width: var(--il-framework--max-width);
+    padding: 0 10px;
+    width: 100%;
   }
   &--footer {
     padding: 2rem 0;

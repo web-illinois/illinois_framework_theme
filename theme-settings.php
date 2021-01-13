@@ -58,7 +58,7 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
     '#type' => 'container',
     '#prefix' => '<div>',
     '#suffix' => '</div>',
-    '#markup' => '<img src="/themes/contrib/illinois_framework_theme/images/menu_example.png" alt="Example picture of a mega menu" style="width:300px;">',
+    '#markup' => '<img src="/themes/custom/illinois_framework_theme/images/menu_example.png" alt="Example picture of a mega menu" style="width:300px;">',
     '#title' => t('Menu Example'),
     '#weight' => -96,
     '#states' => array(
@@ -73,7 +73,7 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
       '#type' => 'container',
       '#prefix' => '<div>',
       '#suffix' => '</div>',
-      '#markup' => '<img src="/themes/contrib/illinois_framework_theme/images/simple_menu.png" alt="Example picture of a simple dropdown menu" style="width:300px;">',
+      '#markup' => '<img src="/themes/custom/illinois_framework_theme/images/simple_menu.png" alt="Example picture of a simple dropdown menu" style="width:300px;">',
       '#title' => t('Menu Example'),
       '#weight' => -95,
       '#states' => array(
@@ -104,7 +104,7 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
       '#type' => 'markup',
       '#prefix' => '<div>',
       '#suffix' => '</div>',
-      '#markup' => '<img src="/themes/contrib/illinois_framework_theme/images/footer_example.png" alt="picture" style="width:300px;">',
+      '#markup' => '<img src="/themes/custom/illinois_framework_theme/images/footer_example.png" alt="picture" style="width:300px;">',
       '#title' => t('Footer Example'),
       '#weight' => -93,
   );

@@ -236,6 +236,7 @@ svg {
 .main > div {
     display: grid;
     grid-gap: 30px;
+    padding: 0 10px;
 }
 @media (max-width: 599px) {
     .main > div {
@@ -299,7 +300,7 @@ svg {
     box-sizing: border-box;
     margin: 0 auto;
     max-width: 1200px;
-    padding: 0 calc(5% + 10px);
+    padding: 0 10px;
 }
 .parent ::slotted(*) {
     margin: 0;

@@ -1,0 +1,14 @@
+
+{#
+/**
+ * @file
+ * Theme override for local actions (primary admin actions.)
+ */
+#}
+{% block content %}
+  {% if content %}
+    <ul class="action-links">
+      {{ content }}
+    </ul>
+  {% endif %}
+{% endblock %}

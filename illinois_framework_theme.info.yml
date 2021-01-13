@@ -20,6 +20,7 @@ regions:
   breadcrumb: Breadcrumbs
   highlighted: Highlighted
   help: Help Information
+  tabs: 'Tabs'
   content: 'Main content'
   sidebar_first: 'Sidebar first'
   sidebar_second: 'Sidebar second'
