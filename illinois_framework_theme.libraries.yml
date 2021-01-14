@@ -17,3 +17,4 @@ global-styling:
         async: true
     js/navmenu.js: {}
     js/components.js: {}
+    js/search.js: {}

@@ -1,0 +1,36 @@
+// overrides _reboot.scss line 97
+p {
+  color: #000;
+  font-size: 1rem;
+  font-size: 16px;
+  line-height: 24px;
+
+  a {
+    color: var(--il-alma-mater);
+    text-decoration: underline;
+
+    &:visited {
+      color: var(--il-alma-mater-1);
+    }
+    &:hover {
+      color: var(--il-altgeld);
+    }
+    &:focus {
+      outline: 2px dotted var(--il-altgeld);
+    }
+  }
+}
+
+// overrides _reboot.scss line 182
+a {
+  color: $link-color;
+  text-decoration: $link-decoration;
+  background-color: transparent; // Remove the gray background on active links in IE 10.
+
+  @include hover() {
+    color: $link-hover-color;
+    text-decoration: $link-hover-decoration;
+  }
+}
+
+

@@ -3,18 +3,8 @@
   &--header {
     background-color: #FFFFFF;
   }
-
-  &--highlighted {
-    margin: auto;
-    max-width: var(--il-framework--max-width);
-    padding: 0 10px;
-    width: 100%;
-  }
-  &--tabs {
-    margin: auto;
-    max-width: var(--il-framework--max-width);
-    width: 100%;
-  }
+  &--highlighted,
+  &--tabs,
   &--content {
     margin: auto;
     max-width: var(--il-framework--max-width);

@@ -1,0 +1,1 @@
+1. Changed line heights to 1.2 from custom which varied but was close to 1.2 for all of them

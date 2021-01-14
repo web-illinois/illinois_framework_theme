@@ -1,51 +1,32 @@
-// Include custom sub theme.
-@import 'custom/variables';
-//@import 'custom/mixins/misc';
-//@import 'custom/misc';
-
-// Include bootstrap variables definitions overrides.
-@import 'overrides/variables';
-
 // Include parent theme with all things Bootstrap for full override.
 // Relative path to this styles.scss file.
 // Example: @import "../../../../../themes/contrib/bootstrap4/scss/style";
 @import '../../../../themes/contrib/bootstrap4/dist/bootstrap/4.5.3/scss/bootstrap';
 
+// Include bootstrap variables definitions overrides.
+@import 'overrides/overrides';
+
+// Include custom sub theme.
+@import 'custom/variables';
+
 // Mixins
-//
-// Styleguide 1.0
-@import "tools.mixins.media-queries";
-
-// Resets and Fonts
-//
-// Styleguide 2.0
-@import "generic.fa";
-
-// Elements
-//
-// Styleguide 3.0
-@import "elements.headings";
+@import "custom/tools.mixins.media-queries";
 
 // Layouts
-//
-// Styleguide 4.0
-@import "layouts.regions";
-@import "layouts.region--header";
-@import "layouts.region--footer";
-//@import "layouts.pane-content";
+@import "custom/layouts.regions";
+@import "custom/layouts.region--header";
+@import "custom/layouts.region--footer";
 
 // Components
-//
-// Styleguide 6.0
-@import "components.gdpr";
-@import "components.one-trust-cookie";
-@import "components.google-translate";
+@import "custom/components.gdpr";
+@import "custom/components.one-trust-cookie";
+@import "custom/components.google-translate";
 
 // Blocks
-@import "block.main-menu--simple";
-@import "block.main-menu--mega";
-@import "block.search";
+@import "custom/block.main-menu--simple";
+@import "custom/block.main-menu--mega";
+@import "custom/block.search";
 
 // Utility Classes
-@import "ie--11";
+@import "custom/ie--11";
 
