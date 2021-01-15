@@ -21,9 +21,10 @@
   ]
 %}
 {% if content %}
-
+  {{ content }}
+{% endif %}
   <footer{{ attributes.addClass(classes) }} role="contentinfo">
-{#    {{ content }}#}
+
     <il-footer>
       <div slot="social">
         <a aria-label="Find us on Facebook" href="https://www.facebook.com/ACESIllinois/"><i class="fa fa-facebook"></i></a>
@@ -105,4 +106,4 @@
       </ul>
     </div>
   </footer>
-{% endif %}
+

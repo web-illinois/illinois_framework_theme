@@ -230,7 +230,6 @@ svg {
 .main {
     margin: 0 auto;
     max-width: 1200px;
-    padding: 10px;
 }
 
 .main > div {
@@ -539,7 +538,6 @@ button.compact .icon {
 }
 .site > div {
     align-items: center;
-    display: flex;
     flex-direction: column;
     justify-content: space-between;
 }

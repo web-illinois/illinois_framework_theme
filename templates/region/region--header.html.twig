@@ -26,7 +26,7 @@
 {% else %}
   {% set menu_type = 'simple' %}
 {% endif %}
-  <header{{ attributes.addClass(classes) }} role="banner">
+  <header{{ attributes.addClass(classes) }} role="banner" aria-label="Site header">
     <il-header>
       <il-unit-wordmark>
         {% if if_secondary_site_title %}
@@ -44,7 +44,7 @@
               {% endif %}
               <div class="d-flex flex-fill mainnav-toggler">
                 <div id="header-search-container">
-                  <form class="form-inline" method="get" role="search" action="/search/node" id="search-form">
+                  <form class="form-inline" method="get" role="search" action="/search/node" id="search-form--header">
                     <div class="input-group">
                       <input type="text" class="form-control" name="query" placeholder="Search" aria-label="search form" aria-describedby="search-form" />
                       <div class="input-group-append">
@@ -76,8 +76,11 @@
       </il-unit-wordmark>
       <div class="main-navigation" slot="menu">
         <div class="main-navigation">
-          {#       <il-menu-button></il-menu-button>#}
-          {{ drupal_entity('block', 'sitetheme_main_menu', check_access=false) }}
+          {% if menu_type == 'mega' %}
+            {{ drupal_entity('block', 'mainnavigation', check_access=false) }}
+          {% else %}
+            {{ drupal_entity('block', 'illinois_framework_theme_main_menu', check_access=false) }}
+          {% endif %}
         </div>
       </div>
     </il-header>

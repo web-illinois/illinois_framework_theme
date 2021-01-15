@@ -1,41 +1,41 @@
-jQuery(function ($) {
+(function($) {
 
   // click anywhere on the site besides the #basic-addon1 div and children
-  $('body.desktop').on("click touch", function(e){
+  $('body.desktop').on('click touch', function(e){
     if(!$(e.target).closest('#mainnav').length) {
-      $('#mainnav > ul > li.show').removeClass("show");
-      $('#mainnav > ul > li > div.dropdown-menu.show').removeClass("show");
+      $('#mainnav > ul > li.show').removeClass('show');
+      $('#mainnav > ul > li > div.dropdown-menu.show').removeClass('show');
     }
   });
 
   // first level main navigation requires a click action to display links
-  $("#mainnav > ul > li a[href^='#']").click(function (e) {
+  $('#mainnav > ul > li a[href^='#']').click(function (e) {
     e.preventDefault();
-      $("#mainnav > ul > li a").not($(this)).parent().find('div').removeClass('show');
-      $("#mainnav > ul > li a").not($(this)).parent().removeClass('show');
+      $('#mainnav > ul > li a').not($(this)).parent().find('div').removeClass('show');
+      $('#mainnav > ul > li a').not($(this)).parent().removeClass('show');
       $(this).parent().find('div').toggleClass('show');
       $(this).parent().toggleClass('show');
-      $(this).attr('aria-expanded', function(_, attr) { return !(attr == 'true') });
+      $(this).attr('aria-expanded', function(_, attr) { return !(attr === 'true') });
    });
 
   // mainnav toggle handler for mobile menu simple menu
-  $("#navbar-toggler").click(function (e) {
-    $(this).attr('aria-expanded', function(_, attr) { return !(attr == 'true') });
-    if ($("#mainnav").hasClass("show")) {
-      $("#mainnav").removeClass("show");
+  $('#navbar-toggler').click(function (e) {
+    $(this).attr('aria-expanded', function(_, attr) { return !(attr === 'true') });
+    if ($('div#mainnav').hasClass('show')) {
+      $('div#mainnav').removeClass('show');
     } else {
-      $("#mainnav").addClass("show");
+      $('div#mainnav.collapse').addClass('show');
     }
-    $("body").toggleClass("navopen");
+    $('body').toggleClass('navopen');
   });
 
-  $("button.tb-megamenu-button").click(function (e) {
-    $(this).attr('aria-expanded', function(_, attr) { return !(attr == 'true') });
-    $("body").toggleClass("navopen");
+  $('button.tb-megamenu-button').click(function (e) {
+    $(this).attr('aria-expanded', function(_, attr) { return !(attr === 'true') });
+    $('body').toggleClass('navopen');
   });
 
   // var handleKeyboard = function(mm_timeout) {
-    $("#block-illinois-framework-theme-main-menu").on('keydown', function(event) {
+    $('#block-illinois-framework-theme-main-menu').on('keydown', function(event) {
 
       // Hide the menu quickly without animating. This is triggered when
       // pressing the ESC key.
@@ -81,21 +81,21 @@ jQuery(function ($) {
 
   // TODO: programmatically make all dropdowns open to the left if less than 250px from right side of the screen
   // add right class to simple menu dropdowns if they are too close to right edge of window
-  // $("#mainnav-simple > ul > li").each(function (i) {
+  // $('#mainnav-simple > ul > li').each(function (i) {
   //   if ($(window).width() - $(this).position().left < 250) {
-  //     $(this).addClass("right");
+  //     $(this).addClass('right');
   //   }
   // });
 
   // add active link class on simple menu
-  $("#block-illinois-framework-theme-main-menu li.active section li a.nav-link").each(function(){
+  $('#block-illinois-framework-theme-main-menu li.active section li a.nav-link').each(function(){
     var pathname = window.location.pathname;
     var hash = window.location.hash;
     if($(this).attr('href') == pathname+hash) {
       $(this).addClass('active-link');
     }
   });
-  $("#block-mainnavigation li.active-trail a").each(function(){
+  $('#block-mainnavigation li.active-trail a').each(function(){
     var pathname = window.location.pathname;
     var hash = window.location.hash;
     //console.log(pathname);
@@ -104,15 +104,15 @@ jQuery(function ($) {
     }
   });
   // Mega Menu Testing/Coding Uncomment to do CSS code dropdown
-  //$("#block-mainnavigation li.tb-megamenu-item[data-label='About']").css("display", "block !important");
-});
+  //$('#block-mainnavigation li.tb-megamenu-item[data-label='About']').css('display', 'block !important');
+}(jQuery));
 
 
 //   //aces style menu hover
-//   $("#mainnav > ul.navbar-nav > li").hover(function () {
+//   $('#mainnav > ul.navbar-nav > li').hover(function () {
 //     // e.preventDefault();
-//     // $("#mainnav > ul.navbar-nav > li.dropdown a").parent().removeClass('show');
-//     // $("#mainnav > ul.navbar-nav > li.dropdown a").parent().find('div').removeClass('show');
+//     // $('#mainnav > ul.navbar-nav > li.dropdown a').parent().removeClass('show');
+//     // $('#mainnav > ul.navbar-nav > li.dropdown a').parent().find('div').removeClass('show');
 //     $(this).toggleClass('show');
 //     $(this).find('a').attr('aria-expanded', true);
 //

@@ -2,9 +2,7 @@
   TODO: add external link icons to items that cause a user to leave the site
  */
 
-.p-0 {
-  padding: 0 !important;
-}
+
 
 /* header */
 @media all {
@@ -203,7 +201,7 @@
       }
     }
 
-    #search-form {
+    #search-form--header {
       .form-control {
         //background-color: var(--il-cloud-1);
         border: 1px solid var(--il-cloud-1);
@@ -385,7 +383,6 @@
     .nav-item {
       align-items: center;
       display: flex;
-      height: 40px;
       flex-grow: 1;
       margin: 0;
       padding: 0.5rem;
@@ -751,11 +748,10 @@
 
       button {
         display: block;
+        position: absolute;
+        right: 10px;
+        top: 10px;
       }
-    }
-
-    .l-header__buttons, #block-search {
-      display: none;
     }
 
     header {
@@ -778,9 +774,13 @@
     }
 
     &.mobile header .navbar {
-      margin-top: 36px;
+      //margin-top: 36px;
+      margin-top: 0;
 
       /*margin: 0 -15px 0 -15px;*/
+    }
+    &.mobile.navopen header .navbar {
+      margin-top: 36px;
     }
 
     header .navbar {
@@ -902,7 +902,7 @@
           }
         }
 
-        #search-form {
+        #search-form--header {
           input.form-control {
             display: block !important;
             visibility: visible !important;

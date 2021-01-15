@@ -1,0 +1,203 @@
+{#
+/**
+ * @file
+ * Theme override to display a menu.
+ *
+ * Available variables:
+ * - menu_name: The machine name of the menu.
+ * - items: A nested list of menu items. Each menu item contains:
+ *   - attributes: HTML attributes for the menu item.
+ *   - below: The menu item child items.
+ *   - title: The menu link title.
+ *   - url: The menu link url, instance of \Drupal\Core\Url
+ *   - localized_options: Menu link localized options.
+ *   - is_expanded: TRUE if the link has visible children within the current
+ *     menu tree.
+ *   - is_collapsed: TRUE if the link has children within the current menu tree
+ *     that are not currently visible.
+ *   - in_active_trail: TRUE if the link is in the active trail.
+ */
+#}
+{#{{ kint() }}#}
+{#{{ menu_name }}#}
+
+{#{% for item in items %}#}
+{#  {% set title = item.title %}#}
+{#  {% set url = '#' %}#}
+{#  {{ title }}#}
+{#  {{ url }}#}
+{#{% endfor %}#}
+<nav class="navbar navbar-expand-lg p-0">
+  <div class="collapse navbar-collapse" id="mainnav">
+{% import _self as menus %}
+
+{#
+  We call a macro which calls itself to render the full tree.
+  @see http://twig.sensiolabs.org/doc/tags/macro.html
+  1. We use menu_name (see above) to create a CSS class name from it.
+  See https://www.drupal.org/node/2649076
+#}
+
+{{ menus.menu_links(items, attributes, 0, menu_name) }} {# 1. #}
+
+{% macro menu_links(items, attributes, menu_level, menu_name) %} {# 1. #}
+  {% import _self as menus %}
+  {# 1. #}
+  {% if items %}
+    {% spaceless %}
+    {% if menu_level == 0 %}
+      <ul class="navbar-nav"> {# 1. #}
+    {% else %}
+      <div class="dropdown-menu tile-list">
+      <section class="tile menu menu--level-{{ menu_level + 1 }} white-box col">
+{#    {% else %}#}
+{#        <ul class="submenu tile whiteb-box col">#}
+{#      <div{{ attributes.addClass(submenu_classes) }}> #}{# 1. #}
+    {% endif %}
+
+    {% for item in items %}
+      {# 1. #}
+      {%
+        set item_classes = [ item.is_expanded ? 'dropdown', 'mega nav-item', item.in_active_trail ? 'active', 'menu-item--level-' ~ (menu_level + 1) ]
+      %}
+      {# Create CSS class #}
+      {%
+        set link_classes = ['nav-link']
+      %}
+      {%
+        set item_dropdown_classes = [ item.is_expanded ? 'dropdown', item.in_active_trail ? 'active' ]
+      %}
+
+      <li{{ item.attributes.addClass(item_classes) }}>
+       {% if item.below %}
+         {# aces style click menu #}
+{#         <a{{ attributes.removeClass(item_classes).addClass(link_classes) }} href="{{ item.url }}"  title="{{ item.title }}">{{ item.title }}</a>#}
+         {# engineering style click menu #}
+         <a{{ attributes.removeClass(item_classes).addClass(link_classes) }} href="#" data-toggle="dropdown"  title="{{ item.title }}">{{ item.title }}</a>
+       {% else %}
+         <a{{ attributes.removeClass(item_classes).addClass(link_classes) }} href="{{ item.url }}"  title="{{ item.title }}">{{ item.title }}</a>
+       {% endif %}
+        {% if item.below %}
+          {{ menus.menu_links(item.below, attributes, menu_level + 1, menu_name) }} {# 1. #}
+        {% endif %}
+      </li>
+    {% endfor %}
+
+  {% endspaceless %}
+  {% endif %}
+  {% endmacro %}
+  </div>
+</nav>
+
+
+{#
+  We call a macro which calls itself to render the full tree.
+  @see http://twig.sensiolabs.org/doc/tags/macro.html
+#}
+{#{{ menus.build_menu(items, attributes, 0) }}#}
+
+{#{% macro build_menu(items, attributes, menu_level) %}#}
+{#  {% import _self as menus %}#}
+{#  {% if items %}#}
+{#      <nav class="navbar navbar-expand-lg p-0">#}
+{#        <div class="collapse navbar-collapse" id="mainnav">#}
+{#          <ul{{ attributes.addClass('navbar-nav w-100') }}>#}
+{#            {% if menu_level == 0 %}#}
+
+{#              {% for item in items %}#}
+{#              {% set list_item_classes = [ 'dropdown mega nav-item', item.is_expanded ? 'expanded', item.in_active_trail ? 'active', ] %}#}
+{#              {% set list_link_class = ['nav-link', item.in_active_trail ? 'active', item.is_expanded ? 'dropdown-toggle' ] %}#}
+{#              <li{{ item.attributes.addClass(list_item_classes) }}>#}
+{#                {{ link(item.title, item.url, { 'class': list_link_class, 'data-toggle' : 'dropdown', 'title': ('Expand menu' | t) ~ ' ' ~ item.title } ) }}#}
+{#              </li>#}
+{#              {% endfor %}#}
+{#            {% elseif menu_level == 1 %}#}
+{#              {% set list_item_classes = [ 'dropdown mega nav-item', item.is_expanded ? 'expanded', item.in_active_trail ? 'active', ] %}#}
+{#              {% set list_link_class = ['nav-link', item.in_active_trail ? 'active', item.is_expanded ? 'dropdown-toggle' ] %}#}
+{#              {% for item in items %}#}
+{#                <div id="mainnav-{{ item.title }}" class="dropdown-menu title-list">#}
+{#                 <section>this section</section>#}
+{#                </div>#}
+{#              <ul>#}
+{#                #}
+{#                <li{{ item.attributes.addClass(list_item_classes) }}>#}
+{#                  {{ link(item.title, item.url, { 'class': list_link_class, 'data-toggle' : 'dropdown', 'title': ('Expand menu' | t) ~ ' ' ~ item.title }) }}#}
+{#                  <div id="mainnav-{{ item.title }}" class="dropdown-menu title-list">#}
+{#                    this div#}
+{#                  </div>#}
+{#                </li>#}
+{#                {% endfor %}#}
+{#              </ul>#}
+{#              {% endif %}#}
+{#          </ul>#}
+{#        </div>#}
+{#      </nav>#}
+{#  {% endif %}#}
+{#{% endmacro %}#}
+
+
+
+
+{#          </ul>#}
+{#          {% endif %}#}
+{#          #}
+
+{#    {% elseif menu_level == 1 %}#}
+{#      <ul{{ attributes.addClass('navbar-nav w-100') }}>#}
+{#        {% set list_item_classes = [ 'dropdown mega nav-item', item.is_expanded ? 'expanded', item.in_active_trail ? 'active', ] %}#}
+{#        {% set list_link_class = ['nav-link', item.in_active_trail ? 'active', item.is_expanded ? 'dropdown-toggle' ] %}#}
+{#        #}{#            {% set title = ('Expand menu'|t) ~ ' ' ~ item.title, %}#}
+{#        {% for item in items %}#}
+{#          <li{{ item.attributes.addClass(list_item_classes) }}>#}
+{#            {{ link(item.title, item.url, { 'class': list_link_class, 'data-toggle' : 'dropdown', 'title': ('Expand menu' | t) ~ ' ' ~ item.title }) }}#}
+{#          </li>#}
+{#        {% endfor %}#}
+{#    {% else %}#}
+
+{#    {% endif %}#}
+
+
+
+
+{#      </ul>#}
+{#  {% endif %}#}
+{#{% endmacro %}#}
+
+{#  {% macro add_link(item, attributes, menu_level) %}#}
+{#    {% import _self as menus %}#}
+{#    {%#}
+{#      set list_item_classes = [#}
+{#      'mega nav-item',#}
+{#      item.is_expanded ? 'dropdown'#}
+{#    ]#}
+{#    %}#}
+{#    {%#}
+{#      set link_class = [#}
+{#      'nav-link',#}
+{#      item.in_active_trail ? 'show',#}
+{#      menu_level == 0 and (item.is_expanded or item.is_collapsed) ? 'dropdown-toggle',#}
+{#    ]#}
+{#    %}#}
+{#    {%#}
+{#      set submenu_link_class = [#}
+{#      'nav-link',#}
+{#      item.in_active_trail ? 'show',#}
+{#      menu_level == 0 and (item.is_expanded or item.is_collapsed) ? 'dropdown-toggle',#}
+{#    ]#}
+{#    %}#}
+{#    {%#}
+{#      set toggle_class = [#}
+{#      'dropdown'#}
+{#    ]#}
+{#    %}#}
+{#    <li{{ item.attributes.addClass(list_item_classes) }}>#}
+{#      {% if menu_level == 0 and item.below %}#}
+{#        {{ link(item.title, item.url, { 'class': link_class, 'data-toggle' : 'dropdown', 'title': ('Expand menu' | t) ~ ' ' ~ item.title }) }}#}
+{#        {{ menus.build_menu(item.below, attributes, menu_level + 1) }}#}
+{#      {% else %}#}
+{#        {{ link(item.title, item.url, { 'class': submenu_link_class }) }}#}
+{#      {% endif %}#}
+{#    </li>#}
+{#  {% endmacro %}#}
+{#</div>#}
+{#</nav>#}
