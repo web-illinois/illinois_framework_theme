@@ -30,17 +30,17 @@
     <il-header>
       <il-unit-wordmark>
         {% if if_secondary_site_title %}
-        <div class="site_identification two-titles" name="site">
+        <div class="site-identification two-titles" name="site">
           {% if if_secondary_site_link %}
-            <a class="site_identification--secondary--site-title" href="{{ if_secondary_site_link }}">{{ if_secondary_site_title }}</a>
+            <a class="site-identification--secondary--site-title" href="{{ if_secondary_site_link }}">{{ if_secondary_site_title }}</a>
           {% else %}
-            <div class="site_identification--secondary--site-title" href="#">{{ if_secondary_site_title }}</div>
+            <div class="site-identification--secondary--site-title" href="#">{{ if_secondary_site_title }}</div>
           {% endif %}
-          <div class="site_identification--primary__wrapper">
-            <a class="site_identification--primary--site-title" href="/">{{ drupal_config('system.site', 'name') | raw }}</a>
+          <div class="site-identification--primary__wrapper">
+            <a class="site-identification--primary--site-title" href="/">{{ drupal_config('system.site', 'name') | raw }}</a>
             {% else %}
-            <div class="site_identification one-title" name="site">
-              <a class="site_identification--primary-site-title flex-fill" href="/">{{ drupal_config('system.site', 'name') | raw }}</a>
+            <div class="site-identification one-title" name="site">
+              <a class="site-identification--primary-site-title flex-fill" href="/">{{ drupal_config('system.site', 'name') | raw }}</a>
               {% endif %}
               <div class="d-flex flex-fill mainnav-toggler">
                 <div id="header-search-container">

@@ -1,6 +1,3 @@
-/* Footer
- * ==========================================================================
- */
 footer {
   margin-top: 100px;
   position: relative;
@@ -65,29 +62,6 @@ il-footer {
     }
   }
 }
-//il-footer [slot="parent"] {
-//  background-color: var(--il-alma-mater) !important;
-//  display: flex;
-//  align-items: center;
-//  height: auto;
-//  margin: 0;
-//  padding: 10px 0;
-//
-//  &.no-title {
-//    padding: 1px 0;
-//  }
-//
-//  a {
-//    color: white !important;
-//
-//    &:hover,
-//    &:focus {
-//      color: var(--il-orange) !important;
-//      outline: 2px dashed  var(--il-orange) !important;
-//      border-color: var(--il-orange) !important;
-//    }
-//  }
-//}
 il-footer [slot="links"] {
   h3 {
     color: var(--il-cloud-3);

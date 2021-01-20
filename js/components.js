@@ -230,6 +230,7 @@ svg {
 .main {
     margin: 0 auto;
     max-width: 1200px;
+    padding: 0 0 20px;
 }
 
 .main > div {
@@ -523,7 +524,7 @@ button.compact .icon {
   }
 }
 .campus > div > a {
-  color: inherit;
+  color: var(--il-blue);
   text-decoration: none;
 }
 .campus > div > a:hover {

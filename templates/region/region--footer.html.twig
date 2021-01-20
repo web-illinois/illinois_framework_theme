@@ -12,6 +12,7 @@
  * @see template_preprocess_region()
  */
 #}
+
 {%
   set classes = [
     'region',
@@ -24,7 +25,7 @@
   {{ content }}
 {% endif %}
   <footer{{ attributes.addClass(classes) }} role="contentinfo">
-
+    {{ kint() }}
     <il-footer>
       <div slot="social">
         <a aria-label="Find us on Facebook" href="https://www.facebook.com/ACESIllinois/"><i class="fa fa-facebook"></i></a>
@@ -36,11 +37,19 @@
       <div class="footer--site-name">
         {% if drupal_config('system.site', 'name') %}
           <a href="/">{{ drupal_config('system.site', 'name')| raw }}</a>
+        {% elseif if_footer_address_unit %}
+          <a href="{{ if_footer_address_unit_link }}">{{ if_footer_address_unit }}</a>
+        {% else %}
+          <a href="https://illinois.edu">University of Illinois</a>
         {% endif %}
       </div>
       <address>
-        227 Mumford Hall MC 710,<br/>
-        1301 W Gregory Dr.<br/>
+        {% if if_footer_address_street_one %}
+          {{ if_footer.if_footer_address.if_footer_address_street_one }}<br/>
+        {% endif %}
+        {% if if_footer_address_street_two %}
+          {{ if_footer.if_footer_address.if_footer_address_street_two }}<br/>
+        {% endif %}
         Urbana, IL 61801<br/>
         <dl class="footer--email">email: <a href="mailto:aces@illinois.edu">aces@illinois.edu</a></dl>
       </address>

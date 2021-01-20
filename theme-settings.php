@@ -113,32 +113,39 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
       '#title' => t('Address'),
   );
   $form['if_footer']['if_footer_address']['if_footer_address_unit'] = array(
+      '#default_value' => theme_get_setting('if_footer_address_unit'),
       '#type' => 'textfield',
       '#description' => 'If not provided, the Site Title (Configuration > System > Basic Site Settings > Site name) will be used instead.',
       '#title' => t('Unit Name'),
   );
   $form['if_footer']['if_footer_address']['if_footer_address_unit_link'] = array(
+      '#default_value' => theme_get_setting('if_footer_address_unit_link'),
       '#type' => 'url',
       '#description' => 'If not provided, the site title will link to this site\'s homepage.',
       '#title' => t('Link for Unit Name'),
   );
   $form['if_footer']['if_footer_address']['if_footer_address_street_one'] = array(
+      '#default_value' => theme_get_setting('if_footer_address_street_one'),
       '#type' => 'textfield',
       '#title' => t('Street Address Line One'),
   );
   $form['if_footer']['if_footer_address']['if_footer_address_street_two'] = array(
+      '#default_value' => theme_get_setting('if_footer_address_street_two'),
       '#type' => 'textfield',
       '#title' => t('Street Address Line Two'),
   );
   $form['if_footer']['if_footer_address']['if_footer_address_city'] = array(
+      '#default_value' => theme_get_setting('if_footer_address_city'),
       '#type' => 'textfield',
       '#title' => t('City'),
   );
   $form['if_footer']['if_footer_address']['if_footer_address_state'] = array(
+      '#default_value' => theme_get_setting('if_footer_address_state'),
       '#type' => 'textfield',
       '#title' => t('State'),
   );
   $form['if_footer']['if_footer_address']['if_footer_address_zip'] = array(
+      '#default_value' => theme_get_setting('if_footer_address_zip'),
       '#type' => 'textfield',
       '#title' => t('Zip code'),
   );
