@@ -1,5 +1,5 @@
 <?php
-
+\Drupal::messenger()->addStatus(t('Set the Secondary Site Title, MegaMenu and Footer Contents'));
 function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id = NULL)
 {
   // Work-around for a core bug affecting admin themes. See issue #943212.
@@ -7,13 +7,13 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
     return;
   }
 
-  // Create a section for the secondary site information
+  // Creates a section for the secondary site information
   $form['if_secondary_site'] = array(
       '#type' => 'details',
       '#title' => t('Secondary Site Title'),
       '#description' => t('Your Primary Site Title is managed in: Configuration > System > Basic Site Settings > Site name.  The optional Secondary Site Title (which can be linked) will show up above and smaller than the Primary Site Title.'),
       '#weight' => -101,
-      '#open' => TRUE,
+      '#open' => FALSE,
   );
 
   $form['if_secondary_site']['if_secondary_site_title'] = array(
@@ -41,7 +41,7 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
       '#title' => t('MegaMenu'),
       '#description' => t('By default, this theme is using a simple Drupal menu. However, you may enable the theme menu here, which offers a mega-menu (lite) style menu system, including many more options than the default Drupal menu system.'),
       '#weight' => -98,
-      '#open' => TRUE,
+      '#open' => FALSE,
   );
   $form['if_megamenu']['if_menu_select'] = array(
       '#type' => 'radios',
@@ -108,6 +108,49 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
       '#title' => t('Footer Example'),
       '#weight' => -93,
   );
+  // Select Social Media to display in the footer
+  $form['if_footer']['if_footer_social'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Social Media'),
+  );
+  $form['if_footer']['if_footer_social']['if_footer_social_facebook'] = array(
+    '#type'          => 'url',
+    '#placeholder' => 'https://facebook.com',
+    '#title'         => t('Enter the link to your Facebook page'),
+    '#size'          => 128,
+    '#default_value' => theme_get_setting('if_footer_social_facebook'),
+  );
+  $form['if_footer']['if_footer_social']['if_footer_social_instagram'] = array(
+    '#type'          => 'url',
+    '#placeholder' => 'https://instagram.com',
+    '#title'         => t('Enter the link to your Instagram page'),
+    '#size'          => 128,
+    '#default_value' => theme_get_setting('if_footer_social_instagram'),
+  );
+  $form['if_footer']['if_footer_social']['if_footer_social_twitter'] = array(
+    '#type'          => 'url',
+    '#placeholder' => 'https://twitter.com',
+    '#title'         => t('Enter the link to your Twitter page'),
+    '#size'          => 128,
+    '#default_value' => theme_get_setting('if_footer_social_twitter'),
+  );
+  $form['if_footer']['if_footer_social']['if_footer_social_youtube'] = array(
+    '#type'          => 'url',
+    '#placeholder' => 'https://youtube.com',
+    '#title'         => t('Enter the link to your YouTube page'),
+    '#size'          => 128,
+    '#default_value' => theme_get_setting('if_footer_social_youtube'),
+  );
+  $form['if_footer']['if_footer_social']['if_footer_social_linkedin'] = array(
+    '#type'          => 'url',
+    '#placeholder' => 'https://linkedin.com',
+    '#title'         => t('Enter the link to your LinkedIn page'),
+    '#size'          => 128,
+    '#default_value' => theme_get_setting('if_footer_social_linkedin'),
+  );
+//  $form['if_footer']['if_footer_social']['if_footer_social_facebook'] =
+
+  // Create Address Block
   $form['if_footer']['if_footer_address'] = array(
       '#type' => 'fieldset',
       '#title' => t('Address'),
@@ -117,12 +160,6 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
       '#type' => 'textfield',
       '#description' => 'If not provided, the Site Title (Configuration > System > Basic Site Settings > Site name) will be used instead.',
       '#title' => t('Unit Name'),
-  );
-  $form['if_footer']['if_footer_address']['if_footer_address_unit_link'] = array(
-      '#default_value' => theme_get_setting('if_footer_address_unit_link'),
-      '#type' => 'url',
-      '#description' => 'If not provided, the site title will link to this site\'s homepage.',
-      '#title' => t('Link for Unit Name'),
   );
   $form['if_footer']['if_footer_address']['if_footer_address_street_one'] = array(
       '#default_value' => theme_get_setting('if_footer_address_street_one'),
@@ -144,17 +181,16 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
       '#type' => 'textfield',
       '#title' => t('State'),
   );
+
   $form['if_footer']['if_footer_address']['if_footer_address_zip'] = array(
-      '#default_value' => theme_get_setting('if_footer_address_zip'),
-      '#type' => 'textfield',
-      '#title' => t('Zip code'),
+    '#default_value' => theme_get_setting('if_footer_address_zip'),
+    '#type' => 'textfield',
+    '#title' => t('Zip code'),
   );
-  $form['if_footer']['if_footer_address']['if_footer_address_email'] = array(
-      '#type' => 'email',
-      '#default_value' => theme_get_setting('if_footer_address_email'),
-      '#description' => 'University policy requires all web sites hosted on university provided equipment or services must provide a contact email address that users may report problems, concerns or violations to. Sites that fail to provide a valid email address that is monitored by a site administrator risk having their sites taken down.',
-      '#title' => t('Email'),
-      '#required' => TRUE,
+  $form['if_footer']['if_footer_address']['if_footer_address_tel'] = array(
+      '#type' => 'tel',
+      '#default_value' => theme_get_setting('if_footer_address_tel'),
+      '#title' => t('Phone Number'),
   );
   $form['if_footer']['if_footer_menu'] = array(
     '#type' => 'vertical_tabs',
@@ -178,5 +214,49 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
   $form['if_footer']['if_footer_menu_right_details']['if_footer_menu_right_fieldset'] = array(
       '#type' => 'fieldset',
       '#title' => t('Right Menu'),
+  );
+  // TODO: insert repeatable field here for left and right columns
+
+    $form['if_footer']['if_footer_menu_right_details']['if_footer_menu_right_fieldset']['if_footer_menu_right_1'] = array(
+      '#type'          => 'url',
+      '#placeholder' => 'https://illinois.edu',
+      '#title'         => t('Add a link'),
+      '#size'          => 128,
+      '#default_value' => theme_get_setting('if_footer_menu_right_1'),
+    );
+  $form['if_footer']['if_footer_menu_right_details']['if_footer_menu_right_fieldset']['if_footer_menu_right_2'] = array(
+    '#type'          => 'url',
+    '#placeholder' => 'https://illinois.edu',
+    '#title'         => t('Add a link'),
+    '#size'          => 128,
+    '#default_value' => theme_get_setting('if_footer_menu_right_2'),
+  );
+  $form['if_footer']['if_footer_menu_right_details']['if_footer_menu_right_fieldset']['if_footer_menu_right_3'] = array(
+    '#type'          => 'url',
+    '#placeholder' => 'https://illinois.edu',
+    '#title'         => t('Add a link'),
+    '#size'          => 128,
+    '#default_value' => theme_get_setting('if_footer_menu_right_3'),
+  );
+  $form['if_footer']['if_footer_menu_right_details']['if_footer_menu_right_fieldset']['if_footer_menu_right_4_text'] = array(
+    '#type'          => 'text',
+    '#placeholder' => 'Illinois Homepage',
+    '#title'         => t('Add text'),
+    '#size'          => 128,
+    '#default_value' => theme_get_setting('if_footer_menu_right_4_text'),
+  );
+  $form['if_footer']['if_footer_menu_right_details']['if_footer_menu_right_fieldset']['if_footer_menu_right_4_url'] = array(
+    '#type'          => 'url',
+    '#placeholder' => 'https://illinois.edu',
+    '#title'         => t('Add a link'),
+    '#size'          => 128,
+    '#default_value' => theme_get_setting('if_footer_menu_right_4_url'),
+  );
+  $form['if_footer']['if_footer_menu_right_details']['if_footer_menu_right_fieldset']['if_footer_menu_right_5'] = array(
+    '#type'          => 'url',
+    '#placeholder' => 'https://illinois.edu',
+    '#title'         => t('Add a link'),
+    '#size'          => 128,
+    '#default_value' => theme_get_setting('if_footer_menu_right_5'),
   );
 }

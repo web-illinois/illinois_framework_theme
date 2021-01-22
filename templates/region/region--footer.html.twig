@@ -24,8 +24,8 @@
 {% if content %}
   {{ content }}
 {% endif %}
-  <footer{{ attributes.addClass(classes) }} role="contentinfo">
     {{ kint() }}
+  <footer{{ attributes.addClass(classes) }} role="contentinfo">
     <il-footer>
       <div slot="social">
         <a aria-label="Find us on Facebook" href="https://www.facebook.com/ACESIllinois/"><i class="fa fa-facebook"></i></a>
@@ -35,24 +35,43 @@
         <a aria-label="Follow us on LinkedIn" href="https://www.linkedin.com/showcase/college-of-aces/"><i class="fa fa-linkedin"></i></a>
       </div>
       <div class="footer--site-name">
-        {% if drupal_config('system.site', 'name') %}
-          <a href="/">{{ drupal_config('system.site', 'name')| raw }}</a>
-        {% elseif if_footer_address_unit %}
-          <a href="{{ if_footer_address_unit_link }}">{{ if_footer_address_unit }}</a>
-        {% else %}
-          <a href="https://illinois.edu">University of Illinois</a>
-        {% endif %}
-      </div>
-      <address>
-        {% if if_footer_address_street_one %}
-          {{ if_footer.if_footer_address.if_footer_address_street_one }}<br/>
-        {% endif %}
-        {% if if_footer_address_street_two %}
-          {{ if_footer.if_footer_address.if_footer_address_street_two }}<br/>
-        {% endif %}
-        Urbana, IL 61801<br/>
-        <dl class="footer--email">email: <a href="mailto:aces@illinois.edu">aces@illinois.edu</a></dl>
+        <address>
+          {% if if_footer['if_footer_address']['if_footer_address_unit'] %}
+            <a href="/">{{ if_footer['if_footer_address']['if_footer_address_unit'] }}</a>
+          {% elseif drupal_config('system.site', 'name') %}
+            <a href="/">{{ drupal_config('system.site', 'name')| raw }}</a>
+          {% else %}
+            <a href="https://illinois.edu">University of Illinois</a>
+          {% endif %}<br>
+          {% if if_footer['if_footer_address']['if_footer_address_street_one'] %}
+            {{ if_footer['if_footer_address']['if_footer_address_street_one'] }}<br>
+          {% endif %}
+          {% if if_footer['if_footer_address']['if_footer_address_street_two'] %}
+            {{ if_footer['if_footer_address']['if_footer_address_street_two'] }}<br>
+          {% endif %}
+          {% if if_footer['if_footer_address']['if_footer_address_city'] %}
+            {{ if_footer['if_footer_address']['if_footer_address_city'] }},
+          {% endif %}
+          {% if if_footer['if_footer_address']['if_footer_address_state'] %}
+            {{ if_footer['if_footer_address']['if_footer_address_state'] }}
+          {% endif %}
+          {% if if_footer['if_footer_address']['if_footer_address_zip'] %}
+            {{ if_footer['if_footer_address']['if_footer_address_zip'] }}
+          {% endif %}
+          <br>
+          {% if if_footer['if_footer_address']['if_footer_address_email'] %}
+            <a href="mailto:{{ if_footer['if_footer_address']['if_footer_address_email'] }}">{{ if_footer['if_footer_address']['if_footer_address_email'] }}</a><br>
+          {% endif %}
+          {% if if_footer['if_footer_address']['if_footer_address_tel'] %}
+            <a href="tel:+{{ if_footer['if_footer_address']['if_footer_address_tel'] }}">{{ if_footer['if_footer_address']['if_footer_address_tel'] }}</a>
+          {% endif %}
       </address>
+
+{#        <dl class="footer--email"></dl>#}
+{#        {% if if_footer['if_footer_address']['if_footer_address_tel'] %}#}
+{#          <dl class="footer--phone">{{ if_footer['if_footer_address']['if_footer_address_tel'] }}</dl>#}
+{#        {% endif %}#}
+      </div>
       <div slot="links">
         <div>
           <h3>College Resources</h3>
