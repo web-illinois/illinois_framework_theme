@@ -21,18 +21,25 @@
     'l-region--' ~ region|clean_class,
   ]
 %}
-{% if content %}
-  {{ content }}
-{% endif %}
     {{ kint() }}
   <footer{{ attributes.addClass(classes) }} role="contentinfo">
     <il-footer>
       <div slot="social">
-        <a aria-label="Find us on Facebook" href="https://www.facebook.com/ACESIllinois/"><i class="fa fa-facebook"></i></a>
-        <a aria-label="Find us on Instagram" href="https://www.instagram.com/acesillinois/"><i class="fa fa-instagram"></i></a>
-        <a aria-label="Follow us on Twiter" href="https://twitter.com/ACESIllinois"><i class="fa fa-twitter"></i></a>
-        <a aria-label="Subscribe to our YouTube Channel" href="https://www.youtube.com/user/ACESAcademicPrograms"><i class="fa fa-youtube-play"></i></a>
-        <a aria-label="Follow us on LinkedIn" href="https://www.linkedin.com/showcase/college-of-aces/"><i class="fa fa-linkedin"></i></a>
+        {% if if_footer['if_footer_social']['if_footer_social_facebook'] %}
+          <a aria-label="Find us on Facebook" href="{{ if_footer['if_footer_social']['if_footer_social_facebook'] }}"><i class="fa fa-facebook"></i></a>
+        {% endif %}
+        {% if if_footer['if_footer_social']['if_footer_social_instagram'] %}
+          <a aria-label="Find us on Instagram" href="{{ if_footer['if_footer_social']['if_footer_social_instagram'] }}"><i class="fa fa-instagram"></i></a>
+        {% endif %}
+        {% if if_footer['if_footer_social']['if_footer_social_twitter'] %}
+          <a aria-label="Follow us on Twiter" href="{{ if_footer['if_footer_social']['if_footer_social_twitter'] }}"><i class="fa fa-twitter"></i></a>
+        {% endif %}
+        {% if if_footer['if_footer_social']['if_footer_social_youtube'] %}
+          <a aria-label="Subscribe to our YouTube Channel" href="{{ if_footer['if_footer_social']['if_footer_social_youtube'] }}"><i class="fa fa-youtube-play"></i></a>
+        {% endif %}
+        {% if if_footer['if_footer_social']['if_footer_social_linkedin'] %}
+          <a aria-label="Follow us on LinkedIn" href="{{ if_footer['if_footer_social']['if_footer_social_linkedin'] }}"><i class="fa fa-linkedin"></i></a>
+        {% endif %}
       </div>
       <div class="footer--site-name">
         <address>
@@ -66,31 +73,26 @@
             <a href="tel:+{{ if_footer['if_footer_address']['if_footer_address_tel'] }}">{{ if_footer['if_footer_address']['if_footer_address_tel'] }}</a>
           {% endif %}
       </address>
-
-{#        <dl class="footer--email"></dl>#}
-{#        {% if if_footer['if_footer_address']['if_footer_address_tel'] %}#}
-{#          <dl class="footer--phone">{{ if_footer['if_footer_address']['if_footer_address_tel'] }}</dl>#}
-{#        {% endif %}#}
       </div>
       <div slot="links">
+        {% if drupal_entity('block', 'footermenufirst')  %}
         <div>
-          <h3>College Resources</h3>
-          <ul>
-            <li><a href="/about/contact">Contact us</a></li>
-            <li><a href="https://aces.illinois.edu/future-students">Future Students</a></li>
-            <li><a href="https://aces.illinois.edu/academics/student-resources">Current Students</a></li>
-            <li><a href="https://acesalumni.illinois.edu/">Alumni</a></li>
-            <li><a href="/visit">Visit</a></li>
-          </ul>
+          {% if if_footer['if_footer_menu_first_details']['if_footer_menu_first_fieldset']['if_footer_menu_first_heading'] %}
+            <h3>{{ if_footer['if_footer_menu_first_details']['if_footer_menu_first_fieldset']['if_footer_menu_first_heading'] }}</h3>
+          {% else %}
+            <h3>Resources</h3>
+          {% endif %}
+          {{ drupal_entity('block', 'footermenufirst') }}
         </div>
+        {% endif %}
+        {% if drupal_entity('block', 'footermenusecond')  %}
         <div>
-          <h3>University Resources</h3>
-          <ul>
-            <li><a href="https://illinois.edu/admissions/">Admissions</a></li>
-            <li><a href="https://uif.uillinois.edu/">Giving</a></li>
-            <li><a href="https://illinois.edu/about/index.html">About Illinois</a></li>
-            <li><a href="https://covid19.illinois.edu/">Coronavirus (COVID-19)</a></li>
-          </ul>
+          {% if if_footer['if_footer_menu_second_details']['if_footer_menu_second_fieldset']['if_footer_menu_second_heading'] %}
+            <h3>{{ if_footer['if_footer_menu_second_details']['if_footer_menu_second_fieldset']['if_footer_menu_second_heading'] }}</h3>
+          {% else %}
+            <h3>Resources</h3>
+          {% endif %}
+          {{ drupal_entity('block', 'footermenusecond') }}
           <div id="google_translate_element"></div>
           <script>
             function googleTranslateElementInit() {
@@ -103,6 +105,27 @@
           </script>
           <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
         </div>
+        {% endif %}
+        {% if drupal_entity('block', 'footermenuthird')  %}
+          <div>
+            {% if if_footer['if_footer_menu_third_details']['if_footer_menu_third_fieldset']['if_footer_menu_third_heading'] %}
+              <h3>{{ if_footer['if_footer_menu_third_details']['if_footer_menu_third_fieldset']['if_footer_menu_third_heading'] }}</h3>
+            {% else %}
+              <h3>Resources</h3>
+            {% endif %}
+            {{ drupal_entity('block', 'footermenuthird') }}
+          </div>
+        {% endif %}
+        {% if drupal_entity('block', 'footermenufourth')  %}
+          <div>
+            {% if if_footer['if_footer_menu_fourth_details']['if_footer_menu_fourth_fieldset']['if_footer_menu_fourth_heading'] %}
+              <h3>{{ if_footer['if_footer_menu_fourth_details']['if_footer_menu_fourth_fieldset']['if_footer_menu_fourth_heading'] }}</h3>
+            {% else %}
+              <h3>Resources</h3>
+            {% endif %}
+            {{ drupal_entity('block', 'footermenufourth') }}
+          </div>
+        {% endif %}
 
       </div>
 {#      <div slot="actions">#}

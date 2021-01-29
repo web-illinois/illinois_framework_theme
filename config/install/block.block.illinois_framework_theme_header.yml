@@ -1,9 +1,6 @@
-uuid: 141390e5-f366-46de-aa95-db62b89b0b1d
 langcode: en
 status: true
 dependencies:
-  content:
-    - 'block_content:basic:fcf20125-d8d7-47d6-8d91-776c85e5a281'
   module:
     - block_content
   theme:
@@ -13,9 +10,9 @@ theme: illinois_framework_theme
 region: header
 weight: 0
 provider: null
-plugin: 'block_content:fcf20125-d8d7-47d6-8d91-776c85e5a281'
+plugin: block_content
 settings:
-  id: 'block_content:fcf20125-d8d7-47d6-8d91-776c85e5a281'
+  id: block_content
   label: Header
   provider: block_content
   label_display: '0'

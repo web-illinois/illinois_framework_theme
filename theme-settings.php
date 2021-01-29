@@ -6,6 +6,7 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
   if (isset($form_id)) {
     return;
   }
+  $theme_path = \Drupal::theme()->getActiveTheme()->getPath();
 
   // Creates a section for the secondary site information
   $form['if_secondary_site'] = array(
@@ -28,14 +29,7 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
       '#type' => 'url',
       '#title' => t('Link'),
   );
-  // Create a section for toggling megamenu on or off
-//  $if_megamenu_states = array(
-//      'visible' => array(
-//          ':input[name="if_menu_select"]' => array(
-//              'value' => t('Mega Menu'),
-//          ),
-//      ),
-//  );
+  // Choose whether you display a simple menu or megamenu
   $form['if_megamenu'] = array(
       '#type' => 'details',
       '#title' => t('MegaMenu'),
@@ -58,7 +52,7 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
     '#type' => 'container',
     '#prefix' => '<div>',
     '#suffix' => '</div>',
-    '#markup' => '<img src="/themes/custom/illinois_framework_theme/images/menu_example.png" alt="Example picture of a mega menu" style="width:300px;">',
+    '#markup' => "<img src='/$theme_path/images/menu_example.png' alt='Example picture of a mega menu' style='width:300px;'>",
     '#title' => t('Menu Example'),
     '#weight' => -96,
     '#states' => array(
@@ -73,7 +67,7 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
       '#type' => 'container',
       '#prefix' => '<div>',
       '#suffix' => '</div>',
-      '#markup' => '<img src="/themes/custom/illinois_framework_theme/images/simple_menu.png" alt="Example picture of a simple dropdown menu" style="width:300px;">',
+      '#markup' => "<img src='/$theme_path/images/simple_menu.png' alt='Example picture of a simple dropdown menu' style='width:300px;'>",
       '#title' => t('Menu Example'),
       '#weight' => -95,
       '#states' => array(
@@ -104,7 +98,7 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
       '#type' => 'markup',
       '#prefix' => '<div>',
       '#suffix' => '</div>',
-      '#markup' => '<img src="/themes/custom/illinois_framework_theme/images/footer_example.png" alt="picture" style="width:300px;">',
+      '#markup' => "<img src='/$theme_path/images/footer_example.png' alt='Screenshot of the Illinois footer' style='width:300px;'>",
       '#title' => t('Footer Example'),
       '#weight' => -93,
   );
@@ -150,7 +144,7 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
   );
 //  $form['if_footer']['if_footer_social']['if_footer_social_facebook'] =
 
-  // Create Address Block
+  // Start of Address Block
   $form['if_footer']['if_footer_address'] = array(
       '#type' => 'fieldset',
       '#title' => t('Address'),
@@ -187,76 +181,116 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
     '#type' => 'textfield',
     '#title' => t('Zip code'),
   );
-  $form['if_footer']['if_footer_address']['if_footer_address_tel'] = array(
-      '#type' => 'tel',
-      '#default_value' => theme_get_setting('if_footer_address_tel'),
-      '#title' => t('Phone Number'),
+  $form['if_footer']['if_footer_address']['if_footer_address_email'] = array(
+    '#type' => 'email',
+    '#default_value' => theme_get_setting('if_footer_address_email'),
+    '#title' => t('Email Address'),
   );
+  $form['if_footer']['if_footer_address']['if_footer_address_tel'] = array(
+    '#type' => 'tel',
+    '#default_value' => theme_get_setting('if_footer_address_tel'),
+    '#title' => t('Phone Number'),
+  );
+  // End of Address Block
+  // Start of footer menus
   $form['if_footer']['if_footer_menu'] = array(
     '#type' => 'vertical_tabs',
-    '#default_tab' => 'edit-if-footer-menu-left-details',
+    '#default_tab' => 'edit-if-footer-menu-first-details',
   );
-  $form['if_footer']['if_footer_menu_left_details'] = array(
+  // Footer Menu First
+  $form['if_footer']['if_footer_menu_first_details'] = array(
       '#type' => 'details',
-      '#title' => t('Left Footer Menu'),
+      '#title' => t('Footer Menu First'),
       '#group' => 'if_footer_menu',
   );
-  $form['if_footer']['if_footer_menu_left_details']['if_footer_menu_left_fieldset'] = array(
+  $form['if_footer']['if_footer_menu_first_details']['if_footer_menu_first_fieldset'] = array(
       '#type' => 'fieldset',
-      '#title' => t('Left Menu'),
+      '#title' => t('Footer Menu First'),
+    '#description' => 'You can also access the menu by going to Structure -> Menus -> Footer Menu First',
   );
-
-  $form['if_footer']['if_footer_menu_right_details'] = array(
+  $form['if_footer']['if_footer_menu_first_details']['if_footer_menu_first_fieldset']['if_footer_menu_first_heading'] = array(
+    '#type'          => 'textfield',
+    '#placeholder' => 'Resources',
+    '#title'         => t('Menu Heading'),
+    '#size'          => 128,
+    '#default_value' => theme_get_setting('if_footer_menu_first'),
+    '#description' => "If nothing is entered here the default 'Resources' will be used",
+  );
+  $markup_menu_first = "<a class=\"button button--primary\" role=\"button\" href='/admin/structure/menu/manage/footer-menu-first'>Edit Footer Menu First</a></button>";
+  $form['if_footer']['if_footer_menu_first_details']['if_footer_menu_first_fieldset']['if_footer_menu_first_link'] = array(
+    '#type' => 'markup',
+    '#markup' =>  $markup_menu_first,
+  );
+  // Footer Menu Second
+  $form['if_footer']['if_footer_menu_second_details'] = array(
       '#type' => 'details',
-      '#title' => t('Right Footer Menu'),
+      '#title' => t('Footer Menu Second'),
       '#group' => 'if_footer_menu',
   );
-  $form['if_footer']['if_footer_menu_right_details']['if_footer_menu_right_fieldset'] = array(
+  $form['if_footer']['if_footer_menu_second_details']['if_footer_menu_second_fieldset'] = array(
       '#type' => 'fieldset',
-      '#title' => t('Right Menu'),
+      '#title' => t('Footer Menu Second'),
+    '#description' => 'You can also access the menu by going to Structure -> Menus -> Footer Menu Second',
   );
-  // TODO: insert repeatable field here for left and right columns
-
-    $form['if_footer']['if_footer_menu_right_details']['if_footer_menu_right_fieldset']['if_footer_menu_right_1'] = array(
-      '#type'          => 'url',
-      '#placeholder' => 'https://illinois.edu',
-      '#title'         => t('Add a link'),
-      '#size'          => 128,
-      '#default_value' => theme_get_setting('if_footer_menu_right_1'),
-    );
-  $form['if_footer']['if_footer_menu_right_details']['if_footer_menu_right_fieldset']['if_footer_menu_right_2'] = array(
-    '#type'          => 'url',
-    '#placeholder' => 'https://illinois.edu',
-    '#title'         => t('Add a link'),
+  $form['if_footer']['if_footer_menu_second_details']['if_footer_menu_second_fieldset']['if_footer_menu_second_heading'] = array(
+    '#type'          => 'textfield',
+    '#placeholder' => 'Resources',
+    '#title'         => t('Menu Heading'),
     '#size'          => 128,
-    '#default_value' => theme_get_setting('if_footer_menu_right_2'),
+    '#default_value' => theme_get_setting('if_footer_menu_second_heading'),
+    '#description' => "If nothing is entered here the default 'Resources' will be used",
   );
-  $form['if_footer']['if_footer_menu_right_details']['if_footer_menu_right_fieldset']['if_footer_menu_right_3'] = array(
-    '#type'          => 'url',
-    '#placeholder' => 'https://illinois.edu',
-    '#title'         => t('Add a link'),
-    '#size'          => 128,
-    '#default_value' => theme_get_setting('if_footer_menu_right_3'),
+  $markup_menu_second = "<a class=\"button button--primary\" role=\"button\" href='/admin/structure/menu/manage/footer-menu-second'>Edit Footer Menu Second</a></button>";
+  $form['if_footer']['if_footer_menu_second_details']['if_footer_menu_second_fieldset']['if_footer_menu_second_link'] = array(
+    '#type' => 'markup',
+    '#markup' =>  $markup_menu_second,
   );
-  $form['if_footer']['if_footer_menu_right_details']['if_footer_menu_right_fieldset']['if_footer_menu_right_4_text'] = array(
-    '#type'          => 'text',
-    '#placeholder' => 'Illinois Homepage',
-    '#title'         => t('Add text'),
-    '#size'          => 128,
-    '#default_value' => theme_get_setting('if_footer_menu_right_4_text'),
+  // Footer Menu Third
+  $form['if_footer']['if_footer_menu_third_details'] = array(
+    '#type' => 'details',
+    '#title' => t('Footer Menu Third'),
+    '#group' => 'if_footer_menu',
   );
-  $form['if_footer']['if_footer_menu_right_details']['if_footer_menu_right_fieldset']['if_footer_menu_right_4_url'] = array(
-    '#type'          => 'url',
-    '#placeholder' => 'https://illinois.edu',
-    '#title'         => t('Add a link'),
-    '#size'          => 128,
-    '#default_value' => theme_get_setting('if_footer_menu_right_4_url'),
+  $form['if_footer']['if_footer_menu_third_details']['if_footer_menu_third_fieldset'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Footer Menu Third'),
+    '#description' => 'You can also access the menu by going to Structure -> Menus -> Footer Menu Third',
   );
-  $form['if_footer']['if_footer_menu_right_details']['if_footer_menu_right_fieldset']['if_footer_menu_right_5'] = array(
-    '#type'          => 'url',
-    '#placeholder' => 'https://illinois.edu',
-    '#title'         => t('Add a link'),
+  $form['if_footer']['if_footer_menu_third_details']['if_footer_menu_third_fieldset']['if_footer_menu_third_heading'] = array(
+    '#type'          => 'textfield',
+    '#placeholder' => 'Resources',
+    '#title'         => t('Menu Heading'),
     '#size'          => 128,
-    '#default_value' => theme_get_setting('if_footer_menu_right_5'),
+    '#default_value' => theme_get_setting('if_footer_menu_third'),
+    '#description' => "If nothing is entered here the default 'Resources' will be used",
+  );
+  $markup_menu_third = "<a class=\"button button--primary\" role=\"button\" href='/admin/structure/menu/manage/footer-menu-third'>Edit Footer Menu Third</a></button>";
+  $form['if_footer']['if_footer_menu_third_details']['if_footer_menu_third_fieldset']['if_footer_menu_third_link'] = array(
+    '#type' => 'markup',
+    '#markup' =>  $markup_menu_third,
+  );
+  // Footer Menu Fourth
+  $form['if_footer']['if_footer_menu_fourth_details'] = array(
+    '#type' => 'details',
+    '#title' => t('Footer Menu Fourth'),
+    '#group' => 'if_footer_menu',
+  );
+  $form['if_footer']['if_footer_menu_fourth_details']['if_footer_menu_fourth_fieldset'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Footer Menu Fourth'),
+    '#description' => 'You can also access the menu by going to Structure -> Menus -> Footer Menu Fourth',
+  );
+  $form['if_footer']['if_footer_menu_fourth_details']['if_footer_menu_fourth_fieldset']['if_footer_menu_fourth_heading'] = array(
+    '#type'          => 'textfield',
+    '#placeholder' => 'Resources',
+    '#title'         => t('Menu Heading'),
+    '#size'          => 128,
+    '#default_value' => theme_get_setting('if_footer_menu_fourth'),
+    '#description' => "If nothing is entered here the default 'Resources' will be used",
+  );
+  $markup_menu_fourth = "<a class=\"button button--primary\" role=\"button\" href='/admin/structure/menu/manage/footer-menu-fourth'>Edit Footer Menu Fourth</a></button>";
+  $form['if_footer']['if_footer_menu_fourth_details']['if_footer_menu_fourth_fieldset']['if_footer_menu_fourth_link'] = array(
+    '#type' => 'markup',
+    '#markup' =>  $markup_menu_fourth,
   );
 }

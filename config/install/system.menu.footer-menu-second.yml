@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: footer-menu-second
+label: 'Footer Menu Second'
+description: 'Second list in the links slot of the footer component'
+locked: false

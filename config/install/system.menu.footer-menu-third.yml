@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: footer-menu-third
+label: 'Footer Menu Third'
+description: 'Third list in the links slot of the footer component'
+locked: false

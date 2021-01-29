@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: footer-menu-fourth
+label: 'Footer Menu Fourth'
+description: 'Fourth list in the links slot of the footer component'
+locked: false

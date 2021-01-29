@@ -28,7 +28,7 @@ il-footer {
   color: var(--il-cloud-3);
 
   a {
-    color: white !important;
+    color: white;
 
     &:hover,
     &:focus {
@@ -65,7 +65,6 @@ il-footer {
 il-footer [slot="links"] {
   h3 {
     color: var(--il-cloud-3);
-    padding-left: 10px !important;
     @media (max-width:600px) {
       padding-left: 0 !important;
     }
@@ -106,6 +105,7 @@ il-footer [slot="social"] {
     max-width: var(--il-framework--max-width);
     margin: auto;
     padding: 1rem 10px;
+    position: unset;
 
     ul {
       display: block;

@@ -4,26 +4,26 @@
  */
 function illinois_framework_theme_preprocess(&$variables) {
 
- // path variables
- // TODO: condense these into a single array like ['path_vars']['var']
- $current_path = \Drupal::service('path.current')->getPath();
- $canoncial_url = \Drupal\Core\Url::fromRoute('<current>', [], ['absolute' => 'true'])->toString();
- $base_path = \Drupal::request()->getHost();
- $base_path_http = \Drupal::request()->getSchemeAndHttpHost();
- $theme_path = \Drupal::theme()->getActiveTheme()->getPath();
- $variables['current_uri'] = \Drupal::request()->getRequestUri();
- $variables['canoncial_url'] = $canoncial_url;
- $variables['current_path'] = $current_path;
- $variables['base_path'] = $base_path;
- $variables['base_path_http'] = $base_path_http;
- $variables['base_path_success'] = (array_key_exists('HTTPS', $_SERVER) ? 'https' : 'http').'://'.$_SERVER['HTTP_HOST'].'/';
- $variables['theme_path'] = $theme_path;
- $variables['files_path'] = $base_path_http . '/sites/' . $base_path . '/files/';
- $request = \Drupal::request();
+  // path variables
+  // TODO: condense these into a single array like ['path_vars']['var']
+  $current_path = \Drupal::service('path.current')->getPath();
+  $canoncial_url = \Drupal\Core\Url::fromRoute('<current>', [], ['absolute' => 'true'])->toString();
+  $base_path = \Drupal::request()->getHost();
+  $base_path_http = \Drupal::request()->getSchemeAndHttpHost();
+  $theme_path = \Drupal::theme()->getActiveTheme()->getPath();
+  $variables['current_uri'] = \Drupal::request()->getRequestUri();
+  $variables['canoncial_url'] = $canoncial_url;
+  $variables['current_path'] = $current_path;
+  $variables['base_path'] = $base_path;
+  $variables['base_path_http'] = $base_path_http;
+  $variables['base_path_success'] = (array_key_exists('HTTPS', $_SERVER) ? 'https' : 'http').'://'.$_SERVER['HTTP_HOST'].'/';
+  $variables['theme_path'] = $theme_path;
+  $variables['files_path'] = $base_path_http . '/sites/' . $base_path . '/files/';
+  $request = \Drupal::request();
      if ($route = $request->attributes->get(\Symfony\Cmf\Component\Routing\RouteObjectInterface::ROUTE_OBJECT)) {
      $title = \Drupal::service('title_resolver')->getTitle($request, $route);
      $variables['page_title'] = $title;
- }
+  }
 
   // theme variables
   $variables['if_secondary_site_title'] = theme_get_setting('if_secondary_site_title');
@@ -37,6 +37,15 @@ function illinois_framework_theme_preprocess(&$variables) {
   $variables['if_footer']['if_footer_address']['if_footer_address_zip'] = theme_get_setting('if_footer_address_zip');
   $variables['if_footer']['if_footer_address']['if_footer_address_tel'] = theme_get_setting('if_footer_address_tel');
   $variables['if_footer']['if_footer_address']['if_footer_address_email'] = theme_get_setting('if_footer_address_email');
+  $variables['if_footer']['if_footer_social']['if_footer_social_facebook'] = theme_get_setting('if_footer_social_facebook');
+  $variables['if_footer']['if_footer_social']['if_footer_social_twitter'] = theme_get_setting('if_footer_social_twitter');
+  $variables['if_footer']['if_footer_social']['if_footer_social_instagram'] = theme_get_setting('if_footer_social_instagram');
+  $variables['if_footer']['if_footer_social']['if_footer_social_youtube'] = theme_get_setting('if_footer_social_youtube');
+  $variables['if_footer']['if_footer_social']['if_footer_social_linkedin'] = theme_get_setting('if_footer_social_linkedin');
+  $variables['if_footer']['if_footer_menu_first_details']['if_footer_menu_first_fieldset']['if_footer_menu_first_heading'] = theme_get_setting('if_footer_menu_first_heading');
+  $variables['if_footer']['if_footer_menu_second_details']['if_footer_menu_second_fieldset']['if_footer_menu_second_heading'] = theme_get_setting('if_footer_menu_second_heading');
+  $variables['if_footer']['if_footer_menu_third_details']['if_footer_menu_third_fieldset']['if_footer_menu_third_heading'] = theme_get_setting('if_footer_menu_third_heading');
+  $variables['if_footer']['if_footer_menu_fourth_details']['if_footer_menu_fourth_fieldset']['if_footer_menu_fourth_heading'] = theme_get_setting('if_footer_menu_fourth_heading');
 }
 
 function illinois_framework_theme_theme_suggestions_page_alter(&$suggestions, $vars, $hook) {

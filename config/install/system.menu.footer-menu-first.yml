@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: footer-menu-first
+label: 'Footer Menu First'
+description: 'First list in the links slot of the footer component'
+locked: false

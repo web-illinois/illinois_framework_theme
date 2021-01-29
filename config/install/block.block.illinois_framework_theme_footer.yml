@@ -1,9 +1,6 @@
-uuid: 63089be4-778d-43ac-91a8-9227967f6928
 langcode: en
 status: true
 dependencies:
-  content:
-    - 'block_content:basic:39143637-0f4b-421f-a454-5904131d2406'
   module:
     - block_content
   theme:
@@ -13,9 +10,9 @@ theme: illinois_framework_theme
 region: footer
 weight: 0
 provider: null
-plugin: 'block_content:39143637-0f4b-421f-a454-5904131d2406'
+plugin: block_conten
 settings:
-  id: 'block_content:39143637-0f4b-421f-a454-5904131d2406'
+  id: block_content
   label: Footer
   provider: block_content
   label_display: visible
