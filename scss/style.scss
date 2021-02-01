@@ -13,8 +13,8 @@
 @import "custom/tools.mixins.media-queries";
 
 // Layouts
-@import "custom/layouts.regions";
-@import "custom/layouts.region--footer";
+@import "custom/regions";
+@import "custom/region.footer";
 
 // Components
 @import "custom/components.gdpr";
