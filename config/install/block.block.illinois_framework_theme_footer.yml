@@ -10,7 +10,7 @@ theme: illinois_framework_theme
 region: footer
 weight: 0
 provider: null
-plugin: block_conten
+plugin: block_content
 settings:
   id: block_content
   label: Footer
