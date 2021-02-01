@@ -3,5 +3,7 @@
     "description": "Basic Drupal theme that includes Illinois standards branding",
     "type": "drupal-theme",
     "minimum-stability": "dev",
-    "require": {}
+    "require": {
+        "drupal/tb_megamenu" : "^1.0@RC"
+    }
 }
