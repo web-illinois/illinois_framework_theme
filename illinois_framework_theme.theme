@@ -42,10 +42,7 @@ function illinois_framework_theme_preprocess(&$variables) {
   $variables['if_footer']['if_footer_social']['if_footer_social_instagram'] = theme_get_setting('if_footer_social_instagram');
   $variables['if_footer']['if_footer_social']['if_footer_social_youtube'] = theme_get_setting('if_footer_social_youtube');
   $variables['if_footer']['if_footer_social']['if_footer_social_linkedin'] = theme_get_setting('if_footer_social_linkedin');
-  $variables['if_footer']['if_footer_menu_first_details']['if_footer_menu_first_fieldset']['if_footer_menu_first_heading'] = theme_get_setting('if_footer_menu_first_heading');
-  $variables['if_footer']['if_footer_menu_second_details']['if_footer_menu_second_fieldset']['if_footer_menu_second_heading'] = theme_get_setting('if_footer_menu_second_heading');
-  $variables['if_footer']['if_footer_menu_third_details']['if_footer_menu_third_fieldset']['if_footer_menu_third_heading'] = theme_get_setting('if_footer_menu_third_heading');
-  $variables['if_footer']['if_footer_menu_fourth_details']['if_footer_menu_fourth_fieldset']['if_footer_menu_fourth_heading'] = theme_get_setting('if_footer_menu_fourth_heading');
+  $variables['if_footer']['if_footer_menu_block_checkbox'] = theme_get_setting('if_footer_menu_block_checkbox');
 }
 
 function illinois_framework_theme_theme_suggestions_page_alter(&$suggestions, $vars, $hook) {

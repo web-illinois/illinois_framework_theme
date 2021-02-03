@@ -16,3 +16,7 @@ There is a style guide available at `style-guide/index.html`. The link will be a
 
 # Contributing
 The WIGG Drupal group is welcoming contributions from anyone on campus. Please see the [WIGG Drupal webpage](https://webguidelines.web.illinois.edu/subcommittees/drupal/) for more information.
+
+# Twig Templating with Twig Tweak
+If you are looking to modify the twig templates there are some shortcuts provided by the [Twig Tweak Module](https://www.drupal.org/project/twig_tweak).  See the [cheat sheet](https://www.drupal.org/docs/contributed-modules/twig-tweak/cheat-sheet).
+

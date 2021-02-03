@@ -17,7 +17,7 @@ settings:
   id: 'system_menu_block:footer-menu-third'
   label: 'Footer Menu Third'
   provider: system
-  label_display: '0'
+  label_display: visible
   level: 1
   depth: 1
   expand_all_items: false

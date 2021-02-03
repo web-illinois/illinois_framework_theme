@@ -21,7 +21,7 @@
     'l-region--' ~ region|clean_class,
   ]
 %}
-{#    {{ kint() }}#}
+    {{ kint() }}
   <footer{{ attributes.addClass(classes) }} role="contentinfo">
     <il-footer>
       <div slot="social">
@@ -74,72 +74,56 @@
           {% endif %}
       </address>
       </div>
-      <div slot="links">
-        {% if drupal_entity('block', 'footermenufirst')  %}
-        <div>
-          {% if if_footer['if_footer_menu_first_details']['if_footer_menu_first_fieldset']['if_footer_menu_first_heading'] %}
-            <h3>{{ if_footer['if_footer_menu_first_details']['if_footer_menu_first_fieldset']['if_footer_menu_first_heading'] }}</h3>
-          {% else %}
-            <h3>Resources</h3>
-          {% endif %}
-          {{ drupal_entity('block', 'footermenufirst') }}
-        </div>
-        {% endif %}
-        {% if drupal_entity('block', 'footermenusecond')  %}
-        <div>
-          {% if if_footer['if_footer_menu_second_details']['if_footer_menu_second_fieldset']['if_footer_menu_second_heading'] %}
-            <h3>{{ if_footer['if_footer_menu_second_details']['if_footer_menu_second_fieldset']['if_footer_menu_second_heading'] }}</h3>
-          {% else %}
-            <h3>Resources</h3>
-          {% endif %}
-          {{ drupal_entity('block', 'footermenusecond') }}
-          <div id="google_translate_element"></div>
-          <script>
-            function googleTranslateElementInit() {
-              new google.translate.TranslateElement({
-                pageLanguage: 'en',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                autoDisplay: false
-              }, 'google_translate_element');
-            }
-          </script>
-          <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-        </div>
-        {% endif %}
-        {% if drupal_entity('block', 'footermenuthird')  %}
+      <div slot="links" {% if if_footer['if_footer_menu_block_checkbox'] == TRUE %} class="no-grid" {% endif %}>
+        {% if drupal_entity('block_content', 1) %}
           <div>
-            {% if if_footer['if_footer_menu_third_details']['if_footer_menu_third_fieldset']['if_footer_menu_third_heading'] %}
-              <h3>{{ if_footer['if_footer_menu_third_details']['if_footer_menu_third_fieldset']['if_footer_menu_third_heading'] }}</h3>
-            {% else %}
-              <h3>Resources</h3>
-            {% endif %}
+            {{ drupal_entity('block_content', 1) }}
+          </div>
+        {% endif %}
+        {% if drupal_entity('block', 'footermenufirst') %}
+          <div>
+            {{ drupal_entity('block', 'footermenufirst') }}
+          </div>
+        {% endif %}
+        {% if drupal_entity('block', 'footermenusecond') %}
+          <div>
+            {{ drupal_entity('block', 'footermenusecond') }}
+            <div id="google_translate_element"></div>
+            <script>
+              function googleTranslateElementInit() {
+                new google.translate.TranslateElement({
+                  pageLanguage: 'en',
+                  layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                  autoDisplay: false
+                }, 'google_translate_element');
+              }
+            </script>
+            <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+          </div>
+        {% endif %}
+        {% if drupal_entity('block', 'footermenuthird') %}
+          <div>
             {{ drupal_entity('block', 'footermenuthird') }}
           </div>
         {% endif %}
-        {% if drupal_entity('block', 'footermenufourth')  %}
+        {% if drupal_entity('block', 'footermenufourth') %}
           <div>
-            {% if if_footer['if_footer_menu_fourth_details']['if_footer_menu_fourth_fieldset']['if_footer_menu_fourth_heading'] %}
-              <h3>{{ if_footer['if_footer_menu_fourth_details']['if_footer_menu_fourth_fieldset']['if_footer_menu_fourth_heading'] }}</h3>
-            {% else %}
-              <h3>Resources</h3>
-            {% endif %}
             {{ drupal_entity('block', 'footermenufourth') }}
           </div>
         {% endif %}
-
       </div>
-{#      <div slot="actions">#}
-{#        #}
-{#      </div>#}
+      {# Available slot not used by the template at the moment #}
+      {# <div slot="actions"> #}
+      {# </div> #}
       {% if if_secondary_site_title and if_secondary_site_link %}
       <div slot="parent">
         {# primary unit information (i.e. College Name) #}
-          <a href="{{ if_secondary_site_link }}">{{ if_secondary_site_title| raw }}</a>
+        <a href="{{ if_secondary_site_link }}">{{ if_secondary_site_title| raw }}</a>
       </div>
       {% elseif if_secondary_site_title %}
         <div slot="parent">
           {# primary unit information (i.e. College Name) #}
-         {{ if_secondary_site_title| raw }}
+          {{ if_secondary_site_title| raw }}
         </div>
       {% else %}
         <div slot="parent" class="no-title"></div>

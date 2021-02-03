@@ -63,6 +63,10 @@ il-footer {
   }
 }
 il-footer [slot="links"] {
+
+  &.no-grid {
+    grid-template-columns: repeat(1,1fr) !important;
+  }
   h3 {
     color: var(--il-cloud-3);
     @media (max-width:600px) {
