@@ -38,7 +38,7 @@
   {% if items %}
     {% spaceless %}
     {% if menu_level == 0 %}
-      <ul class="navbar-nav"> {# 1. #}
+      <ul class="navbar-nav d-flex justify-content-start"> {# 1. #}
     {% else %}
       <div class="dropdown-menu tile-list">
       <section class="tile menu menu--level-{{ menu_level + 1 }} white-box col">
