@@ -2,9 +2,7 @@ global-styling:
   css:
     theme:
       fonts/font-awesome-4.7.0/css/font-awesome.css: {}
-      css/web-components/fonts.css: {}
-      css/web-components/colors.css: {}
-      css/web-components/components.css: {}
+      css/components.css: {}
       css/style.css: {}
   js:
     https://emergency.publicaffairs.illinois.edu/illinois.js:

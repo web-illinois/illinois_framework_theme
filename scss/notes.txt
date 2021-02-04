@@ -1,3 +1,0 @@
-1. Changed line heights to 1.2 from custom which varied but was close to 1.2 for all of them
-2. Pull changes to Dev Ansc site and switch to dev branch.
-3. Test Migration of database from staging to dev

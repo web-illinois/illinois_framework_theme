@@ -3,8 +3,10 @@
 // Example: @import "../../../../../themes/contrib/bootstrap4/scss/style";
 @import '../../../../themes/contrib/bootstrap4/dist/bootstrap/4.5.3/scss/bootstrap';
 
+@import "web-components";
+
 // Include bootstrap variables definitions overrides.
-@import 'overrides/overrides';
+@import 'overrides';
 
 // Include custom sub theme.
 @import 'custom/variables';
