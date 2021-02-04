@@ -10,22 +10,20 @@
 @import 'custom/variables';
 
 // Mixins
-@import "custom/tools.mixins.media-queries";
+@import "custom/mixins/media-queries";
 
 // Layouts
 @import "custom/regions";
+@import "custom/region.header";
 @import "custom/region.footer";
 
 // Components
-@import "custom/components.gdpr";
-@import "custom/components.one-trust-cookie";
 @import "custom/components.google-translate";
 
 // Blocks
-@import "custom/block.main-menu";
 @import "custom/block.main-menu--simple";
 //@import "custom/block.main-menu--mega";
 
 // Utility Classes
-@import "custom/ie--11";
+@import "custom/utilities/ie--11";
 

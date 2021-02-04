@@ -2,10 +2,6 @@
   TODO: add external link icons to items that cause a user to leave the site
  */
 
-
-
-
-
 /* mainnav toggler button */
 @media all {
   body {
@@ -34,6 +30,9 @@
 
     ul {
       font-size: 1rem;
+
+      /* last three links open to the left so the menu doesn't overflow outside of
+       the container - uncomment the rules below */
 
       //li.menu-item--level-1:nth-last-child(-n+3) {
       //
@@ -251,13 +250,6 @@
         }
       }
 
-      .menu {
-        /*margin: 1.2rem 0.6rem;*/
-        /*padding: 20px 30px 20px 30px;*/
-        /*margin: 1.2rem 0;*/
-        /*padding: 20px;*/
-      }
-
       section:not(.w110) + .menu {
         padding-left: 40px;
       }
@@ -311,12 +303,6 @@
       }
     }
   }
-
-  /* main nav bar items */
-
-  /* mega menu panel */
-
-
 }
 
 /* childnav */
@@ -433,8 +419,7 @@
     &.mobile header .navbar {
       //margin-top: 36px;
       margin-top: 0;
-
-      /*margin: 0 -15px 0 -15px;*/
+      //margin: 0 -15px 0 -15px;
     }
     &.mobile.navopen header .navbar {
       margin-top: 36px;
@@ -443,10 +428,8 @@
     header .navbar {
 
       ul {
-
-          display: block;
-
-        /*padding: 0 15px;*/
+        display: block;
+        //padding: 0 15px;
       }
 
       .dropdown-menu.tile-list {
@@ -473,8 +456,6 @@
       flex-grow: 1;
       align-items: flex-end;
       flex-direction: column;
-
-      /*margin-right: 10px;*/
     }
 
     header .navbar {
@@ -626,8 +607,6 @@
       columns: 1;
     }
   }
-
-
 }
 /* tiles */
 @media all {
