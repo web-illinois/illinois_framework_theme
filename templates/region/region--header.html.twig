@@ -26,7 +26,7 @@
 {% else %}
   {% set menu_type = 'simple' %}
 {% endif %}
-  <header{{ attributes.addClass(classes) }} role="banner" aria-label="Site header">
+  <header{{ attributes.addClass(classes) }} role="banner" aria-label="Site Header">
     <il-header>
       <il-unit-wordmark>
         {% if if_secondary_site_title %}
@@ -72,6 +72,17 @@
             <!--OneTrust Cookies Consent Notice end, illinois.edu -->
           </div>
       </il-unit-wordmark>
+      <div class="link-list" slot="link-list">
+        {# TODO: Count and add the links, for each link at the / after it unless it's the end link in the arrary #}
+        {% for if_header_link in if_header_links %}
+          <a href="{{ if_header_links['if_header_link_1'] }}">{{ if_header_links['if_header_text_1'] }}</a>
+        {% endfor %}
+{#        {% set header_link_count =  if_header_links|length // 2 %}#}
+{#        {{ header_link_count }}#}
+{#        {% if if_header_links['if_header_text_1'] and if_header_links['if_header_link_1']  %}#}
+{#          #}
+{#         {% endif %}/ <a href="/">{{ if_header_text_2 }}</a> / <a href="/">{{ if_header_text_3 }}</a>#}
+      </div>
       <div class="main-navigation" slot="menu">
         <div class="main-navigation">
           {% if menu_type == 'mega' %}

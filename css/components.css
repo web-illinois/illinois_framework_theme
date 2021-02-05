@@ -1195,6 +1195,9 @@ il-header a {
   color: inherit;
   text-decoration: none;
 }
+il-header *[slot="link-list"] {
+  float: right;
+}
 @media (min-width: 600px) {
   il-header {
     --il-menu-toggle-display: none;

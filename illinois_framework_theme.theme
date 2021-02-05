@@ -29,6 +29,12 @@ function illinois_framework_theme_preprocess(&$variables) {
   $variables['if_secondary_site_title'] = theme_get_setting('if_secondary_site_title');
   $variables['if_secondary_site_link'] = theme_get_setting('if_secondary_site_link');
   $variables['if_megamenu']['if_menu_select'] = theme_get_setting('if_menu_select');
+  $variables['if_header_links']['if_header_link_1_fieldset']['if_header_text_1'] = theme_get_setting('if_header_text_1');
+  $variables['if_header_links']['if_header_link_1_fieldset']['if_header_link_1'] = theme_get_setting('if_header_link_1');
+  $variables['if_header_links']['if_header_link_2_fieldset']['if_header_text_2'] = theme_get_setting('if_header_text_2');
+  $variables['if_header_links']['if_header_link_2_fieldset']['if_header_link_2'] = theme_get_setting('if_header_link_2');
+  $variables['if_header_links']['if_header_link_3_fieldset']['if_header_text_3'] = theme_get_setting('if_header_text_3');
+  $variables['if_header_links']['if_header_link_3_fieldset']['if_header_link_3'] = theme_get_setting('if_header_link_3');
   $variables['if_footer']['if_footer_address']['if_footer_address_unit'] = theme_get_setting('if_footer_address_unit');
   $variables['if_footer']['if_footer_address']['if_footer_address_street_one'] = theme_get_setting('if_footer_address_street_one');
   $variables['if_footer']['if_footer_address']['if_footer_address_street_two'] = theme_get_setting('if_footer_address_street_two');

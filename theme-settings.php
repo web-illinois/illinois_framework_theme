@@ -1,5 +1,5 @@
 <?php
-\Drupal::messenger()->addStatus(t('Set the Secondary Site Title, MegaMenu and Footer Contents'));
+\Drupal::messenger()->addStatus(t('Set the Header Links, Secondary Site Title, MegaMenu and Footer Contents'));
 function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id = NULL)
 {
   // Work-around for a core bug affecting admin themes. See issue #943212.
@@ -8,6 +8,65 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
   }
   $theme_path = \Drupal::theme()->getActiveTheme()->getPath();
 
+  // Add Links to the upper right-hand corner of the website
+  $form['if_header_links'] = array(
+    '#type' => 'details',
+    '#title' => t('Header Link List'),
+    '#description' => t('Add up to 3 links in the upper right-hand corner of the header'),
+    '#weight' => -105,
+    '#open' => FALSE,
+  );
+  $form['if_header_links']['if_header_link_1_fieldset'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Link 1'),
+  );
+  $form['if_header_links']['if_header_link_1_fieldset']['if_header_text_1'] = array(
+  '#type'          => 'textfield',
+  '#placeholder' => 'Apply',
+  '#title'         => t('Enter text to displayed for the link'),
+  '#size'          => 128,
+  '#default_value' => theme_get_setting('if_header_text_1'),
+);
+  $form['if_header_links']['if_header_link_1_fieldset']['if_header_link_1'] = array(
+    '#type'          => 'url',
+    '#placeholder' => 'https://illinois.edu',
+    '#title'         => t('Enter the link'),
+    '#default_value' => theme_get_setting('if_header_link_1'),
+  );
+  $form['if_header_links']['if_header_link_2_fieldset'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Link 2'),
+  );
+  $form['if_header_links']['if_header_link_2_fieldset']['if_header_text_2'] = array(
+    '#type'          => 'textfield',
+    '#placeholder' => 'Give',
+    '#title'         => t('Enter text to displayed for the link'),
+    '#size'          => 128,
+    '#default_value' => theme_get_setting('if_header_text_2'),
+  );
+  $form['if_header_links']['if_header_link_2_fieldset']['if_header_link_2'] = array(
+    '#type'          => 'url',
+    '#placeholder' => 'https://illinois.edu',
+    '#title'         => t('Enter the link'),
+    '#default_value' => theme_get_setting('if_header_link_2'),
+  );
+  $form['if_header_links']['if_header_link_3_fieldset'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Link 3'),
+  );
+  $form['if_header_links']['if_header_link_3_fieldset']['if_header_text_3'] = array(
+    '#type'          => 'textfield',
+    '#placeholder' => 'Login',
+    '#title'         => t('Enter text to displayed for the link'),
+    '#size'          => 128,
+    '#default_value' => theme_get_setting('if_header_text_3'),
+  );
+  $form['if_header_links']['if_header_link_3_fieldset']['if_header_link_3'] = array(
+    '#type'          => 'url',
+    '#placeholder' => 'https://illinois.edu',
+    '#title'         => t('Enter the link'),
+    '#default_value' => theme_get_setting('if_header_link_3'),
+  );
   // Creates a section for the secondary site information
   $form['if_secondary_site'] = array(
       '#type' => 'details',
@@ -16,7 +75,6 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
       '#weight' => -101,
       '#open' => FALSE,
   );
-
   $form['if_secondary_site']['if_secondary_site_title'] = array(
       '#weight' => -100,
       '#type' => 'textfield',
@@ -79,13 +137,6 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
       ),
   );
 
-//  $form['if_megamenu']['if_navigation_menu_type'] = array(
-//      '#weight' => -95,
-//      '#default_value' => theme_get_setting('if_navigation_menu_type'),
-//      '#type' => 'checkbox',
-//      '#title' => t('Enable an Illinois branded MegaMenu'),
-//  );
-
   // Create a section for the footer links
   $form['if_footer'] = array(
       '#type' => 'details',
@@ -142,7 +193,6 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
     '#size'          => 128,
     '#default_value' => theme_get_setting('if_footer_social_linkedin'),
   );
-//  $form['if_footer']['if_footer_social']['if_footer_social_facebook'] =
 
   // Start of Address Block
   $form['if_footer']['if_footer_address'] = array(
@@ -214,14 +264,6 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
     '#title' => t('Footer Block'),
     '#description' => 'You can also access the block by going to Structure -> Block Layout -> Custom Block Library -> Footer',
   );
-//  $form['if_footer']['if_footer_menu_block_details']['if_footer_menu_block_fieldset']['if_footer_menu_block'] = array(
-//    '#type'          => 'textfield',
-//    '#placeholder' => 'Block Heading',
-//    '#title'         => t('Block Heading'),
-//    '#size'          => 128,
-//    '#default_value' => theme_get_setting('if_footer_menu_block'),
-//    '#description' => "If nothing is entered here the default 'Block Heading' will be used.",
-//  );
   $markup_footer_block = "<a class=\"button button--primary\" role=\"button\" href='/admin/structure/block/block-content'>Edit Footer Block</a></button>";
   $form['if_footer']['if_footer_menu_block_details']['if_footer_menu_block_fieldset']['if_footer_menu_block_link'] = array(
     '#type' => 'markup',
@@ -238,14 +280,6 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
       '#title' => t('Footer Menu First'),
     '#description' => 'You can also access the menu by going to Structure -> Menus -> Footer Menu First',
   );
-//  $form['if_footer']['if_footer_menu_first_details']['if_footer_menu_first_fieldset']['if_footer_menu_first_heading'] = array(
-//    '#type'          => 'textfield',
-//    '#placeholder' => 'Resources',
-//    '#title'         => t('Menu Heading'),
-//    '#size'          => 128,
-//    '#default_value' => theme_get_setting('if_footer_menu_first'),
-//    '#description' => "If nothing is entered here the default 'Resources' will be used.",
-//  );
   $markup_menu_first = "<a class=\"button button--primary\" role=\"button\" href='/admin/structure/menu/manage/footer-menu-first'>Edit Footer Menu First</a></button>";
   $form['if_footer']['if_footer_menu_first_details']['if_footer_menu_first_fieldset']['if_footer_menu_first_link'] = array(
     '#type' => 'markup',
@@ -262,14 +296,6 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
       '#title' => t('Footer Menu Second'),
     '#description' => 'You can also access the menu by going to Structure -> Menus -> Footer Menu Second',
   );
-//  $form['if_footer']['if_footer_menu_second_details']['if_footer_menu_second_fieldset']['if_footer_menu_second_heading'] = array(
-//    '#type'          => 'textfield',
-//    '#placeholder' => 'Resources',
-//    '#title'         => t('Menu Heading'),
-//    '#size'          => 128,
-//    '#default_value' => theme_get_setting('if_footer_menu_second_heading'),
-//    '#description' => "If nothing is entered here the default 'Resources' will be used.",
-//  );
   $markup_menu_second = "<a class=\"button button--primary\" role=\"button\" href='/admin/structure/menu/manage/footer-menu-second'>Edit Footer Menu Second</a></button>";
   $form['if_footer']['if_footer_menu_second_details']['if_footer_menu_second_fieldset']['if_footer_menu_second_link'] = array(
     '#type' => 'markup',
@@ -286,14 +312,6 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
     '#title' => t('Footer Menu Third'),
     '#description' => 'You can also access the menu by going to Structure -> Menus -> Footer Menu Third',
   );
-//  $form['if_footer']['if_footer_menu_third_details']['if_footer_menu_third_fieldset']['if_footer_menu_third_heading'] = array(
-//    '#type'          => 'textfield',
-//    '#placeholder' => 'Resources',
-//    '#title'         => t('Menu Heading'),
-//    '#size'          => 128,
-//    '#default_value' => theme_get_setting('if_footer_menu_third'),
-//    '#description' => "If nothing is entered here the default 'Resources' will be used.",
-//  );
   $markup_menu_third = "<a class=\"button button--primary\" role=\"button\" href='/admin/structure/menu/manage/footer-menu-third'>Edit Footer Menu Third</a></button>";
   $form['if_footer']['if_footer_menu_third_details']['if_footer_menu_third_fieldset']['if_footer_menu_third_link'] = array(
     '#type' => 'markup',
@@ -310,18 +328,9 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
     '#title' => t('Footer Menu Fourth'),
     '#description' => 'You can also access the menu by going to Structure -> Menus -> Footer Menu Fourth',
   );
-//  $form['if_footer']['if_footer_menu_fourth_details']['if_footer_menu_fourth_fieldset']['if_footer_menu_fourth_heading'] = array(
-//    '#type'          => 'textfield',
-//    '#placeholder' => 'Resources',
-//    '#title'         => t('Menu Heading'),
-//    '#size'          => 128,
-//    '#default_value' => theme_get_setting('if_footer_menu_fourth'),
-//    '#description' => "If nothing is entered here the default 'Resources' will be used.",
-//  );
   $markup_menu_fourth = "<a class=\"button button--primary\" role=\"button\" href='/admin/structure/menu/manage/footer-menu-fourth'>Edit Footer Menu Fourth</a></button>";
   $form['if_footer']['if_footer_menu_fourth_details']['if_footer_menu_fourth_fieldset']['if_footer_menu_fourth_link'] = array(
     '#type' => 'markup',
     '#markup' =>  $markup_menu_fourth,
   );
-
 }

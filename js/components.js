@@ -602,10 +602,11 @@ button.compact .icon {
 <div class="header">
     <div class="campus">
         <div>
-        <a aria-label="University of Illinois Homepage" href="https://illinois.edu">
+          <a aria-label="University of Illinois Homepage" href="https://illinois.edu">
             <span>University of Illinois</span>
             <span>Urbana&hyphen;Champaign</span>
-         </a>
+           </a>
+          <slot name="link-list"></slot>
         </div>
     </div>
     <div class="site">
