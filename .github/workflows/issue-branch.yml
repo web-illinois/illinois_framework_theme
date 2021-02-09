@@ -1,25 +1,42 @@
 #To edit see https://github.com/marketplace/actions/create-issue-branch
-name: Create Issue Branch on Assigned Issue
-gitSafeReplacementChar: '-'
-branchName: '${assignee.login}/issue-${issue.number}-${issue.title,}'
-branches:
-  - label: enhancement
-    prefix: feature/
-  - label: bug
-    prefix: bugfix/
-  - label: '*'
-    prefix: issues/
+name: issues and project
+
 on:
     issues:
-        types: [assigned]
+        types: [opened, assigned]
+env:
+  PROJECT_BOARD: "Theme"
+  TODO: "TODO"
+  INPROGRESS: "IN PROGRESS"
+    
 jobs:
-    create_issue_branch_job:
-        runs-on: ubuntu-latest
-        steps:
-        - name: Create Issue Branch
-          id: Create_Issue_Branch
-          uses: robvanderleek/create-issue-branch@v1.5
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        - name: Echo branch name
-          run: echo ${{ steps.Create_Issue_Branch.outputs.branchName }}
+  add-issue-to-project-board:
+    name: "add issue to project board"
+    runs-on: ubuntu-latest
+    if: github.event.action == 'opened' || github.event.action == 'assigned'
+    steps:
+      - name: get column name
+        id: column
+        run: |
+          if [[ "${{ github.event.action }}" == "assigned" ]]; then \
+            echo "::set-output name=column-name::${{ env.INPROGRESS }}"; \
+          else \
+            echo "::set-output name=column-name::${{ env.TODO }}"; \
+          fi
+      - name: add issue to column
+        uses: alex-page/github-project-automation-plus@v0.2.4
+        with:
+          project: ${{ env.PROJECT_BOARD }}
+          column: ${{ steps.column.outputs.column-name }}
+          repo-token: ${{ secrets.ORG_PROJECT_TOKEN }}
+
+  create-issue-branch:
+    name: "create issue branch"
+    runs-on: ubuntu-latest
+    if: github.event.action == 'assigned'
+    steps:
+      - name: create the issue branch
+        uses: robvanderleek/create-issue-branch@master
+        id: create-issue-branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
