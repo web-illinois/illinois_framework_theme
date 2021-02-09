@@ -1,0 +1,25 @@
+#To edit see https://github.com/marketplace/actions/create-issue-branch
+name: Create Issue Branch on Assigned Issue
+gitSafeReplacementChar: '-'
+branchName: '${assignee.login}/issue-${issue.number}-${issue.title,}'
+branches:
+  - label: enhancement
+    prefix: feature/
+  - label: bug
+    prefix: bugfix/
+  - label: '*'
+    prefix: issues/
+on:
+    issues:
+        types: [assigned]
+jobs:
+    create_issue_branch_job:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Create Issue Branch
+          id: Create_Issue_Branch
+          uses: robvanderleek/create-issue-branch@v1.5
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        - name: Echo branch name
+          run: echo ${{ steps.Create_Issue_Branch.outputs.branchName }}
