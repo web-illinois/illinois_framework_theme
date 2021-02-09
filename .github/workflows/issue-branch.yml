@@ -39,7 +39,7 @@ jobs:
         with: 
             ref: dev
       - name: create the issue branch
-        uses: robvanderleek/create-issue-branch@master
+        uses: robvanderleek/create-issue-branch@dev
         id: create-issue-branch
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
