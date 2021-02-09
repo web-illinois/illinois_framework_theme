@@ -35,6 +35,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.action == 'assigned'
     steps:
+      - uses: actions/checkout@master
       - name: Checkout Dev Branch
         run: git checkout dev
       - name: create the issue branch
