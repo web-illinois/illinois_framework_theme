@@ -1,0 +1,2 @@
+gitSafeReplacementChar: '-'
+branchName: '${assignee.login}/issue-${issue.number}-${issue.title,}'
