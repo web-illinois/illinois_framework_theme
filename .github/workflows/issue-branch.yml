@@ -36,7 +36,6 @@ jobs:
     if: github.event.action == 'assigned'
     steps:
       - name: Checkout Dev Branch
-        uses: actions/checkout@master
         run: git checkout dev
       - name: create the issue branch
         uses: robvanderleek/create-issue-branch@master
