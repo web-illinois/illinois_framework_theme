@@ -78,7 +78,7 @@
         {% for header_link in if_header_links %}
           {% set link = if_header_links[loop.index0][1] %}
           {% set text = if_header_links[loop.index0][0] %}
-          <a href="{{ link }}">{{ text }}</a> {% if loop.index < link_count %}/{% endif %}
+          <a href="{{ link }}">{{ text }}</a> {% if loop.index < link_count and text != NULL %}/{% endif %}
         {% endfor %}
 
 {#        {% set header_link_count =  if_header_links|length // 2 %}#}
