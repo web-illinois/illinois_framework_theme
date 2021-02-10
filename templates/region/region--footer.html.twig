@@ -140,6 +140,14 @@
         <li><a href="https://illinois.edu/resources/website/copyright.html">Copyright</a></li>
         <li><a href="https://www.vpaa.uillinois.edu/resources/web_privacy">Privacy Policy</a></li>
         <li><a href="/user">Login</a></li>
+        {# loop through the links and output them #}
+        {% for subfooter_link in if_subfooter %}
+          {% set link = if_subfooter[loop.index0][1] %}
+          {% set text = if_subfooter[loop.index0][0] %}
+          {% if link != NULL or text != NULL %}
+            <li><a href="{{ link }}">{{ text }}</a></li>
+          {% endif %}
+        {% endfor %}
       </ul>
     </div>
   </footer>

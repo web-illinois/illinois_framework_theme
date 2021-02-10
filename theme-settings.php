@@ -326,11 +326,83 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
   $form['if_footer']['if_footer_menu_fourth_details']['if_footer_menu_fourth_fieldset'] = array(
     '#type' => 'fieldset',
     '#title' => t('Footer Menu Fourth'),
-    '#description' => 'You can also access the menu by going to Structure -> Menus -> Footer Menu Fourth',
+    '#description' => t('You can also access the menu by going to Structure -> Menus -> Footer Menu Fourth'),
   );
   $markup_menu_fourth = "<a class=\"button button--primary\" role=\"button\" href='/admin/structure/menu/manage/footer-menu-fourth'>Edit Footer Menu Fourth</a></button>";
   $form['if_footer']['if_footer_menu_fourth_details']['if_footer_menu_fourth_fieldset']['if_footer_menu_fourth_link'] = array(
     '#type' => 'markup',
     '#markup' =>  $markup_menu_fourth,
+  );
+  // Start of subfooter
+  $form['if_subfooter'] = array(
+    '#type' => 'details',
+    '#title' => t('Subfooter'),
+    '#description' => t('Add links to the subfooter next to the copyright and privacy policy link.  You must add the text and link or the link will not appear in the footer.'),
+    '#weight' => -92,
+    '#open' => FALSE,
+  );
+  $form['if_subfooter']['if_subfooter_fieldset'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Subfooter'),
+  );
+  $form['if_subfooter']['if_subfooter_fieldset']['if_subfooter_text_1'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Enter text to displayed for the link'),
+    '#size'          => 128,
+    '#default_value' => theme_get_setting('if_subfooter_text_1'),
+  );
+  $form['if_subfooter']['if_subfooter_fieldset']['if_subfooter_link_1'] = array(
+    '#type'          => 'url',
+    '#placeholder' => 'https://illinois.edu',
+    '#title'         => t('Enter the link'),
+    '#default_value' => theme_get_setting('if_subfooter_link_1'),
+  );
+  $form['if_subfooter']['if_subfooter_fieldset']['if_subfooter_text_2'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Enter text to displayed for the link'),
+    '#size'          => 128,
+    '#default_value' => theme_get_setting('if_subfooter_text_2'),
+  );
+  $form['if_subfooter']['if_subfooter_fieldset']['if_subfooter_link_2'] = array(
+    '#type'          => 'url',
+    '#placeholder' => 'https://illinois.edu',
+    '#title'         => t('Enter the link'),
+    '#default_value' => theme_get_setting('if_subfooter_link_2'),
+  );
+  $form['if_subfooter']['if_subfooter_fieldset']['if_subfooter_text_3'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Enter text to displayed for the link'),
+    '#size'          => 128,
+    '#default_value' => theme_get_setting('if_subfooter_text_3'),
+  );
+  $form['if_subfooter']['if_subfooter_fieldset']['if_subfooter_link_3'] = array(
+    '#type'          => 'url',
+    '#placeholder' => 'https://illinois.edu',
+    '#title'         => t('Enter the link'),
+    '#default_value' => theme_get_setting('if_subfooter_link_3'),
+  );
+  $form['if_subfooter']['if_subfooter_fieldset']['if_subfooter_text_4'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Enter text to displayed for the link'),
+    '#size'          => 128,
+    '#default_value' => theme_get_setting('if_subfooter_text_4'),
+  );
+  $form['if_subfooter']['if_subfooter_fieldset']['if_subfooter_link_4'] = array(
+    '#type'          => 'url',
+    '#placeholder' => 'https://illinois.edu',
+    '#title'         => t('Enter the link'),
+    '#default_value' => theme_get_setting('if_subfooter_link_4'),
+  );
+  $form['if_subfooter']['if_subfooter_fieldset']['if_subfooter_text_5'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Enter text to displayed for the link'),
+    '#size'          => 128,
+    '#default_value' => theme_get_setting('if_subfooter_text_5'),
+  );
+  $form['if_subfooter']['if_subfooter_fieldset']['if_subfooter_link_5'] = array(
+    '#type'          => 'url',
+    '#placeholder' => 'https://illinois.edu',
+    '#title'         => t('Enter the link'),
+    '#default_value' => theme_get_setting('if_subfooter_link_5'),
   );
 }
