@@ -1192,11 +1192,17 @@ il-header {
   --il-menu-toggle-display: block;
 }
 il-header a {
-  color: inherit;
+  color: var(--il-blue);
   text-decoration: none;
 }
 il-header *[slot="link-list"] {
+  color: var(--il-orange);
+  font-family: var(--il-source-sans);
+  font-size: 0.75rem;
   float: right;
+  a {
+    color: var(--il-blue);
+  }
 }
 @media (min-width: 600px) {
   il-header {
