@@ -20,7 +20,7 @@
     background-color: var(--il-cloud-1);
 
     /*//display: flex;*/
-    max-width: 1440px;
+    max-width: 1200px;
     margin: 0 10px;
     font-family:  var(--il-source-sans);
     font-size: 0.8rem;
@@ -30,6 +30,7 @@
 
     ul {
       font-size: 1rem;
+      padding: 0.5rem;
 
       /* last three links open to the left so the menu doesn't overflow outside of
        the container - uncomment the rules below */
@@ -47,7 +48,6 @@
     }
 
     .nav-item {
-      padding: 0.5rem;
 
       &.mega {
         /*position: static;  removed static to make standard relative dropdown */
@@ -63,7 +63,10 @@
         padding: 0 0.5rem;
         line-height: 40px;
 
-        &:hover,
+        &:hover {
+          color: var(--il-orange);
+          text-decoration: underline;
+        }
         &:focus {
           color: var(--il-orange);
           text-decoration: underline;
@@ -146,7 +149,7 @@
         font-size: 12px;
         font-weight: lighter;
         color: var(--il-orange);
-        margin-left: 10px;
+        margin-left: 5px;
         margin-top: -2px;
       }
 

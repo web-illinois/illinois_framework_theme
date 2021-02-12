@@ -265,7 +265,7 @@ svg {
     display: block;
     text-decoration: none;
 }
-.campus-wordmark a:hover,
+
 .campus-wordmark a:focus {
   outline: 2px dashed var(--il-orange);
 }

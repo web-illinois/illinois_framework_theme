@@ -16,7 +16,9 @@ footer {
   }
 
   a {
-    &:hover,
+    &:hover {
+      color: var(--il-orange) !important;
+    }
     &:focus {
       color: var(--il-orange) !important;
       outline: 2px dashed  var(--il-orange) !important;
@@ -30,7 +32,9 @@ il-footer {
   a {
     color: white;
 
-    &:hover,
+    &:hover {
+      color: var(--il-orange) !important;
+    }
     &:focus {
       color: var(--il-orange) !important;
       outline: 2px dashed  var(--il-orange) !important;
@@ -53,7 +57,9 @@ il-footer {
     a {
       color: white !important;
 
-      &:hover,
+      &:hover {
+        color: var(--il-orange) !important;
+      }
       &:focus {
         color: var(--il-orange) !important;
         outline: 2px dashed  var(--il-orange) !important;
@@ -132,7 +138,9 @@ il-footer [slot="social"] {
           padding: 0.5rem;
           text-decoration: underline;
 
-          &:hover,
+          &:hover {
+            color: var(--il-orange);
+          }
           &:focus {
             color: var(--il-orange);
             outline: 1px dashed var(--il-orange);
