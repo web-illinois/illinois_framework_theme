@@ -24,7 +24,7 @@ jQuery(function ($) {
     // Hide the menu quickly without animating. This is triggered when
     // pressing the ESC key.
     var hideMenuFast = function() {
-      $('#block-illinois-framework-theme-main-menu').find('.dropdown-toggle').attr('aria-expanded', 'false');
+      $('#block-illinois-framework-theme-main-menu').find('.dropdown-toggle').attr('aria-expanded', 'true');
       $('#block-illinois-framework-theme-main-menu').find('.nav-item').removeClass('show');
       $('#block-illinois-framework-theme-main-menu').find('.dropdown-menu').removeClass('show');
     }
