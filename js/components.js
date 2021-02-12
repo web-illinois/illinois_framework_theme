@@ -229,7 +229,7 @@ svg {
 }
 .main {
     margin: 0 auto;
-    max-width: 1200px;
+    max-width: var(--il-framework--max-width);
     padding: 0 0 20px;
 }
 
@@ -299,7 +299,7 @@ svg {
 .parent__inner {
     box-sizing: border-box;
     margin: 0 auto;
-    max-width: 1200px;
+    max-width: var(--il-framework--max-width);
     padding: 0 10px;
 }
 .parent ::slotted(*) {
@@ -507,8 +507,6 @@ button.compact .icon {
 
 .campus > div, .site > div {
     box-sizing: border-box;
-    margin: 0 auto;
-    max-width: 1200px;
     width: 100%;
 }
 .campus > div {
@@ -517,6 +515,8 @@ button.compact .icon {
     letter-spacing: 1px;
     text-align: left;
     text-transform: uppercase;
+    margin: 0 auto;
+    max-width: var(--il-framework--max-width);
 }
 @media screen and (max-width: 767px) {
   .campus > div {
@@ -553,6 +553,8 @@ button.compact .icon {
     font-size: 16px;
     font-weight: 600;
     line-height: 18px;
+    margin: 0 auto;
+    max-width: var(--il-framework--max-width);
     padding: 15px 0 20px;
 }
 .site .menu {

@@ -15,13 +15,17 @@
 /* navbar */
 @media all {
   /* main nav bar */
+  .main-navigation {
+    margin: 0 auto;
+    max-width: var(--il-framework--max-width);
+  }
 
   body header .navbar {
     background-color: var(--il-cloud-1);
 
     /*//display: flex;*/
     max-width: 1200px;
-    margin: 0 10px;
+    //margin: 0 10px; removed because the background goes 100% width
     font-family:  var(--il-source-sans);
     font-size: 0.8rem;
     font-weight: normal;

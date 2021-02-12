@@ -1204,6 +1204,9 @@ il-header *[slot="link-list"] {
     color: var(--il-blue);
   }
 }
+il-header *[slot="menu"] {
+  background-color: var(--il-cloud-1);
+}
 @media (min-width: 600px) {
   il-header {
     --il-menu-toggle-display: none;

@@ -87,7 +87,7 @@
 {#          #}
 {#         {% endif %}/ <a href="/">{{ if_header_text_2 }}</a> / <a href="/">{{ if_header_text_3 }}</a>#}
       </div>
-      <div class="main-navigation" slot="menu">
+      <div slot="menu">
         <div class="main-navigation">
           {% if menu_type == 'mega' %}
             {{ drupal_entity('block', 'mainnavigation', check_access=false) }}
