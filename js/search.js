@@ -8,7 +8,7 @@
     var e=d.documentElement;
     var g=d.getElementsByTagName('body')[0];
     var x=w.innerWidth||e.clientWidth||g.clientWidth;
-    if (x >= 980) {
+    if (x >= 992) {
       $(document.body).addClass('desktop');
       $(document.body).removeClass('mobile');
     } else {

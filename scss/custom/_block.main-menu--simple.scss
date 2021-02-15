@@ -26,6 +26,9 @@
     /*//display: flex;*/
     max-width: 1200px;
     margin: 0 10px;
+    @include media-breakpoint-down(md) {
+     margin: 0;
+    }
     font-family:  var(--il-source-sans);
     font-size: 0.8rem;
     font-weight: normal;
@@ -396,7 +399,7 @@
   }
 }
 
-@media screen and (max-width: 979px) {
+@include media-breakpoint-down(md)  {
   body.mobile.simple {
     #mainnav-toggler-container {
       width: auto;
