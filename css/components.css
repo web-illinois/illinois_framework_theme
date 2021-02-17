@@ -1200,9 +1200,26 @@ il-header *[slot="link-list"] {
   font-family: var(--il-source-sans);
   font-size: 0.75rem;
   float: right;
-  a {
-    color: var(--il-blue);
-  }
+/*  ul > li {*/
+/*    a {*/
+/*      color: var(--il-blue);*/
+
+/*      &:after {*/
+/*         content: ' /';*/
+/*         color: #ff552e;*/
+/*      }*/
+/*      &:last-child {*/
+
+/*      }*/
+/*    }*/
+/*&:last-child {*/
+/*  a {*/
+/*    &:after {*/
+/*      content: '';*/
+/*     }*/
+/*  }*/
+/* }*/
+/*  }*/
 }
 il-header *[slot="menu"] {
   background-color: var(--il-cloud-1);

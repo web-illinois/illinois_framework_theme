@@ -67,25 +67,22 @@
           {% endif %}
           <div role="status">
             <!--OneTrust Cookies Consent Notice start, illinois.edu -->
-{#            <script src="https://onetrust.techservices.illinois.edu/scripttemplates/otSDKStub.js"  type="text/javascript" charset="UTF-8" data-domain-script="26be7d61-2017-4ea7-8a8b-8f1704889763"></script>#}
-{#            <script type="text/javascript">function OptanonWrapper() { }</script>#}
+            <script src="https://onetrust.techservices.illinois.edu/scripttemplates/otSDKStub.js"  type="text/javascript" charset="UTF-8" data-domain-script="26be7d61-2017-4ea7-8a8b-8f1704889763"></script>
+            <script type="text/javascript">function OptanonWrapper() { }</script>
             <!--OneTrust Cookies Consent Notice end, illinois.edu -->
           </div>
       </il-unit-wordmark>
       <div class="link-list" slot="link-list">
+        <ul class="list-unstyled">
         {# loop through the links and output them #}
-        {% set link_count = if_header_links|length %}
         {% for header_link in if_header_links %}
           {% set link = if_header_links[loop.index0][1] %}
           {% set text = if_header_links[loop.index0][0] %}
-          <a href="{{ link }}">{{ text }}</a> {% if loop.index < link_count and text != NULL %}/{% endif %}
+          {% if link != NULL and text != NULL %}
+           <li><a href="{{ link }}">{{ text }}</a></li>
+          {% endif %}
         {% endfor %}
-
-{#        {% set header_link_count =  if_header_links|length // 2 %}#}
-{#        {{ header_link_count }}#}
-{#        {% if if_header_links['if_header_text_1'] and if_header_links['if_header_link_1']  %}#}
-{#          #}
-{#         {% endif %}/ <a href="/">{{ if_header_text_2 }}</a> / <a href="/">{{ if_header_text_3 }}</a>#}
+        </ul>
       </div>
       <div slot="menu">
         <div class="main-navigation">
