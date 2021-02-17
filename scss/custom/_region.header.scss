@@ -33,7 +33,7 @@
             line-height: normal;
             letter-spacing: normal;
 
-            @media screen and (max-width: 979px) {
+            @include media-breakpoint-down(md) {
               font-size: 22px;
               font-stretch: normal;
               font-style: normal;
@@ -56,7 +56,7 @@
             line-height: normal;
             letter-spacing: normal;
 
-            @media screen and (max-width: 991px) {
+            @include media-breakpoint-down(md) {
               font-size: 14px;
               font-weight: normal;
               font-stretch: normal;

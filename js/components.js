@@ -510,6 +510,7 @@ button.compact .icon {
     width: 100%;
 }
 .campus > div {
+    display: flex;
     padding: 4px 10px;
     font: 700 10px/1em var(--il-montserrat);
     letter-spacing: 1px;
