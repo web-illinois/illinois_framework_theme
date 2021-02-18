@@ -235,6 +235,7 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
     '#type' => 'email',
     '#default_value' => theme_get_setting('if_footer_address_email'),
     '#title' => t('Email Address'),
+    '#required' => TRUE,
   );
   $form['if_footer']['if_footer_address']['if_footer_address_tel'] = array(
     '#type' => 'tel',
