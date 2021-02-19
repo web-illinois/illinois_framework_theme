@@ -154,13 +154,11 @@
         border: none;
         font-family: 'FontAwesome';
         content: '\f078';
-        display: inline-block;
-        vertical-align: middle;
         font-size: 12px;
         font-weight: lighter;
         color: var(--il-orange);
         margin-left: 5px;
-        margin-top: -2px;
+        position: absolute;
       }
 
       &.show {
