@@ -150,6 +150,9 @@
     }
 
     .dropdown {
+      > a.nav-link {
+        padding: 0 1.5rem 0 0.5rem;
+      }
       > a.nav-link::after {
         border: none;
         font-family: 'FontAwesome';
