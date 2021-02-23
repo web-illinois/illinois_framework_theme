@@ -1,0 +1,13 @@
+.btn {
+  &--login {
+    background: none;
+    border: none;
+    color: var(--il-blue);
+
+    &:hover,
+    &:focus {
+      background: none;
+      color: var(--il-orange);
+    }
+  }
+}

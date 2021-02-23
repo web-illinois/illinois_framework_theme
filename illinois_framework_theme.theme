@@ -76,3 +76,21 @@ function illinois_framework_theme_theme_suggestions_page_alter(&$suggestions, $v
   }
 
 }
+/**
+ * callback action on submit (custom method plus bas)
+ *
+ * @param $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ * @param $form_id
+ */
+use \Drupal\Core\Form\FormStateInterface;
+function illinois_framework_theme_form_user_login_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
+  $form['actions']['submit'] = [
+    '#type' => 'submit',
+    '#value' => t('Log in'),
+    '#attributes' => array('class' => array('btn--login')),
+  ];
+}
+
+
