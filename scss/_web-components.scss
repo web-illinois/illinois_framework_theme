@@ -654,7 +654,7 @@ il-header {
       flex-grow: 1;
       font-family: var(--il-source-sans);
       font-size: 0.75rem;
-      justify-content: end;
+      justify-content: flex-end;
 
       ul {
         display: flex;
