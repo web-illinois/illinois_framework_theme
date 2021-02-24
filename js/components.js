@@ -373,9 +373,6 @@ il-block-i {
     height: 43px;
     width: 30px;
 }
-.name {
-    flex-grow: 1;
-}
 .name ::slotted(p) {
     font-size: 14px;
     font-weight: 400;
