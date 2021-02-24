@@ -650,14 +650,14 @@ il-header {
   * {
     &[slot="link-list"] {
       color: var(--il-orange);
-      display: flex;
+      display: block;
       flex-grow: 1;
       font-family: var(--il-source-sans);
       font-size: 0.75rem;
-      justify-content: flex-end;
 
       ul {
         display: flex;
+        float: right;
         margin-bottom: 0;
 
         li {
