@@ -91,6 +91,7 @@ function illinois_framework_theme_form_user_login_form_alter(&$form, FormStateIn
     '#value' => t('Log in'),
     '#attributes' => array('class' => array('btn--login')),
   ];
+  $form['simplesamlphp_auth_login_link']['#attributes']['class'] = 'btn btn-primary text-decoration-none';
 }
 
 
