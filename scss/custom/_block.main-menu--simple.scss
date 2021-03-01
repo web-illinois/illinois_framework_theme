@@ -68,7 +68,7 @@
       }
 
       > a.nav-link {
-        font-weight: bold;
+        font-weight: 700;
         padding: 0 0.5rem;
         line-height: 40px;
 
@@ -118,7 +118,7 @@
       }
 
       &:first-child > a.nav-link {
-        //font-weight: bold;
+        //font-weight: 700;
       }
 
       > a.nav-link:hover {
@@ -860,7 +860,7 @@ body.simple {
           li:first-child {
             a {
               font-size: 1rem;
-              font-weight: bold;
+              font-weight: 700;
             }
           }
           li.menu-item--level-2 {
