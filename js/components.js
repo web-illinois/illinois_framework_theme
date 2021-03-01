@@ -519,11 +519,6 @@ button.compact .icon {
     margin: 0 auto;
     max-width: var(--il-framework--max-width);
 }
-@media screen and (max-width: 767px) {
-  .campus > div {
-    padding: 4px calc(3% + 10px);
-  }
-}
 .campus > div > a {
   color: var(--il-blue);
   text-decoration: none;

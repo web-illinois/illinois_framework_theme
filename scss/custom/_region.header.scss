@@ -64,6 +64,9 @@
               line-height: normal;
               letter-spacing: normal;
             }
+            @include media-breakpoint-down(sm) {
+              display: none;
+            }
           }
         }
       }
