@@ -2,9 +2,10 @@
 
   ul.navbar-nav {
     flex-direction: column;
+    z-index: 1;
 
     li.dropdown {
-      
+
       .dropdown-menu {
         position: relative;
       }
