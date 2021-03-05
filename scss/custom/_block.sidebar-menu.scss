@@ -1,0 +1,13 @@
+.region-content {
+
+  ul.navbar-nav {
+    flex-direction: column;
+
+    li.dropdown {
+      
+      .dropdown-menu {
+        position: relative;
+      }
+    }
+  }
+}
