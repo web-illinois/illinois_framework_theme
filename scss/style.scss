@@ -3,30 +3,41 @@
 // Example: @import "../../../../../themes/contrib/bootstrap4/scss/style";
 @import '../../../../themes/contrib/bootstrap4/dist/bootstrap/4.5.3/scss/bootstrap';
 
-@import "web-components";
+// Web components
+@import "web-components/fonts";
+@import "web-components/colors";
+@import "web-components/fonts/il-icons";
+@import "web-components/web-components";
 
 // Include bootstrap variables definitions overrides.
-@import 'overrides';
+@import 'bootstrap-overrides/variables';
+@import 'bootstrap-overrides/reboot';
+@import 'bootstrap-overrides/type';
+@import 'bootstrap-overrides/buttons';
 
-// Include custom sub theme.
-@import 'custom/variables';
+// Custom Theme
+@import 'illinois-framework/variables';
 
 // Mixins
-@import "custom/mixins/media-queries";
+@import "illinois-framework/mixins/media-queries";
 
 // Layouts
-@import "custom/regions";
-@import "custom/region.header";
-@import "custom/region.footer";
+@import "illinois-framework/regions";
+@import "illinois-framework/region.header";
+@import "illinois-framework/region.footer";
 
 // Components
-@import "custom/components.google-translate";
-@import "custom/components.one-trust";
+@import "illinois-framework/components.google-translate";
+@import "illinois-framework/components.one-trust";
 
 // Blocks
-@import "custom/block.main-menu--simple";
+@import "illinois-framework/block.main-menu--simple";
 //@import "custom/block.main-menu--mega";
 
+// Paragraphs
+@import "illinois-framework/paragraphs";
+@import "illinois-framework/paragraphs.page-intro";
+
 // Utility Classes
-@import "custom/utilities/ie--11";
+@import "illinois-framework/utilities/ie--11";
 

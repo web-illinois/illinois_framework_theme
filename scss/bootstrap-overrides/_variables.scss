@@ -1,0 +1,48 @@
+// Override bootstrap framework variables.
+// Full list of variables in [path to themes/contrib]/bootstrap4/dist/bootstrap/4.4.1/scss/_variables.scss
+// or [path to themes/contrib]/bootstrap4/scss/_theme_variables.scss.
+
+// overrides _variables.scss line 164
+// Body
+//
+// Settings for the `<body>` element.
+
+$body-color:                #252525;
+
+// overrides _variables.scss line 172
+// Links
+//
+// Style anchor elements.
+
+$link-color:                              var(--il-alma-mater);
+$link-hover-color:                        var(--il-altgeld);
+$link-decoration:                         underline;
+$link-hover-decoration:                   underline;
+
+// overrides _variables.scss line 272
+// Typography
+//
+// Font, line-height, and color for body text, headings, and more.
+
+// stylelint-disable value-keyword-case
+$font-family-sans-serif:      var(--il-source-sans);
+$font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family-base:            $font-family-sans-serif;
+
+// overrides _variables.scss line 295
+// Typography
+//
+// Font, line-height, and color for body text, headings, and more.
+
+$h1-font-size:                40px;
+$h2-font-size:                32px;
+$h3-font-size:                28px;
+$h4-font-size:                24px;
+$h5-font-size:                20px;
+$h6-font-size:                $font-size-base;
+
+$headings-margin-bottom:      $spacer / 2 ;
+$headings-font-family:        var(--il-sans-source);
+$headings-font-weight:        500;
+$headings-line-height:        1.2;
+$headings-color:              var(--il-blue);
