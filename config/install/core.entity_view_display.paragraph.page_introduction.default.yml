@@ -4,7 +4,6 @@ dependencies:
   config:
     - field.field.paragraph.page_introduction.field_page_intro_body
     - field.field.paragraph.page_introduction.field_page_intro_title
-    - field.field.paragraph.page_introduction.layout_builder__layout
     - paragraphs.paragraphs_type.page_introduction
   module:
     - layout_builder
