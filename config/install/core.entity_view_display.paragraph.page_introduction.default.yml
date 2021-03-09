@@ -1,0 +1,39 @@
+uuid: ce3c9385-d15b-47d5-8833-c909dae68612
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.page_introduction.field_page_intro_body
+    - field.field.paragraph.page_introduction.field_page_intro_title
+    - field.field.paragraph.page_introduction.layout_builder__layout
+    - paragraphs.paragraphs_type.page_introduction
+  module:
+    - layout_builder
+    - layout_discovery
+    - text
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: false
+id: paragraph.page_introduction.default
+targetEntityType: paragraph
+bundle: page_introduction
+mode: default
+content:
+  field_page_intro_body:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_page_intro_title:
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  layout_builder__layout: true
