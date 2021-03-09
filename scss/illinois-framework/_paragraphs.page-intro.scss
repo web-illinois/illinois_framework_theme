@@ -1,0 +1,24 @@
+.paragraph--type--page-introduction {
+
+  .field--name-field-page-intro-title {
+
+    .field__item {
+      color: var(--il-blue);
+      font-size: $h1-font-size;
+      font-weight: $headings-font-weight;
+      line-height: $headings-line-height;
+      text-transform: uppercase;
+    }
+  }
+  .field--name-field-page-intro-body {
+
+    .field__item {
+
+      p {
+        color: $body-color;
+        font-size: 1.375rem;
+        line-height: 2.125rem;
+      }
+    }
+  }
+}
