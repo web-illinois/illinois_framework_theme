@@ -356,11 +356,12 @@ svg {
     flex-direction: row;
     flex-grow: 1;
     font-family: var(--il-source-sans);
+    margin: 0 30px;
+    max-width: var(--il-framework--max-width);
     position: relative;
 }
 .block-i {
     flex: 0 0 50px;
-    padding-left: 10px;
 }
 .block-i a {
     text-decoration: none;
@@ -408,7 +409,7 @@ il-block-i {
         background-color: var(--il-industrial-blue);
         content: "";
         height: 100%;
-        left: 64px;
+        left: 54px;
         position: absolute;
         top: 0;
         width: 1px;
@@ -511,7 +512,7 @@ button.compact .icon {
 }
 .campus > div {
     display: flex;
-    padding: 4px 10px;
+    padding: 4px 30px;
     font: 700 10px/1em var(--il-montserrat);
     letter-spacing: 1px;
     text-align: left;

@@ -17,7 +17,8 @@
   /* main nav bar */
   .main-navigation {
     margin: 0 auto;
-    max-width: var(--il-framework--max-width);
+    max-width: 1140px;
+    padding: 0;
   }
 
   body header .navbar {
@@ -25,7 +26,6 @@
 
     /*//display: flex;*/
     max-width: 1200px;
-    margin: 0 10px;
     @include media-breakpoint-down(md) {
      margin: 0;
     }
