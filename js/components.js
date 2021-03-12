@@ -236,7 +236,8 @@ svg {
 .main > div {
     display: grid;
     grid-gap: 30px;
-    padding: 0 10px;
+    max-width: var(--il-framework--max-width);
+    padding: 0 30px;
 }
 @media (max-width: 599px) {
     .main > div {
