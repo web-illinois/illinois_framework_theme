@@ -51,7 +51,21 @@
 {% block paragraph %}
   <div{{ attributes.addClass(classes) }}>
     {% block content %}
-      {{ content }}
+      <div class="col-lg-6 p-0 float-{{ content.field_feature_split_img_align.0['#markup'] | lower }}">
+        <img src="{{ file_url(content.field_feature_split_img['#items'].entity.uri.value) }}" alt="" height="460" />
+      </div>
+      <div class="col-lg-6 p-0 float-{{ content.field_feature_split_img_align.0['#markup'] | lower }} background--color--{{ content.field_feature_split_background.0['#markup']  | lower }}">
+        {{ content.field_feature_split_title }}
+        {{ content.field_feature_split_body }}
+        {% for item in content.field_feature_split_buttons['#items'] %}
+          <div>{{ item }}</div>
+        {% endfor %}
+      </div>
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
     {% endblock %}
   </div>
 {% endblock paragraph %}
