@@ -17,8 +17,8 @@
   /* main nav bar */
   .main-navigation {
     margin: 0 auto;
-    max-width: 1140px;
-    padding: 0;
+    max-width: var(--il-framework--max-width);
+    padding: 0 30px;
   }
 
   body header .navbar {
