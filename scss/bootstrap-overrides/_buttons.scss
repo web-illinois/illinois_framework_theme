@@ -1,4 +1,6 @@
 .btn {
+  height: 48px;
+
   &--login {
     background: none;
     border: none;
@@ -8,6 +10,22 @@
     &:focus {
       background: none;
       color: var(--il-orange);
+    }
+  }
+  &-primary {
+    background-color: transparent;
+    border: 2px solid var(--il-blue);
+    color: var(--il-blue);
+    font-family: var(--il-source-sans);
+    font-size: 1.125rem;
+    height: auto;
+    line-height: 1;
+    padding: 13px 30px;
+    text-decoration: none;
+
+    &:hover {
+      background-color: var(--il-blue);
+      border-color: var(--il-blue);
     }
   }
 }

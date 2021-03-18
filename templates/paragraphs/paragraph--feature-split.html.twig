@@ -44,28 +44,35 @@
   'paragraph--type--' ~ paragraph.bundle|clean_class,
   view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
   not paragraph.isPublished() ? 'paragraph--unpublished',
-  'col-lg-12 col-md-6 col-sm-6'
+  'col-lg-12 col-md-12 col-sm-12 p-0 flex'
 ]
 %}
-{#{{ kint(content) }}#}
+{{ kint(content) }}
 {% block paragraph %}
   <div{{ attributes.addClass(classes) }}>
     {% block content %}
-      <div class="col-lg-6 p-0 float-{{ content.field_feature_split_img_align.0['#markup'] | lower }}">
-        <img src="{{ file_url(content.field_feature_split_img['#items'].entity.uri.value) }}" alt="" height="460" />
+      <div class="field--name-field-feature-split__image col-lg-6 col-md-6 p-0 float-{{ content.field_feature_split_img_align.0['#markup'] | lower }}">
+        <img src="{{ file_url(content.field_feature_split_img['#items'].entity.uri.value) }}" alt="{{ content.field_feature_split_img.0['#item'].alt.value }}" />
       </div>
-      <div class="col-lg-6 p-0 float-{{ content.field_feature_split_img_align.0['#markup'] | lower }} background--color--{{ content.field_feature_split_background.0['#markup']  | lower }}">
-        {{ content.field_feature_split_title }}
-        {{ content.field_feature_split_body }}
-        {% for item in content.field_feature_split_buttons['#items'] %}
-          <div>{{ item }}</div>
-        {% endfor %}
+      <div class="col-lg-6 col-md-6 p-0 float-{{ content.field_feature_split_img_align.0['#markup'] | lower }} background--color--{{ content.field_feature_split_background.0['#markup']  | lower }}">
+        <div class="field--name-field-feature-split__content__wrapper">
+          {% if content.field_feature_split_title %}
+            <div class="field--name-field-feature-split__title">{{ content.field_feature_split_title }}</div>
+          {% endif %}
+          {% if content.field_feature_split_body %}
+            <div class="field--name-field-feature-split__body">{{ content.field_feature_split_body }}</div>
+          {% endif %}
+          {% set button_number = content.field_feature_split_button['#items']|length %}
+          {% if button_number > 0 %}
+            {% for item in content.field_feature_split_button['#items'] %}
+              <a class="field--name-field-feature-split__button btn btn-primary" href="{{ content.field_feature_split_button[loop.index0]['#url'] }}" role="button">{{ content.field_feature_split_button[loop.index0]['#title'] }}</a>
+              {% if button_number > 1 %}
+
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        </div>
       </div>
-      <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
     {% endblock %}
   </div>
 {% endblock paragraph %}

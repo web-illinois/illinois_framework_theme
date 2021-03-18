@@ -10,13 +10,13 @@
     flex-direction: column;
     margin: auto;
     max-width: var(--il-framework--max-width);
-    padding: 0 30px;
+    padding: 0 rem(30px);
     width: 100%;
   }
   &--highlighted {
-    padding-top: 10px;
+    padding-top: rem(10px);
   }
   &--footer {
-    padding: 2rem 0;
+    padding: rem(32px) 0;
   }
 }

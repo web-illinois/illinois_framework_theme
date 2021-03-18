@@ -1,0 +1,44 @@
+.paragraph--type--feature-split {
+
+  .field--name-field-feature-split {
+
+    &__image {
+      flex-basis: 50%;
+      @include media-breakpoint-down(sm) {
+        flex-basis: 100%;
+      }
+
+      img {
+        max-width: 100%;
+        max-height: rem(460px);
+        width: 100%;
+      }
+    }
+    &__content {
+
+      &__wrapper {
+        padding: rem(75px);
+
+        @include media-breakpoint-down(md) {
+          padding: rem(20px);
+        }
+      }
+    }
+    &-title {
+
+      .field__item {
+        font-family: var(--il-source-sans);
+        font-size: rem(36px);
+        font-weight: 700;
+        line-height: rem(36px);
+        padding-bottom: rem(33px);
+      }
+    }
+    &-body {
+
+      .field__item {
+        padding-bottom: rem(33px);
+      }
+    }
+  }
+}

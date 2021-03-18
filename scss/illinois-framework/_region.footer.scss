@@ -1,8 +1,8 @@
 footer {
-  margin-top: 100px;
+  margin-top: rem(100px);
   position: relative;
   width: 100%;
-  font-size: 18px;
+  font-size: rem(18px);
   line-height: 1.5em;
   font-family: var(--il-source-sans);
   background-color: var(--il-blue);
@@ -12,7 +12,7 @@ footer {
     font-style: normal;
   }
   dl.footer--email {
-    font-size: 20px;
+    font-size: rem(20px);
   }
 
   a {
@@ -21,7 +21,7 @@ footer {
     }
     &:focus {
       color: var(--il-orange) !important;
-      outline: 2px dashed  var(--il-orange) !important;
+      outline: rem(2px) dashed  var(--il-orange) !important;
       border-color: var(--il-orange) !important;
     }
   }
@@ -37,7 +37,7 @@ il-footer {
     }
     &:focus {
       color: var(--il-orange) !important;
-      outline: 2px dashed  var(--il-orange) !important;
+      outline: rem(2px) dashed  var(--il-orange) !important;
       border-color: var(--il-orange) !important;
     }
   }
@@ -48,10 +48,10 @@ il-footer {
     align-items: center;
     height: auto;
     margin: 0;
-    padding: 10px 0;
+    padding: rem(10px) 0;
 
     &.no-title {
-      padding: 1px 0;
+      padding: rem(1px) 0;
     }
 
     a {
@@ -62,7 +62,7 @@ il-footer {
       }
       &:focus {
         color: var(--il-orange) !important;
-        outline: 2px dashed  var(--il-orange) !important;
+        outline: rem(2px) dashed  var(--il-orange) !important;
         border-color: var(--il-orange) !important;
       }
     }
@@ -75,13 +75,13 @@ il-footer [slot="links"] {
   }
   h3 {
     color: var(--il-cloud-3);
-    @media (max-width:600px) {
+    @media (max-width: rem(600px)) {
       padding-left: 0 !important;
     }
   }
   h3 + ul a {
-    padding: 4px 10px !important;
-    @media (max-width:600px) {
+    padding: rem(4px) rem(10px) !important;
+    @media (max-width: rem(600px)) {
       padding-left: 0 !important;
     }
   }
@@ -91,7 +91,7 @@ il-footer [slot="links"] {
 }
 il-footer [slot="social"] {
   a {
-    padding: 2px 5px !important;
+    padding: rem(2px) rem(5px) !important;
   }
 }
 
@@ -102,7 +102,7 @@ il-footer [slot="social"] {
   }
   &--no-secondary-site {
     background: var(--il-alma-mater);
-    padding: 1px 0px;
+    padding: rem(1px) 0;
     width: 100%;
   }
 
@@ -110,13 +110,13 @@ il-footer [slot="social"] {
     font-family: var(--il-source-sans);
     max-width: var(--il-framework--max-width);
     margin: 0 auto;
-    padding: 1rem 30px;
+    padding: rem(16px) rem(30px);
 
     ul {
       display: block;
       list-style: none;
       margin-bottom: 0;
-      padding-inline-start: 0px;
+      padding-inline-start: 0;
 
       li {
         display: inline-block;
@@ -138,7 +138,7 @@ il-footer [slot="social"] {
           }
           &:focus {
             color: var(--il-orange);
-            outline: 1px dashed var(--il-orange);
+            outline: rem(1px) dashed var(--il-orange);
             border-color: var(--il-orange);
           }
         }

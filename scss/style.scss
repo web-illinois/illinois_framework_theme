@@ -18,6 +18,9 @@
 // Custom Theme
 @import 'illinois-framework/variables';
 
+//Custom Functions
+@import "illinois-framework/functions/px2rem";
+
 // Mixins
 @import "illinois-framework/mixins/media-queries";
 
@@ -38,6 +41,7 @@
 // Paragraphs
 @import "illinois-framework/paragraphs";
 @import "illinois-framework/paragraphs.page-intro";
+@import "illinois-framework/paragraphs.feature--split";
 
 // Utility Classes
 @import "illinois-framework/utilities/ie--11";
