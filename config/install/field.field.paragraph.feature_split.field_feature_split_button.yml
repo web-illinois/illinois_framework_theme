@@ -1,0 +1,23 @@
+uuid: f6b13216-3d98-4077-8f45-3a0018b1eedb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_feature_split_button
+    - paragraphs.paragraphs_type.feature_split
+  module:
+    - link
+id: paragraph.feature_split.field_feature_split_button
+field_name: field_feature_split_button
+entity_type: paragraph
+bundle: feature_split
+label: Buttons
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link

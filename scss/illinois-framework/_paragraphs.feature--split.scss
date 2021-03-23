@@ -1,0 +1,65 @@
+.paragraph--type--feature-split {
+
+  .field--name-field-feature-split {
+
+    &__image {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 100%;
+      @include media-breakpoint-down(sm) {
+        height: 350px;
+      }
+      @include media-breakpoint-down(xs) {
+        height: 250px;
+      }
+
+      &__wrapper {
+        flex-basis: 50%;
+        @include media-breakpoint-down(sm) {
+          flex-basis: 100%;
+        }
+      }
+    }
+    &__content {
+
+      &__wrapper {
+        padding: rem(75px);
+
+        @include media-breakpoint-down(lg) {
+          padding: rem(32px);
+        }
+
+        @include media-breakpoint-down(md) {
+          padding: rem(20px);
+        }
+      }
+    }
+    &__title {
+
+      .field__item {
+        font-family: var(--il-source-sans);
+        font-size: rem(36px);
+        font-weight: 700;
+        line-height: rem(36px);
+        padding-bottom: rem(32px);
+      }
+    }
+    &__body {
+
+      .field__item {
+        padding-bottom: rem(16px);
+      }
+    }
+    &__buttons {
+
+      a {
+        margin-bottom: rem(20px);
+      }
+
+      a:first-child {
+        margin-right: rem(30px);
+      }
+    }
+  }
+}

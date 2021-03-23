@@ -18,14 +18,14 @@
   .main-navigation {
     margin: 0 auto;
     max-width: var(--il-framework--max-width);
+    padding: 0 rem(30px);
   }
 
   body header .navbar {
     background-color: var(--il-cloud-1);
 
     /*//display: flex;*/
-    max-width: 1200px;
-    margin: 0 10px;
+    max-width: rem(1200px);
     @include media-breakpoint-down(md) {
      margin: 0;
     }
@@ -63,13 +63,13 @@
 
       &.simple:last-child .dropdown-menu {
         left: auto;
-        right: 0px;
+        right: 0;
       }
 
       > a.nav-link {
         font-weight: 700;
         padding: 0 0.5rem;
-        line-height: 40px;
+        line-height: rem(40px);
 
         &:hover {
           color: var(--il-orange);
@@ -78,7 +78,7 @@
         &:focus {
           color: var(--il-orange);
           text-decoration: underline;
-          outline: 1px solid var(--il-orange);
+          outline: rem(1px) solid var(--il-orange);
         }
         &:after {
           text-decoration: none;
@@ -111,7 +111,7 @@
           text-decoration: underline;
         }
         &:focus {
-          outline: 1px solid var(--il-orange);
+          outline: rem(1px) solid var(--il-orange);
         }
       }
 
@@ -131,17 +131,17 @@
         margin: 0;
         padding: 0;
         color: var(--il-blue);
-        font-size: 18px;
-        line-height: 31px;
+        font-size: rem(18px);
+        line-height: rem(31px);
         width: 100%;
 
         a {
-          padding: 5px 15px;
+          padding: rem(5px) rem(15px);
           &:hover,
           &:focus {
             color: var(--il-orange);
             text-decoration: underline;
-            outline: 1px solid var(--il-orange);
+            outline: rem(1px) solid var(--il-orange);
           }
         }
       }
@@ -155,10 +155,10 @@
         border: none;
         font-family: 'FontAwesome';
         content: '\f078';
-        font-size: 12px;
+        font-size: rem(12px);
         font-weight: lighter;
         color: var(--il-orange);
-        margin-left: 5px;
+        margin-left: rem(5px);
         position: absolute;
       }
 
@@ -179,13 +179,13 @@
       background-color: white;
       display: none;
       position: absolute;
-      min-width: 250px;
-      box-shadow: rgba(0, 0, 0, 0.4) 0px 25px 25px;
+      min-width: rem(250px);
+      box-shadow: rgba(0, 0, 0, 0.4) 0 rem(25px) rem(25px);
       border-radius: 0;
       border: none;
       font-size: 0.8rem;
-      max-width: 300px;
-      top: 56px;
+      max-width: rem(300px);
+      top: rem(56px);
       white-space: wrap;
       z-index: 999;
     }
@@ -217,13 +217,12 @@
     .nav-item.simple .dropdown-menu {
       max-height: 50vh;
       overflow: auto;
-      width: 300px;
+      width: rem(300px);
 
       .menu {}
     }
 
     .dropdown-menu.show {
-      display: flex;
       display: flow-root;
     }
 
@@ -262,7 +261,7 @@
       }
 
       section:not(.w110) + .menu {
-        padding-left: 40px;
+        padding-left: rem(40px);
       }
 
       .menu {
@@ -292,18 +291,18 @@
 
         ul ul {
           li {
-            padding-left: 20px;
-            padding-right: 10px;
+            padding-left: rem(20px);
+            padding-right: rem(10px);
 
             &:before {
               position: absolute;
-              left: 8px;
+              left: rem(8px);
               color: #e0e0e0;
               content: '\f111';
               font-family: 'FontAwesome';
-              font-size: 5px;
+              font-size: rem(5px);
               font-weight: 900;
-              padding-top: 7px;
+              padding-top: rem(7px);
             }
           }
 
@@ -335,7 +334,7 @@
       ul {
         columns: 4;
         margin: 0;
-        padding: 3rem 15px 3rem 15px;
+        padding: 3rem rem(15px) 3rem rem(15px);
         list-style-type: none;
         width: 100%;
 
@@ -343,8 +342,8 @@
           -webkit-column-break-inside: avoid;
           page-break-inside: avoid;
           break-inside: avoid;
-          line-height: 20px;
-          margin-bottom: 10px;
+          line-height: rem(20px);
+          margin-bottom: rem(10px);
         }
       }
     }
@@ -359,21 +358,21 @@
     flex-wrap: nowrap;
 
     .bullet {
-      margin-right: 8px;
+      margin-right: rem(8px);
       flex-grow: 0;
-      font-size: 5px;
+      font-size: rem(5px);
       color: var(--il-orange);
     }
 
     .item {
       display: block;
       flex-grow: 1;
-      padding-right: 15px;
+      padding-right: rem(15px);
     }
   }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: rem(1200px)) {
   body header .navbar ul {
     font-size: 0.8rem;
   }
@@ -391,9 +390,9 @@
       position: absolute;
       display: block;
       top: 0;
-      left: 191px;
+      left: rem(191px);
       box-shadow: none;
-      border-left: 1px solid black;
+      border-left: rem(1px) solid black;
     }
   }
 }
@@ -433,7 +432,7 @@
       //margin: 0 -15px 0 -15px;
     }
     &.mobile.navopen header .navbar {
-      margin-top: 36px;
+      margin-top: rem(36px);
     }
 
     header .navbar {
@@ -455,7 +454,7 @@
     }
 
     body.landing #hero .row {
-      padding-top: 80px;
+      padding-top: rem(80px);
     }
 
     .mainnav-toggler {
@@ -474,13 +473,13 @@
         position: relative;
         box-shadow: initial;
         z-index: 2;
-        top: 1px;
+        top: rem(1px);
         margin: 0;
       }
 
       li.nav-item {
-        border-top: 1px solid #e0e0e0;
-        padding: 1px 0;
+        border-top: rem(1px) solid #e0e0e0;
+        padding: rem(1px) 0;
       }
 
       .nav-item > a {
@@ -493,7 +492,7 @@
 
         &::before {
           content: '';
-          padding-left: 15px;
+          padding-left: rem(15px);
         }
       }
 
@@ -502,7 +501,7 @@
           display: none;
         }
 
-        border-top: 1px solid #e0e0e0;
+        border-top: rem(1px) solid #e0e0e0;
 
         &.show {
           li.nav-item {
@@ -510,12 +509,12 @@
           }
 
           .nav-item > a.nav-link {
-            padding: 10px 0px;
+            padding: rem(10px) 0px;
           }
         }
 
         section:not(.w110) + .menu {
-          padding-left: 20px;
+          padding-left: rem(20px);
         }
       }
 
@@ -525,7 +524,7 @@
 
       .dropdown-menu .menu {
         margin: 0;
-        padding: 10px 0;
+        padding: rem(10px) 0;
       }
     }
 
@@ -537,15 +536,15 @@
       &.navopen {
         #header-search-container {
           position: absolute;
-          min-height: 30px;
-          width: 36px;
-          right: 14px;
-          bottom: -50px;
+          min-height: rem(30px);
+          width: rem(36px);
+          right: 0;
+          bottom: rem(-50px);
           display: block;
           visibility: visible;
 
           i.fa-search {
-            right: 8px;
+            right: rem(8px);
           }
         }
 
@@ -564,7 +563,7 @@
   /* search */
 }
 
-@media screen and (max-width: 575px) {
+@media screen and (max-width: rem(575px)) {
   body {
     header {
       .site .parent_name {
@@ -572,7 +571,7 @@
       }
 
       .site_name {
-        font-size: 20px;
+        font-size: rem(20px);
       }
 
       .navbar {
@@ -588,23 +587,23 @@
 
         .dropdown-menu .menu {
           ul ul li:before {
-            padding-top: 17px;
+            padding-top: rem(17px);
           }
 
           li {
             margin: 0;
-            border-top: 1px solid var(--il-cloud-1);
+            border-top: rem(1px) solid var(--il-cloud-1);
           }
         }
 
         .nav-item > a::before {
           content: '';
-          padding-left: 5px;
+          padding-left: rem(5px);
         }
 
         .dropdown-menu .menu a {
           display: block;
-          padding: 10px 5px;
+          padding: rem(10px) rem(5px);
 
           &:hover {
             text-decoration: underline;
@@ -614,7 +613,7 @@
     }
 
     #childnav ul {
-      padding: 1.5rem 15px;
+      padding: 1.5rem rem(15px);
       columns: 1;
     }
   }
@@ -663,11 +662,11 @@
       }
 
       &.w110 {
-        margin-left: -15px;
-        margin-right: -15px;
-        flex: 0 0 calc(100% + 30px);
-        max-width: calc(100% + 30px);
-        min-width: calc(100% + 30px);
+        margin-left: rem(-15px);
+        margin-right: rem(-15px);
+        flex: 0 0 calc(100% + rem(30px));
+        max-width: calc(100% + rem(30px));
+        min-width: calc(100% + rem(30px));
 
         + .tile.w110 {
           margin-top: 0rem;
@@ -724,7 +723,7 @@
 
     .upper-cover {
       width: 100%;
-      height: 400px;
+      height: rem(400px);
       margin: 0rem;
       background-size: cover;
       background-position: top center;
@@ -734,7 +733,7 @@
 
     .upper {
       width: 100%;
-      height: 300px;
+      height: rem(300px);
       margin: 0rem;
       background-size: cover;
       background-position: center center;
@@ -744,13 +743,13 @@
 
     &.sbs .upper {
       height: auto;
-      min-height: 500px;
+      min-height: rem(500px);
     }
 
     .lower {
       position: relative;
-      padding-left: 15px;
-      padding-right: 15px;
+      padding-left: rem(15px);
+      padding-right: rem(15px);
       margin: 0 auto;
       background-size: cover;
       background-position: center center;
@@ -766,7 +765,7 @@
     }
 
     .lower.maxheight600 {
-      max-height: 600px;
+      max-height: rem(600px);
       overflow: auto;
     }
 
@@ -785,15 +784,15 @@
   /* columns */
 
   .inner {
-    max-width: 509px;
+    max-width: rem(509px);
     margin: 0 auto;
     padding-left: 1rem;
     padding-right: 1rem;
   }
 
   .tile-list .tile.marketing {
-    border-right: 1px solid #ff552e;
-    padding: 20px 20px;
+    border-right: rem(1px) solid #ff552e;
+    padding: rem(20px) rem(20px);
     margin: 1.2rem 0;
     font-size: 1.2rem;
     line-height: 1.5;

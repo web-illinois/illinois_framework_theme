@@ -10,7 +10,7 @@
         font-family: var(--il-source-sans);
 
         a:focus {
-          outline: 2px dashed var(--il-orange);
+          outline: rem(2px) dashed var(--il-orange);
         }
 
         &.two-titles {
@@ -34,7 +34,7 @@
             letter-spacing: normal;
 
             @include media-breakpoint-down(md) {
-              font-size: 22px;
+              font-size: rem(22px);
               font-stretch: normal;
               font-style: normal;
               line-height: 1.09;
@@ -47,9 +47,9 @@
 
           &--site-title {
             /* from zeplin Header - branding elements only */
-            height: 20px;
+            height: rem(20px);
             object-fit: contain;
-            font-size: 16px;
+            font-size: rem(16px);
             font-weight: normal;
             font-stretch: normal;
             font-style: normal;
@@ -57,7 +57,7 @@
             letter-spacing: normal;
 
             @include media-breakpoint-down(md) {
-              font-size: 14px;
+              font-size: rem(14px);
               font-weight: normal;
               font-stretch: normal;
               font-style: normal;
@@ -73,7 +73,7 @@
 
       .parent_name {
         width: 100%;
-        font-size: 13px;
+        font-size: rem(13px);
         font-weight: 600;
         line-height: 1.2;
       }
@@ -89,9 +89,9 @@
 
     #header-search-container {
       position: absolute;
-      min-height: 30px;
-      width: 35px;
-      right: 10px;
+      min-height: rem(30px);
+      width: rem(35px);
+      right: 0;
 
       button {
         all: revert;
@@ -102,14 +102,14 @@
 
       .form-control {
         //background-color: var(--il-cloud-1);
-        border: 1px solid var(--il-cloud-1);
+        border: rem(1px) solid var(--il-cloud-1);
         // border-right: 1px solid var(--il-cloud-3);
         box-shadow: none;
         color: #13294B;
-        border-radius: 3px 0 0 3px;
+        border-radius: rem(3px) 0 0 rem(3px);
 
         &:focus {
-          outline: 2px dashed var(--il-orange);
+          outline: rem(2px) dashed var(--il-orange);
           z-index: 99;
         }
       }
@@ -121,12 +121,12 @@
           //height: 36px;
           background-color: transparent;
           display: block;
-          border-radius: 0 3px 3px 0;
-          height: 35px;
-          border-width: 1px;
+          border-radius: 0 rem(3px) rem(3px) 0;
+          height: rem(35px);
+          border-width: rem(1px);
           border-style: solid solid solid none;
           border-color: var(--il-cloud-2);
-          width: 35px;
+          width: rem(35px);
 
           &:hover {
             color: var(--il-orange);
@@ -134,7 +134,7 @@
           }
 
           &:focus {
-            outline: 2px dashed var(--il-orange);
+            outline: rem(2px) dashed var(--il-orange);
             z-index: 99;
           }
         }
@@ -149,12 +149,12 @@
       }
 
       input.form-control {
-        border: 1px solid var(--il-cloud-2);
+        border: rem(1px) solid var(--il-cloud-2);
         float: left;
-        height: 35px;
-        width: 160px;
+        height: rem(35px);
+        width: rem(160px);
         position: absolute;
-        left: -160px;
+        left: rem(-160px);
       }
 
       .hidden {
@@ -176,27 +176,26 @@
         }
 
         .fa-search {
-          font-size: 18px;
+          font-size: rem(18px);
           position: absolute;
-          top: 10px;
-          right: 10px;
+          top: rem(10px);
+          right: rem(10px);
         }
       }
     }
 
     #mainnav-toggler-container {
       flex-grow: 1;
-      padding-right: 10px;
 
       button {
         display: none;
-        width: 50px;
-        padding: 4px;
+        width: rem(50px);
+        padding: rem(4px);
         background-color: var(--il-orange);
         color: #ffffff;
         border: none;
         border-radius: 0.25rem;
-        line-height: 30px;
+        line-height: rem(30px);
         font-weight: 600;
         text-transform: uppercase;
 

@@ -1,8 +1,8 @@
 .ot-sdk-show-settings {
   float: left;
-  margin-top: 6px;
+  margin-top: rem(6px);
 
   &:focus {
-    outline: 2px dashed var(--il-orange);
+    outline: rem(2px) dashed var(--il-orange);
   }
 }

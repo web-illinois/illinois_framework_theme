@@ -1,0 +1,10 @@
+uuid: 58d31e3e-0020-4344-aeba-ba3903ee9f55
+langcode: en
+status: true
+dependencies: {  }
+id: feature_split
+label: 'Feature - Split'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }
