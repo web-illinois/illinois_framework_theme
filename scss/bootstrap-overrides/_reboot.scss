@@ -51,4 +51,14 @@ a {
   }
 }
 
+// overrides _reboot.scss line 248
+//
+// Images and content
+//
+
+img {
+  vertical-align: middle;
+  border-style: none; // Remove the border on images inside links in IE 10-.
+  max-width: 100%;
+}
 
