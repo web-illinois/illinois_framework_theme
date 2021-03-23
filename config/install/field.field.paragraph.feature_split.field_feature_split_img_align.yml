@@ -1,0 +1,23 @@
+uuid: 0797174d-03d6-4d13-b301-01eb8c41f343
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_feature_split_img_align
+    - paragraphs.paragraphs_type.feature_split
+  module:
+    - options
+id: paragraph.feature_split.field_feature_split_img_align
+field_name: field_feature_split_img_align
+entity_type: paragraph
+bundle: feature_split
+label: 'Image Alignment'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: left
+default_value_callback: ''
+settings: {  }
+field_type: list_string

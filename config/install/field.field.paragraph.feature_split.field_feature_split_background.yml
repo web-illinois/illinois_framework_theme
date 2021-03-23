@@ -1,0 +1,23 @@
+uuid: 148d086d-3ef7-4f51-aa7d-bc11cf5f5fc9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_feature_split_background
+    - paragraphs.paragraphs_type.feature_split
+  module:
+    - options
+id: paragraph.feature_split.field_feature_split_background
+field_name: field_feature_split_background
+entity_type: paragraph
+bundle: feature_split
+label: Background
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: white
+default_value_callback: ''
+settings: {  }
+field_type: list_string
