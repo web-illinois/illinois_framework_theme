@@ -9,11 +9,11 @@
 @import "web-components/fonts/il-icons";
 @import "web-components/web-components";
 
-// Custom Theme
-@import 'illinois-framework/variables';
-
 //Custom Functions
 @import "illinois-framework/functions/px2rem";
+
+// Custom Theme
+@import 'illinois-framework/variables';
 
 // Mixins
 @import "illinois-framework/mixins/media-queries";
