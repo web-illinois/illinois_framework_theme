@@ -38,23 +38,29 @@
  * @ingroup themeable
  */
 #}
+{% if content.field_feature_split_img_align['#items'].0.value == 'left' %}
+  {% set flex_row_class = 'flex-row' %}
+{% else %}
+  {% set flex_row_class = 'flex-row-reverse' %}
+{% endif %}
 {%
   set classes = [
   'paragraph',
   'paragraph--type--' ~ paragraph.bundle|clean_class,
   view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
   not paragraph.isPublished() ? 'paragraph--unpublished',
-  'col-lg-12 col-md-12 col-sm-12 p-0 flex'
+  'col-lg-12 col-md-12 col-sm-12 p-0 flex ' ~ flex_row_class
 ]
 %}
+
 {{ kint(content) }}
 {% block paragraph %}
   <div{{ attributes.addClass(classes) }}>
     {% block content %}
-      <div class="field--name-field-feature-split__image col-lg-6 col-md-6 p-0 float-{{ content.field_feature_split_img_align.0['#markup'] | lower }}">
-        <img src="{{ file_url(content.field_feature_split_img['#items'].entity.uri.value) }}" alt="{{ content.field_feature_split_img.0['#item'].alt.value }}" />
+      <div class="field--name-field-feature-split__image__wrapper col-lg-6 col-md-6 p-0">
+        <div class="field--name-field-feature-split__image" style="background-image: url('{{ base_path_http ~ file_url(content.field_feature_split_img['#items'].entity.uri.value) }}')" alt="{{ content.field_feature_split_img.0['#item'].alt.value }}"></div>
       </div>
-      <div class="col-lg-6 col-md-6 p-0 float-{{ content.field_feature_split_img_align.0['#markup'] | lower }} background--color--{{ content.field_feature_split_background.0['#markup']  | lower }}">
+      <div class="col-lg-6 col-md-6 p-0 background--color--{{ content.field_feature_split_background['#items'].0.value }}">
         <div class="field--name-field-feature-split__content__wrapper">
           {% if content.field_feature_split_title %}
             <div class="field--name-field-feature-split__title">{{ content.field_feature_split_title }}</div>
@@ -64,12 +70,14 @@
           {% endif %}
           {% set button_number = content.field_feature_split_button['#items']|length %}
           {% if button_number > 0 %}
+            <div class="field--name-field-feature-split__buttons">
             {% for item in content.field_feature_split_button['#items'] %}
               <a class="field--name-field-feature-split__button btn btn-primary" href="{{ content.field_feature_split_button[loop.index0]['#url'] }}" role="button">{{ content.field_feature_split_button[loop.index0]['#title'] }}</a>
               {% if button_number > 1 %}
 
               {% endif %}
             {% endfor %}
+            </div>
           {% endif %}
         </div>
       </div>

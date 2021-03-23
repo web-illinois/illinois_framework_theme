@@ -9,12 +9,6 @@
 @import "web-components/fonts/il-icons";
 @import "web-components/web-components";
 
-// Include bootstrap variables definitions overrides.
-@import 'bootstrap-overrides/variables';
-@import 'bootstrap-overrides/reboot';
-@import 'bootstrap-overrides/type';
-@import 'bootstrap-overrides/buttons';
-
 // Custom Theme
 @import 'illinois-framework/variables';
 
@@ -23,6 +17,12 @@
 
 // Mixins
 @import "illinois-framework/mixins/media-queries";
+
+// Include bootstrap variables definitions overrides.
+@import 'bootstrap-overrides/variables';
+@import 'bootstrap-overrides/reboot';
+@import 'bootstrap-overrides/type';
+@import 'bootstrap-overrides/buttons';
 
 // Layouts
 @import "illinois-framework/regions";
@@ -36,7 +36,7 @@
 // Blocks
 @import "illinois-framework/block.main-menu--simple";
 //@import "custom/block.main-menu--mega";
-@import "custom/block.sidebar-menu";
+@import "illinois-framework/block.sidebar-menu";
 
 // Paragraphs
 @import "illinois-framework/paragraphs";
@@ -45,4 +45,5 @@
 
 // Utility Classes
 @import "illinois-framework/utilities/ie--11";
+@import "illinois-framework/utilities/backgrounds";
 

@@ -45,7 +45,7 @@ h1, h2, h3, h4, h5, h6 {
       color: var(--il-altgeld);
     }
     &:focus {
-      outline: 2px dotted var(--il-altgeld);
+      outline: rem(2px) dotted var(--il-altgeld);
     }
   }
 }

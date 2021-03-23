@@ -34,11 +34,11 @@ $font-family-base:            $font-family-sans-serif;
 //
 // Font, line-height, and color for body text, headings, and more.
 
-$h1-font-size:                40px;
-$h2-font-size:                32px;
-$h3-font-size:                28px;
-$h4-font-size:                24px;
-$h5-font-size:                20px;
+$h1-font-size:                rem(40px);
+$h2-font-size:                rem(32px);
+$h3-font-size:                rem(28px);
+$h4-font-size:                rem(24px);
+$h5-font-size:                rem(20px);
 $h6-font-size:                $font-size-base;
 
 $headings-margin-bottom:      $spacer / 2 ;

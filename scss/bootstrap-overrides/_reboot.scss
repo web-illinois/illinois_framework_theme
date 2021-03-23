@@ -21,7 +21,7 @@ body {
 p {
   color: $body-color;
   font-size: 1rem;
-  line-height: 24px;
+  line-height: rem(24px);
 
   a {
     color: var(--il-alma-mater);

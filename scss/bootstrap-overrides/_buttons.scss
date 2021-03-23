@@ -1,5 +1,11 @@
 .btn {
-  height: 48px;
+  font-family: var(--il-source-sans);
+  font-size: rem(18px);
+  font-weight: 600;
+  height: rem(48px);
+  line-height: 1;
+  padding: rem(13px) rem(30px);
+  text-decoration: none;
 
   &--login {
     background: none;
@@ -14,14 +20,8 @@
   }
   &-primary {
     background-color: transparent;
-    border: 2px solid var(--il-blue);
+    border: rem(2px) solid var(--il-blue);
     color: var(--il-blue);
-    font-family: var(--il-source-sans);
-    font-size: 1.125rem;
-    height: auto;
-    line-height: 1;
-    padding: 13px 30px;
-    text-decoration: none;
 
     &:hover {
       background-color: var(--il-blue);
