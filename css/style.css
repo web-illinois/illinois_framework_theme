@@ -11005,7 +11005,7 @@ il-unit-wordmark a {
 }
 
 :root {
-  --il-framework--max-width: rem(1200px);
+  --il-framework--max-width: 1200px;
 }
 
 body {
