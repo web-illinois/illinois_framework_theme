@@ -12255,6 +12255,20 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
 .paragraph--type--feature-split .field--name-field-feature-split__body .field__item {
   padding-bottom: 1rem;
 }
+.paragraph--type--feature-split .field--name-field-feature-split__callout {
+  font-size: 3rem;
+  line-height: 1;
+  padding: 0;
+}
+.paragraph--type--feature-split .field--name-field-feature-split__callout.no-tagline {
+  margin-bottom: 1.25rem;
+}
+.paragraph--type--feature-split .field--name-field-feature-split__tagline {
+  font-size: 1.125rem;
+  font-style: italic;
+  margin-bottom: 1.25rem;
+  padding: 0;
+}
 .paragraph--type--feature-split .field--name-field-feature-split__buttons a {
   margin-bottom: 1.25rem;
 }
@@ -12266,11 +12280,27 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
 .background--color--white {
   background-color: white;
 }
+.background--color--white .title {
+  color: var(--il-altgeld);
+}
+.background--color--white .btn {
+  background-color: var(--il-altgeld);
+  border: 0.125rem solid var(--il-altgeld);
+  color: white;
+}
+.background--color--white .btn:hover {
+  background-color: white;
+  border: 0.125rem solid var(--il-altgeld);
+  color: var(--il-altgeld);
+}
 .background--color--bluegradient {
   background-image: linear-gradient(var(--il-blue), var(--il-industrial-blue));
   color: white;
 }
-.background--color--bluegradient body p {
+.background--color--bluegradient .title {
+  color: white;
+}
+.background--color--bluegradient .body p {
   color: white;
 }
 .background--color--bluegradient .btn {
@@ -12285,7 +12315,10 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
   background-image: linear-gradient(var(--il-altgeld), var(--il-orange));
   color: white;
 }
-.background--color--orangegradient body p {
+.background--color--orangegradient .title {
+  color: white;
+}
+.background--color--orangegradient .body p {
   color: white;
 }
 .background--color--orangegradient .btn {
@@ -12301,7 +12334,10 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
   background-color: var(--il-blue);
   color: white;
 }
-.background--color--illiniblue body p {
+.background--color--illiniblue .title {
+  color: white;
+}
+.background--color--illiniblue .body p {
   color: white;
 }
 .background--color--illiniblue .btn {
@@ -12317,7 +12353,10 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
   background-color: var(--il-orange);
   color: white;
 }
-.background--color--illiniorange body p {
+.background--color--illiniorange .title {
+  color: white;
+}
+.background--color--illiniorange .body p {
   color: white;
 }
 .background--color--illiniorange .btn {
@@ -12332,12 +12371,6 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
 .background--color--gray {
   background-color: var(--il-gray);
 }
-.background--color--gray .title {
-  color: var(--il-orange);
-}
-.background--color--gray .btn {
-  background-color: white;
-}
 .background--color--gray .btn:hover {
   background-color: var(--il-blue);
   border: 0.125rem solid var(--il-blue);
@@ -12345,6 +12378,7 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
 }
 
 .fixed-width {
+  margin: 0 auto;
   max-width: var(--il-framework--fixed-width);
 }
 
