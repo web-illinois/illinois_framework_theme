@@ -8,14 +8,10 @@
   &--content {
     display: flex;
     flex-direction: column;
-    margin: auto;
-    max-width: var(--il-framework--max-width);
-    padding: 0 rem(30px);
-    width: 100%;
+    @extend %fixed-width;
   }
   &--content {
-    max-width: none;
-    padding: 0;
+    @extend %full-width;
   }
   &--highlighted {
     padding-top: rem(10px);

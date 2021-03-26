@@ -108,8 +108,7 @@ il-footer [slot="social"] {
 
   &--subfooter {
     font-family: var(--il-source-sans);
-    max-width: var(--il-framework--max-width);
-    margin: 0 auto;
+    @extend %fixed-width;
     padding: rem(16px) rem(30px);
 
     ul {
