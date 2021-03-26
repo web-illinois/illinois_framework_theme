@@ -1,13 +1,13 @@
 .background--color {
 
   &--white {
-    background-color: #F0F0F0;
+    background-color: white;
   }
   &--bluegradient {
     background-image: linear-gradient(var(--il-blue), var(--il-industrial-blue));
     color: white;
 
-    .field__item {
+    body {
       p {
         color: white;
       }
@@ -27,7 +27,7 @@
     background-image: linear-gradient(var(--il-altgeld), var(--il-orange));
     color: white;
 
-    .field__item {
+    body {
       p {
         color: white;
       }
@@ -48,7 +48,7 @@
     background-color: var(--il-blue);
     color: white;
 
-    .field__item {
+    body {
       p {
         color: white;
       }
@@ -61,6 +61,44 @@
       &:hover {
         background-color: var(--il-orange);
         border: rem(2px) solid var(--il-orange);
+        color: white;
+      }
+    }
+  }
+  &--illiniorange {
+    background-color: var(--il-orange);
+    color: white;
+
+    body {
+      p {
+        color: white;
+      }
+    }
+
+    .btn {
+      border: rem(2px) solid white;
+      color: white;
+
+      &:hover {
+        background-color: var(--il-blue);
+        border: rem(2px) solid var(--il-blue);
+        color: white;
+      }
+    }
+  }
+  &--gray {
+    background-color: var(--il-gray);
+
+    .title {
+      color: var(--il-orange);
+    }
+
+    .btn {
+      background-color: white;
+
+      &:hover {
+        background-color: var(--il-blue);
+        border: rem(2px) solid var(--il-blue);
         color: white;
       }
     }

@@ -10134,6 +10134,7 @@ h3 {
   --il-orange: #ff552e;
   --il-altgeld: #dd3403;
   --il-blue: #13294b;
+  --il-gray: #f0f0f0;
   --il-alma-mater: #1e3877;
   --il-alma-mater-1: #4d69a0;
   --il-alma-mater-2: #849bc1;
@@ -11006,6 +11007,8 @@ il-unit-wordmark a {
 
 :root {
   --il-framework--max-width: 1200px;
+  --il-framework--fixed-width: 1200px;
+  --il-framework--full-width: 100%;
 }
 
 body {
@@ -11146,6 +11149,7 @@ h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus {
   width: 100%;
 }
 .l-region--content {
+  max-width: none;
   padding: 0;
 }
 .l-region--highlighted {
@@ -12168,6 +12172,18 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
   position: relative;
 }
 
+#block-illinois-framework-theme-page-title {
+  margin: 0 auto;
+  max-width: var(--il-framework--max-width);
+  padding: 0 1.875rem;
+}
+
+.node--type-content-page .field--name-body {
+  margin: 0 auto;
+  max-width: var(--il-framework--max-width);
+  padding: 0 1.875rem;
+}
+
 .paragraph .field__label {
   visibility: hidden;
 }
@@ -12229,6 +12245,13 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
   line-height: 2.25rem;
   padding-bottom: 2rem;
 }
+.paragraph--type--feature-split .field--name-field-feature-split__subtitle .field__item {
+  font-family: var(--il-source-sans);
+  font-size: 1.375rem;
+  font-weight: normal;
+  line-height: 1.2;
+  padding-bottom: 1.25rem;
+}
 .paragraph--type--feature-split .field--name-field-feature-split__body .field__item {
   padding-bottom: 1rem;
 }
@@ -12241,13 +12264,13 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
 
 /* ie 11 CSS styles */
 .background--color--white {
-  background-color: #F0F0F0;
+  background-color: white;
 }
 .background--color--bluegradient {
   background-image: linear-gradient(var(--il-blue), var(--il-industrial-blue));
   color: white;
 }
-.background--color--bluegradient .field__item p {
+.background--color--bluegradient body p {
   color: white;
 }
 .background--color--bluegradient .btn {
@@ -12262,7 +12285,7 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
   background-image: linear-gradient(var(--il-altgeld), var(--il-orange));
   color: white;
 }
-.background--color--orangegradient .field__item p {
+.background--color--orangegradient body p {
   color: white;
 }
 .background--color--orangegradient .btn {
@@ -12278,7 +12301,7 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
   background-color: var(--il-blue);
   color: white;
 }
-.background--color--illiniblue .field__item p {
+.background--color--illiniblue body p {
   color: white;
 }
 .background--color--illiniblue .btn {
@@ -12289,6 +12312,44 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
   background-color: var(--il-orange);
   border: 0.125rem solid var(--il-orange);
   color: white;
+}
+.background--color--illiniorange {
+  background-color: var(--il-orange);
+  color: white;
+}
+.background--color--illiniorange body p {
+  color: white;
+}
+.background--color--illiniorange .btn {
+  border: 0.125rem solid white;
+  color: white;
+}
+.background--color--illiniorange .btn:hover {
+  background-color: var(--il-blue);
+  border: 0.125rem solid var(--il-blue);
+  color: white;
+}
+.background--color--gray {
+  background-color: var(--il-gray);
+}
+.background--color--gray .title {
+  color: var(--il-orange);
+}
+.background--color--gray .btn {
+  background-color: white;
+}
+.background--color--gray .btn:hover {
+  background-color: var(--il-blue);
+  border: 0.125rem solid var(--il-blue);
+  color: white;
+}
+
+.fixed-width {
+  max-width: var(--il-framework--fixed-width);
+}
+
+.full-width {
+  max-width: var(--il-framework--full-width);
 }
 
 /*# sourceMappingURL=style.css.map */

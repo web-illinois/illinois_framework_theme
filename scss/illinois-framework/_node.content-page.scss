@@ -1,0 +1,9 @@
+.node--type-content-page {
+  .field {
+    &--name-body {
+      margin: 0 auto;
+      max-width: var(--il-framework--max-width);
+      padding: 0 rem(30px);
+    }
+  }
+}

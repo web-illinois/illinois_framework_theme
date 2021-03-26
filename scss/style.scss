@@ -9,13 +9,13 @@
 @import "web-components/fonts/il-icons";
 @import "web-components/web-components";
 
-//Custom Functions
+// Custom Functions
 @import "illinois-framework/functions/px2rem";
 
-// Custom Theme
+// Custom Variables
 @import 'illinois-framework/variables';
 
-// Mixins
+// Custom Mixins
 @import "illinois-framework/mixins/media-queries";
 
 // Include bootstrap variables definitions overrides.
@@ -29,7 +29,7 @@
 @import "illinois-framework/region.header";
 @import "illinois-framework/region.footer";
 
-// Components
+// 3rd Party/Campus Components
 @import "illinois-framework/components.google-translate";
 @import "illinois-framework/components.one-trust";
 
@@ -37,6 +37,10 @@
 @import "illinois-framework/block.main-menu--simple";
 //@import "custom/block.main-menu--mega";
 @import "illinois-framework/block.sidebar-menu";
+@import "illinois-framework/block.page-title";
+
+// Content Types
+@import "illinois-framework/node.content-page";
 
 // Paragraphs
 @import "illinois-framework/paragraphs";
@@ -45,5 +49,6 @@
 
 // Utility Classes
 @import "illinois-framework/utilities/ie--11";
-@import "illinois-framework/utilities/backgrounds";
+@import "illinois-framework/utilities/background--color";
+@import "illinois-framework/utilities/max-width";
 
