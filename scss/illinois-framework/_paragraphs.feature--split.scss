@@ -61,6 +61,21 @@
         padding-bottom: rem(16px);
       }
     }
+    &__callout {
+      font-size: rem(48px);
+      line-height: 1;
+      padding: 0;
+
+      &.no-tagline {
+        margin-bottom: rem(20px);
+      }
+    }
+    &__tagline {
+      font-size: rem(18px);
+      font-style: italic;
+      margin-bottom: rem(20px);
+      padding: 0;
+    }
     &__buttons {
 
       a {
