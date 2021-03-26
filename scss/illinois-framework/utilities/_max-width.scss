@@ -1,7 +1,17 @@
-.fixed-width {
+%fixed-width {
   margin: 0 auto;
   max-width: var(--il-framework--fixed-width);
+  padding: 0 30px;
+  width: 100%;
 }
+%full-width {
+  max-width: none;
+  width: var(--il-framework--full-width);
+}
+.fixed-width {
+ @extend %fixed-width;
+}
+
 .full-width {
-  max-width: var(--il-framework--full-width)
+  @extend %full-width;
 }
