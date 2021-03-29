@@ -1,3 +1,6 @@
 #block-illinois-framework-theme-content {
-  //@extend %fixed-width;
+
+  article.profile {
+    @extend %fixed-width;
+  }
 }
