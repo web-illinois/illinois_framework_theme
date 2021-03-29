@@ -12361,7 +12361,7 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
   color: white;
 }
 
-.fixed-width, .l-region--highlighted, .l-region--tabs, .l-region--content, .footer--subfooter, #block-illinois-framework-theme-page-title, #block-illinois-framework-theme-breadcrumbs, #block-illinois-framework-theme-content {
+.fixed-width, .l-region--highlighted, .l-region--tabs, .l-region--content, .footer--subfooter, #block-illinois-framework-theme-page-title, #block-illinois-framework-theme-breadcrumbs {
   margin: 0 auto;
   max-width: var(--il-framework--fixed-width);
   padding: 0 1.875rem;
