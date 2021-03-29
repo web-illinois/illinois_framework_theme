@@ -1,4 +1,5 @@
 .paragraph--type--page-introduction {
+  @extend %fixed-width;
 
   .field--name-field-page-intro-title {
 
