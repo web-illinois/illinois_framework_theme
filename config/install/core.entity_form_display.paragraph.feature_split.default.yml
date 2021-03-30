@@ -5,8 +5,12 @@ dependencies:
     - field.field.paragraph.feature_split.field_feature_split_background
     - field.field.paragraph.feature_split.field_feature_split_body
     - field.field.paragraph.feature_split.field_feature_split_button
+    - field.field.paragraph.feature_split.field_feature_split_callout
     - field.field.paragraph.feature_split.field_feature_split_img
     - field.field.paragraph.feature_split.field_feature_split_img_align
+    - field.field.paragraph.feature_split.field_feature_split_img_width
+    - field.field.paragraph.feature_split.field_feature_split_subtitle
+    - field.field.paragraph.feature_split.field_feature_split_tagline
     - field.field.paragraph.feature_split.field_feature_split_title
     - image.style.thumbnail
     - paragraphs.paragraphs_type.feature_split
@@ -20,13 +24,13 @@ bundle: feature_split
 mode: default
 content:
   field_feature_split_background:
-    weight: 0
+    weight: 2
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_feature_split_body:
-    weight: 1
+    weight: 6
     settings:
       rows: 9
       summary_rows: 3
@@ -36,12 +40,20 @@ content:
     type: text_textarea_with_summary
     region: content
   field_feature_split_button:
-    weight: 2
+    weight: 7
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
+    region: content
+  field_feature_split_callout:
+    weight: 8
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
   field_feature_split_img:
     weight: 3
@@ -57,8 +69,30 @@ content:
     third_party_settings: {  }
     type: options_select
     region: content
-  field_feature_split_title:
+  field_feature_split_img_width:
     weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_feature_split_subtitle:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_feature_split_tagline:
+    weight: 9
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_feature_split_title:
+    weight: 0
     settings:
       size: 60
       placeholder: ''

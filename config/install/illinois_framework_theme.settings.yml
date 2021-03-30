@@ -13,3 +13,42 @@ b4_footer_bg_schema: none
 subtheme_folder: ''
 subtheme_name: ''
 subtheme_machine_name: ''
+_core:
+  default_config_hash: SRX2bg533kxSz-Vf2xExlyxODjZDl_tiHt7Ru5hl2YI
+logo:
+  use_default: 1
+favicon:
+  use_default: 1
+if_header_text_1: ''
+if_header_link_1: ''
+if_header_text_2: ''
+if_header_link_2: ''
+if_header_text_3: ''
+if_header_link_3: ''
+if_secondary_site_title: ''
+if_secondary_site_link: ''
+if_menu_select: null
+if_footer_social_facebook: ''
+if_footer_social_instagram: ''
+if_footer_social_twitter: ''
+if_footer_social_youtube: ''
+if_footer_social_linkedin: ''
+if_footer_address_unit: ''
+if_footer_address_street_one: ''
+if_footer_address_street_two: ''
+if_footer_address_city: ''
+if_footer_address_state: ''
+if_footer_address_zip: ''
+if_footer_address_email: ''
+if_footer_address_tel: ''
+if_footer_menu_block_checkbox: 0
+if_subfooter_text_1: ''
+if_subfooter_link_1: ''
+if_subfooter_text_2: ''
+if_subfooter_link_2: ''
+if_subfooter_text_3: ''
+if_subfooter_link_3: ''
+if_subfooter_text_4: ''
+if_subfooter_link_4: ''
+if_subfooter_text_5: ''
+if_subfooter_link_5: ''
