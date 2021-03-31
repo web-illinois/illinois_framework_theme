@@ -1,0 +1,113 @@
+.paragraph--type--feature-video {
+
+  .field--name-field-feature-video {
+
+    &__video {
+
+      height: 100%;
+      width: 100%;
+
+      //@include media-breakpoint-down(sm) {
+      //  height: 350px;
+      //}
+      //@include media-breakpoint-down(xs) {
+      //  height: 250px;
+      //}
+
+      &__wrapper {
+        flex-basis: 50%;
+        @include media-breakpoint-down(sm) {
+          flex-basis: 100%;
+        }
+      }
+    }
+    &__content {
+
+      &__wrapper {
+        padding: rem(75px);
+
+        @include media-breakpoint-down(lg) {
+          padding: rem(32px);
+        }
+
+        @include media-breakpoint-down(md) {
+          padding: rem(20px);
+        }
+      }
+    }
+    &__title {
+
+      .field__item {
+        font-family: var(--il-source-sans);
+        font-size: rem(36px);
+        font-weight: 700;
+        line-height: rem(36px);
+        padding-bottom: rem(32px);
+      }
+    }
+    &__subtitle {
+
+      .field__item {
+        font-family: var(--il-source-sans);
+        font-size: rem(22px);
+        font-weight: normal;
+        line-height: 1.2;
+        padding-bottom: rem(20px);
+      }
+    }
+    &__body {
+
+      .field__item {
+        padding-bottom: rem(16px);
+      }
+    }
+    &__callout {
+      font-size: rem(48px);
+      line-height: 1;
+      padding: 0;
+
+      &.no-tagline {
+        margin-bottom: rem(20px);
+      }
+    }
+    &__tagline {
+      font-size: rem(18px);
+      font-style: italic;
+      margin-bottom: rem(20px);
+      padding: 0;
+    }
+    &__buttons {
+
+      a {
+        margin-bottom: rem(20px);
+      }
+
+      a:first-child {
+        margin-right: rem(30px);
+      }
+    }
+  }
+  .field--name-field-feature-video-video {
+    height: 100%;
+    width: 100%;
+
+    .field__item {
+      height: 100%;
+      width: 100%;
+
+      .media--type-remote-video {
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+  .field--name-field-media-oembed-video {
+    height: 100%;
+    width: 100%;
+
+    iframe.media-oembed-content {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
