@@ -6,6 +6,11 @@
     .title {
       color: var(--il-orange);
     }
+    .body {
+      p {
+        color: $body-color;
+      }
+    }
     .btn {
       background-color: var(--il-orange);
       border: rem(2px) solid var(--il-orange);
@@ -26,12 +31,6 @@
       color: white;
     }
 
-    .body {
-      p {
-        color: white;
-      }
-    }
-
     .btn {
       border: rem(2px) solid white;
       color: white;
@@ -48,12 +47,6 @@
 
     .title {
       color: white;
-    }
-
-    .body {
-      p {
-        color: white;
-      }
     }
 
     .btn {
@@ -75,12 +68,6 @@
       color: white;
     }
 
-    .body {
-      p {
-        color: white;
-      }
-    }
-
     .btn {
       border: rem(2px) solid white;
       color: white;
@@ -100,12 +87,6 @@
       color: white;
     }
 
-    .body {
-      p {
-        color: white;
-      }
-    }
-
     .btn {
       border: rem(2px) solid white;
       color: white;
@@ -119,6 +100,12 @@
   }
   &--gray {
     background-color: var(--il-gray);
+
+    .body {
+      p {
+        color: $body-color;
+      }
+    }
 
     .btn {
 
