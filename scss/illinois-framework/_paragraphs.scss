@@ -1,4 +1,8 @@
 .paragraph {
+
+  @include media-breakpoint-down(sm) {
+    padding: rem(15px) rem(20px) !important;
+  }
   .field__label {
     visibility: hidden;
   }
