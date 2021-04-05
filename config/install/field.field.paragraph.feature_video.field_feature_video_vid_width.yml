@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_feature_video_vid_width
+    - paragraphs.paragraphs_type.feature_video
+  module:
+    - options
+id: paragraph.feature_video.field_feature_video_vid_width
+field_name: field_feature_video_vid_width
+entity_type: paragraph
+bundle: feature_video
+label: 'Video Width'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: fixed
+default_value_callback: ''
+settings: {  }
+field_type: list_string

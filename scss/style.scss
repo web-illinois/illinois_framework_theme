@@ -22,6 +22,7 @@
 @import 'bootstrap-overrides/variables';
 @import 'bootstrap-overrides/reboot';
 @import 'bootstrap-overrides/type';
+@import 'bootstrap-overrides/breadcrumb';
 @import 'bootstrap-overrides/buttons';
 
 // Layouts
@@ -49,6 +50,7 @@
 @import "illinois-framework/paragraphs";
 @import "illinois-framework/paragraphs.page-intro";
 @import "illinois-framework/paragraphs.feature--split";
+@import "illinois-framework/paragraphs.feature--video";
 
 // Views
 @import "illinois-framework/view.frontpage";
