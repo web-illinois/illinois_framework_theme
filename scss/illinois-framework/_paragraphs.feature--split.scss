@@ -24,15 +24,7 @@
     &__content {
 
       &__wrapper {
-        padding: rem(75px);
 
-        @include media-breakpoint-down(lg) {
-          padding: rem(32px);
-        }
-
-        @include media-breakpoint-down(md) {
-          padding: rem(20px);
-        }
       }
     }
     &__title {
