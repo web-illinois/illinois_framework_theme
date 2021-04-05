@@ -90,6 +90,9 @@
   .field--name-field-feature-video-video {
     height: 100%;
     width: 100%;
+    @include media-breakpoint-down(sm) {
+      min-height: rem(350px);
+    }
 
     .field__item {
       height: 100%;
@@ -99,6 +102,19 @@
         height: 100%;
         width: 100%;
       }
+      .media--type-image {
+        height: 100%;
+      }
+    }
+  }
+  .field--name-field-media-image {
+    height: 100%;
+    width: 100%;
+
+    img {
+      height: 100%;
+      object-fit: cover;
+      width: 100%;
     }
   }
   .field--name-field-media-oembed-video {

@@ -2,4 +2,11 @@
   .field__label {
     visibility: hidden;
   }
+  .body {
+    .field__item {
+      p {
+        font-size: rem(18px);
+      }
+    }
+  }
 }

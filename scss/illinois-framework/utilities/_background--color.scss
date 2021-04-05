@@ -4,17 +4,17 @@
     background-color: white;
 
     .title {
-      color: var(--il-altgeld);
+      color: var(--il-orange);
     }
     .btn {
-      background-color: var(--il-altgeld);
-      border: rem(2px) solid var(--il-altgeld);
+      background-color: var(--il-orange);
+      border: rem(2px) solid var(--il-orange);
       color: white;
 
       &:hover {
         background-color: white;
-        border: rem(2px) solid var(--il-altgeld);
-        color: var(--il-altgeld);
+        border: rem(2px) solid var(--il-orange);
+        color: var(--il-orange);
       }
     }
   }
