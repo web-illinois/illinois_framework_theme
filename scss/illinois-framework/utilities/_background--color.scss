@@ -9,6 +9,16 @@
     .body {
       p {
         color: $body-color;
+
+        a {
+          color: $body-color;
+
+          &:hover,
+          &:focus,
+          &:visited {
+            color: var(--il-orange);
+          }
+        }
       }
     }
     .btn {
@@ -30,6 +40,17 @@
     .title {
       color: white;
     }
+    .body  {
+      p {
+        a {
+          &:hover,
+          &:focus,
+          &:visited {
+            color: var(--il-orange);
+          }
+        }
+      }
+    }
 
     .btn {
       border: rem(2px) solid white;
@@ -47,6 +68,17 @@
 
     .title {
       color: white;
+    }
+    .body  {
+      p {
+        a {
+          &:hover,
+          &:focus,
+          &:visited {
+            color: var(--il-blue);
+          }
+        }
+      }
     }
 
     .btn {
@@ -67,6 +99,17 @@
     .title {
       color: white;
     }
+    .body  {
+      p {
+        a {
+          &:hover,
+          &:focus,
+          &:visited {
+            color: var(--il-orange);
+          }
+        }
+      }
+    }
 
     .btn {
       border: rem(2px) solid white;
@@ -86,6 +129,17 @@
     .title {
       color: white;
     }
+    .body  {
+      p {
+        a {
+          &:hover,
+          &:focus,
+          &:visited {
+            color: var(--il-blue);
+          }
+        }
+      }
+    }
 
     .btn {
       border: rem(2px) solid white;
@@ -104,6 +158,16 @@
     .body {
       p {
         color: $body-color;
+
+        a {
+          color: $body-color;
+
+          &:hover,
+          &:focus,
+          &:visited {
+            color: var(--il-orange);
+          }
+        }
       }
     }
 

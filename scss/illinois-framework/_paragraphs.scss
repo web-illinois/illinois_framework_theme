@@ -22,22 +22,19 @@
   }
   .body {
 
-    .field__item {
+    p {
+      color: white;
+      font-family: var(--il-source-sans);
+      font-size: rem(18px);
+      line-height: rem(30px);
 
-      p {
+      a {
         color: white;
-        font-family: var(--il-source-sans);
-        font-size: rem(18px);
-        line-height: rem(30px);
-
-        a {
-          color: white;
-          font-weight: 600;
-          text-decoration: underline;
-        }
-        strong {
-          font-width: 600;
-        }
+        font-weight: 600;
+        text-decoration: underline;
+      }
+      strong {
+        font-width: 600;
       }
     }
   }
