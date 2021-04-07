@@ -1,0 +1,19 @@
+uuid: b9497b58-fb63-4e35-8c14-a6a67ef7d5b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cta_narrow_title
+    - paragraphs.paragraphs_type.cta_narrow
+id: paragraph.cta_narrow.field_cta_narrow_title
+field_name: field_cta_narrow_title
+entity_type: paragraph
+bundle: cta_narrow
+label: Heading
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,10 @@
+uuid: ef243894-0143-4560-9796-48f09b359608
+langcode: en
+status: true
+dependencies: {  }
+id: cta_narrow
+label: 'Call to Action Narrow'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }
