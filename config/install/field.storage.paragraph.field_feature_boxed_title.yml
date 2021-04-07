@@ -1,0 +1,21 @@
+uuid: c43c4de7-8c6a-4584-90da-ea4287a23efa
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_feature_boxed_title
+field_name: field_feature_boxed_title
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
