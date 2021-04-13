@@ -1,0 +1,19 @@
+uuid: 81f20ab1-aee5-443d-bb5e-151ad8fd9662
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_feature_boxed_tagline
+    - paragraphs.paragraphs_type.feature_boxed
+id: paragraph.feature_boxed.field_feature_boxed_tagline
+field_name: field_feature_boxed_tagline
+entity_type: paragraph
+bundle: feature_boxed
+label: Tagline
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,23 @@
+uuid: b67f0b85-e0d2-44e6-8fa1-01e5f3cf18ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_feature_boxed_background
+    - paragraphs.paragraphs_type.feature_boxed
+  module:
+    - options
+id: paragraph.feature_boxed.field_feature_boxed_background
+field_name: field_feature_boxed_background
+entity_type: paragraph
+bundle: feature_boxed
+label: Background
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: bluegradient
+default_value_callback: ''
+settings: {  }
+field_type: list_string

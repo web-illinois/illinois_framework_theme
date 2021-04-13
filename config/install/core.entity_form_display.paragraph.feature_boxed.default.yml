@@ -1,0 +1,105 @@
+uuid: 0e06cda4-98db-4bf0-97c4-5b589c12e6a6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.feature_boxed.field_feature_boxed_align
+    - field.field.paragraph.feature_boxed.field_feature_boxed_background
+    - field.field.paragraph.feature_boxed.field_feature_boxed_body
+    - field.field.paragraph.feature_boxed.field_feature_boxed_button
+    - field.field.paragraph.feature_boxed.field_feature_boxed_callout
+    - field.field.paragraph.feature_boxed.field_feature_boxed_img
+    - field.field.paragraph.feature_boxed.field_feature_boxed_img_width
+    - field.field.paragraph.feature_boxed.field_feature_boxed_subtitle
+    - field.field.paragraph.feature_boxed.field_feature_boxed_tagline
+    - field.field.paragraph.feature_boxed.field_feature_boxed_title
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.feature_boxed
+  module:
+    - image
+    - link
+    - text
+id: paragraph.feature_boxed.default
+targetEntityType: paragraph
+bundle: feature_boxed
+mode: default
+content:
+  field_feature_boxed_align:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_feature_boxed_background:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_feature_boxed_body:
+    weight: 6
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+    type: text_textarea_with_summary
+    region: content
+  field_feature_boxed_button:
+    weight: 7
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_feature_boxed_callout:
+    weight: 8
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_feature_boxed_img:
+    weight: 3
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_feature_boxed_img_width:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_feature_boxed_subtitle:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_feature_boxed_tagline:
+    weight: 9
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_feature_boxed_title:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true
