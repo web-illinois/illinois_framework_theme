@@ -7,6 +7,9 @@
       background-repeat: no-repeat;
       background-size: cover;
       height: 100%;
+      @include media-breakpoint-down(md) {
+        height: rem(500px);
+      }
       @include media-breakpoint-down(sm) {
         height: rem(350px);
       }
@@ -27,6 +30,9 @@
         border: 1px solid #707070;
         top: -100%;
         opacity: 0.9;
+        @include media-breakpoint-down(md) {
+          top: 0;
+        }
 
         &.left {
           margin: rem(75px) 0 rem(75px) 8.33333333333%;

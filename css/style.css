@@ -12387,6 +12387,11 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
   background-size: cover;
   height: 100%;
 }
+@media (max-width: 991.98px) {
+  .paragraph--type--feature-boxed .field--name-field-feature-boxed__image {
+    height: 31.25rem;
+  }
+}
 @media (max-width: 767.98px) {
   .paragraph--type--feature-boxed .field--name-field-feature-boxed__image {
     height: 21.875rem;
@@ -12409,6 +12414,11 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
   border: 1px solid #707070;
   top: -100%;
   opacity: 0.9;
+}
+@media (max-width: 991.98px) {
+  .paragraph--type--feature-boxed .field--name-field-feature-boxed__content__wrapper {
+    top: 0;
+  }
 }
 .paragraph--type--feature-boxed .field--name-field-feature-boxed__content__wrapper.left {
   margin: 4.6875rem 0 4.6875rem 8.3333333333%;
