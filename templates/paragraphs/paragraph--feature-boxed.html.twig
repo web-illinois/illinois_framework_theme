@@ -54,7 +54,8 @@
 %}
 {#{{ kint(content) }}#}
 {% block paragraph %}
-  <div{{ attributes.addClass(classes) }}>
+  {# Paragraph ID used for anchor linking #}
+  <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
       <div class="col-lg-12 col-md-12 p-0">
           <div class="field--name-field-feature-boxed__image" style="background-image: url('{{ base_path_http ~ file_url(content.field_feature_boxed_img['#items'].entity.uri.value) }}')" alt="{{ content.field_feature_boxed_img.0['#item'].alt}}"></div>
