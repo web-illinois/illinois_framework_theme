@@ -60,7 +60,8 @@
 %}
 {#{{ kint(content) }}#}
 {% block paragraph %}
-  <div{{ attributes.addClass(classes) }}>
+  {# Paragraph ID used for anchor linking #}
+  <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
       <div class="field--name-field-feature-video__video__wrapper col-lg-6 col-md-6 p-0">
         <div class="field--name-field-feature-video__video">{{ content.field_feature_video_video }}</div>
