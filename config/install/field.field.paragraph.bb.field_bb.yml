@@ -1,0 +1,73 @@
+uuid: b1dad143-395e-45a6-a050-b1fad186fdf1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_bb
+    - paragraphs.paragraphs_type.bb
+    - paragraphs.paragraphs_type.bb_content
+  module:
+    - entity_reference_revisions
+id: paragraph.bb.field_bb
+field_name: field_bb
+entity_type: paragraph
+bundle: bb
+label: 'Big Buttons'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      bb_content: bb_content
+    target_bundles_drag_drop:
+      bb:
+        weight: 16
+        enabled: false
+      bb_content:
+        enabled: true
+        weight: 17
+      big_buttons:
+        weight: 18
+        enabled: false
+      call_to_action:
+        weight: 19
+        enabled: false
+      colored_text_block_with_image:
+        weight: 20
+        enabled: false
+      cta_content:
+        weight: 21
+        enabled: false
+      expand_collapse:
+        weight: 22
+        enabled: false
+      feature_boxed:
+        weight: 23
+        enabled: false
+      feature_split:
+        weight: 24
+        enabled: false
+      feature_video:
+        weight: 25
+        enabled: false
+      from_library:
+        weight: 26
+        enabled: false
+      page_introduction:
+        weight: 27
+        enabled: false
+      rich_text:
+        weight: 28
+        enabled: false
+      text_with_image_and_header:
+        weight: 29
+        enabled: false
+      two_column_text:
+        weight: 30
+        enabled: false
+field_type: entity_reference_revisions

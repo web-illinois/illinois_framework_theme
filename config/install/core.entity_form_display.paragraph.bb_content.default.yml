@@ -1,0 +1,71 @@
+uuid: 63c8448b-1af9-4faf-8853-24ae5d767045
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.bb_content.field_bb_content_background
+    - field.field.paragraph.bb_content.field_bb_content_body
+    - field.field.paragraph.bb_content.field_bb_content_image
+    - field.field.paragraph.bb_content.field_bb_content_link
+    - field.field.paragraph.bb_content.field_bb_content_title
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.bb_content
+  module:
+    - image_widget_crop
+    - link
+    - text
+id: paragraph.bb_content.default
+targetEntityType: paragraph
+bundle: bb_content
+mode: default
+content:
+  field_bb_content_background:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_bb_content_body:
+    weight: 4
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+    type: text_textarea_with_summary
+    region: content
+  field_bb_content_image:
+    weight: 3
+    settings:
+      show_default_crop: true
+      warn_multiple_usages: true
+      preview_image_style: thumbnail
+      crop_preview_image_style: crop_thumbnail
+      crop_list:
+        - 2_1_ratio
+      progress_indicator: throbber
+      crop_types_required: {  }
+      show_crop_area: false
+    third_party_settings: {  }
+    type: image_widget_crop
+    region: content
+  field_bb_content_link:
+    weight: 2
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_bb_content_title:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true
