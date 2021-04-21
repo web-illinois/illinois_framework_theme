@@ -38,31 +38,46 @@
  * @ingroup themeable
  */
 #}
+{% if content.field_bb_content_layer_width['#items'].0.value == 'fixed' %}
+  {% set max_width = 'fixed-width' %}
+{% else %}
+  {% set max_width = 'full-width' %}
+{% endif %}
 {%
   set classes = [
   'paragraph',
   'paragraph--type--' ~ paragraph.bundle|clean_class,
   view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
   not paragraph.isPublished() ? 'paragraph--unpublished',
-  'col-lg-12 col-md-12 col-sm-12 p-0 flex '
+  'col-lg-12 col-md-12 col-sm-12 p-0 flex ' ~ max_width
 ]
 %}
-{{ kint(content) }}
 {% block paragraph %}
-  <div{{ attributes.addClass(classes) }}>
+  {# Paragraph ID used for anchor linking #}
+  <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
-      <div class="col-lg-12 col-md-12 p-0">
+      <div class="col-lg-12 col-md-12 p-0 flex paragraph--type--bb__wrapper">
         {% for item in content.field_bb['#items'] %}
-          {% set image = content.field_bb[loop.index0]['#paragraph'].field_bb_content_image.value %}
-          {% set background = content.field_bb[loop.index0]['paragraph'].field_bb_content_background.value %}
-          {% set body = content.field_bb[loop.index0]['paragraph'].field_bb_content_body.value %}
-          {% set title = content.field_bb[loop.index0]['paragraph'].field_bb_content_title.value %}
-          <div class="col-lg-4 field--name-field-bb__content__wrapper content__wrapper background--color--{{ background }}">
-            {% if content.field_bb_title['#items'] %}
-              <h2 class="field--name-field-feature-boxed__title title">{{ content.field_bb_title }}</h2>
-            {% endif %}
-              <div class="field--name-field-feature-boxed__body body">{{ body }}</div>
-          </div>
+          {% set image = content.field_bb[loop.index0]['#paragraph'].field_bb_content_image.entity.fileuri|image_style('big_button_image') %}
+          {% set image_alt = content.field_bb[loop.index0]['#paragraph'].field_bb_content_image.alt %}
+          {% set background = content.field_bb[loop.index0]['#paragraph'].field_bb_content_background.value %}
+          {% set body = content.field_bb[loop.index0]['#paragraph'].field_bb_content_body.value %}
+          {% set title = content.field_bb[loop.index0]['#paragraph'].field_bb_content_title.value %}
+            <div class="col-lg-4 col-md-6 col-sm-12 flex background--color--{{ background }}">
+              <a class="field--name-field-bb__link" href="">
+              <div class="field--name-field-bb__content__wrapper content__wrapper">
+                <div class="field--name-field-bb__content">
+                  <img src="{{ base_path_http ~ file_url(image) }}" alt="{{ image_alt }}"/>
+                  <div class="field--name-field-bb__title title">
+                    <h2 class="field__item">{{ title }}</h2>
+                  </div>
+                  <div class="field--name-field-bb__body body">
+                    <div class="field__item">{{ body|striptags|check_markup('plain_text_only') }}</div>
+                  </div>
+                </div>
+              </div>
+              </a>
+            </div>
         {% endfor %}
       </div>
     {% endblock %}
