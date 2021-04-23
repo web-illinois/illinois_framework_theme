@@ -6,6 +6,9 @@
     .title {
       color: var(--il-altgeld);
     }
+    .subtitle {
+      color: var(--il-alma-mater);
+    }
     .btn {
       background-color: var(--il-altgeld);
       border: rem(2px) solid var(--il-altgeld);
@@ -17,12 +20,17 @@
         color: var(--il-altgeld);
       }
     }
+
   }
   &--bluegradient {
     background-image: linear-gradient(var(--il-blue), var(--il-industrial-blue));
     color: white;
 
     .title {
+      color: white;
+    }
+
+    .subtitle {
       color: white;
     }
 
@@ -33,6 +41,7 @@
     }
 
     .btn {
+      background-color: var(--il-industrial-blue);
       border: rem(2px) solid white;
       color: white;
 
@@ -50,6 +59,10 @@
       color: white;
     }
 
+    .subtitle {
+      color: var(--il-blue)
+    }
+
     .body {
       p {
         color: white;
@@ -57,6 +70,7 @@
     }
 
     .btn {
+      background-color: var(--il-orange);
       border: rem(2px) solid white;
       color: white;
 
@@ -75,6 +89,10 @@
       color: white;
     }
 
+    .subtitle {
+      color: var(--il-orange);
+    }
+
     .body {
       p {
         color: white;
@@ -82,6 +100,7 @@
     }
 
     .btn {
+      background-color: var(--il-blue);
       border: rem(2px) solid white;
       color: white;
 
@@ -100,6 +119,10 @@
       color: white;
     }
 
+    .subtitle {
+      color: var(--il-blue);
+    }
+
     .body {
       p {
         color: white;
@@ -107,6 +130,7 @@
     }
 
     .btn {
+      background-color: var(--il-orange);
       border: rem(2px) solid white;
       color: white;
 
@@ -116,6 +140,7 @@
         color: white;
       }
     }
+
   }
   &--gray {
     background-color: var(--il-gray);

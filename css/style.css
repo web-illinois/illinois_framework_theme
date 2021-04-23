@@ -12273,6 +12273,52 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
   margin-right: 1.875rem;
 }
 
+.paragraph--type--cta .field--name-field-cta__wrapper {
+  display: flex;
+  align-items: center;
+  padding: 2.813rem 0;
+}
+@media (max-width: 767.98px) {
+  .paragraph--type--cta .field--name-field-cta__wrapper {
+    display: block;
+  }
+}
+.paragraph--type--cta .field--name-field-cta__wrapper .field--name-field-cta-icon img {
+  max-width: inherit;
+}
+.paragraph--type--cta .field--name-field-cta__wrapper .field--name-field-cta-text__wrapper {
+  max-width: 50rem;
+  margin: 0 auto;
+}
+.paragraph--type--cta .field--name-field-cta__wrapper .field--name-field-cta-text__wrapper.left {
+  text-align: left;
+}
+.paragraph--type--cta .field--name-field-cta__wrapper .field--name-field-cta-text__wrapper.left .field--name-field-cta__button:first-child {
+  margin-left: 0;
+}
+.paragraph--type--cta .field--name-field-cta__wrapper .field--name-field-cta-text__wrapper.center {
+  text-align: center;
+}
+.paragraph--type--cta .field--name-field-cta__wrapper .field--name-field-cta-text__wrapper.right {
+  text-align: right;
+}
+.paragraph--type--cta .field--name-field-cta__wrapper .field--name-field-cta-text__wrapper.right .field--name-field-cta__button:last-child {
+  margin-right: 0;
+}
+.paragraph--type--cta .field--name-field-cta__subtitle {
+  margin-bottom: 0.938rem;
+  font-weight: 700;
+}
+.paragraph--type--cta .field--name-field-cta__title {
+  margin-bottom: 1.375rem;
+}
+.paragraph--type--cta .field--name-field-cta__body {
+  margin-bottom: 1.813rem;
+}
+.paragraph--type--cta .field--name-field-cta__button {
+  margin: 0 1.875rem;
+}
+
 .paragraph--type--cta-narrow .field--name-field-cta-narrow__wrapper {
   display: flex;
   align-items: center;
@@ -12312,6 +12358,9 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
 .background--color--white .title {
   color: var(--il-altgeld);
 }
+.background--color--white .subtitle {
+  color: var(--il-alma-mater);
+}
 .background--color--white .btn {
   background-color: var(--il-altgeld);
   border: 0.125rem solid var(--il-altgeld);
@@ -12329,10 +12378,14 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
 .background--color--bluegradient .title {
   color: white;
 }
+.background--color--bluegradient .subtitle {
+  color: white;
+}
 .background--color--bluegradient .body p {
   color: white;
 }
 .background--color--bluegradient .btn {
+  background-color: var(--il-industrial-blue);
   border: 0.125rem solid white;
   color: white;
 }
@@ -12347,10 +12400,14 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
 .background--color--orangegradient .title {
   color: white;
 }
+.background--color--orangegradient .subtitle {
+  color: var(--il-blue);
+}
 .background--color--orangegradient .body p {
   color: white;
 }
 .background--color--orangegradient .btn {
+  background-color: var(--il-orange);
   border: 0.125rem solid white;
   color: white;
 }
@@ -12366,10 +12423,14 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
 .background--color--illiniblue .title {
   color: white;
 }
+.background--color--illiniblue .subtitle {
+  color: var(--il-orange);
+}
 .background--color--illiniblue .body p {
   color: white;
 }
 .background--color--illiniblue .btn {
+  background-color: var(--il-blue);
   border: 0.125rem solid white;
   color: white;
 }
@@ -12385,10 +12446,14 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
 .background--color--illiniorange .title {
   color: white;
 }
+.background--color--illiniorange .subtitle {
+  color: var(--il-blue);
+}
 .background--color--illiniorange .body p {
   color: white;
 }
 .background--color--illiniorange .btn {
+  background-color: var(--il-orange);
   border: 0.125rem solid white;
   color: white;
 }
@@ -12404,6 +12469,25 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
   background-color: var(--il-blue);
   border: 0.125rem solid var(--il-blue);
   color: white;
+}
+
+.fingerprint--full {
+  background-image: url("/themes/contrib/illinois_framework_theme/images/fingerprint.svg");
+  background-size: 115%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.fingerprint--right {
+  background-image: url("/themes/contrib/illinois_framework_theme/images/fingerprint-right.png");
+  background-size: 115%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.fingerprint--left {
+  background-image: url("/themes/contrib/illinois_framework_theme/images/fingerprint-left.png");
+  background-size: 115%;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .fixed-width, .l-region--highlighted, .l-region--tabs, .l-region--content, .footer--subfooter, #block-illinois-framework-theme-page-title, #block-illinois-framework-theme-breadcrumbs, #block-illinois-framework-theme-content article.profile, #block-illinois-framework-theme-local-tasks, .paragraph--type--page-introduction, .view-frontpage, #user-login-form {
