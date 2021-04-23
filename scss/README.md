@@ -15,6 +15,8 @@
             * _blocks* (blocks)
             * _node.CONTENT_TYPE (content types)
             * _paragraphs* (paragraphs)
+            * _views*
+            * _forms*
         * /utilities/* (Utility Classes / Overrides / !important styles)
 ## Bootstrap Overrides
 > To do a bootstrap override find the rules you would like to change and copy them

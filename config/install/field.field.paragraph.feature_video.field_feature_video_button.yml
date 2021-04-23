@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_feature_video_button
+    - paragraphs.paragraphs_type.feature_video
+  module:
+    - link
+id: paragraph.feature_video.field_feature_video_button
+field_name: field_feature_video_button
+entity_type: paragraph
+bundle: feature_video
+label: Buttons
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link

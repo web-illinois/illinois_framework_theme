@@ -38,12 +38,12 @@
  * @ingroup themeable
  */
 #}
-{% if content.field_feature_split_img_align['#items'].0.value == 'left' %}
+{% if content.field_feature_video_vid_align['#items'].0.value == 'left' %}
   {% set flex_row_class = 'flex-row' %}
 {% else %}
   {% set flex_row_class = 'flex-row-reverse' %}
 {% endif %}
-{% if content.field_feature_split_img_width ['#items'].0.value == 'fixed' %}
+{% if content.field_feature_video_vid_width ['#items'].0.value == 'fixed' %}
   {% set max_width = ' fixed-width' %}
 {% else %}
   {% set max_width = ' full-width' %}
@@ -62,32 +62,32 @@
 {% block paragraph %}
   <div{{ attributes.addClass(classes) }}>
     {% block content %}
-      <div class="field--name-field-feature-split__image__wrapper col-lg-6 col-md-6 p-0">
-        <div class="field--name-field-feature-split__image" style="background-image: url('{{ base_path_http ~ file_url(content.field_feature_split_img['#items'].entity.uri.value) }}')" alt="{{ content.field_feature_split_img.0['#item'].alt.value }}"></div>
+      <div class="field--name-field-feature-video__video__wrapper col-lg-6 col-md-6 p-0">
+        <div class="field--name-field-feature-video__video">{{ content.field_feature_video_video }}</div>
       </div>
-      <div class="col-lg-6 col-md-6 p-0 background--color--{{ content.field_feature_split_background['#items'].0.value }}">
-        <div class="field--name-field-feature-split__content__wrapper content__wrapper">
-          {% if content.field_feature_split_subtitle['#items'] %}
-            <div class="field--name-field-feature-split__subtitle subtitle">{{ content.field_feature_split_subtitle }}</div>
+      <div class="col-lg-6 col-md-6 p-0 background--color--{{ content.field_feature_video_background['#items'].0.value }}">
+        <div class="field--name-field-feature-video__content__wrapper content__wrapper">
+          {% if content.field_feature_video_subtitle['#items'] %}
+            <div class="field--name-field-feature-video__subtitle subtitle">{{ content.field_feature_video_subtitle }}</div>
           {% endif %}
-          {% if content.field_feature_split_title['#items'] %}
-            <h2 class="field--name-field-feature-split__title title">{{ content.field_feature_split_title }}</h2>
+          {% if content.field_feature_video_title['#items'] %}
+            <h2 class="field--name-field-feature-video__title title">{{ content.field_feature_video_title }}</h2>
           {% endif %}
-          {% if content.field_feature_split_body['#items'] %}
-            <div class="field--name-field-feature-split__body body">{{ content.field_feature_split_body }}</div>
+          {% if content.field_feature_video_body['#items'] %}
+            <div class="field--name-field-feature-video__body body">{{ content.field_feature_video_body }}</div>
           {% endif %}
-          {% if content.field_feature_split_callout['#items'] %}
-            <div class="field--name-field-feature-split__callout{% if content.field_feature_split_callout['#items'] and content.field_feature_split_tagline['#items'] %}{% else %} no-tagline{% endif %}">{{ content.field_feature_split_callout }}</div>
+          {% if content.field_feature_video_callout['#items'] %}
+            <div class="field--name-field-feature-video__callout{% if content.field_feature_video_callout['#items'] and content.field_feature_video_tagline['#items'] %}{% else %} no-tagline{% endif %}">{{ content.field_feature_video_callout }}</div>
           {% endif %}
-          {% if content.field_feature_split_tagline['#items'] %}
-            <div class="field--name-field-feature-split__tagline">{{ content.field_feature_split_tagline }}</div>
+          {% if content.field_feature_video_tagline['#items'] %}
+            <div class="field--name-field-feature-video__tagline">{{ content.field_feature_video_tagline }}</div>
           {% endif %}
-          {% set button_number = content.field_feature_split_button['#items']|length %}
+          {% set button_number = content.field_feature_video_button['#items']|length %}
           {% if button_number > 0 %}
-            <div class="field--name-field-feature-split__buttons">
-            {% for item in content.field_feature_split_button['#items'] %}
-              <a class="field--name-field-feature-split__button btn btn-primary" href="{{ content.field_feature_split_button[loop.index0]['#url'] }}" role="button">{{ content.field_feature_split_button[loop.index0]['#title'] }}</a>
-            {% endfor %}
+            <div class="field--name-field-feature-video__buttons">
+              {% for item in content.field_feature_video_button['#items'] %}
+                <a class="field--name-field-feature-video__button btn btn-primary" href="{{ content.field_feature_video_button[loop.index0]['#url'] }}" role="button">{{ content.field_feature_video_button[loop.index0]['#title'] }}</a>
+              {% endfor %}
             </div>
           {% endif %}
         </div>
