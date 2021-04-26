@@ -1,0 +1,33 @@
+uuid: 06bb4816-8ae2-437c-9a50-d5182166b274
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.bb.field_bb
+    - field.field.paragraph.bb.field_bb_content_layer_width
+    - paragraphs.paragraphs_type.bb
+  module:
+    - entity_reference_revisions
+    - options
+id: paragraph.bb.default
+targetEntityType: paragraph
+bundle: bb
+mode: default
+content:
+  field_bb:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_bb_content_layer_width:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+hidden: {  }

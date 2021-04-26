@@ -1,0 +1,10 @@
+uuid: 7d3529e0-7ebd-412c-ad15-a3d77716439d
+langcode: en
+status: true
+dependencies: {  }
+id: bb_content
+label: 'Big Buttons Content'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

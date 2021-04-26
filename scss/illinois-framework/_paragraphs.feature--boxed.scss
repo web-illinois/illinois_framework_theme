@@ -1,0 +1,124 @@
+.paragraph--type--feature-boxed {
+
+  .field--name-field-feature-boxed {
+
+    &__image {
+      background-position: center bottom;
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 100%;
+      @include media-breakpoint-down(md) {
+        height: rem(500px);
+      }
+      @include media-breakpoint-down(sm) {
+        height: rem(350px);
+      }
+      @include media-breakpoint-down(xs) {
+        height: rem(250px);
+      }
+
+      &__wrapper {
+        flex-basis: 50%;
+        @include media-breakpoint-down(sm) {
+          flex-basis: 100%;
+        }
+      }
+    }
+    &__content {
+
+      &__wrapper {
+        border: 1px solid #707070;
+        top: -100%;
+        opacity: 0.9;
+        @include media-breakpoint-down(md) {
+          top: 0;
+        }
+
+        &.left {
+          margin: rem(75px) 0 rem(75px) 8.33333333333%;
+
+          @include media-breakpoint-down(md) {
+            margin: 0;
+          }
+          @include media-breakpoint-down(sm) {
+            top: 0;
+            opacity: 1;
+          }
+        }
+        &.right {
+          margin: rem(75px) 0 rem(75px) 58.3333333333%;
+
+          @include media-breakpoint-down(md) {
+            margin: 0;
+          }
+          @include media-breakpoint-down(sm) {
+            top: 0;
+            opacity: 1;
+          }
+        }
+      }
+    }
+    &__title {
+
+      .field__item {
+        //color: var(--il-altgeld);
+        font-family: var(--il-source-sans);
+        font-size: rem(36px);
+        font-weight: 700;
+        line-height: rem(36px);
+        opacity: 1;
+        padding-bottom: rem(32px);
+      }
+    }
+    &__subtitle {
+
+      .field__item {
+        font-family: var(--il-source-sans);
+        font-size: rem(22px);
+        font-weight: normal;
+        line-height: 1.2;
+        opacity: 1;
+        padding-bottom: rem(20px);
+      }
+    }
+    &__body {
+
+      .field__item {
+        opacity: 1;
+        padding-bottom: rem(16px);
+
+        //p {
+        //  color: #252525;
+        //}
+      }
+    }
+    &__callout {
+      font-size: rem(48px);
+      line-height: 1;
+      opacity: 1;
+      padding: 0;
+
+      &.no-tagline {
+        margin-bottom: rem(20px);
+      }
+    }
+    &__tagline {
+      font-size: rem(18px);
+      font-style: italic;
+      margin-bottom: rem(20px);
+      opacity: 1;
+      padding: 0;
+    }
+    &__buttons {
+      opacity: 1;
+
+      a {
+        margin-bottom: rem(20px);
+      }
+
+      a:first-child {
+        margin-right: rem(30px);
+      }
+    }
+  }
+}
