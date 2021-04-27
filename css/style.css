@@ -12542,6 +12542,41 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
   border-bottom: 3px solid var(--il-industrial-blue-1);
 }
 
+.paragraph--type--rt__wrapper {
+  margin: 0.9375rem 10;
+}
+.paragraph--type--rt__title {
+  color: var(--il-altgeld);
+  font-size: 2.5rem;
+  font-weight: 700;
+  padding: 1.875rem;
+  text-align: center;
+}
+.paragraph--type--rt .field--name-field-rt__content__wrapper {
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0 0 1.875rem 0;
+}
+.paragraph--type--rt .field--name-field-rt__title .field__item {
+  color: var(--il-altgeld);
+  font-family: var(--il-source-sans);
+  font-size: 1.3125rem;
+  font-weight: 700;
+  line-height: 2.0625rem;
+  opacity: 1;
+  padding: 0.9375rem;
+  text-align: center;
+}
+.paragraph--type--rt .field--name-field-rt__body .field__item {
+  font-size: 1.25rem;
+  line-height: 1.6875rem;
+  opacity: 1;
+  padding: 0 1.875rem 1.875rem 1.875rem;
+}
+.paragraph--type--rt .field--name-field-rt__body .field__item img {
+  width: 100%;
+}
+
 /* ie 11 CSS styles */
 .background--color--white {
   background-color: white;
