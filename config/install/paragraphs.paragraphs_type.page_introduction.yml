@@ -1,9 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-id: page_introduction
-label: 'Page Introduction'
-icon_uuid: null
-icon_default: null
-description: 'This paragraph displays an area for a title and body text.'
-behavior_plugins: {  }
