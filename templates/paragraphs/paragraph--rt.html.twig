@@ -52,23 +52,24 @@
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
-      {{ kint(content.field_rt_column) }}
       <div class="col-lg-12 col-md-12 flex paragraph--type--rt__wrapper">
-        <div class="col-lg-12 paragraph--type--rt__title">
-          {{ content.field_rt_title }}
-        </div>
+        {% if content.field_rt_title['#items'] %}
+          <div class="col-lg-12 paragraph--type--rt__title">
+            <h2>{{ content.field_rt_title['#items'].0.value }}</h2>
+          </div>
+        {% endif %}
         {% set column_count = content.field_rt_column['#items']|length %}
         {% if column_count == 1 %}
-          <div class="col-lg-10 field--name-field-rt__content__wrapper background--color--white">
+          <div class="offset-lg-1 col-lg-10 field--name-field-rt__content__wrapper background--color--white">
         {% endif %}
         {% for item in content.field_rt_column['#items'] %}
           {% set body = content.field_rt_column[loop.index0]['#paragraph'].field_rt_content_body.value %}
           {% set title = content.field_rt_column[loop.index0]['#paragraph'].field_rt_content_title.value %}
           {% if column_count == 2 %}
-            <div class="col-lg-6 field--name-field-rt__content__wrapper background--color--white">
+            <div class="col-lg-6 col-md-6 field--name-field-rt__content__wrapper background--color--white">
           {% endif %}
             <div class="field--name-field-rt__title title">
-              <h2 class="field__item">{{ title }}</h2>
+              <h3 class="field__item">{{ title }}</h3>
             </div>
             <div class="field--name-field-rt__body body">
               <div class="field__item">{{ body | raw }}</div>

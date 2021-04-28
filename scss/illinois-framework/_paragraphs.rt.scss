@@ -1,15 +1,19 @@
 .paragraph--type--rt {
 
   &__wrapper {
-    margin: rem(15px) 10;
+    margin: rem(15px) rem(10px);
   }
 
   &__title {
-    color: var(--il-altgeld);
-    font-size: rem(40px); //don't know what size
-    font-weight: 700;
-    padding: rem(30px);
-    text-align: center;
+
+    h2 {
+      color: var(--il-orange);
+      font-size: rem(32px);
+      font-weight: 600;
+      line-height: rem(40px);
+      padding: rem(20px) rem(15px) rem(10px);
+      text-align: center;
+    }
   }
 
   .field--name-field-rt {
@@ -25,7 +29,7 @@
     &__title {
 
       .field__item {
-        color: var(--il-altgeld);
+        color: var(--il-orange);
         font-family: var(--il-source-sans);
         font-size: rem(21px);
         font-weight: 700;
@@ -46,6 +50,7 @@
 
         img {
           width: 100%;
+          padding-bottom: rem(10px);
         }
       }
     }
