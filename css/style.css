@@ -10653,7 +10653,7 @@ il-footer *[slot=social] {
   flex-wrap: wrap;
 }
 il-footer *[slot=social] a, il-footer *[slot=social] il-social-link {
-  margin-right: 20px;
+  margin-right: 19px;
 }
 
 @supports (font-variation-settings: normal) {
@@ -11158,7 +11158,7 @@ h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus {
   padding-top: 0.625rem;
 }
 .l-region--footer {
-  padding: 2rem 0;
+  padding: 1.875rem 0;
 }
 
 /* header */
@@ -11352,10 +11352,20 @@ footer {
   line-height: 1.5em;
   font-family: var(--il-source-sans);
   background-color: var(--il-blue);
-  color: var(--il-cloud-3);
+  color: white;
 }
 footer address {
+  color: white;
+  font-family: var(--il-source-sans);
+  font-size: 1rem;
   font-style: normal;
+  font-weight: normal;
+  letter-spacing: normal;
+  line-height: 1.75;
+  text-align: left;
+}
+footer address a {
+  text-decoration: none;
 }
 footer dl.footer--email {
   font-size: 1.25rem;
@@ -11370,7 +11380,7 @@ footer a:focus {
 }
 
 il-footer {
-  color: var(--il-cloud-3);
+  color: white;
 }
 il-footer a {
   color: white;
@@ -11430,11 +11440,27 @@ il-footer [slot=links] ul li {
 }
 
 il-footer [slot=social] a {
-  padding: 0.125rem 0.3125rem !important;
+  height: 34px;
+  width: 36px;
+}
+il-footer [slot=social] i.fa {
+  font-size: 26px;
+}
+il-footer [slot=social] i.fa:before {
+  display: inline-block;
+  height: 34px;
+  padding: 0.3125rem 0.4375rem 0.4375rem 0.4375rem !important;
+  width: 36px;
 }
 
 .footer--site-name {
-  font-weight: 700;
+  font-family: var(--il-source-sans);
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 29px;
+}
+.footer--site-name a {
+  text-decoration: none;
 }
 .footer--no-secondary-site {
   background: var(--il-alma-mater);
@@ -12543,13 +12569,14 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
 }
 
 .paragraph--type--rt__wrapper {
-  margin: 0.9375rem 10;
+  margin: 0.9375rem 0.625rem;
 }
-.paragraph--type--rt__title {
-  color: var(--il-altgeld);
-  font-size: 2.5rem;
-  font-weight: 700;
-  padding: 1.875rem;
+.paragraph--type--rt__title h2 {
+  color: var(--il-orange);
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 2.5rem;
+  padding: 1.25rem 0.9375rem 0.625rem;
   text-align: center;
 }
 .paragraph--type--rt .field--name-field-rt__content__wrapper {
@@ -12558,7 +12585,7 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
   padding: 0 0 1.875rem 0;
 }
 .paragraph--type--rt .field--name-field-rt__title .field__item {
-  color: var(--il-altgeld);
+  color: var(--il-orange);
   font-family: var(--il-source-sans);
   font-size: 1.3125rem;
   font-weight: 700;
@@ -12575,6 +12602,7 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
 }
 .paragraph--type--rt .field--name-field-rt__body .field__item img {
   width: 100%;
+  padding-bottom: 0.625rem;
 }
 
 /* ie 11 CSS styles */

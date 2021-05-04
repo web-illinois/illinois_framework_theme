@@ -6,10 +6,21 @@ footer {
   line-height: 1.5em;
   font-family: var(--il-source-sans);
   background-color: var(--il-blue);
-  color: var(--il-cloud-3);
+  color: white;
 
   address {
+    color: white;
+    font-family: var(--il-source-sans);
+    font-size: rem(16px);
     font-style: normal;
+    font-weight: normal;
+    letter-spacing: normal;
+    line-height: 1.75;
+    text-align: left;
+
+    a {
+      text-decoration: none;
+    }
   }
   dl.footer--email {
     font-size: rem(20px);
@@ -27,7 +38,7 @@ footer {
   }
 }
 il-footer {
-  color: var(--il-cloud-3);
+  color: white;
 
   a {
     color: white;
@@ -91,14 +102,32 @@ il-footer [slot="links"] {
 }
 il-footer [slot="social"] {
   a {
-    padding: rem(2px) rem(5px) !important;
+    height: 34px;
+    width: 36px;
+  }
+  i.fa {
+    font-size: 26px;
+
+    &:before {
+      display: inline-block;
+      height: 34px;
+      padding: rem(5px) rem(7px) rem(7px) rem(7px) !important;
+      width: 36px;
+    }
   }
 }
 
 .footer {
 
   &--site-name {
-    font-weight: 700;
+    font-family: var(--il-source-sans);
+    font-size: rem(24px);
+    font-weight: 600;
+    line-height: 29px;
+
+    a {
+      text-decoration: none;
+    }
   }
   &--no-secondary-site {
     background: var(--il-alma-mater);

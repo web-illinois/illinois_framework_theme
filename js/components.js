@@ -230,7 +230,7 @@ svg {
 .main {
     margin: 0 auto;
     max-width: var(--il-framework--max-width);
-    padding: 0 0 20px;
+    padding: 0 0 45px;
 }
 
 .main > div {
@@ -271,10 +271,10 @@ svg {
   outline: 2px dashed var(--il-orange);
 }
 .social {
-    margin-top: 40px;
+    margin-top: 25px;
 }
 .site {
-    margin-top: 40px;
+    margin-top: 45px;
 }
 .site ::slotted(p) {
     margin: 0;
