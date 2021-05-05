@@ -4,17 +4,32 @@
     background-color: white;
 
     .title {
-      color: var(--il-altgeld);
+      color: var(--il-orange);
+    }
+    .body {
+      p {
+        color: $body-color;
+
+        a {
+          color: $body-color;
+
+          &:hover,
+          &:focus,
+          &:visited {
+            color: var(--il-orange);
+          }
+        }
+      }
     }
     .btn {
-      background-color: var(--il-altgeld);
-      border: rem(2px) solid var(--il-altgeld);
+      background-color: var(--il-orange);
+      border: rem(2px) solid var(--il-orange);
       color: white;
 
       &:hover {
         background-color: white;
-        border: rem(2px) solid var(--il-altgeld);
-        color: var(--il-altgeld);
+        border: rem(2px) solid var(--il-orange);
+        color: var(--il-orange);
       }
     }
   }
@@ -25,10 +40,15 @@
     .title {
       color: white;
     }
-
-    .body {
+    .body  {
       p {
-        color: white;
+        a {
+          &:hover,
+          &:focus,
+          &:visited {
+            color: var(--il-orange);
+          }
+        }
       }
     }
 
@@ -49,10 +69,15 @@
     .title {
       color: white;
     }
-
-    .body {
+    .body  {
       p {
-        color: white;
+        a {
+          &:hover,
+          &:focus,
+          &:visited {
+            color: var(--il-blue);
+          }
+        }
       }
     }
 
@@ -74,10 +99,15 @@
     .title {
       color: white;
     }
-
-    .body {
+    .body  {
       p {
-        color: white;
+        a {
+          &:hover,
+          &:focus,
+          &:visited {
+            color: var(--il-orange);
+          }
+        }
       }
     }
 
@@ -99,10 +129,15 @@
     .title {
       color: white;
     }
-
-    .body {
+    .body  {
       p {
-        color: white;
+        a {
+          &:hover,
+          &:focus,
+          &:visited {
+            color: var(--il-blue);
+          }
+        }
       }
     }
 
@@ -119,6 +154,22 @@
   }
   &--gray {
     background-color: var(--il-gray);
+
+    .body {
+      p {
+        color: $body-color;
+
+        a {
+          color: $body-color;
+
+          &:hover,
+          &:focus,
+          &:visited {
+            color: var(--il-orange);
+          }
+        }
+      }
+    }
 
     .btn {
 

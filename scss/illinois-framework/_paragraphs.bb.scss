@@ -1,0 +1,79 @@
+.paragraph--type--bb {
+
+  .col-sm-12 {
+    @include media-breakpoint-down(sm) {
+      padding: 0;
+    }
+  }
+
+  &__wrapper {
+    margin: rem(15px) 0;
+  }
+
+  .field--name-field-bb {
+
+    &__link {
+      color: #252525;
+      display: flex;
+      margin: rem(15px) 0;
+      text-decoration: none;
+    }
+
+    &__image {
+
+      &__wrapper {
+
+      }
+    }
+    &__content {
+
+      &__wrapper {
+        border: 1px solid #707070;
+        border-bottom: 3px solid var(--il-orange);
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 0 0 rem(30px) 0;
+      }
+    }
+    &__title {
+
+      .field__item {
+        color: var(--il-altgeld);
+        font-family: var(--il-source-sans);
+        font-size: rem(21px);
+        font-weight: 700;
+        line-height: rem(33px);
+        opacity: 1;
+        padding: rem(30px) rem(30px) 0 rem(30px);
+      }
+    }
+
+    &__body {
+
+      .field__item {
+        font-size: rem(20px);
+        line-height: rem(27px);
+        opacity: 1;
+        padding: 0 rem(30px) rem(30px) rem(30px);
+      }
+    }
+  }
+  a.field--name-field-bb__link {
+
+    &:hover,
+    &:focus {
+      background-color: var(--il-blue);
+      color: white;
+
+      h2 {
+        color: white;
+      }
+    }
+  }
+  .field--name-field-bb__content__wrapper {
+    &:hover {
+      border-bottom: 3px solid var(--il-industrial-blue-1);
+    }
+  }
+}
