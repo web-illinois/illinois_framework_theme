@@ -38,24 +38,18 @@
  * @ingroup themeable
  */
 #}
-{% if content.field_feature_video_vid_align['#items'].0.value == 'left' %}
-  {% set flex_row_class = 'flex-row' %}
+{% if content.field_feature_boxed_img_width ['#items'].0.value == 'fixed' %}
+  {% set max_width = 'fixed-width' %}
 {% else %}
-  {% set flex_row_class = 'flex-row-reverse' %}
+  {% set max_width = 'full-width' %}
 {% endif %}
-{% if content.field_feature_video_vid_width ['#items'].0.value == 'fixed' %}
-  {% set max_width = ' fixed-width' %}
-{% else %}
-  {% set max_width = ' full-width' %}
-{% endif %}
-
 {%
   set classes = [
   'paragraph',
   'paragraph--type--' ~ paragraph.bundle|clean_class,
   view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
   not paragraph.isPublished() ? 'paragraph--unpublished',
-  'col-lg-12 col-md-12 col-sm-12 p-0 flex ' ~ flex_row_class ~ max_width
+  'col-lg-12 col-md-12 col-sm-12 p-0 flex ' ~ max_width
 ]
 %}
 {#{{ kint(content) }}#}
@@ -63,31 +57,29 @@
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
-      <div class="field--name-field-feature-video__video__wrapper col-lg-6 col-md-6 p-0">
-        <div class="field--name-field-feature-video__video">{{ content.field_feature_video_video }}</div>
-      </div>
-      <div class="col-lg-6 col-md-6 p-0 background--color--{{ content.field_feature_video_background['#items'].0.value }}">
-        <div class="field--name-field-feature-video__content__wrapper content__wrapper">
-          {% if content.field_feature_video_subtitle['#items'] %}
-            <div class="field--name-field-feature-video__subtitle subtitle">{{ content.field_feature_video_subtitle }}</div>
+      <div class="col-lg-12 col-md-12 p-0">
+          <div class="field--name-field-feature-boxed__image" style="background-image: url('{{ base_path_http ~ file_url(content.field_feature_boxed_img['#items'].entity.uri.value) }}')" alt="{{ content.field_feature_boxed_img.0['#item'].alt}}"></div>
+          <div class="col-lg-4 offset-lg-1 field--name-field-feature-boxed__content__wrapper content__wrapper {{ content.field_feature_boxed_align['#items'].0.value }} background--color--{{ content.field_feature_boxed_background['#items'].0.value }}">
+          {% if content.field_feature_boxed_subtitle['#items'] %}
+            <div class="field--name-field-feature-boxed__subtitle subtitle">{{ content.field_feature_boxed_subtitle }}</div>
           {% endif %}
-          {% if content.field_feature_video_title['#items'] %}
-            <h2 class="field--name-field-feature-video__title title">{{ content.field_feature_video_title }}</h2>
+          {% if content.field_feature_boxed_title['#items'] %}
+            <h2 class="field--name-field-feature-boxed__title title">{{ content.field_feature_boxed_title }}</h2>
           {% endif %}
-          {% if content.field_feature_video_body['#items'] %}
-            <div class="field--name-field-feature-video__body body">{{ content.field_feature_video_body }}</div>
+          {% if content.field_feature_boxed_body['#items'] %}
+            <div class="field--name-field-feature-boxed__body body">{{ content.field_feature_boxed_body }}</div>
           {% endif %}
-          {% if content.field_feature_video_callout['#items'] %}
-            <div class="field--name-field-feature-video__callout{% if content.field_feature_video_callout['#items'] and content.field_feature_video_tagline['#items'] %}{% else %} no-tagline{% endif %}">{{ content.field_feature_video_callout }}</div>
+          {% if content.field_feature_boxed_callout['#items'] %}
+            <div class="field--name-field-feature-boxed__callout{% if content.field_feature_boxed_callout['#items'] and content.field_feature_boxed_tagline['#items'] %}{% else %} no-tagline{% endif %}">{{ content.field_feature_boxed_callout }}</div>
           {% endif %}
-          {% if content.field_feature_video_tagline['#items'] %}
-            <div class="field--name-field-feature-video__tagline">{{ content.field_feature_video_tagline }}</div>
+          {% if content.field_feature_boxed_tagline['#items'] %}
+            <div class="field--name-field-feature-boxed__tagline">{{ content.field_feature_boxed_tagline }}</div>
           {% endif %}
-          {% set button_number = content.field_feature_video_button['#items']|length %}
+          {% set button_number = content.field_feature_boxed_button['#items']|length %}
           {% if button_number > 0 %}
-            <div class="field--name-field-feature-video__buttons">
-              {% for item in content.field_feature_video_button['#items'] %}
-                <a class="field--name-field-feature-video__button btn btn-primary" href="{{ content.field_feature_video_button[loop.index0]['#url'] }}" role="button">{{ content.field_feature_video_button[loop.index0]['#title'] }}</a>
+            <div class="field--name-field-feature-boxed__buttons">
+              {% for item in content.field_feature_boxed_button['#items'] %}
+                <a class="field--name-field-feature-boxed__button btn btn-primary" href="{{ content.field_feature_boxed_button[loop.index0]['#url'] }}" role="button">{{ content.field_feature_boxed_button[loop.index0]['#title'] }}</a>
               {% endfor %}
             </div>
           {% endif %}
