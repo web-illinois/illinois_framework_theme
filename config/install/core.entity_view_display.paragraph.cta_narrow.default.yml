@@ -1,0 +1,53 @@
+uuid: 11cff2fb-06d7-4230-ae64-6839f92d9e1d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cta_narrow.field_cta_narrow_background
+    - field.field.paragraph.cta_narrow.field_cta_narrow_body
+    - field.field.paragraph.cta_narrow.field_cta_narrow_button
+    - field.field.paragraph.cta_narrow.field_cta_narrow_title
+    - paragraphs.paragraphs_type.cta_narrow
+  module:
+    - link
+    - options
+id: paragraph.cta_narrow.default
+targetEntityType: paragraph
+bundle: cta_narrow
+mode: default
+content:
+  field_cta_narrow_background:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_cta_narrow_body:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_cta_narrow_button:
+    weight: 2
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_cta_narrow_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }
