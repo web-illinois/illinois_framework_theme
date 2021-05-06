@@ -304,8 +304,9 @@ svg {
     padding: 0 10px;
 }
 .parent ::slotted(*) {
+    height: 5px;
     margin: 0;
-    padding: 8px 0 5px;
+    padding: 0;
     font-size: 1em;
 }
         `}render(){return B`

@@ -87,15 +87,14 @@ il-footer [slot="links"] {
   }
   h2 {
     color: var(--il-cloud-3);
-    height: (27px);
     font-family: var(--il-source-sans);
     font-size: rem(20px);
     font-weight: bold;
     font-stretch: normal;
     font-style: normal;
-    line-height: 1.7;
+    line-height: rem(26px);
     letter-spacing: normal;
-    margin-bottom: 0;
+    margin-bottom: 10px;
     text-align: left;
 
     @media (max-width: rem(600px)) {
@@ -117,12 +116,13 @@ il-footer [slot="links"] {
     color: white;
     display: flex !important;
     font-size: rem(18px);
-    line-height: 1.89;
+    line-height: rem(24px);
     font-family: var(--il-source-sans);
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
     letter-spacing: normal;
+    margin-bottom: 10px;
     text-align: left;
 
     a {

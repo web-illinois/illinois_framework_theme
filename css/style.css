@@ -11424,15 +11424,14 @@ il-footer [slot=links].no-grid {
 }
 il-footer [slot=links] h2 {
   color: var(--il-cloud-3);
-  height: 27px;
   font-family: var(--il-source-sans);
   font-size: 1.25rem;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.7;
+  line-height: 1.625rem;
   letter-spacing: normal;
-  margin-bottom: 0;
+  margin-bottom: 10px;
   text-align: left;
 }
 @media (max-width: 37.5rem) {
@@ -11457,12 +11456,13 @@ il-footer [slot=links] ul li {
   color: white;
   display: flex !important;
   font-size: 1.125rem;
-  line-height: 1.89;
+  line-height: 1.5rem;
   font-family: var(--il-source-sans);
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
   letter-spacing: normal;
+  margin-bottom: 10px;
   text-align: left;
 }
 il-footer [slot=links] ul li a {
