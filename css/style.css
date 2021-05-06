@@ -10588,8 +10588,6 @@ il-footer dd {
 }
 il-footer *[slot=links] ul {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
   list-style: none;
 }
 il-footer *[slot=links] ul li {
@@ -10597,7 +10595,7 @@ il-footer *[slot=links] ul li {
   margin: 0;
   padding: 0;
   list-style: none;
-  margin-bottom: 0.5em;
+  margin-bottom: 0;
 }
 il-footer *[slot=links] ul li:last-of-type {
   margin-bottom: 0;
@@ -10655,7 +10653,9 @@ il-footer *[slot=social] {
 il-footer *[slot=social] a, il-footer *[slot=social] il-social-link {
   margin-right: 19px;
 }
-
+il-footer *[slot=colleges] {
+  margin-top: 45px;
+}
 @supports (font-variation-settings: normal) {
   il-footer *[slot=links] h2, il-footer *[slot=links] h3, il-footer *[slot=links] h4, il-footer *[slot=links] h5, il-footer *[slot=links] h6 {
     font-weight: normal;
@@ -10681,7 +10681,7 @@ il-footer *[slot=social] a, il-footer *[slot=social] il-social-link {
     grid-area: links;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 40px;
+    grid-gap: 95px;
   }
   il-footer *[slot=links] > ul, il-footer *[slot=links] > div {
     margin-bottom: 0;
@@ -11416,27 +11416,60 @@ il-footer[slot=parent] a:focus {
   border-color: var(--il-orange) !important;
 }
 
+il-footer [slot=links] {
+  margin-top: 105px;
+}
 il-footer [slot=links].no-grid {
   grid-template-columns: repeat(1, 1fr) !important;
 }
-il-footer [slot=links] h3 {
+il-footer [slot=links] h2 {
   color: var(--il-cloud-3);
+  height: 27px;
+  font-family: var(--il-source-sans);
+  font-size: 1.25rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.7;
+  letter-spacing: normal;
+  margin-bottom: 0;
+  text-align: left;
 }
 @media (max-width: 37.5rem) {
-  il-footer [slot=links] h3 {
+  il-footer [slot=links] h2 {
     padding-left: 0 !important;
   }
 }
-il-footer [slot=links] h3 + ul a {
+il-footer [slot=links] h2 + ul a {
   padding: 0.25rem 0.625rem !important;
 }
 @media (max-width: 37.5rem) {
-  il-footer [slot=links] h3 + ul a {
+  il-footer [slot=links] h2 + ul a {
     padding-left: 0 !important;
   }
 }
+il-footer [slot=links] ul {
+  border-top: 0.125rem solid white;
+  margin: 1rem 0 0 0;
+  padding: 1rem 0 0 0;
+}
 il-footer [slot=links] ul li {
+  color: white;
   display: flex !important;
+  font-size: 1.125rem;
+  line-height: 1.89;
+  font-family: var(--il-source-sans);
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-align: left;
+}
+il-footer [slot=links] ul li a {
+  text-decoration: none;
+}
+il-footer [slot=links] ul li a.nav-link {
+  padding: 0;
 }
 
 il-footer [slot=social] a {
@@ -11451,6 +11484,24 @@ il-footer [slot=social] i.fa:before {
   height: 34px;
   padding: 0.3125rem 0.4375rem 0.4375rem 0.4375rem !important;
   width: 36px;
+}
+
+il-footer [slot=colleges] a {
+  color: #ffffff;
+  font-family: var(--il-source-sans);
+  font-size: 1rem;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 600;
+  height: 1.375rem;
+  letter-spacing: normal;
+  line-height: 1.5;
+  margin-bottom: 1.5625rem;
+  text-align: left;
+  text-decoration: none;
+}
+il-footer [slot=colleges] a:last-child {
+  margin-bottom: 0;
 }
 
 .footer--site-name {
@@ -12632,7 +12683,7 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
   color: var(--il-orange);
 }
 .background--color--bluegradient {
-  background-image: linear-gradient(var(--il-blue), var(--il-industrial-blue));
+  background: linear-gradient(var(--il-blue), var(--il-industrial-blue));
   color: white;
 }
 .background--color--bluegradient .title {
@@ -12650,7 +12701,7 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
   color: var(--il-blue);
 }
 .background--color--orangegradient {
-  background-image: linear-gradient(var(--il-altgeld), var(--il-orange));
+  background: linear-gradient(var(--il-altgeld), var(--il-orange));
   color: white;
 }
 .background--color--orangegradient .title {

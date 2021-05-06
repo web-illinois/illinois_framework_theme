@@ -235,7 +235,7 @@ svg {
 
 .main > div {
     display: grid;
-    grid-gap: 30px;
+    grid-gap: 95px;
     max-width: var(--il-framework--max-width);
     padding: 0 30px;
 }
@@ -321,6 +321,9 @@ svg {
                 </div>
                 <div class="social">
                     <slot name="social"></slot>
+                </div>
+                <div class="colleges">
+                    <slot name="colleges"></slot>
                 </div>
             </div>
             <div class="links">

@@ -34,7 +34,7 @@
     }
   }
   &--bluegradient {
-    background-image: linear-gradient(var(--il-blue), var(--il-industrial-blue));
+    background: linear-gradient(var(--il-blue), var(--il-industrial-blue));
     color: white;
 
     .title {
@@ -63,7 +63,7 @@
     }
   }
   &--orangegradient {
-    background-image: linear-gradient(var(--il-altgeld), var(--il-orange));
+    background: linear-gradient(var(--il-altgeld), var(--il-orange));
     color: white;
 
     .title {

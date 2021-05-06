@@ -80,24 +80,58 @@ il-footer {
   }
 }
 il-footer [slot="links"] {
+  margin-top: 105px;
 
   &.no-grid {
     grid-template-columns: repeat(1,1fr) !important;
   }
-  h3 {
+  h2 {
     color: var(--il-cloud-3);
+    height: (27px);
+    font-family: var(--il-source-sans);
+    font-size: rem(20px);
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.7;
+    letter-spacing: normal;
+    margin-bottom: 0;
+    text-align: left;
+
     @media (max-width: rem(600px)) {
       padding-left: 0 !important;
     }
   }
-  h3 + ul a {
+  h2 + ul a {
     padding: rem(4px) rem(10px) !important;
     @media (max-width: rem(600px)) {
       padding-left: 0 !important;
     }
   }
+  ul {
+    border-top: rem(2px) solid white;
+    margin: rem(16px) 0 0 0;
+    padding: rem(16px) 0 0 0;
+  }
   ul li {
+    color: white;
     display: flex !important;
+    font-size: rem(18px);
+    line-height: 1.89;
+    font-family: var(--il-source-sans);
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: left;
+
+    a {
+      text-decoration: none;
+
+      &.nav-link {
+        padding: 0;
+      }
+    }
   }
 }
 il-footer [slot="social"] {
@@ -116,7 +150,27 @@ il-footer [slot="social"] {
     }
   }
 }
+il-footer [slot="colleges"] {
+  a {
+    color: #ffffff;
+    font-family: var(--il-source-sans);
+    font-size: rem(16px);
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: 600;
+    height: rem(22px);
+    letter-spacing: normal;
+    line-height: 1.5;
+    margin-bottom: rem(25px);
+    text-align: left;
+    text-decoration: none;
 
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+}
 .footer {
 
   &--site-name {

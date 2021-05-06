@@ -21,7 +21,7 @@
     'l-region--' ~ region|clean_class,
   ]
 %}
-{#    {{ kint() }}#}
+    {{ kint() }}
   <footer{{ attributes.addClass(classes) }} role="contentinfo">
     <il-footer>
       <div slot="social">
@@ -76,6 +76,17 @@
           {% endif %}
       </address>
       </div>
+      {% if if_footer_colleges %}
+        <div slot="colleges">
+          {% for item in if_footer_colleges %}
+            {% set title = if_footer_colleges[loop.index0][0] %}
+            {% set url = if_footer_colleges[loop.index0][1] %}
+            <div>
+              <a href="{{ url }}">{{ title }}</a>
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
       <div slot="links" {% if if_footer['if_footer_menu_block_checkbox'] == TRUE %} class="no-grid" {% endif %}>
         {% if drupal_entity('block_content', 1) %}
           <div>
