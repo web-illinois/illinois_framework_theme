@@ -39,15 +39,15 @@
   }
   &--bluegradient {
     background-image: linear-gradient(var(--il-blue), var(--il-industrial-blue));
-    color: white;
+    color: white; 
 
-    &.fingerprint-full {
+    &.fingerprint--full {
         background-image: url("/themes/contrib/illinois_framework_theme/images/fingerprint.svg"), linear-gradient(var(--il-blue), var(--il-industrial-blue));
     }
-    &.fingerprint-left {
+    &.fingerprint--left {
         background-image: url("/themes/contrib/illinois_framework_theme/images/fingerprint-left.svg"), linear-gradient(var(--il-blue), var(--il-industrial-blue));      
     }
-    &.fingerprint-right {
+    &.fingerprint--right {
         background-image: url("/themes/contrib/illinois_framework_theme/images/fingerprint-right.svg"), linear-gradient(var(--il-blue), var(--il-industrial-blue));      
     }
 
@@ -86,13 +86,13 @@
     background-image: linear-gradient(var(--il-altgeld), var(--il-orange));
     color: white;
 
-    &.fingerprint-full {
+    &.fingerprint--full {
         background-image: url("/themes/contrib/illinois_framework_theme/images/fingerprint.svg"), linear-gradient(var(--il-altgeld), var(--il-orange));
     }
-    &.fingerprint-left {
+    &.fingerprint--left {
         background-image: url("/themes/contrib/illinois_framework_theme/images/fingerprint-left.svg"), linear-gradient(var(--il-altgeld), var(--il-orange));
     }
-    &.fingerprint-right {
+    &.fingerprint--right {
         background-image: url("/themes/contrib/illinois_framework_theme/images/fingerprint-right.svg"), linear-gradient(var(--il-altgeld), var(--il-orange));    
     }
 
