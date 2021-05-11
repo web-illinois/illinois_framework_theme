@@ -1,0 +1,23 @@
+uuid: 85457f67-577e-4fc7-b44c-3e1787f870b5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cta_narrow_background
+    - paragraphs.paragraphs_type.cta_narrow
+  module:
+    - options
+id: paragraph.cta_narrow.field_cta_narrow_background
+field_name: field_cta_narrow_background
+entity_type: paragraph
+bundle: cta_narrow
+label: Background
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: bluegradient
+default_value_callback: ''
+settings: {  }
+field_type: list_string
