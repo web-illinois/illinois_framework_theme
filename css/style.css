@@ -10601,8 +10601,6 @@ il-footer dd {
 }
 il-footer *[slot=links] ul {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
   list-style: none;
 }
 il-footer *[slot=links] ul li {
@@ -10610,7 +10608,7 @@ il-footer *[slot=links] ul li {
   margin: 0;
   padding: 0;
   list-style: none;
-  margin-bottom: 0.5em;
+  margin-bottom: 0;
 }
 il-footer *[slot=links] ul li:last-of-type {
   margin-bottom: 0;
@@ -10666,9 +10664,11 @@ il-footer *[slot=social] {
   flex-wrap: wrap;
 }
 il-footer *[slot=social] a, il-footer *[slot=social] il-social-link {
-  margin-right: 20px;
+  margin-right: 19px;
 }
-
+il-footer *[slot=colleges] {
+  margin-top: 45px;
+}
 @supports (font-variation-settings: normal) {
   il-footer *[slot=links] h2, il-footer *[slot=links] h3, il-footer *[slot=links] h4, il-footer *[slot=links] h5, il-footer *[slot=links] h6 {
     font-weight: normal;
@@ -10694,7 +10694,7 @@ il-footer *[slot=social] a, il-footer *[slot=social] il-social-link {
     grid-area: links;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 40px;
+    grid-gap: 95px;
   }
   il-footer *[slot=links] > ul, il-footer *[slot=links] > div {
     margin-bottom: 0;
@@ -11171,7 +11171,7 @@ h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus {
   padding-top: 0.625rem;
 }
 .l-region--footer {
-  padding: 2rem 0;
+  padding: 1.875rem 0;
 }
 
 /* header */
@@ -11365,10 +11365,20 @@ footer {
   line-height: 1.5em;
   font-family: var(--il-source-sans);
   background-color: var(--il-blue);
-  color: var(--il-cloud-3);
+  color: white;
 }
 footer address {
+  color: white;
+  font-family: var(--il-source-sans);
+  font-size: 1rem;
   font-style: normal;
+  font-weight: normal;
+  letter-spacing: normal;
+  line-height: 1.75;
+  text-align: left;
+}
+footer address a {
+  text-decoration: none;
 }
 footer dl.footer--email {
   font-size: 1.25rem;
@@ -11383,7 +11393,7 @@ footer a:focus {
 }
 
 il-footer {
-  color: var(--il-cloud-3);
+  color: white;
 }
 il-footer a {
   color: white;
@@ -11419,35 +11429,102 @@ il-footer[slot=parent] a:focus {
   border-color: var(--il-orange) !important;
 }
 
+il-footer [slot=links] {
+  margin-top: 105px;
+}
 il-footer [slot=links].no-grid {
   grid-template-columns: repeat(1, 1fr) !important;
 }
-il-footer [slot=links] h3 {
+il-footer [slot=links] h2 {
   color: var(--il-cloud-3);
+  font-family: var(--il-source-sans);
+  font-size: 1.25rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.625rem;
+  letter-spacing: normal;
+  margin-bottom: 10px;
+  text-align: left;
 }
 @media (max-width: 37.5rem) {
-  il-footer [slot=links] h3 {
+  il-footer [slot=links] h2 {
     padding-left: 0 !important;
   }
 }
-il-footer [slot=links] h3 + ul a {
+il-footer [slot=links] h2 + ul a {
   padding: 0.25rem 0.625rem !important;
 }
 @media (max-width: 37.5rem) {
-  il-footer [slot=links] h3 + ul a {
+  il-footer [slot=links] h2 + ul a {
     padding-left: 0 !important;
   }
 }
+il-footer [slot=links] ul {
+  border-top: 0.125rem solid white;
+  margin: 1rem 0 0 0;
+  padding: 1rem 0 0 0;
+}
 il-footer [slot=links] ul li {
+  color: white;
   display: flex !important;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  font-family: var(--il-source-sans);
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  margin-bottom: 10px;
+  text-align: left;
+}
+il-footer [slot=links] ul li a {
+  text-decoration: none;
+}
+il-footer [slot=links] ul li a.nav-link {
+  padding: 0;
 }
 
 il-footer [slot=social] a {
-  padding: 0.125rem 0.3125rem !important;
+  height: 34px;
+  width: 36px;
+}
+il-footer [slot=social] i.fa {
+  font-size: 26px;
+}
+il-footer [slot=social] i.fa:before {
+  display: inline-block;
+  height: 34px;
+  padding: 0.3125rem 0.4375rem 0.4375rem 0.4375rem !important;
+  width: 36px;
+}
+
+il-footer [slot=colleges] a {
+  color: #ffffff;
+  font-family: var(--il-source-sans);
+  font-size: 1rem;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 600;
+  height: 1.375rem;
+  letter-spacing: normal;
+  line-height: 1.5;
+  margin-bottom: 1.5625rem;
+  text-align: left;
+  text-decoration: none;
+}
+il-footer [slot=colleges] a:last-child {
+  margin-bottom: 0;
 }
 
 .footer--site-name {
-  font-weight: 700;
+  font-family: var(--il-source-sans);
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 29px;
+}
+.footer--site-name a {
+  text-decoration: none;
 }
 .footer--no-secondary-site {
   background: var(--il-alma-mater);
@@ -12634,13 +12711,14 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
 }
 
 .paragraph--type--rt__wrapper {
-  margin: 0.9375rem 10;
+  margin: 0.9375rem 0.625rem;
 }
-.paragraph--type--rt__title {
-  color: var(--il-altgeld);
-  font-size: 2.5rem;
-  font-weight: 700;
-  padding: 1.875rem;
+.paragraph--type--rt__title h2 {
+  color: var(--il-orange);
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 2.5rem;
+  padding: 1.25rem 0.9375rem 0.625rem;
   text-align: center;
 }
 .paragraph--type--rt .field--name-field-rt__content__wrapper {
@@ -12649,7 +12727,7 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
   padding: 0 0 1.875rem 0;
 }
 .paragraph--type--rt .field--name-field-rt__title .field__item {
-  color: var(--il-altgeld);
+  color: var(--il-orange);
   font-family: var(--il-source-sans);
   font-size: 1.3125rem;
   font-weight: 700;
@@ -12666,6 +12744,7 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
 }
 .paragraph--type--rt .field--name-field-rt__body .field__item img {
   width: 100%;
+  padding-bottom: 0.625rem;
 }
 
 /* ie 11 CSS styles */
@@ -12699,7 +12778,7 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
   color: var(--il-orange);
 }
 .background--color--bluegradient {
-  background-image: linear-gradient(var(--il-blue), var(--il-industrial-blue));
+  background: linear-gradient(var(--il-blue), var(--il-industrial-blue));
   color: white;
 }
 .background--color--bluegradient .title {
@@ -12723,7 +12802,7 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
   color: var(--il-blue);
 }
 .background--color--orangegradient {
-  background-image: linear-gradient(var(--il-altgeld), var(--il-orange));
+  background: linear-gradient(var(--il-altgeld), var(--il-orange));
   color: white;
 }
 .background--color--orangegradient .title {

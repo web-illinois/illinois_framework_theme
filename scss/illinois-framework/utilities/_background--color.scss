@@ -83,7 +83,7 @@
     }
   }
   &--orangegradient {
-    background-image: linear-gradient(var(--il-altgeld), var(--il-orange));
+    background: linear-gradient(var(--il-altgeld), var(--il-orange));
     color: white;
 
     &.fingerprint--full {

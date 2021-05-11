@@ -243,6 +243,100 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
     '#title' => t('Phone Number'),
   );
   // End of Address Block
+  // Start of Parent College Block
+  $form['if_footer_colleges'] = array(
+    '#type' => 'details',
+    '#title' => t('Parent Colleges or Affiliated Organizations'),
+    '#description' => t('Add up to 5 links to colleges or organizations affiliated with this website'),
+    '#weight' => -97,
+    '#open' => FALSE,
+  );
+  $form['if_footer_colleges']['if_footer_college_1_fieldset'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Link 1'),
+  );
+  $form['if_footer_colleges']['if_footer_college_1_fieldset']['if_footer_college_text_1'] = array(
+    '#type'          => 'textfield',
+    '#placeholder' => 'College of ACES',
+    '#title'         => t('Enter the name of the college or organization'),
+    '#size'          => 128,
+    '#default_value' => theme_get_setting('if_footer_college_text_1'),
+  );
+  $form['if_footer_colleges']['if_footer_college_1_fieldset']['if_footer_college_link_1'] = array(
+    '#type'          => 'url',
+    '#placeholder' => 'https://aces.illinois.edu',
+    '#title'         => t('Enter the URL'),
+    '#default_value' => theme_get_setting('if_footer_college_link_1'),
+  );
+  $form['if_footer_colleges']['if_footer_college_2_fieldset'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Link 2'),
+  );
+  $form['if_footer_colleges']['if_footer_college_2_fieldset']['if_footer_college_text_2'] = array(
+    '#type'          => 'textfield',
+    '#placeholder' => 'College of ACES',
+    '#title'         => t('Enter the name of the college or organization'),
+    '#size'          => 128,
+    '#default_value' => theme_get_setting('if_footer_college_text_2'),
+  );
+  $form['if_footer_colleges']['if_footer_college_2_fieldset']['if_footer_college_link_2'] = array(
+    '#type'          => 'url',
+    '#placeholder' => 'https://aces.illinois.edu',
+    '#title'         => t('Enter the URL'),
+    '#default_value' => theme_get_setting('if_footer_college_link_2'),
+  );
+  $form['if_footer_colleges']['if_footer_college_3_fieldset'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Link 3'),
+  );
+  $form['if_footer_colleges']['if_footer_college_3_fieldset']['if_footer_college_text_3'] = array(
+    '#type'          => 'textfield',
+    '#placeholder' => 'College of ACES',
+    '#title'         => t('Enter the name of the college or organization'),
+    '#size'          => 128,
+    '#default_value' => theme_get_setting('if_footer_college_text_3'),
+  );
+  $form['if_footer_colleges']['if_footer_college_3_fieldset']['if_footer_college_link_3'] = array(
+    '#type'          => 'url',
+    '#placeholder' => 'https://aces.illinois.edu',
+    '#title'         => t('Enter the URL'),
+    '#default_value' => theme_get_setting('if_footer_college_link_3'),
+  );
+  $form['if_footer_colleges']['if_footer_college_4_fieldset'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Link 4'),
+  );
+  $form['if_footer_colleges']['if_footer_college_4_fieldset']['if_footer_college_text_4'] = array(
+    '#type'          => 'textfield',
+    '#placeholder' => 'College of ACES',
+    '#title'         => t('Enter the name of the college or organization'),
+    '#size'          => 128,
+    '#default_value' => theme_get_setting('if_footer_college_text_4'),
+  );
+  $form['if_footer_colleges']['if_footer_college_4_fieldset']['if_footer_college_link_4'] = array(
+    '#type'          => 'url',
+    '#placeholder' => 'https://aces.illinois.edu',
+    '#title'         => t('Enter the URL'),
+    '#default_value' => theme_get_setting('if_footer_college_link_4'),
+  );
+  $form['if_footer_colleges']['if_footer_college_5_fieldset'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Link 5'),
+  );
+  $form['if_footer_colleges']['if_footer_college_5_fieldset']['if_footer_college_text_5'] = array(
+    '#type'          => 'textfield',
+    '#placeholder' => 'College of ACES',
+    '#title'         => t('Enter the name of the college or organization'),
+    '#size'          => 128,
+    '#default_value' => theme_get_setting('if_footer_college_text_5'),
+  );
+  $form['if_footer_colleges']['if_footer_college_5_fieldset']['if_footer_college_link_5'] = array(
+    '#type'          => 'url',
+    '#placeholder' => 'https://aces.illinois.edu',
+    '#title'         => t('Enter the URL'),
+    '#default_value' => theme_get_setting('if_footer_college_link_5'),
+  );
+
   // Start of footer menus
   $form['if_footer']['if_footer_menu_block_checkbox'] = array(
     '#type' => 'checkbox',

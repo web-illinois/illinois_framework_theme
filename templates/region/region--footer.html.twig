@@ -21,15 +21,15 @@
     'l-region--' ~ region|clean_class,
   ]
 %}
-{#    {{ kint() }}#}
+    {{ kint() }}
   <footer{{ attributes.addClass(classes) }} role="contentinfo">
     <il-footer>
       <div slot="social">
-        {% if if_footer['if_footer_social']['if_footer_social_facebook'] %}
-          <a aria-label="Find us on Facebook" href="{{ if_footer['if_footer_social']['if_footer_social_facebook'] }}"><i class="fa fa-facebook"></i></a>
-        {% endif %}
         {% if if_footer['if_footer_social']['if_footer_social_instagram'] %}
           <a aria-label="Find us on Instagram" href="{{ if_footer['if_footer_social']['if_footer_social_instagram'] }}"><i class="fa fa-instagram"></i></a>
+        {% endif %}
+        {% if if_footer['if_footer_social']['if_footer_social_facebook'] %}
+          <a aria-label="Find us on Facebook" href="{{ if_footer['if_footer_social']['if_footer_social_facebook'] }}"><i class="fa fa-facebook"></i></a>
         {% endif %}
         {% if if_footer['if_footer_social']['if_footer_social_twitter'] %}
           <a aria-label="Follow us on Twiter" href="{{ if_footer['if_footer_social']['if_footer_social_twitter'] }}"><i class="fa fa-twitter"></i></a>
@@ -42,14 +42,16 @@
         {% endif %}
       </div>
       <div class="footer--site-name">
+        {% if if_footer['if_footer_address']['if_footer_address_unit'] %}
+        <a href="/">{{ if_footer['if_footer_address']['if_footer_address_unit'] }}</a>
+        {% elseif drupal_config('system.site', 'name') %}
+          <a href="/">{{ drupal_config('system.site', 'name')| raw }}</a>
+        {% else %}
+          <a href="https://illinois.edu">University of Illinois</a>
+        {% endif %}<br>
+      </div>
+      <div class="footer--site-address">
         <address>
-          {% if if_footer['if_footer_address']['if_footer_address_unit'] %}
-            <a href="/">{{ if_footer['if_footer_address']['if_footer_address_unit'] }}</a>
-          {% elseif drupal_config('system.site', 'name') %}
-            <a href="/">{{ drupal_config('system.site', 'name')| raw }}</a>
-          {% else %}
-            <a href="https://illinois.edu">University of Illinois</a>
-          {% endif %}<br>
           {% if if_footer['if_footer_address']['if_footer_address_street_one'] %}
             {{ if_footer['if_footer_address']['if_footer_address_street_one'] }}<br>
           {% endif %}
@@ -66,56 +68,70 @@
             {{ if_footer['if_footer_address']['if_footer_address_zip'] }}
           {% endif %}
           <br>
-          {% if if_footer['if_footer_address']['if_footer_address_email'] %}
-            <a href="mailto:{{ if_footer['if_footer_address']['if_footer_address_email'] }}">{{ if_footer['if_footer_address']['if_footer_address_email'] }}</a><br>
-          {% endif %}
           {% if if_footer['if_footer_address']['if_footer_address_tel'] %}
-            <a href="tel:+{{ if_footer['if_footer_address']['if_footer_address_tel'] }}">{{ if_footer['if_footer_address']['if_footer_address_tel'] }}</a>
+            <a href="tel:+{{ if_footer['if_footer_address']['if_footer_address_tel'] }}">{{ if_footer['if_footer_address']['if_footer_address_tel'] }}</a><br>
+          {% endif %}
+          {% if if_footer['if_footer_address']['if_footer_address_email'] %}
+            Email: <a href="mailto:{{ if_footer['if_footer_address']['if_footer_address_email'] }}">{{ if_footer['if_footer_address']['if_footer_address_email'] }}</a>
           {% endif %}
       </address>
       </div>
+      {% if if_footer_colleges %}
+        <div slot="colleges">
+          {% if if_secondary_site_title %}
+          <div>
+             <a href="{{ if_secondary_site_link }}">{{ if_secondary_site_title| raw }}</a>
+          </div>
+          {% endif %}
+          {% for item in if_footer_colleges %}
+            {% if if_footer_colleges[loop.index0][0] != "" %}
+              {% set title = if_footer_colleges[loop.index0][0] %}
+              {% set url = if_footer_colleges[loop.index0][1] %}
+              <div>
+                <a href="{{ url }}">{{ title }}</a>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
       <div slot="links" {% if if_footer['if_footer_menu_block_checkbox'] == TRUE %} class="no-grid" {% endif %}>
         {% if drupal_entity('block_content', 1) %}
           <div>
             {{ drupal_entity('block_content', 1) }}
           </div>
         {% endif %}
+        <div>
         {% if drupal_entity('block', 'footermenufirst') %}
-          <div>
-            {{ drupal_entity('block', 'footermenufirst') }}
-          </div>
+          {{ drupal_entity('block', 'footermenufirst') }}
         {% endif %}
         {% if drupal_entity('block', 'footermenusecond') %}
-          <div>
-            {{ drupal_entity('block', 'footermenusecond') }}
-            <div id="google_translate_element"></div>
-            <script>
-              function googleTranslateElementInit() {
-                new google.translate.TranslateElement({
-                  pageLanguage: 'en',
-                  layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                  autoDisplay: false
-                }, 'google_translate_element');
-              }
-            </script>
-            <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-          </div>
+          {{ drupal_entity('block', 'footermenusecond') }}
         {% endif %}
+        </div>
+        <div>
         {% if drupal_entity('block', 'footermenuthird') %}
-          <div>
-            {{ drupal_entity('block', 'footermenuthird') }}
-          </div>
+          {{ drupal_entity('block', 'footermenuthird') }}
         {% endif %}
         {% if drupal_entity('block', 'footermenufourth') %}
-          <div>
-            {{ drupal_entity('block', 'footermenufourth') }}
-          </div>
+          {{ drupal_entity('block', 'footermenufourth') }}
         {% endif %}
+        <div id="google_translate_element"></div>
+          <script>
+            function googleTranslateElementInit() {
+              new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+              }, 'google_translate_element');
+            }
+          </script>
+          <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        </div>
       </div>
       {# Available slot not used by the template at the moment #}
       {# <div slot="actions"> #}
       {# </div> #}
-      {% if if_secondary_site_title and if_secondary_site_link %}
+      <!-- {% if if_secondary_site_title and if_secondary_site_link %}
       <div slot="parent">
         {# primary unit information (i.e. College Name) #}
         <a href="{{ if_secondary_site_link }}">{{ if_secondary_site_title| raw }}</a>
@@ -125,21 +141,19 @@
           {# primary unit information (i.e. College Name) #}
           {{ if_secondary_site_title| raw }}
         </div>
-      {% else %}
+      {% else %} -->
         <div slot="parent" class="no-title"></div>
-      {% endif %}
+      <!-- {% endif %} -->
     </il-footer>
 
     <il-back-to-top></il-back-to-top>
-
     <div class="footer--subfooter col-lg-12">
       <!--OneTrust Cookies Settings button start -->
       <button id="ot-sdk-btn" class="ot-sdk-show-settings">About Cookies</button>
       <!--OneTrust Cookies Settings button end -->
       <ul>
         <li><a href="https://illinois.edu/resources/website/copyright.html">Copyright</a></li>
-        <li><a href="https://www.vpaa.uillinois.edu/resources/web_privacy">Privacy Policy</a></li>
-        <li><a href="/user">Login</a></li>
+        <li><a href="https://www.vpaa.uillinois.edu/resources/web_privacy">Privacy Policy</a></li> 
         {# loop through the links and output them #}
         {% for subfooter_link in if_subfooter %}
           {% set link = if_subfooter[loop.index0][1] %}
@@ -148,6 +162,7 @@
             <li><a href="{{ link }}">{{ text }}</a></li>
           {% endif %}
         {% endfor %}
+        <li><a href="/user">Login</a></li>
       </ul>
     </div>
   </footer>
