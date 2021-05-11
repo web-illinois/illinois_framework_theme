@@ -27,14 +27,15 @@ footer {
   }
 
   a {
-    &:hover {
+    &:hover,
+    &:focus {
       color: var(--il-orange) !important;
     }
-    &:focus {
+    /*&:focus {
       color: var(--il-orange) !important;
       outline: rem(2px) dashed  var(--il-orange) !important;
       border-color: var(--il-orange) !important;
-    }
+    }*/
   }
 }
 il-footer {
@@ -43,14 +44,15 @@ il-footer {
   a {
     color: white;
 
-    &:hover {
+    &:hover,
+    &:focus {
       color: var(--il-orange) !important;
     }
-    &:focus {
+    /*&:focus {
       color: var(--il-orange) !important;
       outline: rem(2px) dashed  var(--il-orange) !important;
       border-color: var(--il-orange) !important;
-    }
+    }*/
   }
 
   &[slot="parent"] {
@@ -68,19 +70,25 @@ il-footer {
     a {
       color: white !important;
 
-      &:hover {
+      &:hover,
+      &:focus {
         color: var(--il-orange) !important;
       }
-      &:focus {
+      /*&:focus {
         color: var(--il-orange) !important;
         outline: rem(2px) dashed  var(--il-orange) !important;
         border-color: var(--il-orange) !important;
-      }
+      }*/
     }
   }
 }
 il-footer [slot="links"] {
-  margin-top: 105px;
+  margin-top: rem(105px);
+
+  @include media-breakpoint-down(sm) {
+    margin-top: 0;
+  }
+
 
   &.no-grid {
     grid-template-columns: repeat(1,1fr) !important;
@@ -109,7 +117,7 @@ il-footer [slot="links"] {
   }
   ul {
     border-top: rem(2px) solid white;
-    margin: rem(16px) 0 0 0;
+    margin: rem(16px) 0 rem(45px) 0;
     padding: rem(16px) 0 0 0;
   }
   ul li {
@@ -151,23 +159,25 @@ il-footer [slot="social"] {
   }
 }
 il-footer [slot="colleges"] {
-  a {
-    color: #ffffff;
-    font-family: var(--il-source-sans);
-    font-size: rem(16px);
-    font-stretch: normal;
-    font-style: normal;
-    font-weight: 600;
-    height: rem(22px);
-    letter-spacing: normal;
-    line-height: 1.5;
-    margin-bottom: rem(25px);
-    text-align: left;
-    text-decoration: none;
 
-    &:last-child {
-      margin-bottom: 0;
+  div {
+    margin-bottom: rem(25px);
+
+    a {
+      color: #ffffff;
+      font-family: var(--il-source-sans);
+      font-size: rem(16px);
+      font-stretch: normal;
+      font-style: normal;
+      font-weight: 600;
+      letter-spacing: normal;
+      line-height: rem(24px);
+      text-align: left;
+      text-decoration: none;
     }
+  }
+  div:last-child {
+    margin-bottom: 0;
   }
 
 }
@@ -192,7 +202,12 @@ il-footer [slot="colleges"] {
   &--subfooter {
     font-family: var(--il-source-sans);
     @extend %fixed-width;
-    padding: rem(16px) rem(30px);
+    padding: rem(20px) rem(30px) 0 !important;
+
+    /* spacing for the about cookies button */
+    .ot-sdk-show-settings {
+      margin-right: rem(16px);
+    }
 
     ul {
       display: block;
@@ -202,6 +217,7 @@ il-footer [slot="colleges"] {
 
       li {
         display: inline-block;
+        margin-right: rem(19px);
         padding: .5rem;
 
         @include media-breakpoint-down(md) {
@@ -215,14 +231,15 @@ il-footer [slot="colleges"] {
           padding: 0.5rem;
           text-decoration: underline;
 
-          &:hover {
+          &:hover,
+          &:focus {
             color: var(--il-orange);
           }
-          &:focus {
+          /*&:focus {
             color: var(--il-orange);
             outline: rem(1px) dashed var(--il-orange);
             border-color: var(--il-orange);
-          }
+          }*/
         }
       }
     }

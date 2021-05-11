@@ -293,6 +293,7 @@ svg {
     background-color: var(--il-alma-mater);
     color: white;
     font: 700 18px var(--il-montserrat);
+    height: 5px;
     letter-spacing: 1.1px;
     line-height: 1.56;
     text-transform: uppercase;

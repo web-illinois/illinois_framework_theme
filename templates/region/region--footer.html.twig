@@ -78,12 +78,19 @@
       </div>
       {% if if_footer_colleges %}
         <div slot="colleges">
+          {% if if_secondary_site_title %}
+          <div>
+             <a href="{{ if_secondary_site_link }}">{{ if_secondary_site_title| raw }}</a>
+          </div>
+          {% endif %}
           {% for item in if_footer_colleges %}
-            {% set title = if_footer_colleges[loop.index0][0] %}
-            {% set url = if_footer_colleges[loop.index0][1] %}
-            <div>
-              <a href="{{ url }}">{{ title }}</a>
-            </div>
+            {% if if_footer_colleges[loop.index0][0] != "" %}
+              {% set title = if_footer_colleges[loop.index0][0] %}
+              {% set url = if_footer_colleges[loop.index0][1] %}
+              <div>
+                <a href="{{ url }}">{{ title }}</a>
+              </div>
+            {% endif %}
           {% endfor %}
         </div>
       {% endif %}
@@ -93,42 +100,38 @@
             {{ drupal_entity('block_content', 1) }}
           </div>
         {% endif %}
+        <div>
         {% if drupal_entity('block', 'footermenufirst') %}
-          <div>
-            {{ drupal_entity('block', 'footermenufirst') }}
-          </div>
+          {{ drupal_entity('block', 'footermenufirst') }}
         {% endif %}
         {% if drupal_entity('block', 'footermenusecond') %}
-          <div>
-            {{ drupal_entity('block', 'footermenusecond') }}
-            <div id="google_translate_element"></div>
-            <script>
-              function googleTranslateElementInit() {
-                new google.translate.TranslateElement({
-                  pageLanguage: 'en',
-                  layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                  autoDisplay: false
-                }, 'google_translate_element');
-              }
-            </script>
-            <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-          </div>
+          {{ drupal_entity('block', 'footermenusecond') }}
         {% endif %}
+        </div>
+        <div>
         {% if drupal_entity('block', 'footermenuthird') %}
-          <div>
-            {{ drupal_entity('block', 'footermenuthird') }}
-          </div>
+          {{ drupal_entity('block', 'footermenuthird') }}
         {% endif %}
         {% if drupal_entity('block', 'footermenufourth') %}
-          <div>
-            {{ drupal_entity('block', 'footermenufourth') }}
-          </div>
+          {{ drupal_entity('block', 'footermenufourth') }}
         {% endif %}
+        <div id="google_translate_element"></div>
+          <script>
+            function googleTranslateElementInit() {
+              new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+              }, 'google_translate_element');
+            }
+          </script>
+          <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        </div>
       </div>
       {# Available slot not used by the template at the moment #}
       {# <div slot="actions"> #}
       {# </div> #}
-      {% if if_secondary_site_title and if_secondary_site_link %}
+      <!-- {% if if_secondary_site_title and if_secondary_site_link %}
       <div slot="parent">
         {# primary unit information (i.e. College Name) #}
         <a href="{{ if_secondary_site_link }}">{{ if_secondary_site_title| raw }}</a>
@@ -138,21 +141,19 @@
           {# primary unit information (i.e. College Name) #}
           {{ if_secondary_site_title| raw }}
         </div>
-      {% else %}
+      {% else %} -->
         <div slot="parent" class="no-title"></div>
-      {% endif %}
+      <!-- {% endif %} -->
     </il-footer>
 
     <il-back-to-top></il-back-to-top>
-
     <div class="footer--subfooter col-lg-12">
       <!--OneTrust Cookies Settings button start -->
       <button id="ot-sdk-btn" class="ot-sdk-show-settings">About Cookies</button>
       <!--OneTrust Cookies Settings button end -->
       <ul>
         <li><a href="https://illinois.edu/resources/website/copyright.html">Copyright</a></li>
-        <li><a href="https://www.vpaa.uillinois.edu/resources/web_privacy">Privacy Policy</a></li>
-        <li><a href="/user">Login</a></li>
+        <li><a href="https://www.vpaa.uillinois.edu/resources/web_privacy">Privacy Policy</a></li> 
         {# loop through the links and output them #}
         {% for subfooter_link in if_subfooter %}
           {% set link = if_subfooter[loop.index0][1] %}
@@ -161,6 +162,7 @@
             <li><a href="{{ link }}">{{ text }}</a></li>
           {% endif %}
         {% endfor %}
+        <li><a href="/user">Login</a></li>
       </ul>
     </div>
   </footer>
