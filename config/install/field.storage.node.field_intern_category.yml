@@ -1,0 +1,39 @@
+uuid: 73d35c86-233a-4668-a221-e8df548e0a4e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_intern_category
+field_name: field_intern_category
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: prod-ag
+      label: 'Production Agriculture'
+    -
+      value: companion-animal
+      label: 'Companion Animal'
+    -
+      value: zoo
+      label: 'Zoo Animal/Wildlife'
+    -
+      value: vet-shadow
+      label: 'Vet Shadow'
+    -
+      value: ansc-farms
+      label: 'ANSC Campus Farms (Experimental Research Units)'
+    -
+      value: cchs
+      label: 'Champaign County Humane Society (CCHS)'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
