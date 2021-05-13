@@ -1,0 +1,36 @@
+uuid: 9bc103a9-177e-42c5-86a6-79b30776c691
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.acc_content.field_acc_content_body
+    - field.field.paragraph.acc_content.field_acc_content_title
+    - paragraphs.paragraphs_type.acc_content
+  module:
+    - text
+id: paragraph.acc_content.default
+targetEntityType: paragraph
+bundle: acc_content
+mode: default
+content:
+  field_acc_content_body:
+    weight: 1
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+    type: text_textarea_with_summary
+    region: content
+  field_acc_content_title:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

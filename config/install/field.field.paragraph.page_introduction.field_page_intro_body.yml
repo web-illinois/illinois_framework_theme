@@ -1,0 +1,23 @@
+uuid: 39b3f7b1-b01d-4a65-8a73-75c63d3ee05f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_page_intro_body
+    - paragraphs.paragraphs_type.page_introduction
+  module:
+    - text
+_core:
+  default_config_hash: oT9ervC1jCxErkTN-_oxUa7wChA-dYx0cgHeH7P3BZc
+id: paragraph.page_introduction.field_page_intro_body
+field_name: field_page_intro_body
+entity_type: paragraph
+bundle: page_introduction
+label: Body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

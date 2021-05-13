@@ -1,0 +1,18 @@
+uuid: 63695944-f8d9-4bca-b315-248b018242cc
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Internships
+type: internships
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

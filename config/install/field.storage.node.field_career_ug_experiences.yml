@@ -1,0 +1,19 @@
+uuid: cb037a26-224e-41ed-90e5-299038db72c5
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_career_ug_experiences
+field_name: field_career_ug_experiences
+entity_type: node
+type: text_with_summary
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

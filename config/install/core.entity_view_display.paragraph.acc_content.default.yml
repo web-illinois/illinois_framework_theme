@@ -1,0 +1,31 @@
+uuid: 2a4db081-eea4-43d4-85b1-90b6f2a45edf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.acc_content.field_acc_content_body
+    - field.field.paragraph.acc_content.field_acc_content_title
+    - paragraphs.paragraphs_type.acc_content
+  module:
+    - text
+id: paragraph.acc_content.default
+targetEntityType: paragraph
+bundle: acc_content
+mode: default
+content:
+  field_acc_content_body:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_acc_content_title:
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

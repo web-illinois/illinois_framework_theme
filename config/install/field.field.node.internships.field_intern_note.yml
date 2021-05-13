@@ -1,0 +1,19 @@
+uuid: ecfdd48e-fc0d-4401-898e-39cf1b5a9684
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_intern_note
+    - node.type.internships
+id: node.internships.field_intern_note
+field_name: field_intern_note
+entity_type: node
+bundle: internships
+label: 'Special Note'
+description: 'Use for an announcement or major update for the internship. (Closed due to Covid, etc...)'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

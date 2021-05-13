@@ -1,0 +1,12 @@
+uuid: 39b54b9b-a253-4482-b843-9a5fe013f5ad
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: '-rvA27o8YD-MdrusKJMfKd0S-Z2KvsBZDDgleVPCWVU'
+id: page_introduction
+label: 'Page Introduction'
+icon_uuid: null
+icon_default: null
+description: 'This paragraph displays an area for a title and body text.'
+behavior_plugins: {  }
