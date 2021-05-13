@@ -1,0 +1,19 @@
+uuid: cb212ae5-15a4-4b27-8b9c-db2c1e586e6e
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - node
+id: node.field_intern_website
+field_name: field_intern_website
+entity_type: node
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
