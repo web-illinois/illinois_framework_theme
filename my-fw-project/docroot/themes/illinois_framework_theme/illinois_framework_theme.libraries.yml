@@ -1,0 +1,26 @@
+global-styling:
+  css:
+    theme:
+      fonts/font-awesome-4.7.0/css/font-awesome.css: {}
+      css/style.css: {}
+  js:
+    https://emergency.publicaffairs.illinois.edu/illinois.js:
+      type: external
+      attributes:
+        async: true
+    https://enroll.illinois.edu/ping:
+      type: external
+      attributes:
+        async: true
+    js/components.js: {}
+    js/navmenu.js: {}
+    js/search.js: {}
+  dependencies:
+    - core/jquery
+
+faculty_explorer:
+  version: 1.x
+  js:
+    js/faculty_explorer.js: {}
+  dependencies:
+    - core/jquery
