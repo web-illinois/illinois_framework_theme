@@ -1,0 +1,39 @@
+uuid: 8d2c3806-927e-4b55-81ff-863974151999
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_page_intro_background
+field_name: field_page_intro_background
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: illiniblue
+      label: 'Illini Blue'
+    -
+      value: illiniorange
+      label: 'Illini Orange'
+    -
+      value: bluegradient
+      label: 'Blue Gradient'
+    -
+      value: orangegradient
+      label: 'Orange Gradient'
+    -
+      value: gray
+      label: Gray
+    -
+      value: white
+      label: White
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

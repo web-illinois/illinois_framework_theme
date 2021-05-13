@@ -1,0 +1,23 @@
+uuid: 9704fd01-772a-40b7-9399-e14963f115aa
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+_core:
+  default_config_hash: wxU5HchrMBFxUxNQ9w-XlXkleWUUsE0yCne9CQl-ZOI
+id: paragraph.field_page_intro_title
+field_name: field_page_intro_title
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
