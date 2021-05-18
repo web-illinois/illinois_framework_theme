@@ -1,13 +1,13 @@
       var $ = jQuery;
 
       $("#faculty-explorer--main-area-select").change(function() {
-
+console.log('main');
         displayResults();
 
       });
 
       $("#faculty-explorer--secondary-area-select").change(function() {
-
+console.log('secondary');
         displayResults();
 
       });
@@ -70,7 +70,7 @@
 
           $('.faculty-explorer--result--descriptions').html(main_area_description + secondary_area_description);
           
-          $.ajax({url: "https://ws.engr.illinois.edu/directory/list.asp?unit=1538&id=$path[1]&mainareaname=" + MainArea + "&areaname=" + SecondaryArea + "&template=308", success: function(result) {
+          $.ajax({url: "https://ws.engr.illinois.edu/directory/list.asp?unit=1538&id=$path[1]&mainareaname=" + MainArea + "&areaname=" + SecondaryArea + "&template=2640", success: function(result) {
             result = result.replace(/document.write\(\'/g, '');
             result = result.replace(/\'\);/g, '');
             result = result.replace(/\\/g, '');
@@ -95,7 +95,7 @@
 
           $('.faculty-explorer--result--descriptions').html(main_area_description);
           
-          $.ajax({url: "https://ws.engr.illinois.edu/directory/list.asp?unit=1538&id=$path[1]&mainareaname=" + MainArea + "&template=308", success: function(result) {
+          $.ajax({url: "https://ws.engr.illinois.edu/directory/list.asp?unit=1538&id=$path[1]&mainareaname=" + MainArea + "&template=2640", success: function(result) {
             result = result.replace(/document.write\(\'/g, '');
             result = result.replace(/\'\);/g, '');
             result = result.replace(/\\/g, '');
@@ -120,7 +120,7 @@
 
           $('.faculty-explorer--result--descriptions').html(secondary_area_description);
           
-          $.ajax({url: "https://ws.engr.illinois.edu/directory/list.asp?unit=1538&id=$path[1]&areaname=" + SecondaryArea + "&template=308", success: function(result) {
+          $.ajax({url: "https://ws.engr.illinois.edu/directory/list.asp?unit=1538&id=$path[1]&areaname=" + SecondaryArea + "&template=2640", success: function(result) {
             result = result.replace(/document.write\(\'/g, '');
             result = result.replace(/\'\);/g, '');
             result = result.replace(/\\/g, '');

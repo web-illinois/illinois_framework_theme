@@ -1,5 +1,5 @@
 .faculty-explorer--title {
-  margin: 0 41px 43.2px 85px;
+  margin: 24px 41px 43.2px 85px;
   font-family: "Source Sans Pro", "Lucida Grande", sans-serif;
   font-size: 64px;
   font-weight: bold;
@@ -64,8 +64,13 @@
 
     &-description {
       &--image {
-        width: 30%;
+//        width: 30%;
         float: left;
+
+        & img {
+          max-width: 255px;
+          max-height: 192px;
+        }
       }
       &--text {
         width: 70%;
@@ -90,5 +95,24 @@
     font-size: 24px;
     font-weight: bold;
     color: #13294b;
+  }
+}
+
+.directorySection {
+  display: flex;
+  flex-wrap: wrap;
+
+  &--person {
+    margin-right: 35px;
+
+    &--photo {
+      width: 160px;
+      max-height: 200px;
+      overflow: hidden;
+    }
+
+    &--role {
+      max-width: 160px;
+    }
   }
 }
