@@ -1,5 +1,9 @@
+.paragraph--type--faculty-explorer__wrapper {
+  margin-bottom: 35px;
+}
+
 .faculty-explorer--title {
-  margin: 24px 41px 43.2px 85px;
+  margin: 24px 41px 101px 35px;
   font-family: "Source Sans Pro", "Lucida Grande", sans-serif;
   font-size: 64px;
   font-weight: bold;
@@ -12,6 +16,7 @@
 }
 
 .faculty-explorer--header {
+  margin-top: 35px;
   font-family: var(--il-source-sans);
   font-size: 32px;
   font-weight: 600;
@@ -20,7 +25,7 @@
 
 .faculty-explorer--description {
   font-family: var(--il-source-sans);
-  font-size: 24px;
+  font-size: 18px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -31,8 +36,6 @@
 }
 
 .faculty-explorer--select {
-//  width: 272px;
-//  height: 51px;
   font-size: 18px;
   padding: 0 0 0 21px;
   border-radius: 5px;
@@ -90,11 +93,13 @@
     }
   }
 
-  &--faculty--title {
-    font-family: var(--il-source-sans);
-    font-size: 24px;
-    font-weight: bold;
-    color: #13294b;
+  &--faculty {
+    &--title {
+      font-family: var(--il-source-sans);
+      font-size: 24px;
+      font-weight: bold;
+      color: #13294b;
+    }
   }
 }
 

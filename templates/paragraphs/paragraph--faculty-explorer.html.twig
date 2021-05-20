@@ -51,7 +51,14 @@
   ]
 %}
 
+{% set default_result_title = content.field_faculty_explorer_res_title.0 %}
+{% set default_result_description = content.field_faculty_explorer_res_desc.0 %}
+
 <script>
+  var default_result_title = "{{ content.field_faculty_explorer_res_title.0 }}";
+  var default_result_description = "{{ content.field_faculty_explorer_res_desc.0 }}";
+  var result_empty_description = "{{ content.field_faculty_explorer_none_desc.0 }}";
+
   var main = [
     {"id": 1, "title": 'Beef Cattle', "description": 'With a long-standing reputation for excellence in beef cattle research, our mission is to provide quality research and educational experiences for our graduate and undergraduate students. Our research goals are to enhance the quality of beef while decreasing the environmental footprint of production through research in a variety of disciplines.'},
     {"id": 2, "title": 'Companion Animals', "description": 'As the first in the U.S. to establish a program in companion animal biology, our goal is to provide training in the basic sciences of companion animals as well as the human-animal interactions that so strongly affect our lives and society.'},
@@ -78,10 +85,9 @@
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
-      <div class="col-lg-12 col-md-12 p-0 flex paragraph--type--bb__wrapper fixed-width">
-        <h2 class="faculty-explorer--title">Faculty Explorer</h2>
-        <h3 class="faculty-explorer--header">Explore Animal Sciences</h3>
-        <p class="faculty-explorer--description">Learn about our programs, research goals, and  faculty  by choosing what you want to study by animal or research discipline.</p>
+      <div class="col-lg-12 col-md-12 p-0 flex paragraph--type--faculty-explorer__wrapper fixed-width">
+        <h2 class="faculty-explorer--header">{{ content.field_faculty_explorer_title.0 }}</h2>
+        <p class="faculty-explorer--description">{{ content.field_faculty_explorer_desc.0 }}</p>
 
         <div id="faculty-explorer--select-boxes" class="faculty-explorer--select-boxes">
           <script>
@@ -120,6 +126,20 @@
         </div>
 
         <div class="faculty-explorer--result--descriptions">
+          <div class="faculty-explorer--result--area">
+            <div class="faculty-explorer--result--area-description--image">
+              <img src="/themes/contrib/illinois_framework_theme/images/block-i.jpg">
+            </div>
+            <div class="faculty-explorer--result--area-description--text">
+              <div class="faculty-explorer--result--area-description--text--title">
+                {{ default_result_title }}
+              </div>
+              <div class="faculty-explorer--result--area-description--text--description">
+                {{ default_result_description }} 
+              </div>
+            </div>
+          </div>
+
         </div>
 
         <div class="faculty-explorer--result-faculty">

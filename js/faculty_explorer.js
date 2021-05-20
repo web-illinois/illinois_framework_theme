@@ -47,8 +47,15 @@ console.log('secondary');
 
         if ($('#faculty-explorer--main-area-select').val() == "0" && $('#faculty-explorer--secondary-area-select').val() == "0") {
           // Nothing selected.  Display filler text.
-          $('.faculty-explorer--result-descriptions').html('Start Exploring');
-          $('.faculty-explorer--result-faculty').html('');
+          var ResultTitle = default_result_title;
+          ResultDescription = default_result_description;
+
+          main_area_description = '<div class=\"faculty-explorer--result--area\"><div class=\"faculty-explorer--result--area-description--image\"><img src=\"\/themes\/contrib\/illinois_framework_theme\/images\/block-i.jpg\"><\/div>';
+          main_area_description += '<div class=\"faculty-explorer--result--area-description--text\"><div class=\"faculty-explorer--result--area-description--text--title\">' + ResultTitle + '<\/div>';
+          main_area_description += '<div class=\"faculty-explorer--result--area-description--text--description\">' + ResultDescription + '<\/div><\/div><\/div>';
+
+          $('.faculty-explorer--result--descriptions').html(main_area_description);
+          $(".faculty-explorer--result-faculty").html('');
         }
         else if ($('#faculty-explorer--main-area-select').val() != "0" && $('#faculty-explorer--secondary-area-select').val() != "0") {
           // Main and secondary areas both selected.  Show both in description area and 
@@ -77,6 +84,10 @@ console.log('secondary');
             result = result.replace('class="row"', '');
             result = result.substring(0, result.indexOf('function ShowTab('));
 
+            if (result.length < 300) {
+              result = result_empty_description;
+            }
+
             var faculty_output = '<div class=\"faculty-explorer--result--faculty--title\">Faculty studying ' + MainArea + ' and ' + SecondaryArea + '</div>' + result;
 
             $(".faculty-explorer--result-faculty").html(faculty_output);
@@ -102,6 +113,10 @@ console.log('secondary');
             result = result.replace('class="row"', '');
             result = result.substring(0, result.indexOf('function ShowTab('));
 
+            if (result.length < 300) {
+              result = result_empty_description;
+            }
+
             var faculty_output = '<div class=\"faculty-explorer--result--faculty--title\">Faculty studying ' + MainArea + '</div>' + result;
 
             $(".faculty-explorer--result-faculty").html(faculty_output);
@@ -126,6 +141,10 @@ console.log('secondary');
             result = result.replace(/\\/g, '');
             result = result.replace('class="row"', '');
             result = result.substring(0, result.indexOf('function ShowTab('));
+
+            if (result.length < 300) {
+              result = result_empty_description;
+            }
 
             var faculty_output = '<div class=\"faculty-explorer--result--faculty--title\">Faculty studying ' + SecondaryArea + '</div>' + result;
 
