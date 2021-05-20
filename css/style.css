@@ -12719,6 +12719,67 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
   padding: 0.9375rem 2.8125rem 0.9375rem 2.8125rem;
 }
 
+@media (max-width: 767.98px) {
+  .paragraph--type--intro-home {
+    padding: 0 !important;
+  }
+}
+.paragraph--type--intro-home .field--name-field-intro-home__wrapper {
+  padding: 4.6875rem 0 5.625rem 0;
+  max-width: 50rem;
+}
+@media (max-width: 767.98px) {
+  .paragraph--type--intro-home .field--name-field-intro-home__wrapper {
+    padding-left: 2.8125rem;
+    padding-right: 2.8125rem;
+  }
+}
+.paragraph--type--intro-home .field--name-field-intro-home__wrapper.left {
+  text-align: left;
+}
+.paragraph--type--intro-home .field--name-field-intro-home__wrapper.left .field--name-field-intro-home__button:first-child {
+  margin-left: 0;
+}
+@media (max-width: 767.98px) {
+  .paragraph--type--intro-home .field--name-field-intro-home__wrapper.left .field--name-field-intro-home__button:first-child {
+    margin-left: inherit;
+  }
+}
+.paragraph--type--intro-home .field--name-field-intro-home__wrapper.center {
+  text-align: center;
+}
+.paragraph--type--intro-home .field--name-field-intro-home__wrapper.right {
+  text-align: right;
+}
+.paragraph--type--intro-home .field--name-field-intro-home__wrapper.right .field--name-field-intro-home__button:last-child {
+  margin-right: 0;
+}
+@media (max-width: 767.98px) {
+  .paragraph--type--intro-home .field--name-field-intro-home__wrapper.right .field--name-field-intro-home__button:last-child {
+    margin-left: inherit;
+  }
+}
+.paragraph--type--intro-home .field--name-field-intro-home-text-lg {
+  font-size: 2.25rem;
+  line-height: 2.625rem;
+  font-style: oblique;
+}
+.paragraph--type--intro-home .field--name-field-intro-home-text-sm {
+  font-size: 1.375rem;
+  line-height: 1.75rem;
+}
+.paragraph--type--intro-home .field--name-field-intro-home__buttons {
+  margin-top: 2.8125rem;
+}
+.paragraph--type--intro-home .field--name-field-intro-home__button {
+  margin: 0 1.875rem;
+}
+@media (max-width: 767.98px) {
+  .paragraph--type--intro-home .field--name-field-intro-home__button {
+    margin: 1rem 1.875rem;
+  }
+}
+
 /* ie 11 CSS styles */
 .background--color--white {
   background-color: white;
