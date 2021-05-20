@@ -1,0 +1,10 @@
+uuid: 7f424e07-3966-40d1-948a-7922d07cf495
+langcode: en
+status: true
+dependencies: {  }
+id: acc_content
+label: 'Accordion Content'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

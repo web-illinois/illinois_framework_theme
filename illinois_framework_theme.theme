@@ -48,6 +48,19 @@ function illinois_framework_theme_preprocess(&$variables) {
   $variables['if_footer']['if_footer_social']['if_footer_social_instagram'] = theme_get_setting('if_footer_social_instagram');
   $variables['if_footer']['if_footer_social']['if_footer_social_youtube'] = theme_get_setting('if_footer_social_youtube');
   $variables['if_footer']['if_footer_social']['if_footer_social_linkedin'] = theme_get_setting('if_footer_social_linkedin');
+  $variables['if_footer_colleges'][0][0] = theme_get_setting('if_footer_college_text_1');
+  $variables['if_footer_colleges'][0][1] = theme_get_setting('if_footer_college_link_1');
+  $variables['if_footer_colleges'][1][0] = theme_get_setting('if_footer_college_text_2');
+  $variables['if_footer_colleges'][1][1] = theme_get_setting('if_footer_college_link_2');
+  $variables['if_footer_colleges'][2][0] = theme_get_setting('if_footer_college_text_3');
+  $variables['if_footer_colleges'][2][1] = theme_get_setting('if_footer_college_link_3');
+  $variables['if_footer_colleges'][3][0] = theme_get_setting('if_footer_college_text_4');
+  $variables['if_footer_colleges'][3][1] = theme_get_setting('if_footer_college_link_4');
+  $variables['if_footer_colleges'][4][0] = theme_get_setting('if_footer_college_text_5');
+  $variables['if_footer_colleges'][4][1] = theme_get_setting('if_footer_college_link_5');
+  $variables['if_footer_colleges']['if_footer_colleges_one'] = theme_get_setting('if_footer_colleges_one');
+
+
   $variables['if_footer']['if_footer_menu_block_checkbox'] = theme_get_setting('if_footer_menu_block_checkbox');
   $variables['if_subfooter'][0][0] = theme_get_setting('if_subfooter_text_1');
   $variables['if_subfooter'][0][1] = theme_get_setting('if_subfooter_link_1');

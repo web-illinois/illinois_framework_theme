@@ -1,0 +1,21 @@
+uuid: 930d610a-d38c-4abf-ae39-9915c24a76b4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_contact_content_body
+    - paragraphs.paragraphs_type.contact_content
+  module:
+    - text
+id: paragraph.contact_content.field_contact_content_body
+field_name: field_contact_content_body
+entity_type: paragraph
+bundle: contact_content
+label: Body
+description: 'Instead of an image - add a paragraph and buttons'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

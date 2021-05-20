@@ -1,0 +1,33 @@
+uuid: 4dffa6ab-7bed-44f6-a8b8-b265cdc7dc58
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_intern_term
+field_name: field_intern_term
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: fall
+      label: Fall
+    -
+      value: spring
+      label: Spring
+    -
+      value: summer
+      label: Summer
+    -
+      value: all-year
+      label: All-year
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

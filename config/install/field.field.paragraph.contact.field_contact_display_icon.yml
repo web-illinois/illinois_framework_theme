@@ -1,0 +1,23 @@
+uuid: 4000b347-3fac-4843-b7c8-f4197deed6e3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_contact_display_icon
+    - paragraphs.paragraphs_type.contact
+  module:
+    - options
+id: paragraph.contact.field_contact_display_icon
+field_name: field_contact_display_icon
+entity_type: paragraph
+bundle: contact
+label: Icon
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: hide
+default_value_callback: ''
+settings: {  }
+field_type: list_string

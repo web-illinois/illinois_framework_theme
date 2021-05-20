@@ -1,0 +1,19 @@
+uuid: 6fd57b34-46e2-467a-a9af-04de785d90a8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_intern_location
+    - node.type.internships
+id: node.internships.field_intern_location
+field_name: field_intern_location
+entity_type: node
+bundle: internships
+label: Location
+description: 'City, State or Nation Wide'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

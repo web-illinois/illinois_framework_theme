@@ -50,6 +50,7 @@
 @import "illinois-framework/paragraphs";
 @import "illinois-framework/paragraphs.page-intro";
 @import "illinois-framework/paragraphs.feature--split";
+<<<<<<< HEAD
 @import "illinois-framework/paragraphs.cta";
 @import "illinois-framework/paragraphs.cta--narrow";
 @import "illinois-framework/paragraphs.feature--video";
@@ -57,6 +58,16 @@
 @import "illinois-framework/paragraphs.bb";
 @import "illinois-framework/paragraphs.cards";
 @import "illinois-framework/paragraphs.intro-home";
+=======
+
+@import "illinois-framework/paragraphs.cta";
+@import "illinois-framework/paragraphs.cta--narrow";
+@import "illinois-framework/paragraphs.cta--narrow";
+@import "illinois-framework/paragraphs.feature--video";
+@import "illinois-framework/paragraphs.feature--boxed";
+@import "illinois-framework/paragraphs.bb";
+@import "illinois-framework/paragraphs.rt";
+>>>>>>> 55320e4b1786c570f27cf838d18b351ee56b2794
 
 // Views
 @import "illinois-framework/view.frontpage";
@@ -66,8 +77,8 @@
 
 // Utility Classes
 @import "illinois-framework/utilities/ie--11";
-@import "illinois-framework/utilities/background--color";
 @import "illinois-framework/utilities/fingerprint";
+@import "illinois-framework/utilities/background--color";
 @import "illinois-framework/utilities/max-width";
 @import "illinois-framework/utilities/margin";
 
