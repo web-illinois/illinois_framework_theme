@@ -8,6 +8,8 @@ dependencies:
     - paragraphs.paragraphs_type.cards_content
   module:
     - entity_reference_revisions
+_core:
+  default_config_hash: vBSwd0FBwxoeB4yJ5jFCL_TUsyResV_HxNejn0yT038
 id: paragraph.cards.field_cards_content
 field_name: field_cards_content
 entity_type: paragraph

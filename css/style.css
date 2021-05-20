@@ -12620,8 +12620,41 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
   border-bottom: 3px solid var(--il-industrial-blue-1);
 }
 
+.paragraph--type--cards__wrapper.card--color--illiniblue {
+  color: white;
+}
+.paragraph--type--cards__wrapper.card--color--illiniblue .field--name-field-cards-content__wrapper {
+  background-color: var(--il-blue);
+}
+.paragraph--type--cards__wrapper.card--color--illiniblue .title {
+  border-bottom: 1px solid white;
+}
+.paragraph--type--cards__wrapper.card--color--illiniblue .btn {
+  background-color: var(--il-blue);
+  border-color: var(--white);
+  color: var(--white);
+}
+.paragraph--type--cards__wrapper.card--color--illiniblue .btn:hover {
+  background-color: var(--il-orange);
+  border-color: var(--il-orange);
+  color: white;
+}
+.paragraph--type--cards__wrapper.card--color--white .field--name-field-cards-content__wrapper {
+  background-color: var(--white);
+}
+.paragraph--type--cards__wrapper.card--color--white .btn {
+  background-color: white;
+  border-color: var(--il-blue);
+  color: var(--il-blue);
+}
+.paragraph--type--cards__wrapper.card--color--white .btn:hover {
+  background-color: var(--il-blue);
+  border-color: var(--il-blue);
+  color: white;
+}
 .paragraph--type--cards .field--name-field-cards-text__wrapper {
   margin: 1rem 0;
+  padding: 0 1.875rem;
 }
 .paragraph--type--cards .field--name-field-cards-text__wrapper.left {
   text-align: left;
@@ -12658,20 +12691,6 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
   display: flex;
   flex-direction: column;
 }
-.paragraph--type--cards .background--color--illiniblue .title {
-  color: var(--il-orange);
-  border-bottom: 1px solid white;
-}
-.paragraph--type--cards .background--color--white .btn {
-  background-color: white;
-  border-color: var(--il-blue);
-  color: var(--il-blue);
-}
-.paragraph--type--cards .background--color--white .btn:hover {
-  background-color: var(--il-blue);
-  border-color: var(--il-blue);
-  color: white;
-}
 
 .field--name-field-cards-content__wrapper {
   border: solid 1px #707070;
@@ -12684,6 +12703,7 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
   flex-direction: column;
 }
 .field--name-field-cards-content__title {
+  color: var(--il-orange);
   text-align: center;
   font-size: 1.3125rem;
   font-weight: 700;
@@ -12868,6 +12888,22 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
   max-width: none;
   padding: 0;
   width: var(--il-framework--full-width);
+}
+
+.margin--none {
+  margin-top: 0;
+}
+.margin--sm {
+  margin-top: 1rem;
+}
+.margin--md {
+  margin-top: 2rem;
+}
+.margin--lg {
+  margin-top: 3rem;
+}
+.margin--xl {
+  margin-top: 4rem;
 }
 
 /*# sourceMappingURL=style.css.map */

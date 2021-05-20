@@ -51,7 +51,7 @@
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
-    <div class="field--name-field-cards-content__wrapper background--color--{{ content.field_cards_content_background['#items'].0.value }}">
+    <div class="field--name-field-cards-content__wrapper">
           {% if content.field_cards_content_image['#items'] %}
             {{ content.field_cards_content_image }}
           {% endif %}

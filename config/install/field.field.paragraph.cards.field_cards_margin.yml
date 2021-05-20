@@ -1,25 +1,23 @@
-uuid: 7de5c306-79df-4b78-a60c-75147623f2d6
+uuid: 35dafe32-9b72-4e8b-992c-8fe31d21b35d
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_cards_layout
+    - field.storage.paragraph.field_cards_margin
     - paragraphs.paragraphs_type.cards
   module:
     - options
-_core:
-  default_config_hash: SGCHA_m2ByWQcOhv9ru4x0fgQWk1FgDYQtVbgP4VKms
-id: paragraph.cards.field_cards_layout
-field_name: field_cards_layout
+id: paragraph.cards.field_cards_margin
+field_name: field_cards_margin
 entity_type: paragraph
 bundle: cards
-label: Layout
+label: Spacing
 description: ''
 required: true
 translatable: false
 default_value:
   -
-    value: left
+    value: none
 default_value_callback: ''
 settings: {  }
 field_type: list_string

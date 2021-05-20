@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.storage.paragraph.field_cards_content_body
     - paragraphs.paragraphs_type.cards_content
+_core:
+  default_config_hash: sauGOGJmIf4GELlXOpgr03vY5SnA6bIIIe5NaDw2nUI
 id: paragraph.cards_content.field_cards_content_body
 field_name: field_cards_content_body
 entity_type: paragraph

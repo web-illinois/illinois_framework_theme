@@ -7,6 +7,8 @@ dependencies:
     - paragraphs.paragraphs_type.cards_content
   module:
     - link
+_core:
+  default_config_hash: Gn0mgBhbVtgvsE5YM7xl9spTrQD1i0IfE59IOvsb90E
 id: paragraph.cards_content.field_cards_content_button
 field_name: field_cards_content_button
 entity_type: paragraph

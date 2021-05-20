@@ -1,32 +1,71 @@
 .paragraph--type--cards {
 
-  .field--name-field-cards {
-
-  &-text {
-    &__wrapper {
-      margin: 1rem 0;
-      &.left {
-        text-align: left;
+  &__wrapper {
+    &.card--color{
+      &--illiniblue {
+        color: white;
+        .field--name-field-cards-content__wrapper {
+          background-color: var(--il-blue)
+          }
+        .title {
+          border-bottom: 1px solid white;
+          }
+        .btn {
+          background-color: var(--il-blue);
+          border-color: var(--white);
+          color: var(--white);
+          }
+      .btn:hover {
+        background-color: var(--il-orange);
+        border-color: var(--il-orange);
+        color: white;
+         }
       }
+    &--white {
+        .field--name-field-cards-content__wrapper {
+          background-color: var(--white)
+        }
+        .btn {
+          background-color: white;
+          border-color: var(--il-blue);
+          color: var(--il-blue);
+          }
 
-      &.center {
-        text-align: center;
-      }
+      .btn:hover {
+        background-color: var(--il-blue);
+        border-color: var(--il-blue);
+        color: white;
+        }
     }
   }
+}
 
-  &__title {
-    color: var(--il-orange);
-    font-weight: 700;
-    font-size: 2.25rem;
-  }
+  .field--name-field-cards {
+      &-text {
+        &__wrapper {
+          margin: 1rem 0;
+          padding: 0 1.875rem;
+          &.left {
+            text-align: left;
+          }
 
-  &__subtitle {
-    color: var(--il-blue);
-    font-weight: 700;
-    font-size: 1.75rem;
-  }
+          &.center {
+            text-align: center;
+          }
+        }
+      }
 
+        &__title {
+          color: var(--il-orange);
+          font-weight: 700;
+          font-size: 2.25rem;
+        }
+
+        &__subtitle {
+          color: var(--il-blue);
+          font-weight: 700;
+          font-size: 1.75rem;
+        }
   }
 
   .field__items {
@@ -45,32 +84,6 @@
     display: flex;
     flex-direction: column;
   }
-
-  .background--color--illiniblue {
-
-    .title {
-      color: var(--il-orange);
-      border-bottom: 1px solid white;
-    }
-
-  }
-
-  .background--color--white {
-
-    .btn {
-        background-color: white;
-        border-color: var(--il-blue);
-        color: var(--il-blue);
-    }
-
-    .btn:hover {
-      background-color: var(--il-blue);
-      border-color: var(--il-blue);
-      color: white;
-  }
-
-  }
-
 }
 
 .field--name-field-cards-content {
@@ -88,6 +101,7 @@
   }
 
   &__title{
+    color: var(--il-orange);
     text-align: center;
     font-size: 1.3125rem;
     font-weight: 700;

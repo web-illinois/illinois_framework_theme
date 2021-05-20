@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.cards_content.field_cards_content_background
     - field.field.paragraph.cards_content.field_cards_content_body
     - field.field.paragraph.cards_content.field_cards_content_button
     - field.field.paragraph.cards_content.field_cards_content_image
@@ -13,19 +12,13 @@ dependencies:
   module:
     - image
     - link
-    - options
+_core:
+  default_config_hash: 0mZWQqUVzY09kCYR4qzMz_JfiVWR7FUOcq_Xpziy6cA
 id: paragraph.cards_content.default
 targetEntityType: paragraph
 bundle: cards_content
 mode: default
 content:
-  field_cards_content_background:
-    weight: 0
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    type: list_default
-    region: content
   field_cards_content_body:
     weight: 3
     label: hidden

@@ -3,19 +3,30 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.cards.field_cards_background
     - field.field.paragraph.cards.field_cards_content
     - field.field.paragraph.cards.field_cards_layout
+    - field.field.paragraph.cards.field_cards_margin
     - field.field.paragraph.cards.field_cards_subtitle
     - field.field.paragraph.cards.field_cards_title
     - paragraphs.paragraphs_type.cards
   module:
     - entity_reference_revisions
     - options
+_core:
+  default_config_hash: 54MIRtQljB3APX9Ut0f-5vFDpS0wOTpdlUIIHi3nLxQ
 id: paragraph.cards.default
 targetEntityType: paragraph
 bundle: cards
 mode: default
 content:
+  field_cards_background:
+    weight: 5
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
   field_cards_content:
     type: entity_reference_revisions_entity_view
     weight: 3
@@ -27,6 +38,13 @@ content:
     region: content
   field_cards_layout:
     weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_cards_margin:
+    weight: 4
     label: hidden
     settings: {  }
     third_party_settings: {  }

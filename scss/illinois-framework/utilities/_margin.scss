@@ -1,0 +1,17 @@
+.margin-- {
+    &none {
+      margin-top: 0;
+    }
+    &sm {
+      margin-top: 1rem;
+    }
+    &md {
+      margin-top: 2rem;
+    }
+    &lg {
+      margin-top: 3rem;
+    }
+    &xl {
+      margin-top: 4rem;
+    }
+}
