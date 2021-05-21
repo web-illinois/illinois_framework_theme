@@ -55,7 +55,7 @@ console.log('secondary');
           main_area_description += '<div class=\"faculty-explorer--result--area-description--text--description\">' + ResultDescription + '<\/div><\/div><\/div>';
 
           $('.faculty-explorer--result--descriptions').html(main_area_description);
-          $(".faculty-explorer--result-faculty").html('');
+          $(".faculty-explorer--result--faculty").html('');
         }
         else if ($('#faculty-explorer--main-area-select').val() != "0" && $('#faculty-explorer--secondary-area-select').val() != "0") {
           // Main and secondary areas both selected.  Show both in description area and 
@@ -90,7 +90,7 @@ console.log('secondary');
 
             var faculty_output = '<div class=\"faculty-explorer--result--faculty--title\">Faculty studying ' + MainArea + ' and ' + SecondaryArea + '</div>' + result;
 
-            $(".faculty-explorer--result-faculty").html(faculty_output);
+            $(".faculty-explorer--result--faculty").html(faculty_output);
           }});
         }
         else if ($('#faculty-explorer--main-area-select').val() != "0" && $('#faculty-explorer--secondary-area-select').val() == "0") {
@@ -119,7 +119,7 @@ console.log('secondary');
 
             var faculty_output = '<div class=\"faculty-explorer--result--faculty--title\">Faculty studying ' + MainArea + '</div>' + result;
 
-            $(".faculty-explorer--result-faculty").html(faculty_output);
+            $(".faculty-explorer--result--faculty").html(faculty_output);
           }});
         }
         else if ($('#faculty-explorer--main-area-select').val() == "0" && $('#faculty-explorer--secondary-area-select').val() != "0") {
@@ -148,14 +148,14 @@ console.log('secondary');
 
             var faculty_output = '<div class=\"faculty-explorer--result--faculty--title\">Faculty studying ' + SecondaryArea + '</div>' + result;
 
-            $(".faculty-explorer--result-faculty").html(faculty_output);
+            $(".faculty-explorer--result--faculty").html(faculty_output);
           }});
         }
         else {
 console.log('You should not be here');
           // Something is wrong.  This should never execute.  This is here because sometimes stuff happens.
           $('.faculty-explorer--result--descriptions').html('Start Exploring');
-          $('.faculty-explorer--result-faculty').html() = '';
+          $('.faculty-explorer--result--faculty').html() = '';
         }
 
       };

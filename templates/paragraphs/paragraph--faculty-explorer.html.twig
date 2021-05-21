@@ -41,13 +41,18 @@
 
 {{ attach_library('faculty_explorer/faculty_explorer') }}
 
+{% if content.field_faculty_exp_layer_width['#items'].0.value == 'Fixed Width' %}
+  {% set max_width = 'fixed-width' %}
+{% else %}
+  {% set max_width = 'full-width' %}
+{% endif %}
 {%
   set classes = [
   'paragraph',
   'paragraph--type--' ~ paragraph.bundle|clean_class,
   view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
   not paragraph.isPublished() ? 'paragraph--unpublished',
-  'col-lg-12 col-md-12 col-sm-12 p-0 flex', content.field_faculty_explorer_bg_color[0]['#markup'] == 'Gray' ? 'background--color--gray'
+  'col-lg-12 col-md-12 col-sm-12 p-0 flex', content.field_faculty_explorer_bg_color[0]['#markup'] == 'Gray' ? 'background--color--gray ' ~ max_width
   ]
 %}
 
@@ -142,7 +147,7 @@
 
         </div>
 
-        <div class="faculty-explorer--result-faculty">
+        <div class="faculty-explorer--result--faculty">
           
         </div>
 

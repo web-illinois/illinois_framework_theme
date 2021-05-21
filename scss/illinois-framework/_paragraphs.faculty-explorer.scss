@@ -1,106 +1,97 @@
 .paragraph--type--faculty-explorer__wrapper {
-  margin-bottom: 35px;
+  margin-bottom: 48px;
 }
 
-.faculty-explorer--title {
-  margin: 24px 41px 101px 35px;
-  font-family: "Source Sans Pro", "Lucida Grande", sans-serif;
-  font-size: 64px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 0.81;
-  letter-spacing: normal;
-  text-align: left;
-  color: #13294b;
-}
-
-.faculty-explorer--header {
-  margin-top: 35px;
-  font-family: var(--il-source-sans);
-  font-size: 32px;
-  font-weight: 600;
-  color: #ff552e;
-}
-
-.faculty-explorer--description {
-  font-family: var(--il-source-sans);
-  font-size: 18px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.75;
-  letter-spacing: normal;
-  text-align: left;
-  color: #252525;
-}
-
-.faculty-explorer--select {
-  font-size: 18px;
-  padding: 0 0 0 21px;
-  border-radius: 5px;
-  border: solid 1px #d8d8d8;
-}
-
-.test-select::before {
-    content: "\f13a";
-    font-family: FontAwesome;
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 20%;
-    height: 100%;
-    background-color: #dddddd;
-    border: 1px solid #777777;
+.faculty-explorer {
+  &--title {
+    margin: 24px 41px 101px 35px;
+    font-family: "Source Sans Pro", "Lucida Grande", sans-serif;
+    font-size: 64px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.81;
+    letter-spacing: normal;
+    text-align: left;
+    color: #13294b;
   }
 
-.faculty-explorer--result {
-  
-  &--descriptions {
-    margin-top: 24px;
+  &--header {
+    margin-top: 48px;
+    font-family: var(--il-source-sans);
+    font-size: 32px;
+    font-weight: 600;
+    color: #ff552e;
   }
 
-  &--area {
-    width: 100%;
-    display: inline-block;
-    margin-top: 24px;
+  &--description {
+    font-family: var(--il-source-sans);
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.75;
+    letter-spacing: normal;
+    text-align: left;
+    color: #252525;
+  }
 
-    &-description {
-      &--image {
-//        width: 30%;
-        float: left;
+  &--select {
+    font-size: 18px;
+    padding: 0 0 0 21px;
+    border-radius: 5px;
+    border: solid 1px #d8d8d8;
+  }
 
-        & img {
-          max-width: 255px;
-          max-height: 192px;
+  &--result {
+    &--descriptions {
+      margin-top: 24px;
+    }
+
+    &--area {
+      width: 100%;
+      display: inline-block;
+      margin-top: 24px;
+
+      &-description {
+        &--image {
+          float: left;
+
+          & img {
+            max-width: 255px;
+            max-height: 192px;
+          }
+        }
+        &--text {
+          width: 70%;
+          float: left;
+          padding-left: 33px;
+          font-family: var(--il-source-sans);
+          font-size: 18px;
+          color: #252525;
+
+          &--title {
+              font-family: var(--il-source-sans);
+              font-size: 24px;
+              font-weight: bold;
+              color: #13294b;
+          }
         }
       }
-      &--text {
-        width: 70%;
-        float: left;
-        padding-left: 33px;
+    }
+
+    &--faculty {
+      margin-top: 25px;
+
+      &--title {
         font-family: var(--il-source-sans);
-        font-size: 18px;
-        color: #252525;
-
-        &--title {
-            font-family: var(--il-source-sans);
-            font-size: 24px;
-            font-weight: bold;
-            color: #13294b;
-        }
+        font-size: 24px;
+        font-weight: bold;
+        color: #13294b;
       }
     }
   }
 
-  &--faculty {
-    &--title {
-      font-family: var(--il-source-sans);
-      font-size: 24px;
-      font-weight: bold;
-      color: #13294b;
-    }
-  }
 }
 
 .directorySection {
@@ -109,6 +100,7 @@
 
   &--person {
     margin-right: 35px;
+    margin-top: 20px;
 
     &--photo {
       width: 160px;
@@ -118,6 +110,10 @@
 
     &--role {
       max-width: 160px;
+
+      & .name {
+        font-weight: bold;
+      }
     }
   }
 }
