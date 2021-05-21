@@ -26,73 +26,252 @@
 {% else %}
   {% set menu_type = 'simple' %}
 {% endif %}
-  <header{{ attributes.addClass(classes) }} role="banner" aria-label="Site Header">
-    <il-header>
+<header{{ attributes.addClass(classes) }} role="banner" aria-label="Site Header">
+  <il-header view="full">
+    <div slot="wordmark">
       <il-unit-wordmark>
         {% if if_secondary_site_title %}
-        <div class="site-identification two-titles" name="site">
-          {% if if_secondary_site_link %}
-            <a class="site-identification--secondary--site-title" href="{{ if_secondary_site_link }}">{{ if_secondary_site_title }}</a>
-          {% else %}
-            <div class="site-identification--secondary--site-title" href="#">{{ if_secondary_site_title }}</div>
-          {% endif %}
-          <div class="site-identification--primary__wrapper">
-            <a class="site-identification--primary--site-title" href="/">{{ drupal_config('system.site', 'name') | raw }}</a>
+          <p class="il-primary-unit">
+            {% if if_secondary_site_link %}
+              <a href="{{ if_secondary_site_link }}">{{ if_secondary_site_title }}</a>
             {% else %}
-            <div class="site-identification one-title" name="site">
-              <a class="site-identification--primary-site-title flex-fill" href="/">{{ drupal_config('system.site', 'name') | raw }}</a>
-              {% endif %}
-              <div class="d-flex flex-fill mainnav-toggler">
-                <div id="header-search-container">
-                  <form class="form-inline" method="get" role="search" action="/search/node" id="search-form--header">
-                    <div class="input-group">
-                      <input type="text" class="form-control" name="query" placeholder="Search" aria-label="search form" aria-describedby="search-form" />
-                      <div class="input-group-append">
-                        <button type="submit" value="Submit" form="search-form" class="input-group-text">
-                          <i class="fa fa-search"></i><span class="sr-only">Search</span>
-                        </button>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-                <div id="mainnav-toggler-container">
-                  <button id="navbar-toggler" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainnav" aria-controls="mainnav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="icon"></span> <span class="label sr-only">Menu</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-            {% if if_secondary_site_title %}
-          </div>
-          {% endif %}
-          <div role="status">
-            <!--OneTrust Cookies Consent Notice start, illinois.edu -->
-            <script src="https://onetrust.techservices.illinois.edu/scripttemplates/otSDKStub.js"  type="text/javascript" charset="UTF-8" data-domain-script="26be7d61-2017-4ea7-8a8b-8f1704889763"></script>
-            <script type="text/javascript">function OptanonWrapper() { }</script>
-            <!--OneTrust Cookies Consent Notice end, illinois.edu -->
-          </div>
+              <a href="#">{{ if_secondary_site_title }}</a>
+            {% endif %}
+          </p>
+        {% endif %}
+        <h1><a href="/">{{ drupal_config('system.site', 'name') | raw }}</a></h1>
+        <div role="status">
+          <!--OneTrust Cookies Consent Notice start, illinois.edu -->
+          {#            <script src="https://onetrust.techservices.illinois.edu/scripttemplates/otSDKStub.js"  type="text/javascript" charset="UTF-8" data-domain-script="26be7d61-2017-4ea7-8a8b-8f1704889763"></script>#}
+          {#            <script type="text/javascript">function OptanonWrapper() { }</script>#}
+          <!--OneTrust Cookies Consent Notice end, illinois.edu -->
+        </div>
       </il-unit-wordmark>
-      <div class="link-list" slot="link-list">
-        <ul class="list-unstyled">
-        {# loop through the links and output them #}
+    </div>
+    <il-search slot="search">
+{#      <form role="search" method="GET" id="search-form--header" action="/search/node" class="form-inline">#}
+{#        <label for="query">Search</label>#}
+{#        <input type="search" id="query" name="query" placeholder="Search this site" aria-label="search form" aria-describedby="search-form">#}
+{#        <button type="submit">#}
+{#          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 51.26 51.26">#}
+{#            <path d="M31.46 5.21a18.2 18.2 0 10-2.13 27.54L44 49.56a4.32 4.32 0 006.11-6.12L33.39 28.65a18.19 18.19 0 00-1.93-23.44zM28 27.48a13.29 13.29 0 110-18.79 13.3 13.3 0 010 18.79z"></path>#}
+{#          </svg>#}
+{#        </button>#}
+{#      </form>#}
+{#      <div id="header-search-container">#}
+{#        <form class="form-inline" method="get" role="search" action="/search/node" id="search-form--header">#}
+{#          <div class="input-group">#}
+{#            <input type="text" class="form-control" name="query" placeholder="Search" aria-label="search form" aria-describedby="search-form" />#}
+{#            <div class="input-group-append">#}
+{#              <button type="submit" value="Submit" form="search-form" class="input-group-text">#}
+{#                <i class="fa fa-search"></i><span class="sr-only">Search</span>#}
+{#              </button>#}
+{#            </div>#}
+{#          </div>#}
+{#        </form>#}
+{#      </div>#}
+    </il-search>
+    <nav slot="links" class="il-links">
+      <ul>
         {% for header_link in if_header_links %}
           {% set link = if_header_links[loop.index0][1] %}
           {% set text = if_header_links[loop.index0][0] %}
           {% if link != NULL and text != NULL %}
-           <li><a href="{{ link }}">{{ text }}</a></li>
+            <li><a id="link-{{ loop.index1 }}" href="{{ link }}">{{ text }}</a></li>
           {% endif %}
         {% endfor %}
+      </ul>
+    </nav>
+    <il-nav slot="navigation">
+      <il-nav-section>
+        {{ drupal_entity('block', 'illinoisframeworkmenu', check_access=false) }}
+        <a href="#" slot="label">About</a>
+        <ul class="il-subnav">
+          <li>
+            <a href="#">Overview of ACES</a>
+          </li>
+          <li>
+            <a href="#">Programs of Study</a>
+          </li>
+          <li>
+            <a href="#">Diversity</a>
+          </li>
+          <li>
+            <a href="#">Contact Us</a>
+          </li>
+          <li>
+            <a href="#">Visit</a>
+          </li>
         </ul>
-      </div>
-      <div slot="menu">
-        <div class="main-navigation">
-          {% if menu_type == 'mega' %}
-            {{ drupal_entity('block', 'mainnavigation', check_access=false) }}
-          {% else %}
-            {{ drupal_entity('block', 'illinois_framework_theme_main_menu', check_access=false) }}
-          {% endif %}
-        </div>
-      </div>
-    </il-header>
-  </header>
+      </il-nav-section>
+      <il-nav-section>
+        <a href="#" slot="label">Academics</a>
+        <ul class="il-subnav">
+          <li>
+            <a href="#">Programs of Study</a>
+          </li>
+          <li>
+            <a href="#">Future Students</a>
+          </li>
+          <li>
+            <a href="#">Admissions</a>
+          </li>
+          <li>
+            <a href="#">Student Life</a>
+          </li>
+          <li>
+            <a href="#">Current Students</a>
+          </li>
+          <li>
+            <a href="#">Study Abroad</a>
+          </li>
+          <li>
+            <a href="#">Career Services</a>
+          </li>
+          <li>
+            <a href="#">Student Diversity and Inclusion</a>
+          </li>
+          <li>
+            <a href="#">Contact Us</a>
+          </li>
+          <li>
+            <a href="#">Staff</a>
+          </li>
+        </ul>
+      </il-nav-section>
+      <il-nav-section>
+        <a href="#" slot="label">Research</a>
+        <ul class="il-subnav">
+          <li>
+            <a href="#">Research Areas</a>
+          </li>
+          <li>
+            <a href="#">Research History</a>
+          </li>
+          <li>
+            <a href="#">Facilities</a>
+          </li>
+          <li>
+            <a href="#">Resources</a>
+          </li>
+          <li>
+            <a href="#">Safety and Compliance</a>
+          </li>
+          <li>
+            <a href="#">Civil Rights</a>
+          </li>
+          <li>
+            <a href="#">Staff</a>
+          </li>
+        </ul>
+      </il-nav-section>
+      <il-nav-section>
+        <a href="#" slot="label">Extension</a>
+        <ul class="il-subnav">
+          <li>
+            <a href="#">About</a>
+          </li>
+          <li>
+            <a href="#">Staff</a>
+          </li>
+          <li>
+            <a href="#">Programs</a>
+          </li>
+        </ul>
+      </il-nav-section>
+      <il-nav-section>
+        <a href="#" slot="label">International</a>
+        <ul class="il-subnav">
+          <li>
+            <a href="#">About</a>
+          </li>
+          <li>
+            <a href="#">International Engagements</a>
+          </li>
+          <li>
+            <a href="#">Resources</a>
+          </li>
+          <li>
+            <a href="#">Newsletter &amp; Publications</a>
+          </li>
+          <li>
+            <a href="#">Study Abroad</a>
+          </li>
+          <li>
+            <a href="#">Contact Us</a>
+          </li>
+          <li>
+            <a href="#">Events</a>
+          </li>
+          <li>
+            <a href="#">Staff</a>
+          </li>
+        </ul>
+      </il-nav-section>
+      <il-nav-section>
+        <a href="#" slot="label">News</a>
+        <ul class="il-subnav">
+          <li>
+            <a href="#">Events</a>
+          </li>
+          <li>
+            <a href="#">#askACES Podcast</a>
+          </li>
+          <li>
+            <a href="#">Voices of ACES Blog</a>
+          </li>
+          <li>
+            <a href="#">Subscribe</a>
+          </li>
+          <li>
+            <a href="#">ACES Seminars</a>
+          </li>
+          <li>
+            <a href="#">COVID-19</a>
+          </li>
+        </ul>
+      </il-nav-section>
+      <il-nav-section right="true">
+        <a href="#" slot="label">People</a>
+        <ul class="il-subnav">
+          <li>
+            <a href="#">College Leadership</a>
+          </li>
+          <li>
+            <a href="#">Academic Department Heads</a>
+          </li>
+          <li>
+            <a href="#">Academic Units</a>
+          </li>
+          <li>
+            <a href="#">Administrative Units</a>
+          </li>
+        </ul>
+      </il-nav-section>
+      <il-nav-section right="true">
+        <a href="#" slot="label">Giving</a>
+        <ul class="il-subnav">
+          <li>
+            <a href="#">With ACES Priorities</a>
+          </li>
+          <li>
+            <a href="#">Ways to Give</a>
+          </li>
+          <li>
+            <a href="#">Give Now</a>
+          </li>
+          <li>
+            <a href="#">Alumni Association</a>
+          </li>
+          <li>
+            <a href="#">Student Committee</a>
+          </li>
+          <li>
+            <a href="#">4-H Foundation</a>
+          </li>
+        </ul>
+      </il-nav-section>
+    </il-nav>
+  </il-header>
+</header>
 {% endif %}

@@ -1,0 +1,101 @@
+{#
+/**
+ * @file
+ * Theme override to display a region.
+ *
+ * Available variables:
+ * - content: The content for this region, typically blocks.
+ * - attributes: HTML attributes for the region <div>.
+ * - region: The name of the region variable as defined in the theme's
+ *   .info.yml file.
+ *
+ * @see template_preprocess_region()
+ */
+#}
+{%
+  set classes = [
+  'region',
+  'region-' ~ region|clean_class,
+  'l-region',
+  'l-region--' ~ region|clean_class,
+]
+%}
+{% if content %}
+{% if if_megamenu.if_menu_select %}
+  {% set menu_type = if_megamenu.if_menu_select %}
+{% else %}
+  {% set menu_type = 'simple' %}
+{% endif %}
+  <header{{ attributes.addClass(classes) }} role="banner" aria-label="Site Header">
+    <il-header>
+      <il-unit-wordmark>
+        {% if if_secondary_site_title %}
+        <div class="site-identification two-titles" name="site">
+          {% if if_secondary_site_link %}
+            <a class="site-identification--secondary--site-title" href="{{ if_secondary_site_link }}">{{ if_secondary_site_title }}</a>
+          {% else %}
+            <div class="site-identification--secondary--site-title" href="#">{{ if_secondary_site_title }}</div>
+          {% endif %}
+          <div class="site-identification--primary__wrapper">
+            <a class="site-identification--primary--site-title" href="/">{{ drupal_config('system.site', 'name') | raw }}</a>
+            {% else %}
+            <div class="site-identification one-title" name="site">
+              <a class="site-identification--primary-site-title flex-fill" href="/">{{ drupal_config('system.site', 'name') | raw }}</a>
+              {% endif %}
+              <div class="d-flex flex-fill mainnav-toggler">
+                <div id="header-search-container">
+                  <form class="form-inline" method="get" role="search" action="/search/node" id="search-form--header">
+                    <div class="input-group">
+                      <input type="text" class="form-control" name="query" placeholder="Search" aria-label="search form" aria-describedby="search-form" />
+                      <div class="input-group-append">
+                        <button type="submit" value="Submit" form="search-form" class="input-group-text">
+                          <i class="fa fa-search"></i><span class="sr-only">Search</span>
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div id="mainnav-toggler-container">
+                  <button id="navbar-toggler" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainnav" aria-controls="mainnav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="icon"></span> <span class="label sr-only">Menu</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            {% if if_secondary_site_title %}
+          </div>
+          {% endif %}
+          <div role="status">
+            <!--OneTrust Cookies Consent Notice start, illinois.edu -->
+{#            <script src="https://onetrust.techservices.illinois.edu/scripttemplates/otSDKStub.js"  type="text/javascript" charset="UTF-8" data-domain-script="26be7d61-2017-4ea7-8a8b-8f1704889763"></script>#}
+{#            <script type="text/javascript">function OptanonWrapper() { }</script>#}
+            <!--OneTrust Cookies Consent Notice end, illinois.edu -->
+          </div>
+      </il-unit-wordmark>
+      <div class="link-list" slot="link-list">
+        <ul class="list-unstyled">
+        {# loop through the links and output them #}
+        {% for header_link in if_header_links %}
+          {% set link = if_header_links[loop.index0][1] %}
+          {% set text = if_header_links[loop.index0][0] %}
+          {% if link != NULL and text != NULL %}
+           <li><a href="{{ link }}">{{ text }}</a></li>
+          {% endif %}
+        {% endfor %}
+        </ul>
+      </div>
+      <div slot="menu">
+        <div class="main-navigation">
+          {% if menu_type == 'mega' %}
+            {{ drupal_entity('block', 'mainnavigation', check_access=false) }}
+          {% else %}
+{#            {{ drupal_entity('block', 'illinois_framework_theme_main_menu', check_access=false) }}#}
+            {{ drupal_entity('block', 'illinoisframeworkmenu', check_access=false) }}
+          {% endif %}
+
+        </div>
+      </div>
+
+    </il-header>
+  </header>
+{% endif %}
