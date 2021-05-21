@@ -1,0 +1,24 @@
+
+.directorySection {
+  display: flex;
+  flex-wrap: wrap;
+
+  &--person {
+    margin-right: 35px;
+    margin-top: 20px;
+
+    &--photo {
+      width: 160px;
+      max-height: 200px;
+      overflow: hidden;
+    }
+
+    &--role {
+      max-width: 160px;
+
+      & .name {
+        font-weight: bold;
+      }
+    }
+  }
+}
