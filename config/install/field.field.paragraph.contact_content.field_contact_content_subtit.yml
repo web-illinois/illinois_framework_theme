@@ -1,0 +1,19 @@
+uuid: b606f2a6-2b18-4603-a3f3-e354e1644aa0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_contact_content_subtit
+    - paragraphs.paragraphs_type.contact_content
+id: paragraph.contact_content.field_contact_content_subtit
+field_name: field_contact_content_subtit
+entity_type: paragraph
+bundle: contact_content
+label: Subtitle
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

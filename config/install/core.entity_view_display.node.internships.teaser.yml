@@ -1,0 +1,54 @@
+uuid: a58b3666-6e86-422e-92dc-99bd858dd079
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.internships.body
+    - field.field.node.internships.field_intern_body
+    - field.field.node.internships.field_intern_category
+    - field.field.node.internships.field_intern_contact
+    - field.field.node.internships.field_intern_description
+    - field.field.node.internships.field_intern_faculty_supervisor
+    - field.field.node.internships.field_intern_location
+    - field.field.node.internships.field_intern_location_list
+    - field.field.node.internships.field_intern_note
+    - field.field.node.internships.field_intern_qualifications
+    - field.field.node.internships.field_intern_term
+    - field.field.node.internships.field_intern_title
+    - field.field.node.internships.field_intern_website
+    - node.type.internships
+  module:
+    - text
+    - user
+id: node.internships.teaser
+targetEntityType: node
+bundle: internships
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_intern_body: true
+  field_intern_category: true
+  field_intern_contact: true
+  field_intern_description: true
+  field_intern_faculty_supervisor: true
+  field_intern_location: true
+  field_intern_location_list: true
+  field_intern_note: true
+  field_intern_qualifications: true
+  field_intern_term: true
+  field_intern_title: true
+  field_intern_website: true

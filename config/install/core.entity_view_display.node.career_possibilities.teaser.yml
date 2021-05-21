@@ -1,0 +1,54 @@
+uuid: 111e1f8c-1131-4198-bcc9-a73ba9f667c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.career_possibilities.body
+    - field.field.node.career_possibilities.field_career_additional_body
+    - field.field.node.career_possibilities.field_career_background
+    - field.field.node.career_possibilities.field_career_degrees
+    - field.field.node.career_possibilities.field_career_first_name
+    - field.field.node.career_possibilities.field_career_hometown
+    - field.field.node.career_possibilities.field_career_image
+    - field.field.node.career_possibilities.field_career_job_duties
+    - field.field.node.career_possibilities.field_career_last_name
+    - field.field.node.career_possibilities.field_career_linked_degree
+    - field.field.node.career_possibilities.field_career_position
+    - field.field.node.career_possibilities.field_career_salary_range
+    - field.field.node.career_possibilities.field_career_ug_experiences
+    - node.type.career_possibilities
+  module:
+    - text
+    - user
+id: node.career_possibilities.teaser
+targetEntityType: node
+bundle: career_possibilities
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_career_additional_body: true
+  field_career_background: true
+  field_career_degrees: true
+  field_career_first_name: true
+  field_career_hometown: true
+  field_career_image: true
+  field_career_job_duties: true
+  field_career_last_name: true
+  field_career_linked_degree: true
+  field_career_position: true
+  field_career_salary_range: true
+  field_career_ug_experiences: true

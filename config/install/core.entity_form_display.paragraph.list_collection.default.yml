@@ -1,0 +1,34 @@
+uuid: 9fb21e5b-4b03-4af2-a738-e2924ae25856
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.list_collection.field_list_coll_body
+    - field.field.paragraph.list_collection.field_list_coll_style
+    - paragraphs.paragraphs_type.list_collection
+  module:
+    - text
+id: paragraph.list_collection.default
+targetEntityType: paragraph
+bundle: list_collection
+mode: default
+content:
+  field_list_coll_body:
+    weight: 3
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+    type: text_textarea_with_summary
+    region: content
+  field_list_coll_style:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+hidden:
+  created: true
+  status: true

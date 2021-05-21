@@ -1,0 +1,23 @@
+uuid: 336cbd39-f6a1-456b-bfaa-99d7261b543b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_page_intro_buttons
+    - paragraphs.paragraphs_type.page_introduction
+  module:
+    - link
+id: paragraph.page_introduction.field_page_intro_buttons
+field_name: field_page_intro_buttons
+entity_type: paragraph
+bundle: page_introduction
+label: Buttons
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link

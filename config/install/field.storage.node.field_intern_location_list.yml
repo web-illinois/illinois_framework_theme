@@ -1,0 +1,33 @@
+uuid: 48514b29-0e45-4e6a-8b42-1e5e985e1168
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_intern_location_list
+field_name: field_intern_location_list
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: cu
+      label: Champaign-Urbana
+    -
+      value: ill
+      label: Illinois
+    -
+      value: out-state
+      label: 'Out of State'
+    -
+      value: nationwide
+      label: Nationwide
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,23 @@
+uuid: 30060a17-f3c9-4ce0-88a8-c53f81e169e0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_page_intro_sizing
+    - paragraphs.paragraphs_type.page_introduction
+  module:
+    - options
+id: paragraph.page_introduction.field_page_intro_sizing
+field_name: field_page_intro_sizing
+entity_type: paragraph
+bundle: page_introduction
+label: Sizing
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: small
+default_value_callback: ''
+settings: {  }
+field_type: list_string

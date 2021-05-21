@@ -1,0 +1,67 @@
+uuid: 5475b987-0720-4682-b173-6c9a01f77cc2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.contact.field_contact_background
+    - field.field.paragraph.contact.field_contact_body
+    - field.field.paragraph.contact.field_contact_content
+    - field.field.paragraph.contact.field_contact_display_icon
+    - field.field.paragraph.contact.field_contact_layouts
+    - field.field.paragraph.contact.field_contact_title
+    - paragraphs.paragraphs_type.contact
+  module:
+    - entity_reference_revisions
+    - options
+    - text
+id: paragraph.contact.default
+targetEntityType: paragraph
+bundle: contact
+mode: default
+content:
+  field_contact_background:
+    weight: 0
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_contact_body:
+    weight: 10
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_contact_content:
+    type: entity_reference_revisions_entity_view
+    weight: 11
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_contact_display_icon:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_contact_layouts:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_contact_title:
+    weight: 3
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }
