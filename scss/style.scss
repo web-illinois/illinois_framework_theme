@@ -4,10 +4,11 @@
 @import '../../../../themes/contrib/bootstrap4/dist/bootstrap/4.5.3/scss/bootstrap';
 
 // Web components
-@import "web-components/fonts";
-@import "web-components/colors";
-@import "web-components/fonts/il-icons";
-@import "web-components/web-components";
+@import "toolkit-overrides/toolkit.footer";
+//@import "web-components/fonts";
+//@import "web-components/colors";
+//@import "web-components/fonts/il-icons";
+//@import "web-components/web-components";
 
 // Custom Functions
 @import "illinois-framework/functions/px2rem";
@@ -28,7 +29,7 @@
 // Layouts
 @import "illinois-framework/regions";
 @import "illinois-framework/region.header";
-@import "illinois-framework/region.footer";
+//@import "illinois-framework/region.footer";
 
 // 3rd Party/Campus Components
 @import "illinois-framework/components.google-translate";
