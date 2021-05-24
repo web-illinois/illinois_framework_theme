@@ -32,15 +32,6 @@
  * @ingroup themeable
  */
 #}
-
-{{ attach_library('directory_javascript/directory_javascript') }}
-
-{% set net_id = url('<current>') | render | render | split('/') | last %} 
-
-<script type='text/javascript'> 
-  var net_id = "{{ net_id }}";
-</script>
-
 {%
   set classes = [
     dom_id ? 'js-view-dom-id-' ~ dom_id,
@@ -65,19 +56,6 @@
   {% elseif empty -%}
     {{ empty }}
   {% endif %}
-
-  <div class="directory_output">
-    This is where the directory info goes
-  </div>
-
-{#  {% if page.sidebar_first %}  #}
-    <aside class="layout-sidebar-first" role="complementary">
-      {{ page.sidebar_first }}
-      <a href="aces.illinois.edu">ACES</a>
-      <a href="illinois.edu">U of I</a>
-    </aside>
-{#  {% endif %}  #}
-
   {{ pager }}
 
   {{ attachment_after }}
