@@ -12905,6 +12905,45 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
   background: transparent !important;
 }
 
+.paragraph--type--expand-collapse {
+  margin: 1.875rem 0 !important;
+}
+.paragraph--type--expand-collapse .field--name-field-expand-collapse__wrapper button.accordion {
+  background-color: var(--il-gray);
+  padding: 1.875rem;
+  color: #13294b;
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 1.375rem;
+  transition: 0.4s;
+  height: auto;
+  font-family: "Source Sans", sans-serif;
+}
+.paragraph--type--expand-collapse .field--name-field-expand-collapse__wrapper button .arrow {
+  position: relative;
+}
+.paragraph--type--expand-collapse .field--name-field-expand-collapse__wrapper button .arrow:after {
+  font-family: "FontAwesome";
+  float: right;
+  position: absolute;
+  right: 1.875rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.paragraph--type--expand-collapse .field--name-field-expand-collapse__wrapper button[aria-expanded=false] .arrow:after {
+  content: "";
+}
+.paragraph--type--expand-collapse .field--name-field-expand-collapse__wrapper button[aria-expanded=true] .arrow:after {
+  content: "";
+}
+.paragraph--type--expand-collapse .field--name-field-expand-text__wrapper {
+  padding-top: 1.875rem;
+  padding-bottom: 3.125rem;
+}
+
 /* ie 11 CSS styles */
 .fingerprint--full {
   background-image: url("/themes/contrib/illinois_framework_theme/images/fingerprint.svg");
