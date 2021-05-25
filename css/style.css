@@ -12709,7 +12709,104 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
 .paragraph--type--bb .field--name-field-bb__content__wrapper:hover {
   border-bottom: 3px solid var(--il-industrial-blue-1);
 }
+.paragraph--type--cards__wrapper.card--color--illiniblue {
+  color: white;
+}
+.paragraph--type--cards__wrapper.card--color--illiniblue .field--name-field-cards-content__wrapper {
+  background-color: var(--il-blue);
+}
+.paragraph--type--cards__wrapper.card--color--illiniblue .title {
+  border-bottom: 1px solid white;
+}
+.paragraph--type--cards__wrapper.card--color--illiniblue .btn {
+  background-color: var(--il-blue);
+  border-color: var(--white);
+  color: var(--white);
+}
+.paragraph--type--cards__wrapper.card--color--illiniblue .btn:hover {
+  background-color: var(--il-orange);
+  border-color: var(--il-orange);
+  color: white;
+}
+.paragraph--type--cards__wrapper.card--color--white .field--name-field-cards-content__wrapper {
+  background-color: var(--white);
+}
+.paragraph--type--cards__wrapper.card--color--white .btn {
+  background-color: white;
+  border-color: var(--il-blue);
+  color: var(--il-blue);
+}
+.paragraph--type--cards__wrapper.card--color--white .btn:hover {
+  background-color: var(--il-blue);
+  border-color: var(--il-blue);
+  color: white;
+}
+.paragraph--type--cards .field--name-field-cards-text__wrapper {
+  margin: 1rem 0;
+  padding: 0 1.875rem;
+}
+.paragraph--type--cards .field--name-field-cards-text__wrapper.left {
+  text-align: left;
+}
+.paragraph--type--cards .field--name-field-cards-text__wrapper.center {
+  text-align: center;
+}
+.paragraph--type--cards .field--name-field-cards__title {
+  color: var(--il-orange);
+  font-weight: 700;
+  font-size: 2.25rem;
+}
+.paragraph--type--cards .field--name-field-cards__subtitle {
+  color: var(--il-blue);
+  font-weight: 700;
+  font-size: 1.75rem;
+}
+.paragraph--type--cards .field__items {
+  display: flex;
+  justify-content: space-evenly;
+}
+@media (max-width: 991.98px) {
+  .paragraph--type--cards .field__items {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 767.98px) {
+  .paragraph--type--cards .field__items {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.paragraph--type--cards .field__item {
+  display: flex;
+  flex-direction: column;
+}
 
+.field--name-field-cards-content__wrapper {
+  border: solid 1px #707070;
+  max-width: 21.875rem;
+  padding-bottom: 1.875rem;
+  height: 100%;
+}
+.field--name-field-cards-content-text__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.field--name-field-cards-content__title {
+  color: var(--il-orange);
+  text-align: center;
+  font-size: 1.3125rem;
+  font-weight: 700;
+  line-height: 2.0625rem;
+  padding: 1.875rem;
+  border-bottom: 1px solid #DDD6D6;
+}
+.field--name-field-cards-content__body {
+  padding: 1.875rem 1.875rem;
+}
+.field--name-field-cards-content__button {
+  text-align: center;
+  padding: 0.9375rem 2.8125rem 0.9375rem 2.8125rem;
+}
 .paragraph--type--rt__wrapper {
   margin: 0.9375rem 0.625rem;
 }
@@ -12767,6 +12864,9 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
 .background--color--white .body p a:hover, .background--color--white .body p a:focus, .background--color--white .body p a:visited {
   color: var(--il-orange);
 }
+.background--color--white .subtitle {
+  color: var(--il-alma-mater);
+}
 .background--color--white .btn {
   background-color: var(--il-orange);
   border: 0.125rem solid var(--il-orange);
@@ -12789,6 +12889,7 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
 }
 .background--color--bluegradient .body p {
   color: white;
+}
 .background--color--bluegradient .body p a:hover, .background--color--bluegradient .body p a:focus, .background--color--bluegradient .body p a:visited {
   color: var(--il-orange);
 }
@@ -12813,6 +12914,7 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
 }
 .background--color--orangegradient .body p {
   color: white;
+}
 .background--color--orangegradient .body p a:hover, .background--color--orangegradient .body p a:focus, .background--color--orangegradient .body p a:visited {
   color: var(--il-blue);
 }
@@ -12838,6 +12940,7 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
 }
 .background--color--illiniblue .body p {
   color: white;
+}
 .background--color--illiniblue .body p a:hover, .background--color--illiniblue .body p a:focus, .background--color--illiniblue .body p a:visited {
   color: var(--il-orange);
 }
@@ -12926,6 +13029,22 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
   max-width: none;
   padding: 0;
   width: var(--il-framework--full-width);
+}
+
+.margin--none {
+  margin-top: 0;
+}
+.margin--sm {
+  margin-top: 1rem;
+}
+.margin--md {
+  margin-top: 2rem;
+}
+.margin--lg {
+  margin-top: 3rem;
+}
+.margin--xl {
+  margin-top: 4rem;
 }
 
 /*# sourceMappingURL=style.css.map */
