@@ -33,6 +33,7 @@
  */
 #}
 
+{{ attach_library('directory_stylesheet/directory_stylesheet') }}
 {{ attach_library('directory_javascript/directory_javascript') }}
 
 {% set net_id = url('<current>') | render | render | split('/') | last %} 
@@ -43,13 +44,10 @@
 
 {%
   set classes = [
-    dom_id ? 'js-view-dom-id-' ~ dom_id,
+    dom_id ? 'js-view-dom-id-' ~ dom_id, 'fixed-width'
   ]
 %}
 <div{{ attributes.addClass(classes) }}>
-  {{ title_prefix }}
-  {{ title }}
-  {{ title_suffix }}
 
   {% if header %}
     <header>
@@ -57,31 +55,25 @@
     </header>
   {% endif %}
 
-  {{ exposed }}
-  {{ attachment_before }}
+  <div class="row">
+    <div class="sidebar-left col-lg-3 col-md-0 col-sm-0">
+      <ul>
+        <li>
+          <a href="/directory" class="sidebar-left--header">Directory</a>
+        </li>
+        <li>
+          <a href="/faculty">Faculty</a>
+        </li>
+        <li>
+          <a href="/emeritus_faculty">Emeritus Faculty</a>
+        </li>
+      </ul>
+    </div>
 
-  {% if rows -%}
-    {{ rows }}
-  {% elseif empty -%}
-    {{ empty }}
-  {% endif %}
-
-  <div class="directory_output">
-    This is where the directory info goes
+    <div class="directory-output col-lg-9 col-md-12 col-sm-12">
+      This person cannot be found.
+    </div>
   </div>
-
-{#  {% if page.sidebar_first %}  #}
-    <aside class="layout-sidebar-first" role="complementary">
-      {{ page.sidebar_first }}
-      <a href="aces.illinois.edu">ACES</a>
-      <a href="illinois.edu">U of I</a>
-    </aside>
-{#  {% endif %}  #}
-
-  {{ pager }}
-
-  {{ attachment_after }}
-  {{ more }}
 
   {% if footer %}
     <footer>
@@ -89,5 +81,4 @@
     </footer>
   {% endif %}
 
-  {{ feed_icons }}
 </div>

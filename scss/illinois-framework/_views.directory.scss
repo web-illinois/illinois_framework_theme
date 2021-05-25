@@ -22,3 +22,104 @@
     }
   }
 }
+
+.sidebar-left {
+  padding: 0px 0px 7.3px 0px;
+  background-color: #f0f0f0;
+  height: 450px;
+
+  & ul {
+    margin-left: 30px;
+    list-style-type: none;
+    padding: 0;
+  }
+
+  & li {
+    margin: 43px 0 0 1px;
+    font-family: "Source Sans Pro", "Lucida Grande", sans-serif;
+    font-size: 18px;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.55;
+    letter-spacing: 0.5px;
+    text-align: left;
+    color: #13294b;
+
+    & a {
+      text-decoration: none;
+    }
+
+   & .sidebar-left--header {
+    font-weight: bold;
+    font-size: 20px;
+   }
+  }
+}
+
+.directory-output h2 {
+  font-family: "Source Sans Pro", "Lucida Grande", sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.45;
+  letter-spacing: normal;
+  text-align: left;
+  color: #13294b;
+
+}
+
+.extProfileHeader {
+  margin-bottom: 20px;
+}
+
+.extProfileName h1 {
+  width: 726px;
+  height: 40px;
+  margin: 16px 13px 25px 0px;
+  font-family: "Source Sans Pro", "Lucida Grande", sans-serif;
+  font-size: 32px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.63;
+  letter-spacing: normal;
+  text-align: left;
+  color: #13294b;
+}
+
+.extProfilePhoto {
+  float: right;
+  margin: 10px;
+}
+
+.extProfileTitle {
+  font-family: "Source Sans Pro", "Lucida Grande", sans-serif;
+  font-size: 27px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.56;
+  letter-spacing: normal;
+  text-align: left;
+  color: #dd3403;
+}
+
+#extBiodata {
+  
+  & ul {
+    list-style-type: none;
+    padding-left: 0px;
+  }
+}
+
+#exttabs-publications {
+  
+  & li {
+    margin-bottom: 15px;
+  }
+
+  li:last-child {
+   margin-bottom: 0px;
+  }
+}
