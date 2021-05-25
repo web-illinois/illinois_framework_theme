@@ -46,3 +46,21 @@ $headings-font-family:        var(--il-sans-source);
 $headings-font-weight:        500;
 $headings-line-height:        1.2;
 $headings-color:              var(--il-blue);
+
+// overrides _variables.scss line 1052
+// Breadcrumbs
+
+$breadcrumb-font-size:              null !default;
+
+$breadcrumb-padding-y:              .75rem !default;
+$breadcrumb-padding-x:              1rem !default;
+$breadcrumb-item-padding:           .5rem !default;
+
+$breadcrumb-margin-bottom:          1rem !default;
+
+$breadcrumb-bg:                     transparent;
+$breadcrumb-divider-color:          $gray-600 !default;
+$breadcrumb-active-color:           $gray-600 !default;
+$breadcrumb-divider:                quote("/") !default;
+
+$breadcrumb-border-radius:          $border-radius !default;
