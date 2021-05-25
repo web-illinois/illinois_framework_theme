@@ -65,13 +65,15 @@ console.log('secondary');
           secondary_area = secondary.filter(function (secondary_item) { return secondary_item.id == $('#faculty-explorer--secondary-area-select').val()});
 
           var MainArea = main_area[0].title;
+          var MainAreaImage = main_area[0].image;
           var SecondaryArea = secondary_area[0].title;
+          var SecondaryAreaImage = secondary_area[0].image;
           
-          main_area_description = '<div class=\"faculty-explorer--result--area\"><div class=\"faculty-explorer--result--area-description--image\"><img src=\"\/themes\/contrib\/illinois_framework_theme\/images\/block-i.jpg\"><\/div>';
+          main_area_description = '<div class=\"faculty-explorer--result--area\"><div class=\"faculty-explorer--result--area-description--image\"><img src=\"\/themes\/contrib\/illinois_framework_theme\/images\/' + MainAreaImage + '\"><\/div>';
           main_area_description += '<div class=\"faculty-explorer--result--area-description--text\"><div class=\"faculty-explorer--result--area-description--text--title\">' + MainArea + '<\/div>';
           main_area_description += '<div class=\"faculty-explorer--result--area-description--text--description\">' + main_area[0].description + '<\/div><\/div><\/div>';
 
-          secondary_area_description = '<div class=\"faculty-explorer--result--area\"><div class=\"faculty-explorer--result--area-description--image\"><img src=\"\/themes\/contrib\/illinois_framework_theme\/images\/block-i.jpg\"><\/div>';
+          secondary_area_description = '<div class=\"faculty-explorer--result--area\"><div class=\"faculty-explorer--result--area-description--image\"><img src=\"\/themes\/contrib\/illinois_framework_theme\/images\/' + SecondaryAreaImage + '\"><\/div>';
           secondary_area_description += '<div class=\"faculty-explorer--result--area-description--text\"><div class=\"faculty-explorer--result--area-description--text--title\">' + SecondaryArea + '<\/div>';
           secondary_area_description += '<div class=\"faculty-explorer--result--area-description--text--description\">' + secondary_area[0].description + '<\/div><\/div><\/div>';
 
@@ -99,8 +101,9 @@ console.log('secondary');
           main_area = main.filter(function (main_item) { return main_item.id == $('#faculty-explorer--main-area-select').val()});
 
           var MainArea = main_area[0].title;
+          var MainAreaImage = main_area[0].image;
 
-          main_area_description = '<div class=\"faculty-explorer--result--area\"><div class=\"faculty-explorer--result--area-description--image\"><img src=\"\/themes\/contrib\/illinois_framework_theme\/images\/block-i.jpg\"><\/div>';
+          main_area_description = '<div class=\"faculty-explorer--result--area\"><div class=\"faculty-explorer--result--area-description--image\"><img src=\"\/themes\/contrib\/illinois_framework_theme\/images\/' + MainAreaImage + '\"><\/div>';
           main_area_description += '<div class=\"faculty-explorer--result--area-description--text\"><div class=\"faculty-explorer--result--area-description--text--title\">' + MainArea + '<\/div>';
           main_area_description += '<div class=\"faculty-explorer--result--area-description--text--description\">' + main_area[0].description + '<\/div><\/div><\/div>';
 
@@ -128,8 +131,9 @@ console.log('secondary');
           secondary_area = secondary.filter(function (secondary_item) { return secondary_item.id == $('#faculty-explorer--secondary-area-select').val()});
 
           var SecondaryArea = secondary_area[0].title;
+          var SecondaryAreaImage = secondary_area[0].image;
 
-          secondary_area_description = '<div class=\"faculty-explorer--result--area\"><div class=\"faculty-explorer--result--area-description--image\"><img src=\"\/themes\/contrib\/illinois_framework_theme\/images\/block-i.jpg\"><\/div>';
+          secondary_area_description = '<div class=\"faculty-explorer--result--area\"><div class=\"faculty-explorer--result--area-description--image\"><img src=\"\/themes\/contrib\/illinois_framework_theme\/images\/' + SecondaryAreaImage + '\"><\/div>';
           secondary_area_description += '<div class=\"faculty-explorer--result--area-description--text\"><div class=\"faculty-explorer--result--area-description--text--title\">' + SecondaryArea + '<\/div>';
           secondary_area_description += '<div class=\"faculty-explorer--result--area-description--text--description\">' + secondary_area[0].description + '<\/div><\/div><\/div>';
 

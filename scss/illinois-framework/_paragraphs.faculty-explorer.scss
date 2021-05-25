@@ -2,6 +2,13 @@
   margin-bottom: 48px;
 }
 
+@media (min-width: 992px) {
+  .fixed-width {
+    max-width: 900px;
+    padding: 0;
+  }
+}
+
 .faculty-explorer {
   &--title {
     margin: 24px 41px 101px 35px;
@@ -116,8 +123,13 @@
 
       & .name {
         font-size: 17px;
-        line-height: 2;
-        font-weight: bold;
+        line-height: 1.1;
+        font-weight: 800;
+      }
+
+      & .title {
+        padding-top: 5px;
+        line-height: 1.1;
       }
     }
   }
