@@ -90,7 +90,7 @@ console.log('secondary');
               result = result_empty_description;
             }
 
-            var faculty_output = '<div class=\"faculty-explorer--result--faculty--title\">Faculty studying ' + MainArea + ' and ' + SecondaryArea + '</div>' + result;
+            var faculty_output = '<div class=\"faculty-explorer--result--faculty--title\">Faculty studying ' + MainArea.toLowerCase() + ' and ' + SecondaryArea.toLowerCase() + '</div>' + result;
 
             $(".faculty-explorer--result--faculty").html(faculty_output);
           }});
@@ -120,7 +120,7 @@ console.log('secondary');
               result = result_empty_description;
             }
 
-            var faculty_output = '<div class=\"faculty-explorer--result--faculty--title\">Faculty studying ' + MainArea + '</div>' + result;
+            var faculty_output = '<div class=\"faculty-explorer--result--faculty--title\">Faculty studying ' + MainArea.toLowerCase() + '</div>' + result;
 
             $(".faculty-explorer--result--faculty").html(faculty_output);
           }});
@@ -150,7 +150,7 @@ console.log('secondary');
               result = result_empty_description;
             }
 
-            var faculty_output = '<div class=\"faculty-explorer--result--faculty--title\">Faculty studying ' + SecondaryArea + '</div>' + result;
+            var faculty_output = '<div class=\"faculty-explorer--result--faculty--title\">Faculty studying ' + SecondaryArea.toLowerCase() + '</div>' + result;
 
             $(".faculty-explorer--result--faculty").html(faculty_output);
           }});

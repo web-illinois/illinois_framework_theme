@@ -124,13 +124,26 @@
       & .name {
         font-size: 17px;
         line-height: 1.1;
-        font-weight: 800;
+        font-weight: 1000;
       }
 
       & .title {
-        padding-top: 5px;
+        padding-top: 10px;
+        line-height: 1.1;
+      }
+
+      & .email {
+        padding-top: 10px;
         line-height: 1.1;
       }
     }
+  }
+}
+
+@media (max-width: 926px) {
+  .faculty-explorer--result--area-description--text {
+    width: 100%;
+    padding-left: 0px;
+    margin-top: 10px;
   }
 }
