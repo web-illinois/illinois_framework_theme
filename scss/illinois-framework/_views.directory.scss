@@ -1,3 +1,20 @@
+@media (min-width: 800px) {
+  .fixed-width {
+    max-width: 900px;
+  }
+}
+
+@media (max-width: 991px) {
+  .extProfilePhoto {
+    float: none !important;
+    margin-left: 0px;
+    padding-left: 0px;
+  }
+
+  .extProfileName h1, .extProfileRoles {
+    display: inline-block;
+  }
+}
 
 .directorySection {
   display: flex;
