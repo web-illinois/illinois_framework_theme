@@ -1,0 +1,21 @@
+uuid: 53fd7da5-676d-4e30-a7b8-da3434b20255
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_intern_term
+    - node.type.internships
+  module:
+    - options
+id: node.internships.field_intern_term
+field_name: field_intern_term
+entity_type: node
+bundle: internships
+label: Term
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

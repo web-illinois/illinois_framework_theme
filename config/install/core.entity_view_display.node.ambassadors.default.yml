@@ -1,0 +1,106 @@
+uuid: 27b7e051-dbe9-4db4-acbb-43f9c771764d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.ambassadors.body
+    - field.field.node.ambassadors.field_ambassador_biography
+    - field.field.node.ambassadors.field_ambassador_class_of
+    - field.field.node.ambassadors.field_ambassador_current_degree
+    - field.field.node.ambassadors.field_ambassador_first_name
+    - field.field.node.ambassadors.field_ambassador_hometown
+    - field.field.node.ambassadors.field_ambassador_image
+    - field.field.node.ambassadors.field_ambassador_last_name
+    - field.field.node.ambassadors.field_ambassador_link
+    - node.type.ambassadors
+  module:
+    - image
+    - link
+    - options
+    - text
+    - user
+id: node.ambassadors.default
+targetEntityType: node
+bundle: ambassadors
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_ambassador_biography:
+    weight: 107
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_ambassador_class_of:
+    weight: 105
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_ambassador_current_degree:
+    weight: 104
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_ambassador_first_name:
+    weight: 102
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_ambassador_hometown:
+    weight: 106
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_ambassador_image:
+    weight: 109
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_ambassador_last_name:
+    weight: 103
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_ambassador_link:
+    weight: 108
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

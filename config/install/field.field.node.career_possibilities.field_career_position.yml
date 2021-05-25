@@ -1,0 +1,19 @@
+uuid: 07783fe8-8c8b-4794-aa16-e0ce3a3abd5a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_career_position
+    - node.type.career_possibilities
+id: node.career_possibilities.field_career_position
+field_name: field_career_position
+entity_type: node
+bundle: career_possibilities
+label: Position
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

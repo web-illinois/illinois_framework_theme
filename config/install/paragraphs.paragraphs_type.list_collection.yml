@@ -1,0 +1,10 @@
+uuid: a0c082e2-542a-4a29-8149-d935455c3760
+langcode: en
+status: true
+dependencies: {  }
+id: list_collection
+label: 'List Collection'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }
