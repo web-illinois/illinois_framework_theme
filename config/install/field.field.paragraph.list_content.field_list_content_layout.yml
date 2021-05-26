@@ -1,0 +1,23 @@
+uuid: 584f41ce-8c3c-4e62-a28f-e905ab0707c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_list_content_layout
+    - paragraphs.paragraphs_type.list_content
+  module:
+    - options
+id: paragraph.list_content.field_list_content_layout
+field_name: field_list_content_layout
+entity_type: paragraph
+bundle: list_content
+label: 'Image layout'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: left
+default_value_callback: ''
+settings: {  }
+field_type: list_string
