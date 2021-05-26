@@ -50,9 +50,7 @@
 @import "illinois-framework/paragraphs";
 @import "illinois-framework/paragraphs.page-intro";
 @import "illinois-framework/paragraphs.feature--split";
-
 @import "illinois-framework/paragraphs.cta";
-@import "illinois-framework/paragraphs.cta--narrow";
 @import "illinois-framework/paragraphs.cta--narrow";
 @import "illinois-framework/paragraphs.feature--video";
 @import "illinois-framework/paragraphs.feature--boxed";
@@ -61,6 +59,7 @@
 @import "illinois-framework/paragraphs.rt";
 @import "illinois-framework/paragraphs.list";
 @import "illinois-framework/paragraphs.expand--collapse";
+@import "illinois-framework/paragraphs.intro-home";
 
 // Views
 @import "illinois-framework/view.frontpage";
@@ -72,6 +71,7 @@
 @import "illinois-framework/utilities/ie--11";
 @import "illinois-framework/utilities/fingerprint";
 @import "illinois-framework/utilities/background--color";
+@import "illinois-framework/utilities/fingerprint";
 @import "illinois-framework/utilities/max-width";
 @import "illinois-framework/utilities/margin";
 

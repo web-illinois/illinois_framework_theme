@@ -1,0 +1,30 @@
+uuid: 7bc6cf9c-069a-4e85-8d16-445b1bcd46bd
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_intro_home_fingerprint
+field_name: field_intro_home_fingerprint
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: full
+      label: Full
+    -
+      value: left
+      label: 'Fade left'
+    -
+      value: right
+      label: 'Fade right'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
