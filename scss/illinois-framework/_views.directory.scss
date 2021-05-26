@@ -1,4 +1,4 @@
-@media (min-width: 800px) {
+@media (min-width: 992px) {
   .fixed-width {
     max-width: 900px;
   }
@@ -23,6 +23,7 @@
   &--person {
     margin-right: 35px;
     margin-top: 20px;
+    margin-bottom: 20px;
 
     &--photo {
       width: 160px;
@@ -32,9 +33,22 @@
 
     &--role {
       max-width: 160px;
+      margin-top: 16px;
 
       & .name {
-        font-weight: bold;
+        font-size: 17px;
+        line-height: 1.1;
+        font-weight: 1000;
+      }
+
+      & .title {
+        padding-top: 10px;
+        line-height: 1.1;
+      }
+
+      & .email {
+        padding-top: 10px;
+        line-height: 1.1;
       }
     }
   }
@@ -140,3 +154,28 @@
    margin-bottom: 0px;
   }
 }
+
+.directoryHead {
+  background-color: var(--il-blue);
+  font-family: "Source Sans Pro", "Lucida Grande", sans-serif;
+  font-size: 27px;
+  font-weight: 700;
+  color: white;
+}
+
+.extDirectoryRole {
+  border-bottom: 1px dotted #1a5843;
+  padding: 6px 0px 8px;
+}
+
+.extDirectoryName {
+  font-family: "Source Sans Pro", "Lucida Grande", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.extDirectoryEmail {
+  font-family: "Source Sans Pro", "Lucida Grande", sans-serif;
+  font-size: 16px;
+}
+
