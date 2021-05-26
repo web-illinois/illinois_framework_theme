@@ -1,0 +1,64 @@
+uuid: e09e7cef-ac9a-4ef7-9b7b-539683cb59a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.intro_home.field_intro_home_background
+    - field.field.paragraph.intro_home.field_intro_home_button
+    - field.field.paragraph.intro_home.field_intro_home_fingerprint
+    - field.field.paragraph.intro_home.field_intro_home_layout
+    - field.field.paragraph.intro_home.field_intro_home_text_lg
+    - field.field.paragraph.intro_home.field_intro_home_text_sm
+    - paragraphs.paragraphs_type.intro_home
+  module:
+    - link
+id: paragraph.intro_home.default
+targetEntityType: paragraph
+bundle: intro_home
+mode: default
+content:
+  field_intro_home_background:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_intro_home_button:
+    weight: 5
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_intro_home_fingerprint:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_intro_home_layout:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_intro_home_text_lg:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_intro_home_text_sm:
+    weight: 4
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+hidden:
+  created: true
+  status: true
