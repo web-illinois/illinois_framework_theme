@@ -1,12 +1,14 @@
 langcode: en
 status: true
 dependencies:
+  module:
+    - ctools
   theme:
     - illinois_framework_theme
 id: illinois_framework_theme_page_title
 theme: illinois_framework_theme
 region: content
-weight: -50
+weight: -6
 provider: null
 plugin: page_title_block
 settings:
@@ -14,4 +16,11 @@ settings:
   label: 'Page title'
   provider: core
   label_display: '0'
-visibility: {  }
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      spotlight: spotlight
+    negate: true
+    context_mapping:
+      node: '@node.node_route_context:node'
