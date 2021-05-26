@@ -72,12 +72,26 @@
         {% endif %}
       </ul>
     </div>
-    <div slot="parent" class="il-footer-parent">
-      <p><a href="#">College of Agricultural, Consumer and Environmental Sciences</a></p>
-      <p><a href="#">Grainger College of Engineering</a></p>
-      <p><a href="#">College of Education</a></p>
-    </div>
+    {% if if_footer_colleges %}
+      <div slot="parent" class="il-footer-parent">
+        {% if if_secondary_site_title %}
+          <p><a href="{{ if_secondary_site_link }}">{{ if_secondary_site_title| raw }}</a></p>
+        {% endif %}
+        {% for item in if_footer_colleges %}
+          {% if if_footer_colleges[loop.index0][0] != "" %}
+            {% set title = if_footer_colleges[loop.index0][0] %}
+            {% set url = if_footer_colleges[loop.index0][1] %}
+            <p><a href="{{ url }}">{{ title }}</a></p>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
     <div class="il-footer-navigation">
+      {% if drupal_entity('block_content', 1) %}
+        <div>
+          {{ drupal_entity('block_content', 1) }}
+        </div>
+      {% endif %}
       <nav aria-label="Campus Footer Links">
         <h2>Department Resources:</h2>
         <ul>
