@@ -1,0 +1,54 @@
+uuid: 2773d8f0-2481-49ee-a9e2-5c2387a92a05
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_career_linked_degree
+field_name: field_career_linked_degree
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: ansc-major
+      label: 'Animal Science major'
+    -
+      value: c-companion-animal
+      label: 'Companion Animal and Equine Science concentration'
+    -
+      value: c-food-animal
+      label: 'Food Animal Production and Management concentration'
+    -
+      value: c-science-pre-vet
+      label: 'Science, Pre-Veterinary and Medical concentration'
+    -
+      value: csas-major
+      label: 'Computer Science + Animal Science major'
+    -
+      value: ms-bioinformatics
+      label: 'M.S. in Bioinformatics'
+    -
+      value: ms-ansc
+      label: 'M.S. in Animal Sciences'
+    -
+      value: mans
+      label: 'M.A.N.S. Non-Thesis'
+    -
+      value: pm-ag-prod
+      label: 'Professional Masters Program - Concentration in Agricultural Production'
+    -
+      value: phd-ansc
+      label: 'Ph.D. in Animal Sciences'
+    -
+      value: companion-cert
+      label: 'CAAN Certificate'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

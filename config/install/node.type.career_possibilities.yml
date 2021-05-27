@@ -1,0 +1,18 @@
+uuid: 272e6380-eb3e-4005-9ba0-246592db8f76
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Career Possibilities'
+type: career_possibilities
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

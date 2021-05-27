@@ -1,0 +1,19 @@
+uuid: 89232580-53ac-48c4-b5c3-4fbdfb537f88
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_career_first_name
+    - node.type.career_possibilities
+id: node.career_possibilities.field_career_first_name
+field_name: field_career_first_name
+entity_type: node
+bundle: career_possibilities
+label: 'First Name'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

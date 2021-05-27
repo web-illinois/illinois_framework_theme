@@ -1,0 +1,19 @@
+uuid: 672e456c-6b51-4449-850a-eeb8b3fafdf3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ambassador_hometown
+    - node.type.ambassadors
+id: node.ambassadors.field_ambassador_hometown
+field_name: field_ambassador_hometown
+entity_type: node
+bundle: ambassadors
+label: Hometown
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -10588,8 +10588,6 @@ il-footer dd {
 }
 il-footer *[slot=links] ul {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
   list-style: none;
 }
 il-footer *[slot=links] ul li {
@@ -10597,7 +10595,7 @@ il-footer *[slot=links] ul li {
   margin: 0;
   padding: 0;
   list-style: none;
-  margin-bottom: 0.5em;
+  margin-bottom: 0;
 }
 il-footer *[slot=links] ul li:last-of-type {
   margin-bottom: 0;
@@ -10653,9 +10651,11 @@ il-footer *[slot=social] {
   flex-wrap: wrap;
 }
 il-footer *[slot=social] a, il-footer *[slot=social] il-social-link {
-  margin-right: 20px;
+  margin-right: 19px;
 }
-
+il-footer *[slot=colleges] {
+  margin-top: 45px;
+}
 @supports (font-variation-settings: normal) {
   il-footer *[slot=links] h2, il-footer *[slot=links] h3, il-footer *[slot=links] h4, il-footer *[slot=links] h5, il-footer *[slot=links] h6 {
     font-weight: normal;
@@ -10681,7 +10681,7 @@ il-footer *[slot=social] a, il-footer *[slot=social] il-social-link {
     grid-area: links;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 40px;
+    grid-gap: 95px;
   }
   il-footer *[slot=links] > ul, il-footer *[slot=links] > div {
     margin-bottom: 0;
@@ -11158,7 +11158,7 @@ h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus {
   padding-top: 0.625rem;
 }
 .l-region--footer {
-  padding: 2rem 0;
+  padding: 1.875rem 0;
 }
 
 /* header */
@@ -11352,36 +11352,48 @@ footer {
   line-height: 1.5em;
   font-family: var(--il-source-sans);
   background-color: var(--il-blue);
-  color: var(--il-cloud-3);
+  color: white;
 }
 footer address {
+  color: white;
+  font-family: var(--il-source-sans);
+  font-size: 1rem;
   font-style: normal;
+  font-weight: normal;
+  letter-spacing: normal;
+  line-height: 1.75;
+  text-align: left;
+}
+footer address a {
+  text-decoration: none;
 }
 footer dl.footer--email {
   font-size: 1.25rem;
 }
-footer a:hover {
-  color: var(--il-orange) !important;
+footer a {
+  /*&:focus {
+    color: var(--il-orange) !important;
+    outline: rem(2px) dashed  var(--il-orange) !important;
+    border-color: var(--il-orange) !important;
+  }*/
 }
-footer a:focus {
+footer a:hover, footer a:focus {
   color: var(--il-orange) !important;
-  outline: 0.125rem dashed var(--il-orange) !important;
-  border-color: var(--il-orange) !important;
 }
 
 il-footer {
-  color: var(--il-cloud-3);
+  color: white;
 }
 il-footer a {
   color: white;
+  /*&:focus {
+    color: var(--il-orange) !important;
+    outline: rem(2px) dashed  var(--il-orange) !important;
+    border-color: var(--il-orange) !important;
+  }*/
 }
-il-footer a:hover {
+il-footer a:hover, il-footer a:focus {
   color: var(--il-orange) !important;
-}
-il-footer a:focus {
-  color: var(--il-orange) !important;
-  outline: 0.125rem dashed var(--il-orange) !important;
-  border-color: var(--il-orange) !important;
 }
 il-footer[slot=parent] {
   background-color: var(--il-alma-mater) !important;
@@ -11396,45 +11408,118 @@ il-footer[slot=parent].no-title {
 }
 il-footer[slot=parent] a {
   color: white !important;
+  /*&:focus {
+    color: var(--il-orange) !important;
+    outline: rem(2px) dashed  var(--il-orange) !important;
+    border-color: var(--il-orange) !important;
+  }*/
 }
-il-footer[slot=parent] a:hover {
+il-footer[slot=parent] a:hover, il-footer[slot=parent] a:focus {
   color: var(--il-orange) !important;
-}
-il-footer[slot=parent] a:focus {
-  color: var(--il-orange) !important;
-  outline: 0.125rem dashed var(--il-orange) !important;
-  border-color: var(--il-orange) !important;
 }
 
+il-footer [slot=links] {
+  margin-top: 6.5625rem;
+}
+@media (max-width: 767.98px) {
+  il-footer [slot=links] {
+    margin-top: 0;
+  }
+}
 il-footer [slot=links].no-grid {
   grid-template-columns: repeat(1, 1fr) !important;
 }
-il-footer [slot=links] h3 {
+il-footer [slot=links] h2 {
   color: var(--il-cloud-3);
+  font-family: var(--il-source-sans);
+  font-size: 1.25rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.625rem;
+  letter-spacing: normal;
+  margin-bottom: 10px;
+  text-align: left;
 }
 @media (max-width: 37.5rem) {
-  il-footer [slot=links] h3 {
+  il-footer [slot=links] h2 {
     padding-left: 0 !important;
   }
 }
-il-footer [slot=links] h3 + ul a {
+il-footer [slot=links] h2 + ul a {
   padding: 0.25rem 0.625rem !important;
 }
 @media (max-width: 37.5rem) {
-  il-footer [slot=links] h3 + ul a {
+  il-footer [slot=links] h2 + ul a {
     padding-left: 0 !important;
   }
 }
+il-footer [slot=links] ul {
+  border-top: 0.125rem solid white;
+  margin: 1rem 0 2.8125rem 0;
+  padding: 1rem 0 0 0;
+}
 il-footer [slot=links] ul li {
+  color: white;
   display: flex !important;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  font-family: var(--il-source-sans);
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  margin-bottom: 10px;
+  text-align: left;
+}
+il-footer [slot=links] ul li a {
+  text-decoration: none;
+}
+il-footer [slot=links] ul li a.nav-link {
+  padding: 0;
 }
 
 il-footer [slot=social] a {
-  padding: 0.125rem 0.3125rem !important;
+  height: 34px;
+  width: 36px;
+}
+il-footer [slot=social] i.fa {
+  font-size: 26px;
+}
+il-footer [slot=social] i.fa:before {
+  display: inline-block;
+  height: 34px;
+  padding: 0.3125rem 0.4375rem 0.4375rem 0.4375rem !important;
+  width: 36px;
+}
+
+il-footer [slot=colleges] div {
+  margin-bottom: 1.5625rem;
+}
+il-footer [slot=colleges] div a {
+  color: #ffffff;
+  font-family: var(--il-source-sans);
+  font-size: 1rem;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: normal;
+  line-height: 1.5rem;
+  text-align: left;
+  text-decoration: none;
+}
+il-footer [slot=colleges] div:last-child {
+  margin-bottom: 0;
 }
 
 .footer--site-name {
-  font-weight: 700;
+  font-family: var(--il-source-sans);
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 29px;
+}
+.footer--site-name a {
+  text-decoration: none;
 }
 .footer--no-secondary-site {
   background: var(--il-alma-mater);
@@ -11443,7 +11528,11 @@ il-footer [slot=social] a {
 }
 .footer--subfooter {
   font-family: var(--il-source-sans);
-  padding: 1rem 1.875rem;
+  padding: 1.25rem 1.875rem 0 !important;
+  /* spacing for the about cookies button */
+}
+.footer--subfooter .ot-sdk-show-settings {
+  margin-right: 1rem;
 }
 .footer--subfooter ul {
   display: block;
@@ -11453,6 +11542,7 @@ il-footer [slot=social] a {
 }
 .footer--subfooter ul li {
   display: inline-block;
+  margin-right: 1.1875rem;
   padding: 0.5rem;
 }
 @media (max-width: 991.98px) {
@@ -11466,18 +11556,18 @@ il-footer [slot=social] a {
   line-height: 1.125rem;
   padding: 0.5rem;
   text-decoration: underline;
+  /*&:focus {
+    color: var(--il-orange);
+    outline: rem(1px) dashed var(--il-orange);
+    border-color: var(--il-orange);
+  }*/
 }
-.footer--subfooter ul li a:hover {
+.footer--subfooter ul li a:hover, .footer--subfooter ul li a:focus {
   color: var(--il-orange);
-}
-.footer--subfooter ul li a:focus {
-  color: var(--il-orange);
-  outline: 0.0625rem dashed var(--il-orange);
-  border-color: var(--il-orange);
 }
 
 #google_translate_element {
-  padding: 1.875rem 0 0 0;
+  padding: 0;
 }
 #google_translate_element img {
   width: auto;
@@ -12294,7 +12384,52 @@ body.simple header .navbar .dropdown-menu .menu li.menu-item--level-2 {
   margin-right: 1.875rem;
 }
 
-feature/magjarvis/issue-50-call-to-action-narrow-paragraph
+.paragraph--type--cta .field--name-field-cta__wrapper {
+  display: flex;
+  align-items: center;
+  padding: 2.813rem 0;
+}
+@media (max-width: 767.98px) {
+  .paragraph--type--cta .field--name-field-cta__wrapper {
+    display: block;
+  }
+}
+.paragraph--type--cta .field--name-field-cta__wrapper .field--name-field-cta-icon img {
+  max-width: inherit;
+}
+.paragraph--type--cta .field--name-field-cta__wrapper .field--name-field-cta-text__wrapper {
+  max-width: 50rem;
+  margin: 0 auto;
+}
+.paragraph--type--cta .field--name-field-cta__wrapper .field--name-field-cta-text__wrapper.left {
+  text-align: left;
+}
+.paragraph--type--cta .field--name-field-cta__wrapper .field--name-field-cta-text__wrapper.left .field--name-field-cta__button:first-child {
+  margin-left: 0;
+}
+.paragraph--type--cta .field--name-field-cta__wrapper .field--name-field-cta-text__wrapper.center {
+  text-align: center;
+}
+.paragraph--type--cta .field--name-field-cta__wrapper .field--name-field-cta-text__wrapper.right {
+  text-align: right;
+}
+.paragraph--type--cta .field--name-field-cta__wrapper .field--name-field-cta-text__wrapper.right .field--name-field-cta__button:last-child {
+  margin-right: 0;
+}
+.paragraph--type--cta .field--name-field-cta__subtitle {
+  margin-bottom: 0.938rem;
+  font-weight: 700;
+}
+.paragraph--type--cta .field--name-field-cta__title {
+  margin-bottom: 1.375rem;
+}
+.paragraph--type--cta .field--name-field-cta__body {
+  margin-bottom: 1.813rem;
+}
+.paragraph--type--cta .field--name-field-cta__button {
+  margin: 0 1.875rem;
+}
+
 .paragraph--type--cta-narrow .field--name-field-cta-narrow__wrapper {
   display: flex;
   align-items: center;
@@ -12326,7 +12461,39 @@ feature/magjarvis/issue-50-call-to-action-narrow-paragraph
     flex-basis: 100%;
   }
 }
-=======
+
+.paragraph--type--cta-narrow .field--name-field-cta-narrow__wrapper {
+  display: flex;
+  align-items: center;
+  padding: 2.813rem 0;
+}
+@media (max-width: 767.98px) {
+  .paragraph--type--cta-narrow .field--name-field-cta-narrow__wrapper {
+    display: block;
+  }
+}
+.paragraph--type--cta-narrow .field--name-field-cta-narrow__buttons {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.paragraph--type--cta-narrow .field--name-field-cta-narrow__buttons .btn {
+  min-height: 3rem;
+  height: auto;
+}
+.paragraph--type--cta-narrow .field--name-field-cta-narrow__button {
+  margin: 0.5rem 1.875rem;
+  flex-grow: 1;
+  flex-basis: 0;
+  white-space: nowrap;
+  max-width: 19.5rem;
+}
+@media (max-width: 767.98px) {
+  .paragraph--type--cta-narrow .field--name-field-cta-narrow__button {
+    flex-basis: 100%;
+  }
+}
+
 .paragraph--type--feature-video .field--name-field-feature-video__video {
   height: 100%;
   width: 100%;
@@ -12574,15 +12741,345 @@ feature/magjarvis/issue-50-call-to-action-narrow-paragraph
 .paragraph--type--bb .field--name-field-bb__content__wrapper:hover {
   border-bottom: 3px solid var(--il-industrial-blue-1);
 }
+.paragraph--type--cards__wrapper.card--color--illiniblue {
+  color: white;
+}
+.paragraph--type--cards__wrapper.card--color--illiniblue .field--name-field-cards-content__wrapper {
+  background-color: var(--il-blue);
+}
+.paragraph--type--cards__wrapper.card--color--illiniblue .title {
+  border-bottom: 1px solid white;
+}
+.paragraph--type--cards__wrapper.card--color--illiniblue .btn {
+  background-color: var(--il-blue);
+  border-color: var(--white);
+  color: var(--white);
+}
+.paragraph--type--cards__wrapper.card--color--illiniblue .btn:hover {
+  background-color: var(--il-orange);
+  border-color: var(--il-orange);
+  color: white;
+}
+.paragraph--type--cards__wrapper.card--color--white .field--name-field-cards-content__wrapper {
+  background-color: var(--white);
+}
+.paragraph--type--cards__wrapper.card--color--white .btn {
+  background-color: white;
+  border-color: var(--il-blue);
+  color: var(--il-blue);
+}
+.paragraph--type--cards__wrapper.card--color--white .btn:hover {
+  background-color: var(--il-blue);
+  border-color: var(--il-blue);
+  color: white;
+}
+.paragraph--type--cards .field--name-field-cards-text__wrapper {
+  margin: 1rem 0;
+  padding: 0 1.875rem;
+}
+.paragraph--type--cards .field--name-field-cards-text__wrapper.left {
+  text-align: left;
+}
+.paragraph--type--cards .field--name-field-cards-text__wrapper.center {
+  text-align: center;
+}
+.paragraph--type--cards .field--name-field-cards__title {
+  color: var(--il-orange);
+  font-weight: 700;
+  font-size: 2.25rem;
+}
+.paragraph--type--cards .field--name-field-cards__subtitle {
+  color: var(--il-blue);
+  font-weight: 700;
+  font-size: 1.75rem;
+}
+.paragraph--type--cards .field__items {
+  display: flex;
+  justify-content: space-evenly;
+}
+@media (max-width: 991.98px) {
+  .paragraph--type--cards .field__items {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 767.98px) {
+  .paragraph--type--cards .field__items {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.paragraph--type--cards .field__item {
+  display: flex;
+  flex-direction: column;
+}
+
+.paragraph--type--cards__wrapper.card--color--illiniblue {
+  color: white;
+}
+.paragraph--type--cards__wrapper.card--color--illiniblue .field--name-field-cards-content__wrapper {
+  background-color: var(--il-blue);
+}
+.paragraph--type--cards__wrapper.card--color--illiniblue .title {
+  border-bottom: 1px solid white;
+}
+.paragraph--type--cards__wrapper.card--color--illiniblue .btn {
+  background-color: var(--il-blue);
+  border-color: var(--white);
+  color: var(--white);
+}
+.paragraph--type--cards__wrapper.card--color--illiniblue .btn:hover {
+  background-color: var(--il-orange);
+  border-color: var(--il-orange);
+  color: white;
+}
+.paragraph--type--cards__wrapper.card--color--white .field--name-field-cards-content__wrapper {
+  background-color: var(--white);
+}
+.paragraph--type--cards__wrapper.card--color--white .btn {
+  background-color: white;
+  border-color: var(--il-blue);
+  color: var(--il-blue);
+}
+.paragraph--type--cards__wrapper.card--color--white .btn:hover {
+  background-color: var(--il-blue);
+  border-color: var(--il-blue);
+  color: white;
+}
+.paragraph--type--cards .field--name-field-cards-text__wrapper {
+  margin: 1rem 0;
+  padding: 0 1.875rem;
+}
+.paragraph--type--cards .field--name-field-cards-text__wrapper.left {
+  text-align: left;
+}
+.paragraph--type--cards .field--name-field-cards-text__wrapper.center {
+  text-align: center;
+}
+.paragraph--type--cards .field--name-field-cards__title {
+  color: var(--il-orange);
+  font-weight: 700;
+  font-size: 2.25rem;
+}
+.paragraph--type--cards .field--name-field-cards__subtitle {
+  color: var(--il-blue);
+  font-weight: 700;
+  font-size: 1.75rem;
+}
+.paragraph--type--cards .field__items {
+  display: flex;
+  justify-content: space-evenly;
+}
+@media (max-width: 991.98px) {
+  .paragraph--type--cards .field__items {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 767.98px) {
+  .paragraph--type--cards .field__items {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.paragraph--type--cards .field__item {
+  display: flex;
+  flex-direction: column;
+}
+
+.field--name-field-cards-content__wrapper {
+  border: solid 1px #707070;
+  max-width: 21.875rem;
+  padding-bottom: 1.875rem;
+  height: 100%;
+}
+.field--name-field-cards-content-text__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.field--name-field-cards-content__title {
+  color: var(--il-orange);
+  text-align: center;
+  font-size: 1.3125rem;
+  font-weight: 700;
+  line-height: 2.0625rem;
+  padding: 1.875rem;
+  border-bottom: 1px solid #DDD6D6;
+}
+.field--name-field-cards-content__body {
+  padding: 1.875rem 1.875rem;
+}
+.field--name-field-cards-content__button {
+  text-align: center;
+  padding: 0.9375rem 2.8125rem 0.9375rem 2.8125rem;
+}
+
+@media (max-width: 767.98px) {
+  .paragraph--type--intro-home {
+    padding: 0 !important;
+  }
+}
+.paragraph--type--intro-home .field--name-field-intro-home__wrapper {
+  padding: 4.6875rem 0 5.625rem 0;
+  max-width: 50rem;
+}
+@media (max-width: 767.98px) {
+  .paragraph--type--intro-home .field--name-field-intro-home__wrapper {
+    padding-left: 2.8125rem;
+    padding-right: 2.8125rem;
+  }
+}
+.paragraph--type--intro-home .field--name-field-intro-home__wrapper.left {
+  text-align: left;
+}
+.paragraph--type--intro-home .field--name-field-intro-home__wrapper.left .field--name-field-intro-home__button:first-child {
+  margin-left: 0;
+}
+@media (max-width: 767.98px) {
+  .paragraph--type--intro-home .field--name-field-intro-home__wrapper.left .field--name-field-intro-home__button:first-child {
+    margin-left: inherit;
+  }
+}
+.paragraph--type--intro-home .field--name-field-intro-home__wrapper.center {
+  text-align: center;
+}
+.paragraph--type--intro-home .field--name-field-intro-home__wrapper.right {
+  text-align: right;
+}
+.paragraph--type--intro-home .field--name-field-intro-home__wrapper.right .field--name-field-intro-home__button:last-child {
+  margin-right: 0;
+}
+@media (max-width: 767.98px) {
+  .paragraph--type--intro-home .field--name-field-intro-home__wrapper.right .field--name-field-intro-home__button:last-child {
+    margin-left: inherit;
+  }
+}
+.paragraph--type--intro-home .field--name-field-intro-home-text-lg {
+  font-size: 2.25rem;
+  line-height: 2.625rem;
+  font-style: oblique;
+}
+.paragraph--type--intro-home .field--name-field-intro-home-text-sm {
+  font-size: 1.375rem;
+  line-height: 1.75rem;
+}
+.paragraph--type--intro-home .field--name-field-intro-home__buttons {
+  margin-top: 2.8125rem;
+}
+.paragraph--type--intro-home .field--name-field-intro-home__button {
+  margin: 0 1.875rem;
+}
+@media (max-width: 767.98px) {
+  .paragraph--type--intro-home .field--name-field-intro-home__button {
+    margin: 1rem 1.875rem;
+  }
+
+.paragraph--type--cards__wrapper.card--color--illiniblue {
+  color: white;
+}
+.paragraph--type--cards__wrapper.card--color--illiniblue .field--name-field-cards-content__wrapper {
+  background-color: var(--il-blue);
+}
+.paragraph--type--cards__wrapper.card--color--illiniblue .title {
+  border-bottom: 1px solid white;
+}
+.paragraph--type--cards__wrapper.card--color--illiniblue .btn {
+  background-color: var(--il-blue);
+  border-color: var(--white);
+  color: var(--white);
+}
+.paragraph--type--cards__wrapper.card--color--illiniblue .btn:hover {
+  background-color: var(--il-orange);
+  border-color: var(--il-orange);
+  color: white;
+}
+.paragraph--type--cards__wrapper.card--color--white .field--name-field-cards-content__wrapper {
+  background-color: var(--white);
+}
+.paragraph--type--cards__wrapper.card--color--white .btn {
+  background-color: white;
+  border-color: var(--il-blue);
+  color: var(--il-blue);
+}
+.paragraph--type--cards__wrapper.card--color--white .btn:hover {
+  background-color: var(--il-blue);
+  border-color: var(--il-blue);
+  color: white;
+}
+.paragraph--type--cards .field--name-field-cards-text__wrapper {
+  margin: 1rem 0;
+  padding: 0 1.875rem;
+}
+.paragraph--type--cards .field--name-field-cards-text__wrapper.left {
+  text-align: left;
+}
+.paragraph--type--cards .field--name-field-cards-text__wrapper.center {
+  text-align: center;
+}
+.paragraph--type--cards .field--name-field-cards__title {
+  color: var(--il-orange);
+  font-weight: 700;
+  font-size: 2.25rem;
+}
+.paragraph--type--cards .field--name-field-cards__subtitle {
+  color: var(--il-blue);
+  font-weight: 700;
+  font-size: 1.75rem;
+}
+.paragraph--type--cards .field__items {
+  display: flex;
+  justify-content: space-evenly;
+}
+@media (max-width: 991.98px) {
+  .paragraph--type--cards .field__items {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 767.98px) {
+  .paragraph--type--cards .field__items {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.paragraph--type--cards .field__item {
+  display: flex;
+  flex-direction: column;
+}
+
+.field--name-field-cards-content__wrapper {
+  border: solid 1px #707070;
+  max-width: 21.875rem;
+  padding-bottom: 1.875rem;
+  height: 100%;
+}
+.field--name-field-cards-content-text__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.field--name-field-cards-content__title {
+  color: var(--il-orange);
+  text-align: center;
+  font-size: 1.3125rem;
+  font-weight: 700;
+  line-height: 2.0625rem;
+  padding: 1.875rem;
+  border-bottom: 1px solid #DDD6D6;
+}
+.field--name-field-cards-content__body {
+  padding: 1.875rem 1.875rem;
+}
+.field--name-field-cards-content__button {
+  text-align: center;
+  padding: 0.9375rem 2.8125rem 0.9375rem 2.8125rem;
+}
 
 .paragraph--type--rt__wrapper {
-  margin: 0.9375rem 10;
+  margin: 0.9375rem 0.625rem;
 }
-.paragraph--type--rt__title {
-  color: var(--il-altgeld);
-  font-size: 2.5rem;
-  font-weight: 700;
-  padding: 1.875rem;
+.paragraph--type--rt__title h2 {
+  color: var(--il-orange);
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 2.5rem;
+  padding: 1.25rem 0.9375rem 0.625rem;
   text-align: center;
 }
 .paragraph--type--rt .field--name-field-rt__content__wrapper {
@@ -12591,7 +13088,7 @@ feature/magjarvis/issue-50-call-to-action-narrow-paragraph
   padding: 0 0 1.875rem 0;
 }
 .paragraph--type--rt .field--name-field-rt__title .field__item {
-  color: var(--il-altgeld);
+  color: var(--il-orange);
   font-family: var(--il-source-sans);
   font-size: 1.3125rem;
   font-weight: 700;
@@ -12608,10 +13105,96 @@ feature/magjarvis/issue-50-call-to-action-narrow-paragraph
 }
 .paragraph--type--rt .field--name-field-rt__body .field__item img {
   width: 100%;
+  padding-bottom: 0.625rem;
 }
 
-<<<<<<< Updated upstream
-=======
+.paragraph--type--list-content .field--name-field-list-content__wrapper {
+  display: flex;
+  padding: 1.875rem 0;
+}
+@media (max-width: 767.98px) {
+  .paragraph--type--list-content .field--name-field-list-content__wrapper {
+    flex-wrap: wrap;
+  }
+}
+.paragraph--type--list-content .field--name-field-list-content__wrapper.left .field--name-field-list-contet-img__wrapper {
+  margin-right: 1.875rem;
+}
+@media (max-width: 767.98px) {
+  .paragraph--type--list-content .field--name-field-list-content__wrapper.left .field--name-field-list-contet-img__wrapper {
+    margin-right: 0;
+    margin-bottom: 1.875rem;
+  }
+}
+.paragraph--type--list-content .field--name-field-list-content__wrapper.right {
+  flex-direction: row-reverse;
+}
+@media (max-width: 767.98px) {
+  .paragraph--type--list-content .field--name-field-list-content__wrapper.right {
+    flex-direction: row;
+  }
+}
+.paragraph--type--list-content .field--name-field-list-content__wrapper.right .field--name-field-list-contet-img__wrapper {
+  margin-left: 1.875rem;
+}
+@media (max-width: 767.98px) {
+  .paragraph--type--list-content .field--name-field-list-content__wrapper.right .field--name-field-list-contet-img__wrapper {
+    margin-left: 0;
+    margin-bottom: 1.875rem;
+  }
+}
+.paragraph--type--list-content .field--name-field-list-content-text__wrapper {
+  width: 75%;
+}
+.paragraph--type--list-content .field--name-field-list-content-text__wrapper .body p {
+  color: #252525;
+}
+
+.field--name-field-list-content .field__item:nth-of-type(odd) {
+  background: var(--il-gray);
+}
+.field--name-field-list-content-body.field__item {
+  background: transparent !important;
+}
+
+.paragraph--type--expand-collapse {
+  margin: 1.875rem 0 !important;
+}
+.paragraph--type--expand-collapse .field--name-field-expand-collapse__wrapper button.accordion {
+  background-color: var(--il-gray);
+  padding: 1.875rem;
+  color: #13294b;
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 1.375rem;
+  transition: 0.4s;
+  height: auto;
+  font-family: "Source Sans", sans-serif;
+}
+.paragraph--type--expand-collapse .field--name-field-expand-collapse__wrapper button .arrow {
+  position: relative;
+}
+.paragraph--type--expand-collapse .field--name-field-expand-collapse__wrapper button .arrow:after {
+  font-family: "FontAwesome";
+  float: right;
+  position: absolute;
+  right: 1.875rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.paragraph--type--expand-collapse .field--name-field-expand-collapse__wrapper button[aria-expanded=false] .arrow:after {
+  content: "";
+}
+.paragraph--type--expand-collapse .field--name-field-expand-collapse__wrapper button[aria-expanded=true] .arrow:after {
+  content: "";
+}
+.paragraph--type--expand-collapse .field--name-field-expand-text__wrapper {
+  padding-top: 1.875rem;
+  padding-bottom: 3.125rem;
+}
 .paragraph--type--cta-narrow .field--name-field-cta-narrow__wrapper {
   display: flex;
   align-items: center;
@@ -12928,19 +13511,30 @@ feature/magjarvis/issue-50-call-to-action-narrow-paragraph
   width: 100%;
   padding-bottom: 0.625rem;
 }
-
->>>>>>> Stashed changes
 /* ie 11 CSS styles */
+.fingerprint--full {
+  background-image: url("/themes/contrib/illinois_framework_theme/images/fingerprint.svg");
+  background-size: 115%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.fingerprint--right {
+  background-image: url("/themes/contrib/illinois_framework_theme/images/fingerprint-right.png");
+  background-size: 115%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.fingerprint--left {
+  background-image: url("/themes/contrib/illinois_framework_theme/images/fingerprint-left.png");
+  background-size: 115%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .background--color--white {
   background-color: white;
 }
 .background--color--white .title {
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-  color: var(--il-altgeld);
-=======
-=======
->>>>>>> d2567db472db56f145e0d427b0297ff603f4ab65
   color: var(--il-orange);
 }
 .background--color--white .body p {
@@ -12951,13 +13545,9 @@ feature/magjarvis/issue-50-call-to-action-narrow-paragraph
 }
 .background--color--white .body p a:hover, .background--color--white .body p a:focus, .background--color--white .body p a:visited {
   color: var(--il-orange);
-<<<<<<< HEAD
->>>>>>> Stashed changes
 }
 .background--color--white .subtitle {
   color: var(--il-alma-mater);
-=======
->>>>>>> d2567db472db56f145e0d427b0297ff603f4ab65
 }
 .background--color--white .btn {
   background-color: var(--il-orange);
@@ -12973,26 +13563,29 @@ feature/magjarvis/issue-50-call-to-action-narrow-paragraph
   background-image: linear-gradient(var(--il-blue), var(--il-industrial-blue));
   color: white;
 }
+.background--color--bluegradient.fingerprint--full {
+  background-image: url("/themes/contrib/illinois_framework_theme/images/fingerprint.svg"), linear-gradient(var(--il-blue), var(--il-industrial-blue));
+}
+.background--color--bluegradient.fingerprint--left {
+  background-image: url("/themes/contrib/illinois_framework_theme/images/fingerprint-left.svg"), linear-gradient(var(--il-blue), var(--il-industrial-blue));
+}
+.background--color--bluegradient.fingerprint--right {
+  background-image: url("/themes/contrib/illinois_framework_theme/images/fingerprint-right.svg"), linear-gradient(var(--il-blue), var(--il-industrial-blue));
+}
 .background--color--bluegradient .title {
   color: white;
 }
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-.background--color--bluegradient .body p {
-  color: white;
-=======
 .background--color--bluegradient .subtitle {
   color: white;
 }
+.background--color--bluegradient .body p {
+  color: white;
+}
 .background--color--bluegradient .body p a:hover, .background--color--bluegradient .body p a:focus, .background--color--bluegradient .body p a:visited {
   color: var(--il-orange);
->>>>>>> Stashed changes
-=======
-.background--color--bluegradient .body p a:hover, .background--color--bluegradient .body p a:focus, .background--color--bluegradient .body p a:visited {
-  color: var(--il-orange);
->>>>>>> d2567db472db56f145e0d427b0297ff603f4ab65
 }
 .background--color--bluegradient .btn {
+  background-color: var(--il-industrial-blue);
   border: 0.125rem solid white;
   color: white;
 }
@@ -13001,29 +13594,32 @@ feature/magjarvis/issue-50-call-to-action-narrow-paragraph
   color: var(--il-blue);
 }
 .background--color--orangegradient {
-  background-image: linear-gradient(var(--il-altgeld), var(--il-orange));
+  background: linear-gradient(var(--il-altgeld), var(--il-orange));
   color: white;
+}
+.background--color--orangegradient.fingerprint--full {
+  background-image: url("/themes/contrib/illinois_framework_theme/images/fingerprint.svg"), linear-gradient(var(--il-altgeld), var(--il-orange));
+}
+.background--color--orangegradient.fingerprint--left {
+  background-image: url("/themes/contrib/illinois_framework_theme/images/fingerprint-left.svg"), linear-gradient(var(--il-altgeld), var(--il-orange));
+}
+.background--color--orangegradient.fingerprint--right {
+  background-image: url("/themes/contrib/illinois_framework_theme/images/fingerprint-right.svg"), linear-gradient(var(--il-altgeld), var(--il-orange));
 }
 .background--color--orangegradient .title {
   color: white;
 }
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-.background--color--orangegradient .body p {
-  color: white;
-=======
 .background--color--orangegradient .subtitle {
   color: var(--il-blue);
 }
+.background--color--orangegradient .body p {
+  color: white;
+ }
 .background--color--orangegradient .body p a:hover, .background--color--orangegradient .body p a:focus, .background--color--orangegradient .body p a:visited {
   color: var(--il-blue);
->>>>>>> Stashed changes
-=======
-.background--color--orangegradient .body p a:hover, .background--color--orangegradient .body p a:focus, .background--color--orangegradient .body p a:visited {
-  color: var(--il-blue);
->>>>>>> d2567db472db56f145e0d427b0297ff603f4ab65
 }
 .background--color--orangegradient .btn {
+  background-color: var(--il-orange);
   border: 0.125rem solid white;
   color: white;
 }
@@ -13039,23 +13635,24 @@ feature/magjarvis/issue-50-call-to-action-narrow-paragraph
 .background--color--illiniblue .title {
   color: white;
 }
-<<<<<<< HEAD
-<<<<<<< Updated upstream
 .background--color--illiniblue .body p {
   color: white;
-=======
 .background--color--illiniblue .subtitle {
   color: var(--il-orange);
 }
+.background--color--illiniblue .subtitle {
+  color: var(--il-orange);
+}
+.background--color--illiniblue .body p {
+  color: white;
+}
 .background--color--illiniblue .body p a:hover, .background--color--illiniblue .body p a:focus, .background--color--illiniblue .body p a:visited {
   color: var(--il-orange);
->>>>>>> Stashed changes
-=======
 .background--color--illiniblue .body p a:hover, .background--color--illiniblue .body p a:focus, .background--color--illiniblue .body p a:visited {
   color: var(--il-orange);
->>>>>>> d2567db472db56f145e0d427b0297ff603f4ab65
 }
 .background--color--illiniblue .btn {
+  background-color: var(--il-blue);
   border: 0.125rem solid white;
   color: white;
 }
@@ -13071,23 +13668,17 @@ feature/magjarvis/issue-50-call-to-action-narrow-paragraph
 .background--color--illiniorange .title {
   color: white;
 }
-<<<<<<< HEAD
-<<<<<<< Updated upstream
 .background--color--illiniorange .body p {
   color: white;
-=======
+ }
 .background--color--illiniorange .subtitle {
   color: var(--il-blue);
 }
 .background--color--illiniorange .body p a:hover, .background--color--illiniorange .body p a:focus, .background--color--illiniorange .body p a:visited {
   color: var(--il-blue);
->>>>>>> Stashed changes
-=======
-.background--color--illiniorange .body p a:hover, .background--color--illiniorange .body p a:focus, .background--color--illiniorange .body p a:visited {
-  color: var(--il-blue);
->>>>>>> d2567db472db56f145e0d427b0297ff603f4ab65
 }
 .background--color--illiniorange .btn {
+  background-color: var(--il-orange);
   border: 0.125rem solid white;
   color: white;
 }

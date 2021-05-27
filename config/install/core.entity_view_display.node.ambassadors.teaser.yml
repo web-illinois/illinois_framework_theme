@@ -1,0 +1,46 @@
+uuid: 0ac794a0-7b2c-4b73-87b6-69f538f71645
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.ambassadors.body
+    - field.field.node.ambassadors.field_ambassador_biography
+    - field.field.node.ambassadors.field_ambassador_class_of
+    - field.field.node.ambassadors.field_ambassador_current_degree
+    - field.field.node.ambassadors.field_ambassador_first_name
+    - field.field.node.ambassadors.field_ambassador_hometown
+    - field.field.node.ambassadors.field_ambassador_image
+    - field.field.node.ambassadors.field_ambassador_last_name
+    - field.field.node.ambassadors.field_ambassador_link
+    - node.type.ambassadors
+  module:
+    - text
+    - user
+id: node.ambassadors.teaser
+targetEntityType: node
+bundle: ambassadors
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_ambassador_biography: true
+  field_ambassador_class_of: true
+  field_ambassador_current_degree: true
+  field_ambassador_first_name: true
+  field_ambassador_hometown: true
+  field_ambassador_image: true
+  field_ambassador_last_name: true
+  field_ambassador_link: true

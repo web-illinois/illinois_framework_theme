@@ -1,0 +1,19 @@
+uuid: 3ef5568f-e568-4ee9-8cac-b7a914625dac
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - paragraphs
+id: paragraph.field_page_intro_buttons
+field_name: field_page_intro_buttons
+entity_type: paragraph
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 3
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

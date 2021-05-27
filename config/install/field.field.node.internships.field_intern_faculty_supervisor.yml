@@ -1,0 +1,23 @@
+uuid: 47529363-27d1-49f3-a570-fd30c9643d9d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_intern_faculty_supervisor
+    - node.type.internships
+  module:
+    - text
+id: node.internships.field_intern_faculty_supervisor
+field_name: field_intern_faculty_supervisor
+entity_type: node
+bundle: internships
+label: 'ANSC 398 Faculty Supervisor'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary

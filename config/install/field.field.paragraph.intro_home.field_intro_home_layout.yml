@@ -1,0 +1,23 @@
+uuid: 20b621c7-cf71-4d63-865f-0ab5af5e7aa7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_intro_home_layout
+    - paragraphs.paragraphs_type.intro_home
+  module:
+    - options
+id: paragraph.intro_home.field_intro_home_layout
+field_name: field_intro_home_layout
+entity_type: paragraph
+bundle: intro_home
+label: Layout
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: center
+default_value_callback: ''
+settings: {  }
+field_type: list_string
