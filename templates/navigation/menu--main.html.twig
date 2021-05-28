@@ -18,65 +18,67 @@
  *   - in_active_trail: TRUE if the link is in the active trail.
  */
 #}
-
-<nav class="navbar navbar-expand-lg p-0">
-  <div class="collapse navbar-collapse" id="mainnav">
 {% import _self as menus %}
 
 {#
   We call a macro which calls itself to render the full tree.
   @see http://twig.sensiolabs.org/doc/tags/macro.html
-  1. We use menu_name (see above) to create a CSS class name from it.
-  See https://www.drupal.org/node/2649076
 #}
+{{ menus.menu_links(items, attributes, 0) }}
 
-{{ menus.menu_links(items, attributes, 0, menu_name) }} {# 1. #}
-
-{% macro menu_links(items, attributes, menu_level, menu_name) %} {# 1. #}
+{% macro menu_links(items, attributes, menu_level) %}
   {% import _self as menus %}
-  {# 1. #}
   {% if items %}
-    {% spaceless %}
     {% if menu_level == 0 %}
-      <ul class="navbar-nav d-flex justify-content-start"> {# 1. #}
-    {% else %}
-      <div class="dropdown-menu tile-list">
-      <section class="tile menu menu--level-{{ menu_level + 1 }} white-box col">
-{#    {% else %}#}
-{#        <ul class="submenu tile whiteb-box col">#}
-{#      <div{{ attributes.addClass(submenu_classes) }}> #}{# 1. #}
+      <il-nav-section>
     {% endif %}
-
     {% for item in items %}
-      {# 1. #}
-      {%
-        set item_classes = [ item.is_expanded ? 'dropdown', 'mega nav-item', item.in_active_trail ? 'active', 'menu-item--level-' ~ (menu_level + 1) ]
-      %}
-      {# Create CSS class #}
-      {%
-        set link_classes = ['nav-link']
-      %}
-      {%
-        set item_dropdown_classes = [ item.is_expanded ? 'dropdown', item.in_active_trail ? 'active' ]
-      %}
+      {% if menu_level == 0 and item.below %}
+          <a href="{{ item.url }}" slot="label">{{ item.title }}</a>
+          <ul class="il-subnav">
+      {% else %}
+          <a href="{{ item.url }}" slot="label">{{ item.title }}</a>
+            {% if item.below %}
+              <li>
+                <a href="{{ item.url }}">{{ item.title }}</a>
+              </li>
+            {% endif %}
+      {% endif %}
 
-      <li{{ item.attributes.addClass(item_classes) }}>
-       {% if item.below %}
-         {# aces style click menu #}
-{#         <a{{ attributes.removeClass(item_classes).addClass(link_classes) }} href="{{ item.url }}"  title="{{ item.title }}">{{ item.title }}</a>#}
-         {# engineering style click menu #}
-         <a{{ attributes.removeClass(item_classes).addClass(link_classes) }} href="#" data-toggle="dropdown"  title="{{ item.title }}">{{ item.title }}</a>
-       {% else %}
-         <a{{ attributes.removeClass(item_classes).addClass(link_classes) }} href="{{ item.url }}"  title="{{ item.title }}">{{ item.title }}</a>
-       {% endif %}
-        {% if item.below %}
-          {{ menus.menu_links(item.below, attributes, menu_level + 1, menu_name) }} {# 1. #}
-        {% endif %}
-      </li>
+
+{#      {% if item.below %}#}
+{#        <li>#}
+{#          <a href="{{ item.url }}">{{ item.title }}</a>#}
+{#        </li>#}
+{#      {% endif %}#}
+
     {% endfor %}
-
-  {% endspaceless %}
+          {% if menu_level == 0 %}
+        </il-nav-section>
+            {% endif %}
   {% endif %}
-  {% endmacro %}
-  </div>
-</nav>
+{% endmacro %}
+{#      {% else %}#}
+{#        <slot>#}
+{#        <li>#}
+{#          <a href="{{ item.url }}">{{ item.title }}</a>#}
+{#        </li>#}
+{#        </slot>#}
+{#      {% endif %}#}
+{#        {% if menu_level == 0 %}#}
+{#          <a href="{{ item.url }}" slot="label">{{ item.title }}</a>#}
+{#        {% else %}#}
+{#          <li>#}
+{#            <a href="{{ item.url }}">{{ item.title }}</a>#}
+{#          </li>#}
+{#        {% endif %}#}
+
+{#      {% else %}#}
+{# {% if item.below %}#}
+{#   </ul>#}
+{#   </slot>#}
+{#  {% endif %}#}
+
+
+{#      {% endif %}#}
+

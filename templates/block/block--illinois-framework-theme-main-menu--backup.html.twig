@@ -31,10 +31,22 @@
  * http://www.w3.org/TR/WCAG-TECHS/H42.html for more information.
  */
 #}
-
+{%
+  set classes = [
+    'block',
+  ]
+%}
+{% set heading_id = attributes.id ~ '-menu'|clean_id %}
+<div {{ attributes.addClass(classes) }} role="navigation" aria-label="{{ configuration.label }}"{{ attributes|without('role', 'aria-labelledby') }}>
+  {# Label. If not displayed, we still provide it for screen readers. #}
+  {% if not configuration.label_display %}
+    {% set title_attributes = title_attributes.addClass('visually-hidden') %}
+  {% endif %}
+  {{ title_prefix }}
+  {{ title_suffix }}
 
   {# Menu. #}
   {% block content %}
     {{ content }}
   {% endblock %}
-
+</div>

@@ -17,7 +17,7 @@
   'region',
   'region-' ~ region|clean_class,
   'l-region',
-  'l-region--' ~ region|clean_class,
+  'l-region--' ~ region|clean_class
 ]
 %}
 {% if content %}
@@ -83,7 +83,16 @@
       </ul>
     </nav>
     <il-nav slot="navigation">
-      {{ drupal_entity('block', 'illinoisframeworkmenu', check_access=false) }}
+
+      {% if menu_type == 'mega' %}
+        {{ drupal_entity('block', 'mainnavigation', check_access=false) }}
+      {% else %}
+{#        {{ drupal_entity('block', 'illinoisframeworkmenu', check_access=false) }}#}
+        {{ drupal_entity('block', 'illinois_framework_theme_main_menu', check_access=false) }}
+      {% endif %}
+
+{#      {{ drupal_entity('block', 'illinois_framework_theme_main_menu', check_access=false) }}#}
+{#      {{ drupal_entity('block', 'illinoisframeworkmenu', check_access=false) }}#}
 {#      <il-nav-section>#}
 {#        <a href="#" slot="label">About</a>#}
 {#        <ul class="il-subnav">#}

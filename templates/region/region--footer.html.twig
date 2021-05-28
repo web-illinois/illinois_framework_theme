@@ -86,56 +86,62 @@
         {% endfor %}
       </div>
     {% endif %}
+    {% if drupal_entity('block_content', 1) %}
     <div class="il-footer-navigation">
-      {% if drupal_entity('block_content', 1) %}
-        <div>
-          {{ drupal_entity('block_content', 1) }}
-        </div>
+       <div>
+         {{ drupal_entity('block_content', 1) }}
+       </div>
+    </div>
+    {% endif %}
+    <div class="il-footer-navigation">
+      {% if drupal_entity('block', 'footermenufirst') %}
+        <nav aria-label="Campus Footer Links">
+          {{ drupal_entity('block', 'footermenufirst') }}
+        </nav>
       {% endif %}
-      <nav aria-label="Campus Footer Links">
-        <h2>Department Resources:</h2>
-        <ul>
-          <li><a href="#">Faculty &amp; Staff</a></li>
-          <li><a href="#">Undergraduate Studies</a></li>
-          <li><a href="#">Graduate Students</a></li>
-          <li><a href="#">Give to Department</a></li>
-        </ul>
-      </nav>
-      <nav aria-label="Campus Footer Links 2">
-        <h2>College Resources</h2>
-        <ul>
-          <li><a href="#">Contact ACES</a></li>
-          <li><a href="#">About the College</a></li>
-          <li><a href="#">Future Students</a></li>
-        </ul>
-      </nav>
+      {% if drupal_entity('block', 'footermenusecond') %}
+        <nav aria-label="Campus Footer Links 2">
+          {{ drupal_entity('block', 'footermenusecond') }}
+        </nav>
+      {% endif %}
     </div>
     <div class="il-footer-navigation">
-      <nav aria-label="Campus Footer Links 3">
-        <h2>More Resources:</h2>
-        <ul>
-          <li><a href="#">One</a></li>
-          <li><a href="#">Two is a Really Really Long Item That Wraps Around</a></li>
-        </ul>
-      </nav>
-      <nav aria-label="Campus Footer Links 4">
-        <h2>University of Illinois Long Title of Resources</h2>
-        <ul>
-          <li><a href="#">Admissions</a></li>
-          <li><a href="#">Covid Resources</a></li>
-          <li><a href="#">Graduate Students</a></li>
-          <li><a href="#">Give to Department</a></li>
-        </ul>
-      </nav>
+      {% if drupal_entity('block', 'footermenuthird') %}
+        <nav aria-label="Campus Footer Links 3">
+          {{ drupal_entity('block', 'footermenuthird') }}
+        </nav>
+      {% endif %}
+      {% if drupal_entity('block', 'footermenufourth') %}
+        <nav aria-label="Campus Footer Links 4">
+          {{ drupal_entity('block', 'footermenufourth') }}
+        </nav>
+      {% endif %}
+      <div id="google_translate_element"></div>
+      <script>
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false
+          }, 'google_translate_element');
+        }
+      </script>
+      <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     </div>
     <nav slot="links" class="il-footer-links">
       <h2 class="il-invisible">Additional links</h2>
       <ul>
         <li><button id="ot-sdk-btn" class="ot-sdk-show-settings">About Cookies</button></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li>© 2021 University of Illinois Board of Trustees</li>
-        <li><a href="#">College Bylaws</a></li>
-        <li><a href="#">Login</a></li>
+        <li><a href="https://www.vpaa.uillinois.edu/resources/web_privacy">Privacy Policy</a></li>
+        <li><a href="https://illinois.edu/resources/website/copyright.html">© 2021 University of Illinois Board of Trustees</a></li>
+        {% for subfooter_link in if_subfooter %}
+          {% set link = if_subfooter[loop.index0][1] %}
+          {% set text = if_subfooter[loop.index0][0] %}
+          {% if link != NULL or text != NULL %}
+            <li><a href="{{ link }}">{{ text }}</a></li>
+          {% endif %}
+        {% endfor %}
+        <li><a href="/user">Login</a></li>
       </ul>
     </nav>
   </il-footer>
