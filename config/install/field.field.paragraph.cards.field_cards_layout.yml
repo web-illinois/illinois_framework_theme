@@ -1,0 +1,25 @@
+uuid: 7de5c306-79df-4b78-a60c-75147623f2d6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cards_layout
+    - paragraphs.paragraphs_type.cards
+  module:
+    - options
+_core:
+  default_config_hash: SGCHA_m2ByWQcOhv9ru4x0fgQWk1FgDYQtVbgP4VKms
+id: paragraph.cards.field_cards_layout
+field_name: field_cards_layout
+entity_type: paragraph
+bundle: cards
+label: Layout
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: left
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -51,28 +51,28 @@
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
-    <div class="background--color--{{ content.field_cta_narrow_background['#items'].0.value }} margin--{{ content.field_cta_narrow_margin['#items'].0.value }}">
-    <div class="field--name-field-cta-narrow__wrapper fixed-width">
-      {% if content.field_cta_narrow_title['#items'] %}
-      <div class="field--name-field-cta-narrow__item col">
-      <h2 class="field--name-field-cta-narrow__title title">{{ content.field_cta_narrow_title }}</h2>
+    <div class="background--color--{{ content.field_intro_home_background['#items'].0.value }}">
+    <div class="fingerprint--{{ content.field_intro_home_fingerprint['#items'].0.value }}">
+      <div class="field--name-field-intro-home__wrapper fixed-width {{ content.field_intro_home_layout['#items'].0.value }}">
+      {% if content.field_intro_home_text_lg['#items'] %}
+      <div class="field--name-field-intro-home-text-lg body">
+        {{ content.field_intro_home_text_lg }}
       </div>
       {% endif %}
-      {% if content.field_cta_narrow_body['#items'] %}
-      <div class="field--name-field-cta-narrow__item col">
-      <div class="field--name-field-cta-narrow__body body">{{ content.field_cta_narrow_body }}</div>
-      </div>
+      {% if content.field_intro_home_text_sm['#items'] %}
+      <div class="field--name-field-intro-home-text-sm body">{{ content.field_intro_home_text_sm }}</div>
       {% endif %}
-      {% set button_number = content.field_cta_narrow_button['#items']|length %}
+      {% set button_number = content.field_intro_home_button['#items']|length %}
           {% if button_number > 0 %}
-          <div class="field--name-field-cta-narrow__item col">
-            <div class="field--name-field-cta-narrow__buttons">
-            {% for item in content.field_cta_narrow_button['#items'] %}
-              <a class="field--name-field-cta-narrow__button btn btn-primary" href="{{ content.field_cta_narrow_button[loop.index0]['#url'] }}" role="button">{{ content.field_cta_narrow_button[loop.index0]['#title'] }}</a>
+          <div class="field--name-field-intro-home__item">
+            <div class="field--name-field-intro-home__buttons">
+            {% for item in content.field_intro_home_button['#items'] %}
+              <a class="field--name-field-intro-home__button btn btn-primary" href="{{ content.field_intro_home_button[loop.index0]['#url'] }}" role="button">{{ content.field_intro_home_button[loop.index0]['#title'] }}</a>
             {% endfor %}
             </div>
           </div>
           {% endif %}
+    </div>
     </div>
     </div>
     {% endblock %}

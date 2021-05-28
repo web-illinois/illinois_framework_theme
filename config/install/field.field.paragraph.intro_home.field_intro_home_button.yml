@@ -1,0 +1,23 @@
+uuid: 4a26ff95-def2-4235-be7e-23dcee6f1aa2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_intro_home_button
+    - paragraphs.paragraphs_type.intro_home
+  module:
+    - link
+id: paragraph.intro_home.field_intro_home_button
+field_name: field_intro_home_button
+entity_type: paragraph
+bundle: intro_home
+label: Button(s)
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link

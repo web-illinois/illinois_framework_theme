@@ -51,29 +51,8 @@
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
-    <div class="background--color--{{ content.field_cta_narrow_background['#items'].0.value }} margin--{{ content.field_cta_narrow_margin['#items'].0.value }}">
-    <div class="field--name-field-cta-narrow__wrapper fixed-width">
-      {% if content.field_cta_narrow_title['#items'] %}
-      <div class="field--name-field-cta-narrow__item col">
-      <h2 class="field--name-field-cta-narrow__title title">{{ content.field_cta_narrow_title }}</h2>
-      </div>
-      {% endif %}
-      {% if content.field_cta_narrow_body['#items'] %}
-      <div class="field--name-field-cta-narrow__item col">
-      <div class="field--name-field-cta-narrow__body body">{{ content.field_cta_narrow_body }}</div>
-      </div>
-      {% endif %}
-      {% set button_number = content.field_cta_narrow_button['#items']|length %}
-          {% if button_number > 0 %}
-          <div class="field--name-field-cta-narrow__item col">
-            <div class="field--name-field-cta-narrow__buttons">
-            {% for item in content.field_cta_narrow_button['#items'] %}
-              <a class="field--name-field-cta-narrow__button btn btn-primary" href="{{ content.field_cta_narrow_button[loop.index0]['#url'] }}" role="button">{{ content.field_cta_narrow_button[loop.index0]['#title'] }}</a>
-            {% endfor %}
-            </div>
-          </div>
-          {% endif %}
-    </div>
+    <div class="field--name-field-expand-collapse__wrapper">
+      {{ content }}
     </div>
     {% endblock %}
   </div>
