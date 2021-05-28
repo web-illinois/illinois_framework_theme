@@ -4,10 +4,8 @@
 @import '../../../../themes/contrib/bootstrap4/dist/bootstrap/4.5.3/scss/bootstrap';
 
 // Web components
-@import "web-components/fonts";
-@import "web-components/colors";
-@import "web-components/fonts/il-icons";
-@import "web-components/web-components";
+@import "web-components/web-components.menu";
+@import "web-components/web-components.footer";
 
 // Custom Functions
 @import "illinois-framework/functions/px2rem";
@@ -35,7 +33,7 @@
 @import "illinois-framework/components.one-trust";
 
 // Blocks
-@import "illinois-framework/block.main-menu--simple";
+//@import "illinois-framework/block.main-menu--simple";
 //@import "custom/block.main-menu--mega";
 @import "illinois-framework/block.sidebar-menu";
 @import "illinois-framework/block.page-title";
