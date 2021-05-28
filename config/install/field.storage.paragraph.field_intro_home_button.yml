@@ -1,0 +1,19 @@
+uuid: d585c7f6-e3af-483e-9f67-2ded3eb11a2f
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - paragraphs
+id: paragraph.field_intro_home_button
+field_name: field_intro_home_button
+entity_type: paragraph
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 3
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
