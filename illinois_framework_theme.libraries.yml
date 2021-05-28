@@ -12,8 +12,17 @@ global-styling:
       type: external
       attributes:
         async: true
-    js/components.js: {}
+#    js/components.js: {}
     js/navmenu.js: {}
+    js/paragraph-accordion.js: {}
     js/search.js: {}
   dependencies:
     - core/jquery
+web-components:
+  css:
+    theme:
+      https://cdn.brand.illinois.edu/toolkit/2.0/examples/toolkit.css:
+        type: external
+  js:
+    https://cdn.brand.illinois.edu/toolkit/2.0/examples/toolkit.js:
+      type: external

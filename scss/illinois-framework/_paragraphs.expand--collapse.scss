@@ -1,0 +1,52 @@
+.paragraph--type--expand-collapse{
+  margin: rem(30px) 0 !important;
+  .field--name-field-expand-collapse {
+    &__wrapper{
+
+      button {
+        &.accordion {
+          background-color: var(--il-gray);
+          padding: rem(30px);
+          color: #13294b;
+          cursor: pointer;
+          width: 100%;
+          border: none;
+          text-align: left;
+          outline: none;
+          font-size: rem(22px);
+          transition: 0.4s;
+          height: auto;
+          font-family: 'Source Sans', sans-serif;
+            &:hover {
+
+            }
+          }
+          .arrow {
+            position: relative;
+          }
+          .arrow:after {
+            font-family: 'FontAwesome';
+            float: right;
+            position: absolute;
+            right: rem(30px);
+            top: 50%;
+            transform: translateY(-50%);
+          }
+          &[aria-expanded=false] .arrow:after {
+            content: '\f078';
+          }
+          &[aria-expanded=true] .arrow:after {
+            content: '\f077';
+          }
+
+      }
+    }
+  }
+
+  .field--name-field-expand-text {
+    &__wrapper {
+      padding-top: rem(30px);
+      padding-bottom: rem(50px);
+    }
+  }
+}

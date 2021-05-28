@@ -1,0 +1,81 @@
+uuid: 978e7639-6d59-4a70-af54-c3c3a5583866
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cards_content
+    - paragraphs.paragraphs_type.cards
+    - paragraphs.paragraphs_type.cards_content
+  module:
+    - entity_reference_revisions
+_core:
+  default_config_hash: vBSwd0FBwxoeB4yJ5jFCL_TUsyResV_HxNejn0yT038
+id: paragraph.cards.field_cards_content
+field_name: field_cards_content
+entity_type: paragraph
+bundle: cards
+label: 'Cards content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      cards_content: cards_content
+    target_bundles_drag_drop:
+      bb:
+        weight: 18
+        enabled: false
+      bb_content:
+        weight: 19
+        enabled: false
+      call_to_action:
+        weight: 20
+        enabled: false
+      cards:
+        weight: 21
+        enabled: false
+      cards_content:
+        enabled: true
+        weight: 22
+      colored_text_block_with_image:
+        weight: 23
+        enabled: false
+      cta_content:
+        weight: 24
+        enabled: false
+      cta_narrow:
+        weight: 25
+        enabled: false
+      expand_collapse:
+        weight: 26
+        enabled: false
+      feature_boxed:
+        weight: 27
+        enabled: false
+      feature_split:
+        weight: 28
+        enabled: false
+      feature_video:
+        weight: 29
+        enabled: false
+      from_library:
+        weight: 30
+        enabled: false
+      page_introduction:
+        weight: 31
+        enabled: false
+      rich_text:
+        weight: 32
+        enabled: false
+      text_with_image_and_header:
+        weight: 33
+        enabled: false
+      two_column_text:
+        weight: 34
+        enabled: false
+field_type: entity_reference_revisions

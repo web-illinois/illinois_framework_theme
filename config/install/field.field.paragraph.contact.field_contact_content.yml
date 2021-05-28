@@ -1,0 +1,85 @@
+uuid: dc939ae8-38fd-4652-8008-d380018114d0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_contact_content
+    - paragraphs.paragraphs_type.contact
+    - paragraphs.paragraphs_type.contact_content
+  module:
+    - entity_reference_revisions
+id: paragraph.contact.field_contact_content
+field_name: field_contact_content
+entity_type: paragraph
+bundle: contact
+label: 'Contact Content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      contact_content: contact_content
+    target_bundles_drag_drop:
+      acc_content:
+        weight: 21
+        enabled: false
+      accordion:
+        weight: 20
+        enabled: false
+      bb:
+        weight: 22
+        enabled: false
+      bb_content:
+        weight: 23
+        enabled: false
+      contact:
+        weight: 24
+        enabled: false
+      contact_content:
+        enabled: true
+        weight: 25
+      cta:
+        weight: 26
+        enabled: false
+      cta_narrow:
+        weight: 27
+        enabled: false
+      expand_collapse:
+        weight: 28
+        enabled: false
+      feature_boxed:
+        weight: 29
+        enabled: false
+      feature_split:
+        weight: 30
+        enabled: false
+      feature_video:
+        weight: 31
+        enabled: false
+      from_library:
+        weight: 32
+        enabled: false
+      list_collection:
+        weight: 33
+        enabled: false
+      list_collection_content:
+        weight: 34
+        enabled: false
+      page_introduction:
+        weight: 35
+        enabled: false
+      rich_text:
+        weight: 36
+        enabled: false
+      rt:
+        weight: 37
+        enabled: false
+      rt_content:
+        weight: 38
+        enabled: false
+field_type: entity_reference_revisions

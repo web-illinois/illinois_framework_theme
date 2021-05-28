@@ -1,0 +1,23 @@
+uuid: b4088417-8707-49cc-a48e-29aa8700f063
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ambassador_biography
+    - node.type.ambassadors
+  module:
+    - text
+id: node.ambassadors.field_ambassador_biography
+field_name: field_ambassador_biography
+entity_type: node
+bundle: ambassadors
+label: Biography
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary
