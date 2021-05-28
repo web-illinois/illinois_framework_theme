@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies:
   module:
-    - ctools
+    - system
   theme:
     - illinois_framework_theme
 id: illinois_framework_theme_page_title
@@ -17,10 +17,9 @@ settings:
   provider: core
   label_display: '0'
 visibility:
-  'entity_bundle:node':
-    id: 'entity_bundle:node'
-    bundles:
-      spotlight: spotlight
+  request_path:
+    id: request_path
+    pages: '/spotlight/*'
     negate: true
-    context_mapping:
-      node: '@node.node_route_context:node'
+    context_mapping: {  }
+
