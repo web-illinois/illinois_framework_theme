@@ -2,6 +2,7 @@
 
   &--white {
     background-color: white;
+    width: 100%;
 
     .title {
       color: var(--il-orange);
@@ -40,6 +41,7 @@
   &--bluegradient {
     background-image: linear-gradient(var(--il-blue), var(--il-industrial-blue));
     color: white;
+    width: 100%;
 
     &.fingerprint--full {
         background-image: url("/themes/contrib/illinois_framework_theme/images/fingerprint.svg"), linear-gradient(var(--il-blue), var(--il-industrial-blue));
@@ -85,6 +87,7 @@
   &--orangegradient {
     background: linear-gradient(var(--il-altgeld), var(--il-orange));
     color: white;
+    width: 100%;
 
     &.fingerprint--full {
         background-image: url("/themes/contrib/illinois_framework_theme/images/fingerprint.svg"), linear-gradient(var(--il-altgeld), var(--il-orange));
@@ -131,6 +134,7 @@
   &--illiniblue {
     background-color: var(--il-blue);
     color: white;
+    width: 100%;
 
     .title {
       color: white;
@@ -167,6 +171,7 @@
   &--illiniorange {
     background-color: var(--il-orange);
     color: white;
+    width: 100%;
 
     .title {
       color: white;
@@ -203,6 +208,7 @@
   }
   &--gray {
     background-color: var(--il-gray);
+    width: 100%;
 
     .body {
       p {
