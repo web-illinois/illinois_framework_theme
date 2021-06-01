@@ -49,7 +49,7 @@
   'paragraph--type--' ~ paragraph.bundle|clean_class,
   view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
   not paragraph.isPublished() ? 'paragraph--unpublished',
-  'col-lg-12 col-md-12 col-sm-12 p-0 flex ' ~ max_width
+  'col-lg-12 col-md-12 col-sm-12 p-0 d-flex ' ~ max_width
 ]
 %}
 {% block paragraph %}
