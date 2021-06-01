@@ -52,7 +52,7 @@
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
     <div class="background--color--{{ content.field_cta_narrow_background['#items'].0.value }} margin--{{ content.field_cta_narrow_margin['#items'].0.value }}">
-    <div class="field--name-field-cta-narrow__wrapper fixed-width">
+    <div class="field--name-field-cta-narrow__wrapper">
       {% if content.field_cta_narrow_title['#items'] %}
       <div class="field--name-field-cta-narrow__item col">
       <h2 class="field--name-field-cta-narrow__title title">{{ content.field_cta_narrow_title }}</h2>

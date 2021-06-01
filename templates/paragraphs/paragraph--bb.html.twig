@@ -64,7 +64,7 @@
           {% set body = content.field_bb[loop.index0]['#paragraph'].field_bb_content_body.value %}
           {% set title = content.field_bb[loop.index0]['#paragraph'].field_bb_content_title.value %}
           {% set link = content.field_bb[loop.index0]['#paragraph'].field_bb_content_link[0] | view %}
-            <div class="col-lg-4 col-md-6 col-sm-12 flex background--color--{{ background }}">
+            <div class="col-lg-4 col-md-6 col-sm-12 d-flex background--color--{{ background }}">
               <a class="field--name-field-bb__link" href="{{ link['#url'] | render }}">
               <div class="field--name-field-bb__content__wrapper content__wrapper">
                 <div class="field--name-field-bb__content">
