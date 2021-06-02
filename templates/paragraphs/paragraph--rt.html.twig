@@ -52,7 +52,7 @@
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
-      <div class="col-lg-12 col-md-12 flex paragraph--type--rt__wrapper">
+      <div class="col-lg-12 col-md-12 d-flex row paragraph--type--rt__wrapper">
         {% if content.field_rt_title['#items'] %}
           <div class="col-lg-12 paragraph--type--rt__title">
             <h2>{{ content.field_rt_title['#items'].0.value }}</h2>
