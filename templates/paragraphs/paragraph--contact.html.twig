@@ -46,7 +46,7 @@
   'paragraph--type--' ~ paragraph.bundle|clean_class,
   view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
   not paragraph.isPublished() ? 'paragraph--unpublished',
-  'col-lg-12 col-md-12 col-sm-12 p-0 d-flex row full-width ' ~ 'background--color--' ~ background_color
+  'col-lg-12 col-md-12 col-sm-12 d-flex row full-width ' ~ 'background--color--' ~ background_color
 ]
 %}
 
@@ -56,7 +56,7 @@
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
     <div class="d-flex row col-lg-12 col-md-12 fixed-width">
-      {{ kint(content.field_contact_content.0['#paragraph'].field_contact_content_image.entity.0.uri) }}
+{#      <div>{{ kint(content) }}</div>#}
       <div class="d-flex col-lg-12">
         <h2>{{ content.field_contact_title }}</h2>
       </div>
@@ -83,7 +83,7 @@
         </div>
         <div class="d-flex col-lg-6 col-md-6">
           <div class="field--name-field-contact__image__wrapper">
-            <img src="{{ base_path_http ~ file_url() }}"/>
+{#            <img src="{{ base_path_http ~ file_url() }}"/>#}
 
           </div>
         </div>
