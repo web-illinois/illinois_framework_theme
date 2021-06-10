@@ -1,3 +1,8 @@
+//allows the drupal admin menu to float in front of the navigation menu
+div.navigation {
+  position: relative;
+  z-index: 500;
+}
 il-nav-section {
   a {
     background-color: unset;
