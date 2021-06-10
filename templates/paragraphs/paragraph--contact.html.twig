@@ -38,6 +38,7 @@
  * @ingroup themeable
  */
 #}
+
 {% set background_color = content.field_contact_background['#items'].0.value %}
 {% set image_float = content.field_contact_layouts %}
 {%
@@ -46,39 +47,38 @@
   'paragraph--type--' ~ paragraph.bundle|clean_class,
   view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
   not paragraph.isPublished() ? 'paragraph--unpublished',
-  'col-lg-12 col-md-12 col-sm-12 d-flex row full-width ' ~ 'background--color--' ~ background_color
+  'il-formatting col-lg-12 col-md-12 col-sm-12 d-flex row full-width ' ~ 'background--color--' ~ background_color
 ]
 %}
-
 
 {% block paragraph %}
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
+{#      {{ kint(content) }}#}
     <div class="d-flex row col-lg-12 col-md-12 fixed-width">
-{#      <div>{{ kint(content) }}</div>#}
       <div class="d-flex col-lg-12">
         <h2>{{ content.field_contact_title }}</h2>
       </div>
       <div class="d-flex col-lg-6 col-md-6">
         <div class="field--name-field-contact__content__wrapper">
           <div class="field--name-field-contact__title">
-            {{ content.field_contact_content.0['#paragraph'].field_contact_content_title.value }}
+            <p>{{ content.field_contact_content.0['#paragraph'].field_contact_content_title.value }}</p>
           </div>
           <div class="field--name-field-contact__subtitle">
-            {{ content.field_contact_content.0['#paragraph'].field_contact_content_subtit.value }}
+            <p>{{ content.field_contact_content.0['#paragraph'].field_contact_content_subtit.value }}</p>
           </div>
           <div class="field--name-field-contact__address">
-            {{ content.field_contact_content.0['#paragraph'].field_contact_content_address.value|raw }}
+            <address>{{ content.field_contact_content.0['#paragraph'].field_contact_content_address.value|raw }}</address>
           </div>
           <div class="field--name-field-contact__phone">
-            {{ content.field_contact_content.0['#paragraph'].field_contact_content_phone.value }}
+            <p>{{ content.field_contact_content.0['#paragraph'].field_contact_content_phone.value }}</p>
           </div>
           <div class="field--name-field-contact__email">
-            {{ content.field_contact_content.0['#paragraph'].field_contact_content_email.value }}
+            <p>{{ content.field_contact_content.0['#paragraph'].field_contact_content_email.value }}</p>
           </div>
           <div class="field--name-field-contact__button">
-            {{ content.field_contact_content.0['#paragraph'].field_contact_content_button.value }}
+            <a class="il-button" href="#">{{ content.field_contact_content.0['#paragraph'].field_contact_content_button.value }}</a>
           </div>
         </div>
         <div class="d-flex col-lg-6 col-md-6">
