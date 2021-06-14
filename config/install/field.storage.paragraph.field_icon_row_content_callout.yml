@@ -1,0 +1,21 @@
+uuid: 308f3805-93a4-4fcf-a42f-1beaf9233461
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_icon_row_content_callout
+field_name: field_icon_row_content_callout
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

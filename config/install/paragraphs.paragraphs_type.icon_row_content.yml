@@ -1,0 +1,10 @@
+uuid: 5be1cb69-4df0-4c4b-8c8d-7c73c00fb77d
+langcode: en
+status: true
+dependencies: {  }
+id: icon_row_content
+label: 'Icon row content'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

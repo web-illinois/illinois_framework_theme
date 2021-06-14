@@ -1,0 +1,10 @@
+uuid: 961e728f-9fc3-4188-a3a3-991de7d97d25
+langcode: en
+status: true
+dependencies: {  }
+id: icon_row
+label: 'Icon row'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

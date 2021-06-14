@@ -1,0 +1,33 @@
+uuid: 05667802-dfee-4dd9-9d15-8372fdf56d22
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_icon_row_content_icon
+field_name: field_icon_row_content_icon
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: il-icon-admissions
+      label: Admissions
+    -
+      value: il-icon-alumni
+      label: Alumni
+    -
+      value: il-icon-apply-now
+      label: Apply
+    -
+      value: il-icon-audio
+      label: Audio
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
