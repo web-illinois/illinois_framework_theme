@@ -2,6 +2,8 @@ uuid: 961e728f-9fc3-4188-a3a3-991de7d97d25
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: Z9YqQyC_4l39IhD4GSn75YaqKRTjqub89eCLnxg81S4
 id: icon_row
 label: 'Icon row'
 icon_uuid: null

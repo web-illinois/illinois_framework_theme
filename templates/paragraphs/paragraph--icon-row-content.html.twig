@@ -44,7 +44,7 @@
     'paragraph--type--' ~ paragraph.bundle|clean_class,
     view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
     not paragraph.isPublished() ? 'paragraph--unpublished',
-    'col-lg-12 col-md-12 col-sm-12 p-0 d-flex full-width' ~ flex_row_class ~ max_width
+    'col-lg-12 col-md-12 col-sm-12 p-0 d-flex' ~ flex_row_class ~ max_width
   ]
 %}
 {% block paragraph %}
@@ -54,16 +54,30 @@
       <div class="field--name-field-icon-row-content__wrapper fixed-width">
         {% if content.field_icon_row_content_icon['#items'] %}
           <div class="field--name-field-icon-row-icon_wrapper">
-            <span class="{{ content.field_icon_row_content_icon }}"></span>
+            <span class="{{ content.field_icon_row_content_icon['#items'].0.value }}"></span>
           </div>
           {% endif %}
           <div class="field--name-field-icon-row-text__wrapper">
             {% if content.field_icon_row_content_callout['#items'] %}
             <div class="field--name-field-icon-row-callout">{{ content.field_icon_row_content_callout }}</div>
             {% endif %}
-            {% if content.field_icon_row_content_text['#items'] %}
-            <div class="field--name-field-icon-row-text">{{ content.field_icon_row_content_text }}</div>
+
+            {% if content.field_icon_row_content_text['#items'] and content.field_icon_row_content_link['#items'] %}
+            <div class="field--name-field-icon-row-text">
+              <a class="field--name-field-icon-row-link" href= "{{ content.field_icon_row_content_link.0['#url'] }}">
+              {{ content.field_icon_row_content_text }}
+              </a>
+            </div>
+            {% elseif content.field_icon_row_content_link['#items'] %}
+            <div class="field--name-field-icon-row-text">
+                {{ content.field_icon_row_content_link }}
+            </div>
+            {% else %}
+            <div class="field--name-field-icon-row-text">
+              {{ content.field_icon_row_content_text }}
+            </div>
             {% endif %}
+
           </div>
       </div>
     {% endblock %}

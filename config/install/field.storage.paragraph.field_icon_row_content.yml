@@ -5,6 +5,8 @@ dependencies:
   module:
     - entity_reference_revisions
     - paragraphs
+_core:
+  default_config_hash: 2Ccqe0erVc9sw_yteAOuVnO9jjjB-wDFtdXQPFY3Ceo
 id: paragraph.field_icon_row_content
 field_name: field_icon_row_content
 entity_type: paragraph

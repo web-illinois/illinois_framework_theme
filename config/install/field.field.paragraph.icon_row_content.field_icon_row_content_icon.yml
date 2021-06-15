@@ -7,6 +7,8 @@ dependencies:
     - paragraphs.paragraphs_type.icon_row_content
   module:
     - options
+_core:
+  default_config_hash: C-kA4MPMjpTlE1B63UCEwgs5whgWlvrl1u4q4xcWRJg
 id: paragraph.icon_row_content.field_icon_row_content_icon
 field_name: field_icon_row_content_icon
 entity_type: paragraph

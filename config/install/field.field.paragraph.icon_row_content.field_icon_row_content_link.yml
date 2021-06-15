@@ -7,6 +7,8 @@ dependencies:
     - paragraphs.paragraphs_type.icon_row_content
   module:
     - link
+_core:
+  default_config_hash: ksOkXV7i-m58zEJVfZc3X_MlwRkNdapV7dWGOZzeTTo
 id: paragraph.icon_row_content.field_icon_row_content_link
 field_name: field_icon_row_content_link
 entity_type: paragraph

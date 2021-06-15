@@ -5,6 +5,8 @@ dependencies:
   module:
     - link
     - paragraphs
+_core:
+  default_config_hash: GEK2gIP_gi4lnB6an4go9MLcFNPOBAr-RFy0u2eEVfo
 id: paragraph.field_icon_row_content_link
 field_name: field_icon_row_content_link
 entity_type: paragraph

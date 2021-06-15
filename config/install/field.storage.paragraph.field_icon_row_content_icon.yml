@@ -5,6 +5,8 @@ dependencies:
   module:
     - options
     - paragraphs
+_core:
+  default_config_hash: 2rrr3NUOL6wvVlW8jl4Irv75fhKYY_5wpb_t9_3r2VQ
 id: paragraph.field_icon_row_content_icon
 field_name: field_icon_row_content_icon
 entity_type: paragraph
@@ -23,6 +25,162 @@ settings:
     -
       value: il-icon-audio
       label: Audio
+    -
+      value: il-icon-back
+      label: Back
+    -
+      value: il-icon-calendar
+      label: Calendar
+    -
+      value: il-icon-cancel-exit
+      label: Cancel/Exit
+    -
+      value: il-icon-comment
+      label: Comment
+    -
+      value: il-icon-directory
+      label: Directory
+    -
+      value: il-icon-document
+      label: Document
+    -
+      value: il-icon-donor
+      label: Donor
+    -
+      value: il-icon-email
+      label: Email
+    -
+      value: il-icon-event
+      label: Event
+    -
+      value: il-icon-faculty-staff
+      label: Faculty/Staff
+    -
+      value: il-icon-favorite
+      label: Favorite
+    -
+      value: il-icon-give-gift
+      label: Gift
+    -
+      value: il-icon-handbook-manual
+      label: Handbook/Manual
+    -
+      value: il-icon-home
+      label: Home
+    -
+      value: il-icon-hours
+      label: Hours
+    -
+      value: il-icon-hr
+      label: HR
+    -
+      value: il-icon-image
+      label: Image
+    -
+      value: il-icon-inclusive
+      label: Inclusive
+    -
+      value: il-icon-info
+      label: Info
+    -
+      value: il-icon-intranet
+      label: Intranet
+    -
+      value: il-icon-job-employment
+      label: Job/Employment
+    -
+      value: il-icon-less
+      label: Less
+    -
+      value: il-icon-location
+      label: Location
+    -
+      value: il-icon-more
+      label: More
+    -
+      value: il-icon-news
+      label: News
+    -
+      value: il-icon-next
+      label: Next
+    -
+      value: il-icon-notification
+      label: Notification
+    -
+      value: il-icon-parent-family
+      label: Parent/Family
+    -
+      value: il-icon-partners
+      label: Partners
+    -
+      value: il-icon-pay-bill
+      label: Pay/Wallet
+    -
+      value: il-icon-phone-call
+      label: Phone
+    -
+      value: il-icon-plan
+      label: Plan
+    -
+      value: il-icon-program-of-study
+      label: 'Program of study'
+    -
+      value: il-icon-research
+      label: Research
+    -
+      value: il-icon-resources
+      label: Resources
+    -
+      value: il-icon-safety
+      label: Safety
+    -
+      value: il-icon-search
+      label: Search
+    -
+      value: il-icon-send
+      label: Send
+    -
+      value: il-icon-settings
+      label: Settings
+    -
+      value: il-icon-shop
+      label: 'Shopping cart'
+    -
+      value: il-icon-sitemap
+      label: Sitemap
+    -
+      value: il-icon-students
+      label: Students/Backpack
+    -
+      value: il-icon-submit
+      label: Submit
+    -
+      value: il-icon-team
+      label: Team
+    -
+      value: il-icon-tickets
+      label: Tickets
+    -
+      value: il-icon-trash
+      label: Trash
+    -
+      value: il-icon-unit
+      label: Unit
+    -
+      value: il-icon-user
+      label: User/Person
+    -
+      value: il-icon-video
+      label: Video
+    -
+      value: il-icon-volume
+      label: Volume
+    -
+      value: il-icon-website
+      label: Website
+    -
+      value: il-icon-workshop-training
+      label: Workshop/Training
   allowed_values_function: ''
 module: options
 locked: false

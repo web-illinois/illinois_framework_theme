@@ -10,6 +10,8 @@ dependencies:
     - paragraphs.paragraphs_type.icon_row_content
   module:
     - link
+_core:
+  default_config_hash: hH4plUhXUKOiKJGVtglxBtHn8MOywTJNtRymmQ1gdzQ
 id: paragraph.icon_row_content.default
 targetEntityType: paragraph
 bundle: icon_row_content

@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.storage.paragraph.field_icon_row_title
     - paragraphs.paragraphs_type.icon_row
+_core:
+  default_config_hash: BI9-4ZQ9LOGxqnxRup1L3ylilDHnMxv22sVkJMhC878
 id: paragraph.icon_row.field_icon_row_title
 field_name: field_icon_row_title
 entity_type: paragraph

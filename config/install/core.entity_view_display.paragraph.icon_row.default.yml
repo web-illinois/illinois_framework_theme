@@ -5,12 +5,15 @@ dependencies:
   config:
     - field.field.paragraph.icon_row.field_icon_row_background
     - field.field.paragraph.icon_row.field_icon_row_content
+    - field.field.paragraph.icon_row.field_icon_row_icon_size
     - field.field.paragraph.icon_row.field_icon_row_margin
     - field.field.paragraph.icon_row.field_icon_row_title
     - paragraphs.paragraphs_type.icon_row
   module:
     - entity_reference_revisions
     - options
+_core:
+  default_config_hash: YYJEZIaOcrwXMFOMlXZFUn09zSIQAGTgS4p7Y2qMFuY
 id: paragraph.icon_row.default
 targetEntityType: paragraph
 bundle: icon_row
@@ -31,6 +34,13 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
+    region: content
+  field_icon_row_icon_size:
+    weight: 4
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
     region: content
   field_icon_row_margin:
     weight: 2
