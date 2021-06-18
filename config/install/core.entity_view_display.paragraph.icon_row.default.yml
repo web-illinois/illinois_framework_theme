@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.icon_row.field_icon_row_alignment
     - field.field.paragraph.icon_row.field_icon_row_background
     - field.field.paragraph.icon_row.field_icon_row_content
     - field.field.paragraph.icon_row.field_icon_row_icon_size
@@ -19,6 +20,13 @@ targetEntityType: paragraph
 bundle: icon_row
 mode: default
 content:
+  field_icon_row_alignment:
+    weight: 5
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
   field_icon_row_background:
     weight: 0
     label: hidden

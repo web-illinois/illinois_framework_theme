@@ -10846,6 +10846,12 @@ il-footer[slot=parent] p {
   margin-top: 0;
   margin-bottom: 3.75rem;
 }
+.paragraph--type--icon-row .field--name-field-icon-row__title.left {
+  text-align: left;
+}
+.paragraph--type--icon-row .field--name-field-icon-row__title.center {
+  text-align: center;
+}
 .paragraph--type--icon-row .field--name-field-icon-row-content {
   display: flex;
   justify-content: space-evenly;
@@ -10878,10 +10884,10 @@ il-footer[slot=parent] p {
   line-height: 28px;
 }
 .paragraph--type--icon-row .icon-size--sm-icon .field--name-field-icon-row-icon_wrapper span {
-  font-size: 6.25rem;
+  font-size: 4.6875rem;
 }
 .paragraph--type--icon-row .icon-size--lg-icon .field--name-field-icon-row-icon_wrapper span {
-  font-size: 12.5rem;
+  font-size: 9.375rem;
 }
 .paragraph--type--icon-row .background--color--illiniblue .field--name-field-icon-row-icon_wrapper span {
   color: white;
