@@ -495,8 +495,6 @@ il-footer {
     &[slot="links"] {
       ul {
         box-sizing: border-box;
-        margin: 0;
-        padding: 0;
         list-style: none;
 
         li {
@@ -504,7 +502,7 @@ il-footer {
           margin: 0;
           padding: 0;
           list-style: none;
-          margin-bottom: 0.5em;
+          margin-bottom: 0;
 
           &:last-of-type {
             margin-bottom: 0;
@@ -581,7 +579,13 @@ il-footer {
       flex-wrap: wrap;
 
       a, il-social-link {
-        margin-right: 20px;
+        margin-right: 19px;
+      }
+    }
+    &[slot="colleges"] {
+      margin-top: 45px;
+      a {
+
       }
     }
   }
@@ -620,7 +624,7 @@ il-footer {
     grid-area: links;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 40px;
+    grid-gap: 95px;
 
     > {
       ul, div {

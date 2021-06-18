@@ -1,0 +1,23 @@
+uuid: 439eedf0-2bb2-4c49-97d1-ba877ad18ee9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.career_possibilities
+  module:
+    - text
+id: node.career_possibilities.body
+field_name: body
+entity_type: node
+bundle: career_possibilities
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary
