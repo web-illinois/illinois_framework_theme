@@ -27,14 +27,23 @@
             .field--name-field-cta__button:first-child {
               margin-left: 0;
             }
+            h2 {
+              text-align: left;
+            }
           }
           &.center {
             text-align: center;
+            h2 {
+              text-align: center;
+            }
           }
           &.right {
             text-align: right;
             .field--name-field-cta__button:last-child {
               margin-right: 0;
+            }
+            h2 {
+              text-align: right;
             }
           }
         }
@@ -59,5 +68,48 @@
       margin: 0 1.875rem;
     }
 
+  }
+  .background--color{
+    &--orangegradient {
+      .field--name-field-cta{
+        &__subtitle {
+          color: white;
+        }
+      }
+      &.fingerprint--full{
+        background-image: url('/themes/contrib/illinois_framework_theme/images/fingerprint.svg'), linear-gradient(var(--il-altgeld), var(--il-orange));
+      }
+      &.fingerprint--left{
+        background-image: url('/themes/contrib/illinois_framework_theme/images/fingerprint-left.png'), linear-gradient(var(--il-altgeld), var(--il-orange));
+      }
+      &.fingerprint--right{
+        background-image: url('/themes/contrib/illinois_framework_theme/images/fingerprint-right.png'), linear-gradient(var(--il-altgeld), var(--il-orange));
+      }
+    }
+    &--bluegradient{
+      &.fingerprint--full{
+        background-image: url('/themes/contrib/illinois_framework_theme/images/fingerprint.svg'), linear-gradient(var(--il-blue), var(--il-industrial-blue));
+      }
+      &.fingerprint--left{
+        background-image: url('/themes/contrib/illinois_framework_theme/images/fingerprint-left.png'), linear-gradient(var(--il-blue), var(--il-industrial-blue));
+      }
+      &.fingerprint--right{
+        background-image: url('/themes/contrib/illinois_framework_theme/images/fingerprint-right.png'), linear-gradient(var(--il-blue), var(--il-industrial-blue));
+      }
+    }
+    &--illiniorange {
+      .field--name-field-cta{
+        &__subtitle {
+          color: white;
+        }
+      }
+    }
+    &--illiniblue {
+      .field--name-field-cta{
+        &__subtitle {
+          color: white;
+        }
+      }
+    }
   }
 }
