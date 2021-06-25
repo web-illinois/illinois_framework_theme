@@ -1,0 +1,10 @@
+// change the list item font size within the content region of the website
+// to match the size the paragraph size
+#block-illinois-framework-theme-content {
+  ul {
+    li {
+      font-size: 1.125rem;
+      line-height: 1.875rem;
+    }
+  }
+}
