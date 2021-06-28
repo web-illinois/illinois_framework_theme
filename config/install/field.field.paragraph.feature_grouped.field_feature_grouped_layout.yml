@@ -1,0 +1,21 @@
+uuid: c9bcf960-0d44-40c3-8ed1-56380303939b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_feature_grouped_layout
+    - paragraphs.paragraphs_type.feature_grouped
+  module:
+    - options
+id: paragraph.feature_grouped.field_feature_grouped_layout
+field_name: field_feature_grouped_layout
+entity_type: paragraph
+bundle: feature_grouped
+label: Layout
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
