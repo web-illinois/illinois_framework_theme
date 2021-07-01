@@ -1,4 +1,7 @@
 .paragraph--type--cta-narrow {
+  @include media-breakpoint-down(sm){
+    padding: 0 !important;
+  }
 
   .field--name-field-cta-narrow {
 
@@ -10,6 +13,7 @@
 
       @include media-breakpoint-down(sm) {
         display: block;
+        text-align: center;
       }
     }
 
