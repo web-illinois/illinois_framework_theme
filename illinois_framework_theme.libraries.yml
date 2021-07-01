@@ -26,3 +26,14 @@ web-components:
   js:
     https://cdn.brand.illinois.edu/toolkit/2.0/examples/toolkit.js:
       type: external
+galleria:
+  js:
+    css/galleria/galleria.min.js: { minified: true }
+    css/galleria/plugins/flickr/galleria.flickr.js: { }
+  dependencies:
+    - core/jquery
+galleria--meat-science:
+  js:
+    css/galleria/custom--meat-science.js: {}
+  dependencies:
+    - core/jquery
