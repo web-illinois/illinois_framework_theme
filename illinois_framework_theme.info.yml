@@ -12,6 +12,7 @@ stylesheets-remove:
 libraries:
   - illinois_framework_theme/global-styling
   - illinois_framework_theme/web-components
+  - illinois_framework_theme/galleria
 
 # Regions
 regions:
