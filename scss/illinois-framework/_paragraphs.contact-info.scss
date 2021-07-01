@@ -1,0 +1,60 @@
+paragraph--type--contact {
+
+  .field--name-field-contact {
+
+    &__image {
+
+      &__wrapper {
+        img {
+
+        }
+      }
+    }
+    &__content {
+
+      &__wrapper {
+
+      }
+    }
+    &__title {
+      padding-bottom: rem(30px);
+
+      .field__item {
+        font-family: var(--il-source-sans);
+        font-size: rem(36px);
+        font-weight: 700;
+        line-height: rem(36px);
+        padding-bottom: rem(32px);
+      }
+    }
+    &__subtitle {
+
+      .field__item {
+        font-family: var(--il-source-sans);
+        font-size: rem(22px);
+        font-weight: normal;
+        line-height: 1.2;
+        padding-bottom: rem(20px);
+      }
+    }
+    &__address {
+
+    }
+    &__phone {
+
+    }
+    &__email {
+
+    }
+    &__button {
+
+      a {
+        margin-bottom: rem(20px);
+      }
+
+      a:first-child {
+        margin-right: rem(30px);
+      }
+    }
+  }
+}
