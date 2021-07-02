@@ -51,7 +51,7 @@
     </div>
   {% else %}
     {% for item in items %}
-      <div{{ attributes.addClass('btn') }}>{{ item.content }}</div>
+      <a class="btn btn-secondary" href="{{ item.content['#url'] }}">{{ item.content['#title']}}</a>
     {% endfor %}
   {% endif %}
 {% else %}

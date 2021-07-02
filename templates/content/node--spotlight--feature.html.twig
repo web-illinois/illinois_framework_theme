@@ -97,14 +97,15 @@
 .node-feature .spotlight-feature-image {
   padding-left: calc(var(--il-content-margin)*1.5);
 }
+.clearfix .clearfix:after{
+  clear:none;
+}
 </style>
 <article{{ attributes.addClass('node-feature') }}>
 
   {{ title_prefix }}
   {% if not page %}
-    <h2{{ title_attributes }} class="feature-title">
-      {{ label }}
-    </h2>
+    
   {% else %}
   <h1{{ title_attributes.addClass(['page-title']) }}>
     {{ label }}
@@ -121,9 +122,13 @@
       </div>
     </footer>
   {% endif %}
-
-  <div{{ content_attributes }}>
-    {{ content }}
+{{content.field_if_meda_featured_image}}
+  <div{{ content_attributes }} class="clearfix">
+  <h2{{ title_attributes }} class="feature-title">
+      {{ label }}
+    </h2>
+    {{ content|without('field_if_meda_featured_image') }}
   </div>
+  
 
 </article>

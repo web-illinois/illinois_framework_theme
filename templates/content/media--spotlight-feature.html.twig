@@ -21,7 +21,7 @@
     'float-right'
   ]
 %}
-<article{{ attributes.addClass(classes) }} style="padding-left: var(--il-content-margin)">
+<article{{ attributes.addClass(classes) }} style="padding-left: calc(var(--il-content-margin)*1.5);">
   {{ title_suffix.contextual_links }}
   {% if content %}
     {{ content }}
