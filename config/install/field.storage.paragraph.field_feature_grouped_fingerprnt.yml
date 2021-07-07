@@ -1,22 +1,25 @@
-uuid: 2521acbc-dd1c-4e23-9095-6d00b2ff5bf6
+uuid: a6f1ae8e-917e-45c1-9788-03cb60343a18
 langcode: en
 status: true
 dependencies:
   module:
     - options
     - paragraphs
-id: paragraph.field_contact_display_icon
-field_name: field_contact_display_icon
+id: paragraph.field_feature_grouped_fingerprnt
+field_name: field_feature_grouped_fingerprnt
 entity_type: paragraph
 type: list_string
 settings:
   allowed_values:
     -
-      value: show
-      label: 'Show Icon'
+      value: full
+      label: 'Fingerprint full-size'
     -
-      value: hide
-      label: 'Hide Icon'
+      value: left
+      label: 'Fingerprint fade-left'
+    -
+      value: right
+      label: 'Fingerprint fade-right'
   allowed_values_function: ''
 module: options
 locked: false

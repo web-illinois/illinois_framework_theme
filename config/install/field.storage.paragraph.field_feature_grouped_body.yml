@@ -1,14 +1,14 @@
-uuid: a5b564d6-f8de-4532-9b38-d0798f7ee74d
+uuid: 680224e0-31b7-4829-8d3d-c54a1d3a33e5
 langcode: en
 status: true
 dependencies:
   module:
     - paragraphs
     - text
-id: paragraph.field_contact_body
-field_name: field_contact_body
+id: paragraph.field_feature_grouped_body
+field_name: field_feature_grouped_body
 entity_type: paragraph
-type: text_long
+type: text_with_summary
 settings: {  }
 module: text
 locked: false

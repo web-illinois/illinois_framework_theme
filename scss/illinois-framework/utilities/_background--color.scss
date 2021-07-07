@@ -149,7 +149,7 @@
     .body {
       p {
         color: white;
-        
+
         a {
           &:hover,
           &:focus,
@@ -187,6 +187,8 @@
 
     .body {
       p {
+        color: white;
+
         a {
           &:hover,
           &:focus,
@@ -211,7 +213,7 @@
 
   }
   &--gray {
-    background-color: var(--il-gray);
+    background-color: var(--il-cloud-3);
     width: 100%;
 
     .body {

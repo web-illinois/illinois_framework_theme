@@ -1,0 +1,10 @@
+uuid: 6101ca64-d154-46a4-827e-029222dc3afd
+langcode: en
+status: true
+dependencies: {  }
+id: feature_grouped
+label: 'Feature - Grouped'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

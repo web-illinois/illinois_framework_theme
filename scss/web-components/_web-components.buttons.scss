@@ -1,5 +1,10 @@
 a.il-button {
 
+  &:focus,
+  &:hover {
+    text-decoration: none !important;
+  }
+
   &:visited {
     color: var(--il-blue);
   }

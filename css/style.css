@@ -10247,7 +10247,13 @@ il-footer[slot=parent] p {
 .paragraph--type--cta .field--name-field-cta__wrapper .field--name-field-cta-text__wrapper.left .field--name-field-cta__button:first-child {
   margin-left: 0;
 }
+.paragraph--type--cta .field--name-field-cta__wrapper .field--name-field-cta-text__wrapper.left h2 {
+  text-align: left;
+}
 .paragraph--type--cta .field--name-field-cta__wrapper .field--name-field-cta-text__wrapper.center {
+  text-align: center;
+}
+.paragraph--type--cta .field--name-field-cta__wrapper .field--name-field-cta-text__wrapper.center h2 {
   text-align: center;
 }
 .paragraph--type--cta .field--name-field-cta__wrapper .field--name-field-cta-text__wrapper.right {
@@ -10255,6 +10261,9 @@ il-footer[slot=parent] p {
 }
 .paragraph--type--cta .field--name-field-cta__wrapper .field--name-field-cta-text__wrapper.right .field--name-field-cta__button:last-child {
   margin-right: 0;
+}
+.paragraph--type--cta .field--name-field-cta__wrapper .field--name-field-cta-text__wrapper.right h2 {
+  text-align: right;
 }
 .paragraph--type--cta .field--name-field-cta__subtitle {
   margin-bottom: 0.938rem;
