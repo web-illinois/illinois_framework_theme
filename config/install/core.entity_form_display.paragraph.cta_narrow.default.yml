@@ -6,23 +6,26 @@ dependencies:
     - field.field.paragraph.cta_narrow.field_cta_narrow_background
     - field.field.paragraph.cta_narrow.field_cta_narrow_body
     - field.field.paragraph.cta_narrow.field_cta_narrow_button
+    - field.field.paragraph.cta_narrow.field_cta_narrow_margin
     - field.field.paragraph.cta_narrow.field_cta_narrow_title
     - paragraphs.paragraphs_type.cta_narrow
   module:
     - link
+_core:
+  default_config_hash: OG_0_2EdO7cKea4U-Pyz89HXo91Eh5weuNNj9ymGGcc
 id: paragraph.cta_narrow.default
 targetEntityType: paragraph
 bundle: cta_narrow
 mode: default
 content:
   field_cta_narrow_background:
-    weight: 0
+    weight: 1
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_cta_narrow_body:
-    weight: 2
+    weight: 3
     settings:
       rows: 5
       placeholder: ''
@@ -30,15 +33,21 @@ content:
     type: string_textarea
     region: content
   field_cta_narrow_button:
-    weight: 3
+    weight: 4
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
     region: content
+  field_cta_narrow_margin:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
   field_cta_narrow_title:
-    weight: 1
+    weight: 2
     settings:
       size: 60
       placeholder: ''

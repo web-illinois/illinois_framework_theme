@@ -4,10 +4,8 @@
 @import '../../../../themes/contrib/bootstrap4/dist/bootstrap/4.5.3/scss/bootstrap';
 
 // Web components
-@import "web-components/fonts";
-@import "web-components/colors";
-@import "web-components/fonts/il-icons";
-@import "web-components/web-components";
+@import "web-components/web-components.menu";
+@import "web-components/web-components.footer";
 
 // Custom Functions
 @import "illinois-framework/functions/px2rem";
@@ -24,6 +22,7 @@
 @import 'bootstrap-overrides/type';
 @import 'bootstrap-overrides/breadcrumb';
 @import 'bootstrap-overrides/buttons';
+@import 'bootstrap-overrides/lists';
 
 // Layouts
 @import "illinois-framework/regions";
@@ -35,7 +34,7 @@
 @import "illinois-framework/components.one-trust";
 
 // Blocks
-@import "illinois-framework/block.main-menu--simple";
+//@import "illinois-framework/block.main-menu--simple";
 //@import "custom/block.main-menu--mega";
 @import "illinois-framework/block.sidebar-menu";
 @import "illinois-framework/block.page-title";
@@ -50,9 +49,7 @@
 @import "illinois-framework/paragraphs";
 @import "illinois-framework/paragraphs.page-intro";
 @import "illinois-framework/paragraphs.feature--split";
-
 @import "illinois-framework/paragraphs.cta";
-@import "illinois-framework/paragraphs.cta--narrow";
 @import "illinois-framework/paragraphs.cta--narrow";
 @import "illinois-framework/paragraphs.feature--video";
 @import "illinois-framework/paragraphs.feature--boxed";
@@ -60,6 +57,8 @@
 @import "illinois-framework/paragraphs.cards";
 @import "illinois-framework/paragraphs.rt";
 @import "illinois-framework/paragraphs.list";
+@import "illinois-framework/paragraphs.expand--collapse";
+@import "illinois-framework/paragraphs.intro-home";
 
 // Views
 @import "illinois-framework/view.frontpage";
@@ -71,6 +70,7 @@
 @import "illinois-framework/utilities/ie--11";
 @import "illinois-framework/utilities/fingerprint";
 @import "illinois-framework/utilities/background--color";
+@import "illinois-framework/utilities/fingerprint";
 @import "illinois-framework/utilities/max-width";
 @import "illinois-framework/utilities/margin";
 

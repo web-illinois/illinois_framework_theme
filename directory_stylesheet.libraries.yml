@@ -1,0 +1,5 @@
+directory_stylesheet:
+  version: 1.x
+  css:
+    theme:
+      css/directory.css: {}

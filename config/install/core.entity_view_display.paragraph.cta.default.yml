@@ -1,0 +1,100 @@
+uuid: 6208fcbe-1345-432d-ac05-63cfde26da21
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cta.field_cta_background
+    - field.field.paragraph.cta.field_cta_body
+    - field.field.paragraph.cta.field_cta_button
+    - field.field.paragraph.cta.field_cta_fingerprint
+    - field.field.paragraph.cta.field_cta_icon
+    - field.field.paragraph.cta.field_cta_layout
+    - field.field.paragraph.cta.field_cta_margin
+    - field.field.paragraph.cta.field_cta_subtitle
+    - field.field.paragraph.cta.field_cta_title
+    - paragraphs.paragraphs_type.cta
+  module:
+    - image
+    - link
+    - options
+    - text
+_core:
+  default_config_hash: VtHr91tiCy1QXTVnsZgrcnVgzpgYXVQG6BVc18lyKUs
+id: paragraph.cta.default
+targetEntityType: paragraph
+bundle: cta
+mode: default
+content:
+  field_cta_background:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_cta_body:
+    weight: 4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_cta_button:
+    weight: 6
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_cta_fingerprint:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_cta_icon:
+    weight: 7
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_cta_layout:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_cta_margin:
+    weight: 8
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_cta_subtitle:
+    weight: 5
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_cta_title:
+    weight: 3
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }
