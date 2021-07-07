@@ -1,0 +1,105 @@
+uuid: c2665c35-899d-43dd-b850-2f03ef6c68d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.feature_grouped.field_feature_grouped_background
+    - field.field.paragraph.feature_grouped.field_feature_grouped_body
+    - field.field.paragraph.feature_grouped.field_feature_grouped_buttons
+    - field.field.paragraph.feature_grouped.field_feature_grouped_callout
+    - field.field.paragraph.feature_grouped.field_feature_grouped_fingerprnt
+    - field.field.paragraph.feature_grouped.field_feature_grouped_image
+    - field.field.paragraph.feature_grouped.field_feature_grouped_layout
+    - field.field.paragraph.feature_grouped.field_feature_grouped_subtitle
+    - field.field.paragraph.feature_grouped.field_feature_grouped_tagline
+    - field.field.paragraph.feature_grouped.field_feature_grouped_title
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.feature_grouped
+  module:
+    - image
+    - link
+    - text
+id: paragraph.feature_grouped.default
+targetEntityType: paragraph
+bundle: feature_grouped
+mode: default
+content:
+  field_feature_grouped_background:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_feature_grouped_body:
+    weight: 6
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+    type: text_textarea_with_summary
+    region: content
+  field_feature_grouped_buttons:
+    weight: 7
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_feature_grouped_callout:
+    weight: 9
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_feature_grouped_fingerprnt:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_feature_grouped_image:
+    weight: 5
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_feature_grouped_layout:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_feature_grouped_subtitle:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_feature_grouped_tagline:
+    weight: 8
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_feature_grouped_title:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true
