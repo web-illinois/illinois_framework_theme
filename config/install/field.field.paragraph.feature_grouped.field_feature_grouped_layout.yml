@@ -13,9 +13,11 @@ entity_type: paragraph
 bundle: feature_grouped
 label: Layout
 description: ''
-required: false
+required: true
 translatable: false
-default_value: {  }
+default_value:
+  -
+    value: right
 default_value_callback: ''
 settings: {  }
 field_type: list_string
