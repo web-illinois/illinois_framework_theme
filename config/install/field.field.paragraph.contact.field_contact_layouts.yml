@@ -7,13 +7,15 @@ dependencies:
     - paragraphs.paragraphs_type.contact
   module:
     - options
+_core:
+  default_config_hash: N9dQpAm7Fju0mM97CXMYPW2N9M9xuS92sQiZqLzqBwE
 id: paragraph.contact.field_contact_layouts
 field_name: field_contact_layouts
 entity_type: paragraph
 bundle: contact
 label: Layout
 description: ''
-required: false
+required: true
 translatable: false
 default_value:
   -
