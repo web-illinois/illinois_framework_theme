@@ -1,4 +1,5 @@
 .paragraph--type--contact {
+  padding: rem(60px) 0 !important;
 
   .field--name-field-contact {
 
@@ -7,6 +8,9 @@
       &__wrapper {
         &.right {
           text-align: right;
+        }
+        &.left {
+          text-align: left;
         }
       }
       &__title {
@@ -51,17 +55,47 @@
           margin-bottom: rem(20px);
         }
 
-        a:nth-child(2) {
-          margin-right: rem(30px);
+        &--two {
+          a:first-child {
+            margin-right: rem(30px);
+          }
         }
+
+
       }
       &__image {
         &__wrapper {
           width: 100%;
 
+          //align opposite of what the text is aligned
+          &.right,
+          &.righttxt {
+            text-align: left;
+          }
+          &.left,
+          &.lefttxt {
+            text-align: right;
+          }
+
           img {
             max-width: 350px;
             width:350px;
+          }
+        }
+      }
+      &__body {
+        &__wrapper {
+
+          padding-top: 10px;
+
+          //align opposite of what the text is aligned
+          &.right,
+          &.righttxt {
+            text-align: left;
+          }
+          &.left,
+          &.lefttxt {
+            text-align: right;
           }
         }
       }
