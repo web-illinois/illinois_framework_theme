@@ -5,6 +5,8 @@ dependencies:
   module:
     - options
     - paragraphs
+_core:
+  default_config_hash: mbP4AF5vM8mTMu4zFseb9i4L-F4WC_iusQZThlluW8Q
 id: paragraph.field_contact_layouts
 field_name: field_contact_layouts
 entity_type: paragraph
@@ -12,14 +14,17 @@ type: list_string
 settings:
   allowed_values:
     -
-      value: left
-      label: 'Image on Left'
-    -
       value: right
-      label: 'Image on Right'
+      label: 'Right Image - Info Left'
     -
-      value: alternating
-      label: 'Alternating right image, then left'
+      value: left
+      label: 'Left Image - Info Right'
+    -
+      value: righttxt
+      label: 'Right Text - Info Left'
+    -
+      value: lefttxt
+      label: 'Left Text - Info Right'
   allowed_values_function: ''
 module: options
 locked: false
