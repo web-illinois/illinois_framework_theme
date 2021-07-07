@@ -31,8 +31,14 @@
     }
     &-text__wrapper{
       width: 75%;
+      @include media-breakpoint-down(sm) {
+        width: 100%;
+      }
       .body p {
         color: #252525;
+      }
+      p a {
+        line-break: anywhere;
       }
     }
   }
