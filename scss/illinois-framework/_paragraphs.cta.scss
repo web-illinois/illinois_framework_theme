@@ -70,6 +70,10 @@
 
     &__button {
       margin: 0 1.875rem;
+      @include media-breakpoint-down(sm) {
+        margin: 0.5rem 0;
+        width: 100%;
+      }
     }
 
   }
