@@ -1,0 +1,31 @@
+uuid: a66f76e2-73fd-49c1-abfb-d2bcd037e550
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.list_collection.field_list_coll_body
+    - field.field.paragraph.list_collection.field_list_coll_style
+    - paragraphs.paragraphs_type.list_collection
+  module:
+    - options
+    - text
+id: paragraph.list_collection.default
+targetEntityType: paragraph
+bundle: list_collection
+mode: default
+content:
+  field_list_coll_body:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_list_coll_style:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+hidden: {  }

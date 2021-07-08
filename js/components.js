@@ -230,12 +230,12 @@ svg {
 .main {
     margin: 0 auto;
     max-width: var(--il-framework--max-width);
-    padding: 0 0 20px;
+    padding: 0 0 45px;
 }
 
 .main > div {
     display: grid;
-    grid-gap: 30px;
+    grid-gap: 95px;
     max-width: var(--il-framework--max-width);
     padding: 0 30px;
 }
@@ -271,10 +271,10 @@ svg {
   outline: 2px dashed var(--il-orange);
 }
 .social {
-    margin-top: 40px;
+    margin-top: 25px;
 }
 .site {
-    margin-top: 40px;
+    margin-top: 45px;
 }
 .site ::slotted(p) {
     margin: 0;
@@ -293,6 +293,7 @@ svg {
     background-color: var(--il-alma-mater);
     color: white;
     font: 700 18px var(--il-montserrat);
+    height: 5px;
     letter-spacing: 1.1px;
     line-height: 1.56;
     text-transform: uppercase;
@@ -304,8 +305,9 @@ svg {
     padding: 0 10px;
 }
 .parent ::slotted(*) {
+    height: 5px;
     margin: 0;
-    padding: 8px 0 5px;
+    padding: 0;
     font-size: 1em;
 }
         `}render(){return B`
@@ -321,6 +323,9 @@ svg {
                 </div>
                 <div class="social">
                     <slot name="social"></slot>
+                </div>
+                <div class="colleges">
+                    <slot name="colleges"></slot>
                 </div>
             </div>
             <div class="links">

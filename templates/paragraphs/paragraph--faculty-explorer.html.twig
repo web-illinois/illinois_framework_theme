@@ -1,0 +1,157 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a paragraph.
+ *
+ * Available variables:
+ * - paragraph: Full paragraph entity.
+ *   Only method names starting with "get", "has", or "is" and a few common
+ *   methods such as "id", "label", and "bundle" are available. For example:
+ *   - paragraph.getCreatedTime() will return the paragraph creation timestamp.
+ *   - paragraph.id(): The paragraph ID.
+ *   - paragraph.bundle(): The type of the paragraph, for example, "image" or "text".
+ *   - paragraph.getOwnerId(): The user ID of the paragraph author.
+ *   See Drupal\paragraphs\Entity\Paragraph for a full list of public properties
+ *   and methods for the paragraph object.
+ * - content: All paragraph items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to temporarily suppress the printing
+ *   of a given child element.
+ * - attributes: HTML attributes for the containing element.
+ *   The attributes.class element may contain one or more of the following
+ *   classes:
+ *   - paragraphs: The current template type (also known as a "theming hook").
+ *   - paragraphs--type-[type]: The current paragraphs type. For example, if the paragraph is an
+ *     "Image" it would result in "paragraphs--type--image". Note that the machine
+ *     name will often be in a short form of the human readable label.
+ *   - paragraphs--view-mode--[view_mode]: The View Mode of the paragraph; for example, a
+ *     preview would result in: "paragraphs--view-mode--preview", and
+ *     default: "paragraphs--view-mode--default".
+ * - view_mode: View mode; for example, "preview" or "full".
+ * - logged_in: Flag for authenticated user status. Will be true when the
+ *   current user is a logged-in member.
+ * - is_admin: Flag for admin user status. Will be true when the current user
+ *   is an administrator.
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{{ attach_library('faculty_explorer/faculty_explorer') }}
+
+{% if content.field_faculty_exp_layer_width['#items'].0.value == 'Fixed Width' %}
+  {% set max_width = 'fixed-width' %}
+{% else %}
+  {% set max_width = 'full-width' %}
+{% endif %}
+{%
+  set classes = [
+  'paragraph',
+  'paragraph--type--' ~ paragraph.bundle|clean_class,
+  view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+  not paragraph.isPublished() ? 'paragraph--unpublished',
+  'col-lg-12 col-md-12 col-sm-12 d-flex', content.field_faculty_explorer_bg_color[0]['#markup'] == 'Gray' ? 'background--color--gray ' ~ max_width
+  ]
+%}
+
+{% set default_result_title = content.field_faculty_explorer_res_title.0 %}
+{% set default_result_description = content.field_faculty_explorer_res_desc.0 %}
+
+<script>
+  var default_result_title = "{{ content.field_faculty_explorer_res_title.0 }}";
+  var default_result_description = "{{ content.field_faculty_explorer_res_desc.0 }}";
+  var result_empty_description = "{{ content.field_faculty_explorer_none_desc.0 }}";
+
+  var main = [
+    {"id": 1, "title": 'Beef Cattle', "description": 'With a long-standing reputation for excellence in beef cattle research, our mission is to provide quality research and educational experiences for our graduate and undergraduate students. Our research goals are to enhance the quality of beef while decreasing the environmental footprint of production through research in a variety of disciplines.', "image": 'Beef-cattle.jpg'},
+    {"id": 2, "title": 'Companion Animals', "description": 'As the first in the U.S. to establish a program in companion animal biology, our goal is to provide training in the basic sciences of companion animals as well as the human-animal interactions that so strongly affect our lives and society.', "image": 'Companion-animals.jpg'},
+    {"id": 3, "title": 'Dairy Cattle', "description": 'Committed to meeting the challenges of the Illinois dairy industry and dairy farmers at large, our focus is on dairy cow nutrition, reproduction, and the results of its combination. Our mission includes quality research and educational experiences for our graduate and undergraduate students and dairy producers around the world.', "image": 'dairy-cattle.jpg'},
+    {"id": 4, "title": 'Exotic Animals', "description": 'We are one of the few animal sciences departments in the country with active research involving exotic species. Our faculty members are engaged in research concerning both captive and wild exotic animals all around the world.', "image": 'exotic-animals_2.jpg'},
+    {"id": 5, "title": 'Horses', "description": 'Our department has been actively involved in the Illinois equine industry for many years. Our Standardbred horse farm is located walking distance from campus and specializes in assisted reproductive technologies. The horse farm also provides outstanding learning experiences for our undergraduate and graduate students.', "image": 'horses.jpg'},
+    {"id": 6, "title": 'Poultry', "description": 'For nearly a century, we have been engaged in ground-breaking research with poultry. Our program focuses mainly on nutrition, but also encompasses reproduction, genetics, health, and product quality. Our goals are to enhance the sustainability of poultry production for producers, consumers, and the environment.', "image": 'poultry.jpg'},
+    {"id": 7, "title": 'Rodents', "description": 'While not considered traditional animal sciences species, rodents serve as excellent models for both production agriculture and human health. Our faculty are actively engaged in research involving reproduction, development, immunology, nutrition, and neuroscience using rodent models.', "image": 'rodents.jpg'},
+    {"id": 8, "title": 'Swine', "description": 'Our mission is to continue to serve as leaders in the area of swine research, providing quality research and educational experiences for our graduate and undergraduate students. Our research goals are to enhance swine production and profitability of the swine industry while safeguarding the environment.', "image": 'swine.jpg'}
+  ];
+
+  var secondary = [
+    {"id": 1, "title": 'Genetics, Genomics, and Bioinformatics', "description": 'Molecular genetics, genomics, bioengineering, and immunogenetics relate to the study of the structure and function of genes and their influence on complex traits. Bioinformatics, quantitative and population genetics, and statistical genomics integrate phenotypic and genetic information at the molecular, cellular, individual, and population levels through advances in computer science, mathematics, molecular biology, and statistics.', "image": 'genetics.jpg'},
+    {"id": 2, "title": 'Immunophysiology and Behavior', "description": 'The immunophysiology and behavior program explores how environmental stimuli on the immune system affect disease resistance and how cells of the immune system, and their secreted cytokine gene products, interact with different physiologic systems to affect growth and development, nutrition and metabolism, neural pathways that regulate behavior, and health and well-being.', "image": 'immunology.jpg'},
+    {"id": 3, "title": 'Meat Science and Muscle Biology', "description": 'The meat science and muscle biology program, housed in the Meat Science Laboratory, provides students with the opportunity for hands-on experience while they learn. Research focuses on the regulation of animal growth and development, technologies to improve animal production and efficiency, carcass yield and quality, and aspects of further processing. ', "image": 'meat-and-muscle-biology.jpg'},
+    {"id": 4, "title": 'Microbiology', "description": 'The microbiology program provides a strong foundation and training in basic and applied microbiology, biochemistry, molecular genetics, ecology, genomics, and physiology and metabolism of anaerobic microorganisms. Multidisciplinary research in this field seeks to understand the interplay between microorganisms and the host. These results will have profound implications on human and animal health alike.', "image": 'microbiology.jpg'},
+    {"id": 5, "title": 'Nutrition', "description": 'Nutrition encompasses research with swine, poultry, beef cattle, dairy cattle, sheep, dogs, cats, and laboratory rodents. Much of the research with food animals is directed toward improving the utilization of carbohydrates, fat, protein, and fiber for production of meat, milk, and eggs. Research with chicks, rodents, and pigs is often experimental or conceptual in nature so that the results go beyond species–specific answers to fundamental questions related to human health.', "image": 'Nutrition.jpg'},
+    {"id": 6, "title": 'Production and Environment Management', "description": 'Learn and apply cutting-edge approaches and gain insight into the most current animal production and environmental management methods. Animal production research is primarily basic science discovery that impacts production outcome. Faculty who participate in production and management research use both basic and discovery sciences in animal sciences applications. Research uses many economically important species and incorporates novel treatments based upon new science discoveries and management methodologies.', "image": 'production.jpg'},
+    {"id": 7, "title": 'Reproductive Biology', "description": 'The goal of this nationally recognized program is to understand the fundamental processes in reproduction and improve reproductive efficiency, when desired, or control or prevent reproduction, when reduced fertility is desired. Research includes a broad range of species and incorporates whole animal experiments, cell and tissue culture techniques, and molecular biology and genetic studies. Students have opportunities to learn and apply a multitude of cutting edge approaches to gain insight into reproductive biology and to solve important problems in reproduction.', "image": 'reproductive-biology.jpg'}
+  ];
+</script>
+
+{% block paragraph %}
+  {# Paragraph ID used for anchor linking #}
+  <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
+    {% block content %}
+      <div class="col-lg-12 col-md-12 flex paragraph--type--faculty-explorer__wrapper fixed-width">
+        <h2 class="faculty-explorer--header">{{ content.field_faculty_explorer_title.0 }}</h2>
+        <p class="faculty-explorer--description">{{ content.field_faculty_explorer_desc.0 }}</p>
+
+        <div id="faculty-explorer--select-boxes" class="faculty-explorer--select-boxes">
+          <script>
+            var main_select = document.createElement('select');
+            main_select.id = 'faculty-explorer--main-area-select';
+            main_select.classList.add('faculty-explorer--select');
+            var newOption = document.createElement('option');
+            newOption.value = '0';
+            newOption.innerHTML = 'Select an animal';
+            main_select.appendChild(newOption);
+            main.forEach(function (item, index) {
+              var newOption = document.createElement('option');
+              newOption.value = item.id;
+              newOption.innerHTML = item.title;
+              main_select.appendChild(newOption);
+            });
+            document.getElementById('faculty-explorer--select-boxes').appendChild(main_select);
+          </script>
+
+          <script>
+            var select = document.createElement('select');
+            select.id = 'faculty-explorer--secondary-area-select';
+            select.classList.add('faculty-explorer--select');
+            var newOption = document.createElement('option');
+            newOption.value = '0';
+            newOption.innerHTML = 'Select a discipline';
+            select.appendChild(newOption);
+            secondary.forEach(function (item, index) {
+              var newOption = document.createElement('option');
+              newOption.value = item.id;
+              newOption.innerHTML = item.title;
+              select.appendChild(newOption);
+            });
+            document.getElementById('faculty-explorer--select-boxes').appendChild(select);
+          </script>
+        </div>
+
+        <div class="faculty-explorer--result--descriptions">
+          <div class="faculty-explorer--result--area">
+            <div class="faculty-explorer--result--area-description--image">
+              <img src="/themes/contrib/illinois_framework_theme/images/block-i.jpg">
+            </div>
+            <div class="faculty-explorer--result--area-description--text">
+              <div class="faculty-explorer--result--area-description--text--title">
+                {{ default_result_title }}
+              </div>
+              <div class="faculty-explorer--result--area-description--text--description">
+                {{ default_result_description }}
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="faculty-explorer--result--faculty">
+
+        </div>
+
+      </div>
+    {% endblock %}
+  </div>
+{% endblock paragraph %}

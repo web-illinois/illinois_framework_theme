@@ -1,0 +1,23 @@
+uuid: 8e6a4365-7bf3-4dd2-b5ef-dde91ca893be
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.internships
+  module:
+    - text
+id: node.internships.body
+field_name: body
+entity_type: node
+bundle: internships
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

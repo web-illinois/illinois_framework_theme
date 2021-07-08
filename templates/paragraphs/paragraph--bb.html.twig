@@ -43,28 +43,30 @@
 {% else %}
   {% set max_width = 'full-width' %}
 {% endif %}
+{% set background = content.field_bb[loop.index0]['#paragraph'].field_bb_content_background.value %}
 {%
   set classes = [
   'paragraph',
   'paragraph--type--' ~ paragraph.bundle|clean_class,
   view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
   not paragraph.isPublished() ? 'paragraph--unpublished',
-  'col-lg-12 col-md-12 col-sm-12 p-0 flex ' ~ max_width
+  'col-lg-12 col-md-12 col-sm-12 p-0 d-flex ' ~ max_width
 ]
 %}
+
 {% block paragraph %}
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
-      <div class="col-lg-12 col-md-12 p-0 flex paragraph--type--bb__wrapper">
+{#      {{ kint() }}#}
+      <div class="col-lg-12 col-md-12 p-0 d-flex row paragraph--type--bb__wrapper background--color--{{ background }}">
         {% for item in content.field_bb['#items'] %}
           {% set image = content.field_bb[loop.index0]['#paragraph'].field_bb_content_image.entity.fileuri|image_style('big_button_image') %}
           {% set image_alt = content.field_bb[loop.index0]['#paragraph'].field_bb_content_image.alt %}
-          {% set background = content.field_bb[loop.index0]['#paragraph'].field_bb_content_background.value %}
           {% set body = content.field_bb[loop.index0]['#paragraph'].field_bb_content_body.value %}
           {% set title = content.field_bb[loop.index0]['#paragraph'].field_bb_content_title.value %}
           {% set link = content.field_bb[loop.index0]['#paragraph'].field_bb_content_link[0] | view %}
-            <div class="col-lg-4 col-md-6 col-sm-12 flex background--color--{{ background }}">
+            <div class="col-lg-4 col-md-6 col-sm-12 d-flex">
               <a class="field--name-field-bb__link" href="{{ link['#url'] | render }}">
               <div class="field--name-field-bb__content__wrapper content__wrapper">
                 <div class="field--name-field-bb__content">

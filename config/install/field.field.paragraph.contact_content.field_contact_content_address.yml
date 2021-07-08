@@ -1,0 +1,21 @@
+uuid: eaaba12b-9f23-4546-b336-3ec50e9d6fd5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_contact_content_address
+    - paragraphs.paragraphs_type.contact_content
+  module:
+    - text
+id: paragraph.contact_content.field_contact_content_address
+field_name: field_contact_content_address
+entity_type: paragraph
+bundle: contact_content
+label: Address
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

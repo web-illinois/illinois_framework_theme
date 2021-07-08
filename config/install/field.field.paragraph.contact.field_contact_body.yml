@@ -1,0 +1,21 @@
+uuid: 97e0721b-e7ee-4def-9cfd-0f39221e86c3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_contact_body
+    - paragraphs.paragraphs_type.contact
+  module:
+    - text
+id: paragraph.contact.field_contact_body
+field_name: field_contact_body
+entity_type: paragraph
+bundle: contact
+label: Body
+description: 'Add buttons or rich text to display opposite column from titles.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

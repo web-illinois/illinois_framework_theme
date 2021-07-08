@@ -1,0 +1,23 @@
+uuid: 9e53ef1c-cbda-4333-840d-6caa075ba0bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cta_narrow_margin
+    - paragraphs.paragraphs_type.cta_narrow
+  module:
+    - options
+id: paragraph.cta_narrow.field_cta_narrow_margin
+field_name: field_cta_narrow_margin
+entity_type: paragraph
+bundle: cta_narrow
+label: Spacing
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: none
+default_value_callback: ''
+settings: {  }
+field_type: list_string

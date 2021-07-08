@@ -3,4 +3,13 @@
   article.profile {
     @extend %fixed-width;
   }
+  article {
+    .field--name-body {
+      @extend %fixed-width;
+
+      p {
+        max-width: 900px;
+      }
+    }
+  }
 }
