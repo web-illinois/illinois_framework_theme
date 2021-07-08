@@ -62,7 +62,6 @@
       {% endif %}
       {% set body = content.field_feature_grouped_body['#items'].0.value %}
       <div class="col-lg-9 col-md-9 col-sm-12 d-flex row {{ row_style }} paragraph--type--feature-grouped__wrapper background--color--{{ background }}">
-        {{ kint(content) }}
         {% if content.field_feature_grouped_title['#items'] %}
           <div class="col-lg-12 p-0 field--name-field-feature-grouped__title title">
             <h2>{{ content.field_feature_grouped_title['#items'].0.value }}</h2>
