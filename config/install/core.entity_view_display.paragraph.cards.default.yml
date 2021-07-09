@@ -14,7 +14,7 @@ dependencies:
     - entity_reference_revisions
     - options
 _core:
-  default_config_hash: 54MIRtQljB3APX9Ut0f-5vFDpS0wOTpdlUIIHi3nLxQ
+  default_config_hash: WKuLam8VSJWsf609xjhDHaJh4_tPTY2Jmhb5QEUXgyg
 id: paragraph.cards.default
 targetEntityType: paragraph
 bundle: cards
