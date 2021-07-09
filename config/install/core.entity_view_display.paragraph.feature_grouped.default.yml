@@ -6,12 +6,9 @@ dependencies:
     - field.field.paragraph.feature_grouped.field_feature_grouped_background
     - field.field.paragraph.feature_grouped.field_feature_grouped_body
     - field.field.paragraph.feature_grouped.field_feature_grouped_buttons
-    - field.field.paragraph.feature_grouped.field_feature_grouped_callout
-    - field.field.paragraph.feature_grouped.field_feature_grouped_fingerprnt
     - field.field.paragraph.feature_grouped.field_feature_grouped_image
     - field.field.paragraph.feature_grouped.field_feature_grouped_layout
     - field.field.paragraph.feature_grouped.field_feature_grouped_subtitle
-    - field.field.paragraph.feature_grouped.field_feature_grouped_tagline
     - field.field.paragraph.feature_grouped.field_feature_grouped_title
     - paragraphs.paragraphs_type.feature_grouped
   module:
@@ -50,21 +47,6 @@ content:
     third_party_settings: {  }
     type: link
     region: content
-  field_feature_grouped_callout:
-    weight: 9
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_feature_grouped_fingerprnt:
-    weight: 3
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: list_default
-    region: content
   field_feature_grouped_image:
     weight: 5
     label: above
@@ -83,14 +65,6 @@ content:
     region: content
   field_feature_grouped_subtitle:
     weight: 1
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_feature_grouped_tagline:
-    weight: 8
     label: above
     settings:
       link_to_entity: false
