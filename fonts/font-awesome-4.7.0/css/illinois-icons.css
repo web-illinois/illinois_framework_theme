@@ -1,0 +1,247 @@
+@font-face {
+  font-family: 'Illinois-Icons-Line';
+  src:  url('../fonts/Illinois-Icons-Line.eot?pxprhs');
+  src:  url('../fonts/Illinois-Icons-Line.eot?pxprhs#iefix') format('embedded-opentype'),
+    url('../fonts/Illinois-Icons-Line.ttf?pxprhs') format('truetype'),
+    url('../fonts/Illinois-Icons-Line.woff?pxprhs') format('woff'),
+    url('../fonts/Illinois-Icons-Line.svg?pxprhs#Illinois-Icons-Line') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="il-icon-"], [class*=" il-icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'Illinois-Icons-Line' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Enable Ligatures ================ */
+  letter-spacing: 0;
+  -webkit-font-feature-settings: "liga";
+  -moz-font-feature-settings: "liga=1";
+  -moz-font-feature-settings: "liga";
+  -ms-font-feature-settings: "liga" 1;
+  font-feature-settings: "liga";
+  -webkit-font-variant-ligatures: discretionary-ligatures;
+  font-variant-ligatures: discretionary-ligatures;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.il-icon-admissions:before {
+  content: "\e900";
+}
+.il-icon-alumni:before {
+  content: "\e901";
+}
+.il-icon-apply-now:before {
+  content: "\e902";
+}
+.il-icon-audio:before {
+  content: "\e903";
+}
+.il-icon-back:before {
+  content: "\e904";
+}
+.il-icon-calendar:before {
+  content: "\e905";
+}
+.il-icon-cancel-exit:before {
+  content: "\e906";
+}
+.il-icon-comment:before {
+  content: "\e907";
+}
+.il-icon-directory:before {
+  content: "\e908";
+}
+.il-icon-document:before {
+  content: "\e909";
+}
+.il-icon-donor:before {
+  content: "\e90a";
+}
+.il-icon-download:before {
+  content: "\e90b";
+}
+.il-icon-email:before {
+  content: "\e90c";
+}
+.il-icon-event:before {
+  content: "\e90d";
+}
+.il-icon-facebook:before {
+  content: "\e90e";
+}
+.il-icon-faculty-staff:before {
+  content: "\e90f";
+}
+.il-icon-faq:before {
+  content: "\e910";
+}
+.il-icon-favorite:before {
+  content: "\e911";
+}
+.il-icon-give-gift:before {
+  content: "\e912";
+}
+.il-icon-google-plus:before {
+  content: "\e913";
+}
+.il-icon-handbook-manual:before {
+  content: "\e914";
+}
+.il-icon-home:before {
+  content: "\e915";
+}
+.il-icon-hours:before {
+  content: "\e916";
+}
+.il-icon-hr:before {
+  content: "\e917";
+}
+.il-icon-image:before {
+  content: "\e918";
+}
+.il-icon-inclusive:before {
+  content: "\e919";
+}
+.il-icon-info:before {
+  content: "\e91a";
+}
+.il-icon-instagram:before {
+  content: "\e91b";
+}
+.il-icon-intranet:before {
+  content: "\e91c";
+}
+.il-icon-job-employment:before {
+  content: "\e91d";
+}
+.il-icon-less:before {
+  content: "\e91e";
+}
+.il-icon-link:before {
+  content: "\e91f";
+}
+.il-icon-linkedin:before {
+  content: "\e920";
+}
+.il-icon-location:before {
+  content: "\e921";
+}
+.il-icon-menu:before {
+  content: "\e922";
+}
+.il-icon-more:before {
+  content: "\e923";
+}
+.il-icon-news:before {
+  content: "\e924";
+}
+.il-icon-next:before {
+  content: "\e925";
+}
+.il-icon-notification:before {
+  content: "\e926";
+}
+.il-icon-parent-family:before {
+  content: "\e927";
+}
+.il-icon-partners:before {
+  content: "\e928";
+}
+.il-icon-pay-bill:before {
+  content: "\e929";
+}
+.il-icon-phone-call:before {
+  content: "\e92a";
+}
+.il-icon-pinterest:before {
+  content: "\e92b";
+}
+.il-icon-plan:before {
+  content: "\e92c";
+}
+.il-icon-program-of-study:before {
+  content: "\e92d";
+}
+.il-icon-research:before {
+  content: "\e92e";
+}
+.il-icon-resources:before {
+  content: "\e92f";
+}
+.il-icon-safety:before {
+  content: "\e930";
+}
+.il-icon-search:before {
+  content: "\e931";
+}
+.il-icon-send:before {
+  content: "\e932";
+}
+.il-icon-settings:before {
+  content: "\e933";
+}
+.il-icon-shop:before {
+  content: "\e934";
+}
+.il-icon-sitemap:before {
+  content: "\e935";
+}
+.il-icon-snapchat:before {
+  content: "\e936";
+}
+.il-icon-students:before {
+  content: "\e937";
+}
+.il-icon-submit:before {
+  content: "\e938";
+}
+.il-icon-team:before {
+  content: "\e939";
+}
+.il-icon-tickets:before {
+  content: "\e93a";
+}
+.il-icon-trash:before {
+  content: "\e93b";
+}
+.il-icon-twitter:before {
+  content: "\e93c";
+}
+.il-icon-unit:before {
+  content: "\e93d";
+}
+.il-icon-user:before {
+  content: "\e93e";
+}
+.il-icon-video:before {
+  content: "\e93f";
+}
+.il-icon-volume:before {
+  content: "\e940";
+}
+.il-icon-website:before {
+  content: "\e941";
+}
+.il-icon-weibo:before {
+  content: "\e942";
+}
+.il-icon-whatsapp:before {
+  content: "\e943";
+}
+.il-icon-workshop-training:before {
+  content: "\e944";
+}
+.il-icon-youtube:before {
+  content: "\e945";
+}

@@ -1,0 +1,19 @@
+uuid: 8f187e7c-11d8-4f25-99af-8e53a2aa070c
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - paragraphs
+id: paragraph.field_feature_grouped_buttons
+field_name: field_feature_grouped_buttons
+entity_type: paragraph
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 2
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

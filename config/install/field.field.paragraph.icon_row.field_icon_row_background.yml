@@ -1,0 +1,25 @@
+uuid: cd660d7f-8f33-4a2d-b534-3bd3b2879bd5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_icon_row_background
+    - paragraphs.paragraphs_type.icon_row
+  module:
+    - options
+_core:
+  default_config_hash: KF9vyIlWVo4rN6SgXbreEBW6gOZyQqNRYMejCwpTnw0
+id: paragraph.icon_row.field_icon_row_background
+field_name: field_icon_row_background
+entity_type: paragraph
+bundle: icon_row
+label: Background
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: gray
+default_value_callback: ''
+settings: {  }
+field_type: list_string

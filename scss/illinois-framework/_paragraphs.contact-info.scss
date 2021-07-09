@@ -1,59 +1,103 @@
-paragraph--type--contact {
+.paragraph--type--contact {
+  padding: rem(60px) 0 !important;
 
   .field--name-field-contact {
 
-    &__image {
-
-      &__wrapper {
-        img {
-
-        }
-      }
-    }
     &__content {
 
       &__wrapper {
-
+        &.right {
+          text-align: right;
+        }
+        &.left {
+          text-align: left;
+        }
       }
-    }
-    &__title {
-      padding-bottom: rem(30px);
-
-      .field__item {
+      &__title {
+        color: var(--il-blue);
         font-family: var(--il-source-sans);
-        font-size: rem(36px);
-        font-weight: 700;
-        line-height: rem(36px);
-        padding-bottom: rem(32px);
-      }
-    }
-    &__subtitle {
-
-      .field__item {
-        font-family: var(--il-source-sans);
-        font-size: rem(22px);
+        font-size: 36px;
         font-weight: normal;
-        line-height: 1.2;
-        padding-bottom: rem(20px);
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        padding-bottom: rem(30px);
       }
-    }
-    &__address {
-
-    }
-    &__phone {
-
-    }
-    &__email {
-
-    }
-    &__button {
-
-      a {
-        margin-bottom: rem(20px);
+      &__subtitle {
+        font-family: var(--il-source-sans);
+        font-size: rem(20px);
+        font-weight: bold;
+        line-height: 1.5;
       }
+      &__address {
+        address {
+          margin-bottom: 0;
+          p {
+            margin-bottom: 0;
+          }
+        }
+      }
+      &__phone {
+        p {
+          margin-bottom: 0;
+        }
+      }
+      &__email {
+        p {
+          margin-bottom: 0;
+        }
+      }
+      &__button {
 
-      a:first-child {
-        margin-right: rem(30px);
+        a {
+          margin-top: rem(45px);
+          margin-bottom: rem(20px);
+        }
+
+        &--two {
+          a:first-child {
+            margin-right: rem(30px);
+          }
+        }
+
+
+      }
+      &__image {
+        &__wrapper {
+          width: 100%;
+
+          //align opposite of what the text is aligned
+          &.right,
+          &.righttxt {
+            text-align: left;
+          }
+          &.left,
+          &.lefttxt {
+            text-align: right;
+          }
+
+          img {
+            max-width: 350px;
+            width:350px;
+          }
+        }
+      }
+      &__body {
+        &__wrapper {
+
+          padding-top: 10px;
+
+          //align opposite of what the text is aligned
+          &.right,
+          &.righttxt {
+            text-align: left;
+          }
+          &.left,
+          &.lefttxt {
+            text-align: right;
+          }
+        }
       }
     }
   }

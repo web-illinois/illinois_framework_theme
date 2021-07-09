@@ -5,6 +5,8 @@ dependencies:
   module:
     - link
     - paragraphs
+_core:
+  default_config_hash: NPtHYuNoaA9SjQiWU1nR9gmUSDzsEAxIAQTK4AMXKYg
 id: paragraph.field_contact_content_button
 field_name: field_contact_content_button
 entity_type: paragraph
@@ -12,7 +14,7 @@ type: link
 settings: {  }
 module: link
 locked: false
-cardinality: 1
+cardinality: 2
 translatable: true
 indexes: {  }
 persist_with_no_fields: false
