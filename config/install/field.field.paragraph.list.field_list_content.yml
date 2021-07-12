@@ -8,6 +8,8 @@ dependencies:
     - paragraphs.paragraphs_type.list_content
   module:
     - entity_reference_revisions
+_core:
+  default_config_hash: iOKA7ymwvPaNWaPoJ7hPErd-x2kglhL82hbW2RoOXSM
 id: paragraph.list.field_list_content
 field_name: field_list_content
 entity_type: paragraph
