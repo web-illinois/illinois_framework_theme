@@ -1,0 +1,23 @@
+uuid: 0ed8e1a7-c16b-48f6-8fe1-5244013372ea
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_list_margin
+    - paragraphs.paragraphs_type.list
+  module:
+    - options
+id: paragraph.list.field_list_margin
+field_name: field_list_margin
+entity_type: paragraph
+bundle: list
+label: Spacing
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: none
+default_value_callback: ''
+settings: {  }
+field_type: list_string

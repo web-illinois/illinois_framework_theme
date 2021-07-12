@@ -12,6 +12,8 @@ dependencies:
     - image
     - options
     - text
+_core:
+  default_config_hash: 1kpuYP3-UadIMFOY2e1WJ29aaYegz43jSVNb2JQHsYQ
 id: paragraph.list_content.default
 targetEntityType: paragraph
 bundle: list_content

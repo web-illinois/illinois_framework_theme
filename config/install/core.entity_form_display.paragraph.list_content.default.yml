@@ -11,6 +11,8 @@ dependencies:
   module:
     - image
     - text
+_core:
+  default_config_hash: iN3aIF8f7MDIqt-m7sTnvqTEGOo8x_B3rke9-_x0gXE
 id: paragraph.list_content.default
 targetEntityType: paragraph
 bundle: list_content

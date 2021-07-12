@@ -7,6 +7,8 @@ dependencies:
     - paragraphs.paragraphs_type.list_content
   module:
     - options
+_core:
+  default_config_hash: 0hohF7YR5jW14INlRTC_KDj1vfD1sdRATt7HqLti_kQ
 id: paragraph.list_content.field_list_content_layout
 field_name: field_list_content_layout
 entity_type: paragraph
