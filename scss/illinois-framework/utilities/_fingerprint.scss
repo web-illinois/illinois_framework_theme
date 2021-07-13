@@ -5,6 +5,9 @@
       background-size: 115%;
       background-position: center;
       background-repeat: no-repeat;
+      @include media-breakpoint-down(sm) {
+        background-size: cover;
+      }
     }
 
     &--right {
@@ -12,7 +15,9 @@
       background-size: 115%;
       background-position: center;
       background-repeat: no-repeat;
-
+      @include media-breakpoint-down(sm) {
+        background-size: cover;
+      }
     }
 
     &--left {
@@ -20,6 +25,10 @@
       background-size: 115%;
       background-position: center;
       background-repeat: no-repeat;
+      @include media-breakpoint-down(sm) {
+        background-size: cover;
+      }
     }
+
   }
 
