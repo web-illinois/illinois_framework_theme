@@ -47,7 +47,8 @@
     &__button {
       margin: 0 rem(30px);
       @include media-breakpoint-down(sm) {
-        margin: 1rem rem(30px);
+        margin: 1rem 0;
+        width: 100%;
       }
     }
   }
@@ -64,6 +65,7 @@
       }
     }
     &--white{
+      color: var(--il-blue);
       .btn-primary{
         background-color: var(--il-blue);
         border-color: var(--il-blue);
