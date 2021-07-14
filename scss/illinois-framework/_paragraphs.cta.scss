@@ -1,4 +1,7 @@
 .paragraph--type--cta {
+  @include media-breakpoint-down(sm) {
+    padding: 0 !important;
+  }
   .field--name-field-cta {
 
     &__wrapper {
@@ -117,6 +120,13 @@
           font-size: rem(24px);
           line-height: 2rem;
           color: white;
+        }
+      }
+    }
+    &--gray {
+      .field--name-field-cta{
+        &__subtitle{
+          color: var(--il-blue);
         }
       }
     }
