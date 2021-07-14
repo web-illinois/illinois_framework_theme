@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.storage.node.field_career_position
     - node.type.career_possibilities
+_core:
+  default_config_hash: 8Fk7zoKwONcF61slv6RumjwYm0sJkDbbae7BTFVS20I
 id: node.career_possibilities.field_career_position
 field_name: field_career_position
 entity_type: node

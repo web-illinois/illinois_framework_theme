@@ -1,9 +1,9 @@
-uuid: 111e1f8c-1131-4198-bcc9-a73ba9f667c5
+uuid: 94a61206-6705-4880-9ead-b0ce836788c8
 langcode: en
-status: true
+status: false
 dependencies:
   config:
-    - core.entity_view_mode.node.teaser
+    - core.entity_view_mode.node.feature
     - field.field.node.career_possibilities.body
     - field.field.node.career_possibilities.field_career_background
     - field.field.node.career_possibilities.field_career_degrees
@@ -16,39 +16,30 @@ dependencies:
     - field.field.node.career_possibilities.field_if_meda_featured_image
     - node.type.career_possibilities
   module:
+    - layout_builder
     - text
     - user
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: false
 _core:
-  default_config_hash: XCLLLl6Z2WNVf2pXlsN2W-NLAFRxdOzktKLgFYQKP5o
-id: node.career_possibilities.teaser
+  default_config_hash: DwV3RAbMBrdyjK8gzarfhvOXGBsG4O_YZXxsI8Jcd1U
+id: node.career_possibilities.feature
 targetEntityType: node
 bundle: career_possibilities
-mode: teaser
+mode: feature
 content:
-  field_career_background:
+  body:
+    label: hidden
     type: text_summary_or_trimmed
     weight: 1
-    region: content
-    label: hidden
     settings:
-      trim_length: 600
+      trim_length: 300
     third_party_settings: {  }
-  field_if_meda_featured_image:
-    type: entity_reference_entity_view
-    weight: 0
     region: content
-    label: hidden
-    settings:
-      view_mode: spotlight_list
-      link: false
-    third_party_settings: {  }
-  links:
-    weight: 2
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
-  body: true
+  field_career_background: true
   field_career_degrees: true
   field_career_hometown: true
   field_career_job_duties: true
@@ -56,3 +47,5 @@ hidden:
   field_career_position: true
   field_career_salary_range: true
   field_career_ug_experiences: true
+  field_if_meda_featured_image: true
+  links: true

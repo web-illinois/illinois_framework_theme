@@ -5,6 +5,8 @@ dependencies:
   module:
     - node
     - text
+_core:
+  default_config_hash: 74zunTbH1F9v4t9WKmlAMvzb8nPDLSTcKUYzjfwsAHw
 id: node.field_intern_contact
 field_name: field_intern_contact
 entity_type: node

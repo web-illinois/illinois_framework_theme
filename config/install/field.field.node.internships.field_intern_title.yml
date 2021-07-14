@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.storage.node.field_intern_title
     - node.type.internships
+_core:
+  default_config_hash: V-k6E9tg2x51DkPJ2PuMqwuOISUgxiWW9AKZayvvFtQ
 id: node.internships.field_intern_title
 field_name: field_intern_title
 entity_type: node

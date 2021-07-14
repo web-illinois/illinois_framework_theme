@@ -4,129 +4,100 @@ status: true
 dependencies:
   config:
     - field.field.node.career_possibilities.body
-    - field.field.node.career_possibilities.field_career_additional_body
     - field.field.node.career_possibilities.field_career_background
     - field.field.node.career_possibilities.field_career_degrees
-    - field.field.node.career_possibilities.field_career_first_name
     - field.field.node.career_possibilities.field_career_hometown
-    - field.field.node.career_possibilities.field_career_image
     - field.field.node.career_possibilities.field_career_job_duties
-    - field.field.node.career_possibilities.field_career_last_name
     - field.field.node.career_possibilities.field_career_linked_degree
     - field.field.node.career_possibilities.field_career_position
     - field.field.node.career_possibilities.field_career_salary_range
     - field.field.node.career_possibilities.field_career_ug_experiences
+    - field.field.node.career_possibilities.field_if_meda_featured_image
     - node.type.career_possibilities
   module:
-    - image
     - options
     - text
     - user
+_core:
+  default_config_hash: DwV3RAbMBrdyjK8gzarfhvOXGBsG4O_YZXxsI8Jcd1U
 id: node.career_possibilities.default
 targetEntityType: node
 bundle: career_possibilities
 mode: default
 content:
   body:
+    type: text_default
+    weight: 8
+    region: content
     label: hidden
-    type: text_default
-    weight: 1
     settings: {  }
     third_party_settings: {  }
-    region: content
-  field_career_additional_body:
-    weight: 13
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
-    region: content
   field_career_background:
-    weight: 11
+    weight: 6
     label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_career_degrees:
-    weight: 8
-    label: above
+    weight: 3
+    label: inline
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
-  field_career_first_name:
-    weight: 4
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
   field_career_hometown:
-    weight: 7
-    label: above
+    weight: 2
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
-    region: content
-  field_career_image:
-    weight: 3
-    label: above
-    settings:
-      image_style: ''
-      image_link: ''
-    third_party_settings: {  }
-    type: image
     region: content
   field_career_job_duties:
-    weight: 10
+    weight: 5
     label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
-  field_career_last_name:
-    weight: 5
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
   field_career_linked_degree:
-    weight: 2
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: list_default
-    region: content
-  field_career_position:
-    weight: 6
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_career_salary_range:
     weight: 9
     label: above
     settings: {  }
     third_party_settings: {  }
     type: list_default
     region: content
+  field_career_position:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_career_salary_range:
+    weight: 4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
   field_career_ug_experiences:
-    weight: 12
+    weight: 7
     label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
-  links:
+  field_if_meda_featured_image:
     weight: 0
-    region: content
-    settings: {  }
+    label: hidden
+    settings:
+      view_mode: spotlight_detail
+      link: false
     third_party_settings: {  }
-hidden: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  links: true

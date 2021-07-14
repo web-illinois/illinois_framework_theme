@@ -7,6 +7,8 @@ dependencies:
     - node.type.career_possibilities
   module:
     - options
+_core:
+  default_config_hash: pfCP8w_3zuR8HKUFhp7Kbs4JisGZyZrNEDFA2CKYNjg
 id: node.career_possibilities.field_career_salary_range
 field_name: field_career_salary_range
 entity_type: node

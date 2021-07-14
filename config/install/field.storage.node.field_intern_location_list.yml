@@ -5,6 +5,8 @@ dependencies:
   module:
     - node
     - options
+_core:
+  default_config_hash: xHXitzgbBCIT-w8kpt1dJ-s5qvy9hh9r1906jDtxkFo
 id: node.field_intern_location_list
 field_name: field_intern_location_list
 entity_type: node
