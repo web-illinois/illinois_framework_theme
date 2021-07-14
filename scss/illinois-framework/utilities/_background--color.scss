@@ -30,7 +30,8 @@
       border: rem(2px) solid var(--il-orange);
       color: white;
 
-      &:hover {
+      &:hover,
+      &:focus {
         background-color: white;
         border: rem(2px) solid var(--il-orange);
         color: var(--il-orange);
@@ -76,11 +77,12 @@
     }
 
     .btn {
-      background-color: var(--il-industrial-blue);
+      background-color: #184079;
       border: rem(2px) solid white;
       color: white;
 
-      &:hover {
+      &:hover,
+      &:focus {
         background-color: white;
         color: var(--il-blue);
       }
@@ -122,11 +124,12 @@
     }
 
     .btn {
-      background-color: var(--il-orange);
+      background-color: #ef461a ;
       border: rem(2px) solid white;
       color: white;
 
-      &:hover {
+      &:hover,
+      &:focus {
         background-color: var(--il-blue);
         border: rem(2px) solid var(--il-blue);
         color: white;
@@ -165,7 +168,8 @@
       border: rem(2px) solid white;
       color: white;
 
-      &:hover {
+      &:hover,
+      &:focus {
         background-color: var(--il-orange);
         border: rem(2px) solid var(--il-orange);
         color: white;
@@ -204,7 +208,8 @@
       border: rem(2px) solid white;
       color: white;
 
-      &:hover {
+      &:hover,
+      &:focus {
         background-color: var(--il-blue);
         border: rem(2px) solid var(--il-blue);
         color: white;
@@ -234,7 +239,8 @@
 
     .btn {
 
-      &:hover {
+      &:hover,
+      &:focus {
         background-color: var(--il-blue);
         border: rem(2px) solid var(--il-blue);
         color: white;
