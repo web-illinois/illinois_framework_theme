@@ -29,11 +29,12 @@ bundle: internships
 mode: teaser
 content:
   field_intern_description:
-    type: text_default
+    type: text_summary_or_trimmed
     weight: 1
     region: content
     label: hidden
-    settings: {  }
+    settings:
+      trim_length: 200
     third_party_settings: {  }
   field_intern_location:
     type: string
