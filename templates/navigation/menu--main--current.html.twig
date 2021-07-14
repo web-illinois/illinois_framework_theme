@@ -1,0 +1,152 @@
+{#
+/**
+ * @file
+ * Theme override to display a menu.
+ *
+ * Available variables:
+ * - menu_name: The machine name of the menu.
+ * - items: A nested list of menu items. Each menu item contains:
+ *   - attributes: HTML attributes for the menu item.
+ *   - below: The menu item child items.
+ *   - title: The menu link title.
+ *   - url: The menu link url, instance of \Drupal\Core\Url
+ *   - localized_options: Menu link localized options.
+ *   - is_expanded: TRUE if the link has visible children within the current
+ *     menu tree.
+ *   - is_collapsed: TRUE if the link has children within the current menu tree
+ *     that are not currently visible.
+ *   - in_active_trail: TRUE if the link is in the active trail.
+ */
+#}
+{% import _self as menus %}
+
+{#
+  We call a macro which calls itself to render the full tree.
+  @see http://twig.sensiolabs.org/doc/tags/macro.html
+#}
+{{ menus.menu_links(items, attributes, 0) }}
+
+{% macro menu_links(items, attributes, menu_level) %}
+  {% import _self as menus %}
+  {% if items %}
+
+      <il-nav-section>
+        <a href="/about" slot="label">About</a>
+        <ul class="il-subnav">
+          <li>
+            <a href="/about/welcome">Welcome</a>
+          </li>
+          <li>
+            <a href="/about/what-we-do-why-it-matters">What We Do & Why It Matters</a>
+          </li>
+          <li>
+            <a href="/about/ambassadors">Animal Sciences Ambassadors</a>
+          </li>
+          <li>
+            <a href="/about/committee-representation">Committee Representation</a>
+          </li>
+          <li>
+            <a href="/about/contact-us">Contact Us</a>
+          </li>
+          <li>
+            <a href="/visit">Visit</a>
+          </li>
+         </ul>
+      </il-nav-section>
+      <il-nav-section>
+        <a href="/future-students" slot="label">Future Students</a>
+        <ul class="il-subnav">
+          <li>
+            <a href="/future-students/undergraduate">Undergraduate Students</a>
+          </li>
+          <li>
+            <a href="/future-students/graduate-students">Graduate Students</a>
+          </li>
+          <li>
+            <a href="/future-students/career-possibilities">Career Possibilities</a>
+          </li>
+          <li>
+            <a href="/visit">Visit</a>
+          </li>
+        </ul>
+      </il-nav-section>
+      <il-nav-section>
+        <a href="/degrees-certificates" slot="label">Degrees and Certificates</a>
+        <ul class="il-subnav">
+          <li>
+            <a href="/degrees-certificates/undergraduate-degrees">Undergraduate Degrees</a>
+          </li>
+          <li>
+            <a href="/degrees-certificates/graduate">Graduate Degrees</a>
+          </li>
+          <li>
+            <a href="/degrees-certificates/graduate/certificates/companion-animal-nutrition">Companion Animal Nutrition Certificate</a>
+          </li>
+        </ul>
+      </il-nav-section>
+      <il-nav-section>
+        <a href="/student-life" slot="label">Student Life</a>
+        <ul class="il-subnav">
+          <li>
+            <a href="/student-life/internships">Internships</a>
+          </li>
+          <li>
+            <a href="/student-life/judging-teams">Judging Teams</a>
+          </li>
+           <li>
+            <a href="/student-life/faq">Prospective Student FAQ</a>
+          </li>
+          <li>
+            <a href="/student-life/employment">Student Employment</a>
+          </li>
+          <li>
+            <a href="/student-life/study-abroad">Study Abroad</a>
+          </li>
+          <li>
+            <a href="/student-life/undergraduate-research">Undergraduate Research</a>
+          </li>
+          <li>
+            <a href="/student-life/student-organizations">Student Organizations</a>
+          </li>
+         </ul>
+      </il-nav-section>
+      <il-nav-section>
+        <a href="/directory" slot="label">Directory</a>
+        <ul class="il-subnav">
+          <li>
+            <a href="/directory/faculty">Faculty Members</a>
+          </li>
+          <li>
+            <a href="/directory/adjunct-faculty">Adjunct Faculty Members</a>
+          </li>
+          <li>
+            <a href="/directory/emeritus">Emeritus Faculty Members</a>
+          </li>
+          <li>
+            <a href="/directory/staff">Staff</a>
+          </li>
+          <li>
+            <a href="/directory/graduate-students">Graduate Students</a>
+          </li>
+          <li>
+        </ul>
+      </il-nav-section>
+    <il-nav-section>
+      <a href="/research-outreach" slot="label">Research and Outreach</a>
+      <ul class="il-subnav">
+        <li>
+          <a href="/research-outreach/groups-labs">Groups and Laboratories</a>
+        </li>
+        <li>
+          <a href="/research-outreach/animal-sciences-facilities">Animal Sciences Facilities</a>
+        </li>
+        <li>
+          <a href="/research-outreach/animal-sciences-extension">Animal Sciences Extension</a>
+        </li>
+      </ul>
+    </il-nav-section>
+    <il-nav-section>
+      <a href="https://aces.illinois.edu/tags/ansc" slot="label">News</a>
+    </il-nav-section>
+  {% endif %}
+  {% endmacro %}
