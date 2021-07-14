@@ -54,7 +54,8 @@
 
     &__subtitle {
       margin-bottom: 0.938rem;
-      font-weight: 700;
+      font-size: rem(22px);
+      font-weight: 600;
     }
 
     &__title {
@@ -78,6 +79,11 @@
     &--orangegradient {
       .field--name-field-cta{
         &__subtitle {
+          color: var(--il-blue);
+        }
+        &__body p{
+          font-size: rem(24px);
+          line-height: 2rem;
           color: white;
         }
       }
@@ -105,13 +111,11 @@
     &--illiniorange {
       .field--name-field-cta{
         &__subtitle {
-          color: white;
+          color: var(--il-blue);
         }
-      }
-    }
-    &--illiniblue {
-      .field--name-field-cta{
-        &__subtitle {
+        &__body p{
+          font-size: rem(24px);
+          line-height: 2rem;
           color: white;
         }
       }
