@@ -1,0 +1,171 @@
+{#
+/**
+ * @file
+ * Theme override for a field.
+ *
+ * To override output, copy the "field.html.twig" from the templates directory
+ * to your theme's directory and customize it, just like customizing other
+ * Drupal templates such as page.html.twig or node.html.twig.
+ *
+ * Instead of overriding the theming for all fields, you can also just override
+ * theming for a subset of fields using
+ * @link themeable Theme hook suggestions. @endlink For example,
+ * here are some theme hook suggestions that can be used for a field_foo field
+ * on an article node type:
+ * - field--node--field-foo--article.html.twig
+ * - field--node--field-foo.html.twig
+ * - field--node--article.html.twig
+ * - field--field-foo.html.twig
+ * - field--text-with-summary.html.twig
+ * - field.html.twig
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the containing element.
+ * - label_hidden: Whether to show the field label or not.
+ * - title_attributes: HTML attributes for the title.
+ * - label: The label for the field.
+ * - multiple: TRUE if a field can contain multiple items.
+ * - items: List of all the field items. Each item contains:
+ *   - attributes: List of HTML attributes for each item.
+ *   - content: The field item's content.
+ * - entity_type: The entity type to which the field belongs.
+ * - field_name: The name of the field.
+ * - field_type: The type of the field.
+ * - label_display: The display settings for the label.
+ *
+ *
+ * @see template_preprocess_field()
+ */
+#}
+{%- set field_name_class = field_name|clean_class %}
+{%-
+  set classes = [
+    'field',
+    'field-' ~ entity_type|clean_class ~ '-' ~ field_name_class,
+    field_entity_type ? 'field-entity-reference-type-' ~ field_entity_type|clean_class,
+    field_formatter ? 'field-formatter-' ~ field_formatter|clean_class,
+    'field-name-' ~ field_name_class,
+    'field-type-' ~ field_type|clean_class,
+    'field-label-' ~ label_display,
+    label_display == 'inline' ? 'clearfix',
+  ]
+-%}
+{%-
+  set title_classes = [
+    'field__label',
+    label_display == 'visually_hidden' ? 'visually-hidden',
+  ]
+-%}
+
+<p><strong>To make a gift, select the amount for the fund(s) you wish to support, then click the “Continue” button below. You will be directed to the University of Illinois Foundation’s secure online giving site for your personal and credit card information. To clear all inputs and selections click "Start over."</strong><br /><br /></p>
+
+{% set loop_number = 0 %}
+{%- for item in items -%}
+  {% set loop_number = loop.index %}
+  {% set gift_num = 'GIFT_AMOUNT' ~ loop_number %}
+
+  <span class="section">
+    <h2> <a name="{{- item.content['#node'].title.value -}}" id="{{- item.content['#node'].title.value -}}" class="node--fund-listing-page--fund-title">{{- item.content['#node'].title.value -}} </a></h2>
+    {{ item.content['#node'].body.value |raw }}
+  </span>
+
+  <span class="giftammt">
+
+    <fieldset>
+
+      <input name="{{ 'FUND' ~ loop_number }}" id="{{ 'FUND' ~ loop_number }}" type="hidden" value="{{- item.content['#node'].field_fund_id.value -}}/{{- item.content['#node'].title.value -}}" />
+
+      <legend class="desc" for="{{ gift_num }}">
+        <strong>Gift amount <span class="hidden">for {{- item.content['#node'].title.value -}}</span></strong>
+      </legend>
+
+      {% for amount in item.content['#node'].field_gift_amounts %}
+        <label class="choice">
+          <input class="field radio" name="{{ gift_num }}" title="${{ amount.value }}" type="radio" value="{{ amount.value }}.00" />${{ amount.value|number_format }}
+        </label>
+      {%- endfor -%}
+
+      <label class="choice">
+        <input checked="checked" class="field radio" name="{{ gift_num }}" title="n/a" type="radio" value="0" />N/A
+      </label>
+
+      <label class="choice inline">
+        <input class="field radio" id="gift_other_{{ loop.index }}" name="{{ gift_num }}" title="$0" type="radio" value="0" />Other
+      </label>
+
+      <label class="gift_other_text inline" style="display: none;">
+        $ <input class="gift_value field" id="gift_value_{{ loop.index }}" size="6" title="Other amount" type="number" min="5" step="0.01" />
+      </label>
+
+    </fieldset>
+
+  </span>
+{%- endfor -%}
+
+{%- if (node.field_write_in_fund.value == 1) -%}
+  {% set loop_number = loop_number + 1 %}
+  {% set gift_num = 'GIFT_AMOUNT' ~ loop_number %}
+  {% set fund_name = 'FUND' ~ loop_number %}
+
+  <span class="section">
+    <h2> <a name="other_fund" class="node--fund-listing-page--fund-title">Other</a></h2>
+    <p>Please indicate where to direct the donation</p>
+    <input name="{{ fund_name }}" type="text" size="40" id="{{ fund_name }}" class="other-fund-name" placeholder="Other - please specify">
+  </span>
+
+  <span class="giftammt">
+
+    <fieldset>
+
+      <legend class="desc" for="{{ gift_num }}">
+        <strong>Gift amount <span class="hidden">for {{- item.content['#node'].title.value -}}</span></strong>
+      </legend>
+
+      <label class="choice">
+        <input class="field radio other-fund-radio" name="{{ gift_num }}" title="$500" type="radio" value="500.00" />$500
+      </label>
+      <label class="choice">
+        <input class="field radio other-fund-radio" name="{{ gift_num }}" title="$250" type="radio" value="250.00" />$250
+      </label>
+      <label class="choice">
+        <input class="field radio other-fund-radio" name="{{ gift_num }}" title="$100" type="radio" value="100.00" />$100
+      </label>
+      <label class="choice">
+        <input class="field radio other-fund-radio" name="{{ gift_num }}" title="$50" type="radio" value="50.00" />$50
+      </label>
+
+      <label class="choice">
+        <input checked="checked" class="field radio other-fund-radio" name="{{ gift_num }}" title="n/a" type="radio" value="0" />N/A
+      </label>
+
+      <label class="choice inline">
+        <input class="field radio other-fund-radio" id="gift_other_{{ loop_number }}" name="{{ gift_num }}" title="$0" type="radio" value="0" />Other
+      </label>
+
+      <label class="gift_other_text inline" style="display: none;">
+        $ <input class="gift_value field" id="gift_value_{{ loop_number }}" size="6" title="Other amount" type="number" min="5" step="0.01" />
+      </label>
+
+    </fieldset>
+
+  </span>
+{%- endif -%}
+
+<div id="giving-total-fixed">
+<div id="giving-total-wrapper" class="fixed-width">
+
+  <span class="section" id="gift-total"></span>
+
+  <span>
+    <label>
+      <strong class="hidden">Submit: </strong>
+      <input class="button" id="submitbtn" type="submit" value="Continue" />
+    </label>
+    <label>
+      <strong class="hidden">Start over: </strong>
+      <input class="button off-button" id="resetbtn" type="reset" value="Start over" />
+    </label>
+  </span>
+
+</div>
+</div>
