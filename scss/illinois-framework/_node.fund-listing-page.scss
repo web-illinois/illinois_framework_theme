@@ -1,0 +1,75 @@
+#gift_form {
+  @extend %fixed-width;
+}
+
+form#gift_form span.giftammt {
+	border-top: 0px !important;
+	padding-left: 0px;
+	border-bottom: 3px solid var(--il-blue) !important;
+}
+
+.node--fund-listing-page {
+	&--fund-title {
+		color: var(--il-orange) !important;
+		text-decoration: none !important;
+	}
+}
+
+#giving-total-wrapper {
+	max-width: var(--il-framework--fixed-width) !important;
+}
+
+#giving-total-fixed {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+#gift-total h3 {
+	padding-top: 0.8125rem;
+	padding-bottom: 0.8125rem;
+}
+
+#giving-total-fixed #submitbtn {
+	background-color: var(--il-orange);
+  border: 0.125rem solid white;
+  font-family: var(--il-source-sans);
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.2;
+  min-height: 3rem;
+  padding: 0.8125rem 1.875rem;
+  padding-top: 0.8125rem;
+  padding-right: 1.875rem;
+  padding-bottom: 0.8125rem;
+  padding-left: 1.875rem;
+  text-decoration: none;
+
+  &:hover {
+  	background-color: white;
+    border: 0.125rem solid var(--il-orange);
+    color: var(--il-orange);
+  }
+}
+
+#giving-total-fixed #resetbtn {
+	background-color: var(--il-alma-mater-1);
+  border: 0.125rem solid white;
+	color: white;
+  font-family: var(--il-source-sans);
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.2;
+  min-height: 3rem;
+  padding: 0.8125rem 1.875rem;
+  padding-top: 0.8125rem;
+  padding-right: 1.875rem;
+  padding-bottom: 0.8125rem;
+  padding-left: 1.875rem;
+  text-decoration: none;
+
+  &:hover {
+  	background-color: white;
+    border: 0.125rem solid var(--il-blue);
+    color: var(--il-blue) !important;
+  }
+}
