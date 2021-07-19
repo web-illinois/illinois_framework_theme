@@ -42,7 +42,7 @@
   .field--name-field-cards {
     &-text {
       &__wrapper {
-        margin: 1rem 0;
+        margin: 1rem 0 2rem;
         padding: 0 1.875rem;
         text-align: center;
       }
@@ -50,12 +50,7 @@
 
     &__title {
       color: var(--il-orange);
-      font-weight: 700;
-      font-size: 2.25rem;
-<<<<<<< HEAD
       text-align: center;
-=======
->>>>>>> bb9527d2b06f24a0e4f8db7bcdc195796e8720de
       .field__item {
         margin-bottom: 0;
       }
@@ -63,8 +58,9 @@
 
     &__subtitle {
       color: var(--il-blue);
-      font-weight: 700;
-      font-size: 1.75rem;
+      font-weight: 600;
+      font-size: rem(28px);
+      line-height: rem(32px);
       .field__item {
         margin-bottom: 0;
       }
