@@ -26,25 +26,24 @@
 #}
 {{ menus.menu_links(items, attributes, 0) }}
 {% macro menu_links(items, attributes, menu_level) %}
- {{ kint() }}
+{# {{ kint() }}#}
   {% import _self as menus %}
-  {% if items %}
+ {% if items %}
+    {% if menu_level == 0 %}
+<ul{{ attributes.addClass('menu') }}>
+  {% else %}
+  <ul class="menu">
+    {% endif %}
     {% for item in items %}
-        <il-section-nav>
-{#      {% if menu_level == 0 %}#}
-{#          <h3>#}
-{#            <a href="{{ item.url }}" slot="label">{{ item.title }}</a>#}
-{#          </h3>#}
-{#      {% endif %}#}
-          <ul>
-            {% for item in item.below %}
-              <li>
-                <a href="{{ item.url }}">{{ item.title }}</a>
-              </li>
-            {% endfor %}
-          </ul>
-        </il-section-nav>
+      <li>
+        {{ link(item.title, item.url) }}
+        {% if item.below %}
+          {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+        {% endif %}
+      </li>
     {% endfor %}
+  </ul>
   {% endif %}
 {% endmacro %}
+
 
