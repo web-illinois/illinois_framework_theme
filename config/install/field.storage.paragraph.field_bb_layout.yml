@@ -1,24 +1,22 @@
-uuid: a95e0e0a-4ac5-4c22-950e-b348eedaf0eb
+uuid: c9ddf818-2f23-41b8-bbf5-b431b8936563
 langcode: en
 status: true
 dependencies:
   module:
     - options
     - paragraphs
-_core:
-  default_config_hash: iUhZZv6ThpYCCpOrQIYFvfO4B3YXTJ1Jln2KYSYzang
-id: paragraph.field_bb_content_layer_width
-field_name: field_bb_content_layer_width
+id: paragraph.field_bb_layout
+field_name: field_bb_layout
 entity_type: paragraph
 type: list_string
 settings:
   allowed_values:
     -
-      value: full
-      label: 'Full Width'
+      value: left
+      label: Left
     -
-      value: fixed
-      label: 'Fixed Width'
+      value: center
+      label: Center
   allowed_values_function: ''
 module: options
 locked: false

@@ -8,6 +8,8 @@ dependencies:
     - paragraphs.paragraphs_type.bb_content
   module:
     - entity_reference_revisions
+_core:
+  default_config_hash: omQcByzTbVWUzzQxw6tWrHeDgcyNNpKEmAL03GKY6EA
 id: paragraph.bb.field_bb
 field_name: field_bb
 entity_type: paragraph

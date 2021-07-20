@@ -1,0 +1,23 @@
+uuid: a3bb8988-2517-4301-962d-3d543e5d88ef
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_bb_margin
+    - paragraphs.paragraphs_type.bb
+  module:
+    - options
+id: paragraph.bb.field_bb_margin
+field_name: field_bb_margin
+entity_type: paragraph
+bundle: bb
+label: Spacing
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: none
+default_value_callback: ''
+settings: {  }
+field_type: list_string

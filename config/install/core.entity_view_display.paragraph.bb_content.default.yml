@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.bb_content.field_bb_content_background
     - field.field.paragraph.bb_content.field_bb_content_body
     - field.field.paragraph.bb_content.field_bb_content_image
     - field.field.paragraph.bb_content.field_bb_content_link
@@ -12,20 +11,14 @@ dependencies:
   module:
     - image
     - link
-    - options
     - text
+_core:
+  default_config_hash: 1RPCE8EJ4GfoSx2DZcBzoNn4LeuxJAIzkk94ePkf8C8
 id: paragraph.bb_content.default
 targetEntityType: paragraph
 bundle: bb_content
 mode: default
 content:
-  field_bb_content_background:
-    weight: 0
-    label: visually_hidden
-    settings: {  }
-    third_party_settings: {  }
-    type: list_default
-    region: content
   field_bb_content_body:
     weight: 1
     label: visually_hidden

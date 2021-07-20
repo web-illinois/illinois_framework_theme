@@ -2,6 +2,8 @@ uuid: 0da5600b-c183-4d2b-9f83-a8978aec1ae4
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: mQ0Hdf3uaNWXFdam0nJsTTfCjTJfIA7xCgODIRkNMLo
 id: bb
 label: 'Big Buttons'
 icon_uuid: null

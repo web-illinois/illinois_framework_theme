@@ -2,6 +2,8 @@ uuid: 7d3529e0-7ebd-412c-ad15-a3d77716439d
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: twcTyWN0ov2gv1zummAf5Udup6nIyXEX5aAs5UIMMCU
 id: bb_content
 label: 'Big Buttons Content'
 icon_uuid: null

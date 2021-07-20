@@ -1,0 +1,36 @@
+uuid: bbb59b85-8fae-4941-b1a3-4cfab7b669ee
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_bb_margin
+field_name: field_bb_margin
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: none
+      label: 'No margin'
+    -
+      value: sm
+      label: 'Small margin'
+    -
+      value: md
+      label: 'Medium margin'
+    -
+      value: lg
+      label: 'Large margin'
+    -
+      value: xl
+      label: 'Extra large margin'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

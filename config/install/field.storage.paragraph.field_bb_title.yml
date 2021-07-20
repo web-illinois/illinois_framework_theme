@@ -1,13 +1,11 @@
-uuid: eda10c54-f667-463b-bba3-e9570e60d85f
+uuid: b031d6b8-8e0b-4e6a-8193-b4e49642c3d5
 langcode: en
 status: true
 dependencies:
   module:
     - paragraphs
-_core:
-  default_config_hash: rpNAJ-yERmQIEnP_0TSGWQJcYMpFnlGGlLzKmRAbPvQ
-id: paragraph.field_bb_content_title
-field_name: field_bb_content_title
+id: paragraph.field_bb_title
+field_name: field_bb_title
 entity_type: paragraph
 type: string
 settings:

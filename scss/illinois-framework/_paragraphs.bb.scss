@@ -1,4 +1,44 @@
 .paragraph--type--bb {
+  .field--name-field-bb{
+    &__title {
+      padding: 0 15px;
+      color: var(--il-orange);
+    }
+    &__subtitle {
+      padding: 0 15px;
+      font-weight: 600;
+      font-size: rem(28px);
+      line-height: rem(32px);
+      color: var(--il-blue);
+    }
+  }
+  .left {
+    .paragraph--type--bb__wrapper{
+      justify-content: left;
+    }
+    .field--name-field-bb{
+      &__title {
+        text-align: left;
+      }
+      &__subtitle {
+        text-align: left;
+      }
+    }
+  }
+  .center {
+    .paragraph--type--bb__wrapper{
+      justify-content: center;
+    }
+    .field--name-field-bb{
+      &__title {
+        text-align: center;
+      }
+      &__subtitle {
+        text-align: center;
+      }
+    }
+  }
+
 
   .col-sm-12 {
     @include media-breakpoint-down(sm) {
@@ -8,12 +48,62 @@
 
   &__wrapper {
     margin: rem(15px) 0;
+    &.background--color {
+      &--illiniblue{
+        background-color: transparent !important;
+        a.field--name-field-bb-content__link{
+          background-color: var(--il-blue);
+          color: white;
+          &:hover,
+          &:focus {
+            background-color: white;
+            color: #252525;
+            h2 {
+              color: var(--il-orange);
+            }
+          }
+        }
+      }
+      &--white{
+        background-color: transparent;
+        a.field--name-field-bb-content__link{
+          background-color: white;
+          color: inherit;
+          &:hover,
+          &:focus {
+            background-color: var(--il-blue);
+            color: white;
+            h2 {
+              color: white;
+            }
+          }
+        }
+      }
+    }
+  }
+  a.field--name-field-bb-content__link {
+    h2:after {
+      content: '\f101';
+      font-family: FontAwesome;
+      vertical-align: bottom;
+      padding: 0 0.5rem;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: var(--il-blue);
+      color: white;
+
+      h2 {
+        color: white;
+      }
+    }
   }
 
-  .field--name-field-bb {
+  .field--name-field-bb-content {
 
     &__link {
-      color: #252525;
+      color: inherit;
       display: flex;
       margin: rem(15px) 0;
       text-decoration: none;
@@ -35,11 +125,15 @@
         flex-wrap: wrap;
         padding: 0 0 rem(30px) 0;
       }
+
+      img {
+        width: 100%;
+      }
     }
     &__title {
 
       .field__item {
-        color: var(--il-altgeld);
+        color: inherit;
         font-family: var(--il-source-sans);
         font-size: rem(21px);
         font-weight: 700;
@@ -59,19 +153,8 @@
       }
     }
   }
-  a.field--name-field-bb__link {
 
-    &:hover,
-    &:focus {
-      background-color: var(--il-blue);
-      color: white;
-
-      h2 {
-        color: white;
-      }
-    }
-  }
-  .field--name-field-bb__content__wrapper {
+  .field--name-field-bb-content__content__wrapper {
     &:hover {
       border-bottom: 3px solid var(--il-industrial-blue-1);
     }

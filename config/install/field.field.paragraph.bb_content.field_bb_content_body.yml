@@ -7,13 +7,15 @@ dependencies:
     - paragraphs.paragraphs_type.bb_content
   module:
     - text
+_core:
+  default_config_hash: BHpsZq4HMIEQLmdObCDPx493HtRRGLeu9a792gkbloI
 id: paragraph.bb_content.field_bb_content_body
 field_name: field_bb_content_body
 entity_type: paragraph
 bundle: bb_content
 label: Body
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''

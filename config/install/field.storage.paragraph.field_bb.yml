@@ -5,6 +5,8 @@ dependencies:
   module:
     - entity_reference_revisions
     - paragraphs
+_core:
+  default_config_hash: 45_WqtAHpsEsfOjt1VylFqUQ_pGgh_HLEncOX7RkFeA
 id: paragraph.field_bb
 field_name: field_bb
 entity_type: paragraph

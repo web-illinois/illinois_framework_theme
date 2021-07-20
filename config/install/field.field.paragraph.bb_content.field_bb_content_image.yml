@@ -7,6 +7,8 @@ dependencies:
     - paragraphs.paragraphs_type.bb_content
   module:
     - image
+_core:
+  default_config_hash: QzS1w_PNmaAmg68BJFS--dKY72Xm5hvQKVowKaV7IDQ
 id: paragraph.bb_content.field_bb_content_image
 field_name: field_bb_content_image
 entity_type: paragraph

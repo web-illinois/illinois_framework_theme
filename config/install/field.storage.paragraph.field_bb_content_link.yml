@@ -5,6 +5,8 @@ dependencies:
   module:
     - link
     - paragraphs
+_core:
+  default_config_hash: EiYghbSQq11q2R1NW0Ur_E17btBm0B3_RbNAn1USFEo
 id: paragraph.field_bb_content_link
 field_name: field_bb_content_link
 entity_type: paragraph

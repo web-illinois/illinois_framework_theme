@@ -7,6 +7,8 @@ dependencies:
     - paragraphs.paragraphs_type.bb_content
   module:
     - link
+_core:
+  default_config_hash: mvAmyb18IawMjmAPRsnMQjRRkfCWQaMm3R3pX6_Fc9c
 id: paragraph.bb_content.field_bb_content_link
 field_name: field_bb_content_link
 entity_type: paragraph

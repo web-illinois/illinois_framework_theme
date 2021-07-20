@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.storage.paragraph.field_bb_content_title
     - paragraphs.paragraphs_type.bb_content
+_core:
+  default_config_hash: yjxyaOcY1IHQesgx-onKxjOggGqI7Gq9_vCJWlx6XRY
 id: paragraph.bb_content.field_bb_content_title
 field_name: field_bb_content_title
 entity_type: paragraph

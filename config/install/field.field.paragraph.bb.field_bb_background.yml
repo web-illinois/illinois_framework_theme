@@ -1,0 +1,23 @@
+uuid: aa85090b-f48f-4d5d-be4d-7834ac363ed3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_bb_background
+    - paragraphs.paragraphs_type.bb
+  module:
+    - options
+id: paragraph.bb.field_bb_background
+field_name: field_bb_background
+entity_type: paragraph
+bundle: bb
+label: Background
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: white
+default_value_callback: ''
+settings: {  }
+field_type: list_string

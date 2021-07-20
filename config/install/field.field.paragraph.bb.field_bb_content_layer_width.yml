@@ -7,6 +7,8 @@ dependencies:
     - paragraphs.paragraphs_type.bb
   module:
     - options
+_core:
+  default_config_hash: U595ub_iv_mZ7fEskSgHWbDDppPCdCmC7Jf_c83UTlg
 id: paragraph.bb.field_bb_content_layer_width
 field_name: field_bb_content_layer_width
 entity_type: paragraph
