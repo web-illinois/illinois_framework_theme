@@ -5,6 +5,8 @@ dependencies:
   module:
     - node
     - options
+_core:
+  default_config_hash: k6bxai-FUgQlDZ9nnoN2y1JZU_GJGFWVzZyBMiS5Jqs
 id: node.field_intern_term
 field_name: field_intern_term
 entity_type: node

@@ -21,34 +21,39 @@ dependencies:
   module:
     - text
     - user
+_core:
+  default_config_hash: RP0tqUVRT0pq89XhgNt8Ku7a40ktIMgYcIf74PGm-is
 id: node.internships.teaser
 targetEntityType: node
 bundle: internships
 mode: teaser
 content:
-  body:
-    label: hidden
+  field_intern_description:
     type: text_summary_or_trimmed
-    weight: 101
+    weight: 1
+    region: content
+    label: hidden
     settings:
-      trim_length: 600
+      trim_length: 200
     third_party_settings: {  }
+  field_intern_location:
+    type: string
+    weight: 0
     region: content
-  links:
-    weight: 100
-    settings: {  }
+    label: hidden
+    settings:
+      link_to_entity: false
     third_party_settings: {  }
-    region: content
 hidden:
+  body: true
   field_intern_body: true
   field_intern_category: true
   field_intern_contact: true
-  field_intern_description: true
   field_intern_faculty_supervisor: true
-  field_intern_location: true
   field_intern_location_list: true
   field_intern_note: true
   field_intern_qualifications: true
   field_intern_term: true
   field_intern_title: true
   field_intern_website: true
+  links: true

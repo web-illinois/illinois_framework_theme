@@ -4,6 +4,8 @@ status: true
 dependencies:
   module:
     - node
+_core:
+  default_config_hash: XM7QVMRcEuVYE2y9UUUMINC4ClkPuxndYcNBsPlU1WQ
 id: node.field_career_position
 field_name: field_career_position
 entity_type: node

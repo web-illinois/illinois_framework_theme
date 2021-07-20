@@ -4,24 +4,21 @@ status: true
 dependencies:
   config:
     - field.field.node.career_possibilities.body
-    - field.field.node.career_possibilities.field_career_additional_body
     - field.field.node.career_possibilities.field_career_background
     - field.field.node.career_possibilities.field_career_degrees
-    - field.field.node.career_possibilities.field_career_first_name
     - field.field.node.career_possibilities.field_career_hometown
-    - field.field.node.career_possibilities.field_career_image
     - field.field.node.career_possibilities.field_career_job_duties
-    - field.field.node.career_possibilities.field_career_last_name
     - field.field.node.career_possibilities.field_career_linked_degree
     - field.field.node.career_possibilities.field_career_position
     - field.field.node.career_possibilities.field_career_salary_range
     - field.field.node.career_possibilities.field_career_ug_experiences
-    - image.style.thumbnail
+    - field.field.node.career_possibilities.field_if_meda_featured_image
     - node.type.career_possibilities
   module:
-    - image
     - path
     - text
+_core:
+  default_config_hash: 7TzGfHv0Dqti2vKBqkUBT0lo1qM4vYDvofESrZwbBcI
 id: node.career_possibilities.default
 targetEntityType: node
 bundle: career_possibilities
@@ -43,16 +40,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_career_additional_body:
-    weight: 19
-    settings:
-      rows: 9
-      summary_rows: 3
-      placeholder: ''
-      show_summary: false
-    third_party_settings: {  }
-    type: text_textarea_with_summary
-    region: content
   field_career_background:
     weight: 17
     settings:
@@ -71,14 +58,6 @@ content:
     third_party_settings: {  }
     type: string_textarea
     region: content
-  field_career_first_name:
-    weight: 9
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_career_hometown:
     weight: 12
     settings:
@@ -86,14 +65,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
-    region: content
-  field_career_image:
-    weight: 26
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
-    third_party_settings: {  }
-    type: image_image
     region: content
   field_career_job_duties:
     weight: 16
@@ -104,14 +75,6 @@ content:
       show_summary: false
     third_party_settings: {  }
     type: text_textarea_with_summary
-    region: content
-  field_career_last_name:
-    weight: 10
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
     region: content
   field_career_linked_degree:
     weight: 14
@@ -142,6 +105,16 @@ content:
       show_summary: false
     third_party_settings: {  }
     type: text_textarea_with_summary
+    region: content
+  field_if_meda_featured_image:
+    weight: 27
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
   path:
     type: path

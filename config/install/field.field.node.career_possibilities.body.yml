@@ -7,6 +7,8 @@ dependencies:
     - node.type.career_possibilities
   module:
     - text
+_core:
+  default_config_hash: Vfb4fAZL7hNiZZABF7k1kirjppBbUVRpR0Q4ZGNgaHg
 id: node.career_possibilities.body
 field_name: body
 entity_type: node

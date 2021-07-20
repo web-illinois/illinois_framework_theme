@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.storage.node.field_intern_location
     - node.type.internships
+_core:
+  default_config_hash: _pCMfK07QXE9M3230SxdB14tFP8U4xKjicGSFkD_lq4
 id: node.internships.field_intern_location
 field_name: field_intern_location
 entity_type: node
