@@ -1,0 +1,19 @@
+uuid: eb5e39ed-b5f0-4031-97fb-49260290902e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_bb_subtitle
+    - paragraphs.paragraphs_type.bb
+id: paragraph.bb.field_bb_subtitle
+field_name: field_bb_subtitle
+entity_type: paragraph
+bundle: bb
+label: Subtitle
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

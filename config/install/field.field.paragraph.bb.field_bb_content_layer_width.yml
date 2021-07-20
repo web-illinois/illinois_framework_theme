@@ -1,0 +1,25 @@
+uuid: b9cbd079-f056-43d9-920b-84803d9c2eca
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_bb_content_layer_width
+    - paragraphs.paragraphs_type.bb
+  module:
+    - options
+_core:
+  default_config_hash: U595ub_iv_mZ7fEskSgHWbDDppPCdCmC7Jf_c83UTlg
+id: paragraph.bb.field_bb_content_layer_width
+field_name: field_bb_content_layer_width
+entity_type: paragraph
+bundle: bb
+label: 'Layer Width'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: fixed
+default_value_callback: ''
+settings: {  }
+field_type: list_string
