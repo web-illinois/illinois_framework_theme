@@ -44,24 +44,31 @@
 * @ingroup themeable
 */
 #}
-
 <div class="layout-container">
   {{ page.header }}
-{#  {{ page.nav_main }}#}
   {{ page.breadcrumb }}
   {{ page.highlighted }}
   {{ page.help }}
   {{ page.tabs }}
-  {{ page.content }}
-  {% if page.sidebar_first %}
-    <aside class="layout-sidebar-first" role="complementary">
-      {{ page.sidebar_first }}
-    </aside>
-  {% endif %}
-  {% if page.sidebar_second %}
-    <aside class="layout-sidebar-second" role="complementary">
-      {{ page.sidebar_second }}
-    </aside>
+  {% if node.field_sidebar.0.value == "sidebar" %}
+  <div class="il-content-with-section-nav section-nav-example">
+    {% if page.sidebar_first %}
+      <aside class="layout-sidebar-first il-section-nav" role="complementary">
+        {{ page.sidebar_first }}
+      </aside>
+    {% endif %}
+    {% if page.sidebar_second %}
+      <aside class="layout-sidebar-second" role="complementary">
+        {{ page.sidebar_second }}
+      </aside>
+    {% endif %}
+    <div class="il-content">
+      {{ page.content }}
+    </div>
+  </div>
+  {% else %}
+    {{ page.content }}
   {% endif %}
   {{ page.footer }}
 </div>{# /.layout-container #}
+
