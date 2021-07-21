@@ -4,6 +4,7 @@
 
 #gift_form {
   @extend %fixed-width;
+  padding-left: 0px !important;
 }
 
 form#gift_form span.giftammt {
