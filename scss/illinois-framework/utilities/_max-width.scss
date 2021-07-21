@@ -13,6 +13,12 @@
 .fixed-width {
  @extend %fixed-width;
 }
+.fixed-width-900 {
+	margin:0 auto;
+	max-width: 900px;
+	padding: 0 rem(30px);
+	width: 100%
+}
 
 .full-width {
   @extend %full-width;
