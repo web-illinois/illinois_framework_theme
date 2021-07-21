@@ -18,9 +18,20 @@
   }
 }
 
+#directorySection > .row ~ .row {
+  border-bottom: none;
+}
+
+#directorySection > .row {
+  margin-left: 0px;
+  margin-right: 0px;
+  border-bottom: 1px dotted #1a5843;
+}
+
 .directorySection {
   display: flex;
   flex-wrap: wrap;
+  font-size: 18px;
 
   &--person {
     margin-right: 35px;
@@ -38,7 +49,6 @@
       margin-top: 16px;
 
       & .name {
-        font-size: 17px;
         line-height: 1.1;
         font-weight: 700;
         color: #252525;
@@ -48,14 +58,12 @@
         padding-top: 10px;
         line-height: 1.1;
         color: #252525;
-        font-size: 1rem;
       }
 
       & .email {
         padding-top: 10px;
         line-height: 1.1;
         color: #252525;
-        font-size: 1rem;
       }
     }
   }
@@ -168,6 +176,7 @@
   font-size: 27px;
   font-weight: 500;
   color: white;
+  padding-left: 0px;
 }
 
 .extDirectoryRole {
@@ -177,7 +186,7 @@
 
 .extDirectoryName {
   font-family: "Source Sans Pro", "Lucida Grande", sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
 }
 
@@ -187,6 +196,7 @@
 
 .extDirectoryEmail {
   font-family: "Source Sans Pro", "Lucida Grande", sans-serif;
-  font-size: 16px;
+  font-size: 18px;
+  padding-left: 0px;
 }
 
