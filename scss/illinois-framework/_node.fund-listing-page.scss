@@ -1,11 +1,26 @@
+.giving-test-mode-warning {
+  background-color: rgb(139,0,0);
+}
+
 #gift_form {
   @extend %fixed-width;
+  padding-left: 0px !important;
 }
 
 form#gift_form span.giftammt {
 	border-top: 0px !important;
 	padding-left: 0px;
-	border-bottom: 3px solid var(--il-blue) !important;
+	border-bottom: solid 1px #252525 !important;
+
+  & .desc {
+    font-size: 20px;
+  }
+
+  & .choice {
+    & .radio {
+      margin-right: 5px;
+    }
+  }
 }
 
 .node--fund-listing-page {
@@ -17,6 +32,10 @@ form#gift_form span.giftammt {
 
 #giving-total-wrapper {
 	max-width: var(--il-framework--fixed-width) !important;
+
+  & span label {
+    padding-bottom: 10px;
+  }
 }
 
 #giving-total-fixed {

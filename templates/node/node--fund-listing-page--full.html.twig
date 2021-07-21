@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Default theme implementation to display a node.
+ * Theme override to display a node.
  *
  * Available variables:
  * - node: The node entity with limited access to object properties and methods.
@@ -15,7 +15,7 @@
  *   Calling other methods, such as node.delete(), will result in an exception.
  *   See \Drupal\node\Entity\Node for a full list of public properties and
  *   methods for the node object.
- * - label: (optional) The title of the node.
+ * - label: The title of the node.
  * - content: All node items. Use {{ content }} to print them all,
  *   or print a subset such as {{ content.field_example }}. Use
  *   {{ content|without('field_example') }} to temporarily suppress the printing
@@ -23,8 +23,8 @@
  * - author_picture: The node author user entity, rendered using the "compact"
  *   view mode.
  * - metadata: Metadata for this node.
- * - date: (optional) Themed creation date field.
- * - author_name: (optional) Themed author name field.
+ * - date: Themed creation date field.
+ * - author_name: Themed author name field.
  * - url: Direct URL of the current node.
  * - display_submitted: Whether submission information should be displayed.
  * - attributes: HTML attributes for the containing element.
@@ -64,46 +64,69 @@
  *   is an administrator.
  *
  * @see template_preprocess_node()
- *
- * @todo Remove the id attribute (or make it a class), because if that gets
- *   rendered twice on a page this is invalid CSS for example: two lists
- *   in different view modes.
- *
- * @ingroup themeable
+ * @see at_core_preprocess_node()
  */
 #}
-{%
+{%-
   set classes = [
-    node.bundle|clean_class,
-    node.isPromoted() ? 'is-promoted',
-    node.isSticky() ? 'is-sticky',
-    not node.isPublished() ? 'is-unpublished',
-    view_mode ? view_mode|clean_class,
-    'clearfix',
+    'node',
+    'node--id-' ~ node.id,
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class, 
+    'fixed-width'
   ]
-%}
-<article{{ attributes.addClass(classes) }}>
+-%}
+{{attach_library('illinois_framework_core/giving-page')}}
+<article{{ attributes.addClass(classes).setAttribute('role', 'article') }}>
 
-  {{ title_prefix }}
-  {% if label and not page %}
-    <h2{{ title_attributes }}>
-      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-    </h2>
-  {% endif %}
-  {{ title_suffix }}
+  <header{{ header_attributes.addClass('node__header') }}>
+    {%- if not node.isPublished() -%}
+      <span class="node__status node--unpublished marker marker--warning" aria-label="Status message" role="contentinfo">
+        <span class="visually-hidden">{%- trans %}This node is {% endtrans %}</span>{% trans %}Unpublished{% endtrans -%}
+      </span>
+    {%- endif -%}
 
-  {% if display_submitted %}
-    <footer>
-      {{ author_picture }}
-      <div{{ author_attributes.addClass('author') }}>
-        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
-        {{ metadata }}
+    {{ title_prefix }}
+    {% if not page %}
+      <h2{{ title_attributes }}>
+        <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+      </h2>
+    {% endif %}
+    {{ title_suffix }}
+
+
+    {%- if display_submitted -%}
+      <div{{ meta_attributes }}>
+        {{- author_picture -}}
+        <div{{ submitted_attributes }}>
+            <span class="node__author">{{- author_name -}}</span>
+            <span class="node__pubdate">{{- date -}}</span>
+        </div>
+        {{- metadata -}}
       </div>
-    </footer>
-  {% endif %}
+    {%- endif -%}
+  </header>
 
-  <div{{ content_attributes.addClass('content') }}>
-    {{ content }}
+  <div{{ content_attributes.addClass('node__content') }}>
+
+    {% set test_mode = content.field_test_mode_.0 %}
+
+    {% if ("On" in test_mode) %}
+      <p class="giving-test-mode-warning">Warning: This page is in a "test mode" and cannot be used to submit actual gifts until the page is taken out of "test mode."</p>
+      <form action="https://bbisqa.uif.uillinois.edu/PaymentPageTransferQA.aspx" class="form-page" id="gift_form" method="post" target="_blank">
+    {% else %}
+      <form action="https://payments.uif.uillinois.edu/Gifts/PaymentPageTransfer.aspx" class="form-page" id="gift_form" method="post" target="_blank">
+    {% endif %}
+
+    {{- content|without('comment') -}}
+
+    </form>
+
   </div>
+
+  {{- content.comment -}}
 
 </article>
