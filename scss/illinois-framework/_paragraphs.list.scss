@@ -1,3 +1,23 @@
+.paragraph--type--list {
+  .field--name-field-list{
+    &-text__wrapper{
+      margin-bottom: 1rem;
+      h2 {
+        font-weight: 600;
+        font-size: rem(32px);
+        line-height: rem(40px);
+        color: var(--il-orange);
+      }
+      .subtitle {
+        font-weight: 600;
+        font-size: rem(28px);
+        line-height: rem(32px);
+        color:  var(--il-blue);
+      }
+    }
+  }
+}
+
 .paragraph--type--list-content {
   .field--name-field-list-content {
     &__wrapper {
@@ -31,8 +51,18 @@
     }
     &-text__wrapper{
       width: 75%;
+      margin-top: -7px;
+      @include media-breakpoint-down(sm) {
+        width: 100%;
+      }
+      h2 {
+        margin-top: 0;
+      }
       .body p {
         color: #252525;
+      }
+      p a {
+        line-break: anywhere;
       }
     }
   }
@@ -41,7 +71,7 @@
 .field--name-field-list-content {
   .field__item{
     &:nth-of-type(odd) {
-      background: var(--il-gray);
+      background: var(--il-cloud-2);
     }
   }
   &-body{

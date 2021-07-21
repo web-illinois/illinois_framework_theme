@@ -2,14 +2,16 @@ uuid: 94ecd653-665a-4772-a155-c7fd66cb8544
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: ArfA2s9SF67hDWzdTT9AhItzMO4E-xjngC5kxgTbTJo
 name: list_collection_image
 label: 'List collection image (300x300)'
 effects:
-  041352f4-d6f9-45ac-aca3-2b8d774785aa:
-    uuid: 041352f4-d6f9-45ac-aca3-2b8d774785aa
-    id: image_scale_and_crop
-    weight: 1
+  dba1ecff-40c9-4006-bb62-370b5a1a6fad:
+    uuid: dba1ecff-40c9-4006-bb62-370b5a1a6fad
+    id: image_scale
+    weight: 2
     data:
       width: 300
-      height: 300
-      anchor: center-center
+      height: null
+      upscale: false
