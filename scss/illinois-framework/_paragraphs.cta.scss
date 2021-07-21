@@ -1,5 +1,5 @@
 .paragraph--type--cta {
-  @include media-breakpoint-down(sm){
+  @include media-breakpoint-down(sm) {
     padding: 0 !important;
   }
   .field--name-field-cta {
@@ -57,7 +57,8 @@
 
     &__subtitle {
       margin-bottom: 0.938rem;
-      font-weight: 700;
+      font-size: rem(22px);
+      font-weight: 600;
     }
 
     &__title {
@@ -70,6 +71,10 @@
 
     &__button {
       margin: 0 1.875rem;
+      @include media-breakpoint-down(sm) {
+        margin: 0.5rem 0;
+        width: 100%;
+      }
     }
 
   }
@@ -77,6 +82,11 @@
     &--orangegradient {
       .field--name-field-cta{
         &__subtitle {
+          color: var(--il-blue);
+        }
+        &__body p{
+          font-size: rem(24px);
+          line-height: 2rem;
           color: white;
         }
       }
@@ -104,14 +114,19 @@
     &--illiniorange {
       .field--name-field-cta{
         &__subtitle {
+          color: var(--il-blue);
+        }
+        &__body p{
+          font-size: rem(24px);
+          line-height: 2rem;
           color: white;
         }
       }
     }
-    &--illiniblue {
+    &--gray {
       .field--name-field-cta{
-        &__subtitle {
-          color: white;
+        &__subtitle{
+          color: var(--il-blue);
         }
       }
     }
