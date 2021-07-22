@@ -70,13 +70,13 @@
  *   in different view modes.
  */
 #}
-<article{{ attributes.addClass("fixed-width") }}>
+<article{{ attributes }}>
 
   {{ title_prefix }}
   {% if not page %}
-    <h2{{ title_attributes }}>
+    <h3{{ title_attributes }}>
       <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-    </h2>
+    </h3>
   {% else %}
   <h1{{ title_attributes.addClass(['page-title']) }}>
     {{ label }}

@@ -1,0 +1,44 @@
+.career-slide-link{
+    text-decoration:none;
+  }
+.career-slide{
+      min-height: 400px;
+      max-width: 300px;
+      border: solid 1px var(--il-cloud-1);
+      border-bottom: solid 3px var(--il-altgeld);
+}
+
+.career-slide-content{
+    margin:var(--il-content-margin);
+    color:#252525;
+
+.field.field--name-field-career-position{
+    font-weight:bold;
+    padding: calc(var(--il-content-margin)*0.25) 0;
+}
+.career-slide-name{
+    font-weight:bold;
+    font-size:20px;
+    color:var(--il-alma-mater);
+}
+}
+.slick-arrow::before{
+    color: var(--il-altgeld);
+}
+
+.field--name-field-career-linked-degree .field__item:after{
+    content: "/";
+    color: var(--il-altgeld);
+    padding: 0 0.1em 0 0.1em;
+}
+.field--name-field-career-linked-degree .field__item:last-child:after{
+    content: "";
+}
+.field--name-field-career-linked-degree .field__item{
+    display:inline;
+    
+}
+
+.slick--view--career-possibilities-slider .slide__content{
+    padding:3em;
+}
