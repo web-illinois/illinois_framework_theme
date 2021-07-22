@@ -2,8 +2,8 @@
     text-decoration:none;
   }
 .career-slide{
-      min-height: 400px;
-      max-width: 300px;
+      min-height: 450px;
+      max-width: 350px;
       border: solid 1px var(--il-cloud-1);
       border-bottom: solid 3px var(--il-altgeld);
 }
@@ -11,6 +11,7 @@
 .career-slide-content{
     margin:var(--il-content-margin);
     color:#252525;
+    word-break: break-word;
 
 .field.field--name-field-career-position{
     font-weight:bold;
