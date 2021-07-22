@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.field.paragraph.cards.field_cards_background
     - field.field.paragraph.cards.field_cards_content
-    - field.field.paragraph.cards.field_cards_layout
     - field.field.paragraph.cards.field_cards_margin
     - field.field.paragraph.cards.field_cards_subtitle
     - field.field.paragraph.cards.field_cards_title
@@ -36,12 +35,6 @@ content:
       form_display_mode: default
       default_paragraph_type: ''
     third_party_settings: {  }
-    region: content
-  field_cards_layout:
-    weight: 2
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
     region: content
   field_cards_margin:
     weight: 0
