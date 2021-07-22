@@ -44,6 +44,7 @@
 * @ingroup themeable
 */
 #}
+{#{{ kint(node.fields) }}#}
 <div class="layout-container">
   {{ page.header }}
   {{ page.breadcrumb }}
@@ -53,7 +54,7 @@
   {% if node.field_sidebar.0.value == "sidebar" %}
   <div class="il-content-with-section-nav section-nav-example">
     {% if page.sidebar_first %}
-      <aside class="layout-sidebar-first il-section-nav" role="complementary">
+      <aside class="il-section-nav" role="complementary">
         {{ page.sidebar_first }}
       </aside>
     {% endif %}
@@ -63,9 +64,20 @@
       </aside>
     {% endif %}
     <div class="il-content">
-      {{ page.content }}
+      {% set paragraph_number = node.field_sidebar_paragraphs.0.value %}
+      {% set paragraph_count = node.fields.field_paragraph|length %}
+      {% for item in node.fields.field_paragraph %}
+        {% if loop.index0 < paragraph_number %}
+          {{ drupal_entity('paragraph', item.target_id) }}
+        {% endif %}
+      {% endfor %}
     </div>
   </div>
+    {% for item in node.fields.field_paragraph %}
+      {% if loop.index0 >= paragraph_number %}
+        {{ drupal_entity('paragraph', item.target_id) }}
+      {% endif %}
+    {% endfor %}
   {% else %}
     {{ page.content }}
   {% endif %}

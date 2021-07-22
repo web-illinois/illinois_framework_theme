@@ -39,7 +39,7 @@
   'menu--' ~ derivative_plugin_id|clean_class,
 ]
 %}
- {{ kint() }}
+{# {{ kint() }}#}
 {% set heading_id = attributes.id ~ '-menu'|clean_id %}
 <il-section-nav aria-labelledby="{{ heading_id }}"{{ attributes.addClass(classes)|without('role', 'aria-labelledby') }}>
   {# Label. If not displayed, we still provide it for screen readers. #}
