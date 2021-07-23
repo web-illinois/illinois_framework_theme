@@ -52,7 +52,9 @@
       }
     }
     &__body {
-
+    p {
+      color: white;
+    }
       .field__item {
         padding-bottom: rem(16px);
       }
