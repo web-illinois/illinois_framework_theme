@@ -15,10 +15,11 @@ dependencies:
     - field.field.node.career_possibilities.field_if_meda_featured_image
     - node.type.career_possibilities
   module:
+    - media_library
     - path
     - text
 _core:
-  default_config_hash: 7TzGfHv0Dqti2vKBqkUBT0lo1qM4vYDvofESrZwbBcI
+  default_config_hash: 4LoENjR85p7AbLJ7wGcv6nl48rZndhhRAWUMU_t0VRg
 id: node.career_possibilities.default
 targetEntityType: node
 bundle: career_possibilities
@@ -109,12 +110,9 @@ content:
   field_if_meda_featured_image:
     weight: 27
     settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+      media_types: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: media_library_widget
     region: content
   path:
     type: path

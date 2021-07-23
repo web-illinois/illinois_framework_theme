@@ -6,7 +6,7 @@ dependencies:
     - node
     - options
 _core:
-  default_config_hash: yXZNVkpfAqKN8XmedsV58MrCtbtiLfgPMU6Lg7xXZBQ
+  default_config_hash: 6xKnFZK1JcseF7UQpdTaqLnmNeS1XXlk4eY3eRk-Bic
 id: node.field_intern_category
 field_name: field_intern_category
 entity_type: node

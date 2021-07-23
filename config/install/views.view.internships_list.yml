@@ -9,7 +9,7 @@ dependencies:
     - node
     - user
 _core:
-  default_config_hash: JnV259FPgnyHMWb-0dzHRVtFptB4UFVDXQBogX2NK0g
+  default_config_hash: jM3046fTRuSC7x2yHdsiKOVgNs1AXVEhp8-2Rp4RUZo
 id: internships_list
 label: 'Internships List'
 module: views

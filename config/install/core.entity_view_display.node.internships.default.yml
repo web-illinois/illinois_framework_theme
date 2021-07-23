@@ -23,7 +23,7 @@ dependencies:
     - text
     - user
 _core:
-  default_config_hash: U25Mk6g30PxeENN4ymUmobCn5T-NNlbLDLlOImsFQfo
+  default_config_hash: Was-BO0l4kq75mFawgrCK_FIEPBGgzDvxEB47PO_8Wo
 id: node.internships.default
 targetEntityType: node
 bundle: internships
@@ -67,7 +67,7 @@ content:
     region: content
   field_intern_note:
     weight: 4
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: basic_string
@@ -81,14 +81,14 @@ content:
     region: content
   field_intern_term:
     weight: 2
-    label: inline
+    label: above
     settings: {  }
     third_party_settings: {  }
     type: list_default
     region: content
   field_intern_website:
     weight: 1
-    label: inline
+    label: above
     settings:
       trim_length: 80
       url_only: false

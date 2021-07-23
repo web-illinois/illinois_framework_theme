@@ -6,7 +6,7 @@ dependencies:
     - field.storage.node.field_intern_note
     - node.type.internships
 _core:
-  default_config_hash: VO_ZetLyw6yK19wf8Rd_aPPijy6wl6JIWCcWhKjzjTA
+  default_config_hash: I8dm-CEUldGUmyRonGgNd65h-sag4wgQZbq_AYc9QR4
 id: node.internships.field_intern_note
 field_name: field_intern_note
 entity_type: node

@@ -8,7 +8,7 @@ dependencies:
   module:
     - text
 _core:
-  default_config_hash: fybCRzFLlzQrVv9ttKkNr3BdAcqulhr9kS5ioBEgddw
+  default_config_hash: Hw5c3YzqctQMudnL1wh6TLahVHe38V0XpXVxqis0e2Y
 id: node.career_possibilities.field_career_job_duties
 field_name: field_career_job_duties
 entity_type: node

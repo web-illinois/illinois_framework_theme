@@ -10,7 +10,7 @@ third_party_settings:
       - main
     parent: 'main:'
 _core:
-  default_config_hash: 2QMqUaqWdrRd5Rrz1ShNlUmout6VaMysRpjmezoBawQ
+  default_config_hash: EArTnt3gsY7UwjCUNI5DVx_Gft5Fuko3K7Wboi3jyoc
 name: 'Career Possibilities'
 type: career_possibilities
 description: ''

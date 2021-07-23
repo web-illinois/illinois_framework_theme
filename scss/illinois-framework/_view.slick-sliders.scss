@@ -32,9 +32,7 @@
     color: var(--il-altgeld);
     padding: 0 0.1em 0 0.1em;
 }
-.field--name-field-career-linked-degree .field__item:last-child:after{
-    content: "";
-}
+
 .field--name-field-career-linked-degree .field__item{
     display:inline;
     
@@ -42,4 +40,32 @@
 
 .slick--view--career-possibilities-slider .slide__content{
     padding:3em;
+}
+.background-light-gray, .block-views-blockinternships-slider-block-internships-slider{
+    background-color:var(--il-cloud-1);}
+.field--name-field-intern-location-list{
+    display:inline-block;
+    color: #252525;
+    font-size: 1.125rem;
+    line-height: 1.875rem;
+    font-weight:bold;
+    }
+.field--name-field-intern-location-list:after{
+        content: " /";
+        color: var(--il-altgeld);
+    }
+.field--name-field-intern-term,  .field--name-field-intern-term .field__item{
+    display:inline-block;
+    padding: 0 0.1em;
+    color: #252525;
+    font-size: 1.125rem;
+    line-height: 1.875rem;
+    font-weight:bold;
+    }
+.field--name-field-intern-term .field__item:after{
+    content: ",";
+    }
+
+.field--name-field-career-linked-degree .field__item:last-child:after, .field--name-field-intern-term .field__item:last-child:after{
+    content: "";
 }

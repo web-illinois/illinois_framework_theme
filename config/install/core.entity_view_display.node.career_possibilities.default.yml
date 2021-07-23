@@ -19,7 +19,7 @@ dependencies:
     - text
     - user
 _core:
-  default_config_hash: DwV3RAbMBrdyjK8gzarfhvOXGBsG4O_YZXxsI8Jcd1U
+  default_config_hash: rTVJCLlnmSnodL3fSNK_MMDIMmFWTg3peVqnnuVWd24
 id: node.career_possibilities.default
 targetEntityType: node
 bundle: career_possibilities
@@ -27,47 +27,47 @@ mode: default
 content:
   body:
     type: text_default
-    weight: 8
+    weight: 3
     region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
   field_career_background:
-    weight: 6
+    type: text_default
+    weight: 4
+    region: content
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: text_default
-    region: content
   field_career_degrees:
-    weight: 3
-    label: inline
+    type: basic_string
+    weight: 2
+    region: content
+    label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: basic_string
-    region: content
   field_career_hometown:
-    weight: 2
-    label: inline
+    type: string
+    weight: 5
+    region: content
+    label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
-    region: content
   field_career_job_duties:
-    weight: 5
-    label: above
-    settings: {  }
-    third_party_settings: {  }
     type: text_default
+    weight: 6
     region: content
-  field_career_linked_degree:
-    weight: 9
     label: above
     settings: {  }
     third_party_settings: {  }
+  field_career_linked_degree:
     type: list_default
+    weight: 7
     region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
   field_career_position:
     weight: 1
     label: hidden
@@ -76,20 +76,13 @@ content:
     third_party_settings: {  }
     type: string
     region: content
-  field_career_salary_range:
-    weight: 4
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    type: list_default
-    region: content
   field_career_ug_experiences:
-    weight: 7
+    type: text_default
+    weight: 8
+    region: content
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: text_default
-    region: content
   field_if_meda_featured_image:
     weight: 0
     label: hidden
@@ -100,4 +93,5 @@ content:
     type: entity_reference_entity_view
     region: content
 hidden:
+  field_career_salary_range: true
   links: true

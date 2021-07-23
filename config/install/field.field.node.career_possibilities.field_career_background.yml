@@ -8,7 +8,7 @@ dependencies:
   module:
     - text
 _core:
-  default_config_hash: XX89YgECtDzVhbAtpmNKHq94hMiaJglD5lpbSG5wfJc
+  default_config_hash: 10PNGjeffRhwiRt3kgWwVy-D0nzLVHogQr10DHNcS-g
 id: node.career_possibilities.field_career_background
 field_name: field_career_background
 entity_type: node
