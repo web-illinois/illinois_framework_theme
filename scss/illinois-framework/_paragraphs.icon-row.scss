@@ -7,12 +7,7 @@
     &__title {
       margin-top: 0;
       margin-bottom: rem(60px);
-      &.left {
-        text-align: left;
-      }
-      &.center{
-        text-align: center;
-      }
+      text-align: center;
     }
   }
 
@@ -32,12 +27,17 @@
         flex: 1 1 100%;
         padding: 0 1rem;
       }
+    &__wrapper{
+      @include media-breakpoint-down(md) {
+        margin: 1rem 0;
+      }
+    }
   }
 
   .field--name-field-icon-row-callout {
-    font-size: 32px;
-    line-height: 38px;
-    font-weight: 700;
+    font-size: rem(32px);
+    line-height: rem(38px);
+    font-weight: 600;
     color: var(--il-orange);
   }
 
