@@ -4,10 +4,9 @@
 @import '../../../../themes/contrib/bootstrap4/dist/bootstrap/4.5.3/scss/bootstrap';
 
 // Web components
-@import "web-components/fonts";
-@import "web-components/colors";
-@import "web-components/fonts/il-icons";
-@import "web-components/web-components";
+@import "web-components/web-components.menu";
+@import "web-components/web-components.side-nav";
+@import "web-components/web-components.footer";
 
 // Custom Functions
 @import "illinois-framework/functions/px2rem";
@@ -24,6 +23,7 @@
 @import 'bootstrap-overrides/type';
 @import 'bootstrap-overrides/breadcrumb';
 @import 'bootstrap-overrides/buttons';
+@import 'bootstrap-overrides/lists';
 
 // Layouts
 @import "illinois-framework/regions";
@@ -35,7 +35,7 @@
 @import "illinois-framework/components.one-trust";
 
 // Blocks
-@import "illinois-framework/block.main-menu--simple";
+//@import "illinois-framework/block.main-menu--simple";
 //@import "custom/block.main-menu--mega";
 @import "illinois-framework/block.sidebar-menu";
 @import "illinois-framework/block.page-title";
@@ -45,6 +45,7 @@
 
 // Content Types
 @import "illinois-framework/node.content-page";
+@import "illinois-framework/node.fund-listing-page";
 
 // Paragraphs
 @import "illinois-framework/paragraphs";
@@ -60,6 +61,9 @@
 @import "illinois-framework/paragraphs.list";
 @import "illinois-framework/paragraphs.expand--collapse";
 @import "illinois-framework/paragraphs.intro-home";
+@import "illinois-framework/paragraphs.icon-row";
+@import "illinois-framework/paragraphs.feature--grouped";
+@import "illinois-framework/paragraphs.contact-info";
 
 // Views
 @import "illinois-framework/view.frontpage";

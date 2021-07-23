@@ -21,6 +21,8 @@ dependencies:
     - link
     - path
     - text
+_core:
+  default_config_hash: NOl0zWXq0XoL1M5loR4pDF9w5-U2sl-FgDJf-o75pCs
 id: node.internships.default
 targetEntityType: node
 bundle: internships

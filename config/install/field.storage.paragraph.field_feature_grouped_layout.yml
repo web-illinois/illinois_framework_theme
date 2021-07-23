@@ -1,0 +1,27 @@
+uuid: b8dcebe8-e4e3-42f2-917b-184458029475
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_feature_grouped_layout
+field_name: field_feature_grouped_layout
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: left
+      label: 'Photo Left & Content Right'
+    -
+      value: right
+      label: 'Photo Right & Content Left'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

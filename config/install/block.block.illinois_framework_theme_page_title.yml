@@ -1,10 +1,11 @@
+uuid: 402a200b-9dc0-440e-b693-56bf0f22ab2a
 langcode: en
 status: true
 dependencies:
-  module:
-    - ctools
   theme:
     - illinois_framework_theme
+_core:
+  default_config_hash: 8B2Pdj0F0sCd2v1Kv6LscyVih_zDmgi9vmK289Cm3zo
 id: illinois_framework_theme_page_title
 theme: illinois_framework_theme
 region: content
@@ -16,11 +17,4 @@ settings:
   label: 'Page title'
   provider: core
   label_display: '0'
-visibility:
-  'entity_bundle:node':
-    id: 'entity_bundle:node'
-    bundles:
-      spotlight: spotlight
-    negate: true
-    context_mapping:
-      node: '@node.node_route_context:node'
+visibility: {  }

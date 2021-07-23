@@ -4,6 +4,8 @@ status: true
 dependencies:
   module:
     - node
+_core:
+  default_config_hash: hpBS5OYWHoS1MjLgAjB3llgDZxu0CDyVab1Eyanxk_M
 id: node.field_career_degrees
 field_name: field_career_degrees
 entity_type: node

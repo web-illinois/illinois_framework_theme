@@ -7,6 +7,8 @@ dependencies:
     - node.type.career_possibilities
   module:
     - options
+_core:
+  default_config_hash: _1I2fwefFspUntMq36gCuTbE3ZP5PJ8t3DzptpvKcUE
 id: node.career_possibilities.field_career_linked_degree
 field_name: field_career_linked_degree
 entity_type: node

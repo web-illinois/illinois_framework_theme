@@ -1,0 +1,23 @@
+uuid: dff3cce6-a1ac-4f13-bb81-bf6b75ba3ab7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_feature_grouped_body
+    - paragraphs.paragraphs_type.feature_grouped
+  module:
+    - text
+id: paragraph.feature_grouped.field_feature_grouped_body
+field_name: field_feature_grouped_body
+entity_type: paragraph
+bundle: feature_grouped
+label: Body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary

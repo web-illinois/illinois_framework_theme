@@ -2,7 +2,8 @@ global-styling:
   css:
     theme:
       fonts/font-awesome-4.7.0/css/font-awesome.css: {}
-      css/style.css: {}
+      fonts/font-awesome-4.7.0/css/illinois-icons.css: {}
+      scss/style.scss: { css_path: '/css/' }
   js:
     https://emergency.publicaffairs.illinois.edu/illinois.js:
       type: external
@@ -12,9 +13,28 @@ global-styling:
       type: external
       attributes:
         async: true
-    js/components.js: {}
+#    js/components.js: {}
     js/navmenu.js: {}
     js/paragraph-accordion.js: {}
     js/search.js: {}
+  dependencies:
+    - core/jquery
+web-components:
+  css:
+    theme:
+      https://cdn.brand.illinois.edu/toolkit/2.0/examples/toolkit.css:
+        type: external
+  js:
+    https://cdn.brand.illinois.edu/toolkit/2.0/examples/toolkit.js:
+      type: external
+galleria:
+  js:
+    css/galleria/galleria.min.js: { minified: true }
+    css/galleria/plugins/flickr/galleria.flickr.js: { }
+  dependencies:
+    - core/jquery
+galleria--meat-science:
+  js:
+    css/galleria/custom--meat-science.js: {}
   dependencies:
     - core/jquery

@@ -4,6 +4,8 @@ status: true
 dependencies:
   module:
     - paragraphs
+_core:
+  default_config_hash: s6h3CYgpKwm8MZnXfOQFFGonuENYL9yEeocYlgZDoR8
 id: paragraph.field_contact_content_subtit
 field_name: field_contact_content_subtit
 entity_type: paragraph

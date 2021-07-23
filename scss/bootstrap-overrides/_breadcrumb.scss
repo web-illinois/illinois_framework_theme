@@ -2,10 +2,26 @@
 .breadcrumb {
   display: flex;
   flex-wrap: wrap;
-  padding: $breadcrumb-padding-y $breadcrumb-padding-x;
+  padding: $breadcrumb-padding-y 1rem $breadcrumb-padding-y 0;
   margin-bottom: $breadcrumb-margin-bottom;
   @include font-size($breadcrumb-font-size);
   list-style: none;
   background-color: $breadcrumb-bg;
   @include border-radius($breadcrumb-border-radius);
+}
+//overrides _breadcrumbs.scss line 12
+.breadcrumb-item {
+  display: flex;
+
+  // The separator between breadcrumbs (by default, a forward-slash: "/")
+  + .breadcrumb-item {
+    padding-left: $breadcrumb-item-padding;
+
+    &::before {
+      display: inline-block; // Suppress underlining of the separator in modern browsers
+      padding-right: $breadcrumb-item-padding;
+      color: $breadcrumb-divider-color;
+      content: '/';
+    }
+  }
 }

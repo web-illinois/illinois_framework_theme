@@ -5,49 +5,53 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.career_possibilities.body
-    - field.field.node.career_possibilities.field_career_additional_body
     - field.field.node.career_possibilities.field_career_background
     - field.field.node.career_possibilities.field_career_degrees
-    - field.field.node.career_possibilities.field_career_first_name
     - field.field.node.career_possibilities.field_career_hometown
-    - field.field.node.career_possibilities.field_career_image
     - field.field.node.career_possibilities.field_career_job_duties
-    - field.field.node.career_possibilities.field_career_last_name
     - field.field.node.career_possibilities.field_career_linked_degree
     - field.field.node.career_possibilities.field_career_position
     - field.field.node.career_possibilities.field_career_salary_range
     - field.field.node.career_possibilities.field_career_ug_experiences
+    - field.field.node.career_possibilities.field_if_meda_featured_image
     - node.type.career_possibilities
   module:
     - text
     - user
+_core:
+  default_config_hash: XCLLLl6Z2WNVf2pXlsN2W-NLAFRxdOzktKLgFYQKP5o
 id: node.career_possibilities.teaser
 targetEntityType: node
 bundle: career_possibilities
 mode: teaser
 content:
-  body:
-    label: hidden
+  field_career_background:
     type: text_summary_or_trimmed
-    weight: 101
-    settings:
-      trim_length: 600
-    third_party_settings: {  }
+    weight: 1
     region: content
+    label: hidden
+    settings:
+      trim_length: 200
+    third_party_settings: {  }
+  field_if_meda_featured_image:
+    type: entity_reference_entity_view
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      view_mode: spotlight_list
+      link: false
+    third_party_settings: {  }
   links:
-    weight: 100
+    weight: 2
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
-  field_career_additional_body: true
-  field_career_background: true
+  body: true
   field_career_degrees: true
-  field_career_first_name: true
   field_career_hometown: true
-  field_career_image: true
   field_career_job_duties: true
-  field_career_last_name: true
   field_career_linked_degree: true
   field_career_position: true
   field_career_salary_range: true

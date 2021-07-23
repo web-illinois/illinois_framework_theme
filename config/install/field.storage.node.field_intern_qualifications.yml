@@ -5,6 +5,8 @@ dependencies:
   module:
     - node
     - text
+_core:
+  default_config_hash: mcdLUL_HqAgqm0AmiGTb1HsibSXTP1PAw-WumkUZQcY
 id: node.field_intern_qualifications
 field_name: field_intern_qualifications
 entity_type: node

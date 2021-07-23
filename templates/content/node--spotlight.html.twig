@@ -77,10 +77,6 @@
     <h2{{ title_attributes }}>
       <a href="{{ url }}" rel="bookmark">{{ label }}</a>
     </h2>
-  {% else %}
-  <h1{{ title_attributes.addClass(['page-title']) }}>
-    {{ label }}
-  </h1>
   {% endif %}
   {{ title_suffix }}
 
@@ -94,7 +90,7 @@
     </footer>
   {% endif %}
 
-  <div{{ content_attributes }}>
+  <div>
     {{ content }}
   </div>
 

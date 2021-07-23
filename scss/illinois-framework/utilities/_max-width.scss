@@ -1,7 +1,7 @@
 %fixed-width {
   margin: 0 auto;
   max-width: var(--il-framework--fixed-width);
-  padding: 0 rem(30px);
+  padding: 0 var(--il-content-margin);
   width: 100%;
 }
 %full-width {
@@ -12,6 +12,12 @@
 }
 .fixed-width {
  @extend %fixed-width;
+}
+.fixed-width-900 {
+	margin:0 auto;
+	max-width: 900px;
+	padding: 0 rem(30px);
+	width: 100%
 }
 
 .full-width {

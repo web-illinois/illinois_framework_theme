@@ -7,6 +7,8 @@ dependencies:
     - paragraphs.paragraphs_type.contact_content
   module:
     - image
+_core:
+  default_config_hash: uFdRoXJWmWhMQgmBOUQrStHlYyDXbTckLSzuMM_gnEU
 id: paragraph.contact_content.field_contact_content_image
 field_name: field_contact_content_image
 entity_type: paragraph

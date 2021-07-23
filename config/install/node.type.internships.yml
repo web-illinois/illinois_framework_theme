@@ -9,6 +9,8 @@ third_party_settings:
     available_menus:
       - main
     parent: 'main:'
+_core:
+  default_config_hash: d6064Y6YmOfLOOWSMN04MGZfhzI4whkxJaE0NmafMCY
 name: Internships
 type: internships
 description: ''

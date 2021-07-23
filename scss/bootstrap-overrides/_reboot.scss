@@ -38,6 +38,13 @@ p {
     }
   }
 }
+// overrides _reboot.scss line 101
+p {
+  margin-top: 0;
+  margin-bottom: $paragraph-margin-bottom;
+  word-wrap: break-word;
+}
+
 
 // overrides _reboot.scss line 182
 a {
