@@ -17,6 +17,10 @@
       }
     }
 
+    &__body {
+      font-size: rem(18px);
+    }
+
     &__buttons {
       display: flex;
       justify-content: space-evenly;
