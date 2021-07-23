@@ -2,12 +2,13 @@ jQuery(function ($) {
   (function() {
     var album = 'set:' + album_id;
     console.log('galleria--display.js');
-    Galleria.loadTheme('css/galleria/themes/twelve/galleria.twelve.min.js');
+    Galleria.loadTheme('css/galleria/themes/folio/galleria.folio.min.js');
     Galleria.run('.galleria', {
       flickr: album,
       flickrOptions: {
         max:100,
         imageSize: 'original',
+        thumbSize: 'medium',
       }
     });
     Galleria.configure({
