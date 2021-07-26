@@ -51,7 +51,10 @@
   {{ page.highlighted }}
   {{ page.help }}
   {{ page.tabs }}
+  {# if a side navigation exists the spoof the content region #}
   {% if node.field_sidebar.0.value == "sidebar" %}
+  <a name="main-content" aria-label="Start of content region"></a>
+  <main class="region region-content l-region l-region--content" role="main">
   <div class="il-content-with-section-nav section-nav-example">
     {% if page.sidebar_first %}
       <aside class="il-section-nav" role="complementary">
@@ -78,6 +81,7 @@
         {{ drupal_entity('paragraph', item.target_id) }}
       {% endif %}
     {% endfor %}
+  </main>
   {% else %}
     {{ page.content }}
   {% endif %}
