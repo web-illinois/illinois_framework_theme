@@ -17,7 +17,7 @@ third_party_settings:
     allow_custom: false
     enabled: false
 _core:
-  default_config_hash: Mb__mgCETaXob9aK9fGiTOklAIem-yWk60jB258bFEM
+  default_config_hash: 4puTWlQK-rR-Xd4NBtm6rg2Sks0PeDIKI6o55LQbmkI
 id: media.image.spotlight_card
 targetEntityType: media
 bundle: image

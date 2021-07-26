@@ -1,3 +1,4 @@
+uuid: 42def46d-778c-4f81-b8b5-8f838f5418eb
 langcode: en
 status: true
 dependencies:
@@ -6,6 +7,7 @@ dependencies:
     - node.type.career_possibilities
   module:
     - node
+    - slick_views
     - user
 id: career_possibilities_slider
 label: 'Career Possibilities Slider'
@@ -505,20 +507,7 @@ display:
         groups:
           1: AND
       css_class: fixed-width
-      footer:
-        area:
-          id: area
-          table: views
-          field: area
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: false
-          tokenize: false
-          content:
-            value: "<style>\r\n\r\n</style>"
-            format: full_html
-          plugin_id: text
+      footer: {  }
     cache_metadata:
       max-age: 0
       contexts:
@@ -526,5 +515,4 @@ display:
         - 'languages:language_interface'
         - 'user.node_grants:view'
         - user.permissions
-      tags:
-        - 'config:field.storage.node.field_images'
+      tags: {  }

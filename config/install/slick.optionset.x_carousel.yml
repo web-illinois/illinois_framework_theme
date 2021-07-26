@@ -1,5 +1,7 @@
+uuid: 043c4788-2456-4f89-883e-784e949f2c23
 langcode: en
 status: true
+dependencies: {  }
 id: x_carousel
 name: x_carousel
 label: 'X Carousel'

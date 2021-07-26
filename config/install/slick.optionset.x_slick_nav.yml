@@ -1,5 +1,7 @@
+uuid: ac8b1b5f-81aa-4ad3-99da-041a2fe7b31f
 langcode: en
 status: true
+dependencies: {  }
 id: x_slick_nav
 name: x_slick_nav
 label: 'X Slick nav'
