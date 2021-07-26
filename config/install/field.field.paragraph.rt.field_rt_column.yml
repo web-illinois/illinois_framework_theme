@@ -1,0 +1,78 @@
+uuid: 2cb9d3c4-52d9-41c9-970f-a04ef787b159
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_rt_column
+    - paragraphs.paragraphs_type.rt
+    - paragraphs.paragraphs_type.rt_content
+  module:
+    - entity_reference_revisions
+_core:
+  default_config_hash: Gstc0ZpR1O8AIDF4BOub2swJ5zzzEQpWpn_A5RByaxM
+id: paragraph.rt.field_rt_column
+field_name: field_rt_column
+entity_type: paragraph
+bundle: rt
+label: Column
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      rt_content: rt_content
+    target_bundles_drag_drop:
+      bb:
+        weight: 17
+        enabled: false
+      bb_content:
+        weight: 18
+        enabled: false
+      call_to_action:
+        weight: 19
+        enabled: false
+      colored_text_block_with_image:
+        weight: 20
+        enabled: false
+      cta_content:
+        weight: 21
+        enabled: false
+      expand_collapse:
+        weight: 22
+        enabled: false
+      feature_boxed:
+        weight: 23
+        enabled: false
+      feature_split:
+        weight: 24
+        enabled: false
+      feature_video:
+        weight: 25
+        enabled: false
+      from_library:
+        weight: 26
+        enabled: false
+      page_introduction:
+        weight: 27
+        enabled: false
+      rich_text:
+        weight: 28
+        enabled: false
+      rt:
+        weight: 29
+        enabled: false
+      rt_content:
+        enabled: true
+        weight: 30
+      text_with_image_and_header:
+        weight: 31
+        enabled: false
+      two_column_text:
+        weight: 32
+        enabled: false
+field_type: entity_reference_revisions

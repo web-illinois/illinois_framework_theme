@@ -1,0 +1,12 @@
+uuid: 9a575429-d9d9-42cb-be44-8b4f7946fa1c
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: zQeTaSeotWky7ykKcm7dklYVRCPqTXgjkiWm3MB5u5M
+id: rt_content
+label: 'Rich Text Content'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }
