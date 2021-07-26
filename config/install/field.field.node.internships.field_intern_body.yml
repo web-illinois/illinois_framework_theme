@@ -8,7 +8,7 @@ dependencies:
   module:
     - text
 _core:
-  default_config_hash: 4Lf9ImH8D-lBBJsy0u1Sh5J0qVOla8xONvSprayIVzY
+  default_config_hash: p_LY7mrF-qxoUwpWs0JQXdKFGpeFYDQedV9eDk7VMN8
 id: node.internships.field_intern_body
 field_name: field_intern_body
 entity_type: node

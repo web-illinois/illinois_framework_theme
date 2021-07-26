@@ -70,32 +70,14 @@
  *   in different view modes.
  */
 #}
-<article{{ attributes.addClass("fixed-width") }}>
-
-  {{ title_prefix }}
-  {% if not page %}
-    <h2{{ title_attributes }}>
-      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-    </h2>
-  {% else %}
-  <h1{{ title_attributes.addClass(['page-title']) }}>
-    {{ label }}
-  </h1>
-  {% endif %}
-  {{ title_suffix }}
-
-  {% if display_submitted %}
-    <footer>
-      {{ author_picture }}
-      <div{{ author_attributes }}>
-        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
-        {{ metadata }}
-      </div>
-    </footer>
-  {% endif %}
-
-  <div{{ content_attributes }}>
-    {{ content }}
+<a href="{{ url }}" rel="bookmark" class="career-slide-link">
+<article{{ attributes.addClass('career-slide') }}>
+{{content.field_if_meda_featured_image}}
+<div class="career-slide-content">
+  <div class="career-slide-name">
+      {{ label }}
   </div>
-
+  {{ content|without("field_if_meda_featured_image") }}
+  </div>
 </article>
+</a>

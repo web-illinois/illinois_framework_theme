@@ -10,7 +10,7 @@ third_party_settings:
       - main
     parent: 'main:'
 _core:
-  default_config_hash: d6064Y6YmOfLOOWSMN04MGZfhzI4whkxJaE0NmafMCY
+  default_config_hash: 6RTMVl0jxOR1ocFWgvWQCHbs0r-BRv2Bma6Isd2rVWo
 name: Internships
 type: internships
 description: ''

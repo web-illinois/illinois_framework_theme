@@ -1,0 +1,17 @@
+uuid: f751ba8c-4191-426c-8455-463d40f4da43
+langcode: en
+status: true
+dependencies: {  }
+id: x_grid
+name: x_grid
+label: 'X Grid'
+weight: -5
+group: main
+skin: grid
+breakpoints: 0
+optimized: true
+options:
+  options__active_tab: edit-options-settings
+  settings:
+    lazyLoad: ondemand
+    slidesToShow: 1

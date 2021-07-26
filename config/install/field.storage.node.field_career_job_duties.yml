@@ -6,7 +6,7 @@ dependencies:
     - node
     - text
 _core:
-  default_config_hash: 0BkZ2t51Rq9mgznVlps0ih61iLYE1LMDbTenleC98z4
+  default_config_hash: UyJSNB9qZ7EmyHTYBaIxDxOEMQLZnM9__YjU-WT_a1Y
 id: node.field_career_job_duties
 field_name: field_career_job_duties
 entity_type: node

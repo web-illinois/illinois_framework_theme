@@ -6,7 +6,7 @@ dependencies:
     - node
     - text
 _core:
-  default_config_hash: 74zunTbH1F9v4t9WKmlAMvzb8nPDLSTcKUYzjfwsAHw
+  default_config_hash: S7E_iMEUOaEgPgRGCSVcR6TZ8FOpMHdP1bxfXo6Tz_I
 id: node.field_intern_contact
 field_name: field_intern_contact
 entity_type: node

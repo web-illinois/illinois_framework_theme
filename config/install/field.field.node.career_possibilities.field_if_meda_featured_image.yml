@@ -6,6 +6,8 @@ dependencies:
     - field.storage.node.field_if_meda_featured_image
     - media.type.image
     - node.type.career_possibilities
+_core:
+  default_config_hash: juNxpSS3m_ySaMjXBxfPCAJkq8b5oTplOt5Y8h9ZfG0
 id: node.career_possibilities.field_if_meda_featured_image
 field_name: field_if_meda_featured_image
 entity_type: node

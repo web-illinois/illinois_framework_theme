@@ -6,7 +6,7 @@ dependencies:
     - node
     - options
 _core:
-  default_config_hash: WJgSvf_9NyKWnjbBvW2K6INDvsBeri75CQeOuXYi7hk
+  default_config_hash: 2-C0HwP4vM1GTk4pRMABl7RHTp4thYxohhif-hpYzC0
 id: node.field_career_linked_degree
 field_name: field_career_linked_degree
 entity_type: node
