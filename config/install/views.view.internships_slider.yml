@@ -355,7 +355,7 @@ display:
         options:
           items_per_page: 9
           offset: 0
-      css_class: fixed-width
+      css_class: max-900px-width
       footer: {  }
       header:
         area:
