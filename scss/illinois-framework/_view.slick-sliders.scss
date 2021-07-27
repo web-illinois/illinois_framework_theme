@@ -1,9 +1,12 @@
 .career-slide-link{
     text-decoration:none;
   }
+ a.career-slide-link:hover, a.career-slide-link:active, a.career-slide-link:focus{
+      text-decoration: none;
+  }
 .career-slide{
-      min-height: 450px;
-      max-width: 350px;
+      min-height: 360px;
+      max-width: 300px;
       border: solid 1px var(--il-cloud-1);
       border-bottom: solid 3px var(--il-altgeld);
 }
@@ -21,6 +24,10 @@
     font-weight:bold;
     font-size:20px;
     color:var(--il-alma-mater);
+}
+.career-slide-name:after{
+    content:">>";
+    padding: 0 0.4em;
 }
 }
 .slick-arrow::before{
@@ -60,7 +67,7 @@
     padding: 0 0.1em;
     
     }
-.field--name-field-intern-location, .field--name-field-career-linked-degree{
+#block-illinois-framework-theme-content .field--name-field-intern-location, #block-illinois-framework-theme-content .field--name-field-career-linked-degree{
     color: #252525;
     font-size: 1.125rem;
     line-height: 1.875rem;
@@ -82,7 +89,7 @@
     line-height: 1.875rem;
 }
 
-.field--name-field-career-position{
+#block-illinois-framework-theme-content .field--name-field-career-position{
     color: var(--il-alma-mater);
     font-size: 24px;
     line-height: 30px;
