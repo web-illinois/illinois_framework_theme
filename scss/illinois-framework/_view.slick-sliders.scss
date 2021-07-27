@@ -37,7 +37,7 @@
 .field--name-field-career-linked-degree .field__item:after, .field--name-field-career-degrees .field__item:after{
     content: "/";
     color: var(--il-altgeld);
-    padding: 0 0.1em 0 0.1em;
+    padding: 0 0 0 0.1em;
 }
 
 .field--name-field-career-linked-degree .field__item, .field--name-field-career-degrees .field__item{
@@ -67,15 +67,6 @@
     padding: 0 0.1em;
     
     }
-#block-illinois-framework-theme-content .field--name-field-intern-location, #block-illinois-framework-theme-content .field--name-field-career-linked-degree{
-    color: #252525;
-    font-size: 1.125rem;
-    line-height: 1.875rem;
-    font-weight:bold;
-}
-.field--name-field-intern-term .field__item:after{
-    content: ",";
-    }
 
 .field--name-field-career-degrees .field__item:last-child:after,.field--name-field-career-linked-degree .field__item:last-child:after, .slick__slide .field--name-field-intern-term .field__item:last-child:after{
     content: "";
@@ -89,16 +80,38 @@
     line-height: 1.875rem;
 }
 
-#block-illinois-framework-theme-content .field--name-field-career-position{
+.field--name-field-career-degrees .field__item {
+    display:inline;
+}
+
+#block-illinois-framework-theme-content{
+.field--name-field-career-job-duties, .field--name-field-career-background, .field--name-field-career-ug-experiences,.field--name-field-advice-for-future-students, .field--name-field-memorable-illinois-moment{
+ .field__label{
+    color:var(--il-altgeld);
+    margin: 1.25rem 0 0.625rem;
+    font: 600 2rem/2.5rem var(--il-source-sans);
+}
+}
+
+.field--name-field-career-position{
     color: var(--il-alma-mater);
     font-size: 24px;
     line-height: 30px;
     font-weight: bold;
-    word-break: break-all;
+    word-break: break-word;
 }
 
-.field--name-field-career-degrees .field__item {
-    display:inline;
+.field--name-field-intern-location, .field--name-field-career-linked-degree{
+    color: #252525;
+    font-size: 1.125rem;
+    line-height: 1.875rem;
+    font-weight:bold;
+}
+
+.field--name-field-intern-term .field__item:after{
+    content: ",";
+}
+
 }
 
 .block-views-blockinternships-slider-internships-slider{

@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.career_possibilities.body
+    - field.field.node.career_possibilities.field_advice_for_future_students
     - field.field.node.career_possibilities.field_career_background
     - field.field.node.career_possibilities.field_career_degrees
     - field.field.node.career_possibilities.field_career_hometown
@@ -13,42 +14,42 @@ dependencies:
     - field.field.node.career_possibilities.field_career_salary_range
     - field.field.node.career_possibilities.field_career_ug_experiences
     - field.field.node.career_possibilities.field_if_meda_featured_image
+    - field.field.node.career_possibilities.field_memorable_illinois_moment
     - node.type.career_possibilities
   module:
-    - options
     - text
     - user
 _core:
-  default_config_hash: rTVJCLlnmSnodL3fSNK_MMDIMmFWTg3peVqnnuVWd24
+  default_config_hash: eCiG0dZl0Ac_vc5v4IgGgohBNDfu2xzU1oddjOHXwfI
 id: node.career_possibilities.default
 targetEntityType: node
 bundle: career_possibilities
 mode: default
 content:
-  body:
-    type: text_default
-    weight: 3
-    region: content
-    label: hidden
+  field_advice_for_future_students:
+    weight: 7
+    label: above
     settings: {  }
     third_party_settings: {  }
+    type: text_default
+    region: content
   field_career_background:
     type: text_default
-    weight: 4
+    weight: 5
     region: content
     label: above
     settings: {  }
     third_party_settings: {  }
   field_career_degrees:
     type: basic_string
-    weight: 2
+    weight: 3
     region: content
-    label: hidden
+    label: above
     settings: {  }
     third_party_settings: {  }
   field_career_hometown:
     type: string
-    weight: 5
+    weight: 2
     region: content
     label: above
     settings:
@@ -56,14 +57,7 @@ content:
     third_party_settings: {  }
   field_career_job_duties:
     type: text_default
-    weight: 6
-    region: content
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-  field_career_linked_degree:
-    type: list_default
-    weight: 7
+    weight: 4
     region: content
     label: above
     settings: {  }
@@ -78,7 +72,7 @@ content:
     region: content
   field_career_ug_experiences:
     type: text_default
-    weight: 8
+    weight: 6
     region: content
     label: above
     settings: {  }
@@ -92,6 +86,15 @@ content:
     third_party_settings: {  }
     type: entity_reference_entity_view
     region: content
+  field_memorable_illinois_moment:
+    weight: 8
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
 hidden:
+  body: true
+  field_career_linked_degree: true
   field_career_salary_range: true
   links: true
