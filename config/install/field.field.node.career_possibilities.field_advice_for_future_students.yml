@@ -1,0 +1,21 @@
+uuid: 295fb150-ba03-49d4-85fb-ad762a1ebaa8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_advice_for_future_students
+    - node.type.career_possibilities
+  module:
+    - text
+id: node.career_possibilities.field_advice_for_future_students
+field_name: field_advice_for_future_students
+entity_type: node
+bundle: career_possibilities
+label: 'Advice for future students'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

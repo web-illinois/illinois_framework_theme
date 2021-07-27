@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.spotlight_card
     - field.field.node.career_possibilities.body
+    - field.field.node.career_possibilities.field_advice_for_future_students
     - field.field.node.career_possibilities.field_career_background
     - field.field.node.career_possibilities.field_career_degrees
     - field.field.node.career_possibilities.field_career_hometown
@@ -14,6 +15,7 @@ dependencies:
     - field.field.node.career_possibilities.field_career_salary_range
     - field.field.node.career_possibilities.field_career_ug_experiences
     - field.field.node.career_possibilities.field_if_meda_featured_image
+    - field.field.node.career_possibilities.field_memorable_illinois_moment
     - node.type.career_possibilities
   module:
     - layout_builder
@@ -24,7 +26,7 @@ third_party_settings:
     allow_custom: false
     enabled: false
 _core:
-  default_config_hash: rTVJCLlnmSnodL3fSNK_MMDIMmFWTg3peVqnnuVWd24
+  default_config_hash: hFRAIqMQ_50YqFHhQ-zSDrFJ6ROAD9AeWv4Qs2RY-LE
 id: node.career_possibilities.spotlight_card
 targetEntityType: node
 bundle: career_possibilities
@@ -56,10 +58,12 @@ content:
     region: content
 hidden:
   body: true
+  field_advice_for_future_students: true
   field_career_background: true
   field_career_degrees: true
   field_career_hometown: true
   field_career_job_duties: true
   field_career_salary_range: true
   field_career_ug_experiences: true
+  field_memorable_illinois_moment: true
   links: true

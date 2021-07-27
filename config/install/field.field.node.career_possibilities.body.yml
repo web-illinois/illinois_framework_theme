@@ -8,12 +8,12 @@ dependencies:
   module:
     - text
 _core:
-  default_config_hash: j2p7tmryUb6kBMbbuT_ZsUicCzrQoxMLNdRFEau35A0
+  default_config_hash: CcwP7q3_tG_g8e3MEWdANtJ6VGU4PyMQz_6PLWCdlPw
 id: node.career_possibilities.body
 field_name: body
 entity_type: node
 bundle: career_possibilities
-label: Body
+label: 'Teaser Text'
 description: ''
 required: false
 translatable: true
@@ -23,3 +23,4 @@ settings:
   display_summary: true
   required_summary: false
 field_type: text_with_summary
+
