@@ -99,3 +99,10 @@
 .field--name-field-career-degrees .field__item {
     display:inline;
 }
+
+.block-views-blockinternships-slider-internships-slider{
+    header, .slick__slide article.contextual-region{
+    padding: 0 4em;
+    max-width: 900px;
+    }
+}
