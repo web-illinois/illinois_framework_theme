@@ -8,5 +8,5 @@ description: ''
 aspect_ratio: '4:1'
 soft_limit_width: 600
 soft_limit_height: 150
-hard_limit_width: 4800
-hard_limit_height: 1200
+hard_limit_width: 600
+hard_limit_height: 150
