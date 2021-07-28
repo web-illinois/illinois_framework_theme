@@ -12,6 +12,57 @@ console.log('secondary');
 
       });
 
+      $(".faculty-explorer--animal--plus-minus").click(function() {
+        var name = $(this).attr('name');
+        var wasVisible = ($("#" + name).is(":visible"));
+        $(".faculty-explorer--animal--body").addClass('faculty-explorer--hide');
+        if (!wasVisible) {
+          $("#" + name).removeClass('faculty-explorer--hide');
+          $(this).text("-");
+          activeAnimal = name;
+        }
+        else {
+          $(this).text("+");
+          activeAnimal = '';
+        }
+
+        update_button_text();
+
+      });
+
+      $(".faculty-explorer--discipline--plus-minus").click(function() {
+        var name = $(this).attr('name');
+        var wasVisible = ($("#" + name).is(":visible"));
+        $(".faculty-explorer--discipline--body").addClass('faculty-explorer--hide');
+        if (!wasVisible) {
+          $("#" + name).removeClass('faculty-explorer--hide');
+          $(this).text("-");
+          activeDiscipline = name;
+        }
+        else {
+          $(this).text("+");
+          activeDiscipline = '';
+        }
+
+        update_button_text();
+
+      });
+
+      function update_button_text() {
+        if (activeAnimal == '' && activeDiscipline == '') {
+          $(".faculty--explorer--directory-button").text("View all faculty members");
+        }
+        else if (activeAnimal != '' && activeDiscipline != '') {
+          $(".faculty--explorer--directory-button").text("View faculty studying " + activeDiscipline.replace('-', ' ') + " in " + activeAnimal.replace('-', ' '));
+        }
+        else if (activeAnimal != '') {
+          $(".faculty--explorer--directory-button").text("View faculty studying " + activeAnimal.replace('-', ' '));
+        }
+        else if (activeDiscipline != '') {
+          $(".faculty--explorer--directory-button").text("View faculty studying " + activeDiscipline.replace('-', ' '));
+        }
+      }
+
       $("div.button-group button").click(function(){
 
         window.location.hash = "category-list";
