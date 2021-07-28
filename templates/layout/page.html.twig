@@ -44,7 +44,6 @@
 * @ingroup themeable
 */
 #}
-{#{{ kint(node.fields) }}#}
 <div class="layout-container">
   {{ page.header }}
   {{ page.breadcrumb }}
@@ -67,6 +66,9 @@
       </aside>
     {% endif %}
     <div class="il-content">
+      {% if node.body %}
+        {{ node.body.0.value|raw }}
+      {% endif %}
       {% set paragraph_number = node.field_sidebar_paragraphs.0.value %}
       {% set paragraph_count = node.fields.field_paragraph|length %}
       {% for item in node.fields.field_paragraph %}
