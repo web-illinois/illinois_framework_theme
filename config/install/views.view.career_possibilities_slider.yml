@@ -170,7 +170,7 @@ display:
       tags: {  }
   career_possibilities_slider:
     display_plugin: block
-    id: career_block_slider
+    id: career_possibilities_slider
     display_title: 'Career Possibilities Slider'
     position: 1
     display_options:
