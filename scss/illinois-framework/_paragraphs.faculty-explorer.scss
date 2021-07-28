@@ -1,14 +1,27 @@
-.paragraph--type--faculty-explorer__wrapper {
-  max-width: var(--il-content-max-width);
-  margin: 0px auto;
-  padding: 0;
-}
-
 @media (min-width: 992px) {
   .fixed-width {
     max-width: 900px;
     padding: 0;
   }
+}
+
+@media (max-width: 878px) {
+  .faculty-explorer--category-group {
+    &--animal {
+      width: 100% !important;
+    }
+
+     &--discipline {
+      width: 100% !important;
+      margin-top: 50px !important;
+     }
+  }
+}
+
+.paragraph--type--faculty-explorer__wrapper {
+  max-width: var(--il-content-max-width);
+  margin: 0px auto;
+  padding: 2rem;
 }
 
 .faculty-explorer {
@@ -52,7 +65,14 @@
   }
 
   &--category-group {
-    width: 500px;
+
+    &--animal {
+      width: 37%;
+    }
+
+    &--discipline {
+      width: 63%;
+    }
 
     &--title {
       font-size: 30px;
@@ -84,9 +104,9 @@
       font-weight: 400;
       float: right;
       text-align: center;
-      line-height: 40px;
+      line-height: 44px;
       color: var(--il-orange);
-      min-width: 40px;
+      min-width: 44px;
     }
 
     &--body {
