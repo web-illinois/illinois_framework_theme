@@ -1,0 +1,21 @@
+uuid: 24ea7249-1f48-435d-a041-05d17b70f935
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_icon_row_content_callout
+    - paragraphs.paragraphs_type.icon_row_content
+_core:
+  default_config_hash: dIYic9QplSEJgh9inIDKi5JIPV26A4UYxjsu2Zw9w1w
+id: paragraph.icon_row_content.field_icon_row_content_callout
+field_name: field_icon_row_content_callout
+entity_type: paragraph
+bundle: icon_row_content
+label: Callout
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

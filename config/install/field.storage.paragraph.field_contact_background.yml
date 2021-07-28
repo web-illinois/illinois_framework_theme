@@ -5,6 +5,8 @@ dependencies:
   module:
     - options
     - paragraphs
+_core:
+  default_config_hash: 2fEj69O1jgK5QRaikjZDTLnIiJ-J0V4mP9h5xkKbiEM
 id: paragraph.field_contact_background
 field_name: field_contact_background
 entity_type: paragraph

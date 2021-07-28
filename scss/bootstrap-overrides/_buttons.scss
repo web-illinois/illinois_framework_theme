@@ -1,6 +1,6 @@
 .btn {
   font-family: var(--il-source-sans);
-  font-size: rem(18px);
+  font-size: rem(19px);
   font-weight: 600;
   line-height: 1.2;
   min-height: rem(48px);
@@ -23,7 +23,8 @@
     border: rem(2px) solid var(--il-blue);
     color: var(--il-blue);
 
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: var(--il-blue);
       border-color: var(--il-blue);
     }

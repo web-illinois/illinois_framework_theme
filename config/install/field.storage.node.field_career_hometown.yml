@@ -4,6 +4,8 @@ status: true
 dependencies:
   module:
     - node
+_core:
+  default_config_hash: dNnRMnCPMGgq6nzZprGkCOPRWPo1zjT87DDRMmEbeYg
 id: node.field_career_hometown
 field_name: field_career_hometown
 entity_type: node

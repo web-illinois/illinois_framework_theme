@@ -1,0 +1,42 @@
+uuid: dd8c07e2-4a11-4cac-aedb-7d16c3dbb69c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.hero_section_page.field_hero_section_background
+    - field.field.paragraph.hero_section_page.field_hero_section_image
+    - field.field.paragraph.hero_section_page.field_hero_section_intro
+    - paragraphs.paragraphs_type.hero_section_page
+  module:
+    - image
+    - options
+    - text
+id: paragraph.hero_section_page.default
+targetEntityType: paragraph
+bundle: hero_section_page
+mode: default
+content:
+  field_hero_section_background:
+    weight: 2
+    label: visually_hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_hero_section_image:
+    weight: 0
+    label: visually_hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_hero_section_intro:
+    weight: 1
+    label: visually_hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden: {  }

@@ -1,0 +1,23 @@
+uuid: 4b133e43-bd71-42cc-a222-ecb7726144da
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_hero_section_intro
+    - paragraphs.paragraphs_type.hero_section_page
+  module:
+    - text
+id: paragraph.hero_section_page.field_hero_section_intro
+field_name: field_hero_section_intro
+entity_type: paragraph
+bundle: hero_section_page
+label: Intro
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary

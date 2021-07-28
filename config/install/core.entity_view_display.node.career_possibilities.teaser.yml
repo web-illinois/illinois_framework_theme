@@ -5,50 +5,58 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.career_possibilities.body
-    - field.field.node.career_possibilities.field_career_additional_body
+    - field.field.node.career_possibilities.field_advice_for_future_students
     - field.field.node.career_possibilities.field_career_background
     - field.field.node.career_possibilities.field_career_degrees
-    - field.field.node.career_possibilities.field_career_first_name
     - field.field.node.career_possibilities.field_career_hometown
-    - field.field.node.career_possibilities.field_career_image
     - field.field.node.career_possibilities.field_career_job_duties
-    - field.field.node.career_possibilities.field_career_last_name
     - field.field.node.career_possibilities.field_career_linked_degree
     - field.field.node.career_possibilities.field_career_position
     - field.field.node.career_possibilities.field_career_salary_range
     - field.field.node.career_possibilities.field_career_ug_experiences
+    - field.field.node.career_possibilities.field_if_meda_featured_image
+    - field.field.node.career_possibilities.field_memorable_illinois_moment
     - node.type.career_possibilities
   module:
     - text
     - user
+_core:
+  default_config_hash: siIohNERVFA2Caxa06KM5GuwlujHnsT1nSiS8m6axls
 id: node.career_possibilities.teaser
 targetEntityType: node
 bundle: career_possibilities
 mode: teaser
 content:
   body:
-    label: hidden
     type: text_summary_or_trimmed
-    weight: 101
+    weight: 1
+    region: content
+    label: hidden
     settings:
       trim_length: 600
     third_party_settings: {  }
+  field_if_meda_featured_image:
+    type: entity_reference_entity_view
+    weight: 0
     region: content
+    label: hidden
+    settings:
+      view_mode: spotlight_list
+      link: false
+    third_party_settings: {  }
   links:
-    weight: 100
+    weight: 2
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
-  field_career_additional_body: true
+  field_advice_for_future_students: true
   field_career_background: true
   field_career_degrees: true
-  field_career_first_name: true
   field_career_hometown: true
-  field_career_image: true
   field_career_job_duties: true
-  field_career_last_name: true
   field_career_linked_degree: true
   field_career_position: true
   field_career_salary_range: true
   field_career_ug_experiences: true
+  field_memorable_illinois_moment: true

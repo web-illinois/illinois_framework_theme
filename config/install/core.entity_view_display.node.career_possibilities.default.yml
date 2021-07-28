@@ -4,129 +4,97 @@ status: true
 dependencies:
   config:
     - field.field.node.career_possibilities.body
-    - field.field.node.career_possibilities.field_career_additional_body
+    - field.field.node.career_possibilities.field_advice_for_future_students
     - field.field.node.career_possibilities.field_career_background
     - field.field.node.career_possibilities.field_career_degrees
-    - field.field.node.career_possibilities.field_career_first_name
     - field.field.node.career_possibilities.field_career_hometown
-    - field.field.node.career_possibilities.field_career_image
     - field.field.node.career_possibilities.field_career_job_duties
-    - field.field.node.career_possibilities.field_career_last_name
     - field.field.node.career_possibilities.field_career_linked_degree
     - field.field.node.career_possibilities.field_career_position
     - field.field.node.career_possibilities.field_career_salary_range
     - field.field.node.career_possibilities.field_career_ug_experiences
+    - field.field.node.career_possibilities.field_if_meda_featured_image
+    - field.field.node.career_possibilities.field_memorable_illinois_moment
     - node.type.career_possibilities
   module:
-    - image
-    - options
     - text
     - user
+_core:
+  default_config_hash: eCiG0dZl0Ac_vc5v4IgGgohBNDfu2xzU1oddjOHXwfI
 id: node.career_possibilities.default
 targetEntityType: node
 bundle: career_possibilities
 mode: default
 content:
-  body:
-    label: hidden
-    type: text_default
-    weight: 1
-    settings: {  }
-    third_party_settings: {  }
-    region: content
-  field_career_additional_body:
-    weight: 13
+  field_advice_for_future_students:
+    weight: 7
     label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_career_background:
-    weight: 11
+    type: text_default
+    weight: 5
+    region: content
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: text_default
-    region: content
   field_career_degrees:
+    type: basic_string
+    weight: 3
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_career_hometown:
+    type: string
+    weight: 2
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_career_job_duties:
+    type: text_default
+    weight: 4
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_career_position:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_career_ug_experiences:
+    type: text_default
+    weight: 6
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_if_meda_featured_image:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: spotlight_detail
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_memorable_illinois_moment:
     weight: 8
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_career_first_name:
-    weight: 4
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_career_hometown:
-    weight: 7
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_career_image:
-    weight: 3
-    label: above
-    settings:
-      image_style: ''
-      image_link: ''
-    third_party_settings: {  }
-    type: image
-    region: content
-  field_career_job_duties:
-    weight: 10
-    label: above
-    settings: {  }
-    third_party_settings: {  }
     type: text_default
     region: content
-  field_career_last_name:
-    weight: 5
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_career_linked_degree:
-    weight: 2
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: list_default
-    region: content
-  field_career_position:
-    weight: 6
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_career_salary_range:
-    weight: 9
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: list_default
-    region: content
-  field_career_ug_experiences:
-    weight: 12
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
-    region: content
-  links:
-    weight: 0
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-hidden: {  }
+hidden:
+  body: true
+  field_career_linked_degree: true
+  field_career_salary_range: true
+  links: true

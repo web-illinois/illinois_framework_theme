@@ -8,6 +8,8 @@ dependencies:
     - paragraphs.paragraphs_type.contact_content
   module:
     - entity_reference_revisions
+_core:
+  default_config_hash: _fae2I-nS9RjVXwdmYsLFbfQjPrKTAxOTS-ZNlva4zM
 id: paragraph.contact.field_contact_content
 field_name: field_contact_content
 entity_type: paragraph

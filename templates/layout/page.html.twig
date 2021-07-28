@@ -44,24 +44,49 @@
 * @ingroup themeable
 */
 #}
-
 <div class="layout-container">
   {{ page.header }}
-{#  {{ page.nav_main }}#}
   {{ page.breadcrumb }}
   {{ page.highlighted }}
   {{ page.help }}
   {{ page.tabs }}
-  {{ page.content }}
-  {% if page.sidebar_first %}
-    <aside class="layout-sidebar-first" role="complementary">
-      {{ page.sidebar_first }}
-    </aside>
-  {% endif %}
-  {% if page.sidebar_second %}
-    <aside class="layout-sidebar-second" role="complementary">
-      {{ page.sidebar_second }}
-    </aside>
+  {# if a side navigation exists the spoof the content region #}
+  {% if node.field_sidebar.0.value == "sidebar" %}
+  <a name="main-content" aria-label="Start of content region"></a>
+  <main class="region region-content l-region l-region--content" role="main">
+  <div class="il-content-with-section-nav section-nav-example">
+    {% if page.sidebar_first %}
+      <aside class="il-section-nav" role="complementary">
+        {{ page.sidebar_first }}
+      </aside>
+    {% endif %}
+    {% if page.sidebar_second %}
+      <aside class="layout-sidebar-second" role="complementary">
+        {{ page.sidebar_second }}
+      </aside>
+    {% endif %}
+    <div class="il-content">
+      {% if node.body %}
+        {{ node.body.0.value|raw }}
+      {% endif %}
+      {% set paragraph_number = node.field_sidebar_paragraphs.0.value %}
+      {% set paragraph_count = node.fields.field_paragraph|length %}
+      {% for item in node.fields.field_paragraph %}
+        {% if loop.index0 < paragraph_number %}
+          {{ drupal_entity('paragraph', item.target_id) }}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+    {% for item in node.fields.field_paragraph %}
+      {% if loop.index0 >= paragraph_number %}
+        {{ drupal_entity('paragraph', item.target_id) }}
+      {% endif %}
+    {% endfor %}
+  </main>
+  {% else %}
+    {{ page.content }}
   {% endif %}
   {{ page.footer }}
 </div>{# /.layout-container #}
+

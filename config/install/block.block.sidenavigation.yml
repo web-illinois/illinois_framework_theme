@@ -1,0 +1,31 @@
+uuid: 53880404-5df0-44fd-8f60-b4888098dcb2
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - menu_block
+  theme:
+    - illinois_framework_theme
+id: sidenavigation
+theme: illinois_framework_theme
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'menu_block:main'
+settings:
+  id: 'menu_block:main'
+  label: 'Main navigation'
+  provider: menu_block
+  label_display: visible
+  follow: true
+  follow_parent: active
+  level: 2
+  depth: 3
+  expand_all_items: true
+  parent: 'main:'
+  suggestion: main
+  label_type: parent
+  label_link: true
+visibility: {  }
