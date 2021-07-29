@@ -56,15 +56,15 @@
         {{ content.field_hero_section_image }}
 {#        <img class="field--name-field-hero-section-image__image" alt="{{ content.field_hero_section_image['#alt'] }}" title="{{ content.field_hero_section_image['#title'] }}" src="" />#}
       </div>
-      <div class="background--color--{{ content.field_hero_section_background['#items'].0.value }}">
+      {% if content.field_hero_section_intro %}
+        <div class="background--color--{{ content.field_hero_section_background['#items'].0.value }}">
         <div class="offset-lg-2 col-lg-8 col-md-12 col-sm-12">
           <div class="field--name-field-hero-section-image__content__wrapper content__wrapper">
-            {% if content.field_hero_section_intro %}
-              <div class="field--name-field-hero-section__body body">{{ content.field_hero_section_intro }}</div>
-            {% endif %}
+            <div class="field--name-field-hero-section__body body">{{ content.field_hero_section_intro }}</div>
           </div>
         </div>
       </div>
+      {% endif %}
     {% endblock %}
   </div>
 {% endblock paragraph %}
