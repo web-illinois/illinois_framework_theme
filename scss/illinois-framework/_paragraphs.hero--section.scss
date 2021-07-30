@@ -6,6 +6,26 @@
       height: 100%;
       width: 100%;
     }
+    #block-illinois-framework-theme-page-title {
+      position: absolute;
+      bottom: 16%;
+      left: 4%;
+
+      h1 {
+       text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
+       font-family: var(--il-source-sans);
+       font-size: 45px;
+       font-size: 3.6vw;
+       font-weight: bold;
+       font-stretch: normal;
+       font-style: normal;
+       line-height: 1.16;
+       letter-spacing: normal;
+       text-align: left;
+       color: #f8fafc;
+      }
+    }
+
 
     &__wrapper {
 

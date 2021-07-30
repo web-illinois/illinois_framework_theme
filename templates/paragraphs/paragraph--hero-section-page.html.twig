@@ -48,6 +48,7 @@
   'col-lg-12 col-md-12 col-sm-12 p-0 d-flex row full-width'
 ]
 %}
+
 {#{{ kint(content) }}#}
 {% block paragraph %}
   {# Paragraph ID used for anchor linking #}
@@ -57,13 +58,16 @@
         {{ content.field_hero_section_image }}
 {#        <img class="field--name-field-hero-section-image__image" alt="{{ content.field_hero_section_image['#alt'] }}" title="{{ content.field_hero_section_image['#title'] }}" src="" />#}
       </div>
-      <div class="offset-lg-2 col-lg-8 col-md-12 col-sm-12 background--color--{{ content.field_hero_section_background['#items'].0.value }}">
-        <div class="field--name-field-hero-section-image__content__wrapper content__wrapper">
-          {% if content.field_hero_section_intro %}
+      {% if content.field_hero_section_intro %}
+        <div class="background--color--{{ content.field_hero_section_background['#items'].0.value }}">
+        <div class="offset-lg-2 col-lg-8 col-md-12 col-sm-12">
+          <div class="field--name-field-hero-section-image__content__wrapper content__wrapper">
             <div class="field--name-field-hero-section__body body">{{ content.field_hero_section_intro }}</div>
-          {% endif %}
+          </div>
         </div>
       </div>
+      {% endif %}
     {% endblock %}
   </div>
 {% endblock paragraph %}
+{{ attach_library('paragraph--hero--section') }}
