@@ -47,7 +47,7 @@
     'col-lg-12 col-md-12 col-sm-12 p-0 d-flex full-width' ~ flex_row_class ~ max_width
   ]
 %}
-{#     {{ kint(content) }}#}
+     {{ kint(content) }}
 {% block paragraph %}
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
@@ -56,7 +56,7 @@
     <div class="field--name-field-cta__wrapper fixed-width">
       {% if content.field_cta_icon['#items'] %}
       <div class="field--name-field-cta_img__wrapper">
-        {{ content.field_cta_icon|image_style('paragraphs_image_large') }}
+        <img src="{{  base_path_http ~ file_url(content.field_cta_icon.0['#markup']) }}" alt="{{ content.field_cta_icon['#items'].0.alt }}"  />
       </div>
       {% endif %}
 
