@@ -1,0 +1,32 @@
+uuid: fdef68a2-de4b-42a0-a987-7a60bf0674c6
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+_core:
+  default_config_hash: FfS44tLdbDZvq9HyQfHf2nrfKUfXaYJ2PHTC8b8DiB4
+id: paragraph.field_icon_row_background
+field_name: field_icon_row_background
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: gray
+      label: Gray
+    -
+      value: white
+      label: White
+    -
+      value: illiniblue
+      label: 'Illini Blue'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

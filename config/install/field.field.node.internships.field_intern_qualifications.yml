@@ -7,6 +7,8 @@ dependencies:
     - node.type.internships
   module:
     - text
+_core:
+  default_config_hash: 9vSTqJzgZwUjiY94gB7VoqM8LQC48PIVPR8O8HWaDgs
 id: node.internships.field_intern_qualifications
 field_name: field_intern_qualifications
 entity_type: node

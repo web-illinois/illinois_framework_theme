@@ -1,0 +1,52 @@
+a.il-button {
+
+  &:focus,
+  &:hover {
+    text-decoration: none !important;
+  }
+
+  &:visited {
+    color: var(--il-blue);
+  }
+  &:hover {
+    color: #fff;
+  }
+
+  &.il-blue {
+
+    &:visited {
+      color: white;
+    }
+    &:hover {
+      color: var(--il-blue);
+    }
+  }
+  &.il-orange {
+
+    &:visited {
+      color: white;
+    }
+    &:hover {
+      color: var(--il-orange);
+    }
+  }
+  &.il-white-blue {
+
+    &:visited {
+      color: var(--il-blue);
+    }
+    &:hover {
+      color: #fff;
+    }
+  }
+  &.il-white-orange {
+
+    &:visited {
+      color: var(--il-orange);
+    }
+    &:hover {
+      color: #fff;
+    }
+  }
+
+}

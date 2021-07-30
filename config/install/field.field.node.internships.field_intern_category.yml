@@ -7,6 +7,8 @@ dependencies:
     - node.type.internships
   module:
     - options
+_core:
+  default_config_hash: OdURu4xqixtZvPm_BeQ5eIsAmXNWOIX9NcQy8GkMFSs
 id: node.internships.field_intern_category
 field_name: field_intern_category
 entity_type: node

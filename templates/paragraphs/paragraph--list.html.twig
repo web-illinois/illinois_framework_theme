@@ -44,7 +44,7 @@
     'paragraph--type--' ~ paragraph.bundle|clean_class,
     view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
     not paragraph.isPublished() ? 'paragraph--unpublished',
-    'col-lg-12 col-md-12 col-sm-12 p-0 full-width' ~ flex_row_class ~ max_width
+    'col-lg-12 col-md-12 col-sm-12 p-0 d-flex full-width' ~ flex_row_class ~ max_width
   ]
 %}
 {% block paragraph %}
@@ -52,6 +52,14 @@
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
     <div class="field--name-field-list__wrapper {{ content.field_list_content_layout['#items'].0.value }} full-width">
+      <div class="field--name-field-list-text__wrapper fixed-width">
+        {% if content.field_list_title['#items'] %}
+        <h2 class="field--name-field-list__title title">{{ content.field_list_title }}</h2>
+        {% endif %}
+        {% if content.field_list_subtitle['#items'] %}
+        <div class="field--name-field-list__subtitle subtitle">{{ content.field_list_subtitle }}</div>
+        {% endif %}
+      </div>
       {{ content.field_list_content }}
     </div>
     {% endblock %}

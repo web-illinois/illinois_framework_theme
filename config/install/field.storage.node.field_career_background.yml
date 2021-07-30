@@ -5,6 +5,8 @@ dependencies:
   module:
     - node
     - text
+_core:
+  default_config_hash: 2AH2KaligIFaUyw3c75uhs4tMDEp5Jyxpyi2NW0yIkk
 id: node.field_career_background
 field_name: field_career_background
 entity_type: node

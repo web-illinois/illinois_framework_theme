@@ -54,7 +54,7 @@
   'paragraph--type--' ~ paragraph.bundle|clean_class,
   view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
   not paragraph.isPublished() ? 'paragraph--unpublished',
-  'col-lg-12 col-md-12 col-sm-12 flex', content.field_faculty_explorer_bg_color[0]['#markup'] == 'Gray' ? 'background--color--gray ' ~ max_width
+  'col-lg-12 col-md-12 col-sm-12 d-flex', content.field_faculty_explorer_bg_color[0]['#markup'] == 'Gray' ? 'background--color--gray ' ~ max_width
   ]
 %}
 
@@ -315,7 +315,7 @@
                 {{ default_result_title }}
               </div>
               <div class="faculty-explorer--result--area-description--text--description">
-                {{ default_result_description }}   
+                {{ default_result_description }}
               </div>
             </div>
           </div>
@@ -323,7 +323,7 @@
         </div>
 -->
         <div class="faculty-explorer--result--faculty">
-          
+
         </div>
 
       </div>

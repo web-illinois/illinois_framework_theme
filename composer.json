@@ -4,6 +4,7 @@
     "type": "drupal-theme",
     "minimum-stability": "dev",
     "require": {
-        "drupal/tb_megamenu" : "^1.0@RC"
+        "drupal/tb_megamenu" : "^1.0@RC",
+        "drupal/scss_compiler": "^1.1"
     }
 }

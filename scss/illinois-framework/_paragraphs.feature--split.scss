@@ -1,5 +1,9 @@
 .paragraph--type--feature-split {
 
+  @include media-breakpoint-down(sm) {
+    display: block !important;
+  }
+
   .field--name-field-feature-split {
 
     &__image {
@@ -48,7 +52,9 @@
       }
     }
     &__body {
-
+    p {
+      color: white;
+    }
       .field__item {
         padding-bottom: rem(16px);
       }

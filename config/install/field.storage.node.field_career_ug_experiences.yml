@@ -5,6 +5,8 @@ dependencies:
   module:
     - node
     - text
+_core:
+  default_config_hash: LbxJadZWlJ8tjULC2QQeLKCd1c_yJh7KDKUiW7ksaPc
 id: node.field_career_ug_experiences
 field_name: field_career_ug_experiences
 entity_type: node

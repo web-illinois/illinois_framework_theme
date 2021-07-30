@@ -5,6 +5,7 @@
 
 // Web components
 @import "web-components/web-components.menu";
+@import "web-components/web-components.side-nav";
 @import "web-components/web-components.footer";
 
 // Custom Functions
@@ -22,10 +23,12 @@
 @import 'bootstrap-overrides/type';
 @import 'bootstrap-overrides/breadcrumb';
 @import 'bootstrap-overrides/buttons';
+@import 'bootstrap-overrides/lists';
 
 // Layouts
 @import "illinois-framework/regions";
 @import "illinois-framework/region.header";
+@import "illinois-framework/regions.tabs";
 @import "illinois-framework/region.footer";
 
 // 3rd Party/Campus Components
@@ -43,6 +46,7 @@
 
 // Content Types
 @import "illinois-framework/node.content-page";
+@import "illinois-framework/node.fund-listing-page";
 
 // Paragraphs
 @import "illinois-framework/paragraphs";
@@ -58,9 +62,14 @@
 @import "illinois-framework/paragraphs.list";
 @import "illinois-framework/paragraphs.expand--collapse";
 @import "illinois-framework/paragraphs.intro-home";
+@import "illinois-framework/paragraphs.icon-row";
+@import "illinois-framework/paragraphs.feature--grouped";
+@import "illinois-framework/paragraphs.contact-info";
+@import "illinois-framework/paragraphs.hero--section";
 
 // Views
 @import "illinois-framework/view.frontpage";
+@import "illinois-framework/view.slick-sliders";
 
 // Forms
 @import "illinois-framework/form.user-login-form";

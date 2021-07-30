@@ -5,6 +5,8 @@ dependencies:
   module:
     - node
     - text
+_core:
+  default_config_hash: b8ycw2WErrHJyOTIYcU7ng8N9j16q_chfNDlRmvTEkU
 id: node.field_intern_faculty_supervisor
 field_name: field_intern_faculty_supervisor
 entity_type: node

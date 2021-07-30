@@ -1,12 +1,15 @@
+uuid: 9ae400bf-97cb-459c-80a5-6a6a33b4d3e5
 langcode: en
 status: true
 dependencies:
   theme:
     - illinois_framework_theme
+_core:
+  default_config_hash: zK-TgqJnOGayb_nnn_u2b8f_1LfY4hOmD5usxyD-HOc
 id: illinois_framework_theme_local_tasks
 theme: illinois_framework_theme
-region: content
-weight: -40
+region: tabs
+weight: -7
 provider: null
 plugin: local_tasks_block
 settings:

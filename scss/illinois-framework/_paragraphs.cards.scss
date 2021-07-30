@@ -14,10 +14,12 @@
           border-color: var(--white);
           color: var(--white);
         }
-        .btn:hover {
+        .btn:hover,
+        .btn:focus {
           background-color: var(--il-orange);
           border-color: var(--il-orange);
           color: white;
+          outline: none;
         }
       }
       &--white {
@@ -30,10 +32,12 @@
           color: var(--il-blue);
         }
 
-        .btn:hover {
+        .btn:hover,
+        .btn:focus {
           background-color: var(--il-blue);
           border-color: var(--il-blue);
           color: white;
+          outline: none;
         }
       }
     }
@@ -42,37 +46,35 @@
   .field--name-field-cards {
     &-text {
       &__wrapper {
-        margin: 1rem 0;
+        margin: 1rem 0 2rem;
         padding: 0 1.875rem;
-        &.left {
-          text-align: left;
-        }
-
-        &.center {
-          text-align: center;
-        }
+        text-align: center;
       }
     }
 
     &__title {
       color: var(--il-orange);
-      font-weight: 700;
-      font-size: 2.25rem;
+      text-align: center;
+      .field__item {
+        margin-bottom: 0;
+      }
     }
 
     &__subtitle {
       color: var(--il-blue);
-      font-weight: 700;
-      font-size: 1.75rem;
+      font-weight: 600;
+      font-size: rem(28px);
+      line-height: rem(32px);
+      .field__item {
+        margin-bottom: 0;
+      }
     }
   }
 
   .field__items {
     display: flex;
     justify-content: space-evenly;
-    @include media-breakpoint-down(md) {
-      flex-wrap: wrap;
-    }
+    flex-wrap: wrap;
     @include media-breakpoint-down(sm) {
       flex-direction: column;
       align-items: center;
@@ -82,6 +84,7 @@
   .field__item {
     display: flex;
     flex-direction: column;
+    margin-bottom: 2rem;
   }
 }
 
@@ -89,27 +92,31 @@
   &__wrapper {
     border: solid 1px #707070;
     max-width: rem(350px);
-    padding-bottom: rem(30px);
     height: 100%;
+    .field__item {
+      margin-bottom: 0;
+    }
   }
 
   &-text__wrapper {
     display: flex;
     flex-direction: column;
+    padding: 0 rem(30px) rem(30px);
   }
 
   &__title {
     color: var(--il-orange);
     text-align: center;
-    font-size: 1.3125rem;
-    font-weight: 700;
+    font-size: rem(22px);
+    font-weight: 600;
     line-height: 2.0625rem;
-    padding: rem(30px);
+    padding: rem(10px) 0 rem(20px);
     border-bottom: 1px solid #ddd6d6;
   }
 
   &__body {
-    padding: rem(30px) rem(30px);
+    padding: rem(20px) 0 rem(30px);
+    font-size: rem(18px);
   }
 
   &__button {

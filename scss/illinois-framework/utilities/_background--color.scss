@@ -2,6 +2,7 @@
 
   &--white {
     background-color: white;
+    width: 100%;
 
     .title {
       color: var(--il-orange);
@@ -29,7 +30,8 @@
       border: rem(2px) solid var(--il-orange);
       color: white;
 
-      &:hover {
+      &:hover,
+      &:focus {
         background-color: white;
         border: rem(2px) solid var(--il-orange);
         color: var(--il-orange);
@@ -39,16 +41,17 @@
   }
   &--bluegradient {
     background-image: linear-gradient(var(--il-blue), var(--il-industrial-blue));
-    color: white; 
+    color: white;
+    width: 100%;
 
     &.fingerprint--full {
         background-image: url("/themes/contrib/illinois_framework_theme/images/fingerprint.svg"), linear-gradient(var(--il-blue), var(--il-industrial-blue));
     }
     &.fingerprint--left {
-        background-image: url("/themes/contrib/illinois_framework_theme/images/fingerprint-left.svg"), linear-gradient(var(--il-blue), var(--il-industrial-blue));      
+        background-image: url("/themes/contrib/illinois_framework_theme/images/fingerprint-left.png"), linear-gradient(var(--il-blue), var(--il-industrial-blue));
     }
     &.fingerprint--right {
-        background-image: url("/themes/contrib/illinois_framework_theme/images/fingerprint-right.svg"), linear-gradient(var(--il-blue), var(--il-industrial-blue));      
+        background-image: url("/themes/contrib/illinois_framework_theme/images/fingerprint-right.svg"), linear-gradient(var(--il-blue), var(--il-industrial-blue));
     }
 
     .title {
@@ -61,6 +64,8 @@
 
     .body {
       p {
+        color: #fff;
+
         a {
           &:hover,
           &:focus,
@@ -72,11 +77,12 @@
     }
 
     .btn {
-      background-color: var(--il-industrial-blue);
+      background-color: #184079;
       border: rem(2px) solid white;
       color: white;
 
-      &:hover {
+      &:hover,
+      &:focus {
         background-color: white;
         color: var(--il-blue);
       }
@@ -85,6 +91,7 @@
   &--orangegradient {
     background: linear-gradient(var(--il-altgeld), var(--il-orange));
     color: white;
+    width: 100%;
 
     &.fingerprint--full {
         background-image: url("/themes/contrib/illinois_framework_theme/images/fingerprint.svg"), linear-gradient(var(--il-altgeld), var(--il-orange));
@@ -93,7 +100,7 @@
         background-image: url("/themes/contrib/illinois_framework_theme/images/fingerprint-left.svg"), linear-gradient(var(--il-altgeld), var(--il-orange));
     }
     &.fingerprint--right {
-        background-image: url("/themes/contrib/illinois_framework_theme/images/fingerprint-right.svg"), linear-gradient(var(--il-altgeld), var(--il-orange));    
+        background-image: url("/themes/contrib/illinois_framework_theme/images/fingerprint-right.svg"), linear-gradient(var(--il-altgeld), var(--il-orange));
     }
 
     .title {
@@ -117,11 +124,12 @@
     }
 
     .btn {
-      background-color: var(--il-orange);
+      background-color: #ef461a ;
       border: rem(2px) solid white;
       color: white;
 
-      &:hover {
+      &:hover,
+      &:focus {
         background-color: var(--il-blue);
         border: rem(2px) solid var(--il-blue);
         color: white;
@@ -131,6 +139,7 @@
   &--illiniblue {
     background-color: var(--il-blue);
     color: white;
+    width: 100%;
 
     .title {
       color: white;
@@ -142,6 +151,8 @@
 
     .body {
       p {
+        color: white;
+
         a {
           &:hover,
           &:focus,
@@ -157,7 +168,8 @@
       border: rem(2px) solid white;
       color: white;
 
-      &:hover {
+      &:hover,
+      &:focus {
         background-color: var(--il-orange);
         border: rem(2px) solid var(--il-orange);
         color: white;
@@ -167,6 +179,7 @@
   &--illiniorange {
     background-color: var(--il-orange);
     color: white;
+    width: 100%;
 
     .title {
       color: white;
@@ -178,6 +191,8 @@
 
     .body {
       p {
+        color: white;
+
         a {
           &:hover,
           &:focus,
@@ -193,7 +208,8 @@
       border: rem(2px) solid white;
       color: white;
 
-      &:hover {
+      &:hover,
+      &:focus {
         background-color: var(--il-blue);
         border: rem(2px) solid var(--il-blue);
         color: white;
@@ -202,7 +218,8 @@
 
   }
   &--gray {
-    background-color: var(--il-gray);
+    background-color: #f4f4f4;
+    width: 100%;
 
     .body {
       p {
@@ -222,7 +239,8 @@
 
     .btn {
 
-      &:hover {
+      &:hover,
+      &:focus {
         background-color: var(--il-blue);
         border: rem(2px) solid var(--il-blue);
         color: white;

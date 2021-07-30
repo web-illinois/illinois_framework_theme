@@ -22,99 +22,72 @@ dependencies:
     - options
     - text
     - user
+_core:
+  default_config_hash: Was-BO0l4kq75mFawgrCK_FIEPBGgzDvxEB47PO_8Wo
 id: node.internships.default
 targetEntityType: node
 bundle: internships
 mode: default
 content:
-  body:
-    label: hidden
-    type: text_default
-    weight: 101
-    settings: {  }
-    third_party_settings: {  }
-    region: content
-  field_intern_body:
-    weight: 112
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
-    region: content
   field_intern_category:
-    weight: 105
+    weight: 3
     label: above
     settings: {  }
     third_party_settings: {  }
     type: list_default
     region: content
   field_intern_contact:
-    weight: 110
+    weight: 7
     label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_intern_description:
-    weight: 108
+    weight: 5
     label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_intern_faculty_supervisor:
-    weight: 111
+    weight: 8
     label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_intern_location:
-    weight: 103
+    weight: 0
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
-  field_intern_location_list:
-    weight: 107
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: list_default
-    region: content
   field_intern_note:
-    weight: 113
-    label: above
+    weight: 4
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_intern_qualifications:
-    weight: 109
+    weight: 6
     label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_intern_term:
-    weight: 106
+    weight: 2
     label: above
     settings: {  }
     third_party_settings: {  }
     type: list_default
     region: content
-  field_intern_title:
-    weight: 102
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
   field_intern_website:
-    weight: 104
+    weight: 1
     label: above
     settings:
       trim_length: 80
@@ -125,9 +98,9 @@ content:
     third_party_settings: {  }
     type: link
     region: content
-  links:
-    weight: 100
-    settings: {  }
-    third_party_settings: {  }
-    region: content
-hidden: {  }
+hidden:
+  body: true
+  field_intern_body: true
+  field_intern_location_list: true
+  field_intern_title: true
+  links: true
