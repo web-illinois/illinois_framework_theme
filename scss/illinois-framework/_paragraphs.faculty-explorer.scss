@@ -62,6 +62,22 @@
   &--category-container {
     display: flex;
     flex-wrap: wrap;
+
+    & label {
+      min-width: 44px;
+      line-height: 44px;
+      text-align: center;
+      margin-bottom: 0px !important;
+    }
+
+  }
+
+  &--category--radio-button--label {
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 44px;
+    color: var(--il-blue);
+    margin-bottom: 0px !important;
   }
 
   &--category-group {

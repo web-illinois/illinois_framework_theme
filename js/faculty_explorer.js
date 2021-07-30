@@ -1,14 +1,16 @@
       var $ = jQuery;
 
-      $("#faculty-explorer--main-area-select").change(function() {
+      $("input[name='animal']:radio").change(function() {
 console.log('main');
-        displayResults();
+console.log($("input[name='animal']:checked").val());
+        displayResultsDirectory();
 
       });
 
-      $("#faculty-explorer--secondary-area-select").change(function() {
+      $("input[name='discipline']:radio").change(function() {
 console.log('secondary');
-        displayResults();
+console.log($("input[name='discipline']:checked").val());
+        displayResultsDirectory();
 
       });
 
@@ -92,11 +94,93 @@ console.log('secondary');
         $(".category-people-discipline-wrapper").addClass("active").removeClass("inactive");
       });
 
+      function displayResultsDirectory() {
+        // Find the faculty that meet the criteria they've selected.  
+        // If they've selected nothing, display the filler text
+
+        var MainArea = $("input[name='animal']:checked").val();
+        var SecondaryArea = $("input[name='discipline']:checked").val();
+
+        console.log("MainArea: " + MainArea);
+        console.log("SecondaryArea: " + SecondaryArea);
+
+        if (MainArea == "all-animals" && SecondaryArea == "all-disciplines") {
+          console.log("area 1");
+          // Nothing selected.  Display filler text.
+
+          $(".faculty-explorer--result--faculty").html('');
+        }
+        else if (MainArea != "all-animals" && SecondaryArea != "all-disciplines") {
+          console.log("area 2");
+          // Main and secondary areas both selected.  Show both in description area and 
+          // query for faculty who meet both criteria
+
+          $.ajax({url: "https://ws.engr.illinois.edu/directory/list.asp?unit=1538&id=$path[1]&mainareaname=" + MainArea + "&areaname=" + SecondaryArea + "&template=2640", success: function(result) {
+            result = result.replace(/document.write\(\'/g, '');
+            result = result.replace(/\'\);/g, '');
+            result = result.replace(/\\/g, '');
+            result = result.replace('class="row"', '');
+            result = result.substring(0, result.indexOf('function ShowTab('));
+
+            if (result.length < 300) {
+              result = result_empty_description;
+            }
+console.log("." + result + ".");
+            $(".faculty-explorer--result--faculty").html(result);
+          }});
+        }
+        else if (MainArea != "all-animals" && SecondaryArea == "all-disciplines") {
+          console.log("area 3");
+          // Main area only selected.  Show it in description area and 
+          // query for faculty who work with that area
+          $.ajax({url: "https://ws.engr.illinois.edu/directory/list.asp?unit=1538&id=$path[1]&mainareaname=" + MainArea + "&template=2640", success: function(result) {
+            result = result.replace(/document.write\(\'/g, '');
+            result = result.replace(/\'\);/g, '');
+            result = result.replace(/\\/g, '');
+            result = result.replace('class="row"', '');
+            result = result.substring(0, result.indexOf('function ShowTab('));
+
+            if (result.length < 300) {
+              result = result_empty_description;
+            }
+
+            $(".faculty-explorer--result--faculty").html(result);
+          }});
+        }
+        else if (MainArea == "all-animals" && SecondaryArea != "all-disciplines") {
+          console.log("area 4");
+          // Secondary area only selected.  Show it in description area and 
+          // query for faculty who work with that area
+
+          $.ajax({url: "https://ws.engr.illinois.edu/directory/list.asp?unit=1538&id=$path[1]&areaname=" + SecondaryArea + "&template=2640", success: function(result) {
+            result = result.replace(/document.write\(\'/g, '');
+            result = result.replace(/\'\);/g, '');
+            result = result.replace(/\\/g, '');
+            result = result.replace('class="row"', '');
+            result = result.substring(0, result.indexOf('function ShowTab('));
+
+            if (result.length < 300) {
+              result = result_empty_description;
+            }
+
+            $(".faculty-explorer--result--faculty").html(result);
+          }});
+        }
+        else {
+console.log('You should not be here');
+          // Something is wrong.  This should never execute.  This is here because sometimes stuff happens.
+          $('.faculty-explorer--result--descriptions').html('');
+          $('.faculty-explorer--result--faculty').html() = '';
+        }
+
+      };
+
+/*
       function displayResults() {
         // Find the faculty that meet the criteria they've selected.  
         // If they've selected nothing, display the filler text
 
-        if ($('#faculty-explorer--main-area-select').val() == "0" && $('#faculty-explorer--secondary-area-select').val() == "0") {
+        if ($("input[name='animal']:checked").val() == "all-animals" && $("input[name='discipline']:checked").val() == "all-disciplines") {
           // Nothing selected.  Display filler text.
           var ResultTitle = default_result_title;
           ResultDescription = default_result_description;
@@ -215,7 +299,7 @@ console.log('You should not be here');
 
       };
 
-
+*/
       // trigger by event
       $('.small-12 .category-description-wrapper a.reveal-link').trigger('click');
       $('.small-12 .category-description-wrapper a.close-reveal-modal').trigger('click');
