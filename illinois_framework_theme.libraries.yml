@@ -40,6 +40,6 @@ galleria--display:
     - core/jquery
 paragraph--hero--section:
   js:
-    js/paragraph--hero-section.js: {}
+    js/paragraph--hero--section.js: {}
   dependencies:
     - core/jquery
