@@ -73,7 +73,7 @@
   }
 
   &--category--radio-button--label {
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 400;
     line-height: 44px;
     color: var(--il-blue);
@@ -107,6 +107,11 @@
     &--image {
       margin-left: 8px;
       margin-right: 8px;
+
+      & img {
+        width: 32px !important;
+        height: 32px !important;
+      }
     }
 
     &--title {
