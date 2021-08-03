@@ -66,8 +66,13 @@
     & label {
       min-width: 44px;
       line-height: 44px;
+      font-size: 18px;
       text-align: center;
       margin-bottom: 0px !important;
+    }
+
+    & input {
+      margin-right: 12px;
     }
 
   }
