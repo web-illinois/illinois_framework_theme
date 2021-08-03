@@ -7,6 +7,10 @@ console.log($("input[name='animal']:checked").val());
 
       });
 
+      $( document ).ready(function() {
+        displayResultsDirectory();
+      });
+
       $("input[name='discipline']:radio").change(function() {
 console.log('secondary');
 console.log($("input[name='discipline']:checked").val());
