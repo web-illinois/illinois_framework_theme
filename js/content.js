@@ -14,7 +14,7 @@
           }
         }
       });
-      $('il-content .paragraph div[class*=col-lg-]').removeClass(function (index, css) {
+      $('.il-content .paragraph div[class*=col-lg-]').removeClass(function (index, css) {
         return (css.match(/(^|\s)col-lg-\S+/g) || []).join(' ');
       });
     }
@@ -23,7 +23,7 @@
         "col-md-1", "col-md-2", "col-md-3", "col-md-4", "col-md-5", "col-md-6",
         "col-md-7", "col-md-8", "col-md-9", "col-md-10", "col-md-11", "col-md-12"
       ];
-      $('il-content .paragraph div[class*=col-md-]').each(function () {
+      $('.il-content .paragraph div[class*=col-md-]').each(function () {
         var cl = $(this).attr('class').split(" ");
         for(var i=0;i<cl.length;i++){
           if($.inArray(cl[i], mediumColumn) !== -1) {
@@ -31,7 +31,7 @@
           }
         }
       });
-      $('il-content .paragraph div[class*=col-md-]').removeClass(function (index, css) {
+      $('.il-content .paragraph div[class*=col-md-]').removeClass(function (index, css) {
         return (css.match(/(^|\s)col-md-\S+/g) || []).join(' ');
       });
     }
@@ -40,7 +40,7 @@
         "unset-col-md-1", "unset-col-md-2", "unset-col-md-3", "unset-col-md-4", "unset-col-md-5", "unset-col-md-6",
         "unset-col-md-7", "unset-col-md-8", "unset-col-md-9", "unset-col-md-10", "unset-col-md-11", "unset-col-md-12"
       ];
-      $('il-content .paragraph div[class*=unset-col-md-]').each(function () {
+      $('.il-content .paragraph div[class*=unset-col-md-]').each(function () {
         var cl = $(this).attr('class').split(" ");
         for(var i=0;i<cl.length;i++){
 
@@ -49,7 +49,7 @@
           }
         }
       });
-      $('il-content .paragraph div[class*=unset-col-md-]').removeClass(function (index, css) {
+      $('.il-content .paragraph div[class*=unset-col-md-]').removeClass(function (index, css) {
         return (css.match(/(^|\s)unset-col-md-\S+/g) || []).join(' ');
       });
     }
