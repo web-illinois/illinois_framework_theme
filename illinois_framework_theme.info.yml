@@ -14,7 +14,6 @@ libraries:
   - illinois_framework_theme/web-components
   - illinois_framework_theme/galleria
   - illinois_framework_theme/paragraph--hero--section
-  - illinois_framework_theme/content-adjust
 
 # Regions
 regions:

@@ -12,10 +12,10 @@
 
 @media (min-width: 1191px) {
   .il-content-with-section-nav {
-    margin-left: initial !important;
-    margin-right: initial !important;
-    grid-template-columns: initial !important;
-    grid-template-areas: initial !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    grid-template-columns: auto 360px 720px !important;
+    grid-template-areas: ". nav content ." !important;
   }
 }
 
