@@ -56,16 +56,24 @@ console.log($("input[name='discipline']:checked").val());
 
       function update_button_text() {
         if (activeAnimal == '' && activeDiscipline == '') {
-          $(".faculty--explorer--directory-button").text("View all faculty members");
+          var newLink = "/directory/faculty-members";
+          $(".faculty-explorer--directory-button").text("View all faculty members");
+          $(".faculty-explorer--directory-button").attr("href", newLink);
         }
         else if (activeAnimal != '' && activeDiscipline != '') {
-          $(".faculty--explorer--directory-button").text("View faculty studying " + activeDiscipline.replace('-', ' ') + " in " + activeAnimal.replace('-', ' '));
+          var newLink = "/directory/faculty-members?animal=" + activeAnimal + "&discipline=" + activeDiscipline;
+          $(".faculty-explorer--directory-button").text("View faculty studying " + activeDiscipline.replace('-', ' ') + " in " + activeAnimal.replace('-', ' '));
+          $(".faculty-explorer--directory-button").attr("href", newLink);
         }
         else if (activeAnimal != '') {
-          $(".faculty--explorer--directory-button").text("View faculty studying " + activeAnimal.replace('-', ' '));
+          var newLink = "/directory/faculty-members?animal=" + activeAnimal;
+          $(".faculty-explorer--directory-button").text("View faculty studying " + activeAnimal.replace('-', ' '));
+          $(".faculty-explorer--directory-button").attr("href", newLink);
         }
         else if (activeDiscipline != '') {
-          $(".faculty--explorer--directory-button").text("View faculty studying " + activeDiscipline.replace('-', ' '));
+          var newLink = "/directory/faculty-members?discipline=" + activeDiscipline;
+          $(".faculty-explorer--directory-button").text("View faculty studying " + activeDiscipline.replace('-', ' '));
+          $(".faculty-explorer--directory-button").attr("href", newLink);
         }
       }
 
@@ -105,17 +113,12 @@ console.log($("input[name='discipline']:checked").val());
         var MainArea = $("input[name='animal']:checked").val();
         var SecondaryArea = $("input[name='discipline']:checked").val();
 
-        console.log("MainArea: " + MainArea);
-        console.log("SecondaryArea: " + SecondaryArea);
-
         if (MainArea == "all-animals" && SecondaryArea == "all-disciplines") {
-          console.log("area 1");
           // Nothing selected.  Display filler text.
 
           $(".faculty-explorer--result--faculty").html('');
         }
         else if (MainArea != "all-animals" && SecondaryArea != "all-disciplines") {
-          console.log("area 2");
           // Main and secondary areas both selected.  Show both in description area and 
           // query for faculty who meet both criteria
 
@@ -129,12 +132,10 @@ console.log($("input[name='discipline']:checked").val());
             if (result.length < 300) {
               result = result_empty_description;
             }
-console.log("." + result + ".");
             $(".faculty-explorer--result--faculty").html(result);
           }});
         }
         else if (MainArea != "all-animals" && SecondaryArea == "all-disciplines") {
-          console.log("area 3");
           // Main area only selected.  Show it in description area and 
           // query for faculty who work with that area
           $.ajax({url: "https://ws.engr.illinois.edu/directory/list.asp?unit=1538&id=$path[1]&mainareaname=" + MainArea + "&template=2640", success: function(result) {
@@ -152,7 +153,6 @@ console.log("." + result + ".");
           }});
         }
         else if (MainArea == "all-animals" && SecondaryArea != "all-disciplines") {
-          console.log("area 4");
           // Secondary area only selected.  Show it in description area and 
           // query for faculty who work with that area
 
@@ -171,7 +171,6 @@ console.log("." + result + ".");
           }});
         }
         else {
-console.log('You should not be here');
           // Something is wrong.  This should never execute.  This is here because sometimes stuff happens.
           $('.faculty-explorer--result--descriptions').html('');
           $('.faculty-explorer--result--faculty').html() = '';
