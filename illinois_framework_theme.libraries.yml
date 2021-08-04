@@ -41,5 +41,8 @@ galleria--display:
 content-adjust:
   js:
     js/content.js: {}
+paragraph--hero--section:
+  js:
+    js/paragraph--hero--section.js: {}
   dependencies:
     - core/jquery
