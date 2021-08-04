@@ -233,9 +233,6 @@
             </div>
           </div>
         {% else %}
-          <p>Animal: {{ animal_selected }}</p>
-          <p>Discipline: {{ discipline_selected }}</p>
-
           <div class="faculty-explorer--category-container">
             <div class="faculty-explorer--category-group--animal">
               <h2 class="faculty-explorer--category-group--title">Animals</h2>
@@ -269,42 +266,6 @@
           </div>
         {% endif %}
 
-        <div id="faculty-explorer--select-boxes" class="faculty-explorer--select-boxes">
-          <script>
-            var main_select = document.createElement('select');
-            main_select.id = 'faculty-explorer--main-area-select';
-            main_select.classList.add('faculty-explorer--select');
-            var newOption = document.createElement('option');
-            newOption.value = '0';
-            newOption.innerHTML = 'Select an animal';
-            main_select.appendChild(newOption);
-            main.forEach(function (item, index) {
-              var newOption = document.createElement('option');
-              newOption.value = item.id;
-              newOption.innerHTML = item.title;
-              main_select.appendChild(newOption);
-            });
-//            document.getElementById('faculty-explorer--select-boxes').appendChild(main_select);
-          </script>
-
-          <script>
-            var select = document.createElement('select');
-            select.id = 'faculty-explorer--secondary-area-select';
-            select.classList.add('faculty-explorer--select');
-            var newOption = document.createElement('option');
-            newOption.value = '0';
-            newOption.innerHTML = 'Select a discipline';
-            select.appendChild(newOption);
-            secondary.forEach(function (item, index) {
-              var newOption = document.createElement('option');
-              newOption.value = item.id;
-              newOption.innerHTML = item.title;
-              select.appendChild(newOption);
-            });
-  //          document.getElementById('faculty-explorer--select-boxes').appendChild(select);
-          </script>
-          
-        </div>
 <!--
         <div class="faculty-explorer--result--descriptions">
           <div class="faculty-explorer--result--area">
@@ -323,8 +284,8 @@
 
         </div>
 -->
+        <h2 class="faculty-explorer--result--faculty--title" id="faculty-explorer--result--faculty--title">Animal Sciences Faculty</h2>
         <div class="faculty-explorer--result--faculty">
-          
         </div>
 
       </div>
