@@ -9,7 +9,6 @@
       $('.paragraph div[class*=col-lg-]').each(function () {
         var cl = $(this).attr('class').split(" ");
         for(var i=0;i<cl.length;i++){
-
           if($.inArray(cl[i], largeColumn) !== -1) {
             $(this).addClass( 'unset-' + cl[i]);
           }
@@ -24,11 +23,9 @@
         "col-md-1", "col-md-2", "col-md-3", "col-md-4", "col-md-5", "col-md-6",
         "col-md-7", "col-md-8", "col-md-9", "col-md-10", "col-md-11", "col-md-12"
       ];
-
       $('.paragraph div[class*=col-md-]').each(function () {
         var cl = $(this).attr('class').split(" ");
         for(var i=0;i<cl.length;i++){
-
           if($.inArray(cl[i], mediumColumn) !== -1) {
             $(this).addClass( 'unset-' + cl[i]);
           }
@@ -43,7 +40,6 @@
         "unset-col-md-1", "unset-col-md-2", "unset-col-md-3", "unset-col-md-4", "unset-col-md-5", "unset-col-md-6",
         "unset-col-md-7", "unset-col-md-8", "unset-col-md-9", "unset-col-md-10", "unset-col-md-11", "unset-col-md-12"
       ];
-
       $('.paragraph div[class*=unset-col-md-]').each(function () {
         var cl = $(this).attr('class').split(" ");
         for(var i=0;i<cl.length;i++){
@@ -58,34 +54,5 @@
       });
     }
   }
-
   $(window).resize(checkClasses);
 }(jQuery));
-
-
-// (function($) {
-//   checkDimensions();
-//   // Check window dimensions and apply class desktop or mobile to the body
-//   // of the document for easy css targeting
-//   function checkDimensions() {
-//     var w=window;
-//     var d=document;
-//     var e=d.documentElement;
-//     var g=d.getElementsByTagName('body')[0];
-//     var x=w.innerWidth||e.clientWidth||g.clientWidth;
-//     if (x >= 992) {
-//       $(document.body).addClass('desktop');
-//       $(document.body).removeClass('mobile');
-//     } else {
-//       $(document.body).removeClass('desktop');
-//       $(document.body).addClass('mobile');
-//     }
-//   }
-//   $('body.mobile #search-form').on("click touch", function(event) {
-//     //event.preventDefault();
-//     // if the search has already been clicked then the next click should be
-//     // to submit the form
-//     $("#header-search-container form").submit();
-//   });
-//   $(window).resize(checkDimensions);
-// }(jQuery));

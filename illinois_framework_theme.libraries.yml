@@ -3,7 +3,7 @@ global-styling:
     theme:
       fonts/font-awesome-4.7.0/css/font-awesome.css: {}
       fonts/font-awesome-4.7.0/css/illinois-icons.css: {}
-      scss/style.scss: { css_path: '/css/' }
+      css/style.css: {}
   js:
     https://emergency.publicaffairs.illinois.edu/illinois.js:
       type: external
@@ -36,5 +36,10 @@ galleria:
 galleria--display:
   js:
     css/galleria/galleria--display.js: {}
+  dependencies:
+    - core/jquery
+content-adjust:
+  js:
+    js/content.js: {}
   dependencies:
     - core/jquery
