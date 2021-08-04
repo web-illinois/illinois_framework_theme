@@ -1,9 +1,10 @@
-@media (min-width: 992px) {
-  .fixed-width {
-    max-width: 900px;
-    padding: 0;
-  }
-}
+// @TODO: Need a better selector to minimize the impact of the CSS - wrg
+//@media (min-width: 992px) {
+//  .fixed-width {
+//    max-width: 900px;
+//    padding: 0;
+//  }
+//}
 
 @media (max-width: 878px) {
   .faculty-explorer--category-group {
