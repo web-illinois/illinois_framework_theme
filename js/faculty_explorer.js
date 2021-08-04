@@ -1,8 +1,6 @@
       var $ = jQuery;
 
       $("input[name='animal']:radio").change(function() {
-console.log('main');
-console.log($("input[name='animal']:checked").val());
         displayResultsDirectory();
 
       });
@@ -12,8 +10,6 @@ console.log($("input[name='animal']:checked").val());
       });
 
       $("input[name='discipline']:radio").change(function() {
-console.log('secondary');
-console.log($("input[name='discipline']:checked").val());
         displayResultsDirectory();
 
       });
@@ -116,6 +112,8 @@ console.log($("input[name='discipline']:checked").val());
         if (MainArea == "all-animals" && SecondaryArea == "all-disciplines") {
           // Nothing selected.  Display filler text.
 
+          $(".faculty-explorer--result--faculty--title").text("Faculty in Animal Sciences");
+
           $(".faculty-explorer--result--faculty").html('');
         }
         else if (MainArea != "all-animals" && SecondaryArea != "all-disciplines") {
@@ -132,6 +130,7 @@ console.log($("input[name='discipline']:checked").val());
             if (result.length < 300) {
               result = result_empty_description;
             }
+            $(".faculty-explorer--result--faculty--title").text("Faculty in Animal Sciences studying " + SecondaryArea + " in " + MainArea);
             $(".faculty-explorer--result--faculty").html(result);
           }});
         }
@@ -149,6 +148,7 @@ console.log($("input[name='discipline']:checked").val());
               result = result_empty_description;
             }
 
+            $(".faculty-explorer--result--faculty--title").text("Faculty in Animal Sciences studying " + MainArea);
             $(".faculty-explorer--result--faculty").html(result);
           }});
         }
@@ -167,11 +167,13 @@ console.log($("input[name='discipline']:checked").val());
               result = result_empty_description;
             }
 
+            $(".faculty-explorer--result--faculty--title").text("Faculty in Animal Sciences studying " + SecondaryArea);
             $(".faculty-explorer--result--faculty").html(result);
           }});
         }
         else {
           // Something is wrong.  This should never execute.  This is here because sometimes stuff happens.
+          $(".faculty-explorer--result--faculty--title").text("Faculty in Animal Sciences");
           $('.faculty-explorer--result--descriptions').html('');
           $('.faculty-explorer--result--faculty').html() = '';
         }
