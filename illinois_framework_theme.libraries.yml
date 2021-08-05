@@ -15,7 +15,7 @@ global-styling:
         async: true
 #    js/components.js: {}
     js/navmenu.js: {}
-    js/paragraph-accordion.js: {}
+#    js/paragraph-accordion.js: {}
     js/search.js: {}
   dependencies:
     - core/jquery
