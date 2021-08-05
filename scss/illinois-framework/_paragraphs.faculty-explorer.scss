@@ -1,3 +1,4 @@
+
 // @TODO: Need a better selector to minimize the impact of the CSS - wrg
 //@media (min-width: 992px) {
 //  .fixed-width {
@@ -5,6 +6,7 @@
 //    padding: 0;
 //  }
 //}
+
 
 @media (max-width: 878px) {
   .faculty-explorer--category-group {
@@ -23,6 +25,12 @@
   max-width: var(--il-content-max-width);
   margin: 0px auto;
   padding: 2rem;
+}
+
+.il-content-with-section-nav {
+  & .paragraph--type--faculty-explorer__wrapper {
+    padding: 0 !important;
+  }
 }
 
 .faculty-explorer {
