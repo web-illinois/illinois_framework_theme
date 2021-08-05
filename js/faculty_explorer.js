@@ -112,15 +112,26 @@
         if (MainArea == "all-animals" && SecondaryArea == "all-disciplines") {
           // Nothing selected.  Display filler text.
 
-          $(".faculty-explorer--result--faculty--title").text("Faculty in Animal Sciences");
+          $.ajax({url: "https://ws.engr.illinois.edu/directory/list.asp?unit=1538&id=$path[1]&cat=25&template=2640", success: function(result) {
+            result = result.replace(/document.write\(\'/g, '');
+            result = result.replace(/\'\);/g, '');
+            result = result.replace(/\\/g, '');
+            result = result.replace('class="row"', '');
+            result = result.substring(0, result.indexOf('function ShowTab('));
 
-          $(".faculty-explorer--result--faculty").html('');
+            if (result.length < 300) {
+              result = result_empty_description;
+            }
+            $(".faculty-explorer--result--faculty--title").text("Faculty in Animal Sciences");
+            $(".faculty-explorer--result--faculty").html(result);
+          }});
+
         }
         else if (MainArea != "all-animals" && SecondaryArea != "all-disciplines") {
           // Main and secondary areas both selected.  Show both in description area and 
           // query for faculty who meet both criteria
 
-          $.ajax({url: "https://ws.engr.illinois.edu/directory/list.asp?unit=1538&id=$path[1]&mainareaname=" + MainArea + "&areaname=" + SecondaryArea + "&template=2640", success: function(result) {
+          $.ajax({url: "https://ws.engr.illinois.edu/directory/list.asp?unit=1538&id=$path[1]&cat=25&mainareaname=" + MainArea + "&areaname=" + SecondaryArea + "&template=2640", success: function(result) {
             result = result.replace(/document.write\(\'/g, '');
             result = result.replace(/\'\);/g, '');
             result = result.replace(/\\/g, '');
@@ -137,7 +148,7 @@
         else if (MainArea != "all-animals" && SecondaryArea == "all-disciplines") {
           // Main area only selected.  Show it in description area and 
           // query for faculty who work with that area
-          $.ajax({url: "https://ws.engr.illinois.edu/directory/list.asp?unit=1538&id=$path[1]&mainareaname=" + MainArea + "&template=2640", success: function(result) {
+          $.ajax({url: "https://ws.engr.illinois.edu/directory/list.asp?unit=1538&id=$path[1]&cat=25&mainareaname=" + MainArea + "&template=2640", success: function(result) {
             result = result.replace(/document.write\(\'/g, '');
             result = result.replace(/\'\);/g, '');
             result = result.replace(/\\/g, '');
@@ -156,7 +167,7 @@
           // Secondary area only selected.  Show it in description area and 
           // query for faculty who work with that area
 
-          $.ajax({url: "https://ws.engr.illinois.edu/directory/list.asp?unit=1538&id=$path[1]&areaname=" + SecondaryArea + "&template=2640", success: function(result) {
+          $.ajax({url: "https://ws.engr.illinois.edu/directory/list.asp?unit=1538&id=$path[1]&cat=25&areaname=" + SecondaryArea + "&template=2640", success: function(result) {
             result = result.replace(/document.write\(\'/g, '');
             result = result.replace(/\'\);/g, '');
             result = result.replace(/\\/g, '');
