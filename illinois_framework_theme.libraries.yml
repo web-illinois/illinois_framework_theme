@@ -3,7 +3,7 @@ global-styling:
     theme:
       fonts/font-awesome-4.7.0/css/font-awesome.css: {}
       fonts/font-awesome-4.7.0/css/illinois-icons.css: {}
-      scss/style.scss: { css_path: '/css/' }
+      css/style.css: {}
   js:
     https://emergency.publicaffairs.illinois.edu/illinois.js:
       type: external
@@ -15,7 +15,7 @@ global-styling:
         async: true
 #    js/components.js: {}
     js/navmenu.js: {}
-    js/paragraph-accordion.js: {}
+#    js/paragraph-accordion.js: {}
     js/search.js: {}
   dependencies:
     - core/jquery
@@ -36,5 +36,13 @@ galleria:
 galleria--display:
   js:
     css/galleria/galleria--display.js: {}
+  dependencies:
+    - core/jquery
+content-adjust:
+  js:
+    js/content.js: {}
+paragraph--hero--section:
+  js:
+    js/paragraph--hero--section.js: {}
   dependencies:
     - core/jquery

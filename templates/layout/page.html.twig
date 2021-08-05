@@ -83,6 +83,7 @@
         {{ drupal_entity('paragraph', item.target_id) }}
       {% endif %}
     {% endfor %}
+    {{ attach_library('illinois_framework_theme/content-adjust') }}
   </main>
   {% else %}
     {{ page.content }}
