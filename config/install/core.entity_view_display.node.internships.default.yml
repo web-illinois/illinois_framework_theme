@@ -14,7 +14,6 @@ dependencies:
     - field.field.node.internships.field_intern_note
     - field.field.node.internships.field_intern_qualifications
     - field.field.node.internships.field_intern_term
-    - field.field.node.internships.field_intern_title
     - field.field.node.internships.field_intern_website
     - node.type.internships
   module:
@@ -102,5 +101,4 @@ hidden:
   body: true
   field_intern_body: true
   field_intern_location_list: true
-  field_intern_title: true
   links: true
