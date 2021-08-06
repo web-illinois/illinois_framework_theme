@@ -1,0 +1,30 @@
+uuid: 00fef57e-e39a-4423-981f-cce7f1e35a05
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_hero_background
+field_name: field_hero_background
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: blue
+      label: Default
+    -
+      value: orange
+      label: Orange
+    -
+      value: image
+      label: Image
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
