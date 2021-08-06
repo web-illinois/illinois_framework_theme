@@ -8,14 +8,14 @@ dependencies:
   module:
     - text
 _core:
-  default_config_hash: fbmyI35eLAJHDghOgqoJ1ly2WvdVPpfWv4uaj6oKifU
+  default_config_hash: aGDLakCwSP_FABCAeGswJSTcavJAvO0bbjcbppZBnGw
 id: node.internships.field_intern_contact
 field_name: field_intern_contact
 entity_type: node
 bundle: internships
 label: Contact
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
@@ -23,3 +23,4 @@ settings:
   display_summary: false
   required_summary: false
 field_type: text_with_summary
+

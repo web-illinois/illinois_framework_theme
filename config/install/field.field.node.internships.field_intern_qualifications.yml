@@ -8,14 +8,14 @@ dependencies:
   module:
     - text
 _core:
-  default_config_hash: 9vSTqJzgZwUjiY94gB7VoqM8LQC48PIVPR8O8HWaDgs
+  default_config_hash: Ty_jt0uG3L-dNoWrAg-fjYWNIr6bKRK-vM3Vetcpafs
 id: node.internships.field_intern_qualifications
 field_name: field_intern_qualifications
 entity_type: node
 bundle: internships
 label: Qualifications
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
@@ -23,3 +23,4 @@ settings:
   display_summary: false
   required_summary: false
 field_type: text_with_summary
+

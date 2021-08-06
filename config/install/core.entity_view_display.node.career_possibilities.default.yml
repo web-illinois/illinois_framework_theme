@@ -17,17 +17,18 @@ dependencies:
     - field.field.node.career_possibilities.field_memorable_illinois_moment
     - node.type.career_possibilities
   module:
+    - options
     - text
     - user
 _core:
-  default_config_hash: eCiG0dZl0Ac_vc5v4IgGgohBNDfu2xzU1oddjOHXwfI
+  default_config_hash: S7On4NKCSlVdQKClEyktk6vMT-HeZ0H1Q2AcRLAdbv8
 id: node.career_possibilities.default
 targetEntityType: node
 bundle: career_possibilities
 mode: default
 content:
   field_advice_for_future_students:
-    weight: 7
+    weight: 8
     label: above
     settings: {  }
     third_party_settings: {  }
@@ -35,7 +36,7 @@ content:
     region: content
   field_career_background:
     type: text_default
-    weight: 5
+    weight: 6
     region: content
     label: above
     settings: {  }
@@ -44,20 +45,20 @@ content:
     type: basic_string
     weight: 3
     region: content
-    label: above
+    label: inline
     settings: {  }
     third_party_settings: {  }
   field_career_hometown:
     type: string
     weight: 2
     region: content
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
   field_career_job_duties:
     type: text_default
-    weight: 4
+    weight: 5
     region: content
     label: above
     settings: {  }
@@ -70,9 +71,16 @@ content:
     third_party_settings: {  }
     type: string
     region: content
+  field_career_salary_range:
+    type: list_default
+    weight: 4
+    region: content
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
   field_career_ug_experiences:
     type: text_default
-    weight: 6
+    weight: 7
     region: content
     label: above
     settings: {  }
@@ -87,7 +95,7 @@ content:
     type: entity_reference_entity_view
     region: content
   field_memorable_illinois_moment:
-    weight: 8
+    weight: 9
     label: above
     settings: {  }
     third_party_settings: {  }
@@ -96,5 +104,4 @@ content:
 hidden:
   body: true
   field_career_linked_degree: true
-  field_career_salary_range: true
   links: true
