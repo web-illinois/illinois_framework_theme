@@ -1,4 +1,4 @@
-uuid: a51dc375-0289-4866-9fba-7b0b88c694ef
+uuid: 3b85b60c-5467-478d-a330-b17a51f64a74
 langcode: en
 status: true
 dependencies:
@@ -14,157 +14,93 @@ dependencies:
     - field.field.node.internships.field_intern_note
     - field.field.node.internships.field_intern_qualifications
     - field.field.node.internships.field_intern_term
+    - field.field.node.internships.field_intern_title
     - field.field.node.internships.field_intern_website
     - node.type.internships
   module:
     - link
-    - path
+    - options
     - text
+    - user
 _core:
-  default_config_hash: 7FmUPgbCJxPAU2eTFakUjy4XhVHrEkBNIxyxPUMM_Dc
+  default_config_hash: Was-BO0l4kq75mFawgrCK_FIEPBGgzDvxEB47PO_8Wo
 id: node.internships.default
 targetEntityType: node
 bundle: internships
 mode: default
 content:
-  created:
-    type: datetime_timestamp
-    weight: 2
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_intern_category:
-    weight: 10
+    weight: 3
+    label: above
     settings: {  }
     third_party_settings: {  }
-    type: options_select
+    type: list_default
     region: content
   field_intern_contact:
-    weight: 15
-    settings:
-      rows: 9
-      summary_rows: 3
-      placeholder: ''
-      show_summary: false
+    weight: 7
+    label: above
+    settings: {  }
     third_party_settings: {  }
-    type: text_textarea_with_summary
+    type: text_default
     region: content
   field_intern_description:
-    weight: 13
-    settings:
-      rows: 9
-      summary_rows: 3
-      placeholder: ''
-      show_summary: false
+    weight: 5
+    label: above
+    settings: {  }
     third_party_settings: {  }
-    type: text_textarea_with_summary
+    type: text_default
     region: content
   field_intern_faculty_supervisor:
-    weight: 16
-    settings:
-      rows: 9
-      summary_rows: 3
-      placeholder: ''
-      show_summary: false
+    weight: 8
+    label: above
+    settings: {  }
     third_party_settings: {  }
-    type: text_textarea_with_summary
+    type: text_default
     region: content
   field_intern_location:
-    weight: 8
+    weight: 0
+    label: above
     settings:
-      size: 60
-      placeholder: ''
+      link_to_entity: false
     third_party_settings: {  }
-    type: string_textfield
-    region: content
-  field_intern_location_list:
-    weight: 12
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
+    type: string
     region: content
   field_intern_note:
-    weight: 17
-    settings:
-      rows: 5
-      placeholder: ''
+    weight: 4
+    label: hidden
+    settings: {  }
     third_party_settings: {  }
-    type: string_textarea
+    type: basic_string
     region: content
   field_intern_qualifications:
-    weight: 14
-    settings:
-      rows: 9
-      summary_rows: 3
-      placeholder: ''
-      show_summary: false
+    weight: 6
+    label: above
+    settings: {  }
     third_party_settings: {  }
-    type: text_textarea_with_summary
+    type: text_default
     region: content
   field_intern_term:
-    weight: 11
+    weight: 2
+    label: above
     settings: {  }
     third_party_settings: {  }
-    type: options_buttons
+    type: list_default
     region: content
   field_intern_website:
-    weight: 9
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
-    third_party_settings: {  }
-    type: link_default
-    region: content
-  path:
-    type: path
-    weight: 5
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  promote:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 3
-    region: content
-    third_party_settings: {  }
-  status:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 7
-    region: content
-    third_party_settings: {  }
-  sticky:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 4
-    region: content
-    third_party_settings: {  }
-  title:
-    type: string_textfield
-    weight: 0
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  uid:
-    type: entity_reference_autocomplete
     weight: 1
+    label: above
     settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-      match_limit: 10
-    region: content
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
     third_party_settings: {  }
-  url_redirects:
-    weight: 6
+    type: link
     region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   body: true
   field_intern_body: true
+  field_intern_location_list: true
+  field_intern_title: true
+  links: true
