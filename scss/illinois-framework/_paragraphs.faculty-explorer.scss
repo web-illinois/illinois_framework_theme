@@ -72,36 +72,47 @@
     display: flex;
     flex-wrap: wrap;
 
-    & label {
-      min-width: 44px;
-      line-height: 44px;
-      font-size: 18px;
-      text-align: center;
-      margin-bottom: 0px !important;
-    }
-
     & input {
       margin-right: 12px;
     }
 
   }
 
-  &--category--radio-button--label {
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 44px;
-    color: var(--il-blue);
-    margin-bottom: 0px !important;
+  &--category--radio-button {
+    float: left;
+
+    & input {
+      height: 44px;
+      float: left;
+    }
+
   }
 
   &--category-group {
 
     &--animal {
-      width: 37%;
+      width: 34%;
+    }
+
+    &--spacer {
+      width: 6%;
     }
 
     &--discipline {
-      width: 63%;
+      width: 60%;
+    }
+
+    &--animal, &--discipline {
+      & label {
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 20px !important;
+        color: var(--il-blue);
+        margin-bottom: 0px !important;
+        height: 44px;
+      }
     }
 
     &--title {
