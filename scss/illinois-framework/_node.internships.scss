@@ -7,19 +7,18 @@
   font-weight:bold;
   word-wrap: break-word;
 }
-.field--name-field-intern-term .field__item:last-child:after{
-  content: "";
+.field--name-field-intern-term, .field--name-field-intern-term .field__item{
+  padding: 0 0.1em;
 }
-}
-
-.field--name-field-intern-location-list:after{
-      content: " /";
-      color: var(--il-altgeld);
 }
 
 .field--name-field-intern-term, .field--name-field-intern-term .field__item{
   display:inline-block;
-  padding: 0 0.1em;
+}
+
+.field--name-field-intern-location-list:after{
+  content: " /";
+  color: var(--il-altgeld);
 }
 
 .background-light-gray, .block-views-blockinternships-slider-internships-slider{
@@ -39,6 +38,9 @@
 #block-illinois-framework-theme-content{
   .field--name-field-intern-term .field__item:after{
       content: ",";
+  }
+  .field--name-field-intern-term .field__item:last-child:after{
+    content: "";
   }
   .field--name-field-intern-description,.field--name-field-intern-qualifications,
   .field--name-field-intern-contact,.field--name-field-intern-faculty-supervisor{
@@ -65,3 +67,5 @@
   line-height: 1.2;
   color: var(--il-blue);
 }
+
+
