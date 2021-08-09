@@ -58,17 +58,17 @@
         }
         else if (activeAnimal != '' && activeDiscipline != '') {
           var newLink = "/directory/faculty-members?animal=" + activeAnimal + "&discipline=" + activeDiscipline;
-          $(".faculty-explorer--directory-button").text("View faculty studying " + activeDiscipline.replace('-', ' ') + " in " + activeAnimal.replace('-', ' '));
+          $(".faculty-explorer--directory-button").text("View faculty studying " + activeDiscipline.replaceAll('-', ' ') + " in " + activeAnimal.replaceAll('-', ' '));
           $(".faculty-explorer--directory-button").attr("href", newLink);
         }
         else if (activeAnimal != '') {
           var newLink = "/directory/faculty-members?animal=" + activeAnimal;
-          $(".faculty-explorer--directory-button").text("View faculty studying " + activeAnimal.replace('-', ' '));
+          $(".faculty-explorer--directory-button").text("View faculty studying " + activeAnimal.replaceAll('-', ' '));
           $(".faculty-explorer--directory-button").attr("href", newLink);
         }
         else if (activeDiscipline != '') {
           var newLink = "/directory/faculty-members?discipline=" + activeDiscipline;
-          $(".faculty-explorer--directory-button").text("View faculty studying " + activeDiscipline.replace('-', ' '));
+          $(".faculty-explorer--directory-button").text("View faculty studying " + activeDiscipline.replaceAll('-', ' '));
           $(".faculty-explorer--directory-button").attr("href", newLink);
         }
       }
