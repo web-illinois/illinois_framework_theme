@@ -21,7 +21,7 @@ dependencies:
     - text
     - user
 _core:
-  default_config_hash: SVErjwzdVImS5O5OLycatQCJrkA2cDqDWRV4OweoDO4
+  default_config_hash: _zvZmwYU96sJi_pnowl6Iw-94rQHvh2MuFPCG60CxpI
 id: node.career_possibilities.teaser
 targetEntityType: node
 bundle: career_possibilities
@@ -41,7 +41,7 @@ content:
     region: content
     label: hidden
     settings:
-      view_mode: spotlight_detail
+      view_mode: spotlight_list
       link: false
     third_party_settings: {  }
   links:
