@@ -1,0 +1,55 @@
+.slick__slide .field--name-field-intern-term .field__item:last-child:after{
+  content: "";
+}
+
+.field--name-field-intern-location-list, .field--name-field-intern-term{
+  display:inline-block;
+  color: #252525;
+  font-size: 1.125rem;
+  line-height: 1.875rem;
+  font-weight:bold;
+}
+
+.field--name-field-intern-location-list:after{
+      content: " /";
+      color: var(--il-altgeld);
+}
+
+.field--name-field-intern-term, .field--name-field-intern-term .field__item{
+  display:inline-block;
+  padding: 0 0.1em;
+}
+
+.background-light-gray, .block-views-blockinternships-slider-internships-slider{
+  background-color:var(--il-cloud-1);
+}
+
+#slick-views-internships-slider-internships-slider-1-slider article{
+  margin: 0 3em;
+}
+
+.field--name-field-intern-note, .field--name-field-intern-category, .field--name-field-intern-location, .field--name-field-intern-website{
+  color: #252525;
+  font-size: 1.125rem;
+  line-height: 1.875rem;
+}
+
+#block-illinois-framework-theme-content{
+  .field--name-field-intern-location{
+      color: #252525;
+      font-size: 1.125rem;
+      line-height: 1.875rem;
+      font-weight:bold;
+      word-wrap: break-word;
+  }
+  .field--name-field-intern-term .field__item:after{
+      content: ",";
+  }
+}
+
+.block-views-blockinternships-slider-internships-slider{
+  header, .slick__slide article.contextual-region{
+  padding: 0 4em;
+  max-width: 900px;
+  }
+}
