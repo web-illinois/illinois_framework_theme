@@ -1,23 +1,24 @@
-.slick__slide .field--name-field-intern-term .field__item:last-child:after{
-  content: "";
-}
-
-.field--name-field-intern-location-list, .field--name-field-intern-term{
+.slick__slide, .views-row{
+.field--name-field-intern-location-list, .field--name-field-intern-term,.field--name-field-intern-location{
   display:inline-block;
   color: #252525;
   font-size: 1.125rem;
   line-height: 1.875rem;
   font-weight:bold;
+  word-wrap: break-word;
 }
-
-.field--name-field-intern-location-list:after{
-      content: " /";
-      color: var(--il-altgeld);
+.field--name-field-intern-term, .field--name-field-intern-term .field__item{
+  padding: 0 0.1em;
+}
 }
 
 .field--name-field-intern-term, .field--name-field-intern-term .field__item{
   display:inline-block;
-  padding: 0 0.1em;
+}
+
+.field--name-field-intern-location-list:after{
+  content: " /";
+  color: var(--il-altgeld);
 }
 
 .background-light-gray, .block-views-blockinternships-slider-internships-slider{
@@ -35,15 +36,19 @@
 }
 
 #block-illinois-framework-theme-content{
-  .field--name-field-intern-location{
-      color: #252525;
-      font-size: 1.125rem;
-      line-height: 1.875rem;
-      font-weight:bold;
-      word-wrap: break-word;
-  }
   .field--name-field-intern-term .field__item:after{
       content: ",";
+  }
+  .field--name-field-intern-term .field__item:last-child:after{
+    content: "";
+  }
+  .field--name-field-intern-description,.field--name-field-intern-qualifications,
+  .field--name-field-intern-contact,.field--name-field-intern-faculty-supervisor{
+  .field__label{
+    color:var(--il-orange);
+    margin: 1.25rem 0 0.625rem;
+    font: 600 2rem/2.5rem var(--il-source-sans);
+  }
   }
 }
 
@@ -53,3 +58,14 @@
   max-width: 900px;
   }
 }
+
+.field--name-field-intern-note{
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  font-family: var(--il-sans-source);
+  line-height: 1.2;
+  color: var(--il-blue);
+}
+
+
