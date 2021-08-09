@@ -68,4 +68,14 @@
   color: var(--il-blue);
 }
 
-
+.internships-list-view{
+  .views-row{
+    padding:1em;
+  }
+  .views-row:nth-child(even){
+    background-color:var(--il-cloud-1);
+  }
+  .views-exposed-form{
+    @extend %fixed-width;
+  }
+}

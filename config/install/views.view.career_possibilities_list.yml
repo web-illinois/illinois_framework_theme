@@ -9,7 +9,7 @@ dependencies:
     - node
     - user
 _core:
-  default_config_hash: Da5Mc4rbkJMa1FWhJs8FXdP0CyZXmW7KbwSEkFTEbh8
+  default_config_hash: bjdwBTZGU2FyuU3F1ceYZdUclfw3y8DBa0sN3EG8Vfs
 id: career_possibilities_list
 label: 'Career Possibilities List'
 module: views
@@ -185,24 +185,12 @@ display:
           granularity: second
       title: 'Career Possibilities List'
       header: {  }
-      footer:
-        area:
-          id: area
-          table: views
-          field: area
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: false
-          tokenize: false
-          content:
-            value: '<style>.views-row{padding:1em;} .views-row:nth-child(even){background-color:var(--il-cloud-1);}</style>'
-            format: full_html
-          plugin_id: text
+      footer: {  }
       empty: {  }
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
+      css_class: career-list-view
     cache_metadata:
       max-age: -1
       contexts:
