@@ -87,3 +87,15 @@ a.career-slide-link:hover, a.career-slide-link:active, a.career-slide-link:focus
   .field{
     word-wrap:break-word;
   }
+
+.career-list-view{
+  .views-row{
+    padding:1em;
+  }
+  .views-row:nth-child(even){
+    background-color:var(--il-cloud-1);
+  }
+  .views-exposed-form{
+    @extend %fixed-width;
+  }
+}
