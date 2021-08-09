@@ -12,10 +12,10 @@
 
 @media (min-width: 1191px) {
   .il-content-with-section-nav {
-    margin-left: initial !important;
-    margin-right: initial !important;
-    grid-template-columns: initial !important;
-    grid-template-areas: initial !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    grid-template-columns: auto 360px 720px !important;
+    grid-template-areas: ". nav content ." !important;
   }
 }
 
@@ -25,32 +25,5 @@
     margin-right: 0 !important;
     grid-template-columns: auto 360px 720px !important;
     grid-template-areas: ". nav content ." !important;
-  }
-}
-
-// unset all large breakpoints at the large up breakpoint
-.il-content-with-section-nav .il-content {
-  @media (min-width: 992px) {
-    .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6,
-    .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12,
-    .offset-lg-0, .offset-lg-2, .offset-lg-3, .offset-lg-4, .offset-lg-5, .offset-lg-6,
-    .offset-lg-7, .offset-lg-8, .offset-lg-9, .offset-lg-10, .offset-lg-11, offset-lg-12 {
-      flex: unset !important;
-      margin: unset !important;
-      max-width: unset !important;
-    }
-  }
-}
-// unset all medium breakpoints at the medium up breakpoint
-.il-content-with-section-nav .il-content {
-  @media (min-width: 768px) {
-    .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6,
-    .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12,
-    .offset-md-0, .offset-md-2, .offset-md-3, .offset-md-4, .offset-md-5, .offset-md-6,
-    .offset-md-7, .offset-md-8, .offset-md-9, .offset-md-10, .offset-md-11, offset-md-12 {
-      flex: unset !important;
-      margin: unset !important;
-      max-width: unset !important;
-    }
   }
 }

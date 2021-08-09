@@ -5,7 +5,7 @@ dependencies:
   module:
     - node
 _core:
-  default_config_hash: oGv2nLwQf5yn639Zpeb0cH51DNRY3rHm4zlQ4wJiPN8
+  default_config_hash: 0jqH5Ydz9hTnku4HsPiVHonexFmIMrxYUHlFeJU1Vj4
 id: node.field_career_degrees
 field_name: field_career_degrees
 entity_type: node
@@ -14,7 +14,7 @@ settings:
   case_sensitive: false
 module: core
 locked: false
-cardinality: 4
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

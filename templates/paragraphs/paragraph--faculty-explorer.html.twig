@@ -65,6 +65,7 @@
   var default_result_title = "{{ content.field_faculty_explorer_res_title.0 }}";
   var default_result_description = "{{ content.field_faculty_explorer_res_desc.0 }}";
   var result_empty_description = "{{ content.field_faculty_explorer_none_desc.0 }}";
+  var faculty_explorer_type = "{{ content.field_faculty_explorer_type['#items'].0.value }}";
 
   var activeAnimal = '';
   var activeDiscipline = '';
@@ -98,8 +99,7 @@
       <div class="col-lg-12 col-md-12 flex paragraph--type--faculty-explorer__wrapper">
         <h2 class="faculty-explorer--header">{{ content.field_faculty_explorer_title.0 }}</h2>
         <p class="faculty-explorer--description">{{ content.field_faculty_explorer_desc.0 }}</p>
-
-        {% if content.field_faculty_explorer_type['#items'].0.value == "Department Explorer" or content.field_faculty_explorer_type['#items'].0.value == "Advisor" %}
+        {% if content.field_faculty_explorer_type['#items'].0.value == "Department Explorer" %}
           <div class="faculty-explorer--category-container">
             <div class="faculty-explorer--category-group--animal">
               <h2 class="faculty-explorer--category-group--title">Animals</h2>
@@ -168,6 +168,7 @@
                 </div>
               </div>
             </div>
+            <div class="faculty-explorer--category-group--spacer"></div>
             <div class="faculty-explorer--category-group--discipline">
               <h2 class="faculty-explorer--category-group--title">Disciplines</h2>
               <div class="faculty-explorer--discipline" id="faculty-explorer--discipline--genetics-genomics-and-bioinformatics">
@@ -230,73 +231,61 @@
             </div>
             </div>
             <div class="faculty-explorer--directory-button--container">
-              <a class="faculty-explorer--directory-button btn btn-primary" href="/directory/faculty" role="button">View all faculty members</a>
+              <a class="faculty-explorer--directory-button btn btn-primary" href="/directory/faculty-members" role="button">View all faculty members</a>
             </div>
           </div>
         {% else %}
           <div class="faculty-explorer--category-container">
             <div class="faculty-explorer--category-group--animal">
-              <h2 class="faculty-explorer--category-group--title">Animals</h2>
-              <label for="all-animals"><input type="radio" id="all-animals" name="animal" value="all-animals" title="All Animals" checked="checked">All Animals</label><br>
-              <label for="beef-cattle"><span class="faculty-explorer--category--radio-button"><input type="radio" id="beef-cattle" name="animal" value="Beef Cattle"></span>Beef Cattle</label><br>
-              <label for="companion-animals"><span class="faculty-explorer--category--radio-button"><input type="radio" id="companion-animals" name="animal" value="Companion Animals"></span>Companion Animals</label><br>
-              <label for="dairy-cattle"><span class="faculty-explorer--category--radio-button"><input type="radio" id="dairy-cattle" name="animal" value="Dairy Cattle"></span>Dairy Cattle</label><br>
-              <label for="exotic-animals"><span class="faculty-explorer--category--radio-button"><input type="radio" id="exotic-animals" name="animal" value="Exotic Animals">Exotic Animals</span></label><br>
-              <label for="horses"><span class="faculty-explorer--category--radio-button"><input type="radio" id="horses" name="animal" value="Horses"></span>Horses</label><br>
-              <label for="poultry"><span class="faculty-explorer--category--radio-button"><input type="radio" id="poultry" name="animal" value="Poultry"></span>Poultry</label><br>
-              <label for="rodents"><span class="faculty-explorer--category--radio-button"><input type="radio" id="rodents" name="animal" value="Rodents"></span>Rodents</label><br>
-              <label for="swine"><span class="faculty-explorer--category--radio-button"><input type="radio" id="swine" name="animal" value="Swine"></span>Swine</label><br>
+              <fieldset>
+                <legend class="faculty-explorer--category-group--title">Animals</legend>
+                <div>
+                <span class="faculty-explorer--category--radio-button"><input type="radio" id="all-animals" name="animal" value="all-animals" title="All Animals" checked="checked"></span><label for="all-animals">All Animals</label></div>
+                <div>
+                <span class="faculty-explorer--category--radio-button"><input type="radio" id="beef-cattle" name="animal" value="Beef Cattle"></span><label for="beef-cattle">Beef Cattle</label></div>
+                <div>
+                <span class="faculty-explorer--category--radio-button"><input type="radio" id="companion-animals" name="animal" value="Companion Animals"></span><label for="companion-animals">Companion Animals</label></div>
+                <div>
+                <span class="faculty-explorer--category--radio-button"><input type="radio" id="dairy-cattle" name="animal" value="Dairy Cattle"></span><label for="dairy-cattle">Dairy Cattle</label></div>
+                <div>
+                <span class="faculty-explorer--category--radio-button"><input type="radio" id="exotic-animals" name="animal" value="Exotic Animals"></span><label for="exotic-animals">Exotic Animals</label></div>
+                <div>
+                <span class="faculty-explorer--category--radio-button"><input type="radio" id="horses" name="animal" value="Horses"></span><label for="horses">Horses</label></div>
+                <div>
+                <span class="faculty-explorer--category--radio-button"><input type="radio" id="poultry" name="animal" value="Poultry"></span><label for="poultry">Poultry</label></div>
+                <div>
+                <span class="faculty-explorer--category--radio-button"><input type="radio" id="rodents" name="animal" value="Rodents"></span><label for="rodents">Rodents</label></div>
+                <div>
+                <span class="faculty-explorer--category--radio-button"><input type="radio" id="swine" name="animal" value="Swine"></span><label for="swine">Swine</label></div>
+              </fieldset>
             </div>
+            <div class="faculty-explorer--category-group--spacer"></div>
             <div class="faculty-explorer--category-group--discipline">
-              <h2 class="faculty-explorer--category-group--title">Disciplines</h2>
-              <label for="all-disciplines"><span class="faculty-explorer--category--radio-button"><input type="radio" id="all-disciplines" name="discipline" value="all-disciplines" checked="checked"></span>All Disciplines</label><br>
-              <label for="genetics-genomics-and-bioinformatics"><span class="faculty-explorer--category--radio-button"><input type="radio" id="genetics-genomics-and-bioinformatics" name="discipline" value="Genetics Genomics and Bioinformatics"></span>Genetics, Genomics, and Bioinformatics</label><br>
-              <label for="immunophysiology-and-behavior"><span class="faculty-explorer--category--radio-button"><input type="radio" id="immunophysiology-and-behavior" name="discipline" value="Immunophysiology and Behavior"></span>Immunophysiology and Behavior</label><br>
-              <label for="meat-science-and-muscle-biology"><span class="faculty-explorer--category--radio-button"><input type="radio" id="meat-science-and-muscle-biology" name="discipline" value="Meat Science and Muscle Biology"></span>Meat Science and Muscle Biology</label><br>
-              <label for="microbiology"><span class="faculty-explorer--category--radio-button"><input type="radio" id="microbiology" name="discipline" value="Microbiology"></span>Microbiology</label><br>
-              <label for="nutrition"><span class="faculty-explorer--category--radio-button"><input type="radio" id="nutrition" name="discipline" value="Nutrition"></span>Nutrition</label><br>
-              <label for="production-and-environment-management"><span class="faculty-explorer--category--radio-button"><input type="radio" id="production-and-environment-management" name="discipline" value="Production and Environment Management"></span>Production and Environment Management</label><br>
-              <label for="reproductive-biology"><span class="faculty-explorer--category--radio-button"><input type="radio" id="reproductive-biology" name="discipline" value="Reproductive Biology"></span>Reproductive Biology</label><br>
-            </div>
+              <fieldset>
+                <legend class="faculty-explorer--category-group--title">Disciplines</legend>
+                <div>
+                <span class="faculty-explorer--category--radio-button"><input type="radio" id="all-disciplines" name="discipline" value="all-disciplines" checked="checked"></span><label for="all-disciplines">All Disciplines</label></div>
+                <div>
+                <span class="faculty-explorer--category--radio-button"><input type="radio" id="genetics-genomics-and-bioinformatics" name="discipline" value="Genetics, Genomics, and Bioinformatics"></span><label for="genetics-genomics-and-bioinformatics">Genetics, Genomics, and Bioinformatics</label></div>
+                <div>
+                <span class="faculty-explorer--category--radio-button"><input type="radio" id="immunophysiology-and-behavior" name="discipline" value="Immunophysiology and Behavior"></span><label for="immunophysiology-and-behavior">Immunophysiology and Behavior</label></div>
+                <span class="faculty-explorer--category--radio-button"><input type="radio" id="meat-science-and-muscle-biology" name="discipline" value="Meat Science and Muscle Biology"></span><label for="meat-science-and-muscle-biology">Meat Science and Muscle Biology</label>
+                <span class="faculty-explorer--category--radio-button"><input type="radio" id="microbiology" name="discipline" value="Microbiology"></span><label for="microbiology">Microbiology</label>
+                <span class="faculty-explorer--category--radio-button"><input type="radio" id="nutrition" name="discipline" value="Nutrition"></span><label for="nutrition">Nutrition</label>
+                <span class="faculty-explorer--category--radio-button"><input type="radio" id="production-and-environment-management" name="discipline" value="Production and Environment Management"></span><label for="production-and-environment-management">Production and Environment Management</label>
+                <span class="faculty-explorer--category--radio-button"><input type="radio" id="reproductive-biology" name="discipline" value="Reproductive Biology"></span><label for="reproductive-biology">Reproductive Biology</label>
+              </fieldset>
           </div>
+            <script>
+              console.log("{{ animal_selected }}");
+              console.log("{{ discipline_selected }}");
+              document.getElementById("{{ animal_selected }}").checked = true;
+              document.getElementById("{{ discipline_selected }}").checked = true;
+            </script>
+          </div>
+          <h2 class="faculty-explorer--result--faculty--title" id="faculty-explorer--result--faculty--title">Animal Sciences Faculty</h2>
         {% endif %}
 
-        <div id="faculty-explorer--select-boxes" class="faculty-explorer--select-boxes">
-          <script>
-            var main_select = document.createElement('select');
-            main_select.id = 'faculty-explorer--main-area-select';
-            main_select.classList.add('faculty-explorer--select');
-            var newOption = document.createElement('option');
-            newOption.value = '0';
-            newOption.innerHTML = 'Select an animal';
-            main_select.appendChild(newOption);
-            main.forEach(function (item, index) {
-              var newOption = document.createElement('option');
-              newOption.value = item.id;
-              newOption.innerHTML = item.title;
-              main_select.appendChild(newOption);
-            });
-//            document.getElementById('faculty-explorer--select-boxes').appendChild(main_select);
-          </script>
-
-          <script>
-            var select = document.createElement('select');
-            select.id = 'faculty-explorer--secondary-area-select';
-            select.classList.add('faculty-explorer--select');
-            var newOption = document.createElement('option');
-            newOption.value = '0';
-            newOption.innerHTML = 'Select a discipline';
-            select.appendChild(newOption);
-            secondary.forEach(function (item, index) {
-              var newOption = document.createElement('option');
-              newOption.value = item.id;
-              newOption.innerHTML = item.title;
-              select.appendChild(newOption);
-            });
-  //          document.getElementById('faculty-explorer--select-boxes').appendChild(select);
-          </script>
-          
-        </div>
 <!--
         <div class="faculty-explorer--result--descriptions">
           <div class="faculty-explorer--result--area">
@@ -316,7 +305,6 @@
         </div>
 -->
         <div class="faculty-explorer--result--faculty">
-          
         </div>
 
       </div>

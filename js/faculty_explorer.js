@@ -1,8 +1,6 @@
       var $ = jQuery;
 
       $("input[name='animal']:radio").change(function() {
-console.log('main');
-console.log($("input[name='animal']:checked").val());
         displayResultsDirectory();
 
       });
@@ -12,8 +10,6 @@ console.log($("input[name='animal']:checked").val());
       });
 
       $("input[name='discipline']:radio").change(function() {
-console.log('secondary');
-console.log($("input[name='discipline']:checked").val());
         displayResultsDirectory();
 
       });
@@ -56,16 +52,24 @@ console.log($("input[name='discipline']:checked").val());
 
       function update_button_text() {
         if (activeAnimal == '' && activeDiscipline == '') {
-          $(".faculty--explorer--directory-button").text("View all faculty members");
+          var newLink = "/directory/faculty-members";
+          $(".faculty-explorer--directory-button").text("View all faculty members");
+          $(".faculty-explorer--directory-button").attr("href", newLink);
         }
         else if (activeAnimal != '' && activeDiscipline != '') {
-          $(".faculty--explorer--directory-button").text("View faculty studying " + activeDiscipline.replace('-', ' ') + " in " + activeAnimal.replace('-', ' '));
+          var newLink = "/directory/faculty-members?animal=" + activeAnimal + "&discipline=" + activeDiscipline;
+          $(".faculty-explorer--directory-button").text("View faculty studying " + activeDiscipline.replaceAll('-', ' ') + " in " + activeAnimal.replaceAll('-', ' '));
+          $(".faculty-explorer--directory-button").attr("href", newLink);
         }
         else if (activeAnimal != '') {
-          $(".faculty--explorer--directory-button").text("View faculty studying " + activeAnimal.replace('-', ' '));
+          var newLink = "/directory/faculty-members?animal=" + activeAnimal;
+          $(".faculty-explorer--directory-button").text("View faculty studying " + activeAnimal.replaceAll('-', ' '));
+          $(".faculty-explorer--directory-button").attr("href", newLink);
         }
         else if (activeDiscipline != '') {
-          $(".faculty--explorer--directory-button").text("View faculty studying " + activeDiscipline.replace('-', ' '));
+          var newLink = "/directory/faculty-members?discipline=" + activeDiscipline;
+          $(".faculty-explorer--directory-button").text("View faculty studying " + activeDiscipline.replaceAll('-', ' '));
+          $(".faculty-explorer--directory-button").attr("href", newLink);
         }
       }
 
@@ -102,24 +106,22 @@ console.log($("input[name='discipline']:checked").val());
         // Find the faculty that meet the criteria they've selected.  
         // If they've selected nothing, display the filler text
 
+        if (faculty_explorer_type == 'Advisor') {
+          var template = 2657;
+        }
+        else {
+          var template = 2640;
+        }
+
         var MainArea = $("input[name='animal']:checked").val();
         var SecondaryArea = $("input[name='discipline']:checked").val();
 
-        console.log("MainArea: " + MainArea);
-        console.log("SecondaryArea: " + SecondaryArea);
-
         if (MainArea == "all-animals" && SecondaryArea == "all-disciplines") {
-          console.log("area 1");
           // Nothing selected.  Display filler text.
+console.log(faculty_explorer_type );
+console.log(template  );
 
-          $(".faculty-explorer--result--faculty").html('');
-        }
-        else if (MainArea != "all-animals" && SecondaryArea != "all-disciplines") {
-          console.log("area 2");
-          // Main and secondary areas both selected.  Show both in description area and 
-          // query for faculty who meet both criteria
-
-          $.ajax({url: "https://ws.engr.illinois.edu/directory/list.asp?unit=1538&id=$path[1]&mainareaname=" + MainArea + "&areaname=" + SecondaryArea + "&template=2640", success: function(result) {
+          $.ajax({url: "https://ws.engr.illinois.edu/directory/list.asp?unit=1538&id=$path[1]&cat=15&template=" + template, success: function(result) {
             result = result.replace(/document.write\(\'/g, '');
             result = result.replace(/\'\);/g, '');
             result = result.replace(/\\/g, '');
@@ -129,15 +131,33 @@ console.log($("input[name='discipline']:checked").val());
             if (result.length < 300) {
               result = result_empty_description;
             }
-console.log("." + result + ".");
+            $(".faculty-explorer--result--faculty--title").text("Faculty in Animal Sciences");
+            $(".faculty-explorer--result--faculty").html(result);
+          }});
+
+        }
+        else if (MainArea != "all-animals" && SecondaryArea != "all-disciplines") {
+          // Main and secondary areas both selected.  Show both in description area and 
+          // query for faculty who meet both criteria
+
+          $.ajax({url: "https://ws.engr.illinois.edu/directory/list.asp?unit=1538&id=$path[1]&cat=15&mainareaname=" + MainArea + "&areaname=" + SecondaryArea + "&template=" + template, success: function(result) {
+            result = result.replace(/document.write\(\'/g, '');
+            result = result.replace(/\'\);/g, '');
+            result = result.replace(/\\/g, '');
+            result = result.replace('class="row"', '');
+            result = result.substring(0, result.indexOf('function ShowTab('));
+
+            if (result.length < 300) {
+              result = result_empty_description;
+            }
+            $(".faculty-explorer--result--faculty--title").text("Faculty in Animal Sciences studying " + SecondaryArea + " in " + MainArea);
             $(".faculty-explorer--result--faculty").html(result);
           }});
         }
         else if (MainArea != "all-animals" && SecondaryArea == "all-disciplines") {
-          console.log("area 3");
           // Main area only selected.  Show it in description area and 
           // query for faculty who work with that area
-          $.ajax({url: "https://ws.engr.illinois.edu/directory/list.asp?unit=1538&id=$path[1]&mainareaname=" + MainArea + "&template=2640", success: function(result) {
+          $.ajax({url: "https://ws.engr.illinois.edu/directory/list.asp?unit=1538&id=$path[1]&cat=15&mainareaname=" + MainArea + "&template=" + template, success: function(result) {
             result = result.replace(/document.write\(\'/g, '');
             result = result.replace(/\'\);/g, '');
             result = result.replace(/\\/g, '');
@@ -148,15 +168,15 @@ console.log("." + result + ".");
               result = result_empty_description;
             }
 
+            $(".faculty-explorer--result--faculty--title").text("Faculty in Animal Sciences studying " + MainArea);
             $(".faculty-explorer--result--faculty").html(result);
           }});
         }
         else if (MainArea == "all-animals" && SecondaryArea != "all-disciplines") {
-          console.log("area 4");
           // Secondary area only selected.  Show it in description area and 
           // query for faculty who work with that area
 
-          $.ajax({url: "https://ws.engr.illinois.edu/directory/list.asp?unit=1538&id=$path[1]&areaname=" + SecondaryArea + "&template=2640", success: function(result) {
+          $.ajax({url: "https://ws.engr.illinois.edu/directory/list.asp?unit=1538&id=$path[1]&cat=15&areaname=" + SecondaryArea + "&template=" + template, success: function(result) {
             result = result.replace(/document.write\(\'/g, '');
             result = result.replace(/\'\);/g, '');
             result = result.replace(/\\/g, '');
@@ -167,12 +187,13 @@ console.log("." + result + ".");
               result = result_empty_description;
             }
 
+            $(".faculty-explorer--result--faculty--title").text("Faculty in Animal Sciences studying " + SecondaryArea);
             $(".faculty-explorer--result--faculty").html(result);
           }});
         }
         else {
-console.log('You should not be here');
           // Something is wrong.  This should never execute.  This is here because sometimes stuff happens.
+          $(".faculty-explorer--result--faculty--title").text("Faculty in Animal Sciences");
           $('.faculty-explorer--result--descriptions').html('');
           $('.faculty-explorer--result--faculty').html() = '';
         }

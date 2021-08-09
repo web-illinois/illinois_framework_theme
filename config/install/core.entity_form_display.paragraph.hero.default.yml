@@ -1,0 +1,67 @@
+uuid: faab41a2-509d-4a5d-a1b9-4374c23cacef
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.hero.field_hero_alignment
+    - field.field.paragraph.hero.field_hero_background
+    - field.field.paragraph.hero.field_hero_button
+    - field.field.paragraph.hero.field_hero_image
+    - field.field.paragraph.hero.field_hero_title
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.hero
+  module:
+    - image_widget_crop
+    - link
+id: paragraph.hero.default
+targetEntityType: paragraph
+bundle: hero
+mode: default
+content:
+  field_hero_alignment:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_hero_background:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_hero_button:
+    weight: 4
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_hero_image:
+    weight: 3
+    settings:
+      show_crop_area: true
+      show_default_crop: true
+      warn_multiple_usages: true
+      preview_image_style: thumbnail
+      crop_preview_image_style: crop_thumbnail
+      crop_list:
+        - 3_2_ratio
+      crop_types_required:
+        - 3_2_ratio
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: image_widget_crop
+    region: content
+  field_hero_title:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

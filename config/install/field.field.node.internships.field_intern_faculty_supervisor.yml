@@ -8,14 +8,14 @@ dependencies:
   module:
     - text
 _core:
-  default_config_hash: 3onpJnlHl-Kr6wH2pzJNPahFJgORwzR7xQtHoSXK6pc
+  default_config_hash: aTBU5PkeBNNym3FISicmZIS_6xIs3BCznRXx9P9LliM
 id: node.internships.field_intern_faculty_supervisor
 field_name: field_intern_faculty_supervisor
 entity_type: node
 bundle: internships
 label: 'ANSC 398 Faculty Supervisor'
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''

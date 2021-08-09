@@ -133,3 +133,18 @@ function illinois_framework_theme_theme_suggestions_menu_alter(&$suggestions, ar
     $suggestions[] = $suggestion;
   }
 }
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * For Faculty Explorer paragraphs, create a variable
+ * to track the animal and discipline the user has chosen.
+ */
+function illinois_framework_theme_preprocess_paragraph(&$variables) {
+  if ($variables['paragraph']->getType() == 'faculty_explorer') {
+    $animal = \Drupal::request()->query->get('animal'); // query string param
+    $variables['animal_selected'] = $animal;
+    $discipline = \Drupal::request()->query->get('discipline'); // form param
+    $variables['discipline_selected'] = $discipline;
+  }
+}

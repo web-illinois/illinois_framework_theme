@@ -15,7 +15,7 @@ global-styling:
         async: true
 #    js/components.js: {}
     js/navmenu.js: {}
-    js/paragraph-accordion.js: {}
+#    js/paragraph-accordion.js: {}
     js/search.js: {}
     js/directory.js: {}
   dependencies:
@@ -39,6 +39,9 @@ galleria--display:
     css/galleria/galleria--display.js: {}
   dependencies:
     - core/jquery
+content-adjust:
+  js:
+    js/content.js: {}
 paragraph--hero--section:
   js:
     js/paragraph--hero--section.js: {}
