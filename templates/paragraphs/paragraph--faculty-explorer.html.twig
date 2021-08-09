@@ -65,6 +65,7 @@
   var default_result_title = "{{ content.field_faculty_explorer_res_title.0 }}";
   var default_result_description = "{{ content.field_faculty_explorer_res_desc.0 }}";
   var result_empty_description = "{{ content.field_faculty_explorer_none_desc.0 }}";
+  var faculty_explorer_type = "{{ content.field_faculty_explorer_type['#items'].0.value }}";
 
   var activeAnimal = '';
   var activeDiscipline = '';
@@ -98,7 +99,7 @@
       <div class="col-lg-12 col-md-12 flex paragraph--type--faculty-explorer__wrapper">
         <h2 class="faculty-explorer--header">{{ content.field_faculty_explorer_title.0 }}</h2>
         <p class="faculty-explorer--description">{{ content.field_faculty_explorer_desc.0 }}</p>
-        {% if content.field_faculty_explorer_type['#items'].0.value == "Department Explorer" or content.field_faculty_explorer_type['#items'].0.value == "Advisor" %}
+        {% if content.field_faculty_explorer_type['#items'].0.value == "Department Explorer" %}
           <div class="faculty-explorer--category-container">
             <div class="faculty-explorer--category-group--animal">
               <h2 class="faculty-explorer--category-group--title">Animals</h2>
