@@ -1,8 +1,19 @@
 .paragraph--type--hero {
   il-hero {
     width: 100%;
-   h1 {
+
+    h1 {
      color: white;
-   }
- }
+    }
+    ul {
+      li {
+        a {
+          &:hover {
+            color: white;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
 }
