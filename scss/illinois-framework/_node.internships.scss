@@ -45,6 +45,14 @@
   .field--name-field-intern-term .field__item:after{
       content: ",";
   }
+  .field--name-field-intern-description,.field--name-field-intern-qualifications,
+  .field--name-field-intern-contact,.field--name-field-intern-faculty-supervisor{
+  .field__label{
+    color:var(--il-orange);
+    margin: 1.25rem 0 0.625rem;
+    font: 600 2rem/2.5rem var(--il-source-sans);
+  }
+  }
 }
 
 .block-views-blockinternships-slider-internships-slider{
