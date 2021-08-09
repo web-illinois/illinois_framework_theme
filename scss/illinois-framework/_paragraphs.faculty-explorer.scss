@@ -1,9 +1,12 @@
-@media (min-width: 992px) {
-  .fixed-width {
-    max-width: 900px;
-    padding: 0;
-  }
-}
+
+// @TODO: Need a better selector to minimize the impact of the CSS - wrg
+//@media (min-width: 992px) {
+//  .fixed-width {
+//    max-width: 900px;
+//    padding: 0;
+//  }
+//}
+
 
 @media (max-width: 878px) {
   .faculty-explorer--category-group {
@@ -22,6 +25,12 @@
   max-width: var(--il-content-max-width);
   margin: 0px auto;
   padding: 2rem;
+}
+
+.il-content-with-section-nav {
+  & .paragraph--type--faculty-explorer__wrapper {
+    padding: 0 !important;
+  }
 }
 
 .faculty-explorer {
@@ -63,36 +72,47 @@
     display: flex;
     flex-wrap: wrap;
 
-    & label {
-      min-width: 44px;
-      line-height: 44px;
-      font-size: 18px;
-      text-align: center;
-      margin-bottom: 0px !important;
-    }
-
     & input {
       margin-right: 12px;
     }
 
   }
 
-  &--category--radio-button--label {
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 44px;
-    color: var(--il-blue);
-    margin-bottom: 0px !important;
+  &--category--radio-button {
+    float: left;
+
+    & input {
+      height: 44px;
+      float: left;
+    }
+
   }
 
   &--category-group {
 
     &--animal {
-      width: 37%;
+      width: 34%;
+    }
+
+    &--spacer {
+      width: 6%;
     }
 
     &--discipline {
-      width: 63%;
+      width: 60%;
+    }
+
+    &--animal, &--discipline {
+      & label {
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 20px !important;
+        color: var(--il-blue);
+        margin-bottom: 0px !important;
+        height: 44px;
+      }
     }
 
     &--title {
@@ -208,6 +228,7 @@
     margin-right: 35px;
     margin-top: 20px;
     margin-bottom: 20px;
+    width: 160px;
 
     &--photo {
       width: 160px;

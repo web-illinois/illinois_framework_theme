@@ -12,6 +12,8 @@
   }
   &--content {
     @extend %full-width;
+    position: relative;
+    z-index: 98;
   }
   &--highlighted {
     padding: rem(10px) var(--il-content-margin);

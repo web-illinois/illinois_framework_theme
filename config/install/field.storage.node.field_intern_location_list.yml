@@ -6,7 +6,7 @@ dependencies:
     - node
     - options
 _core:
-  default_config_hash: ICx5dbr9VTzMiemE8nmoXo_2mONRrfprmWr7UrZBWoA
+  default_config_hash: 09ypeBWt9_2yZ8n6qzmvEPTenQ3SzLT1sjhxDCB06PE
 id: node.field_intern_location_list
 field_name: field_intern_location_list
 entity_type: node
@@ -25,6 +25,9 @@ settings:
     -
       value: nationwide
       label: Nationwide
+    -
+      value: international
+      label: International
   allowed_values_function: ''
 module: options
 locked: false

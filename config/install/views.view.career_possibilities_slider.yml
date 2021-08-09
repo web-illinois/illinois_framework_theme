@@ -168,9 +168,9 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
-  career_possibilities_slider:
+  career_slider:
     display_plugin: block
-    id: career_possibilities_slider
+    id: career_slider
     display_title: 'Career Possibilities Slider'
     position: 1
     display_options:
