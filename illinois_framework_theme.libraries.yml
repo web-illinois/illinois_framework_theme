@@ -18,6 +18,7 @@ global-styling:
 #    js/paragraph-accordion.js: {}
     js/search.js: {}
     js/directory.js: {}
+    js/side-nav-title-append.js: {}
   dependencies:
     - core/jquery
 web-components:
