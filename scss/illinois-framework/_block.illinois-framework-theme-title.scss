@@ -1,3 +1,11 @@
-div#block-illinois-framework-theme-page-title {
-  z-index: -1;
+.il-content {
+  #block-illinois-framework-theme-page-title {
+    margin: 0;
+    padding: 0;
+    z-index: 0;
+
+    h1 {
+      margin: 0 0 1.25rem;
+    }
+  }
 }
