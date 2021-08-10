@@ -1,6 +1,24 @@
 //overrides to the web components
 .il-content-with-section-nav {
   padding: 0 !important;
+
+  il-section-nav {
+    h3 {
+      a:visited {
+        color: var(--il-blue);
+      }
+      a:hover {
+        color: var(--il-altgeld);
+      }
+    }
+    ul.menu {
+      margin-left: 0;
+
+      a.is-active {
+        color: var(--il-altgeld);
+      }
+    }
+  }
 }
 @media (min-width: 575px) {
   .il-content-with-section-nav {
@@ -14,7 +32,7 @@
   .il-content-with-section-nav {
     margin-left: 0 !important;
     margin-right: 0 !important;
-    grid-template-columns: auto 360px 720px !important;
+    grid-template-columns: auto 285px 795px !important;
     grid-template-areas: ". nav content ." !important;
   }
 }
@@ -23,7 +41,7 @@
   .il-content-with-section-nav {
     margin-left: 0 !important;
     margin-right: 0 !important;
-    grid-template-columns: auto 360px 720px !important;
+    grid-template-columns: auto 285px 795px !important;
     grid-template-areas: ". nav content ." !important;
   }
 }
