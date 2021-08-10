@@ -94,39 +94,41 @@
     </div>
     {% endif %}
     <div class="il-footer-navigation">
-      {% if drupal_entity('block', 'footermenufirst') %}
-        <nav aria-label="Campus Footer Links">
-          {{ drupal_entity('block', 'footermenufirst') }}
-        </nav>
-      {% endif %}
-      {% if drupal_entity('block', 'footermenusecond') %}
-        <nav aria-label="Campus Footer Links 2">
-          {{ drupal_entity('block', 'footermenusecond') }}
-        </nav>
-      {% endif %}
-    </div>
-    <div class="il-footer-navigation">
-      {% if drupal_entity('block', 'footermenuthird') %}
-        <nav aria-label="Campus Footer Links 3">
-          {{ drupal_entity('block', 'footermenuthird') }}
-        </nav>
-      {% endif %}
-      {% if drupal_entity('block', 'footermenufourth') %}
-        <nav aria-label="Campus Footer Links 4">
-          {{ drupal_entity('block', 'footermenufourth') }}
-        </nav>
-      {% endif %}
-      <div id="google_translate_element"></div>
-      <script>
-        function googleTranslateElementInit() {
-          new google.translate.TranslateElement({
-            pageLanguage: 'en',
-            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-            autoDisplay: false
-          }, 'google_translate_element');
-        }
-      </script>
-      <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+      <div class="il-footer-navigation-column">
+        {% if drupal_entity('block', 'footermenufirst') %}
+          <nav aria-label="Campus Footer Links">
+            {{ drupal_entity('block', 'footermenufirst') }}
+          </nav>
+        {% endif %}
+        {% if drupal_entity('block', 'footermenusecond') %}
+          <nav aria-label="Campus Footer Links 2">
+            {{ drupal_entity('block', 'footermenusecond') }}
+          </nav>
+        {% endif %}
+      </div>
+      <div class="il-footer-navigation-column">
+        {% if drupal_entity('block', 'footermenuthird') %}
+          <nav aria-label="Campus Footer Links 3">
+            {{ drupal_entity('block', 'footermenuthird') }}
+          </nav>
+        {% endif %}
+        {% if drupal_entity('block', 'footermenufourth') %}
+          <nav aria-label="Campus Footer Links 4">
+            {{ drupal_entity('block', 'footermenufourth') }}
+          </nav>
+        {% endif %}
+        <div id="google_translate_element"></div>
+        <script>
+          function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+              pageLanguage: 'en',
+              layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+              autoDisplay: false
+            }, 'google_translate_element');
+          }
+        </script>
+        <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+      </div>
     </div>
     <nav slot="links" class="il-footer-links">
       <h2 class="il-invisible">Additional links</h2>
