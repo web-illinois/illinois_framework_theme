@@ -23,8 +23,8 @@
 }
 
 #directorySection > .row {
-  margin-left: 0px;
-  margin-right: 0px;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
   border-bottom: 1px dotted #1a5843;
 }
 
@@ -189,10 +189,17 @@
   padding: 6px 0px 8px;
 }
 
+.extDirectoryRole.row, .extDirectoryRole > .row {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+//  border-bottom: 1px dotted #1a5843;
+}
+
 .extDirectoryName {
   font-family: "Source Sans Pro", "Lucida Grande", sans-serif;
   font-size: 18px;
   font-weight: bold;
+  padding-left: 0px;
 }
 
 .extDirectoryTitle {
