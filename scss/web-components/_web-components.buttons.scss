@@ -1,4 +1,5 @@
 a.il-button {
+  color: white;
 
   &:focus,
   &:hover {
@@ -10,15 +11,18 @@ a.il-button {
   }
   &:hover {
     color: #fff;
+    text-decoration: none;
   }
 
   &.il-blue {
+    color: var(--il-blue);
 
     &:visited {
       color: white;
     }
     &:hover {
       color: var(--il-blue);
+      text-decoration: none;
     }
   }
   &.il-orange {
@@ -28,25 +32,90 @@ a.il-button {
     }
     &:hover {
       color: var(--il-orange);
+      text-decoration: none;
     }
   }
   &.il-white-blue {
+    color: var(--il-blue);
 
     &:visited {
       color: var(--il-blue);
     }
     &:hover {
       color: #fff;
+      text-decoration: none;
     }
   }
   &.il-white-orange {
+    color: var(--il-orange);
 
     &:visited {
       color: var(--il-orange);
     }
     &:hover {
       color: #fff;
+      text-decoration: none;
     }
   }
+}
+p {
+  a.il-button {
+    color: white;
 
+    &:focus,
+    &:hover {
+      text-decoration: none !important;
+    }
+
+    &:visited {
+      color: var(--il-blue);
+    }
+    &:hover {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    &.il-blue {
+
+      &:visited {
+        color: white;
+      }
+      &:hover {
+        color: var(--il-blue);
+        text-decoration: none;
+      }
+    }
+    &.il-orange {
+
+      &:visited {
+        color: white;
+      }
+      &:hover {
+        color: var(--il-orange);
+        text-decoration: none;
+      }
+    }
+    &.il-white-blue {
+      color: var(--il-blue);
+
+      &:visited {
+        color: var(--il-blue);
+      }
+      &:hover {
+        color: #fff;
+        text-decoration: none;
+      }
+    }
+    &.il-white-orange {
+      color: var(--il-orange);
+
+      &:visited {
+        color: var(--il-orange);
+      }
+      &:hover {
+        color: #fff;
+        text-decoration: none;
+      }
+    }
+  }
 }
