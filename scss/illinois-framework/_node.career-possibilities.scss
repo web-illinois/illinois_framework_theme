@@ -83,6 +83,11 @@ a.career-slide-link:hover, a.career-slide-link:active, a.career-slide-link:focus
       line-height: 1.875rem;
       font-weight:bold;
   }
+  .field--name-field-career-hometown.cleafix::after,
+  .field--name-field-career-degrees.cleafix::after,
+  .field--name-field-career-salary-range.cleafix::after{
+    clear:none;
+  }
   }
   .field{
     word-wrap:break-word;
