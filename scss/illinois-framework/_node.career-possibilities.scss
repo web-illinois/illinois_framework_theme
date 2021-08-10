@@ -103,4 +103,12 @@ a.career-slide-link:hover, a.career-slide-link:active, a.career-slide-link:focus
   .views-exposed-form{
     @extend %fixed-width;
   }
+  .field--name-body.clearfix::after{
+    clear:none;
+  }
+  .node__links::after {
+    clear: both;
+    content: "";
+    display: block;
+  }
 }
