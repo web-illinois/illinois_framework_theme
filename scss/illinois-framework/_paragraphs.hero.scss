@@ -5,5 +5,14 @@
     h1 {
      color: white;
     }
+    ul {
+      li {
+        a {
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+    }
   }
 }
