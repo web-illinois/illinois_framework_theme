@@ -48,7 +48,7 @@
   }
 
   &--header {
-    margin-top: 70px;
+    margin-top: 0px;
     font-family: var(--il-source-sans);
     font-size: 32px;
     font-weight: 600;
@@ -203,7 +203,7 @@
     }
 
     &--faculty {
-      margin-top: 60px;
+      margin-top: 0px;
 
       &--title {
         font-family: var(--il-source-sans);
@@ -219,46 +219,6 @@
   }
 
 }
-
-.directorySection {
-  display: flex;
-  flex-wrap: wrap;
-
-  &--person {
-    margin-right: 35px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    width: 160px;
-
-    &--photo {
-      width: 160px;
-      max-height: 200px;
-      overflow: hidden;
-    }
-
-    &--role {
-      max-width: 160px;
-      margin-top: 16px;
-
-      & .name {
-        font-size: 17px;
-        line-height: 1.1;
-        font-weight: 1000;
-      }
-
-      & .title {
-        padding-top: 10px;
-        line-height: 1.1;
-      }
-
-      & .email {
-        padding-top: 10px;
-        line-height: 1.1;
-      }
-    }
-  }
-}
-
 
 @media (max-width: 926px) {
   .faculty-explorer--result--area-description--text {
