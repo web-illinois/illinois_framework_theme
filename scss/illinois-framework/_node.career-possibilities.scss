@@ -1,0 +1,114 @@
+.career-slide-link{
+  text-decoration:none;
+}
+a.career-slide-link:hover, a.career-slide-link:active, a.career-slide-link:focus{
+    text-decoration: none;
+}
+.career-slide{
+    min-height: 360px;
+    max-width: 300px;
+    border: solid 1px var(--il-cloud-1);
+    border-bottom: solid 3px var(--il-altgeld);
+}
+
+.career-slide-content{
+  margin:var(--il-content-margin);
+  color:#252525;
+  word-break: break-word;
+
+.field.field--name-field-career-position{
+  font-weight:bold;
+  padding: calc(var(--il-content-margin)*0.25) 0;
+}
+.career-slide-name{
+  font-weight:bold;
+  font-size:20px;
+  color:var(--il-alma-mater);
+}
+.career-slide-name:after{
+  content:">>";
+  padding: 0 0.4em;
+}
+}
+
+.field--name-field-career-linked-degree .field__item:after, .field--name-field-career-degrees .field__item:after{
+  content: "/";
+  color: var(--il-altgeld);
+  padding: 0 0 0 0.1em;
+}
+
+.field--name-field-career-linked-degree .field__item, .field--name-field-career-degrees .field__item{
+  display:inline;
+
+}
+
+.slick--view--career-possibilities-slider .slide__content{
+  padding:3em;
+}
+
+.field--name-field-career-degrees .field__item:last-child:after,.field--name-field-career-linked-degree .field__item:last-child:after{
+  content: "";
+}
+
+.field--name-field-career-degrees{
+  color: #252525;
+  font-size: 1.125rem;
+  line-height: 1.875rem;
+}
+
+.field--name-field-career-degrees .field__item {
+  display:inline;
+}
+
+#block-illinois-framework-theme-content{
+  .field--name-field-career-job-duties, .field--name-field-career-background, .field--name-field-career-ug-experiences,.field--name-field-advice-for-future-students, .field--name-field-memorable-illinois-moment{
+   .field__label{
+      color:var(--il-orange);
+      margin: 1.25rem 0 0.625rem;
+      font: 600 2rem/2.5rem var(--il-source-sans);
+  }
+  }
+
+  .field--name-field-career-position{
+      color: var(--il-alma-mater);
+      font-size: 24px;
+      line-height: 30px;
+      font-weight: bold;
+      word-break: break-word;
+  }
+
+  .field--name-field-career-linked-degree{
+      color: #252525;
+      font-size: 1.125rem;
+      line-height: 1.875rem;
+      font-weight:bold;
+  }
+  .field--name-field-career-hometown.cleafix::after,
+  .field--name-field-career-degrees.cleafix::after,
+  .field--name-field-career-salary-range.cleafix::after{
+    clear:none;
+  }
+  }
+  .field{
+    word-wrap:break-word;
+  }
+
+.career-list-view{
+  .views-row{
+    padding:1em;
+  }
+  .views-row:nth-child(even){
+    background-color:var(--il-cloud-1);
+  }
+  .views-exposed-form{
+    @extend %fixed-width;
+  }
+  .field--name-body.clearfix::after{
+    clear:none;
+  }
+  .node__links::after {
+    clear: both;
+    content: "";
+    display: block;
+  }
+}

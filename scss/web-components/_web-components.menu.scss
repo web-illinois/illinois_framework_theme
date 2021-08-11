@@ -5,3 +5,13 @@ il-nav-section {
     text-decoration: unset;
   }
 }
+il-nav-link {
+  a {
+    color: unset;
+    text-decoration: unset;
+
+    &:hover {
+      background-color: white;
+    }
+  }
+}

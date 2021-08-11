@@ -23,8 +23,8 @@
 }
 
 #directorySection > .row {
-  margin-left: 0px;
-  margin-right: 0px;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
   border-bottom: 1px dotted #1a5843;
 }
 
@@ -35,8 +35,8 @@
 
   &--person {
     margin-right: 35px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 0px;
+    margin-bottom: 10px;
     width: 160px;
 
     &--photo {
@@ -52,19 +52,19 @@
       & .name {
         line-height: 1.1;
         font-weight: 700;
-        color: #252525;
+        color: #252525 !important;
       }
 
       & .title {
-        padding-top: 10px;
+        padding-top: 5px;
         line-height: 1.1;
-        color: #252525;
+        color: #252525 !important;
       }
 
       & .email {
         padding-top: 10px;
         line-height: 1.1;
-        color: #252525;
+        color: #252525 !important;
       }
     }
   }
@@ -101,6 +101,11 @@
     font-size: 20px;
    }
   }
+}
+
+.il-content #directorySection {
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .directory-output h2 {
@@ -185,10 +190,17 @@
   padding: 6px 0px 8px;
 }
 
+.extDirectoryRole.row, .extDirectoryRole > .row {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+//  border-bottom: 1px dotted #1a5843;
+}
+
 .extDirectoryName {
   font-family: "Source Sans Pro", "Lucida Grande", sans-serif;
   font-size: 18px;
   font-weight: bold;
+  padding-left: 0px;
 }
 
 .extDirectoryTitle {

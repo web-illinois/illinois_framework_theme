@@ -1,8 +1,8 @@
 .paragraph {
 
-  @include media-breakpoint-down(sm) {
-    padding: rem(15px) rem(20px) !important;
-  }
+  //@include media-breakpoint-down(sm) {
+  //  padding: rem(15px) rem(20px) !important;
+  //}
   .field__label {
     visibility: hidden;
   }
@@ -20,8 +20,4 @@
       padding: rem(30px) rem(20px);
     }
   }
-}
-// override for the IT Pro Forum to be removed later
-#paragraph--260 {
-  max-width: 100%;
 }

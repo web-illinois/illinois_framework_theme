@@ -67,6 +67,11 @@
       <div>
         {% set button_number = content.field_contact_content.0['#paragraph'].field_contact_content_button|length %}
       </div>
+    {% if content.field_contact_title['#items'] %}
+      <div class="col-lg-12 paragraph--type--contact__title">
+        <h2>{{ content.field_contact_title['#items'].0.value }}</h2>
+      </div>
+    {% endif %}
     <div class="d-flex flex-row col-lg-12 col-md-12 fixed-width">
       <div class="d-flex col-lg-6 col-md-6 col-sm-12 flex-column {{ text_position }}">
         <div class="field--name-field-contact__content__wrapper {{ layout }}">

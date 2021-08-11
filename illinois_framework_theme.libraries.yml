@@ -17,15 +17,17 @@ global-styling:
     js/navmenu.js: {}
 #    js/paragraph-accordion.js: {}
     js/search.js: {}
+    js/directory.js: {}
+    js/side-nav-title-append.js: {}
   dependencies:
     - core/jquery
 web-components:
   css:
     theme:
-      https://cdn.brand.illinois.edu/toolkit/2.0/examples/toolkit.css:
+      https://cdn.brand.illinois.edu/toolkit/2.1/examples/toolkit.css:
         type: external
   js:
-    https://cdn.brand.illinois.edu/toolkit/2.0/examples/toolkit.js:
+    https://cdn.brand.illinois.edu/toolkit/2.1/examples/toolkit.js:
       type: external
 galleria:
   js:

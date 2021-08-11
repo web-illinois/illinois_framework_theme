@@ -1,0 +1,81 @@
+.slick__slide, .views-row{
+.field--name-field-intern-location-list, .field--name-field-intern-term,.field--name-field-intern-location{
+  display:inline-block;
+  color: #252525;
+  font-size: 1.125rem;
+  line-height: 1.875rem;
+  font-weight:bold;
+  word-wrap: break-word;
+}
+.field--name-field-intern-term, .field--name-field-intern-term .field__item{
+  padding: 0 0.1em;
+}
+}
+
+.field--name-field-intern-term, .field--name-field-intern-term .field__item{
+  display:inline-block;
+}
+
+.field--name-field-intern-location-list:after{
+  content: " /";
+  color: var(--il-altgeld);
+}
+
+.background-light-gray, .block-views-blockinternships-slider-internships-slider{
+  background-color:var(--il-cloud-1);
+}
+
+#slick-views-internships-slider-internships-slider-1-slider article{
+  margin: 0 3em;
+}
+
+.field--name-field-intern-note, .field--name-field-intern-category, .field--name-field-intern-location, .field--name-field-intern-website{
+  color: #252525;
+  font-size: 1.125rem;
+  line-height: 1.875rem;
+}
+
+#block-illinois-framework-theme-content{
+  .field--name-field-intern-term .field__item:after{
+      content: ",";
+  }
+  .field--name-field-intern-term .field__item:last-child:after{
+    content: "";
+  }
+  .field--name-field-intern-description,.field--name-field-intern-qualifications,
+  .field--name-field-intern-contact,.field--name-field-intern-faculty-supervisor{
+  .field__label{
+    color:var(--il-orange);
+    margin: 1.25rem 0 0.625rem;
+    font: 600 2rem/2.5rem var(--il-source-sans);
+  }
+  }
+}
+
+.block-views-blockinternships-slider-internships-slider{
+  header, .slick__slide article.contextual-region{
+  padding: 0 4em;
+  max-width: 900px;
+  }
+}
+
+.field--name-field-intern-note{
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 1.5rem 0 0.5rem 0;
+  font-family: var(--il-sans-source);
+  line-height: 1.2;
+  color: var(--il-blue);
+}
+
+.internships-list-view{
+  .views-row{
+    padding:1em;
+  }
+  .views-row:nth-child(even){
+    background-color:var(--il-cloud-1);
+  }
+  .views-exposed-form{
+    @extend %fixed-width;
+  }
+}

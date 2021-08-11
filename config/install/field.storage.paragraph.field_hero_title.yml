@@ -1,14 +1,12 @@
-uuid: 733ad0c9-701c-4e58-96fd-d0dda341ed47
+uuid: d8308f1d-319a-4ce8-9ec1-aa769c4dd87e
 langcode: en
 status: true
 dependencies:
   module:
-    - node
-_core:
-  default_config_hash: lIHXexya5wdN7K9OsY0MMBZR9GkxuM1PLfI8CEkDyrQ
-id: node.field_intern_title
-field_name: field_intern_title
-entity_type: node
+    - paragraphs
+id: paragraph.field_hero_title
+field_name: field_hero_title
+entity_type: paragraph
 type: string
 settings:
   max_length: 255

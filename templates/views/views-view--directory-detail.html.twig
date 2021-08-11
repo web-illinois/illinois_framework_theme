@@ -33,9 +33,6 @@
  */
 #}
 
-{{ attach_library('directory_stylesheet/directory_stylesheet') }}
-{{ attach_library('directory_javascript/directory_javascript') }}
-
 {% set net_id = url('<current>') | render | render | split('/') | last %} 
 
 <script type='text/javascript'> 

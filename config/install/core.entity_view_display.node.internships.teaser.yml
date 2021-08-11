@@ -15,14 +15,13 @@ dependencies:
     - field.field.node.internships.field_intern_note
     - field.field.node.internships.field_intern_qualifications
     - field.field.node.internships.field_intern_term
-    - field.field.node.internships.field_intern_title
     - field.field.node.internships.field_intern_website
     - node.type.internships
   module:
     - text
     - user
 _core:
-  default_config_hash: RNuN0y64SQi4myhMFO-KGgBdlzQVOAGoHnyQYKU1za8
+  default_config_hash: nK3NSCWaVVM-0jGj-XEaE_APR28E4fPQbfGL2wuMgDY
 id: node.internships.teaser
 targetEntityType: node
 bundle: internships
@@ -54,6 +53,5 @@ hidden:
   field_intern_note: true
   field_intern_qualifications: true
   field_intern_term: true
-  field_intern_title: true
   field_intern_website: true
   links: true

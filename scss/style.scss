@@ -43,10 +43,14 @@
 @import "illinois-framework/block.illinois-framework-theme-breadcrumbs";
 @import "illinois-framework/block.illinois-framework-theme-content";
 @import "illinois-framework/block.illinois-framework-theme-local-tasks";
+@import "illinois-framework/block.illinois-framework-theme-title";
 
 // Content Types
 @import "illinois-framework/node.content-page";
 @import "illinois-framework/node.fund-listing-page";
+@import "illinois-framework/node.career-possibilities";
+@import "illinois-framework/node.internships";
+@import "illinois-framework/node.spotlight-family";
 
 // Paragraphs
 @import "illinois-framework/paragraphs";
@@ -65,11 +69,13 @@
 @import "illinois-framework/paragraphs.icon-row";
 @import "illinois-framework/paragraphs.feature--grouped";
 @import "illinois-framework/paragraphs.contact-info";
+@import "illinois-framework/paragraphs.hero";
 @import "illinois-framework/paragraphs.hero--section";
 
 // Views
 @import "illinois-framework/view.frontpage";
-@import "illinois-framework/view.slick-sliders";
+//@import "illinois-framework/view.slick-sliders";
+@import "illinois-framework/views.directory";
 
 // Forms
 @import "illinois-framework/form.user-login-form";
@@ -81,4 +87,6 @@
 @import "illinois-framework/utilities/fingerprint";
 @import "illinois-framework/utilities/max-width";
 @import "illinois-framework/utilities/margin";
+
+@import "web-components/web-components.buttons";
 

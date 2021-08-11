@@ -14,7 +14,6 @@ dependencies:
     - field.field.node.internships.field_intern_note
     - field.field.node.internships.field_intern_qualifications
     - field.field.node.internships.field_intern_term
-    - field.field.node.internships.field_intern_title
     - field.field.node.internships.field_intern_website
     - node.type.internships
   module:
@@ -23,7 +22,7 @@ dependencies:
     - text
     - user
 _core:
-  default_config_hash: Was-BO0l4kq75mFawgrCK_FIEPBGgzDvxEB47PO_8Wo
+  default_config_hash: c_vfELXpO42l77-Oe8CY_cfguayYCIjAPaQ1Y8U0N0o
 id: node.internships.default
 targetEntityType: node
 bundle: internships
@@ -31,7 +30,7 @@ mode: default
 content:
   field_intern_category:
     weight: 3
-    label: above
+    label: inline
     settings: {  }
     third_party_settings: {  }
     type: list_default
@@ -59,7 +58,7 @@ content:
     region: content
   field_intern_location:
     weight: 0
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -81,14 +80,14 @@ content:
     region: content
   field_intern_term:
     weight: 2
-    label: above
+    label: inline
     settings: {  }
     third_party_settings: {  }
     type: list_default
     region: content
   field_intern_website:
     weight: 1
-    label: above
+    label: inline
     settings:
       trim_length: 80
       url_only: false
@@ -102,5 +101,4 @@ hidden:
   body: true
   field_intern_body: true
   field_intern_location_list: true
-  field_intern_title: true
   links: true

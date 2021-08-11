@@ -97,8 +97,13 @@
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
       <div class="col-lg-12 col-md-12 flex paragraph--type--faculty-explorer__wrapper">
-        <h2 class="faculty-explorer--header">{{ content.field_faculty_explorer_title.0 }}</h2>
-        <p class="faculty-explorer--description">{{ content.field_faculty_explorer_desc.0 }}</p>
+        {% if content.field_faculty_explorer_title.0 is not empty %}
+          <h2 class="faculty-explorer--header">{{ content.field_faculty_explorer_title.0 }}</h2>
+        {% endif %}
+        {% if content.field_faculty_explorer_desc.0 is not empty %}
+          <p class="faculty-explorer--description">{{ content.field_faculty_explorer_desc.0 }}</p>
+        {% endif %}
+        
         {% if content.field_faculty_explorer_type['#items'].0.value == "Department Explorer" %}
           <div class="faculty-explorer--category-container">
             <div class="faculty-explorer--category-group--animal">
@@ -297,7 +302,7 @@
                 <span class="faculty-explorer--category--radio-button"><input type="radio" id="production-and-environment-management" name="discipline" value="Production and Environment Management"></span><label for="production-and-environment-management">Production and Environment Management</label>
                 <span class="faculty-explorer--category--radio-button"><input type="radio" id="reproductive-biology" name="discipline" value="Reproductive Biology"></span><label for="reproductive-biology">Reproductive Biology</label>
               </fieldset>
-          </div>
+            </div>
             <script>
               if ( '{{ animal_selected }}' != '') {
                 document.getElementById("{{ animal_selected }}").checked = true;

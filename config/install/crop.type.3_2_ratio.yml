@@ -1,0 +1,12 @@
+uuid: 42cdb9d4-feda-4640-a320-1f5959224ee0
+langcode: en
+status: true
+dependencies: {  }
+id: 3_2_ratio
+label: '3:2 Ratio'
+description: ''
+aspect_ratio: '3:2'
+soft_limit_width: 1152
+soft_limit_height: 768
+hard_limit_width: 1152
+hard_limit_height: 768

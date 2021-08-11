@@ -21,7 +21,7 @@ dependencies:
     - text
     - user
 _core:
-  default_config_hash: siIohNERVFA2Caxa06KM5GuwlujHnsT1nSiS8m6axls
+  default_config_hash: _zvZmwYU96sJi_pnowl6Iw-94rQHvh2MuFPCG60CxpI
 id: node.career_possibilities.teaser
 targetEntityType: node
 bundle: career_possibilities
