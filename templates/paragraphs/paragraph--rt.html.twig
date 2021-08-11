@@ -68,12 +68,16 @@
           {% if column_count == 2 %}
             <div class="col-lg-6 col-md-6 field--name-field-rt__content__wrapper background--color--white">
           {% endif %}
+          {% if title %}
             <div class="field--name-field-rt__title title">
               <h3 class="field__item">{{ title }}</h3>
             </div>
+          {% endif %}
+          {% if body %}
             <div class="field--name-field-rt__body body">
               <div class="field__item">{{ body | raw }}</div>
             </div>
+          {% endif %}
           {% if column_count == 2 %}
             </div>
           {% endif %}
