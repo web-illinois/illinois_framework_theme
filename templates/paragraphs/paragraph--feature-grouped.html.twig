@@ -45,7 +45,7 @@
   'paragraph--type--' ~ paragraph.bundle|clean_class,
   view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
   not paragraph.isPublished() ? 'paragraph--unpublished',
-  'col-lg-9 col-md-9 col-sm-12 d-flex row fixed-width'
+  'col-lg-9 col-md-9 col-sm-12 p-0 d-flex row fixed-width'
 ]
 %}
 
@@ -61,13 +61,13 @@
         {% set row_style = 'flex-row-reverse' %}
       {% endif %}
       {% set body = content.field_feature_grouped_body['#items'].0.value %}
-      <div class="col-lg-9 col-md-9 col-sm-12 d-flex row {{ row_style }} paragraph--type--feature-grouped__wrapper background--color--{{ background }}">
+      <div class="col-lg-9 col-md-12 col-sm-12 d-flex row {{ row_style }} paragraph--type--feature-grouped__wrapper background--color--{{ background }}">
         {% if content.field_feature_grouped_title['#items'] %}
           <div class="col-lg-12 p-0 field--name-field-feature-grouped__title title">
             <h2>{{ content.field_feature_grouped_title['#items'].0.value }}</h2>
           </div>
         {% endif %}
-        <div class="col-lg-8 p-0">
+        <div class="col-lg-8 col-md-8 col-sm-12 p-0">
           {% if content.field_feature_grouped_subtitle['#items'] %}
             <div class="field--name-field-feature-grouped__subtitle subtitle">
               {{ content.field_feature_grouped_subtitle['#items'].0.value }}
@@ -91,7 +91,7 @@
             </div>
           {% endif %}
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-md-4 col-sm-12">
           {% if content.field_feature_grouped_image['#items'] %}
             {% for item in content.field_feature_grouped_image['#items'] %}
               <div class="field--name-field-feature-grouped__image">
