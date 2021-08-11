@@ -118,8 +118,6 @@
 
         if (MainArea == "all-animals" && SecondaryArea == "all-disciplines") {
           // Nothing selected.  Display filler text.
-console.log(faculty_explorer_type );
-console.log(template  );
 
           $.ajax({url: "https://ws.engr.illinois.edu/directory/list.asp?unit=1538&id=$path[1]&cat=15&template=" + template, success: function(result) {
             result = result.replace(/document.write\(\'/g, '');
