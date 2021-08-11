@@ -12,11 +12,11 @@
         color: $body-color;
 
         a {
-          color: $body-color;
+          color: var(--il-link-color);
 
           &:hover,
           &:focus {
-            color: var(--il-orange);
+            color: var(--il-link-hover-color);
           }
           &:visited {
             color: var(--il-visited-link-color);
@@ -69,9 +69,11 @@
         color: #fff;
 
         a {
+          color: var(--il-link-color);
+
           &:hover,
           &:focus {
-            color: var(--il-orange);
+            color: var(--il-link-hover-color);
           }
           &:visited {
             color: var(--il-visited-link-color);
@@ -118,9 +120,11 @@
     .body {
       p {
         a {
+          color: var(--il-link-color);
+
           &:hover,
           &:focus {
-            color: var(--il-orange);
+            color: var(--il-link-hover-color);
           }
           &:visited {
             color: var(--il-visited-link-color);
