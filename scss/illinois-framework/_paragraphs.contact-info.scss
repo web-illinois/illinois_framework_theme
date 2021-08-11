@@ -1,6 +1,18 @@
 .paragraph--type--contact {
   padding: rem(60px) 0 !important;
 
+  &__title {
+
+    h2 {
+      color: var(--il-orange);
+      font-size: rem(32px);
+      font-weight: 600;
+      line-height: rem(40px);
+      padding: rem(20px) rem(15px) rem(10px);
+      text-align: center;
+    }
+  }
+
   .field--name-field-contact {
 
     &__content {
