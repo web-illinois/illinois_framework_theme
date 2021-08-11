@@ -24,17 +24,15 @@ p {
   line-height: rem(30px);
 
   a {
-    color: var(--il-alma-mater);
+    color: var(--il-link-color);
     text-decoration: underline;
 
-    &:visited {
-      color: var(--il-alma-mater-1);
-    }
-    &:hover {
-      color: var(--il-altgeld);
-    }
+    &:hover,
     &:focus {
-      outline: 2px dotted var(--il-altgeld);
+      color: var(--il-link-hover-color);
+    }
+    &:visited {
+      color: var(--il-visited-link-color);
     }
   }
 }
