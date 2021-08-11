@@ -15,9 +15,11 @@
           color: $body-color;
 
           &:hover,
-          &:focus,
-          &:visited {
+          &:focus {
             color: var(--il-orange);
+          }
+          &:visited {
+            color: var(--il-visited-link-color);
           }
         }
       }
@@ -68,9 +70,11 @@
 
         a {
           &:hover,
-          &:focus,
-          &:visited {
+          &:focus {
             color: var(--il-orange);
+          }
+          &:visited {
+            color: var(--il-visited-link-color);
           }
         }
       }
@@ -115,9 +119,11 @@
       p {
         a {
           &:hover,
-          &:focus,
+          &:focus {
+            color: var(--il-orange);
+          }
           &:visited {
-            color: var(--il-blue);
+            color: var(--il-visited-link-color);
           }
         }
       }
@@ -155,9 +161,11 @@
 
         a {
           &:hover,
-          &:focus,
-          &:visited {
+          &:focus {
             color: var(--il-orange);
+          }
+          &:visited {
+            color: var(--il-visited-link-color);
           }
         }
       }
@@ -195,9 +203,11 @@
 
         a {
           &:hover,
-          &:focus,
+          &:focus {
+            color: var(--il-orange);
+          }
           &:visited {
-            color: var(--il-blue);
+            color: var(--il-visited-link-color);
           }
         }
       }
@@ -229,9 +239,11 @@
           color: $body-color;
 
           &:hover,
-          &:focus,
-          &:visited {
+          &:focus {
             color: var(--il-orange);
+          }
+          &:visited {
+            color: var(--il-visited-link-color);
           }
         }
       }
