@@ -4,18 +4,20 @@
 
     &__title {
       width: 100%;
+      margin-bottom: rem(30px);
     }
     &__subtitle {
       color: var(--il-industrial-blue) !important;
       font-size: rem(26px);
       line-height: rem(32px);
-      margin: rem(30px) rem(30px) rem(30px) 0;
+      margin: rem(0px) rem(30px) rem(30px) 0;
     }
     &__buttons {
       margin-bottom: rem(20px);
     }
     &__button {
-      margin-right: rem(35px);
+      margin-bottom: rem(10px);
+      margin-right: rem(20px);
     }
 
     &__image {
