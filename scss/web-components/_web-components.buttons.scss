@@ -61,6 +61,7 @@ a.il-button {
 }
 p {
   a.il-button {
+    color: var(--color-secondary) !important;
 
     &:focus,
     &:hover {
