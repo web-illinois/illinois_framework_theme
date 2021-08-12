@@ -3,5 +3,3 @@ css/directory.css
 css/faculty_explorer.css
 css/*.map
 .idea*
-templates/layout/page--search.html.twig
-css/galleria/plugins/flickr/galleria.flickr.js
