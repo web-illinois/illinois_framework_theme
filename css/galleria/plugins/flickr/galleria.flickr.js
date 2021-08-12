@@ -50,7 +50,8 @@ var PATH = Galleria.utils.getScriptPath();
 
 Galleria.Flickr = function( api_key ) {
 
-    this.api_key = api_key || '0b6b6c19cab5293b201a6f87ece4f14b';
+    //this.api_key = api_key || '0b6b6c19cab5293b201a6f87ece4f14b';
+    this.api_key = api_key || 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
 
     this.options = {
         max: 30,                       // photos to return
