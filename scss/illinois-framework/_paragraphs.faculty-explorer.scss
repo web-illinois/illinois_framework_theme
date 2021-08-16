@@ -24,7 +24,7 @@
 .paragraph--type--faculty-explorer__wrapper {
   max-width: var(--il-content-max-width);
   margin: 0px auto;
-  padding: 2rem;
+  padding: 60px 2rem 75px 2rem;
 }
 
 .il-content-with-section-nav {
@@ -49,9 +49,9 @@
 
   &--header {
     margin-top: 0px;
-    font-family: var(--il-source-sans);
-    font-size: 32px;
-    font-weight: 600;
+//    font-family: var(--il-source-sans);
+//    font-size: 32px;
+//    font-weight: 600;
     color: #ff552e;
   }
 
@@ -116,10 +116,11 @@
     }
 
     &--title {
-      font-size: 30px;
+//      font-size: 30px;
       color: var(--il-blue);
-      font-weight: 700;
+//      font-weight: 700;
       margin-bottom: 0px;
+      margin-top: 0px;
     }
   }
 
