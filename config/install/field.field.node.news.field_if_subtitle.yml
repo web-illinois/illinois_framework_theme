@@ -1,0 +1,21 @@
+uuid: c9b9a9ef-9f82-462e-88cb-036e2b0195b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_if_subtitle
+    - node.type.news
+_core:
+  default_config_hash: P3PhtFZ56EQA-fVxkWhyuEq3slJaoC2l9zz9MsDTpRQ
+id: node.news.field_if_subtitle
+field_name: field_if_subtitle
+entity_type: node
+bundle: news
+label: Subtitle
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

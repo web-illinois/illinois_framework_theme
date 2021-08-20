@@ -1,0 +1,31 @@
+uuid: cf183fa0-cc2a-41aa-9adb-cf96c2e4ed01
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_if_meda_featured_image
+    - media.type.image
+    - node.type.news
+_core:
+  default_config_hash: Ig8dcndtWdDeKMYkM77KCkIdq_hvEUUjLv7zZ4auGG8
+id: node.news.field_if_meda_featured_image
+field_name: field_if_meda_featured_image
+entity_type: node
+bundle: news
+label: 'Featured Image'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: changed
+      direction: DESC
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference
