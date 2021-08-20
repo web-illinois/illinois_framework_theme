@@ -1,7 +1,7 @@
 .paragraph--type--rt {
 
   &__wrapper {
-    margin: rem(15px) rem(10px);
+    //margin: rem(15px) rem(10px);
   }
 
   &__title {
@@ -23,7 +23,7 @@
       &__wrapper {
         flex-direction: row;
         flex-wrap: wrap;
-        padding: 0 0 rem(30px) 0;
+        //padding: 0 0 rem(30px) 0;
       }
     }
     &__title {
@@ -44,7 +44,7 @@
 
       .field__item {
         opacity: 1;
-        padding: 0 rem(30px) rem(30px) rem(30px);
+       // padding: 0 rem(30px) rem(30px) rem(30px);
 
         img {
           width: 100%;
