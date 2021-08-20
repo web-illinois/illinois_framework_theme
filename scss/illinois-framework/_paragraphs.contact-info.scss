@@ -18,11 +18,17 @@
     &__content {
 
       &__wrapper {
+        @include media-breakpoint-down(md) {
+          order: 0 !important;
+        }
         &.right {
           text-align: right;
         }
         &.left {
           text-align: left;
+        }
+        @include media-breakpoint-down(md) {
+          text-align: center !important
         }
       }
       &__title {
@@ -79,6 +85,10 @@
         &__wrapper {
           width: 100%;
 
+          @include media-breakpoint-down(md) {
+            order: -1 !important;
+          }
+
           //align opposite of what the text is aligned
           &.right,
           &.righttxt {
@@ -90,8 +100,11 @@
           }
 
           img {
-            max-width: 350px;
-            width:350px;
+            max-width: 250px;
+            width:250px;
+          }
+          @include media-breakpoint-down(md) {
+            text-align: center !important
           }
         }
       }
@@ -99,6 +112,9 @@
         &__wrapper {
 
           padding-top: 10px;
+          @include media-breakpoint-down(md) {
+            order: 0 !important;
+          }
 
           //align opposite of what the text is aligned
           &.right,
@@ -109,8 +125,28 @@
           &.lefttxt {
             text-align: right;
           }
+          @include media-breakpoint-down(md) {
+            text-align: center !important
+          }
         }
       }
     }
   }
+}
+.il-content {
+  .field--name-field-contact__content__image__wrapper,
+  .field--name-field-contact__content__wrapper,
+  .field--name-field-contact__body__wrapper {
+    text-align: center !important;
+  }
+  .field--name-field-contact__content__image__wrapper {
+    order: -1 !important;
+  }
+  .field--name-field-contact__content__wrapper {
+    order: 0 !important;
+  }
+  .field--name-field-contact__body__wrapper {
+    order: 0 !important;
+  }
+
 }

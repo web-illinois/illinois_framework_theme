@@ -17,6 +17,21 @@
       $('.il-content .paragraph div[class*=col-lg-]').removeClass(function (index, css) {
         return (css.match(/(^|\s)col-lg-\S+/g) || []).join(' ');
       });
+      var largeOffset = [
+        "offset-lg-1", "offset-lg-2", "offset-lg-3", "offset-lg-4", "offset-lg-5",
+        "offset-lg-6", "offset-lg-7", "offset-lg-8", "offset-lg-9", "offset-lg-10"
+      ];
+      $('.il-content .paragraph div[class*=offset-lg-]').each(function () {
+        var cl = $(this).attr('class').split(" ");
+        for(var i=0;i<cl.length;i++){
+          if($.inArray(cl[i], largeOffset) !== -1) {
+            $(this).addClass( 'unset-' + cl[i]);
+          }
+        }
+      });
+      $('.il-content .paragraph div[class*=col-lg-]').removeClass(function (index, css) {
+        return (css.match(/(^|\s)offset-lg-\S+/g) || []).join(' ');
+      });
     }
     if (window.matchMedia('(min-width: 768px) and (max-width: 991px)').matches) {
       var mediumColumn = [
