@@ -1,0 +1,30 @@
+uuid: cce6d0b9-2364-4a75-b3de-18b5362cbf2d
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.news
+  module:
+    - system
+    - views
+  theme:
+    - illinois_framework_theme
+id: views_block__news_block_2
+theme: illinois_framework_theme
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:news-block_2'
+settings:
+  id: 'views_block:news-block_2'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: /news
+    negate: false
+    context_mapping: {  }
