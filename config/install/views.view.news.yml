@@ -189,7 +189,7 @@ display:
     position: 2
     display_options:
       display_extenders: {  }
-      title: 'Featured News'
+      title: 'More News'
       defaults:
         title: false
         pager: false
@@ -684,7 +684,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"highlighted-news-content\">\r\n<div class=\"title\"><h2>{{ title }}</h2></div>\r\n<div class=\"body\">{{ body }}</div>\r\n<div class=\"button\"><a class=\"il-button il-orange\" href=\"{{ view_node }}\">Read full story <span class=\"hidden\">{{ title }}</span></a></div>\r\n</div>"
+            text: "<div class=\"highlighted-news-content\">\r\n<div class=\"title\"><h2>{{ title }}</h2></div>\r\n<div class=\"body\">{{ body }}</div>\r\n<div class=\"button\"><a class=\"il-button\" href=\"{{ view_node }}\">Read full story <span class=\"hidden\">{{ title }}</span></a></div>\r\n</div>"
             make_link: false
             path: ''
             absolute: false
