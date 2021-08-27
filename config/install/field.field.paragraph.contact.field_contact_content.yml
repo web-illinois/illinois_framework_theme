@@ -72,9 +72,6 @@ settings:
       list_collection_content:
         weight: 34
         enabled: false
-      page_introduction:
-        weight: 35
-        enabled: false
       rich_text:
         weight: 36
         enabled: false

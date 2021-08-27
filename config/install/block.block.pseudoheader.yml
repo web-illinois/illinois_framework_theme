@@ -1,22 +1,17 @@
 langcode: en
 status: true
 dependencies:
-  module:
-    - block_content
   theme:
     - illinois_framework_theme
-id: illinois_framework_theme_header
+id: pseudoheader
 theme: illinois_framework_theme
 region: header
 weight: 0
 provider: null
-plugin: block_content
+plugin: page_title_block
 settings:
-  id: block_content
-  label: Header
-  provider: block_content
+  id: page_title_block
+  label: 'Pseudo Header Block'
+  provider: core
   label_display: '0'
-  status: true
-  info: ''
-  view_mode: full
 visibility: {  }
