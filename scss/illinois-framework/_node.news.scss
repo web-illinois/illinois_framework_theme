@@ -1,4 +1,5 @@
 article.news {
+  padding-bottom: rem(50px);
   .field {
     &--name-body {
       padding: 0 !important;
@@ -67,8 +68,9 @@ article.news {
 .news-page {
   .form--inline {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     background-color: var(--il-cloud-1);
+    padding: 0 1rem;
     .form-item {
       display: flex;
       margin-top: 0.75rem;
@@ -81,19 +83,23 @@ article.news {
       }
     }
     #edit-actions{
-      margin: 0.75rem 2.875rem;
+      margin: 0.75rem 0;
       .btn {
         line-height: 1;
       }
     }
 
   }
-  ul {
-    list-style: none;
-    li {
-      padding: 1.875rem 0;
-      border-bottom: 2px solid #d8d8d8;
-      margin: 0;
+  .item-list{
+    max-width: 900px;
+    margin: 0 auto;
+    ul {
+      list-style: none;
+      li {
+        padding: 1.875rem 0;
+        border-bottom: 2px solid #d8d8d8;
+        margin: 0;
+      }
     }
   }
   .news-title {
@@ -109,15 +115,22 @@ article.news {
 }
 
 /*news block*/
+div#block-views-block-news-block-1 {
+  background-color: #f8f8f8;
+}
 .news-block {
-  ul{
-    list-style: none;
-    li {
-      padding: 1.875rem 0;
-      border-bottom: 2px solid #d8d8d8;
-      margin: 0;
+  max-width: 900px !important;
+    ul{
+      list-style: none;
+      li {
+        padding: 1.875rem 0;
+        border-bottom: 2px solid #d8d8d8;
+        margin: 0;
+      }
+      li:last-child{
+        border-bottom: none;
+      }
     }
-  }
   .views-field-title {
     font-weight: 600;
     font-size: rem(20px);
@@ -161,8 +174,10 @@ article.news {
 }
 /*highlighted news block*/
 .highlighted-news{
-  img{
+  max-width: var(--il-framework--fixed-width) !important;
+  .views-field-field-if-meda-featured-image{
     float: right;
+    margin-left: 2rem;
     @include media-breakpoint-down(sm) {
       float: none;
       margin: 1rem auto;
@@ -176,8 +191,6 @@ article.news {
   .highlighted-news-content {
     max-width: 900px;
     min-height: 300px;
-    display: flex;
-    flex-flow: column;
     @include media-breakpoint-down(sm) {
       min-height: auto;
     }
