@@ -1,9 +1,0 @@
-faculty_explorer:
-  version: 1.x
-  css:
-    theme:
-      css/faculty_explorer.css: {}
-  js:
-    js/faculty_explorer.js: {}
-  dependencies:
-    - core/jquery

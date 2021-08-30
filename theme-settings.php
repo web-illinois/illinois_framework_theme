@@ -348,22 +348,6 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
     '#type' => 'vertical_tabs',
     '#default_tab' => 'edit-if-footer-menu-first-details',
   );
-  // Footer Block
-  $form['if_footer']['if_footer_menu_block_details'] = array(
-    '#type' => 'details',
-    '#title' => t('Footer Block'),
-    '#group' => 'if_footer_menu',
-  );
-  $form['if_footer']['if_footer_menu_block_details']['if_footer_menu_block_fieldset'] = array(
-    '#type' => 'fieldset',
-    '#title' => t('Footer Block'),
-    '#description' => 'You can also access the block by going to Structure -> Block Layout -> Custom Block Library -> Footer',
-  );
-  $markup_footer_block = "<a class=\"button button--primary\" role=\"button\" href='/admin/structure/block/block-content'>Edit Footer Block</a></button>";
-  $form['if_footer']['if_footer_menu_block_details']['if_footer_menu_block_fieldset']['if_footer_menu_block_link'] = array(
-    '#type' => 'markup',
-    '#markup' =>  $markup_footer_block,
-  );
   // Footer Menu First
   $form['if_footer']['if_footer_menu_first_details'] = array(
       '#type' => 'details',

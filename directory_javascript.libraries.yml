@@ -1,6 +1,0 @@
-directory_javascript:
-  version: 1.x
-  js:
-    js/directory.js: {}
-  dependencies:
-    - core/jquery

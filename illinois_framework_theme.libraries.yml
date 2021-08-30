@@ -17,7 +17,6 @@ global-styling:
     js/navmenu.js: {}
 #    js/paragraph-accordion.js: {}
     js/search.js: {}
-    js/directory.js: {}
     js/side-nav-title-append.js: {}
   dependencies:
     - core/jquery
@@ -29,17 +28,6 @@ web-components:
   js:
     https://cdn.brand.illinois.edu/toolkit/2.1/examples/toolkit.js:
       type: external
-galleria:
-  js:
-    css/galleria/galleria.min.js: { minified: true }
-    css/galleria/plugins/flickr/galleria.flickr.js: { }
-  dependencies:
-    - core/jquery
-galleria--display:
-  js:
-    css/galleria/galleria--display.js: {}
-  dependencies:
-    - core/jquery
 content-adjust:
   js:
     js/content.js: {}
