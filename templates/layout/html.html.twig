@@ -38,6 +38,16 @@
   <head>
     <base href="{{ base_path_success ~ directory }}/" />
     <head-placeholder token="{{ placeholder_token }}">
+    {#
+      UIUC Cookie banner: needs to be placed before any other
+      script tags to function. Won't be included if running on
+      a localhost development environment.
+    #}
+    {%- set site_url = url("<current>") -%}
+    {% if 'localhost' not in site_url|render|render -%}
+      <script src="https://onetrust.techservices.illinois.edu/scripttemplates/otSDKStub.js"  type="text/javascript" charset="UTF-8" data-domain-script="26be7d61-2017-4ea7-8a8b-8f1704889763"></script>
+      <script type="text/javascript">function OptanonWrapper() { }</script>
+    {%- endif %}
     <title>{{ head_title|safe_join(' | ') }} | UIUC</title>
     <css-placeholder token="{{ placeholder_token }}">
     <js-placeholder token="{{ placeholder_token }}">
