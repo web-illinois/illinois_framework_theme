@@ -58,7 +58,7 @@
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
-    <div class=" {{ content.field_bb_layout['#items'].0.value }} margin--{{ content.field_bb_margin['#items'].0.value }} ">
+    <div class="{{ content.field_bb_layout['#items'].0.value }}">
     {% if content.field_bb_title['#items'] %}
         <h2 class="field--name-field-bb__title title">{{ content.field_bb_title }}</h2>
       {% endif %}

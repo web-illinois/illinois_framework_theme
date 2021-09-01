@@ -69,12 +69,6 @@
           {% if content.field_feature_boxed_body['#items'] %}
             <div class="field--name-field-feature-boxed__body body">{{ content.field_feature_boxed_body }}</div>
           {% endif %}
-          {% if content.field_feature_boxed_callout['#items'] %}
-            <div class="field--name-field-feature-boxed__callout{% if content.field_feature_boxed_callout['#items'] and content.field_feature_boxed_tagline['#items'] %}{% else %} no-tagline{% endif %}">{{ content.field_feature_boxed_callout }}</div>
-          {% endif %}
-          {% if content.field_feature_boxed_tagline['#items'] %}
-            <div class="field--name-field-feature-boxed__tagline">{{ content.field_feature_boxed_tagline }}</div>
-          {% endif %}
           {% set button_number = content.field_feature_boxed_button['#items']|length %}
           {% if button_number > 0 %}
             <div class="field--name-field-feature-boxed__buttons">
