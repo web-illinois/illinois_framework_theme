@@ -51,11 +51,11 @@
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
-    <div class="field--name-field-icon-row__wrapper background--color--{{ content.field_icon_row_background['#items'].0.value }} margin--{{ content.field_icon_row_margin['#items'].0.value }} icon-size--{{ content.field_icon_row_icon_size['#items'].0.value }}">
+    <div class="field--name-field-icon-row__wrapper background--color--{{ content.field_icon_row_background['#items'].0.value }} icon-size--{{ content.field_icon_row_icon_size['#items'].0.value }}">
       <div class="fixed-width">
         {% if content.field_icon_row_title['#items'] %}
         <div class="field--name-field-icon-row__item col">
-          <h2 class="field--name-field-icon-row__title title {{ content.field_icon_row_alignment['#items'].0.value }}">{{ content.field_icon_row_title }}</h2>
+          <h2 class="field--name-field-icon-row__title title">{{ content.field_icon_row_title }}</h2>
         </div>
         {% endif %}
           <div class="field--name-field-icon-row-content__wrapper flex">
