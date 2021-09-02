@@ -74,12 +74,12 @@
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
-      {% if background == 'image' %}
-        <il-hero alt="{{ content.field_hero_image['#items'].0.alt }}" background="{{ content.field_hero_image.0['#markup'] }}" align="{{ alignment }}">
+      {% if background == 'image' || background == 'imageblue' %}
+        <il-hero {% if background == 'imageblue' %}class="blue--buttons"{% endif %} alt="{{ content.field_hero_image['#items'].0.alt }}" background="{{ content.field_hero_image.0['#markup'] }}" align="{{ alignment }}">
       {% elseif background == 'orange' %}
         <il-hero color="orange">
       {% else %}
-        <il-hero>
+        <il-hero color="blue">
       {% endif  %}
           <h1>{{ content.field_hero_title.0['#context'].value }}</h1>
           <ul>
