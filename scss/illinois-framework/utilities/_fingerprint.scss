@@ -1,7 +1,7 @@
   .fingerprint{
 
     &--full {
-      background-image: url('/themes/contrib/illinois_framework_theme/images/fingerprint.svg');
+      background-image: url('../../../images/fingerprint.svg');
       background-size: 115%;
       background-position: center;
       background-repeat: no-repeat;
@@ -11,7 +11,7 @@
     }
 
     &--right {
-      background-image: url('/themes/contrib/illinois_framework_theme/images/fingerprint-right.png');
+      background-image: url('../../../images/fingerprint-right.png');
       background-size: 115%;
       background-position: center;
       background-repeat: no-repeat;
@@ -21,7 +21,7 @@
     }
 
     &--left {
-      background-image: url('/themes/contrib/illinois_framework_theme/images/fingerprint-left.png');
+      background-image: url('../../../images/fingerprint-left.png');
       background-size: 115%;
       background-position: center;
       background-repeat: no-repeat;
