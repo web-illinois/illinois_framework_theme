@@ -22,26 +22,20 @@
 }
 @media (min-width: 575px) {
   .il-content-with-section-nav {
-    /* margin-left: 40px; */
-    /* margin-right: 40px; */
     margin: var(--il-content-margin) !important;
   }
 }
-
-@media (min-width: 1191px) {
+@media (min-width: 992px) {
   .il-content-with-section-nav {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    grid-template-columns: auto 285px 795px !important;
-    grid-template-areas: ". nav content ." !important;
+    grid-template-columns: 2fr 5fr !important;
   }
 }
-
 @media (min-width: 1200px) {
-  .il-content-with-section-nav {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    grid-template-columns: auto 285px 795px !important;
-    grid-template-areas: ". nav content ." !important;
+  .il-content-with-section-nav, .il-formatted .il-content-with-section-nav {
+    margin-left: 0;
+    margin-right: 0;
+    grid-gap: 0;
+    grid-template-columns: auto 274px 44px 822px auto !important;
+    grid-template-areas: ". nav . content .";
   }
 }
