@@ -23,10 +23,10 @@ global-styling:
 web-components:
   css:
     theme:
-      https://cdn.brand.illinois.edu/toolkit/2.1/examples/toolkit.css:
+      https://cdn.brand.illinois.edu/toolkit/2.2/examples/toolkit.css:
         type: external
   js:
-    https://cdn.brand.illinois.edu/toolkit/2.1/examples/toolkit.js:
+    https://cdn.brand.illinois.edu/toolkit/2.2/examples/toolkit.js:
       type: external
 content-adjust:
   js:
