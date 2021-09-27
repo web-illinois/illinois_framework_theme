@@ -69,14 +69,14 @@
         color: #fff;
 
         a {
-          color: var(--il-link-color);
+          color: white;
 
           &:hover,
           &:focus {
-            color: var(--il-link-hover-color);
+            color: var(--il-alma-mater-3);
           }
           &:visited {
-            color: var(--il-visited-link-color);
+            color: white;
           }
         }
       }
@@ -118,16 +118,28 @@
     }
 
     .body {
+      a {
+        color: white;
+
+        &:hover,
+        &:focus {
+          color: black;
+        }
+        &:visited {
+          color: white;
+        }
+      }
       p {
+        color: white;
         a {
-          color: var(--il-link-color);
+          color: white;
 
           &:hover,
           &:focus {
-            color: var(--il-link-hover-color);
+            color: black;
           }
           &:visited {
-            color: var(--il-visited-link-color);
+            color: white;
           }
         }
       }
@@ -151,6 +163,16 @@
     color: white;
     width: 100%;
 
+    &.fingerprint--full {
+      background-image: url("/themes/contrib/illinois_framework_theme/images/fingerprint.svg"), linear-gradient(var(--il-altgeld), var(--il-orange));
+    }
+    &.fingerprint--left {
+      background-image: url("/themes/contrib/illinois_framework_theme/images/fingerprint-left.svg"), linear-gradient(var(--il-altgeld), var(--il-orange));
+    }
+    &.fingerprint--right {
+      background-image: url("/themes/contrib/illinois_framework_theme/images/fingerprint-right.svg"), linear-gradient(var(--il-altgeld), var(--il-orange));
+    }
+
     .title {
       color: white;
     }
@@ -160,16 +182,29 @@
     }
 
     .body {
+      a {
+        color: white;
+
+        &:hover,
+        &:focus {
+          color: var(--il-orange);
+        }
+        &:visited {
+          color: white;
+        }
+      }
       p {
         color: white;
 
         a {
+          color: white;
+
           &:hover,
           &:focus {
             color: var(--il-orange);
           }
           &:visited {
-            color: var(--il-visited-link-color);
+            color: white;
           }
         }
       }
@@ -193,6 +228,16 @@
     color: white;
     width: 100%;
 
+    &.fingerprint--full {
+      background-image: url("/themes/contrib/illinois_framework_theme/images/fingerprint.svg"), linear-gradient(var(--il-altgeld), var(--il-orange));
+    }
+    &.fingerprint--left {
+      background-image: url("/themes/contrib/illinois_framework_theme/images/fingerprint-left.svg"), linear-gradient(var(--il-altgeld), var(--il-orange));
+    }
+    &.fingerprint--right {
+      background-image: url("/themes/contrib/illinois_framework_theme/images/fingerprint-right.svg"), linear-gradient(var(--il-altgeld), var(--il-orange));
+    }
+
     .title {
       color: white;
     }
@@ -202,16 +247,29 @@
     }
 
     .body {
+      a {
+        color: white;
+
+        &:hover,
+        &:focus {
+          color: var(--il-blue);
+        }
+        &:visited {
+          color: white;
+        }
+      }
       p {
         color: white;
 
         a {
+          color: white;
+
           &:hover,
           &:focus {
-            color: var(--il-orange);
+            color: var(--il-blue);
           }
           &:visited {
-            color: var(--il-visited-link-color);
+            color: white;
           }
         }
       }
@@ -236,18 +294,29 @@
     width: 100%;
 
     .body {
+      a {
+        color: var(--il-alma-mater);
+
+        &:hover,
+        &:focus {
+          color: var(--il-altgeld);
+        }
+        &:visited {
+          color: var(--il-alma-mater);
+        }
+      }
       p {
         color: $body-color;
 
         a {
-          color: $body-color;
+          color: var(--il-alma-mater);
 
           &:hover,
           &:focus {
-            color: var(--il-orange);
+            color: var(--il-altgeld);
           }
           &:visited {
-            color: var(--il-visited-link-color);
+            color: var(--il-alma-mater);
           }
         }
       }
