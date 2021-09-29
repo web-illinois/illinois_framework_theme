@@ -12,13 +12,12 @@
         &:link {
           color: var(--il-link-color);
         }
-
+        &:visited {
+          color: var(--il-visited-link-color);
+        }
         &:hover,
         &:focus {
           color: var(--il-link-hover-color);
-        }
-        &:visited {
-          color: var(--il-visited-link-color);
         }
       }
       p {
@@ -70,13 +69,12 @@
         &:link {
           color: white;
         }
-
+        &:visited {
+          color: white;
+        }
         &:hover,
         &:focus {
           color: var(--il-alma-mater-3);
-        }
-        &:visited {
-          color: white;
         }
       }
       p {
@@ -124,13 +122,12 @@
         &:link {
           color: white;
         }
-
+        &:visited {
+          color: white;
+        }
         &:hover,
         &:focus {
           color: black;
-        }
-        &:visited {
-          color: white;
         }
       }
       p {
@@ -169,13 +166,12 @@
         &:link {
           color: white;
         }
-
+        &:visited {
+          color: white;
+        }
         &:hover,
         &:focus {
           color: var(--il-orange);
-        }
-        &:visited {
-          color: white;
         }
       }
       p {
@@ -214,13 +210,12 @@
         &:link {
           color: white;
         }
-
+        &:visited {
+          color: white;
+        }
         &:hover,
         &:focus {
           color: var(--il-blue);
-        }
-        &:visited {
-          color: white;
         }
       }
       p {
@@ -251,13 +246,12 @@
         &:link {
           color: var(--il-alma-mater);
         }
-
+        &:visited {
+          color: var(--il-alma-mater);
+        }
         &:hover,
         &:focus {
           color: var(--il-altgeld);
-        }
-        &:visited {
-          color: var(--il-alma-mater);
         }
       }
       p {
