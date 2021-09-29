@@ -8,7 +8,7 @@
       color: var(--il-orange);
     }
     .body {
-      > a {
+      a:link {
         color: var(--il-link-color);
 
         &:hover,
@@ -21,18 +21,6 @@
       }
       p {
         color: $body-color;
-
-        a {
-          color: var(--il-link-color);
-
-          &:hover,
-          &:focus {
-            color: var(--il-link-hover-color);
-          }
-          &:visited {
-            color: var(--il-visited-link-color);
-          }
-        }
       }
     }
     .subtitle {
@@ -76,7 +64,7 @@
     }
 
     .body {
-      > a {
+      a:link {
         color: white;
 
         &:hover,
@@ -89,18 +77,6 @@
       }
       p {
         color: #fff;
-
-        a {
-          color: white;
-
-          &:hover,
-          &:focus {
-            color: var(--il-alma-mater-3);
-          }
-          &:visited {
-            color: white;
-          }
-        }
       }
     }
 
@@ -140,7 +116,7 @@
     }
 
     .body {
-      > a {
+      a:link {
         color: white;
 
         &:hover,
@@ -153,17 +129,6 @@
       }
       p {
         color: white;
-        a {
-          color: white;
-
-          &:hover,
-          &:focus {
-            color: black;
-          }
-          &:visited {
-            color: white;
-          }
-        }
       }
     }
 
@@ -194,7 +159,7 @@
     }
 
     .body {
-      > a {
+      a:link {
         color: white;
 
         &:hover,
@@ -207,18 +172,6 @@
       }
       p {
         color: white;
-
-        a {
-          color: white;
-
-          &:hover,
-          &:focus {
-            color: var(--il-orange);
-          }
-          &:visited {
-            color: white;
-          }
-        }
       }
     }
 
@@ -249,7 +202,7 @@
     }
 
     .body {
-      > a {
+      a:link {
         color: white;
 
         &:hover,
@@ -262,18 +215,6 @@
       }
       p {
         color: white;
-
-        a {
-          color: white;
-
-          &:hover,
-          &:focus {
-            color: var(--il-blue);
-          }
-          &:visited {
-            color: white;
-          }
-        }
       }
     }
 
@@ -296,7 +237,7 @@
     width: 100%;
 
     .body {
-      > a {
+      a:link {
         color: var(--il-alma-mater);
 
         &:hover,
@@ -309,18 +250,6 @@
       }
       p {
         color: $body-color;
-
-        a {
-          color: var(--il-alma-mater);
-
-          &:hover,
-          &:focus {
-            color: var(--il-altgeld);
-          }
-          &:visited {
-            color: var(--il-alma-mater);
-          }
-        }
       }
     }
 
