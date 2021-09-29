@@ -8,8 +8,10 @@
       color: var(--il-orange);
     }
     .body {
-      a:link {
-        color: var(--il-link-color);
+      a {
+        &:link {
+          color: var(--il-link-color);
+        }
 
         &:hover,
         &:focus {
@@ -64,8 +66,10 @@
     }
 
     .body {
-      a:link {
-        color: white;
+      a {
+        &:link {
+          color: white;
+        }
 
         &:hover,
         &:focus {
@@ -116,8 +120,10 @@
     }
 
     .body {
-      a:link {
-        color: white;
+      a {
+        &:link {
+          color: white;
+        }
 
         &:hover,
         &:focus {
@@ -159,8 +165,10 @@
     }
 
     .body {
-      a:link {
-        color: white;
+      a {
+        &:link {
+          color: white;
+        }
 
         &:hover,
         &:focus {
@@ -202,8 +210,10 @@
     }
 
     .body {
-      a:link {
-        color: white;
+      a {
+        &:link {
+          color: white;
+        }
 
         &:hover,
         &:focus {
@@ -237,8 +247,10 @@
     width: 100%;
 
     .body {
-      a:link {
-        color: var(--il-alma-mater);
+      a {
+        &:link {
+          color: var(--il-alma-mater);
+        }
 
         &:hover,
         &:focus {
