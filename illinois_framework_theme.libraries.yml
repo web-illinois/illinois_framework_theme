@@ -36,3 +36,9 @@ paragraph--hero--section:
     js/paragraph--hero--section.js: {}
   dependencies:
     - core/jquery
+google-cse:
+  js:
+    js/google-cse.js: { attributes: { async: true } }
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
