@@ -1,5 +1,6 @@
 <?php
 use Drupal\block\Entity\Block;
+use Drupal\Core\Site\Settings;
 /**
  * Implements hook_preprocess().
  */
@@ -20,6 +21,7 @@ function illinois_framework_theme_preprocess(&$variables) {
   $variables['base_path_success'] = (array_key_exists('HTTPS', $_SERVER) ? 'https' : 'http').'://'.$_SERVER['HTTP_HOST'].'/';
   $variables['theme_path'] = $theme_path;
   $variables['files_path'] = $base_path_http . '/sites/' . $base_path . '/files/';
+  $variables['#attached']['drupalSettings']['google_cse']['google_api'] = Settings::get('google_api', 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
 
   // theme variables
   $variables['if_secondary_site_title'] = theme_get_setting('if_secondary_site_title');

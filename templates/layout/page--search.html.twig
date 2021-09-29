@@ -45,7 +45,7 @@
 * @ingroup themeable
 */
 #}
-
+{{ attach_library('illinois_framework_theme/google-cse') }}
 <div class="layout-container">
   {{ page.header }}
   {{ page.breadcrumb }}
@@ -55,18 +55,6 @@
   <div class="row">
     <div class="col-lg-12 fixed-width" id="google-custom-search">
       <div id="cse-search-form" style="width: 100%;">
-      {# add search engine ID in the var cx below #}
-      <script>
-        (function() {
-          var cx = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
-          var gcse = document.createElement('script');
-          gcse.type = 'text/javascript';
-          gcse.async = true;
-          gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-          var s = document.getElementsByTagName('script')[0];
-          s.parentNode.insertBefore(gcse, s);
-        })();
-      </script>
       <gcse:search queryParameterName="query"></gcse:search>
       </div>
     </div>
