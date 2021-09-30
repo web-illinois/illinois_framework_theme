@@ -141,9 +141,26 @@
   }
   .field--name-field-contact__content__image__wrapper {
     order: -1 !important;
+
+    &.col-md-12 {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
   }
   .field--name-field-contact__content__wrapper {
     order: 0 !important;
+
+    &.col-md-12 {
+      flex: 0 0 50%;
+      max-width: 50%;
+
+      &.left {
+        text-align: left !important;
+      }
+      &.right {
+        text-align: right !important;
+      }
+    }
   }
   .field--name-field-contact__body__wrapper {
     order: 0 !important;
