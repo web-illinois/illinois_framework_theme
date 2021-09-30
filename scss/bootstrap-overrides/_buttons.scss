@@ -30,3 +30,37 @@
     }
   }
 }
+// stylelint-disable selector-no-qualifying-type
+
+//
+// Base styles
+//
+
+.btn {
+
+  &:focus,
+  &.focus {
+    outline: 0;
+    box-shadow: unset;
+  }
+
+  // Disabled comes first so active can properly restyle
+  &.disabled,
+  &:disabled {
+    opacity: $btn-disabled-opacity;
+    @include box-shadow(none);
+  }
+
+  &:not(:disabled):not(.disabled) {
+    cursor: if($enable-pointer-cursor-for-buttons, pointer, null);
+
+    &:active,
+    &.active {
+      @include box-shadow(none);
+
+      &:focus {
+        @include box-shadow(none);
+      }
+    }
+  }
+}

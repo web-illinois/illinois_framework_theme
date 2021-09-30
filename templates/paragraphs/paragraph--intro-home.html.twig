@@ -67,7 +67,7 @@
           <div class="field--name-field-intro-home__item">
             <div class="field--name-field-intro-home__buttons">
             {% for item in content.field_intro_home_button['#items'] %}
-              <a class="field--name-field-intro-home__button btn btn-primary" href="{{ content.field_intro_home_button[loop.index0]['#url'] }}" role="button">{{ content.field_intro_home_button[loop.index0]['#title'] }}</a>
+              <a class="field--name-field-intro-home__button btn" href="{{ content.field_intro_home_button[loop.index0]['#url'] }}" role="button">{{ content.field_intro_home_button[loop.index0]['#title'] }}</a>
             {% endfor %}
             </div>
           </div>

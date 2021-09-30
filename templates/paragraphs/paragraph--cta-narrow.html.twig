@@ -68,7 +68,7 @@
           <div class="field--name-field-cta-narrow__item col">
             <div class="field--name-field-cta-narrow__buttons">
             {% for item in content.field_cta_narrow_button['#items'] %}
-              <a class="field--name-field-cta-narrow__button btn btn-primary" href="{{ content.field_cta_narrow_button[loop.index0]['#url'] }}" role="button">{{ content.field_cta_narrow_button[loop.index0]['#title'] }}</a>
+              <a class="field--name-field-cta-narrow__button btn" href="{{ content.field_cta_narrow_button[loop.index0]['#url'] }}" role="button">{{ content.field_cta_narrow_button[loop.index0]['#title'] }}</a>
             {% endfor %}
             </div>
           </div>

@@ -80,7 +80,7 @@
             <div class="field--name-field-cta__item col">
               <div class="field--name-field-cta__buttons">
               {% for item in content.field_cta_button['#items'] %}
-                <a class="field--name-field-cta__button btn btn-primary" href="{{ content.field_cta_button[loop.index0]['#url'] }}" role="button">{{ content.field_cta_button[loop.index0]['#title'] }}</a>
+                <a class="field--name-field-cta__button btn" href="{{ content.field_cta_button[loop.index0]['#url'] }}" role="button">{{ content.field_cta_button[loop.index0]['#title'] }}</a>
               {% endfor %}
               </div>
             </div>

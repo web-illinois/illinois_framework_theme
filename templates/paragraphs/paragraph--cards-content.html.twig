@@ -70,7 +70,7 @@
               {% if button_number > 0 %}
               <div class="field--name-field-cards-content__button col">
                 {% for item in content.field_cards_content_button['#items'] %}
-                  <a class="btn btn-primary" href="{{ content.field_cards_content_button[loop.index0]['#url'] }}" role="button">{{ content.field_cards_content_button[loop.index0]['#title'] }}</a>
+                  <a class="btn" href="{{ content.field_cards_content_button[loop.index0]['#url'] }}" role="button">{{ content.field_cards_content_button[loop.index0]['#title'] }}</a>
                 {% endfor %}
               </div>
               {% endif %}
