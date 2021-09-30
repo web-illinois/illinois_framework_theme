@@ -7,9 +7,9 @@
     &__wrapper {
       display: flex;
       align-items: center;
-      padding: 2.813rem 0;
-      width: 100%;
-      @include media-breakpoint-down(sm) {
+      justify-content: center;
+      padding: rem(45px) 0 rem(50px) 0;
+      @include media-breakpoint-down(md) {
         display: block;
       }
 
@@ -23,13 +23,22 @@
       .field--name-field-cta-text{
 
         &__wrapper{
-          max-width: 50rem;
-          margin: 0 auto;
+          max-width: rem(1200px);
 
           &.left {
             text-align: left;
-            .field--name-field-cta__button:first-child {
-              margin-left: 0;
+            .field--name-field-cta {
+              &__buttons {
+                @include media-breakpoint-down(sm) {
+                  margin-left: rem(-10px);
+                }
+              }
+              &__button:first-child {
+                margin-left: 0;
+                @include media-breakpoint-down(sm) {
+                  margin-left: rem(10px);
+                }
+              }
             }
             h2 {
               text-align: left;
@@ -43,8 +52,18 @@
           }
           &.right {
             text-align: right;
-            .field--name-field-cta__button:last-child {
-              margin-right: 0;
+            .field--name-field-cta {
+              &__buttons {
+                @include media-breakpoint-down(sm) {
+                  margin-right: rem(-10px);
+                }
+              }
+              &__button:last-child {
+                margin-right: 0;
+                @include media-breakpoint-down(sm) {
+                  margin-right: rem(10px);
+                }
+              }
             }
             h2 {
               text-align: right;
@@ -54,7 +73,11 @@
       }
 
     }
-
+    &_img {
+      &__wrapper {
+        padding: 0 rem(35px) 0 rem(50px);
+      }
+    }
     &__subtitle {
       margin-bottom: 0.938rem;
       font-size: rem(22px);
@@ -70,11 +93,7 @@
     }
 
     &__button {
-      margin: 0 1.875rem;
-      @include media-breakpoint-down(sm) {
-        margin: 0.5rem 0;
-        width: 100%;
-      }
+      margin: rem(10px);
     }
 
   }
