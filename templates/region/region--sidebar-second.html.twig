@@ -18,11 +18,11 @@
   'region-' ~ region|clean_class,
   'l-region',
   'l-region--' ~ region|clean_class,
-  'il-section-nav',
+  'layout-sidebar-second',
 ]
 %}
 {% if content %}
 <aside {{ attributes.addClass(classes) }} role="complementary">
-    {{ content }}
+  {{ content }}
 </aside>
 {% endif %}
