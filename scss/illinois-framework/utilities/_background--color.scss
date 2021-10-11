@@ -27,6 +27,9 @@
     .subtitle {
       color: var(--il-alma-mater);
     }
+    h1,h2,h3,h4,h5,h6 {
+      color: var(--il-blue);
+    }
     .btn {
       background-color: var(--il-orange);
       border: rem(2px) solid var(--il-orange);
@@ -74,7 +77,7 @@
         }
         &:hover,
         &:focus {
-          color: var(--il-alma-mater-3);
+          color: var(--il-industrial-blue-2);
         }
       }
       p {
@@ -96,7 +99,7 @@
   }
   &--orangegradient {
     background: linear-gradient(var(--il-altgeld), var(--il-orange));
-    color: white;
+    color: black;
     width: 100%;
 
     &.fingerprint--full {
@@ -127,7 +130,7 @@
         }
         &:hover,
         &:focus {
-          color: black;
+          color: var(--il-blue);
         }
       }
       p {
@@ -167,7 +170,7 @@
           color: white;
         }
         &:visited {
-          color: white;
+          color: var(--il-industrial-blue-2);
         }
         &:hover,
         &:focus {
@@ -219,10 +222,12 @@
         }
       }
       p {
-        color: white;
+        color: $body-color;
       }
     }
-
+    h1,h2,h3,h4,h5,h6 {
+      color: var(--il-blue);
+    }
     .btn {
       background-color: var(--il-orange);
       border: rem(2px) solid white;
@@ -247,16 +252,19 @@
           color: var(--il-alma-mater);
         }
         &:visited {
-          color: var(--il-alma-mater);
+          color: var(--il-alma-mater-1);
         }
         &:hover,
         &:focus {
-          color: var(--il-altgeld);
+          color: var(--il-industrial-blue);
         }
       }
       p {
         color: $body-color;
       }
+    }
+    h1,h2,h3,h4,h5,h6 {
+      color: var(--il-blue);
     }
 
     .btn {
@@ -265,6 +273,50 @@
       &:focus {
         background-color: var(--il-blue);
         border: rem(2px) solid var(--il-blue);
+        color: white;
+      }
+    }
+  }
+  &--industrialblue {
+    background-color: var(--il-industrial-blue);
+    width: 100%;
+
+    .body {
+      a {
+        &:link {
+          color: white;
+        }
+        &:visited {
+          color: white;
+        }
+        &:hover,
+        &:focus {
+          color: var(--il-industrial-blue-2);
+        }
+      }
+      p {
+        color: white;
+      }
+    }
+  }
+  &--altgeld {
+    background-color: var(--il-altgeld);
+    width: 100%;
+
+    .body {
+      a {
+        &:link {
+          color: white;
+        }
+        &:visited {
+          color: white;
+        }
+        &:hover,
+        &:focus {
+          color: black;
+        }
+      }
+      p {
         color: white;
       }
     }
