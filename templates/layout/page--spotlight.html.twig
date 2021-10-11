@@ -50,36 +50,20 @@
   {{ page.highlighted }}
   {{ page.help }}
   {{ page.tabs }}
-  {# if a side navigation exists the spoof the content region #}
-  {% if node.field_sidebar.0.value == "sidebar" %}
   <a name="main-content" aria-label="Start of content region"></a>
   <main class="region region-content l-region l-region--content" role="main">
-  <div class="il-content-with-section-nav section-nav-example">
+  {% if page.sidebar_first or page.sidebar_second %}
+  <div class="il-content-with-section-nav">
+  {% else %}
+  <div>
+  {% endif %}
     {{ page.sidebar_first }}
     {{ page.sidebar_second }}
     <div class="il-content">
-      {% if node.body %}
-        {{ node.body.0.value|raw }}
-      {% endif %}
-      {% set paragraph_number = node.field_sidebar_paragraphs.0.value %}
-      {% set paragraph_count = node.fields.field_paragraph|length %}
-      {% for item in node.fields.field_paragraph %}
-        {% if loop.index0 < paragraph_number %}
-          {{ drupal_entity('paragraph', item.target_id) }}
-        {% endif %}
-      {% endfor %}
+      {{ page.content }}
     </div>
   </div>
-    {% for item in node.fields.field_paragraph %}
-      {% if loop.index0 >= paragraph_number %}
-        {{ drupal_entity('paragraph', item.target_id) }}
-      {% endif %}
-    {% endfor %}
-    {{ attach_library('illinois_framework_theme/content-adjust') }}
   </main>
-  {% else %}
-    {{ page.content }}
-  {% endif %}
   {{ page.footer }}
 </div>{# /.layout-container #}
 
