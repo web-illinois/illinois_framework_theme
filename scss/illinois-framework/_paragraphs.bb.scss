@@ -107,6 +107,7 @@
       display: flex;
       margin: rem(15px) 0;
       text-decoration: none;
+      width: 100%;
     }
 
     &__image {
@@ -116,6 +117,7 @@
       }
     }
     &__content {
+      width: 100%;
 
       &__wrapper {
         border: 1px solid #707070;
@@ -124,6 +126,7 @@
         flex-direction: row;
         flex-wrap: wrap;
         padding: 0 0 rem(30px) 0;
+        width: 100%;
       }
 
       img {
@@ -163,5 +166,10 @@
     .paragraph--type--bb__wrapper {
       margin: 0.9375rem var(--il-content-margin);
     }
+  }
+}
+.il-content {
+  .paragraph--type--bb {
+    padding: 0 !important;
   }
 }
