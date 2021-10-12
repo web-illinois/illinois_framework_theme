@@ -50,7 +50,7 @@
   'paragraph--type--' ~ paragraph.bundle|clean_class,
   view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
   not paragraph.isPublished() ? 'paragraph--unpublished',
-  'col-lg-12 col-md-12 col-sm-12 p-0 d-flex ' ~ max_width
+  'd-flex ' ~ max_width
 ]
 %}
 
@@ -65,7 +65,7 @@
       {% if content.field_bb_subtitle['#items'] %}
         <div class="field--name-field-bb__subtitle subtitle">{{ content.field_bb_subtitle }}</div>
       {% endif %}
-    <div class="row col-lg-12 col-md-12 p-0 d-flex paragraph--type--bb__wrapper background--color--{{ content.field_bb_background['#items'].0.value }}">
+    <div class="row d-flex paragraph--type--bb__wrapper background--color--{{ content.field_bb_background['#items'].0.value }}">
         {% for item in content.field_bb['#items'] %}
           {% set image = content.field_bb[loop.index0]['#paragraph'].field_bb_content_image.entity.fileuri|image_style('big_button_image') %}
           {% set image_alt = content.field_bb[loop.index0]['#paragraph'].field_bb_content_image.alt %}
@@ -73,7 +73,7 @@
           {% set body = content.field_bb[loop.index0]['#paragraph'].field_bb_content_body.value %}
           {% set title = content.field_bb[loop.index0]['#paragraph'].field_bb_content_title.value %}
           {% set link = content.field_bb[loop.index0]['#paragraph'].field_bb_content_link[0] | view %}
-            <div class="col-lg-4 col-md-6 col-sm-12 d-flex ">
+            <div class="col-lg-4 col-md-6 col-sm-12 d-flex">
               <a class="field--name-field-bb-content__link" href="{{ link['#url'] | render }}" >
               <div class="field--name-field-bb-content__content__wrapper content__wrapper ">
                 <div class="field--name-field-bb-content__content">
