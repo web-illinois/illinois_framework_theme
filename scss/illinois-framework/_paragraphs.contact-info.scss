@@ -30,6 +30,9 @@
         @include media-breakpoint-down(md) {
           text-align: center !important
         }
+        &.lefttxt {
+          order: 1;
+        }
       }
       &__title {
         color: var(--il-blue);
@@ -134,13 +137,7 @@
   }
 }
 .il-content {
-  .field--name-field-contact__content__image__wrapper,
-  .field--name-field-contact__content__wrapper,
-  .field--name-field-contact__body__wrapper {
-    text-align: center !important;
-  }
   .field--name-field-contact__content__image__wrapper {
-    order: -1 !important;
 
     &.col-md-12 {
       flex: 0 0 50%;
@@ -148,22 +145,33 @@
     }
   }
   .field--name-field-contact__content__wrapper {
-    order: 0 !important;
+    order: 0;
 
     &.col-md-12 {
       flex: 0 0 50%;
       max-width: 50%;
 
-      &.left {
+      &.lefttxt {
         text-align: left !important;
+        order: 1;
       }
-      &.right {
+      &.righttxt {
         text-align: right !important;
       }
     }
   }
-  .field--name-field-contact__body__wrapper {
-    order: 0 !important;
-  }
+  .field--name-field-contact__content__body__wrapper {
 
+    &.col-md-12 {
+      flex: 0 0 50%;
+      max-width: 50%;
+
+      &.lefttxt {
+        text-align: left !important;
+      }
+      &.righttxt {
+        text-align: right !important;
+      }
+    }
+  }
 }
