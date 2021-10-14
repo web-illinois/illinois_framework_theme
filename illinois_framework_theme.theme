@@ -85,7 +85,13 @@ function illinois_framework_theme_theme_suggestions_page_alter(&$suggestions, $v
     $cumulative .= '__' . $arg;
     $suggestions[] = $cumulative;
   }
-
+  /**
+   * error page template suggestions.
+   */
+  if (!is_null(Drupal::requestStack()->getCurrentRequest()->attributes->get('exception'))) {
+    $status_code = Drupal::requestStack()->getCurrentRequest()->attributes->get('exception')->getStatusCode();
+    $suggestions[] = 'page__' . (string) $status_code;
+  }
 }
 /**
  * callback action on submit (custom method plus bas)
