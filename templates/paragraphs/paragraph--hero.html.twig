@@ -77,9 +77,9 @@
       {% if background == 'image' or background == 'imageblue' %}
         <il-hero {% if background == 'imageblue' %}class="blue--buttons"{% endif %} alt="{{ content.field_hero_image['#items'].0.alt }}" background="{{ content.field_hero_image.0['#markup'] }}" align="{{ alignment }}">
       {% elseif background == 'orange' %}
-        <il-hero color="orange">
+        <il-hero color="orange" align="{{ alignment }}">
       {% else %}
-        <il-hero color="blue">
+        <il-hero color="blue" align="{{ alignment }}">
       {% endif  %}
           <h1>{{ content.field_hero_title.0['#context'].value }}</h1>
           <ul>
