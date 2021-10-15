@@ -21,3 +21,34 @@
   padding-left:1.5rem;
 }
 
+.node-feature{
+  background-image: url(images/fingerprint-left.png);
+  background-size: cover;
+  padding: calc(var(--il-content-margin)*2); 
+  background-color: var(--il-blue); 
+
+.btn{
+  background-color: var(--il-altgeld);
+}
+.feature-title a{
+  color:var(--il-cloud);
+  text-decoration:none;
+}
+.field.field--name-body p{
+  color:var(--il-cloud-1);
+}
+.field.field--name-field-more-details{
+  background-color: var(--il-altgeld);
+}
+.field.field--name-field-more-details a{
+  color: var(--il-cloud);
+  text-decoration: none;
+}
+.spotlight-feature-image {
+  padding-left: calc(var(--il-content-margin)*1.5);
+}
+
+}
+.clearfix .clearfix:after{
+  clear:none;
+}
