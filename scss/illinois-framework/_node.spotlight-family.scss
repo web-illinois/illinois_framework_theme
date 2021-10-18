@@ -24,7 +24,7 @@
 .node-feature{
   background-image: url(images/fingerprint-left.png);
   background-size: cover;
-  padding: calc(var(--il-content-margin)*2); 
+  padding: calc(var(--il-content-margin)*2) 0;
   background-color: var(--il-blue); 
 
 .btn{
