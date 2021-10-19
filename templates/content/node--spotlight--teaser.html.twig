@@ -70,32 +70,16 @@
  *   in different view modes.
  */
 #}
-<article{{ attributes.addClass('fixed-width') }}>
 
-  {{ title_prefix }}
-  {% if not page %}
-    <h2{{ title_attributes }}>
-      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-    </h2>
-  {% else %}
-  <h1{{ title_attributes.addClass(['page-title']) }}>
-    {{ label }}
-  </h1>
-  {% endif %}
-  {{ title_suffix }}
-
-  {% if display_submitted %}
-    <footer>
-      {{ author_picture }}
-      <div{{ author_attributes }}>
-        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
-        {{ metadata }}
-      </div>
-    </footer>
-  {% endif %}
-
-  <div{{ content_attributes }}>
-    {{ content }}
-  </div>
-
-</article>
+<div{{ attributes.addClass('fixed-width','spotlight-list-item') }}>
+<a href="{{ url }}">{{content.field_if_meda_featured_image}}</a>
+<div class="clearfix">
+{{ title_prefix }}
+<h2{{ title_attributes }} class="list-title"><a href="{{ url }}" rel="bookmark">{{ label }}</a></h2>
+{{ title_suffix }}
+{{content|without('field_if_meda_featured_image', 'links')}}
+{% if content.links|render is not empty %}
+<a class="il-button il-blue" href="{{ url }}">Read full story <span class="hidden">about {{label}}</span></a>
+{% endif %}
+</div>
+</div>
