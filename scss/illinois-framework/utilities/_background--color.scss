@@ -277,48 +277,4 @@
       }
     }
   }
-  &--industrialblue {
-    background-color: var(--il-industrial-blue);
-    width: 100%;
-
-    .body {
-      a {
-        &:link {
-          color: white;
-        }
-        &:visited {
-          color: white;
-        }
-        &:hover,
-        &:focus {
-          color: var(--il-industrial-blue-2);
-        }
-      }
-      p {
-        color: white;
-      }
-    }
-  }
-  &--altgeld {
-    background-color: var(--il-altgeld);
-    width: 100%;
-
-    .body {
-      a {
-        &:link {
-          color: white;
-        }
-        &:visited {
-          color: white;
-        }
-        &:hover,
-        &:focus {
-          color: black;
-        }
-      }
-      p {
-        color: white;
-      }
-    }
-  }
 }
