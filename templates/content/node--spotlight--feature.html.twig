@@ -70,38 +70,7 @@
  *   in different view modes.
  */
 #}
-<style>
-.node-feature{
-  background-image: url(images/fingerprint-left.png);
-  background-size: cover;
-  padding: calc(var(--il-content-margin)*2); 
-  background-color: var(--il-blue); 
-}
-.node-feature .btn{
-  background-color: var(--il-altgeld);
-}
-.node-feature .feature-title{
-  color:var(--il-cloud);
-}
-.node-feature .field.field--name-body p{
-  color:var(--il-cloud-1);
-  padding-top:calc(var(--il-content-margin)*3);
-}
-.node-feature .field.field--name-field-more-details{
-  background-color: var(--il-altgeld);
-}
-.node-feature .field.field--name-field-more-details a{
-  color: var(--il-cloud);
-  text-decoration: none;
-}
-.node-feature .spotlight-feature-image {
-  padding-left: calc(var(--il-content-margin)*1.5);
-}
-.clearfix .clearfix:after{
-  clear:none;
-}
-</style>
-<article{{ attributes.addClass('node-feature') }}>
+<article{{ attributes.addClass('fixed-width') }}>
 
   {{ title_prefix }}
   {% if not page %}
@@ -122,12 +91,13 @@
       </div>
     </footer>
   {% endif %}
-{{content.field_if_meda_featured_image}}
+<a href="{{ url }}">{{content.field_if_meda_featured_image}}</a>
   <div{{ content_attributes }} class="clearfix">
-  <h2{{ title_attributes }} class="feature-title">
-      {{ label }}
+  <h2{{ title_attributes }} class="feature-title"><a href="{{ url }}">
+      {{ label }}</a>
     </h2>
     {{ content|without('field_if_meda_featured_image') }}
+    <a class="il-button il-orange" href="{{ url }}">Read full story <span class="hidden">about {{label}}</span></a>
   </div>
   
 
