@@ -12,12 +12,30 @@
     max-width:900px;
     margin: 0 auto;
 }
-
-.media--view-mode-spotlight-list{
-  padding-right:1.5rem;
-}
-
 .field--name-field-if-meda-featured-image .media--view-mode-spotlight-detail{
   padding-left:1.5rem;
 }
 
+.clearfix .clearfix:after{
+  clear:none;
+}
+
+#block-illinois-framework-theme-content article.fixed-width .field--name-body{
+  padding: 0;
+}
+
+.views-row .spotlight-list-item{
+  margin-top: calc(var(--il-content-margin)*2);
+}
+
+.spotlight-list-item{
+  ul.inline li{
+    padding:0;
+  }
+  .media--view-mode-spotlight-list{
+    padding-right: calc(var(--il-content-margin)*1.5);
+  }
+  .list-title{
+    margin-top:0;
+  }
+}
