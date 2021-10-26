@@ -116,7 +116,7 @@ article.news {
 
 /*news block*/
 div#block-views-block-news-block-1 {
-  background-color: #f8f8f8;
+  background-color: var(--il-gray-1);
 }
 .news-block {
   max-width: 900px !important;
