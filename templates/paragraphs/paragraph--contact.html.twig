@@ -49,7 +49,13 @@
   {% set text_position = 'order-first' %}
   {% set image_body_position = 'order-0' %}
 {% endif %}
-
+{% set button_number = content.field_contact_content.0['#paragraph'].field_contact_content_button|length %}
+{% set paragraph_title = content.field_contact_title['#items'].0.value %}
+{% set content_title = content.field_contact_content.0['#paragraph'].field_contact_content_title.value %}
+{% set subtitle = content.field_contact_content.0['#paragraph'].field_contact_content_subtit.value %}
+{% set address = content.field_contact_content.0['#paragraph'].field_contact_content_address.value %}
+{% set phone = content.field_contact_content.0['#paragraph'].field_contact_content_phone.value %}
+{% set email = content.field_contact_content.0['#paragraph'].field_contact_content_email.value %}
 {%
   set classes = [
   'paragraph',
@@ -64,28 +70,37 @@
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
-      {% set button_number = content.field_contact_content.0['#paragraph'].field_contact_content_button|length %}
       {% if content.field_contact_title['#items'] %}
         <div class="col-lg-12 paragraph--type--contact__title">
-          <h2>{{ content.field_contact_title['#items'].0.value }}</h2>
+          <h2>{{ paragraph_title }}</h2>
         </div>
       {% endif %}
       <div class="row col-lg-12 col-md-12 fixed-width">
         <div class="field--name-field-contact__content__wrapper col-lg-6 col-md-12 col-sm-12 flex-column {{ text_position }} {{ layout }}">
-            <div class="field--name-field-contact__content__title">{{ content.field_contact_content.0['#paragraph'].field_contact_content_title.value }}</div>
-            <div class="field--name-field-contact__content__subtitle">{{ content.field_contact_content.0['#paragraph'].field_contact_content_subtit.value }}</div>
-            <div class="field--name-field-contact__content__address"><address>{{ content.field_contact_content.0['#paragraph'].field_contact_content_address.value|raw }}</address></div>
-            <div class="field--name-field-contact__content__phone"><p>{{ content.field_contact_content.0['#paragraph'].field_contact_content_phone.value }}</p></div>
-            <div class="field--name-field-contact__content__email"><p>{{ content.field_contact_content.0['#paragraph'].field_contact_content_email.value }}</p></div>
+            <div class="field--name-field-contact__content__title">{{ content_title }}</div>
+            {% if subtitle %}
+              <div class="field--name-field-contact__content__subtitle">{{ subtitle }}</div>
+            {% endif %}
+            {% if address %}
+              <div class="field--name-field-contact__content__address"><address>{{ address|raw }}</address></div>
+            {% endif %}
+            {% if phone %}
+              <div class="field--name-field-contact__content__phone"><p><a href="tel:{{ phone }}">{{ phone }}</a></p></div>
+            {% endif %}
+            {% if email %}
+              <div class="field--name-field-contact__content__email"><p><a href="mailto:{{ email }}">{{ email }}</a></p></div>
+            {% endif %}
             {% if button_number > 0 %}
               <div class="field--name-field-contact__content__button {% if button_number == 2 %} field--name-field-contact__content__button--two {% endif %}">
                 {% for item in content.field_contact_content.0['#paragraph'].field_contact_content_button %}
-                  <a class="il-button {% if background_color == 'gray' %}il-blue{% endif %}" href="{{ content.field_contact_content.0['#paragraph'].field_contact_content_button[loop.index0].uri }}" role="button">{{ content.field_contact_content.0['#paragraph'].field_contact_content_button[loop.index0].title }}</a>
+                  <div class="field--name-field-contact__content__button--{{ loop.index0 }}">
+                    <a class="il-button {% if background_color == 'gray' %}il-blue{% endif %}" href="{{ content.field_contact_content.0['#paragraph'].field_contact_content_button[loop.index0].uri }}" role="button">{{ content.field_contact_content.0['#paragraph'].field_contact_content_button[loop.index0].title }}</a>
+                  </div>
                 {% endfor %}
               </div>
             {% endif %}
           </div>
-        {% if content.field_contact_content.0['#paragraph'].field_contact_content_body.0 %}
+        {% if content.field_contact_content.0['#paragraph'].field_contact_content_body.0.value %}
         <div class="field--name-field-contact__content__body__wrapper col-lg-6 col-md-12 col-sm-12 {{ image_body_position}}">
           <div class="{{ layout }}">
             {{ content.field_contact_content.0['#paragraph'].field_contact_content_body.0.value|raw }}

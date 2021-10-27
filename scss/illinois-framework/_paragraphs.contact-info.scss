@@ -20,15 +20,13 @@
       &__wrapper {
         @include media-breakpoint-down(md) {
           order: 0 !important;
+          text-align: center !important;
         }
         &.right {
           text-align: right;
         }
         &.left {
           text-align: left;
-        }
-        @include media-breakpoint-down(md) {
-          text-align: center !important
         }
         &.lefttxt {
           order: 1;
@@ -70,19 +68,13 @@
         }
       }
       &__button {
-
         a {
-          margin-top: rem(45px);
-          margin-bottom: rem(20px);
+          margin: rem(15px) 0;
         }
-
-        &--two {
-          a:first-child {
-            margin-right: rem(30px);
-          }
+        &--0,
+        &--1 {
+          width: 100%;
         }
-
-
       }
       &__image {
         &__wrapper {
