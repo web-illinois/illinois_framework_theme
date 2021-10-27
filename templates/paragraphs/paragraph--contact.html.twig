@@ -70,7 +70,6 @@
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
-      {{ kint(content.field_contact_content.0['#paragraph']) }}
       {% if content.field_contact_title['#items'] %}
         <div class="col-lg-12 paragraph--type--contact__title">
           <h2>{{ paragraph_title }}</h2>
