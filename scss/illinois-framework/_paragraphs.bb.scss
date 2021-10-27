@@ -44,34 +44,35 @@
       }
     }
   }
-
-  &__background--color {
-    &--illiniblue{
-      background-color: transparent !important;
-      a.field--name-field-bb-content__link{
-        background-color: var(--il-blue);
-        color: white;
-        &:hover,
-        &:focus {
-          background-color: white;
-          color: #252525;
-          h2 {
-            color: var(--il-orange);
+  &__wrappger {
+    &.background--color {
+      &--illiniblue{
+        background-color: transparent !important;
+        a.field--name-field-bb-content__link{
+          background-color: var(--il-blue);
+          color: white;
+          &:hover,
+          &:focus {
+            background-color: white;
+            color: #252525;
+            h2 {
+              color: var(--il-orange);
+            }
           }
         }
       }
-    }
-    &--white{
-      background-color: transparent;
-      a.field--name-field-bb-content__link{
-        background-color: white;
-        color: var(--il-orange);
-        &:hover,
-        &:focus {
-          background-color: var(--il-blue);
-          color: white;
-          h2 {
+      &--white{
+        background-color: transparent;
+        a.field--name-field-bb-content__link{
+          background-color: white;
+          color: var(--il-orange);
+          &:hover,
+          &:focus {
+            background-color: var(--il-blue);
             color: white;
+            h2 {
+              color: white;
+            }
           }
         }
       }
