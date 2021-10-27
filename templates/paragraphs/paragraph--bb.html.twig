@@ -65,7 +65,7 @@
       {% if content.field_bb_subtitle['#items'] %}
         <div class="field--name-field-bb__subtitle subtitle">{{ content.field_bb_subtitle }}</div>
       {% endif %}
-    <div class="row d-flex paragraph--type--bb__wrapper paragraph--type--bb__background--color--{{ content.field_bb_background['#items'].0.value }}">
+    <div class="row d-flex paragraph--type--bb__wrapper background--color--{{ content.field_bb_background['#items'].0.value }}">
         {% for item in content.field_bb['#items'] %}
           {% set image = content.field_bb[loop.index0]['#paragraph'].field_bb_content_image.entity.fileuri|image_style('big_button_image') %}
           {% set image_alt = content.field_bb[loop.index0]['#paragraph'].field_bb_content_image.alt %}
