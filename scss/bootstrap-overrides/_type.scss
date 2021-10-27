@@ -80,11 +80,9 @@ h1, h2, h3, h4, h5, h6 {
     &:visited {
       color: var(--il-alma-mater-1);
     }
-    &:hover {
-      color: var(--il-altgeld);
-    }
+    &:hover,
     &:focus {
-      outline: rem(2px) dotted var(--il-altgeld);
+      color: var(--il-altgeld);
     }
   }
 }
