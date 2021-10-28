@@ -45,7 +45,7 @@
   'paragraph--type--' ~ paragraph.bundle|clean_class,
   view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
   not paragraph.isPublished() ? 'paragraph--unpublished',
-  'col-lg-9 col-md-9 col-sm-12 p-0 d-flex row fixed-width'
+  'col-lg-12 col-md-9 col-sm-12 p-0 d-flex row fixed-width'
 ]
 %}
 
@@ -61,7 +61,7 @@
         {% set row_style = 'flex-row-reverse' %}
       {% endif %}
       {% set body = content.field_feature_grouped_body['#items'].0.value %}
-      <div class="col-lg-9 col-md-12 col-sm-12 p-0 d-flex row m-0 {{ row_style }} paragraph--type--feature-grouped__wrapper background--color--{{ background }}">
+      <div class="col-lg-12 col-md-12 col-sm-12 p-0 d-flex row m-0 {{ row_style }} paragraph--type--feature-grouped__wrapper background--color--{{ background }}">
         {% if content.field_feature_grouped_title['#items'] %}
           <div class="col-lg-12 p-0 field--name-field-feature-grouped__title title">
             <h2>{{ content.field_feature_grouped_title['#items'].0.value }}</h2>
