@@ -11,7 +11,7 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
   // Add Links to the upper right-hand corner of the website
   $form['if_header_links'] = array(
     '#type' => 'details',
-    '#title' => t('Header Link List'),
+    '#title' => t('Feature Link List'),
     '#description' => t('Add up to 3 links in the upper right-hand corner of the header'),
     '#weight' => -105,
     '#open' => FALSE,

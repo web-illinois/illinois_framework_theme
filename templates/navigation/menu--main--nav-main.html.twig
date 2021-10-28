@@ -32,7 +32,7 @@
       {% set item_length = items|length %}
       {% if menu_level == 0 and item.below %}
         <il-nav-section {% if item_length >= 5 and loop.index > (item_length - 2) %}right="true"{% endif %}>
-          <a href="{{ item.url }}" slot="label">{{ item.title }}</a>
+          <a href="{{ item.url }}" slot="label" aria-expanded="false" >{{ item.title }}</a>
           <ul class="il-subnav">
             {% for item in item.below %}
               <li>

@@ -50,8 +50,7 @@
   {{ page.highlighted }}
   {{ page.help }}
   {{ page.tabs }}
-  <a name="main-content" aria-label="Start of content region"></a>
-  <main class="region region-content l-region l-region--content" role="main">
+  <main id="main-content" tabindex="-1" class="region region-content l-region l-region--content" role="main">
   {% if page.sidebar_first or page.sidebar_second %}
   <div class="il-content-with-section-nav">
   {% else %}

@@ -52,8 +52,7 @@
   {{ page.tabs }}
   {# if a side navigation exists the spoof the content region #}
   {% if node.field_sidebar.0.value == "sidebar" %}
-    <a name="main-content" aria-label="Start of content region"></a>
-    <main class="region region-content l-region l-region--content" role="main">
+    <main id="main-content" tabindex="-1" class="region region-content l-region l-region--content" role="main">
       <div class="il-content-with-section-nav section-nav-example">
         {{ page.sidebar_first }}
         {{ page.sidebar_second }}
