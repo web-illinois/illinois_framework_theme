@@ -1,19 +1,33 @@
 .paragraph--type--rt {
-  margin: 45px auto 60px auto;
+  //margin: 45px auto 60px auto;
+  padding-top: 45px;
+
+  &.background--color--gray {
+    .paragraph--type--rt__title h2, h3 {
+      color: var(--il-altgeld) !important;
+    }
+  }
+  &.background--color--white {
+    .paragraph--type--rt__title h2, h3 {
+      color: var(--il-orange) !important;
+    }
+  }
 
   &__wrapper {
     //margin: rem(15px) rem(10px);
+    padding-left: rem(25px);
   }
 
   &__title {
+    padding-left: 0;
 
     h2 {
-      color: var(--il-altgeld) !important;
       font-size: rem(35px);
       font-weight: 600;
       line-height: rem(40px);
-      padding: rem(20px) rem(15px) rem(10px) 0;
-      text-align: center;
+      padding: 0 rem(15px) rem(10px) 0;
+      text-align: left;
+      margin-top: 0;
     }
   }
 
@@ -31,18 +45,21 @@
     &__title {
 
       .field__item {
-        color: var(--il-altgeld);
+        color: var(--il-blue) !important;
         font-family: var(--il-source-sans);
         font-size: rem(21px);
         font-weight: 700;
         line-height: rem(33px);
         opacity: 1;
-        padding: rem(15px) rem(15px) rem(15px) 0;
+        padding: 0 rem(15px) rem(15px) 0;
+        margin-top: 0;
+        margin-bottom: rem(5px);
         //text-align: center;
       }
     }
 
     &__body {
+      margin-bottom: rem(44px);
 
       .field__item {
         opacity: 1;
@@ -57,7 +74,7 @@
   }
 }
 .il-content {
-  .paragraph--type--rt {
+  .paragraph--type--rt__wrapper {
     padding: 0 !important;
   }
 }
