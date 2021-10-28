@@ -192,7 +192,8 @@
 
   .paragraph--type--bb {
 
-    &.fixed-width {
+    &.fixed-width,
+    &.full-width {
       padding: 0;
     }
   }
