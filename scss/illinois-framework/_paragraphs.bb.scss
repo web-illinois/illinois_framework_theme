@@ -3,11 +3,13 @@
   &.full-width {
     padding: 0 var(--il-content-margin);
   }
-  .field--name-field-bb{
+
+  .field--name-field-bb {
     &__title {
       padding: 0 15px;
       color: var(--il-orange);
     }
+
     &__subtitle {
       padding: 0 15px;
       font-weight: 600;
@@ -16,60 +18,83 @@
       color: var(--il-blue);
     }
   }
+
   .left {
-    .paragraph--type--bb__wrapper{
+    .paragraph--type--bb__wrapper {
       justify-content: left;
     }
-    .field--name-field-bb{
+
+    .field--name-field-bb {
       &__title {
         padding-left: 0;
         text-align: left;
       }
+
       &__subtitle {
         padding-left: 0;
         text-align: left;
       }
     }
   }
+
   .center {
-    .paragraph--type--bb__wrapper{
+    .paragraph--type--bb__wrapper {
       justify-content: center;
     }
-    .field--name-field-bb{
+
+    .field--name-field-bb {
       &__title {
         text-align: center;
       }
+
       &__subtitle {
         text-align: center;
       }
     }
   }
-  &__wrappger {
+
+
+  .col-sm-12 {
+    @include media-breakpoint-down(sm) {
+      padding: 0;
+    }
+  }
+
+  &__wrapper {
+    margin: rem(15px) 0;
+
     &.background--color {
-      &--illiniblue{
+      &--illiniblue {
         background-color: transparent !important;
-        a.field--name-field-bb-content__link{
+
+        a.field--name-field-bb-content__link {
           background-color: var(--il-blue);
           color: white;
+
           &:hover,
           &:focus {
             background-color: white;
             color: #252525;
+
             h2 {
               color: var(--il-orange);
             }
           }
         }
       }
-      &--white{
+
+      &--white {
         background-color: transparent;
-        a.field--name-field-bb-content__link{
+
+        a.field--name-field-bb-content__link {
           background-color: white;
-          color: var(--il-orange);
+          color: inherit;
+
           &:hover,
           &:focus {
             background-color: var(--il-blue);
             color: white;
+
             h2 {
               color: white;
             }
@@ -105,7 +130,14 @@
       display: flex;
       margin: rem(15px) 0;
       text-decoration: none;
-      width: 100%;
+      width: 100%
+    }
+
+    &__image {
+
+      &__wrapper {
+
+      }
     }
 
     &__content {
@@ -125,6 +157,7 @@
         width: 100%;
       }
     }
+
     &__title {
 
       .field__item {
