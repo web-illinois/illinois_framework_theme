@@ -123,20 +123,23 @@
     }
 
     .body {
+
+      p,
+      li {
+        color: white;
+        font-size: rem(24px);
+      }
       a {
         &:link {
           color: white;
         }
         &:visited {
-          color: white;
+          color: black;
         }
         &:hover,
         &:focus {
           color: var(--il-blue);
         }
-      }
-      p {
-        color: white;
       }
     }
 
@@ -213,20 +216,23 @@
     }
 
     .body {
+
+      p,
+      li {
+        color: white;
+        font-size: rem(24px);
+      }
       a {
         &:link {
           color: white;
         }
         &:visited {
-          color: white;
+          color: black;
         }
         &:hover,
         &:focus {
           color: var(--il-blue);
         }
-      }
-      p {
-        color: $body-color;
       }
     }
     h1,h2,h3,h4,h5,h6 {
