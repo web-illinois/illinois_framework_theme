@@ -2,13 +2,17 @@
   //margin: 45px auto 60px auto;
   padding-top: 45px;
 
+  h3 {
+    color: var(--il-blue) !important;
+  }
+
   &.background--color--gray {
-    .paragraph--type--rt__title h2, h3 {
+    .paragraph--type--rt__title h2 {
       color: var(--il-altgeld) !important;
     }
   }
   &.background--color--white {
-    .paragraph--type--rt__title h2, h3 {
+    .paragraph--type--rt__title h2 {
       color: var(--il-orange) !important;
     }
   }
@@ -74,7 +78,22 @@
   }
 }
 .il-content {
-  .paragraph--type--rt__wrapper {
-    padding: 0 !important;
+  .background--color--gray {
+    .paragraph--type--rt__wrapper {
+      padding: rem(30px) !important;
+    }
+  }
+  .background--color--white {
+    .paragraph--type--rt__wrapper {
+      padding: 0 !important;
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .il-content {
+    .paragraph--type--rt__wrapper {
+      padding-left: 0 !important;
+    }
   }
 }
