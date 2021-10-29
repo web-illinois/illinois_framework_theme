@@ -9,13 +9,13 @@
         .title {
           border-bottom: 1px solid white;
         }
-        .btn {
+        .il-button {
           background-color: var(--il-blue);
           border-color: var(--white);
           color: var(--white);
         }
-        .btn:hover,
-        .btn:focus {
+        .il-button:hover,
+        .il-button:focus {
           background-color: var(--il-orange);
           border-color: var(--il-orange);
           color: white;
@@ -26,14 +26,14 @@
         .field--name-field-cards-content__wrapper {
           background-color: var(--white);
         }
-        .btn {
+        .il-button {
           background-color: white;
           border-color: var(--il-blue);
           color: var(--il-blue);
         }
 
-        .btn:hover,
-        .btn:focus {
+        .il-button:hover,
+        .il-button:focus {
           background-color: var(--il-blue);
           border-color: var(--il-blue);
           color: white;
