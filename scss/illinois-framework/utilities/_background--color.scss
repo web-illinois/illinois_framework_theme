@@ -30,7 +30,8 @@
     h1,h2,h3,h4,h5,h6 {
       color: var(--il-blue);
     }
-    .btn {
+    .btn,
+    .il-button {
       background-color: var(--il-orange);
       border: rem(2px) solid var(--il-orange);
       color: white;
@@ -85,7 +86,8 @@
       }
     }
 
-    .btn {
+    .btn,
+    .il-button {
       background-color: #184079;
       border: rem(2px) solid white;
       color: white;
@@ -138,7 +140,8 @@
       }
     }
 
-    .btn {
+    .btn,
+    .il-button {
       background-color: #ef461a ;
       border: rem(2px) solid white;
       color: white;
@@ -182,7 +185,8 @@
       }
     }
 
-    .btn {
+    .btn,
+    .il-button {
       background-color: var(--il-blue);
       border: rem(2px) solid white;
       color: white;
@@ -228,7 +232,8 @@
     h1,h2,h3,h4,h5,h6 {
       color: var(--il-blue);
     }
-    .btn {
+    .btn,
+    .il-button {
       background-color: var(--il-orange);
       border: rem(2px) solid white;
       color: white;
@@ -267,7 +272,8 @@
       color: var(--il-blue);
     }
 
-    .btn {
+    .btn,
+    .il-button {
 
       &:hover,
       &:focus {
