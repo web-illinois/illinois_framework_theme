@@ -79,6 +79,15 @@ p {
     --color-secondary: var(--il-blue) !important;
     background-color: var(--il-button-background-color) !important;
     color: var(--il-button-foreground-color) !important;
+    display: inline-block !important;
+    padding: 12px 20px !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    border-radius: .25em !important;
+    border: 2px solid var(--il-button-border-color) !important;
+    font: 600 1.1875rem/1.25rem var(--il-source-sans) !important;
+    transition: background-color .3s !important;
+    cursor: pointer !important;
 
     &:visited {
       color: var(--il-blue) !important;
