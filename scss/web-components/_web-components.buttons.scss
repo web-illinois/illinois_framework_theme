@@ -73,14 +73,9 @@
     }
   }
 }
-p, li, div {
+p, li {
   a.il-button {
     color: var(--color-secondary) !important;
-
-    &:focus,
-    &:hover {
-      text-decoration: none !important;
-    }
 
     &:visited {
       color: var(--il-blue) !important;
