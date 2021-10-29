@@ -23,7 +23,7 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
   $form['if_header_links']['if_header_link_1_fieldset']['if_header_text_1'] = array(
   '#type'          => 'textfield',
   '#placeholder' => 'Apply',
-  '#title'         => t('Enter text to displayed for the link'),
+  '#title'         => t('Enter text to display for the link'),
   '#size'          => 128,
   '#default_value' => theme_get_setting('if_header_text_1'),
 );
@@ -40,7 +40,7 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
   $form['if_header_links']['if_header_link_2_fieldset']['if_header_text_2'] = array(
     '#type'          => 'textfield',
     '#placeholder' => 'Give',
-    '#title'         => t('Enter text to displayed for the link'),
+    '#title'         => t('Enter text to display for the link'),
     '#size'          => 128,
     '#default_value' => theme_get_setting('if_header_text_2'),
   );
@@ -57,7 +57,7 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
   $form['if_header_links']['if_header_link_3_fieldset']['if_header_text_3'] = array(
     '#type'          => 'textfield',
     '#placeholder' => 'Login',
-    '#title'         => t('Enter text to displayed for the link'),
+    '#title'         => t('Enter text to display for the link'),
     '#size'          => 128,
     '#default_value' => theme_get_setting('if_header_text_3'),
   );
@@ -426,7 +426,7 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
   );
   $form['if_subfooter']['if_subfooter_fieldset']['if_subfooter_text_1'] = array(
     '#type'          => 'textfield',
-    '#title'         => t('Enter text to displayed for the link'),
+    '#title'         => t('Enter text to display for the link'),
     '#size'          => 128,
     '#default_value' => theme_get_setting('if_subfooter_text_1'),
   );
@@ -438,7 +438,7 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
   );
   $form['if_subfooter']['if_subfooter_fieldset']['if_subfooter_text_2'] = array(
     '#type'          => 'textfield',
-    '#title'         => t('Enter text to displayed for the link'),
+    '#title'         => t('Enter text to display for the link'),
     '#size'          => 128,
     '#default_value' => theme_get_setting('if_subfooter_text_2'),
   );
@@ -450,7 +450,7 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
   );
   $form['if_subfooter']['if_subfooter_fieldset']['if_subfooter_text_3'] = array(
     '#type'          => 'textfield',
-    '#title'         => t('Enter text to displayed for the link'),
+    '#title'         => t('Enter text to display for the link'),
     '#size'          => 128,
     '#default_value' => theme_get_setting('if_subfooter_text_3'),
   );
@@ -462,7 +462,7 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
   );
   $form['if_subfooter']['if_subfooter_fieldset']['if_subfooter_text_4'] = array(
     '#type'          => 'textfield',
-    '#title'         => t('Enter text to displayed for the link'),
+    '#title'         => t('Enter text to display for the link'),
     '#size'          => 128,
     '#default_value' => theme_get_setting('if_subfooter_text_4'),
   );
@@ -474,7 +474,7 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
   );
   $form['if_subfooter']['if_subfooter_fieldset']['if_subfooter_text_5'] = array(
     '#type'          => 'textfield',
-    '#title'         => t('Enter text to displayed for the link'),
+    '#title'         => t('Enter text to display for the link'),
     '#size'          => 128,
     '#default_value' => theme_get_setting('if_subfooter_text_5'),
   );
