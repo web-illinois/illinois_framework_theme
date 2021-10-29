@@ -58,30 +58,4 @@
       }
     }
   }
-  .background--color{
-    &--gray{
-      color: var(--il-blue);
-      .btn-primary{
-        background-color: var(--il-blue);
-        color: white;
-      }
-      .btn:hover{
-        background-color: white;
-        color: var(--il-blue);
-      }
-    }
-    &--white{
-      color: var(--il-blue);
-      .btn-primary{
-        background-color: var(--il-blue);
-        border-color: var(--il-blue);
-        color: white;
-      }
-      .btn:hover{
-        background-color: var(--il-orange);
-        border-color: var(--il-orange);
-        color: white;
-      }
-    }
-  }
 }
