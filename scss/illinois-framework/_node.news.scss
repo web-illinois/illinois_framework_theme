@@ -197,6 +197,15 @@ div#block-views-block-news-block-1 {
     .title h2{
       color: var(--il-orange);
       margin-top: 0;
+      a {
+        color: var(--il-orange);
+        text-decoration: none;
+        &:hover,
+        &:focus {
+          color: var(--il-altgeld);
+          text-decoration: underline;
+        }
+      }
     }
     .button {
       margin: auto 0 0 0;
