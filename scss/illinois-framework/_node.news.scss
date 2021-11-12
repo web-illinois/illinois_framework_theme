@@ -11,7 +11,6 @@ article.news {
     line-height: rem(40px);
     margin-bottom: 1.875rem;
     color: var(--il-orange);
-    max-width: 900px;
   }
   .byline {
     display: flex;
@@ -22,7 +21,6 @@ article.news {
     color: var(--il-blue);
     font-weight: 600;
     margin: 1.875rem 0;
-    max-width: 900px;
   }
   .byline-vr {
     display: block;
@@ -91,7 +89,6 @@ article.news {
 
   }
   .item-list{
-    max-width: 900px;
     margin: 0 auto;
     ul {
       list-style: none;
@@ -119,7 +116,6 @@ div#block-views-block-news-block-1 {
   background-color: var(--il-gray-1);
 }
 .news-block {
-  max-width: 900px !important;
     ul{
       list-style: none;
       li {
@@ -189,7 +185,6 @@ div#block-views-block-news-block-1 {
     }
   }
   .highlighted-news-content {
-    max-width: 900px;
     min-height: 300px;
     @include media-breakpoint-down(sm) {
       min-height: auto;
