@@ -24,6 +24,10 @@
         }
         &.right p {
           text-align: right;
+          @include media-breakpoint-down(md) {
+            text-align: center !important
+          }
+
         }
         &.right {
           text-align: right;
