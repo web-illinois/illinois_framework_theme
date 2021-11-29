@@ -207,3 +207,20 @@ div#block-views-block-news-block-1 {
     }
   }
 }
+
+.spotlight-list-item .media--view-mode-news-teaser {
+  padding-right: calc(var(--il-content-margin) * 1.5);
+  float:left;
+}
+
+.spotlight-list-item .field--name-field-if-date{
+  float:left;
+  font-style:italic;
+}
+
+.spotlight-list-item .field--name-field-if-date::after{
+  content: "-";
+  display: table;
+  float: right;
+  padding: 0 0.2em;
+}

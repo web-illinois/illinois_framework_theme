@@ -71,15 +71,13 @@
  */
 #}
 
-<div{{ attributes.addClass('spotlight-list-item') }}>
+<div{{ attributes.addClass('fixed-width','spotlight-list-item') }}>
 <a href="{{ url }}">{{content.field_if_meda_featured_image}}</a>
 <div class="clearfix">
 {{ title_prefix }}
-<h2{{ title_attributes }} class="list-title"><a href="{{ url }}" rel="bookmark">{{ label }}</a></h2>
+<h3{{ title_attributes }} class="list-title"><a href="{{ url }}" rel="bookmark">{{ label }}</a></h3>
 {{ title_suffix }}
-<div class="byline">
 {{content|without('field_if_meda_featured_image', 'links')}}
-</div>
 {% if content.links|render is not empty %}
 <a class="il-button il-blue" href="{{ url }}">Read full story <span class="hidden">about {{label}}</span></a>
 {% endif %}
