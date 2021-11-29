@@ -94,7 +94,7 @@
               <div class="field--name-field-contact__content__button {% if button_number == 2 %} field--name-field-contact__content__button--two {% endif %}">
                 {% for item in content.field_contact_content.0['#paragraph'].field_contact_content_button %}
                   <div class="field--name-field-contact__content__button--{{ loop.index0 }}">
-                    <a class="il-button {% if background_color == 'gray' %}il-blue{% endif %}" href="{{ content.field_contact_content.0['#paragraph'].field_contact_content_button[loop.index0].uri }}" role="button">{{ content.field_contact_content.0['#paragraph'].field_contact_content_button[loop.index0].title }}</a>
+                    <a class="il-button {% if background_color == 'gray' %}il-blue{% else %}il-orange{% endif %}" href="{{ content.field_contact_content.0['#paragraph'].field_contact_content_button[loop.index0].uri }}" role="button">{{ content.field_contact_content.0['#paragraph'].field_contact_content_button[loop.index0].title }}</a>
                   </div>
                 {% endfor %}
               </div>

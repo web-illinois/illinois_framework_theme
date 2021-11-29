@@ -22,6 +22,9 @@
           order: 0 !important;
           text-align: center !important;
         }
+        &.right p {
+          text-align: right;
+        }
         &.right {
           text-align: right;
         }
