@@ -1,4 +1,6 @@
 .paragraph--type--bb {
+  padding-top: rem(60px) !important;
+  padding-bottom: rem(75px) !important;
 
   &.full-width {
     padding: 0 var(--il-content-margin);
@@ -7,11 +9,13 @@
   .field--name-field-bb {
     &__title {
       padding: 0 15px;
+      margin: 0 0 rem(35px);
       color: var(--il-orange);
     }
 
     &__subtitle {
       padding: 0 15px;
+      margin: 0 0 rem(35px);
       font-weight: 600;
       font-size: rem(28px);
       line-height: rem(32px);
@@ -61,7 +65,6 @@
   }
 
   &__wrapper {
-    margin: rem(15px) 0;
 
     &.background--color {
       &--illiniblue {
@@ -128,7 +131,6 @@
     &__link {
       color: inherit;
       display: flex;
-      margin: rem(15px) 0;
       text-decoration: none;
       width: 100%
     }
