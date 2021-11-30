@@ -87,7 +87,7 @@
           {% if button_number > 0 %}
             <div class="field--name-field-feature-split__buttons">
             {% for item in content.field_feature_split_button['#items'] %}
-              <a class="field--name-field-feature-split__button il-button" href="{{ content.field_feature_split_button[loop.index0]['#url'] }}" role="button">{{ content.field_feature_split_button[loop.index0]['#title'] }}</a>
+              <a class="field--name-field-feature-split__button il-button il-orange" href="{{ content.field_feature_split_button[loop.index0]['#url'] }}" role="button">{{ content.field_feature_split_button[loop.index0]['#title'] }}</a>
             {% endfor %}
             </div>
           {% endif %}
