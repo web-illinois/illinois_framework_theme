@@ -5,7 +5,7 @@
 
     h2 {
       color: var(--il-orange);
-      font-size: rem(32px);
+      font-size: rem(35px);
       font-weight: 600;
       line-height: rem(40px);
       padding: rem(20px) rem(15px) rem(10px);
@@ -42,7 +42,7 @@
       &__title {
         color: var(--il-blue);
         font-family: var(--il-source-sans);
-        font-size: 36px;
+        font-size: rem(28px);
         font-weight: normal;
         font-stretch: normal;
         font-style: normal;
@@ -52,7 +52,7 @@
       }
       &__subtitle {
         font-family: var(--il-source-sans);
-        font-size: rem(20px);
+        font-size: rem(24px);
         font-weight: bold;
         line-height: 1.5;
       }
