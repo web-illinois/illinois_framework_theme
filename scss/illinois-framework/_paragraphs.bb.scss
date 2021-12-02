@@ -1,6 +1,6 @@
 .paragraph--type--bb {
   padding-top: rem(60px) !important;
-  padding-bottom: rem(75px) !important;
+  padding-bottom: rem(60px) !important;
 
   &.full-width {
     padding: 0 var(--il-content-margin);
@@ -131,6 +131,7 @@
     &__link {
       color: inherit;
       display: flex;
+      margin-bottom: rem(15px);
       text-decoration: none;
       width: 100%
     }
