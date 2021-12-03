@@ -59,7 +59,7 @@
     {{ page.sidebar_second }}
     <div class="il-content">
       {% if node.body %}
-        <div class="il-formatted">{{ node.body.0.value|raw }}</div>
+        {{ drupal_field('body','node', node.id ) }}
       {% endif %}
       {% set paragraph_number = node.field_sidebar_paragraphs.0.value %}
       {% set paragraph_count = node.fields.field_paragraph|length %}
