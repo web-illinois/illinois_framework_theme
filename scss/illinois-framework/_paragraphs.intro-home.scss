@@ -4,7 +4,7 @@
   }
   .field--name-field-intro-home{
     &__wrapper{
-      padding: rem(60px) 0 rem(75px) 0;
+      padding: rem(60px) 0 rem(60px) 0;
       max-width: 50rem;
       @include media-breakpoint-down(sm) {
         padding-left: rem(45px);
@@ -42,10 +42,12 @@
       font-size: rem(36px);
       line-height: rem(42px);
       font-style: oblique;
+      margin-bottom: rem(15px);
     }
     &-text-sm{
       font-size: rem(22px);
       line-height: rem(28px);
+      margin-bottom: rem(15px);
     }
     &__buttons {
       margin-top: rem(45px);
