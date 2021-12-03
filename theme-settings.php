@@ -28,7 +28,7 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
   '#default_value' => theme_get_setting('if_header_text_1'),
 );
   $form['if_header_links']['if_header_link_1_fieldset']['if_header_link_1'] = array(
-    '#type'          => 'url',
+    '#type'          => 'textfield',
     '#placeholder' => 'https://illinois.edu',
     '#title'         => t('Enter the link'),
     '#default_value' => theme_get_setting('if_header_link_1'),
@@ -45,7 +45,7 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
     '#default_value' => theme_get_setting('if_header_text_2'),
   );
   $form['if_header_links']['if_header_link_2_fieldset']['if_header_link_2'] = array(
-    '#type'          => 'url',
+    '#type'          => 'texfield',
     '#placeholder' => 'https://illinois.edu',
     '#title'         => t('Enter the link'),
     '#default_value' => theme_get_setting('if_header_link_2'),
@@ -62,7 +62,7 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
     '#default_value' => theme_get_setting('if_header_text_3'),
   );
   $form['if_header_links']['if_header_link_3_fieldset']['if_header_link_3'] = array(
-    '#type'          => 'url',
+    '#type'          => 'textfield',
     '#placeholder' => 'https://illinois.edu',
     '#title'         => t('Enter the link'),
     '#default_value' => theme_get_setting('if_header_link_3'),
@@ -84,7 +84,7 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
   $form['if_secondary_site']['if_secondary_site_link'] = array(
       '#weight' => -99,
       '#default_value' => theme_get_setting('if_secondary_site_link'),
-      '#type' => 'url',
+      '#type' => 'textfield',
       '#title' => t('Link'),
   );
   // Choose whether you display a simple menu or megamenu
@@ -431,7 +431,7 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
     '#default_value' => theme_get_setting('if_subfooter_text_1'),
   );
   $form['if_subfooter']['if_subfooter_fieldset']['if_subfooter_link_1'] = array(
-    '#type'          => 'url',
+    '#type'          => 'textfield',
     '#placeholder' => 'https://illinois.edu',
     '#title'         => t('Enter the link'),
     '#default_value' => theme_get_setting('if_subfooter_link_1'),
@@ -443,7 +443,7 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
     '#default_value' => theme_get_setting('if_subfooter_text_2'),
   );
   $form['if_subfooter']['if_subfooter_fieldset']['if_subfooter_link_2'] = array(
-    '#type'          => 'url',
+    '#type'          => 'textfield',
     '#placeholder' => 'https://illinois.edu',
     '#title'         => t('Enter the link'),
     '#default_value' => theme_get_setting('if_subfooter_link_2'),
@@ -455,7 +455,7 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
     '#default_value' => theme_get_setting('if_subfooter_text_3'),
   );
   $form['if_subfooter']['if_subfooter_fieldset']['if_subfooter_link_3'] = array(
-    '#type'          => 'url',
+    '#type'          => 'textfield',
     '#placeholder' => 'https://illinois.edu',
     '#title'         => t('Enter the link'),
     '#default_value' => theme_get_setting('if_subfooter_link_3'),
@@ -467,7 +467,7 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
     '#default_value' => theme_get_setting('if_subfooter_text_4'),
   );
   $form['if_subfooter']['if_subfooter_fieldset']['if_subfooter_link_4'] = array(
-    '#type'          => 'url',
+    '#type'          => 'textfield',
     '#placeholder' => 'https://illinois.edu',
     '#title'         => t('Enter the link'),
     '#default_value' => theme_get_setting('if_subfooter_link_4'),
@@ -479,7 +479,7 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
     '#default_value' => theme_get_setting('if_subfooter_text_5'),
   );
   $form['if_subfooter']['if_subfooter_fieldset']['if_subfooter_link_5'] = array(
-    '#type'          => 'url',
+    '#type'          => 'textfield',
     '#placeholder' => 'https://illinois.edu',
     '#title'         => t('Enter the link'),
     '#default_value' => theme_get_setting('if_subfooter_link_5'),
