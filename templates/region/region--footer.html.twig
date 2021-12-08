@@ -86,13 +86,6 @@
         {% endfor %}
       </div>
     {% endif %}
-    {% if drupal_entity('block_content', 1) %}
-    <div class="il-footer-navigation">
-       <div>
-         {{ drupal_entity('block_content', 1) }}
-       </div>
-    </div>
-    {% endif %}
     <div class="il-footer-navigation">
       <div class="il-footer-navigation-column">
         {% if drupal_entity('block', 'footermenufirst') %}
