@@ -45,7 +45,7 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
     '#default_value' => theme_get_setting('if_header_text_2'),
   );
   $form['if_header_links']['if_header_link_2_fieldset']['if_header_link_2'] = array(
-    '#type'          => 'texfield',
+    '#type'          => 'textfield',
     '#placeholder' => 'https://illinois.edu',
     '#title'         => t('Enter the link'),
     '#default_value' => theme_get_setting('if_header_link_2'),
