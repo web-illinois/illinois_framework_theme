@@ -93,6 +93,7 @@ function illinois_framework_theme_theme_suggestions_page_alter(&$suggestions, $v
     $suggestions[] = 'page__' . (string) $status_code;
   }
 }
+
 /**
  * callback action on submit (custom method plus bas)
  *

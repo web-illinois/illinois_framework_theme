@@ -13,21 +13,22 @@ global-styling:
       type: external
       attributes:
         async: true
-#    js/components.js: {}
     js/navmenu.js: {}
-#    js/paragraph-accordion.js: {}
     js/search.js: {}
     js/side-nav-title-append.js: {}
   dependencies:
     - core/jquery
 web-components:
+  header: true
   css:
     theme:
-      https://cdn.brand.illinois.edu/toolkit/2.4/examples/toolkit.css:
+      https://cdn.brand.illinois.edu/toolkit/2.4/toolkit.css:
         type: external
+        minified: true
   js:
-    https://cdn.brand.illinois.edu/toolkit/2.4/examples/toolkit.js:
+    https://cdn.brand.illinois.edu/toolkit/2.4/toolkit.js:
       type: external
+      minified: true
 content-adjust:
   js:
     js/content.js: {}
