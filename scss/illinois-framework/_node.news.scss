@@ -265,3 +265,110 @@ article.news {
     padding: 0 0.2em;
   }
 } /* .news-list-item */
+
+/* news cards */
+.news-card {
+  display: flex;
+  flex-wrap: wrap;
+}
+.hvrbox,
+.hvrbox * {
+  box-sizing: border-box;
+}
+.hvrbox {
+  position: relative;
+  overflow: hidden;
+  max-width: 480px;
+  height: auto;
+  margin: .25rem;
+}
+.hvrbox img {
+  max-width: 100%;
+  width: 100%
+}
+.hvrbox .hvrbox-layer_bottom {
+  display: block;
+}
+.hvrbox .hvrbox-layer_top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 10px 15px 0px 15px;
+  -moz-transition: all 0.4s ease-in-out 0s;
+  -webkit-transition: all 0.4s ease-in-out 0s;
+  -ms-transition: all 0.4s ease-in-out 0s;
+  transition: all 0.4s ease-in-out 0s;
+}
+
+.hvrbox-layer_top > a {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1001;
+  text-decoration: none;
+}
+
+.hvrbox .hvrbox-text {
+}
+
+.hvrbox .hvrbox-layer_slideup {
+  -moz-transform: translateY(65%);
+  -webkit-transform: translateY(65%);
+  -ms-transform: translateY(65%);
+  transform: translateY(65%);
+}
+.hvrbox:hover .hvrbox-layer_slideup,
+.hvrbox.active .hvrbox-layer_slideup {
+  -moz-transform: translateY(0);
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.hvrbox .news-title {
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 700;
+  color: #13294B;
+  margin-bottom: 1.25rem;
+}
+
+.hvrbox .news-sub-title {
+  opacity: 0;
+  font-size: 1.25rem;
+  font-weight: 500;
+  -moz-transition: all 0.4s ease-in-out 0s;
+  -webkit-transition: all 0.4s ease-in-out 0s;
+  -ms-transition: all 0.4s ease-in-out 0s;
+  transition: all 0.4s ease-in-out 0s;
+}
+
+.related-news.embedded-block .news-sub-title {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.hvrbox:hover .news-sub-title {
+  opacity: 1;
+}
+
+.hvrbox a.more-link:after {
+  content: '\f101';
+  font-family: FontAwesome;
+  font-weight: 700;
+  position: relative;
+  bottom: 1.0rem;
+  right: 1.0rem;
+  font-size: 1.5rem;
+  line-height: .90rem;
+  text-decoration: none;
+  width: 25px;
+  height: 25px;
+  padding: 1rem;
+}
