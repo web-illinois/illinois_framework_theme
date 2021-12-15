@@ -7,6 +7,7 @@ base theme: bootstrap4
 
 stylesheets-remove:
   - '@bootstrap4/css/style.css'
+  - '@classy/css/components/details.css'
 
 # Defines libraries group in which we can add css/js.
 libraries:
