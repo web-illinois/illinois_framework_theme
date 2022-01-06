@@ -1,3 +1,10 @@
+//il-formatted ovrrride for h2
+article.spotlight {
+  .field--name-body h2 {
+    color: var(--il-orange);
+  }
+}
+
 //works around having the need for items after a body
 //to float around an external image to that body.
 //keeping it local to prevent compromising others use cases.

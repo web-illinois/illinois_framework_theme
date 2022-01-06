@@ -70,7 +70,13 @@
  *   in different view modes.
  */
 #}
-<article{{ attributes.addClass('fixed-width') }}>
+{%
+  set classes = [
+    'fixed-width',
+    'spotlight'
+  ]
+%}
+<article{{ attributes.addClass(classes) }}>
 
   {{ title_prefix }}
   {% if not page %}

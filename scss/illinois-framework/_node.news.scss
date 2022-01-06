@@ -4,6 +4,9 @@ article.news {
   .field {
     &--name-body {
       padding: 0 !important;
+      h2 {
+        color: var(--il-orange) !important;
+      }
     }
   }
 
