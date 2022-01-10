@@ -1,16 +1,57 @@
-.media--view-mode-full{
-  padding-bottom:var(--il-content-margin);
-  .media--type-document .file a{
-    font-size:1.1em !important;
+/*
+Selector explanation:
+.media--type-document .file a -> Targets embedded documents to standout on the page.
+
+Also adds padding to bottom of full view media page.
+*/
+.media--view-mode-full {
+  padding-bottom: var(--il-content-margin);
+  .media--type-document .file a {
+    font-size: 1.1em;
   }
 }
 
-.field--name-field-media-oembed-video { position: relative; padding-bottom: 56%; padding-top: 30px; height: 0; overflow: hidden; }
+/*
+Overrides display flex from bootstrap attached to the .media class, as it conflicts with the responsive styles.
+Includes styles to work around feature video paragraph using the display flex in its layout.
 
-.field--name-field-media-oembed-video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-
-.media {
-  display:block !important;
+Selector explanations
+.field--type-text-with-summary > .media -> For embedded items in a rich text body
+.media.media--view-mode-full -> for the full media view page
+*/
+.media.media--view-mode-full,
+.field--type-text-with-summary > .media {
+  display: block;
 }
 
+/*
+This whole section is to make responsive video embeds described here: https://avexdesigns.com/blog/responsive-youtube-embed
 
+Selector explanations
+.field--type-text-with-summary .media--type-remote-video -> for remote videos embedded in the feature video paragraph body, higher specificity.
+.media--view-mode-full -> for full page view of remote videos
+.field--type-text-with-summary -> for a remote video embedded in a rich text body
+
+Includes high specificity to get around styling for the feature video paragraph itself and not affect that layout.
+
+TODO: Consider making the feature video styles use this responsive video setup.
+*/
+.field--type-text-with-summary,
+.media--view-mode-full,
+.field--type-text-with-summary .media--type-remote-video {
+  .field--name-field-media-oembed-video {
+    position: relative;
+    padding-bottom: 56%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+  }
+
+  .field--name-field-media-oembed-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
