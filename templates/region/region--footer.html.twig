@@ -128,7 +128,7 @@
       <ul>
         <li><button id="ot-sdk-btn" class="ot-sdk-show-settings">About Cookies</button></li>
         <li><a href="https://www.vpaa.uillinois.edu/resources/web_privacy">Privacy Policy</a></li>
-        <li><a href="https://illinois.edu/resources/website/copyright.html">© 2021 University of Illinois Board of Trustees</a></li>
+        <li><a href="https://illinois.edu/resources/website/copyright.html">© {{ "now"|date("Y") }} University of Illinois Board of Trustees</a></li>
         {% for subfooter_link in if_subfooter %}
           {% set link = if_subfooter[loop.index0][1] %}
           {% set text = if_subfooter[loop.index0][0] %}
