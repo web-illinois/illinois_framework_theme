@@ -87,55 +87,6 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, \Drup
       '#type' => 'textfield',
       '#title' => t('Link'),
   );
-  // Choose whether you display a simple menu or megamenu
-  $form['if_megamenu'] = array(
-      '#type' => 'details',
-      '#title' => t('MegaMenu'),
-      '#description' => t('By default, this theme is using a simple Drupal menu. However, you may enable the theme menu here, which offers a mega-menu (lite) style menu system, including many more options than the default Drupal menu system.'),
-      '#weight' => -98,
-      '#open' => FALSE,
-  );
-  $form['if_megamenu']['if_menu_select'] = array(
-      '#type' => 'radios',
-      '#title' => t('Pick a menu style'),
-      '#default_value' => theme_get_setting('if_menu_select'),
-      '#options' => array(
-          'simple' => t('Simple Dropdown Menu'),
-          'mega' => t('Mega Menu'),
-      ),
-      '#weight' => -97,
-  );
-
-  $form['if_megamenu']['if_megamenu_image_mega'] = array(
-    '#type' => 'container',
-    '#prefix' => '<div>',
-    '#suffix' => '</div>',
-    '#markup' => "<img src='/$theme_path/images/menu_example.png' alt='Example picture of a mega menu' style='width:300px;'>",
-    '#title' => t('Menu Example'),
-    '#weight' => -96,
-    '#states' => array(
-        'invisible' => array(
-            ':input[name="if_menu_select"]' => array(
-                'value' => 'simple',
-            ),
-        ),
-    ),
-);
-  $form['if_megamenu']['if_megamenu_image_simple'] = array(
-      '#type' => 'container',
-      '#prefix' => '<div>',
-      '#suffix' => '</div>',
-      '#markup' => "<img src='/$theme_path/images/simple_menu.png' alt='Example picture of a simple dropdown menu' style='width:300px;'>",
-      '#title' => t('Menu Example'),
-      '#weight' => -95,
-      '#states' => array(
-          'invisible' => array(
-              ':input[name="if_menu_select"]' => array(
-                  'value' => 'mega',
-              ),
-          ),
-      ),
-  );
 
   // Create a section for the footer links
   $form['if_footer'] = array(
