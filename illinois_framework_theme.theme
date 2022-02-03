@@ -26,7 +26,6 @@ function illinois_framework_theme_preprocess(&$variables) {
   // theme variables
   $variables['if_secondary_site_title'] = theme_get_setting('if_secondary_site_title');
   $variables['if_secondary_site_link'] = theme_get_setting('if_secondary_site_link');
-  $variables['if_megamenu']['if_menu_select'] = theme_get_setting('if_menu_select');
   $variables['if_header_links'][0][0] = theme_get_setting('if_header_text_1');
   $variables['if_header_links'][0][1] = theme_get_setting('if_header_link_1');
   $variables['if_header_links'][1][0] = theme_get_setting('if_header_text_2');

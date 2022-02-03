@@ -13,7 +13,6 @@ global-styling:
       type: external
       attributes:
         async: true
-    js/navmenu.js: {}
     js/search.js: {}
     js/side-nav-title-append.js: {}
   dependencies:
