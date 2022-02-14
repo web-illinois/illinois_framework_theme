@@ -27,12 +27,6 @@
  */
 #}
 
-{% if if_megamenu.if_menu_select %}
-  {% set menu_type = if_megamenu.if_menu_select %}
-{% else %}
-  {% set menu_type = 'simple' %}
-{% endif %}
-
 <!DOCTYPE html>
 <html{{ html_attributes }}>
   <head>
@@ -57,8 +51,7 @@
   </head>
   {%
   set classes = [
-    logged_in ? 'logged-in' : 'logged-out',
-    menu_type
+    logged_in ? 'logged-in' : 'logged-out'
   ]
   %}
   <body{{ attributes.addClass(classes) }}>
