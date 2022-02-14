@@ -273,13 +273,13 @@ article.news {
 .hvrbox-card {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem 2%;
+  gap: 2.25rem 3%;
   @include media-breakpoint-down(md) {
-    gap: 1rem 2%;
+    gap: 2rem 3%;
     }
     &.col-2 {
       > div {
-        flex-basis: 49%;
+        flex-basis: 48%;
         @include media-breakpoint-down(sm) {
           flex-basis: 100%;
           }
@@ -299,9 +299,9 @@ article.news {
     }
     &.col-3 {
       > div {
-        flex-basis: 32%;
+        flex-basis: 31%;
         @include media-breakpoint-down(md) {
-          flex-basis: 49%;
+          flex-basis: 48%;
           }
           @include media-breakpoint-down(sm) {
             flex-basis: 100%;
@@ -320,6 +320,9 @@ article.news {
           -webkit-line-clamp: 3; /* number of lines to show */
                   line-clamp: 3;
           -webkit-box-orient: vertical;
+          .field--name-body {
+            padding: 0;
+          }
         }
         .hvrbox-layer_slideup {
           -moz-transform: translateY(50%);
