@@ -6,10 +6,20 @@
     padding: 0 var(--il-content-margin);
   }
 
+  .col-lg-4, .col-md-6, .col-sm-12 {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  .row {
+    margin-right: -rem(24px);
+    margin-left: -rem(24px);
+  }
+
   .field--name-field-bb {
     &__title {
       padding: 0 15px;
-      margin: 0 0 rem(35px);
+      margin: 0 0 rem(38px);
       color: var(--il-orange);
     }
 
@@ -85,6 +95,7 @@
         a.field--name-field-bb-content__link {
           background-color: white;
           color: inherit;
+          margin-bottom: rem(48px);
 
           &:hover,
           &:focus {
