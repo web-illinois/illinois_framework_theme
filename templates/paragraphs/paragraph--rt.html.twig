@@ -49,6 +49,7 @@
   'd-flex', (content.field_rt_background_color[0]['#markup'] == 'Gray') ? 'background--color--gray' : 'background--color--white'
 ]
 %}
+
 {% block paragraph %}
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
@@ -76,7 +77,9 @@
           {% endif %}
           {% if body %}
             <div class="field--name-field-rt__body body">
-              <div class="field__item">{{ body | raw }}</div>
+              <div class="field__item">
+                  {{ drupal_field('body','node', node.id ) }}
+                </div>
             </div>
           {% endif %}
           {% if column_count == 2 %}
