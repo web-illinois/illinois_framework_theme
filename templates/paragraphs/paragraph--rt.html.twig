@@ -77,9 +77,7 @@
           {% endif %}
           {% if body %}
             <div class="field--name-field-rt__body body">
-              <div class="field__item">
-                  {{ drupal_field('body','node', node.id ) }}
-                </div>
+              <div class="field__item">{{ content }}</div>
             </div>
           {% endif %}
           {% if column_count == 2 %}
