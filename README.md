@@ -6,12 +6,32 @@
 
 If you wish to customize the look and feel of your Illinois Drupal Framework website, creating a sub-theme is recommended. To create a sub-theme, follow the steps below. This is assuming a site is set-up using the steps found at https://github.com/web-illinois/illinois_framework_project
 
-* Open a terminal and `cd` into `~/illinoiss_framework`
+* Open a terminal and `cd` into `~/illinois_framework`
 * Run the command `drush generate theme` which will step you through creating a new sub-theme. See the screenshot below as an example.
 * The third prompt should be `Base theme [classy]`, enter `illinois_framework_theme`. This is what sets your custom theme as a sub-theme of the Illinois Framework.
 * Answer the rest of the prompts as you see fit. The defaults are OK in most instances.
 
 ![image](https://user-images.githubusercontent.com/56594946/155361524-e709a6b9-264a-4643-be67-de69fa224041.png)
+
+After generating your sub-theme with Drush, you'll need to modify the regions of your theme to match the Illinois Framework Theme. Replace "MY_THEME" with the machine name of your sub-theme. 
+
+* Edit the file `~/illinois_framework/docroot/themes/MY_THEME/MY_THEME.info.yml
+* Replace the `regions:` section of the file with:
+
+```
+regions:
+  header: Header
+  nav_main: 'Main navigation region'
+  breadcrumb: Breadcrumbs
+  highlighted: Highlighted
+  help: Help Information
+  tabs: 'Tabs'
+  content: 'Main content'
+  sidebar_first: 'Sidebar first'
+  sidebar_second: 'Sidebar second'
+  footer: Footer
+  hidden: 'Hidden region for referenced blocks'
+```
 
 After your sub-theme is created, you'll need to set it as your site's theme. To do that, follow these steps:
 
