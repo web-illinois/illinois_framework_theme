@@ -9,6 +9,9 @@ stylesheets-remove:
   - '@bootstrap4/css/style.css'
   - '@classy/css/components/details.css'
 
+libraries-override:
+  filter/caption: false
+
 # Defines libraries group in which we can add css/js.
 libraries:
   - illinois_framework_theme/global-styling
