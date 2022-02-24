@@ -1,0 +1,73 @@
+.paragraph--type--calendar {
+  &.fixed-width{
+    padding: 0;
+  }
+  .field--name-field-calendar-title {
+    padding: 0 rem(30px);
+    color: var(--il-orange);
+  }
+  ul[id*="content-list"]{
+    list-style-type: none;
+    padding-inline-start:0;
+  }
+  li[id*="event"]{
+    padding: rem(30px);
+  }
+  .calendar--type--1{
+    li[id*="event"]{
+      &:nth-of-type(odd){
+        background: #f4f4f4;
+        }
+    }
+  }
+  .calendar--type--5{
+    li[id*="event"]{
+      border-bottom: 1px solid #707070;
+      &:first-of-type{
+        padding-top: 0;
+        }
+    }
+    div[class*="time-with-title"]{
+      font-weight: 600;
+      font-size: rem(20px);
+      color: var(--il-blue);
+    }
+    div[class*="title-with-date"]{
+      font-size: rem(25px);
+      font-weight: 600;
+      a {
+        text-decoration: none;
+        border-bottom: 2px solid transparent;
+        &:after {
+          content: '\f101';
+          font-family: FontAwesome;
+          vertical-align: top;
+          padding: 0 0.5rem;
+        }
+        &:hover {
+          border-bottom: 2px solid var(--il-altgeld);
+        }
+      }
+
+    }
+
+  }
+
+  div[class*="section-box"]{
+
+    div[class*="item-title"]{
+    font-size: rem(25px);
+    font-weight: 600;
+    line-height: rem(29);
+    }
+    div[class*="time"]{
+      font-weight: 600;
+      font-size: rem(20px);
+     line-height: 2.5rem;
+    }
+    span[class*="label"]{
+      font-weight: 600;
+    }
+  }
+
+}
