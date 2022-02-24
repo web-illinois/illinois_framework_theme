@@ -3,6 +3,9 @@
 // Example: @import "../../../../../themes/contrib/bootstrap4/scss/style";
 @import '../../../../themes/contrib/bootstrap4/dist/bootstrap/4.5.3/scss/bootstrap';
 
+// Custom Elements
+@import "illinois-framework/elements.img";
+
 // Web components
 @import "web-components/web-components.menu";
 @import "web-components/web-components.side-nav";
