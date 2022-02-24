@@ -29,6 +29,7 @@
     }
     div[class*="time-with-title"]{
       font-weight: 600;
+      font-size: rem(20px);
       color: var(--il-blue);
     }
     div[class*="title-with-date"]{
@@ -61,7 +62,8 @@
     }
     div[class*="time"]{
       font-weight: 600;
-      font-style: oblique;
+      font-size: rem(20px);
+     line-height: 2.5rem;
     }
     span[class*="label"]{
       font-weight: 600;
