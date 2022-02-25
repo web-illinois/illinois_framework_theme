@@ -1,9 +1,9 @@
 img {
-  .align-left {
+  &.align-left {
     padding-bottom: rem(25px);
     padding-right: rem(20px);
   }
-  .align-right {
+  &.align-right {
     padding-bottom: rem(25px);
     padding-left: rem(20px);
   }
