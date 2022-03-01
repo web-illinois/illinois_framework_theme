@@ -1,6 +1,6 @@
 //overrides to the web components
 .il-content-with-section-nav {
-  padding: 0 !important;
+  padding: 0;
 
   il-section-nav {
     h3 {
@@ -20,9 +20,14 @@
     }
   }
 }
-@media (min-width: 575px) {
+@media (max-width: 575px) {
   .il-content-with-section-nav {
-    margin: var(--il-content-margin) !important;
+    display: block !important;
+  }
+}
+@media (max-width: 991px) {
+  .il-content-with-section-nav {
+   display: block !important;
   }
 }
 @media (min-width: 992px) {
