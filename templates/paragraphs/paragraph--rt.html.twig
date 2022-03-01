@@ -62,29 +62,22 @@
         {% endif %}
         {% set column_count = content.field_rt_column['#items']|length %}
         {% if column_count == 1 %}
-          <div class="col-lg-12 col-md-12 col-sm-12 field--name-field-rt__content__wrapper">
+          {% set columns = 'col-lg-12 col-md-12' %}
+        {% else %}
+          {% set columns = 'col-lg-6 col-md-6' %}
         {% endif %}
         {% for item in content.field_rt_column['#items'] %}
-          {% set body = content.field_rt_column[loop.index0]['#paragraph'].field_rt_content_body.value %}
-          {% set title = content.field_rt_column[loop.index0]['#paragraph'].field_rt_content_title.value %}
-          {% if column_count == 2 %}
-            <div class="col-lg-6 col-md-6 col-sm-12 field--name-field-rt__content__wrapper">
-          {% endif %}
-          {% if title %}
-            <div class="field--name-field-rt__title title">
-              <h3 class="field__item">{{ title }}</h3>
-            </div>
-          {% endif %}
-          {% if body %}
-            <div class="field--name-field-rt__body body">{{ content }}</div>
-          {% endif %}
-          {% if column_count == 2 %}
-            </div>
-          {% endif %}
+        <div class="{{ columns }} col-sm-12 field--name-field-rt__content__wrapper">
+            {% set title = content.field_rt_column[loop.index0]['#paragraph'].field_rt_content_title.value %}
+            {% set body = content.field_rt_column[loop.index0]['#paragraph'].field_rt_content_body.value %}
+            {% if title %}
+              <div class="field--name-field-rt__title title">
+                <h3 class="field__item">{{ title }}</h3>
+              </div>
+            {% endif %}
+            <div class="field--name-field-rt__body body">{{ content.field_rt_column[loop.index0] }}</div>
+        </div>
         {% endfor %}
-        {% if column_count == 1 %}
-          </div>
-        {% endif %}
       </div>
     {% endblock %}
   </div>
