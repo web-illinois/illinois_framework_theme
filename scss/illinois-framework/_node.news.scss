@@ -277,7 +277,7 @@ article.news {
   @include media-breakpoint-down(md) {
     gap: 1rem 2%;
     }
-    &.col-2 {
+    &.hvrbox-col-2 {
       > div {
         flex-basis: 49%;
         @include media-breakpoint-down(sm) {
@@ -297,7 +297,7 @@ article.news {
       }
 
     }
-    &.col-3 {
+    &.hvrbox-col-3 {
       > div {
         flex-basis: 32%;
         @include media-breakpoint-down(md) {
