@@ -43,6 +43,14 @@ p {
   word-wrap: break-word;
 }
 
+// overrides _reboot.scss line 129
+ol,
+ul,
+dl {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  text-align: left;
+}
 
 // overrides _reboot.scss line 182
 a {
@@ -64,6 +72,7 @@ a {
 img {
   vertical-align: middle;
   border-style: none; // Remove the border on images inside links in IE 10-.
+  height: auto;
   max-width: 100%;
 }
 
