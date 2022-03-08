@@ -19,7 +19,7 @@
   #block-illinois-framework-theme-breadcrumbs {
     padding: 0 !important;
 
-    @include media-breakpoint-down(lg) {
+    @include media-breakpoint-down(md) {
       display: none;
     }
   }
