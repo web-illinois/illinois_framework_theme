@@ -1,3 +1,22 @@
 #block-illinois-framework-theme-breadcrumbs {
   @extend %fixed-width;
 }
+.block-system-breadcrumb-block {
+  padding-top: rem(28px) !important;
+
+  ol.breadcrumb {
+    line-height: 1;
+
+    li.breadcrumb-item {
+      height: rem(20px);
+    }
+    li.breadcrumb-item + .breadcrumb-item::before {
+      content: '>';
+    }
+  }
+}
+.il-content {
+  #block-illinois-framework-theme-breadcrumbs {
+    padding: 0 !important;
+  }
+}
