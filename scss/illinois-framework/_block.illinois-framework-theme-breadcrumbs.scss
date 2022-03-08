@@ -18,5 +18,9 @@
 .il-content {
   #block-illinois-framework-theme-breadcrumbs {
     padding: 0 !important;
+
+    @include media-breakpoint-down(lg) {
+      display: none;
+    }
   }
 }
