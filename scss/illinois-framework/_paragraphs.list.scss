@@ -1,6 +1,6 @@
 .paragraph--type--list {
-  .field--name-field-list{
-    &-text__wrapper{
+  .field--name-field-list {
+    &-text__wrapper {
       margin-bottom: 1rem;
       h2 {
         font-weight: 600;
@@ -12,7 +12,7 @@
         font-weight: 600;
         font-size: rem(28px);
         line-height: rem(32px);
-        color:  var(--il-blue);
+        color: var(--il-blue);
       }
     }
   }
@@ -26,7 +26,7 @@
       @include media-breakpoint-down(sm) {
         flex-wrap: wrap;
       }
-      &.left{
+      &.left {
         .field--name-field-list-contet-img__wrapper {
           margin-right: rem(30px);
           @include media-breakpoint-down(sm) {
@@ -35,7 +35,7 @@
           }
         }
       }
-      &.right{
+      &.right {
         flex-direction: row-reverse;
         @include media-breakpoint-down(sm) {
           flex-direction: row;
@@ -49,12 +49,7 @@
         }
       }
     }
-    &-text__wrapper{
-      width: 75%;
-      margin-top: -7px;
-      @include media-breakpoint-down(sm) {
-        width: 100%;
-      }
+    &-text__wrapper {
       h2 {
         margin-top: 0;
       }
@@ -68,15 +63,31 @@
   }
 }
 
+.field--name-field-list-contet-img__wrapper
+  + .field--name-field-list-content-text__wrapper {
+  //only apply the squeeze to text when an image is there.
+  // note image wrapper is contet and not content
+  width: 75%;
+  margin-top: -7px;
+  @include media-breakpoint-down(sm) {
+    width: 100%;
+  }
+}
 .field--name-field-list-content {
-  .field__item{
+  .field__item {
     &:nth-of-type(even) {
       background: #f4f4f4;
     }
   }
-  &-body{
+  &-body {
     &.field__item {
       background: transparent !important;
     }
   }
+}
+
+.il-content-with-section-nav .field--name-field-list-text__wrapper.fixed-width {
+  //controls for when the section-nav is active to make sure
+  //title/subtitle don't indent weird
+  padding-left: 0;
 }
