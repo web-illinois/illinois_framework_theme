@@ -1,7 +1,4 @@
 .paragraph--type--calendar {
-  &.fixed-width{
-    padding: 0;
-  }
   .field--name-field-calendar-title {
     color: var(--il-orange);
   }
@@ -69,4 +66,66 @@
     }
   }
 
+  .calendar--type--3{
+    ul#content-list{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      gap: rem(48px);
+    }
+    li{
+      &.title_date_only{
+        border: 1px solid #707070;
+        max-width: 30%;
+        padding: rem(30px) rem(20px) rem(45px);
+        flex: 1 1 29%;
+        @include media-breakpoint-down(sm) {
+          max-width: 100%;
+        }
+      }
+    }
+    .cw3-date-image{
+      display: block;
+      margin: 0 auto;
+    .date{
+      color: var(--il-orange);
+      text-align: center;
+      font-weight: 700;
+      .date-month{
+        font-size: 3.5rem;
+        line-height: 3.5rem;
+        text-transform: uppercase;
+      }
+      .date-day{
+        font-size: 4rem;
+        line-height: 3.5rem;
+      }
+    }
+    }
+    .cw3-time {
+      text-align: center;
+      margin: 0 0 rem(16px);
+      padding: rem(10px) 0 0;
+      color: var(--il-orange);
+      font-weight: 700;
+      font-size: rem(19px);
+    }
+    .cw3-title-with-date {
+      font-weight: 600;
+      text-align: center;
+      font-size: rem(24px);
+      padding: 0 rem(10px);
+
+    }
+  }
+
+}
+.il-content {
+
+  .paragraph--type--calendar {
+
+    &.fixed-width {
+      padding: 0;
+    }
+  }
 }
