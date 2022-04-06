@@ -67,6 +67,70 @@
   }
 
   .calendar--type--3{
+    #content-list {
+      li {
+        padding: 0;
+        height: 130px;
+        @include media-breakpoint-down(sm) {
+          height: 145px;
+        }
+      }
+      .cw3-date-image {
+        float: left;
+        display: block;
+        width: 75px;
+        height: 75px;
+        margin: rem(7px) 0 0;
+        background-color: var(--il-orange);
+        border-radius: 10px 0px 10px 0px;
+        .date{
+          color: #fff;
+          .date-month{
+            font-size: rem(24px);
+            font-weight: 700;
+            line-height: rem(22px);
+            padding-top: 14px;
+            text-transform: uppercase;
+            text-align: center;
+          }
+          .date-day{
+            font-size: rem(32px);
+            font-weight: 700;
+            text-transform: uppercase;
+            text-align: center;
+          }
+        }
+      }
+      .cw3-content {
+        margin-left: rem(90px);
+      }
+      .cw3-time-with-title{
+        font-weight: 600;
+        font-size: rem(20px);
+        color: var(--il-blue);
+      }
+      .cw3-title-with-date{
+        font-size: rem(21px);
+        font-weight: 700;
+        line-height: rem(30px);
+        a {
+          text-decoration: none;
+          border-bottom: 2px solid transparent;
+          &:after {
+            content: '\f101';
+            font-family: FontAwesome;
+            vertical-align: top;
+            padding: 0 0.5rem;
+          }
+          &:hover {
+            border-bottom: 2px solid var(--il-altgeld);
+          }
+        }
+      }
+    }
+  }
+
+  .calendar--type--13{
     ul#content-list{
       display: flex;
       flex-wrap: wrap;
@@ -118,7 +182,6 @@
 
     }
   }
-
 }
 .il-content {
 
