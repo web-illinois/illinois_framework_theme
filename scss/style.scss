@@ -31,7 +31,10 @@
 
 // Layouts
 @import "illinois-framework/regions";
+@import "illinois-framework/region.content";
 @import "illinois-framework/region.header";
+@import "illinois-framework/region.help";
+@import "illinois-framework/region.highlighted";
 @import "illinois-framework/region.footer";
 @import "illinois-framework/region.sidebar-first";
 @import "illinois-framework/region.tabs";

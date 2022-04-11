@@ -1,5 +1,9 @@
 body.logged-in {
   .l-region--tabs {
     padding-top: 10px !important;
+
+    @media (min-width: 992px) {
+      padding-left: rem(50px) !important;
+    }
   }
 }
