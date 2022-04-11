@@ -4,6 +4,10 @@
 .block-system-breadcrumb-block {
   padding-top: rem(28px) !important;
 
+  @media (min-width: 992px) {
+    padding-left: rem(50px) !important;
+  }
+
   ol.breadcrumb {
     line-height: 1;
 

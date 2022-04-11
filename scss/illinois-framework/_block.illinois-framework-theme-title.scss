@@ -4,6 +4,10 @@
     padding: 0;
     z-index: 0;
 
+    @media (min-width: 992px) {
+      padding-left: 50px !important;
+    }
+
     h1 {
       margin: 0 0 1.25rem;
     }
