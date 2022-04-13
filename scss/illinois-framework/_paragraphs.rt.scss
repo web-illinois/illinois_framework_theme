@@ -52,19 +52,6 @@
       }
     }
     &__title {
-
-      .field__item {
-        color: var(--il-blue) !important;
-        font-family: var(--il-source-sans);
-        font-size: rem(21px);
-        font-weight: 700;
-        line-height: rem(33px);
-        opacity: 1;
-        padding: 0 rem(15px) rem(15px) 0;
-        margin-top: 0;
-        margin-bottom: rem(5px);
-        //text-align: center;
-      }
     }
 
     &__body {
@@ -72,6 +59,17 @@
 
       .field__item {
         opacity: 1;
+      }
+      .field--name-field-rt-content-title{
+        .field__item{
+          font-size: rem(29px);
+          line-height: rem(35px);
+          color: var(--il-blue);
+          font-weight: 600;
+          margin-top: rem(5px);
+          margin-bottom: rem(5px);
+          padding: 0 rem(15px) rem(15px) 0;
+        }
       }
     }
   }

@@ -70,11 +70,7 @@
         <div class="{{ columns }} col-sm-12 field--name-field-rt__content__wrapper">
             {% set title = content.field_rt_column[loop.index0]['#paragraph'].field_rt_content_title.value %}
             {% set body = content.field_rt_column[loop.index0]['#paragraph'].field_rt_content_body.value %}
-            {% if title %}
-              <div class="field--name-field-rt__title title">
-                <h3 class="field__item">{{ title }}</h3>
-              </div>
-            {% endif %}
+
             <div class="field--name-field-rt__body body">{{ content.field_rt_column[loop.index0] }}</div>
         </div>
         {% endfor %}
