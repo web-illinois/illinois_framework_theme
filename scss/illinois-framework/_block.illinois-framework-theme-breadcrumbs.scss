@@ -9,6 +9,7 @@
   }
 
   ol.breadcrumb {
+    display: inline;
     line-height: 1;
 
     li.breadcrumb-item {
@@ -21,7 +22,7 @@
 }
 .il-content {
   #block-illinois-framework-theme-breadcrumbs {
-    padding: 0 !important;
+    padding: 0 0 10px 0 !important;
 
     @include media-breakpoint-down(md) {
       display: none;

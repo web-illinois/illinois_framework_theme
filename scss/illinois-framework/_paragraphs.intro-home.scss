@@ -4,8 +4,9 @@
   }
   .field--name-field-intro-home{
     &__wrapper{
-      padding: rem(60px) 0 rem(60px) 0;
-      max-width: 50rem;
+      padding: rem(60px) rem(60px) rem(75px) rem(60px);
+      max-width: rem(800px);
+
       @include media-breakpoint-down(sm) {
         padding-left: rem(45px);
         padding-right: rem(45px);
