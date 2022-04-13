@@ -1,3 +1,8 @@
 .region-content {
   padding-top: 20px !important;
 }
+.il-content {
+  .region-content {
+    padding: 0;
+  }
+}
