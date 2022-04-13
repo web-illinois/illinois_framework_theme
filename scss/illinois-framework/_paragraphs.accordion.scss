@@ -7,7 +7,15 @@
   }
 }
 .paragraph--type--accordion {
+  .field--name-field-accordion-title {
+    margin-bottom: 1.25rem;
+  }
+
   &.fixed-width {
     padding: rem(45px) rem(30px) rem(60px) rem(30px);
+  }
+
+  .field--name-field-accordion-body {
+    padding-bottom: rem(25px);
   }
 }

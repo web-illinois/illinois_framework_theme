@@ -56,11 +56,25 @@ TODO: Consider making the feature video styles use this responsive video setup.
   }
 }
 
-/*Styles for right and left align responsive videos*/
-.media--type-remote-video.align-left,.media--type-remote-video.align-right{
-  width:50%;
-}
+/*Styles for right and left align media*/
+.media,
+.media--type-remote-video {
+  padding-bottom: rem(25px);
 
-.media--type-remote-video.align-center{
-  clear:both;
+  &.align-left,
+  &.align-right {
+    width: 50%;
+  }
+
+  &.align-left {
+    padding-right: rem(20px);
+  }
+
+  &.align-right {
+    padding-left: rem(20px);
+  }
+
+  .align-center {
+    clear: both;
+  }
 }
