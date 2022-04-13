@@ -50,7 +50,7 @@
         @include media-breakpoint-down(sm) {
           flex-direction: row;
         }
-        .field--name-field-list-contet-img__wrapper {
+        .field--name-field-list-content-img__wrapper {
           margin-left: rem(30px);
           @include media-breakpoint-down(sm) {
             margin-left: 0;
@@ -73,7 +73,7 @@
   }
 }
 
-.field--name-field-list-contet-img__wrapper
+.field--name-field-list-content-img__wrapper
   + .field--name-field-list-content-text__wrapper {
   //only apply the squeeze to text when an image is there.
   // note image wrapper is contet and not content
