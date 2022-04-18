@@ -1,19 +1,11 @@
 .paragraph--type--bb {
-  padding-top: rem(60px) !important;
-  padding-bottom: rem(60px) !important;
+  @extend %paragraphs-padding;
 
   &.full-width {
     padding: 0 var(--il-content-margin);
   }
-
-  .col-lg-4, .col-md-6, .col-sm-12 {
-    padding-right: 24px;
-    padding-left: 24px;
-  }
-
-  .row {
-    margin-right: -rem(24px);
-    margin-left: -rem(24px);
+  &.fixed-width {
+    padding-left: 50px !important;
   }
 
   .field--name-field-bb {
