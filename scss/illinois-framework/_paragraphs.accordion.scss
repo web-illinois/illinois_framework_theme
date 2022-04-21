@@ -11,6 +11,11 @@
     margin-bottom: 1.25rem;
   }
 
+  .media,
+  .media--type-remote-video {
+    padding-bottom: rem(25px);
+  }
+
   &.fixed-width {
     padding: rem(45px) rem(30px) rem(60px) rem(30px);
   }
