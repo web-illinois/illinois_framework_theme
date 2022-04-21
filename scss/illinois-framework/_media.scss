@@ -63,6 +63,7 @@ TODO: Consider making the feature video styles use this responsive video setup.
   &.align-left,
   &.align-right {
     width: 50%;
+    padding-bottom: rem(25px);
   }
 
   &.align-left {
@@ -75,5 +76,6 @@ TODO: Consider making the feature video styles use this responsive video setup.
 
   .align-center {
     clear: both;
+    padding-bottom: rem(25px);
   }
 }
