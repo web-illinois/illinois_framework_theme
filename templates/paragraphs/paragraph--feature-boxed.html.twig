@@ -57,9 +57,9 @@
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
-      <div class="col-lg-12 col-md-12 p-0">
+      <div class="col-lg-12 col-md-12 col-sm-12 p-0">
           <div class="field--name-field-feature-boxed__image" style="background-image: url('{{ base_path_http ~ file_url(content.field_feature_boxed_img['#items'].entity.uri.value) }}')" alt="{{ content.field_feature_boxed_img.0['#item'].alt}}"></div>
-          <div class="col-lg-4 offset-lg-1 field--name-field-feature-boxed__content__wrapper content__wrapper {{ content.field_feature_boxed_align['#items'].0.value }} background--color--{{ content.field_feature_boxed_background['#items'].0.value }}">
+          <div class="col-lg-4 offset-lg-1 col-md-4 col-sm-12 field--name-field-feature-boxed__content__wrapper content__wrapper {{ content.field_feature_boxed_align['#items'].0.value }} background--color--{{ content.field_feature_boxed_background['#items'].0.value }}">
           {% if content.field_feature_boxed_subtitle['#items'] %}
             <div class="field--name-field-feature-boxed__subtitle subtitle">{{ content.field_feature_boxed_subtitle }}</div>
           {% endif %}
