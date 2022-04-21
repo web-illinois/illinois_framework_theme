@@ -67,14 +67,17 @@ TODO: Consider making the feature video styles use this responsive video setup.
   }
 
   &.align-left {
+    justify-content: left;
     padding-right: rem(20px);
   }
 
   &.align-right {
+    justify-content: right;
     padding-left: rem(20px);
   }
 
-  .align-center {
+  &.align-center {
+    justify-content: center;
     clear: both;
     padding-bottom: rem(25px);
   }
