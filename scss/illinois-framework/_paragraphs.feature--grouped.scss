@@ -26,3 +26,26 @@
     }
   }
 }
+.il-content-with-section-nav {
+  .paragraph--type--feature-grouped__wrapper {
+    padding-left: 30px;
+
+    @media screen and (max-width: 991px) {
+      margin: 0;
+      padding: unset;
+
+      .paragraph--type--feature-grouped__wrapper {
+        padding: unset;
+        margin: 0;
+      }
+    }
+  }
+}
+.il-content {
+  .paragraph--type--feature-grouped__wrapper {
+    .col-md-8,
+    .col-sm-12 {
+      padding-left: 0px;
+    }
+  }
+}
