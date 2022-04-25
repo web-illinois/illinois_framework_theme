@@ -122,3 +122,16 @@
     }
   }
 }
+.il-content {
+  .paragraph--type--feature-boxed {
+    .field--name-field-feature-boxed__content__wrapper {
+      &.col-sm-12,
+      &.col-md-12 {
+        @media screen and (min-width: 992px ) {
+          flex: 0 0 33.3333333333% !important;
+          max-width: 33.3333333333% !important;
+        }
+      }
+    }
+  }
+}
