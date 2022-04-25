@@ -1,11 +1,16 @@
 .paragraph--type--feature-grouped {
   @extend %paragraphs-padding;
+  padding-left: 0;
+  padding-right: 0;
 
   .field--name-field-feature-grouped {
 
     &__title {
       width: 100%;
       margin-bottom: rem(30px);
+    }
+    &__content {
+      padding-left: 0;
     }
     &__subtitle {
       color: var(--il-industrial-blue) !important;
@@ -23,29 +28,76 @@
 
     &__image {
       margin-bottom: rem(45px);
+
+      &__wrapper {
+        padding-right: 0;
+      }
     }
   }
-}
-.il-content-with-section-nav {
-  .paragraph--type--feature-grouped__wrapper {
-    padding-left: 30px;
+  &__wrapper {
+    &.flex-row-reverse {
+      .field--name-field-feature-grouped__content {
+        padding-left: rem(15px);
 
-    @media screen and (max-width: 991px) {
-      margin: 0;
-      padding: unset;
+        @media screen and (max-width: 991px) {
+          padding: 0px;
+        }
+      }
+      .field--name-field-feature-grouped__image__wrapper {
+        padding-right: rem(15px);
+        @media screen and (max-width: 991px) {
+          padding: 0 15px 0 0;
+        }
+        @media screen and (max-width: 767px) {
+          padding: 10px 0;
+        }
+      }
+    }
+    &.flex-row {
+      .field--name-field-feature-grouped__content {
+        @media screen and (max-width: 991px) {
+          padding: 0px;
+        }
+      }
+      .field--name-field-feature-grouped__image__wrapper {
 
-      .paragraph--type--feature-grouped__wrapper {
-        padding: unset;
-        margin: 0;
+        @media screen and (max-width: 991px) {
+          padding: 10px 0;
+        }
       }
     }
   }
 }
-.il-content {
-  .paragraph--type--feature-grouped__wrapper {
-    .col-md-8,
-    .col-sm-12 {
-      padding-left: 0px;
+.il-content-with-section-nav {
+
+  .il-content {
+
+    .paragraph--type--feature-grouped {
+      padding: 60px 0 75px;
+
+      &__wrapper {
+        padding-left: 30px;
+
+        &.unset-col-lg-12,
+        &.unset-col-md-8 {
+          padding-left: 0px;
+        }
+      }
+
+      //.unset-col-lg-8,
+      //.unset-col-md-8 {
+      //  padding-left: 0px;
+      //}
+      //
+      //@media screen and (max-width: 991px) {
+      //  margin: 0;
+      //  padding: unset;
+      //
+      //  .paragraph--type--feature-grouped__wrapper {
+      //    padding: unset;
+      //    margin: 0;
+      //  }
+      //}
     }
   }
 }
