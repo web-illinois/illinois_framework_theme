@@ -1,10 +1,12 @@
-#block-illinois-framework-theme-page-title {
+.block-page-title-block {
+  @extend %fixed-width;
+
   @media screen and (min-width: 992px) {
     padding-left: 50px !important;
   }
 }
 .il-content {
-  #block-illinois-framework-theme-page-title {
+  .block-page-title-block {
     margin: 0;
     padding: 0;
     z-index: 0;
