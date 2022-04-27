@@ -1,13 +1,6 @@
 .paragraph--type--bb {
   @extend %paragraphs-padding;
 
-  &.full-width {
-    padding: 0 var(--il-content-margin);
-  }
-  &.fixed-width {
-    padding-left: 50px !important;
-  }
-
   .field--name-field-bb {
     &__title {
       padding: 0 15px;
@@ -184,6 +177,30 @@
   .field--name-field-bb-content__content__wrapper {
     &:hover {
       border-bottom: 3px solid var(--il-industrial-blue-1);
+    }
+  }
+
+  &.full-width {
+    padding: 0 var(--il-content-margin);
+
+    .field--name-field-bb__title {
+      padding: 0 15px;
+    }
+    .paragraph--type--bb__wrapper {
+      margin: 0 auto;
+    }
+  }
+  &.fixed-width {
+
+    .field--name-field-bb__title {
+      padding-left: 10px;
+    }
+    .paragraph--type--bb {
+      padding: 0 20px;
+
+      &__wrapper {
+        margin: 0;
+      }
     }
   }
 }
