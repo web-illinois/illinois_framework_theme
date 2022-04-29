@@ -1,4 +1,5 @@
 .paragraph--type--feature-split {
+  @extend %paragraphs-padding;
 
   @include media-breakpoint-down(sm) {
     display: block !important;

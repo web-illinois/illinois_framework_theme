@@ -1,6 +1,46 @@
 .paragraph--type--bb {
   @extend %paragraphs-padding;
 
+  &.background--color {
+    &--illiniblue {
+      background-color: transparent !important;
+
+      a.field--name-field-bb-content__link {
+        background-color: var(--il-blue);
+        color: white;
+
+        &:hover,
+        &:focus {
+          background-color: white;
+          color: #252525;
+
+          h2 {
+            color: var(--il-orange);
+          }
+        }
+      }
+    }
+
+    &--white {
+      background-color: transparent;
+
+      a.field--name-field-bb-content__link {
+        background-color: white;
+        color: inherit;
+        margin-bottom: rem(48px);
+
+        &:hover,
+        &:focus {
+          background-color: var(--il-blue);
+          color: white;
+
+          h2 {
+            color: white;
+          }
+        }
+      }
+    }
+  }
   .field--name-field-bb {
     &__title {
       padding: 0 15px;
@@ -48,50 +88,6 @@
 
       &__subtitle {
         text-align: center;
-      }
-    }
-  }
-
-  &__wrapper {
-
-    &.background--color {
-      &--illiniblue {
-        background-color: transparent !important;
-
-        a.field--name-field-bb-content__link {
-          background-color: var(--il-blue);
-          color: white;
-
-          &:hover,
-          &:focus {
-            background-color: white;
-            color: #252525;
-
-            h2 {
-              color: var(--il-orange);
-            }
-          }
-        }
-      }
-
-      &--white {
-        background-color: transparent;
-
-        a.field--name-field-bb-content__link {
-          background-color: white;
-          color: inherit;
-          margin-bottom: rem(48px);
-
-          &:hover,
-          &:focus {
-            background-color: var(--il-blue);
-            color: white;
-
-            h2 {
-              color: white;
-            }
-          }
-        }
       }
     }
   }
@@ -193,6 +189,9 @@
   &.fixed-width {
 
     .field--name-field-bb__title {
+      padding-left: 10px;
+    }
+    .field--name-field-bb__subtitle {
       padding-left: 10px;
     }
     .paragraph--type--bb {

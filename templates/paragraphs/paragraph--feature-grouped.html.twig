@@ -38,7 +38,7 @@
  * @ingroup themeable
  */
 #}
-
+{% set background = content.field_feature_grouped_background['#items'].0.value %}
 {%
   set classes = [
   'paragraph',
@@ -46,7 +46,8 @@
   'paragraph--type--' ~ paragraph.bundle|clean_class,
   view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
   not paragraph.isPublished() ? 'paragraph--unpublished',
-  'col-lg-12 col-md-9 col-sm-12 d-flex row fixed-width'
+  'col-lg-12 col-md-9 col-sm-12 d-flex row fixed-width',
+  'background--color--' ~ background
 ]
 %}
 
@@ -54,7 +55,6 @@
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
-      {% set background = content.field_feature_grouped_background['#items'].0.value %}
       {% set layout = content.field_feature_grouped_layout['#items'].0.value %}
       {% if layout == 'right' %}
         {% set row_style = 'flex-row' %}
@@ -62,7 +62,7 @@
         {% set row_style = 'flex-row-reverse' %}
       {% endif %}
       {% set body = content.field_feature_grouped_body['#items'].0.value %}
-      <div class="m-0 p-0 col-lg-12 col-md-12 col-sm-12 d-flex row {{ row_style }} paragraph--type--feature-grouped__wrapper background--color--{{ background }}">
+      <div class="m-0 p-0 col-lg-12 col-md-12 col-sm-12 d-flex row {{ row_style }} paragraph--type--feature-grouped__wrapper">
         {% if content.field_feature_grouped_title['#items'] %}
           <div class="p-0 col-lg-12 col-md-12 col-sm-12 field--name-field-feature-grouped__title title">
             <h2>{{ content.field_feature_grouped_title['#items'].0.value }}</h2>

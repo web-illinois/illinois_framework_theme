@@ -1,4 +1,6 @@
 .paragraph--type--intro-home {
+  @extend %paragraphs-padding;
+
   @include media-breakpoint-down(sm) {
     padding: 0 !important;
   }

@@ -55,7 +55,8 @@
   'paragraph--type--' ~ paragraph.bundle|clean_class,
   view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
   not paragraph.isPublished() ? 'paragraph--unpublished',
-  'col-lg-12 col-md-12 col-sm-12 p-0 d-flex ' ~ flex_row_class ~ max_width
+  'col-lg-12 col-md-12 col-sm-12 p-0 d-flex ' ~ flex_row_class ~ max_width,
+  'background--color--' ~ content.field_feature_video_background['#items'].0.value
 ]
 %}
 {#{{ kint(content) }}#}
@@ -66,7 +67,7 @@
       <div class="field--name-field-feature-video__video__wrapper col-lg-6 col-md-6 col-sm-12 p-0">
         <div class="field--name-field-feature-video__video">{{ content.field_feature_video_video }}</div>
       </div>
-      <div class="col-lg-6 col-md-6 col-sm-12 p-0 background--color--{{ content.field_feature_video_background['#items'].0.value }}">
+      <div class="col-lg-6 col-md-6 col-sm-12 p-0">
         <div class="field--name-field-feature-video__content__wrapper content__wrapper">
           {% if content.field_feature_video_subtitle['#items'] %}
             <div class="field--name-field-feature-video__subtitle subtitle">{{ content.field_feature_video_subtitle }}</div>
