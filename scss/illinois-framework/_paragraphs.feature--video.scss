@@ -1,5 +1,4 @@
 .paragraph--type--feature-video {
-  @extend %paragraphs-padding;
 
   @include media-breakpoint-down(sm) {
     &.flex-row {
