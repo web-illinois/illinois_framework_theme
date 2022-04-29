@@ -1,5 +1,6 @@
 .paragraph--type--contact {
-  padding: rem(60px) 0 !important;
+  padding: 0;
+  @extend %paragraphs-padding;
 
   .paragraph--type--contact__title {
 

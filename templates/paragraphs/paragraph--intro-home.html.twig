@@ -44,14 +44,14 @@
     'paragraph--type--' ~ paragraph.bundle|clean_class,
     view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
     not paragraph.isPublished() ? 'paragraph--unpublished',
-    'col-lg-12 col-md-12 col-sm-12 p-0 d-flex full-width' ~ flex_row_class ~ max_width
+    'col-lg-12 col-md-12 col-sm-12 p-0 d-flex full-width' ~ flex_row_class ~ max_width,
+    'background--color--' ~ content.field_intro_home_background['#items'].0.value
   ]
 %}
 {% block paragraph %}
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
-    <div class="background--color--{{ content.field_intro_home_background['#items'].0.value }}">
     <div class="fingerprint--{{ content.field_intro_home_fingerprint['#items'].0.value }}">
       <div class="field--name-field-intro-home__wrapper fixed-width {{ content.field_intro_home_layout['#items'].0.value }}">
       {% if content.field_intro_home_text_lg['#items'] %}
@@ -72,7 +72,6 @@
             </div>
           </div>
           {% endif %}
-    </div>
     </div>
     </div>
     {% endblock %}

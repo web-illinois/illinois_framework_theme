@@ -15,6 +15,7 @@ global-styling:
         async: true
     js/search.js: {}
     js/side-nav-title-append.js: {}
+    js/paragraph-whitespace.js: {}
   dependencies:
     - core/jquery
 web-components:

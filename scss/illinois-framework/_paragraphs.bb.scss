@@ -1,11 +1,45 @@
 .paragraph--type--bb {
   @extend %paragraphs-padding;
 
-  &.full-width {
-    padding: 0 var(--il-content-margin);
-  }
-  &.fixed-width {
-    padding-left: 50px !important;
+  &.background--color {
+    &--illiniblue {
+      background-color: transparent !important;
+
+      a.field--name-field-bb-content__link {
+        background-color: var(--il-blue);
+        color: white;
+
+        &:hover,
+        &:focus {
+          background-color: white;
+          color: #252525;
+
+          h2 {
+            color: var(--il-orange);
+          }
+        }
+      }
+    }
+
+    &--white {
+      background-color: transparent;
+
+      a.field--name-field-bb-content__link {
+        background-color: white;
+        color: inherit;
+        margin-bottom: rem(48px);
+
+        &:hover,
+        &:focus {
+          background-color: var(--il-blue);
+          color: white;
+
+          h2 {
+            color: white;
+          }
+        }
+      }
+    }
   }
 
   .field--name-field-bb {
@@ -55,50 +89,6 @@
 
       &__subtitle {
         text-align: center;
-      }
-    }
-  }
-
-  &__wrapper {
-
-    &.background--color {
-      &--illiniblue {
-        background-color: transparent !important;
-
-        a.field--name-field-bb-content__link {
-          background-color: var(--il-blue);
-          color: white;
-
-          &:hover,
-          &:focus {
-            background-color: white;
-            color: #252525;
-
-            h2 {
-              color: var(--il-orange);
-            }
-          }
-        }
-      }
-
-      &--white {
-        background-color: transparent;
-
-        a.field--name-field-bb-content__link {
-          background-color: white;
-          color: inherit;
-          margin-bottom: rem(48px);
-
-          &:hover,
-          &:focus {
-            background-color: var(--il-blue);
-            color: white;
-
-            h2 {
-              color: white;
-            }
-          }
-        }
       }
     }
   }
@@ -184,6 +174,33 @@
   .field--name-field-bb-content__content__wrapper {
     &:hover {
       border-bottom: 3px solid var(--il-industrial-blue-1);
+    }
+  }
+
+  &.full-width {
+    padding: 0 var(--il-content-margin);
+
+    .field--name-field-bb__title {
+      padding: 0 15px;
+    }
+    .paragraph--type--bb__wrapper {
+      margin: 0 auto;
+    }
+  }
+  &.fixed-width {
+
+    .field--name-field-bb__title {
+      padding-left: 10px;
+    }
+    .field--name-field-bb__subtitle {
+      padding-left: 10px;
+    }
+    .paragraph--type--bb {
+      padding: 0 20px;
+
+      &__wrapper {
+        margin: 0;
+      }
     }
   }
 }

@@ -1,6 +1,5 @@
 .paragraph--type--list {
-  padding-top: rem(30px) !important;
-  padding-bottom: rem(75px) !important;
+  @extend %paragraphs-padding;
 
   .field--name-field-list {
 

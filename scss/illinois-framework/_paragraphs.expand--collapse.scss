@@ -1,5 +1,7 @@
-.paragraph--type--expand-collapse{
-  margin: rem(30px) 0 !important;
+.paragraph--type--expand-collapse {
+  margin: 0;
+  @extend %paragraphs-padding;
+  //margin: rem(30px) 0 !important;
   .field--name-field-expand-collapse {
     &__wrapper{
 

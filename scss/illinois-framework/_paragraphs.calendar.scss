@@ -1,4 +1,5 @@
 .paragraph--type--calendar {
+  @extend %paragraphs-padding;
   .field--name-field-calendar-title {
     color: var(--il-orange);
   }
