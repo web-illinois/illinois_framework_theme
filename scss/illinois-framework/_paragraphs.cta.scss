@@ -10,7 +10,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: rem(45px) 0 rem(50px) 0;
       @include media-breakpoint-down(md) {
         display: block;
       }
