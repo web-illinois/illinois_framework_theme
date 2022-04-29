@@ -52,7 +52,7 @@
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
-    <div class="field--name-field-icon-row__wrapper icon-size--{{ content.field_icon_row_icon_size['#items'].0.value }}">
+    <div class="field--name-field-icon-row__wrapper icon-size--{{ content.field_icon_row_icon_size['#items'].0.value }} w-100">
       <div class="fixed-width">
         {% if content.field_icon_row_title['#items'] %}
         <div class="field--name-field-icon-row__item col">
