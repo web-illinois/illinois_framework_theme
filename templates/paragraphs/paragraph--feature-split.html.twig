@@ -55,8 +55,8 @@
   'paragraph--type--' ~ paragraph.bundle|clean_class,
   view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
   not paragraph.isPublished() ? 'paragraph--unpublished',
+  'background--color--' ~ content.field_feature_split_background['#items'].0.value,
   'col-lg-12 col-md-12 col-sm-12 p-0 d-flex ' ~ flex_row_class ~ max_width,
-  'background--color--' ~ content.field_feature_split_background['#items'].0.value
 ]
 %}
 {#{{ kint(content) }}#}
