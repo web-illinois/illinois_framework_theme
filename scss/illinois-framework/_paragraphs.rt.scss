@@ -1,7 +1,5 @@
 .paragraph--type--rt {
-  //margin: 45px auto 60px auto;
-  padding-top: 60px;
-  padding-bottom: 75px;
+  @extend %paragraphs-padding;
 
   h3 {
     color: var(--il-blue) !important;
@@ -56,7 +54,6 @@
     }
 
     &__body {
-      margin-bottom: rem(44px);
 
       .field__item {
         opacity: 1;

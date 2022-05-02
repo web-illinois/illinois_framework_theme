@@ -44,14 +44,15 @@
     'paragraph--type--' ~ paragraph.bundle|clean_class,
     view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
     not paragraph.isPublished() ? 'paragraph--unpublished',
-    'col-lg-12 col-md-12 col-sm-12 p-0 d-flex full-width' ~ flex_row_class ~ max_width
+    'col-lg-12 col-md-12 col-sm-12 p-0 d-flex full-width' ~ flex_row_class ~ max_width,
+    'background--color--' ~ content.field_icon_row_background['#items'].0.value
   ]
 %}
 {% block paragraph %}
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
-    <div class="field--name-field-icon-row__wrapper background--color--{{ content.field_icon_row_background['#items'].0.value }} icon-size--{{ content.field_icon_row_icon_size['#items'].0.value }}">
+    <div class="field--name-field-icon-row__wrapper icon-size--{{ content.field_icon_row_icon_size['#items'].0.value }} w-100">
       <div class="fixed-width">
         {% if content.field_icon_row_title['#items'] %}
         <div class="field--name-field-icon-row__item col">

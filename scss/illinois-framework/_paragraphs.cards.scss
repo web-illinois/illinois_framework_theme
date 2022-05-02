@@ -1,4 +1,5 @@
 .paragraph--type--cards {
+  @extend %paragraphs-padding;
   &__wrapper {
     &.card--color {
       &--illiniblue {

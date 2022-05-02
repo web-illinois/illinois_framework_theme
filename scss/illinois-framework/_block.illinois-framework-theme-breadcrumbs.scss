@@ -1,7 +1,5 @@
-#block-illinois-framework-theme-breadcrumbs {
-  @extend %fixed-width;
-}
 .block-system-breadcrumb-block {
+  @extend %fixed-width;
   padding-top: rem(28px) !important;
 
   @media (min-width: 992px) {
@@ -21,7 +19,7 @@
   }
 }
 .il-content {
-  #block-illinois-framework-theme-breadcrumbs {
+  .block-system-breadcrumb-block {
     padding: 0 0 10px 0 !important;
 
     @include media-breakpoint-down(md) {

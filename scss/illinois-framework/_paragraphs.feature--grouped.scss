@@ -1,5 +1,4 @@
 .paragraph--type--feature-grouped {
-  @extend %paragraphs-padding;
   padding-left: 0;
   padding-right: 0;
 
@@ -73,7 +72,6 @@
   .il-content {
 
     .paragraph--type--feature-grouped {
-      padding: 60px 0 75px;
 
       &__wrapper {
         padding-left: 30px;
