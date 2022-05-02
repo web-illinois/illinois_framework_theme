@@ -104,13 +104,51 @@
       padding: 0 0.5rem;
     }
 
-    &:hover,
-    &:focus {
-      background-color: var(--il-blue);
-      color: white;
+    .background--color {
 
-      h2 {
-        color: white;
+      &--illiniblue {
+        background-color: var(--il-blue);
+
+        &:hover,
+        &:focus {
+          background-color: white;
+
+          h2 {
+            color: var(--il-orange);
+          }
+          .body {
+            .field__item {
+              color: var(--il-blue);
+            }
+          }
+        }
+      }
+
+      &--white {
+        background-color: transparent;
+
+        h2 {
+          color: var(--il-orange);
+        }
+        .body {
+          .field__item {
+            color: var(--il-blue);
+          }
+        }
+
+        &:hover,
+        &:focus {
+          background-color: var(--il-blue);
+
+          h2 {
+            color: white;
+          }
+          .body {
+            .field__item {
+              color: white;
+            }
+          }
+        }
       }
     }
   }

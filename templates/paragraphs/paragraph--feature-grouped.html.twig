@@ -42,7 +42,6 @@
 {%
   set classes = [
   'paragraph',
-  'il-formatted',
   'paragraph--type--' ~ paragraph.bundle|clean_class,
   view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
   not paragraph.isPublished() ? 'paragraph--unpublished',
@@ -64,9 +63,9 @@
       {% set body = content.field_feature_grouped_body['#items'].0.value %}
       <div class="m-0 p-0 col-lg-12 col-md-12 col-sm-12 d-flex row {{ row_style }} paragraph--type--feature-grouped__wrapper background--color--{{ background }}">
         {% if content.field_feature_grouped_title['#items'] %}
-          <div class="p-0 col-lg-12 col-md-12 col-sm-12 field--name-field-feature-grouped__title title">
-            <h2>{{ content.field_feature_grouped_title['#items'].0.value }}</h2>
-          </div>
+          <h2 class="p-0 col-lg-12 col-md-12 col-sm-12 field--name-field-feature-grouped__title title">
+            {{ content.field_feature_grouped_title['#items'].0.value }}
+          </h2>
         {% endif %}
         <div class="field--name-field-feature-grouped__content col-lg-8 col-md-8 col-sm-12">
           {% if content.field_feature_grouped_subtitle['#items'] %}
@@ -87,7 +86,7 @@
             </div>
           {% endif %}
           {% if content.field_feature_grouped_body['#items'] %}
-            <div class="field--name-field-feature-grouped__body body">
+            <div class="il-formatted field--name-field-feature-grouped__body body">
               {{ body | raw }}
             </div>
           {% endif %}

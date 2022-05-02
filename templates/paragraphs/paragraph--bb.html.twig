@@ -52,6 +52,7 @@
   view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
   not paragraph.isPublished() ? 'paragraph--unpublished',
   'd-flex ' ~ max_width
+  'background--color--white',
 ]
 %}
 
@@ -60,7 +61,7 @@
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
     <div class="{{ content.field_bb_layout['#items'].0.value }}">
-    {% if content.field_bb_title['#items'] %}
+      {% if content.field_bb_title %}
         <h2 class="field--name-field-bb__title title">{{ content.field_bb_title }}</h2>
       {% endif %}
       {% if content.field_bb_subtitle['#items'] %}
@@ -76,7 +77,7 @@
           {% set link = content.field_bb[loop.index0]['#paragraph'].field_bb_content_link[0] | view %}
             <div class="col-lg-4 col-md-6 col-sm-12 d-flex">
               <a class="field--name-field-bb-content__link" href="{{ link['#url'] | render }}" >
-              <div class="field--name-field-bb-content__content__wrapper content__wrapper ">
+              <div class="field--name-field-bb-content__content__wrapper content__wrapper background--color--{{ content.field_bb_background['#items'].0.value }}">
                 <div class="field--name-field-bb-content__content">
                   <img src="{{ base_path_http ~ file_url(image) }}" alt="{{ image_alt }}"/>
                   <div class="field--name-field-bb-content__title title">
