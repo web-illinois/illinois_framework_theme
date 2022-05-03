@@ -57,7 +57,7 @@
     }
   }
 
-  .background--color--illiniblue {
+  &.background--color--illiniblue {
     .field--name-field-icon-row-icon_wrapper span {
       color: white;
     }
@@ -71,7 +71,7 @@
       color: var(--il-orange);
     }
   }
-  .background--color--gray{
+  &.background--color--gray{
     .field--name-field-icon-row-callout{
       color: var(--il-altgeld);
     }
