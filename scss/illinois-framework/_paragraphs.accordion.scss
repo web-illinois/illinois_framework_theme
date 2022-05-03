@@ -1,11 +1,3 @@
-.has-sidebar {
-  .paragraph--type--accordion {
-    &.fixed-width {
-      padding: rem(45px) 0 rem(60px) 0;
-      max-width: 1140px;
-    }
-  }
-}
 .paragraph--type--accordion {
   @extend %paragraphs-padding;
 
@@ -19,10 +11,19 @@
   }
 
   &.fixed-width {
-    padding: rem(45px) rem(30px) rem(60px) rem(30px);
+    max-width: 1200px;
+    padding: rem(60px) var(--il-content-margin) rem(75px);
   }
 
   .field--name-field-accordion-body {
     padding-bottom: rem(25px);
+  }
+}
+.il-content {
+  .paragraph--type--accordion {
+    &.fixed-width {
+      padding: rem(45px) 0 rem(60px) 0;
+      max-width: 1200px;
+    }
   }
 }
