@@ -8,12 +8,8 @@
 .il-content {
   .block-page-title-block {
     margin: 0;
-    padding: 0;
+    padding: 0 !important;
     z-index: 0;
-
-    @media (min-width: 992px) {
-      padding-left: 0px !important;
-    }
 
     h1 {
       margin: 0 0 1.25rem;
