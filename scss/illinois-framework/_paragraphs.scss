@@ -26,3 +26,9 @@
     }
   }
 }
+//select the last paragraph and remove the bottom padding
+.il-content {
+  div[id^="paragraph--"]:last-child {
+    padding-bottom: 0 !important;
+  }
+}
