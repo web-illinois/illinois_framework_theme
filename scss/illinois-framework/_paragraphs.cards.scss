@@ -47,8 +47,6 @@
   .field--name-field-cards {
     &-text {
       &__wrapper {
-        margin: 1rem 0 2rem;
-        padding: 0 1.875rem;
         text-align: center;
       }
     }
@@ -56,6 +54,8 @@
     &__title {
       color: var(--il-orange);
       text-align: center;
+      padding-bottom: rem(40px);
+
       .field__item {
         margin-bottom: 0;
       }
@@ -65,7 +65,8 @@
       color: var(--il-blue);
       font-weight: 600;
       font-size: rem(28px);
-      line-height: rem(32px);
+      padding-bottom: rem(40px);
+
       .field__item {
         margin-bottom: 0;
       }
