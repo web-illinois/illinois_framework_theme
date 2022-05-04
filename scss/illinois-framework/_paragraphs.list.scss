@@ -4,19 +4,18 @@
   .field--name-field-list {
 
     &-text__wrapper {
-      padding-top: rem(30px);
 
       h2 {
         font-weight: 600;
         font-size: rem(32px);
-        line-height: rem(40px);
         color: var(--il-orange);
+        padding-bottom: rem(40px);
       }
       .subtitle {
         font-weight: 600;
         font-size: rem(28px);
-        line-height: rem(32px);
         color: var(--il-blue);
+        padding-bottom: rem(40px);
       }
     }
   }
