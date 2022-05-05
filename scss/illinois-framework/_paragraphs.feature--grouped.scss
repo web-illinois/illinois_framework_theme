@@ -70,6 +70,7 @@
   .il-content {
 
     .paragraph--type--feature-grouped {
+      padding: 0;
 
       &__wrapper {
         padding-left: 30px;
@@ -79,21 +80,6 @@
           padding-left: 0px;
         }
       }
-
-      //.unset-col-lg-8,
-      //.unset-col-md-8 {
-      //  padding-left: 0px;
-      //}
-      //
-      //@media screen and (max-width: 991px) {
-      //  margin: 0;
-      //  padding: unset;
-      //
-      //  .paragraph--type--feature-grouped__wrapper {
-      //    padding: unset;
-      //    margin: 0;
-      //  }
-      //}
     }
   }
 }
