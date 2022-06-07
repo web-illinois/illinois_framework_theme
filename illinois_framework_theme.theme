@@ -92,6 +92,12 @@ function illinois_framework_theme_theme_suggestions_page_alter(&$suggestions, $v
     $status_code = Drupal::requestStack()->getCurrentRequest()->attributes->get('exception')->getStatusCode();
     $suggestions[] = 'page__' . (string) $status_code;
   }
+
+  //provide page template suggestions per content type
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+	$suggestions[] = 'page__' . $node->bundle();
+  }
+
 }
 
 /**
