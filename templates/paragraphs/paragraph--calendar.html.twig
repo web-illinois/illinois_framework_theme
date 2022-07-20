@@ -56,6 +56,21 @@
     {% endif %}
     <div class="calendar--type--{{ content.field_calendar_type['#items'].0.value }}">
     <script src='https://calendars.illinois.edu/pc/{{ content.field_calendar_id['#items'].0.value }}/{{ content.field_calendar_type['#items'].0.value }}.js'></script>
+
+    {% if content.field_calendar_type['#items'].0.value == '13' %}
+      {% if content.field_calendar_more['#items'] %}
+      <div class="field--name-field-calendar__more ">
+      <a class="il-button" href="https://calendars.illinois.edu/pc/{{ content.field_calendar_id['#items'].0.value }}">View all events</a>
+      </div>
+      {% endif %}
+    {% else %}
+      {% if content.field_calendar_more['#items'] %}
+      <div class="field--name-field-calendar__more ">
+      <a href="https://calendars.illinois.edu/pc/{{ content.field_calendar_id['#items'].0.value }}">View all events</a>
+      </div>
+      {% endif %}
+    {% endif %}
+
     </div>
     {% endblock %}
   </div>
