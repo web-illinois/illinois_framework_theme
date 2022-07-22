@@ -10,11 +10,30 @@
   li[id*="event"]{
     padding: rem(30px);
   }
+  .field--name-field-calendar__more{
+    font-weight: 700;
+    a{
+      text-decoration: none;
+      &:after {
+        content: '\f101';
+        font-family: FontAwesome;
+        vertical-align: top;
+        padding-left: 0.5rem;
+      }
+      &:hover{
+        text-decoration: none;
+        border-bottom: 1px solid;
+      }
+    }
+  }
   .calendar--type--1{
     li[id*="event"]{
       &:nth-of-type(odd){
         background: #f4f4f4;
         }
+    }
+    .field--name-field-calendar__more{
+      margin: 2rem 0 0 2rem;
     }
   }
   .calendar--type--5{
@@ -46,6 +65,9 @@
         }
       }
 
+    }
+    .field--name-field-calendar__more{
+      margin: 2rem 0 0 2rem;
     }
 
   }
@@ -181,6 +203,19 @@
       font-size: rem(21px);
       padding: 0 rem(10px);
 
+    }
+    .field--name-field-calendar__more{
+      margin: 2rem auto 0;
+      text-align: center;
+      a{
+        &:after {
+          content: '';
+          padding: 0;
+        }
+        &:hover {
+          border-bottom: 0.125rem solid var(--il-orange);
+        }
+      }
     }
   }
 }
