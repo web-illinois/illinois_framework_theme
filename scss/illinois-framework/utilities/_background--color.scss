@@ -51,13 +51,13 @@
     width: 100%;
 
     &.fingerprint--full {
-        background-image: url("images/fingerprint.svg"), linear-gradient(var(--il-industrial-blue), var(--il-blue));
+        background-image: url("../../../images/fingerprint.svg"), linear-gradient(var(--il-industrial-blue), var(--il-blue));
     }
     &.fingerprint--left {
-        background-image: url("images/fingerprint-left.png"), linear-gradient(var(--il-industrial-blue), var(--il-blue));
+        background-image: url("../../../images/fingerprint-left.png"), linear-gradient(var(--il-industrial-blue), var(--il-blue));
     }
     &.fingerprint--right {
-        background-image: url("images/fingerprint-right.svg"), linear-gradient(var(--il-industrial-blue), var(--il-blue));
+        background-image: url("../../../images/fingerprint-right.svg"), linear-gradient(var(--il-industrial-blue), var(--il-blue));
     }
 
     .title {
@@ -105,13 +105,13 @@
     width: 100%;
 
     &.fingerprint--full {
-        background-image: url("images/fingerprint.svg"), linear-gradient(var(--il-orange), var(--il-altgeld));
+        background-image: url("../../../images/fingerprint.svg"), linear-gradient(var(--il-orange), var(--il-altgeld));
     }
     &.fingerprint--left {
-        background-image: url("images/fingerprint-left.svg"), linear-gradient(var(--il-orange), var(--il-altgeld));
+        background-image: url("../../../images/fingerprint-left.svg"), linear-gradient(var(--il-orange), var(--il-altgeld));
     }
     &.fingerprint--right {
-        background-image: url("images/fingerprint-right.svg"), linear-gradient(var(--il-orange), var(--il-altgeld));
+        background-image: url("../../../images/fingerprint-right.svg"), linear-gradient(var(--il-orange), var(--il-altgeld));
     }
 
     .title {
