@@ -7,6 +7,9 @@
     .title {
       color: var(--il-orange);
     }
+    .subtitle {
+      color: var(--il-alma-mater);
+    }
     .body {
       a {
         &:link {
@@ -21,29 +24,118 @@
         }
       }
       p {
-        color: $body-color;
+        color: var(--il-text-color);
       }
     }
-    .subtitle {
-      color: var(--il-alma-mater);
-    }
+
     h1,h2,h3,h4,h5,h6 {
       color: var(--il-blue);
     }
-    .btn,
     .il-button {
-      background-color: var(--il-orange);
-      border: rem(2px) solid var(--il-orange);
-      color: white;
+      color: white !important;
+      --il-button-background-color: var(--il-blue) !important;
+      --il-button-foreground-color: white !important;
+      --il-button-border-color: var(--il-blue) !important;
 
+      &:visited {
+        color: white !important;
+        --il-button-background-color: var(--il-blue) !important;
+        --il-button-foreground-color: white !important;
+        --il-button-border-color: var(--il-blue) !important;
+      }
       &:hover,
       &:focus {
-        background-color: white;
-        border: rem(2px) solid var(--il-orange);
-        color: var(--il-orange);
+        color: var(--il-blue) !important;
+        --il-focused-button-background-color: white !important;
+        --il-focused-button-foreground-color: var(--il-blue) !important;
+        --il-focused-button-border-color: var(--il-blue) !important;
       }
     }
+    .il-button {
+      &.il-white-blue {
+        color: var(--il-blue) !important;
+        --il-button-background-color: white !important;
+        --il-button-foreground-color: var(--il-blue) !important;
+        --il-button-border-color: var(--il-blue) !important;
 
+        &:visited {
+          color: var(--il-blue) !important;
+          --il-button-background-color: white !important;
+          --il-button-foreground-color: var(--il-blue) !important;
+          --il-button-border-color: var(--il-blue) !important;
+        }
+        &:hover,
+        &:focus {
+          color: white !important;
+          --il-focused-button-background-color: var(--il-blue) !important;
+          --il-focused-button-foreground-color: white !important;
+          --il-focused-button-border-color: var(--il-blue) !important;
+        }
+      }
+
+      &.il-white-orange {
+        color: var(--il-orange) !important;
+        --il-button-background-color: white !important;
+        --il-button-foreground-color: var(--il-orange) !important;
+        --il-button-border-color: var(--il-orange) !important;
+
+        &:visited {
+          color: var(--il-orange) !important;
+          --il-button-background-color: white !important;
+          --il-button-foreground-color: var(--il-orange) !important;
+          --il-button-border-color: var(--il-orange) !important;
+        }
+        &:hover,
+        &:focus {
+          color: var(--il-orange) !important;
+          --il-focused-button-background-color: var(--il-orange) !important;
+          --il-focused-button-foreground-color: white !important;
+          --il-focused-button-border-color: var(--il-orange) !important;
+        }
+      }
+
+      &.il-blue {
+        color: white !important;
+        --il-button-background-color: var(--il-blue) !important;
+        --il-button-foreground-color: white !important;
+        --il-button-border-color: var(--il-blue) !important;
+
+        &:visited {
+          color: white !important;
+          --il-button-background-color: var(--il-blue) !important;
+          --il-button-foreground-color: white !important;
+          --il-button-border-color: var(--il-blue) !important;
+        }
+        &:hover,
+        &:focus {
+          color: var(--il-blue) !important;
+          --il-focused-button-background-color: white !important;
+          --il-focused-button-foreground-color: var(--il-blue) !important;
+          --il-focused-button-border-color: var(--il-blue) !important;
+        }
+      }
+
+      &.il-orange {
+        color: white !important;
+        --il-button-background-color: var(--il-orange) !important;
+        --il-button-foreground-color: white !important;
+        --il-button-border-color: var(--il-orange) !important;
+
+        &:visited {
+          color: white !important;
+          --il-button-background-color: var(--il-orange) !important;
+          --il-button-foreground-color: white !important;
+          --il-button-border-color: var(--il-orange) !important;
+        }
+        &:hover,
+        &:focus {
+          color: var(--il-orange) !important;
+          --il-focused-button-background-color: white !important;
+          --il-focused-button-foreground-color: var(--il-orange) !important;
+          --il-focused-button-border-color: var(--il-orange) !important;
+        }
+      }
+    }
   }
   &--bluegradient {
     background-image: linear-gradient(var(--il-industrial-blue), var(--il-blue));
@@ -86,16 +178,24 @@
       }
     }
 
-    .btn,
     .il-button {
-      background-color: #184079;
-      border: rem(2px) solid white;
-      color: white;
+      color: white !important;
+      --il-button-background-color: #184079 !important;
+      --il-button-foreground-color: white !important;
+      --il-button-border-color: white !important;
 
+      &:visited {
+        color: white !important;
+        --il-button-background-color: #184079 !important;
+        --il-button-foreground-color: white !important;
+        --il-button-border-color: white !important;
+      }
       &:hover,
       &:focus {
-        background-color: white;
-        color: var(--il-blue);
+        color: #184079 !important;
+        --il-focused-button-background-color: white !important;
+        --il-focused-button-foreground-color: #184079 !important;
+        --il-focused-button-border-color: #184079 !important;
       }
     }
   }
@@ -143,18 +243,24 @@
         }
       }
     }
-
-    .btn,
     .il-button {
-      background-color: #ef461a ;
-      border: rem(2px) solid white;
-      color: white;
+      color: white !important;
+      --il-button-background-color: var(--il-orange) !important;
+      --il-button-foreground-color: white !important;
+      --il-button-border-color: white !important;
 
+      &:visited {
+        color: white !important;
+        --il-button-background-color: var(--il-orange) !important;
+        --il-button-foreground-color: white !important;
+        --il-button-border-color: white !important;
+      }
       &:hover,
       &:focus {
-        background-color: var(--il-blue);
-        border: rem(2px) solid var(--il-blue);
-        color: white;
+        color: var(--il-orange) !important;
+        --il-focused-button-background-color: white !important;
+        --il-focused-button-foreground-color: var(--il-orange) !important;
+        --il-focused-button-border-color: var(--il-orange) !important;
       }
     }
   }
@@ -188,18 +294,24 @@
         color: white;
       }
     }
-
-    .btn,
     .il-button {
-      background-color: var(--il-blue);
-      border: rem(2px) solid white;
-      color: white;
+      color: white !important;
+      --il-button-background-color: var(--il-blue) !important;
+      --il-button-foreground-color: white !important;
+      --il-button-border-color: white !important;
 
+      &:visited {
+        color: white !important;
+        --il-button-background-color: var(--il-blue) !important;
+        --il-button-foreground-color: white !important;
+        --il-button-border-color: white !important;
+      }
       &:hover,
       &:focus {
-        background-color: var(--il-orange);
-        border: rem(2px) solid var(--il-orange);
-        color: white;
+        color: var(--il-blue) !important;
+        --il-focused-button-background-color: white !important;
+        --il-focused-button-foreground-color: var(--il-blue) !important;
+        --il-focused-button-border-color: var(--il-blue) !important;
       }
     }
   }
@@ -240,22 +352,29 @@
     h1,h2,h3,h4,h5,h6 {
       color: var(--il-blue);
     }
-    .btn,
     .il-button {
-      background-color: var(--il-orange);
-      border: rem(2px) solid white;
-      color: white;
+      color: white !important;
+      --il-button-background-color: var(--il-orange) !important;
+      --il-button-foreground-color: white !important;
+      --il-button-border-color: white !important;
 
+      &:visited {
+        color: white !important;
+        --il-button-background-color: var(--il-orange) !important;
+        --il-button-foreground-color: white !important;
+        --il-button-border-color: white !important;
+      }
       &:hover,
       &:focus {
-        background-color: var(--il-blue);
-        border: rem(2px) solid var(--il-blue);
-        color: white;
+        color: var(--il-orange) !important;
+        --il-focused-button-background-color: white !important;
+        --il-focused-button-foreground-color: var(--il-orange) !important;
+        --il-focused-button-border-color: var(--il-orange) !important;
       }
     }
-
   }
-  &--gray {
+  &--gray,
+  &--grey {
     background-color: #f4f4f4;
     width: 100%;
 
@@ -279,15 +398,24 @@
     h1,h2,h3,h4,h5,h6 {
       color: var(--il-blue);
     }
-
-    .btn,
     .il-button {
+      color: var(--il-blue) !important;
+      --il-button-background-color: white !important;
+      --il-button-foreground-color: var(--il-blue) !important;
+      --il-button-border-color: var(--il-blue) !important;
 
+      &:visited {
+        color: var(--il-blue) !important;
+        --il-button-background-color: white !important;
+        --il-button-foreground-color: var(--il-blue) !important;
+        --il-button-border-color: var(--il-blue) !important;
+      }
       &:hover,
       &:focus {
-        background-color: var(--il-blue);
-        border: rem(2px) solid var(--il-blue);
-        color: white;
+        color: white !important;
+        --il-focused-button-background-color: var(--il-blue);
+        --il-focused-button-foreground-color: white;
+        --il-focused-button-border-color: var(--il-blue);
       }
     }
   }
