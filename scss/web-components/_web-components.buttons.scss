@@ -9,24 +9,25 @@
     }
   }
 }
+/* The Illinois Framework Theme default is il-white-blue button instead of
+   il-blue which is specified as the default in the Illinois Toolkit */
 p a.il-button {
-  --color-primary: #fff !important;
-  --color-secondary: var(--il-blue) !important;
-  background-color: var(--il-button-background-color) !important;
-  color: var(--il-button-foreground-color) !important;
+  color: var(--il-blue) !important;
+  --il-button-background-color: white !important;
+  --il-button-foreground-color: var(--il-blue) !important;
+  --il-button-border-color: var(--il-blue) !important;
 
   &:visited {
-    --color-primary: #fff !important;
-    --color-secondary: var(--il-blue) !important;
-    background-color: var(--il-button-background-color) !important;
-    color: var(--il-button-foreground-color) !important;
+    color: var(--il-blue) !important;
+    --il-button-background-color: white !important;
+    --il-button-foreground-color: var(--il-blue) !important;
+    --il-button-border-color: var(--il-blue) !important;
   }
   &:hover,
   &:focus {
-    background-color: var(--il-focused-button-background-color) !important;
-    color: var(--il-focused-button-foreground-color) !important;
-    border-color: var(--il-focused-button-border-color) !important;
-    outline: 0 !important;
-    text-decoration: none !important;
+    color: white !important;
+    --il-focused-button-background-color: var(--il-blue) !important;
+    --il-focused-button-foreground-color: white !important;
+    --il-focused-button-border-color: var(--il-blue) !important;
   }
 }
