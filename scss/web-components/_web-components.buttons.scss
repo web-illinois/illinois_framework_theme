@@ -9,3 +9,24 @@
     }
   }
 }
+p a.il-button {
+  --color-primary: #fff !important;
+  --color-secondary: var(--il-blue) !important;
+  background-color: var(--il-button-background-color) !important;
+  color: var(--il-button-foreground-color) !important;
+
+  &:visited {
+    --color-primary: #fff !important;
+    --color-secondary: var(--il-blue) !important;
+    background-color: var(--il-button-background-color) !important;
+    color: var(--il-button-foreground-color) !important;
+  }
+  &:hover,
+  &:focus {
+    background-color: var(--il-focused-button-background-color) !important;
+    color: var(--il-focused-button-foreground-color) !important;
+    border-color: var(--il-focused-button-border-color) !important;
+    outline: 0 !important;
+    text-decoration: none !important;
+  }
+}
