@@ -31,23 +31,25 @@
     h1,h2,h3,h4,h5,h6 {
       color: var(--il-blue);
     }
+    /* The Illinois Framework Theme default is il-white-blue button instead of
+   il-blue which is specified as the default in the Illinois Toolkit */
     .il-button {
-      color: white !important;
-      --il-button-background-color: var(--il-blue) !important;
-      --il-button-foreground-color: white !important;
+      color: var(--il-blue) !important;
+      --il-button-background-color: white !important;
+      --il-button-foreground-color: var(--il-blue) !important;
       --il-button-border-color: var(--il-blue) !important;
 
       &:visited {
-        color: white !important;
-        --il-button-background-color: var(--il-blue) !important;
-        --il-button-foreground-color: white !important;
+        color: var(--il-blue) !important;
+        --il-button-background-color: white !important;
+        --il-button-foreground-color: var(--il-blue) !important;
         --il-button-border-color: var(--il-blue) !important;
       }
       &:hover,
       &:focus {
-        color: var(--il-blue) !important;
-        --il-focused-button-background-color: white !important;
-        --il-focused-button-foreground-color: var(--il-blue) !important;
+        color: white !important;
+        --il-focused-button-background-color: var(--il-blue) !important;
+        --il-focused-button-foreground-color: white !important;
         --il-focused-button-border-color: var(--il-blue) !important;
       }
     }
