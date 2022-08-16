@@ -1,9 +1,6 @@
 .paragraph--type--intro-home {
-  @extend %paragraphs-padding;
-
-  @include media-breakpoint-down(sm) {
-    padding: 0 !important;
-  }
+  padding: 0 !important;
+  
   .field--name-field-intro-home{
     &__wrapper{
       padding: rem(60px) rem(60px) rem(75px) rem(60px);
