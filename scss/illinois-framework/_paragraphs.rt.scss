@@ -48,6 +48,20 @@
         flex-direction: row;
         flex-wrap: wrap;
         padding: 0;
+
+        &.col-lg-6:first-child {
+          @media screen and (min-width: 768px) {
+            padding-right: 15px;
+          }
+          @media screen and (max-width: 767px) {
+            padding-bottom: 15px;
+          }
+        }
+        &.col-lg-6:nth-child(2) {
+          @media screen and (min-width: 768px) {
+            padding-left: 15px;
+          }
+        }
       }
     }
     &__title {
