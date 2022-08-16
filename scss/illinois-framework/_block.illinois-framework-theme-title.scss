@@ -1,6 +1,10 @@
 .block-page-title-block {
   @extend %fixed-width;
 
+  h1 {
+    margin: 0 0 1.25rem;
+  }
+
   @media screen and (min-width: 992px) {
     padding-left: 50px !important;
   }
