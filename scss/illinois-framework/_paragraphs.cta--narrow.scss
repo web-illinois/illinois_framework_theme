@@ -1,5 +1,4 @@
 .paragraph--type--cta-narrow {
-  @extend %paragraphs-padding;
 
   @include media-breakpoint-down(sm){
     padding: 0 !important;
