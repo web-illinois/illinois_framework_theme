@@ -197,7 +197,7 @@
         color: #184079 !important;
         --il-focused-button-background-color: white !important;
         --il-focused-button-foreground-color: #184079 !important;
-        --il-focused-button-border-color: #184079 !important;
+        --il-focused-button-border-color: white !important;
       }
     }
   }
@@ -262,7 +262,7 @@
         color: var(--il-orange) !important;
         --il-focused-button-background-color: white !important;
         --il-focused-button-foreground-color: var(--il-orange) !important;
-        --il-focused-button-border-color: var(--il-orange) !important;
+        --il-focused-button-border-color: white !important;
       }
     }
   }
@@ -313,7 +313,7 @@
         color: var(--il-blue) !important;
         --il-focused-button-background-color: white !important;
         --il-focused-button-foreground-color: var(--il-blue) !important;
-        --il-focused-button-border-color: var(--il-blue) !important;
+        --il-focused-button-border-color: white !important;
       }
     }
   }
@@ -371,7 +371,7 @@
         color: var(--il-orange) !important;
         --il-focused-button-background-color: white !important;
         --il-focused-button-foreground-color: var(--il-orange) !important;
-        --il-focused-button-border-color: var(--il-orange) !important;
+        --il-focused-button-border-color: white !important;
       }
     }
   }
@@ -415,9 +415,9 @@
       &:hover,
       &:focus {
         color: white !important;
-        --il-focused-button-background-color: var(--il-blue);
-        --il-focused-button-foreground-color: white;
-        --il-focused-button-border-color: var(--il-blue);
+        --il-focused-button-background-color: var(--il-blue) !important;
+        --il-focused-button-foreground-color: white !important;
+        --il-focused-button-border-color: var(--il-blue) !important;
       }
     }
   }
