@@ -11,6 +11,7 @@
     }
      h2 {
       color: var(--il-altgeld) !important;
+       margin-bottom: rem(15px) !important;
     }
   }
   &.background--color--white {
@@ -19,6 +20,7 @@
     }
     h2 {
       color: var(--il-orange);
+      margin-bottom: rem(15px) !important;
     }
   }
 
