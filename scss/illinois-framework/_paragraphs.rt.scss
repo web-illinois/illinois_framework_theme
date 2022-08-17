@@ -100,22 +100,9 @@
   }
 }
 .il-content {
-  .background--color--gray {
-    .paragraph--type--rt__wrapper {
-      padding: rem(30px) !important;
-    }
-  }
   .background--color--white {
     .paragraph--type--rt__wrapper {
       padding: 0 !important;
-    }
-  }
-}
-
-@include media-breakpoint-down(md) {
-  .il-content {
-    .paragraph--type--rt__wrapper {
-      padding-left: 0 !important;
     }
   }
 }
