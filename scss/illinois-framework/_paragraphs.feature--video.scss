@@ -57,6 +57,11 @@
       }
     }
     &__body {
+      p,
+      li {
+        line-height: 2.125rem;
+        font-size: rem(24px);
+      }
 
       .field__item {
         padding-bottom: rem(16px);

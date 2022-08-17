@@ -52,9 +52,12 @@
       }
     }
     &__body {
-    p {
-      color: white;
-    }
+      p,
+      li {
+        color: white;
+        line-height: 2.125rem;
+        font-size: rem(24px);
+      }
       .field__item {
         padding-bottom: rem(16px);
       }
