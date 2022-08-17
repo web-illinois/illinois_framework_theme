@@ -28,7 +28,7 @@
 }
 //select the last paragraph and remove the bottom padding
 .il-content {
-  div[id^="paragraph--"]:last-child {
+  div[id^="paragraph--"]:last-child:has(.background--color--white) {
     padding-bottom: 0 !important;
   }
 }
