@@ -47,7 +47,7 @@
           {{ if_footer['if_footer_address']['if_footer_address_zip'] }}
         {% endif %}</p>
       {% if if_footer['if_footer_address']['if_footer_address_tel'] %}
-        <p><a href="tel:+{{ if_footer['if_footer_address']['if_footer_address_tel'] }}">{{ if_footer['if_footer_address']['if_footer_address_tel'] }}</a></p>
+        <p><a href="tel:{{ if_footer['if_footer_address']['if_footer_address_tel'] }}">{{ if_footer['if_footer_address']['if_footer_address_tel'] }}</a></p>
       {% endif %}
       {% if if_footer['if_footer_address']['if_footer_address_email'] %}
         <p>Email: <a href="mailto:{{ if_footer['if_footer_address']['if_footer_address_email'] }}">{{ if_footer['if_footer_address']['if_footer_address_email'] }}</a></p>
