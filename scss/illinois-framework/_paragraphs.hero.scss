@@ -13,6 +13,39 @@
           &:hover {
             text-decoration: none;
           }
+          &.il-button.il-blue {
+
+            &:visited {
+              color: white !important;
+
+              &:hover,
+              &:focus {
+                color: var(--il-blue) !important;
+              }
+            }
+            @media screen and (max-width: 766px) {
+              --il-button-background-color: var(--il-orange) !important;
+              --il-button-foreground-color: #fff;
+              --il-button-border-color: var(--il-orange) !important;
+              --il-focused-button-background-color: #fff;
+              --il-focused-button-foreground-color: var(--il-orange) !important;
+              --il-focused-button-border-color: var(--il-orange) !important;
+              &:hover,
+              &:focus {
+                color: var(--il-orange) !important;
+                --il-focused-button-border-color: #fff !important;
+              }
+
+              &:visited {
+
+                &:hover,
+                &:focus {
+                  color: var(--il-orange) !important;
+                  --il-focused-button-border-color: #fff !important;
+                }
+              }
+            }
+          }
         }
       }
     }
