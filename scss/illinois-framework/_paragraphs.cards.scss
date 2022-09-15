@@ -12,14 +12,19 @@
         }
         .il-button {
           background-color: var(--il-blue) !important;
-          border-color: var(--white) !important;
-          color: var(--white) !important;
+          border-color: white !important;
+          color: white !important;
+
+          &:visited {
+            color: white !important;
+          }
         }
+
         .il-button:hover,
         .il-button:focus {
-          background-color: var(--il-orange) !important;
-          border-color: var(--il-orange) !important;
-          color: white !important;
+          background-color: white !important;
+          border-color: white !important;
+          color: var(--il-blue) !important;
           outline: none !important;
         }
       }
