@@ -11,16 +11,21 @@
           border-bottom: 1px solid white;
         }
         .il-button {
-          background-color: var(--il-blue);
-          border-color: var(--white);
-          color: var(--white);
+          background-color: var(--il-blue) !important;
+          border-color: white !important;
+          color: white !important;
+
+          &:visited {
+            color: white !important;
+          }
         }
+
         .il-button:hover,
         .il-button:focus {
-          background-color: var(--il-orange);
-          border-color: var(--il-orange);
-          color: white;
-          outline: none;
+          background-color: white !important;
+          border-color: white !important;
+          color: var(--il-blue) !important;
+          outline: none !important;
         }
       }
       &--white {
@@ -28,17 +33,17 @@
           background-color: var(--white);
         }
         .il-button {
-          background-color: white;
-          border-color: var(--il-blue);
-          color: var(--il-blue);
+          background-color: white !important;
+          border-color: var(--il-blue) !important;
+          color: var(--il-blue) !important;
         }
 
         .il-button:hover,
         .il-button:focus {
-          background-color: var(--il-blue);
-          border-color: var(--il-blue);
-          color: white;
-          outline: none;
+          background-color: var(--il-blue) !important;
+          border-color: var(--il-blue) !important;
+          color: white !important;
+          outline: none !important;
         }
       }
     }
