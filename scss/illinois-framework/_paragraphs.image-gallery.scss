@@ -45,31 +45,29 @@
 }
 
 //color box style overrides
-#colorbox, #colorbox div {
-  height: auto !important;
-}
 #cboxCurrent {
+  bottom: 0;
   font-weight: 600;
   font-family: var(--il-source-sans);
-  position: unset;
   padding: 0 15px;
   border-left: none;
   color: var(--il-industrial-blue);
 }
 
-#cboxPrevious {
-  position: unset;
-  margin-top: 6px;
+#cboxPrevious, #cboxPrevious:hover {
   background: url(/images/controls.png) no-repeat 0 -48px;
+  height: 15px;
+  bottom: 5px;
   &:focus,
   &:focus-visible{
     outline: 1px dotted var(--il-industrial-blue);
   }
 }
 
-#cboxNext {
-  position: unset;
+#cboxNext, #cboxNext:hover {
   background: url(images/controls.png) no-repeat 0 -29px;
+  height: 15px;
+  bottom: 5px;
   &:focus,
   &:focus-visible{
     outline: 1px dotted var(--il-industrial-blue);
