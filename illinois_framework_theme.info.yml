@@ -3,11 +3,11 @@ type: theme
 description: 'The Illinois Framework Theme'
 core: 8.x
 core_version_requirement: ^8 || ^9
-base theme: bootstrap4
+base theme: bootstrap5
 version: '2.3'
 
 stylesheets-remove:
-  - '@bootstrap4/css/style.css'
+  - '@bootstrap5/css/style.css'
   - '@classy/css/components/details.css'
 
 libraries-override:
