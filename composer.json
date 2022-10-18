@@ -4,7 +4,7 @@
     "type": "drupal-theme",
     "minimum-stability": "dev",
     "require": {
-        "drupal/bootstrap4": "2.1.5",
+        "drupal/bootstrap5": "2.0.2",
         "drupal/tb_megamenu" : "^1.0@RC",
         "drupal/scss_compiler": "^1.1"
     }
