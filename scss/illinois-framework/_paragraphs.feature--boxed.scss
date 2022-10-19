@@ -13,9 +13,6 @@
       @include media-breakpoint-down(sm) {
         height: rem(350px);
       }
-      @include media-breakpoint-down(xs) {
-        height: rem(250px);
-      }
 
       &__wrapper {
         flex-basis: 50%;
