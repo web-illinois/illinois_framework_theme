@@ -1,7 +1,8 @@
 // Include parent theme with all things Bootstrap for full override.
 // Relative path to this styles.scss file.
 // Example: @import "../../../../../themes/contrib/bootstrap4/scss/style";
-@import '../../../../themes/contrib/bootstrap5/dist/bootstrap/5.2.0/scss/bootstrap';
+//@import '../../../../themes/contrib/bootstrap5/dist/bootstrap/5.2.2/scss/bootstrap';
+@import '../../../../themes/contrib/bootstrap5/scss/style';
 
 // Web components
 @import "web-components/web-components.menu";
