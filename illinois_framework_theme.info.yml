@@ -4,7 +4,7 @@ description: 'The Illinois Framework Theme'
 core: 8.x
 core_version_requirement: ^8 || ^9
 base theme: bootstrap4
-version: '2.3'
+version: '2.4'
 
 stylesheets-remove:
   - '@bootstrap4/css/style.css'
