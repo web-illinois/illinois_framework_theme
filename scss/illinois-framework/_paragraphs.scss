@@ -14,11 +14,10 @@
   .content__wrapper {
     padding: rem(75px);
 
-    @include media-breakpoint-down(lg) {
+    @include media-breakpoint-only(lg) {
       padding: rem(32px);
     }
-
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-only(md) {
       padding: rem(30px);
     }
     @include media-breakpoint-down(sm) {
