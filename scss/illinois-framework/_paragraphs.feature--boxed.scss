@@ -7,7 +7,7 @@
       background-repeat: no-repeat;
       background-size: cover;
       height: 100%;
-      @include media-breakpoint-down(md) {
+      @include media-breakpoint-down(lg) {
         height: rem(500px);
       }
       @include media-breakpoint-down(sm) {
@@ -26,14 +26,15 @@
       &__wrapper {
         top: -100%;
         opacity: 0.9;
-        @include media-breakpoint-down(md) {
+        position: relative;
+        @include media-breakpoint-down(lg) {
           top: 0;
         }
 
         &.left {
           margin: rem(75px) 0 rem(75px) 8.33333333333%;
 
-          @include media-breakpoint-down(md) {
+          @include media-breakpoint-down(lg) {
             margin: 0;
           }
           @include media-breakpoint-down(sm) {
@@ -44,7 +45,7 @@
         &.right {
           margin: rem(75px) 0 rem(75px) 58.3333333333%;
 
-          @include media-breakpoint-down(md) {
+          @include media-breakpoint-down(lg) {
             margin: 0;
           }
           @include media-breakpoint-down(sm) {
@@ -114,6 +115,22 @@
 
       a:first-child {
         margin-right: rem(30px);
+      }
+    }
+  }
+  .background--color {
+    &--illiniorange,
+    &--illiniblue,
+    &--white,
+    &--bluegradient,
+    &--orangegradient,
+    &--gray,
+    &--grey {
+      flex: 0 0 33.3333333333%;
+      max-width: 33.3333333333%;
+      @include media-breakpoint-down(lg) {
+        flex: none;
+        max-width: none;
       }
     }
   }
