@@ -18,13 +18,13 @@
     &__content {
 
       &__wrapper {
-        @include media-breakpoint-down(md) {
+        @include media-breakpoint-down(lg) {
           order: 0 !important;
           text-align: center !important;
         }
         &.right p {
           text-align: right;
-          @include media-breakpoint-down(md) {
+          @include media-breakpoint-down(lg) {
             text-align: center !important
           }
 
@@ -88,9 +88,9 @@
       }
       &__image {
         &__wrapper {
-          width: 100%;
+          //width: 100%;
 
-          @include media-breakpoint-down(md) {
+          @include media-breakpoint-down(lg) {
             order: -1 !important;
           }
 
@@ -108,7 +108,7 @@
             max-width: 250px;
             width:250px;
           }
-          @include media-breakpoint-down(md) {
+          @include media-breakpoint-down(lg) {
             text-align: center !important
           }
         }
@@ -117,7 +117,7 @@
         &__wrapper {
 
           padding-top: 10px;
-          @include media-breakpoint-down(md) {
+          @include media-breakpoint-down(lg) {
             order: 0 !important;
           }
 
@@ -130,7 +130,7 @@
           &.lefttxt {
             text-align: right;
           }
-          @include media-breakpoint-down(md) {
+          @include media-breakpoint-down(lg) {
             text-align: center !important
           }
         }
@@ -142,16 +142,20 @@
   .field--name-field-contact__content__image__wrapper {
 
     &.col-md-12 {
-      flex: 0 0 50%;
-      max-width: 50%;
+      @include media-breakpoint-up(md) {
+        flex: 0 0 50%;
+        max-width: 50%;
+      }
     }
   }
   .field--name-field-contact__content__wrapper {
     order: 0;
 
     &.col-md-12 {
-      flex: 0 0 50%;
-      max-width: 50%;
+      @include media-breakpoint-up(md) {
+        flex: 0 0 50%;
+        max-width: 50%;
+      }
 
       &.lefttxt {
         text-align: left !important;
