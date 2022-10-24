@@ -8,8 +8,15 @@
     }
     #block-illinois-framework-theme-page-title {
       position: absolute;
-      bottom: 16%;
+      top: 8%;
       left: 4%;
+      @include media-breakpoint-up(sm) {
+        bottom: 16%;
+        top: 22%;
+      }
+      @include media-breakpoint-up(xl) {
+        top: 32%;
+      }
 
       h1 {
        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
