@@ -6,6 +6,9 @@ core_version_requirement: ^8 || ^9
 base theme: bootstrap5
 version: '2.3'
 
+dependencies:
+  - bootstrap4
+  
 stylesheets-remove:
   - '@bootstrap5/css/style.css'
   - '@classy/css/components/details.css'
