@@ -21,6 +21,6 @@ jobs:
           gh_token: ${{ secrets.DRUPAL_PROJECT}}
           #user: wrg20
           organization: web-illinois
-          project_id: 2
+          project_id: 5
           resource_node_id: ${{ github.event.issue.node_id }}
           status_value: ${{ env.nostatus }} # Target status
