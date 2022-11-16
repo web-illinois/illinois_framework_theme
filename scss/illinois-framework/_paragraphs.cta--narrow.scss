@@ -1,4 +1,9 @@
 .paragraph--type--cta-narrow {
+  &.background--color{
+    &--illiniorange{
+      color: var(--il-blue);
+    }
+  }
 
   @include media-breakpoint-down(sm){
     padding: 0 !important;
