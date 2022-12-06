@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ * Contains install and update functions for illinois_framework_theme.
+ */
+
+/**
+ * Install bootstrap5, required for this theme now
+ */
+function illinois_framework_theme_update_9100() {
+#    \Drupal::service('theme_installer')->install(['bootstrap5']);
+}
