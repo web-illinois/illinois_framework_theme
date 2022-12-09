@@ -3,7 +3,7 @@ branchName: '${assignee.login}/issue-${issue.number}-${issue.title,}'
 branches:
   - label: enhancement
     prefix: feature/
-    name: 2.x
+    name: 3.x
   - label: bug
     prefix: bugfix/
-    name: 2.x
+    name: 3.x
