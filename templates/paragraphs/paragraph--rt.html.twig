@@ -67,10 +67,9 @@
           {% set columns = 'col-lg-6 col-md-6' %}
         {% endif %}
         {% for item in content.field_rt_column['#items'] %}
-        <div class="{{ columns }} col-sm-12 field--name-field-rt__content__wrapper">
+        <div class="{{ columns }} column--{{ loop.index0 }} col-sm-12 field--name-field-rt__content__wrapper">
             {% set title = content.field_rt_column[loop.index0]['#paragraph'].field_rt_content_title.value %}
             {% set body = content.field_rt_column[loop.index0]['#paragraph'].field_rt_content_body.value %}
-
             <div class="field--name-field-rt__body body">{{ content.field_rt_column[loop.index0] }}</div>
         </div>
         {% endfor %}
