@@ -51,30 +51,23 @@
         flex-wrap: wrap;
         padding: 0;
 
-        &.col-lg-6:first-child {
-          @media screen and (min-width: 768px) {
-            padding-right: 15px;
-          }
+        &.col-lg-6,
+        &.unset-col-lg-6 {
+          padding: 0 15px;
+
           @media screen and (max-width: 767px) {
-            padding-bottom: 15px;
+            padding: 0 0 15px 0;
           }
-        }
-        &.col-lg-6:nth-child(2) {
-          @media screen and (min-width: 768px) {
-            padding-left: 15px;
+
+          &.column--0 {
+            @media screen and (min-width: 768px) {
+              padding-left: 0;
+            }
           }
-        }
-        &.unset-col-lg-6:first-child {
-          @media screen and (min-width: 992px) {
-            padding-right: 15px;
-          }
-          @media screen and (max-width: 991px) {
-            padding-bottom: 15px;
-          }
-        }
-        &.unset-col-lg-6:nth-child(2) {
-          @media screen and (min-width: 992px) {
-            padding-left: 15px;
+          &.column--1 {
+            @media screen and (min-width: 768px) {
+              padding-right: 0;
+            }
           }
         }
       }
