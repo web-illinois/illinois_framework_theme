@@ -66,6 +66,10 @@
       }
       p a {
         line-break: anywhere;
+
+        &.il-button {
+          line-break: auto;
+        }
       }
     }
   }
