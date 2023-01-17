@@ -19,6 +19,8 @@ $link-hover-color:                        var(--il-altgeld);
 $link-decoration:                         underline;
 $link-hover-decoration:                   underline;
 
+$enable-pointer-cursor-for-buttons:           true !default;
+
 // overrides _variables.scss line 272
 // Typography
 //
@@ -64,3 +66,10 @@ $breadcrumb-active-color:           $gray-600 !default;
 $breadcrumb-divider:                quote("/") !default;
 
 $breadcrumb-border-radius:          $border-radius !default;
+
+// overrides _variables_drupal.scss line 16
+$footer-padding: 0;
+
+// overrides _variables_drupal.scss line 14
+$region-padding: 0;
+
