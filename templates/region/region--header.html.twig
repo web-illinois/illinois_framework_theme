@@ -42,7 +42,7 @@
         <h1><a href="/">{{ drupal_config('system.site', 'name') | raw }}</a></h1>
       </il-unit-wordmark>
     </div>
-    <il-search slot="search" action="/search/node" method="get" searchname="query"></il-search>
+    <il-search slot="search" action="/search/node" method="get" searchname="keys"></il-search>
     <nav slot="links" class="il-links">
       <ul>
         {% for header_link in if_header_links %}
