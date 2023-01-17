@@ -1,14 +1,13 @@
 name: 'Illinois Framework Theme'
 type: theme
 description: 'The Illinois Framework Theme'
-core: 8.x
 core_version_requirement: ^8 || ^9
 base theme: bootstrap5
-version: '2.3'
+version: '3.0'
 
 dependencies:
-  - bootstrap4
-  
+  - bootstrap5
+
 stylesheets-remove:
   - '@bootstrap5/css/style.css'
   - '@classy/css/components/details.css'
