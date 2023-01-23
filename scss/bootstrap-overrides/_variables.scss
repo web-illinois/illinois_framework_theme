@@ -67,9 +67,25 @@ $breadcrumb-divider:                quote("/") !default;
 
 $breadcrumb-border-radius:          $border-radius !default;
 
+// overrides _variable.scss line 1185
+// Pagination
+
+$pagination-padding-y:              .2rem;
+$pagination-color:                  var(--il-blue);
+$pagination-border-radius:          0;
+$pagination-border-color:           var(--il-cloud-3);
+$pagination-active-color:           $white;
+$pagination-active-bg:              var(--il-blue);
+$pagination-active-border-color:    $pagination-active-bg;
+$pagination-hover-color:            var(--il-blue);
+$pagination-hover-bg:               rgb(236, 236, 237);
+$pagination-font-weight:            500;
+
 // overrides _variables_drupal.scss line 16
 $footer-padding: 0;
 
 // overrides _variables_drupal.scss line 14
 $region-padding: 0;
+
+
 
