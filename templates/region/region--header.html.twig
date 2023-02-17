@@ -43,7 +43,7 @@
       </il-unit-wordmark>
     </div>
     <il-search slot="search" action="/search/node" method="get" searchname="keys"></il-search>
-    <nav slot="links" class="il-links">
+    <nav slot="links" class="il-links" aria-label="featured links">
       <ul>
         {% for header_link in if_header_links %}
           {% set link = if_header_links[loop.index0][1] %}
