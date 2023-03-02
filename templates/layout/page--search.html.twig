@@ -45,20 +45,18 @@
 * @ingroup themeable
 */
 #}
-{{ attach_library('illinois_framework_theme/google-cse') }}
 <div class="layout-container">
   {{ page.header }}
   {{ page.breadcrumb }}
   {{ page.highlighted }}
   {{ page.help }}
   {{ page.tabs }}
-  <div class="row">
-    <div class="col-lg-12 fixed-width" id="google-custom-search">
-      <div id="cse-search-form" style="width: 100%;">
-      <gcse:search queryParameterName="query"></gcse:search>
-      </div>
+  <a name="main-content" aria-label="Start of content region"></a>
+  <main class="region region-content l-region l-region--content" role="main">
+    <div class="il-content fixed-width">
+      {{ page.content }}
     </div>
   </div>
-  <script src="//www.google.com/jsapi" type="text/javascript"></script>
+  </main>
   {{ page.footer }}
 </div>{# /.layout-container #}

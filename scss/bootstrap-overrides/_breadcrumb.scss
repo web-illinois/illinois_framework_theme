@@ -2,8 +2,8 @@
 .breadcrumb {
   display: flex;
   flex-wrap: wrap;
-  padding: $breadcrumb-padding-y 1rem $breadcrumb-padding-y 0;
-  margin-bottom: $breadcrumb-margin-bottom;
+  padding: 0;
+  margin-bottom: 0;
   @include font-size($breadcrumb-font-size);
   list-style: none;
   background-color: $breadcrumb-bg;

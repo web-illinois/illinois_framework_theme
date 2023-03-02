@@ -81,7 +81,7 @@ article.news {
 
     .form-item {
       display: flex;
-      margin-top: 0.75rem;
+      margin-top: 1rem;
       margin-bottom: 0;
 
       label {
@@ -99,6 +99,9 @@ article.news {
         line-height: 1;
       }
     }
+  }
+  .form-control {
+    height: 40px;
   }
 
   .item-list {
@@ -289,7 +292,7 @@ article.news {
           font-size: rem(29px);
           line-height: rem(35px);
           font-weight: 700;
-          @include media-breakpoint-down(md) {
+          @include media-breakpoint-down(lg) {
             font-size: rem(20px);
             line-height: rem(27px);
             }

@@ -1,7 +1,8 @@
 // Include parent theme with all things Bootstrap for full override.
 // Relative path to this styles.scss file.
 // Example: @import "../../../../../themes/contrib/bootstrap4/scss/style";
-@import '../../../../themes/contrib/bootstrap4/dist/bootstrap/4.5.3/scss/bootstrap';
+//@import '../../../../themes/contrib/bootstrap5/dist/bootstrap/5.2.2/scss/bootstrap';
+@import '../../../../themes/contrib/bootstrap5/scss/style';
 
 // Web components
 @import "web-components/web-components.menu";
@@ -28,6 +29,8 @@
 @import 'bootstrap-overrides/breadcrumb';
 @import 'bootstrap-overrides/buttons';
 @import 'bootstrap-overrides/lists';
+@import "bootstrap-overrides/layout";
+@import "bootstrap-overrides/footer";
 
 // Layouts
 @import "illinois-framework/regions";
@@ -42,6 +45,7 @@
 // 3rd Party/Campus Components
 @import "illinois-framework/components.google-translate";
 @import "illinois-framework/components.one-trust";
+@import "illinois-framework/components.google-custom-search";
 
 // Blocks
 @import "illinois-framework/block.sidebar-menu";

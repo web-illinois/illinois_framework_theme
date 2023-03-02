@@ -16,10 +16,10 @@
       height: 100%;
       width: 100%;
 
-      @include media-breakpoint-down(sm) {
+      @include media-breakpoint-only(sm) {
         height: 350px;
       }
-      @include media-breakpoint-down(xs) {
+      @include media-breakpoint-only(xs) {
         height: 250px;
       }
 
@@ -100,9 +100,6 @@
   .field--name-field-feature-video-video {
     height: 100%;
     width: 100%;
-    @include media-breakpoint-down(sm) {
-      min-height: rem(350px);
-    }
 
     .field__item {
       height: 100%;

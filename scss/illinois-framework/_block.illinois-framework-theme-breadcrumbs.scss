@@ -8,11 +8,10 @@
   }
 
   ol.breadcrumb {
-    display: inline;
     line-height: 1;
 
     li.breadcrumb-item {
-      height: rem(20px);
+      height: rem(30px);
     }
     li.breadcrumb-item + .breadcrumb-item::before {
       content: '>';
