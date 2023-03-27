@@ -1,0 +1,5 @@
+name: screenshot check
+on: [workflow_dispatch]
+jobs:
+  call-workflow-in-another-repo:
+    uses: web-illinois/ilfw_backstop_tests/.github/workflows/backstop.yml@v3
