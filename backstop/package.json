@@ -1,0 +1,22 @@
+{
+  "name": "backstop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "backstop": "^1.0.1",
+    "backstopjs": "^6.1.0",
+    "gulp": "^4.0.2"
+  },
+  "devDependencies": {
+    "fs": "0.0.1-security",
+    "gulp-mustache": "^5.0.0",
+    "gulp-rename": "^2.0.0"
+  },
+  "scripts": {
+    "backstop_create_prod_screenshots": "gulp backstop_template_prod && backstop reference --config=backstop_files/backstop_template_prod.json",
+    "backstop_test": "gulp backstop_template_dev && backstop test --config=backstop_files/backstop_template_dev.json"
+  },
+  "author": "",
+  "license": "ISC"
+}
