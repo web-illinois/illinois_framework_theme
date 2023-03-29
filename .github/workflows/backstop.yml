@@ -1,5 +1,23 @@
 name: screenshot check
 on: [workflow_dispatch]
 jobs:
-  call-workflow-in-another-repo:
-    uses: web-illinois/ilfw_backstop_tests/.github/workflows/backstop.yml@v3
+  check-screenshot:
+    name: check screenshots
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: '16' 
+    - name: install dependencies   
+      run: npm install
+    - name: create screenshots
+      run: npm run backstop_create_prod_screenshots
+    - name: compare screenshots
+      run: npm run backstop_test
+    - name: upload
+      uses: actions/upload-artifact@v3
+      if: failure()
+      with:
+        name: my-screenshots
+        path: backstop_data/bitmaps_test_templates/
