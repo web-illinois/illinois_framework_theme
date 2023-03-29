@@ -10,11 +10,11 @@ jobs:
       with:
         node-version: '16' 
     - name: install dependencies   
-      run: npm install
+      run: npm --prefix backstop install
     - name: create screenshots
-      run: npm run backstop_create_prod_screenshots
+      run: npm --prefix backstop run backstop_create_prod_screenshots
     - name: compare screenshots
-      run: npm run backstop_test
+      run: npm --prefix backstop run backstop_test
     - name: upload
       uses: actions/upload-artifact@v3
       if: failure()
