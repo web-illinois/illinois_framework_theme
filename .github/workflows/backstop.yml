@@ -20,4 +20,4 @@ jobs:
       if: failure()
       with:
         name: my-screenshots
-        path: backstop_data/bitmaps_test_templates/
+        path: test/backstop_data/bitmaps_test_templates/
