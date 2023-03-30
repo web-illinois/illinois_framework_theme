@@ -1,8 +1,8 @@
-name: screenshot check
+name: Visual Regression Test
 on: [workflow_dispatch]
 jobs:
-  check-screenshot:
-    name: check screenshots
+  Visual-Regression-Test:
+    name: Visual Regression Test
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -19,5 +19,5 @@ jobs:
       uses: actions/upload-artifact@v3
       if: failure()
       with:
-        name: my-screenshots
+        name: screenshots
         path: backstop/backstop_data/bitmaps_test_templates/
