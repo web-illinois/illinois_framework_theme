@@ -49,7 +49,7 @@
         },
         {
             "url": "paragraphs/feature-group",
-            "label": "dev-feature-box"
+            "label": "dev-feature-group"
         },
         {
             "url": "paragraphs/feature-split",
@@ -137,7 +137,7 @@
         },
         {
             "url": "paragraphs/feature-group",
-            "label": "feature-box"
+            "label": "feature-group"
         },
         {
             "url": "paragraphs/feature-split",
