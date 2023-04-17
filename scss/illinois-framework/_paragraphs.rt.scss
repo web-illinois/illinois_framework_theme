@@ -7,19 +7,15 @@
 
   &.background--color--gray {
     .paragraph--type--rt__title h2 {
-      color: var(--il-altgeld) !important;
     }
      h2 {
-      color: var(--il-altgeld) !important;
        margin-bottom: rem(15px) !important;
     }
   }
   &.background--color--white {
     .paragraph--type--rt__title h2 {
-      color: var(--il-orange) !important;
     }
     h2 {
-      color: var(--il-orange);
       margin-bottom: rem(15px) !important;
     }
   }
