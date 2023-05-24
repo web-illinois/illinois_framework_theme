@@ -12,6 +12,7 @@
       justify-content: center;
       @include media-breakpoint-down(md) {
         display: block;
+        margin: 1.875rem 0;
       }
 
       .field--name-field-cta-icon {
@@ -77,6 +78,14 @@
     &_img {
       &__wrapper {
         padding: 0 rem(35px) 0 rem(50px);
+        @include media-breakpoint-down(md) {
+          padding: 0;
+        }
+        @include media-breakpoint-down(sm) {
+          padding: 0;
+          display: flex;
+          justify-content: center;
+        }
       }
     }
     &__subtitle {
