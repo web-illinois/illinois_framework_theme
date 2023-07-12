@@ -44,6 +44,25 @@
 * @ingroup themeable
 */
 #}
+
+{%
+  set mainClasses = [
+    'region',
+    'region-content',
+    'l-region',
+    'l-region--content'
+  ]
+%}
+
+{% if node.field_sidebar.0.value == "sidebar" %}
+{%
+  set mainClasses = mainClasses|merge([
+    'has-sidebar'
+  ])
+%}
+{% endif %}
+
+
 <div class="layout-container">
   {{ page.header }}
   {{ page.breadcrumb }}
@@ -52,18 +71,19 @@
   {{ page.tabs }}
   <a name="main-content" aria-label="Start of content region"></a>
   <main class="region region-content l-region l-region--content" role="main">
-  {% if page.sidebar_first or page.sidebar_second %}
+  {% if page.sidebar_first|render|trim is not empty or page.sidebar_second|render|trim is not empty %}
   <div class="il-content-with-section-nav">
+    {{ page.sidebar_first }}
+    {{ page.sidebar_second }}
   {% else %}
   <div>
   {% endif %}
-    {{ page.sidebar_first }}
-    {{ page.sidebar_second }}
-    <div class="il-content">
+  <div class="il-content">
       {{ page.content }}
     </div>
   </div>
   </main>
+
   {{ page.footer }}
 </div>{# /.layout-container #}
 

@@ -1,8 +1,15 @@
 //il-formatted ovrrride for h2
 article.spotlight {
-  .field--name-body h2 {
-    color: var(--il-orange);
+  .content {
+    margin: 0 auto;
+    max-width: var(--il-framework--fixed-width);
+    width: 100%;
+  .field--name-body {
+    h2 {
+      color: var(--il-orange);
+    }
   }
+}
 }
 
 //works around having the need for items after a body
@@ -15,8 +22,9 @@ article.spotlight {
   }
 }
 
-.field--name-field-if-meda-featured-image .media--view-mode-spotlight-detail {
-  padding-left: 1.5rem;
+.field--name-field-if-meda-featured-image {
+  float: right;
+  padding: 0 1.5rem;
 }
 
 //override to handle extra padding from double applying fixed-width
