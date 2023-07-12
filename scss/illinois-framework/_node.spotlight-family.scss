@@ -34,8 +34,12 @@ article.spotlight {
     color: var(--il-cloud);
     text-decoration: none;
   }
-  .field.field--name-body p {
-    color: var(--il-cloud-1);
+  .field.field--name-body {
+    padding: 45px 45px 60px;
+    margin-bottom: 1.25rem;
+      p {
+      color: var(--il-cloud-1);
+    }
   }
   .field.field--name-field-more-details {
     background-color: var(--il-altgeld);
@@ -47,6 +51,28 @@ article.spotlight {
   .spotlight-feature-image {
     padding-left: calc(var(--il-content-margin) * 1.5);
   }
+
+  .il-button {
+    color: white !important;
+    --il-button-background-color: var(--il-blue) !important;
+    --il-button-foreground-color: white !important;
+    --il-button-border-color: white !important;
+
+    &:visited {
+      color: white !important;
+      --il-button-background-color: var(--il-blue) !important;
+      --il-button-foreground-color: white !important;
+      --il-button-border-color: white !important;
+    }
+    &:hover,
+    &:focus {
+      color: var(--il-blue) !important;
+      --il-focused-button-background-color: white !important;
+      --il-focused-button-foreground-color: var(--il-blue) !important;
+      --il-focused-button-border-color: white !important;
+    }
+  }
+
 }
 
 //used for spotlight teaser display view
