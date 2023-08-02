@@ -71,7 +71,7 @@
   {{ page.tabs }}
   <a name="main-content" aria-label="Start of content region"></a>
   <main class="region region-content l-region l-region--content" role="main">
-  {% if page.sidebar_first|render|trim is not empty or page.sidebar_second|render|trim is not empty %}
+  {% if node.field_sidebar.0.value == "sidebar" %}
   <div class="il-content-with-section-nav">
     {{ page.sidebar_first }}
     {{ page.sidebar_second }}
