@@ -85,7 +85,9 @@
                   </div>
                   {% if body|render|trim is not empty %}
                   <div class="field--name-field-bb-content__body body">
+                    {% autoescape false %}
                     <div class="field__item">{{ body|striptags }}</div>
+                    {% endautoescape %}
                   </div>
                   {% endif %}
                 </div>
