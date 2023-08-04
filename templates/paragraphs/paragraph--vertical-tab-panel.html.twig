@@ -52,7 +52,10 @@
     {% block content %}
     <il-vertical-tab-panel id="il-vertical-tab-id-">
       <h3 slot="header">{{ content.field_vertical_tab_panel_title }}</h3>
-      <div class="field--name-field-vertical-tab-panel__body">{{ content.field_vertical_tab_panel_body }}</div>
+      {% if content.field_vertical_tab_panel_body %}
+        <div class="field--name-field-vertical-tab-panel__body">{{ content.field_vertical_tab_panel_body }}</div>{# this body field is deprecated #}
+      {% endif %}
+      <div class="field--name-field-vertical-tab-panel__body">{{ content.field_vertical_tab_panel_body_fo }}</div>
     </il-vertical-tab-panel>
 
     {% endblock %}
