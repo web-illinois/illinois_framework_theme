@@ -1,0 +1,94 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a paragraph.
+ *
+ * Available variables:
+ * - paragraph: Full paragraph entity.
+ *   Only method names starting with "get", "has", or "is" and a few common
+ *   methods such as "id", "label", and "bundle" are available. For example:
+ *   - paragraph.getCreatedTime() will return the paragraph creation timestamp.
+ *   - paragraph.id(): The paragraph ID.
+ *   - paragraph.bundle(): The type of the paragraph, for example, "image" or "text".
+ *   - paragraph.getOwnerId(): The user ID of the paragraph author.
+ *   See Drupal\paragraphs\Entity\Paragraph for a full list of public properties
+ *   and methods for the paragraph object.
+ * - content: All paragraph items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to temporarily suppress the printing
+ *   of a given child element.
+ * - attributes: HTML attributes for the containing element.
+ *   The attributes.class element may contain one or more of the following
+ *   classes:
+ *   - paragraphs: The current template type (also known as a "theming hook").
+ *   - paragraphs--type-[type]: The current paragraphs type. For example, if the paragraph is an
+ *     "Image" it would result in "paragraphs--type--image". Note that the machine
+ *     name will often be in a short form of the human readable label.
+ *   - paragraphs--view-mode--[view_mode]: The View Mode of the paragraph; for example, a
+ *     preview would result in: "paragraphs--view-mode--preview", and
+ *     default: "paragraphs--view-mode--default".
+ * - view_mode: View mode; for example, "preview" or "full".
+ * - logged_in: Flag for authenticated user status. Will be true when the
+ *   current user is a logged-in member.
+ * - is_admin: Flag for admin user status. Will be true when the current user
+ *   is an administrator.
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{%
+  set classes = [
+  'paragraph',
+  'il-formatted',
+  'paragraph--type--' ~ paragraph.bundle|clean_class,
+  view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+  not paragraph.isPublished() ? 'paragraph--unpublished',
+  'background--color--white',
+]
+%}
+
+<link rel="stylesheet" href="//contrib.webtheme.illinois.edu/ils-contentslider/contentslider.min.css" media="all">
+<script src="//contrib.webtheme.illinois.edu/ils-contentslider/contentslider.min.js"></script>
+
+{% block paragraph %}
+  {# Paragraph ID used for anchor linking #}
+  <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
+    {% block content %}
+    <div class="col-lg-12 col-md-12 paragraph--type--content-slider__wrapper">
+      <div class="col-lg-12 col-md-12 paragraph--type--content-slider-text__wrapper">
+      {% if content.field_content_slider_title %}
+        <h2 class="field--name-field-content-slider-title__title title">{{ content.field_content_slider_title }}</h2>
+      {% endif %}
+      {% if content.field_content_slider_subtitle['#items'] %}
+        <div class="field--name-field-content-slider__subtitle subtitle">{{ content.field_content_slider_subtitle }}</div>
+      {% endif %}
+      </div>
+      <ils-contentslider height="auto" slide="350">
+      {% for item in content.field_cards_content['#items'] %}
+      {% set image = content.field_cards_content[loop.index0]['#paragraph'].field_cards_content_image.entity.fileuri|image_style('content_slider_cards') %}
+      {% set image_alt = content.field_cards_content[loop.index0]['#paragraph'].field_cards_content_image.alt %}
+      {% set title = content.field_cards_content[loop.index0]['#paragraph'].field_cards_content_title.value %}
+      {% set body = content.field_cards_content[loop.index0]['#paragraph'].field_cards_content_body.value %}
+      {% set link = content.field_cards_content[loop.index0]['#paragraph'].field_cards_content_button[0] | view %}
+      {% set background = content.field_content_slider_background[loop.index0]['#paragraph'].field_content_slider_background.value %}
+        <il-card class="{{ content.field_content_slider_background['#items'].0.value }}">
+          <img src="{{ base_path_http ~ file_url(image) }}" alt="{{ image_alt }}" />
+          <div class="il-card-text__wrapper">
+          <h2>{{ title }}</h2>
+          <p class="body">{{ body }}</p>
+          {% if link is not empty %}
+          <p class="il-buttons"><a class="il-button" href="{{ link['#url'] | render }}">{{ link['#title'] | render }}</a></p>
+          {% endif %}
+          </div>
+        </il-card>
+      {% endfor %}
+      </ils-contentslider>
+
+    </div>
+
+    {% endblock %}
+  </div>
+{% endblock paragraph %}
