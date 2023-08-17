@@ -29,6 +29,17 @@ web-components:
     https://cdn.toolkit.illinois.edu/2.16/toolkit.js:
       type: external
       minified: true
+ils-contentslider:
+  header: true
+  css:
+    theme:
+      https://contrib.webtheme.illinois.edu/ils-contentslider/contentslider.min.css:
+        type: external
+        minified: true
+  js:
+    https://contrib.webtheme.illinois.edu/ils-contentslider/contentslider.min.js:
+      type: external
+      minified: true
 content-adjust:
   js:
     js/content.js: {}

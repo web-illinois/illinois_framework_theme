@@ -45,8 +45,7 @@
     'paragraph--type--' ~ paragraph.bundle|clean_class,
     view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
     not paragraph.isPublished() ? 'paragraph--unpublished',
-    'col-lg-12 col-md-12 col-sm-12 p-0 fixed-width' ~ flex_row_class ~ max_width,
-    'background--color--white',
+    'col-lg-12 col-md-12 col-sm-12 p-0 fixed-width' ~ flex_row_class ~ max_width
   ]
 %}
 {% block paragraph %}
@@ -62,7 +61,28 @@
           <div class="field--name-field-cards__subtitle subtitle">{{ content.field_cards_subtitle }}</div>
         {% endif %}
       </div>
-      {{ content.field_cards_content }}
+      <div class="field__items">
+        {% for item in content.field_cards_content['#items'] %}
+        {% set image = content.field_cards_content[loop.index0]['#paragraph'].field_cards_content_image.entity.fileuri|image_style('content_slider_cards') %}
+        {% set image_alt = content.field_cards_content[loop.index0]['#paragraph'].field_cards_content_image.alt %}
+        {% set title = content.field_cards_content[loop.index0]['#paragraph'].field_cards_content_title.value %}
+        {% set body = content.field_cards_content[loop.index0]['#paragraph'].field_cards_content_body.value %}
+        {% set link = content.field_cards_content[loop.index0]['#paragraph'].field_cards_content_button[0] | view %}
+        {% set background = content.field_cards_background[loop.index0]['#paragraph'].field_cards_background.value %}
+        <div class="field__item">
+          <il-card class="{{ content.field_cards_background['#items'].0.value }}">
+            <img src="{{ base_path_http ~ file_url(image) }}" alt="{{ image_alt }}" />
+            <div class="il-card-text__wrapper">
+            <h2>{{ title }}</h2>
+            <p class="body">{{ body }}</p>
+            {% if link is not empty %}
+            <p class="il-buttons"><a class="il-button" href="{{ link['#url'] | render }}">{{ link['#title'] | render }}</a></p>
+            {% endif %}
+            </div>
+          </il-card>
+        </div>
+        {% endfor %}
+      </div>
     </div>
     {% endblock %}
   </div>
