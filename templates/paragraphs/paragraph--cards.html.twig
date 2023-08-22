@@ -38,6 +38,12 @@
  * @ingroup themeable
  */
 #}
+{% if content.field_cards_background['#items'].0.value == 'white' %}
+  {% set background_color = 'il-theme-white' %}
+{% else %}
+  {% set background_color = 'il-theme-blue' %}
+{% endif %}
+
 {%
   set classes = [
     'paragraph',
@@ -70,7 +76,7 @@
         {% set link = content.field_cards_content[loop.index0]['#paragraph'].field_cards_content_button[0] | view %}
         {% set background = content.field_cards_background[loop.index0]['#paragraph'].field_cards_background.value %}
         <div class="field__item">
-          <il-card class="{{ content.field_cards_background['#items'].0.value }}">
+          <il-card class="{{ background_color }}">
             <img src="{{ base_path_http ~ file_url(image) }}" alt="{{ image_alt }}" />
             <div class="il-card-text__wrapper">
             <h2>{{ title }}</h2>
