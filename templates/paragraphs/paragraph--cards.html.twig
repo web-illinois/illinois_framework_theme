@@ -69,7 +69,7 @@
       </div>
       <div class="field__items">
         {% for item in content.field_cards_content['#items'] %}
-        {% set image = content.field_cards_content[loop.index0]['#paragraph'].field_cards_content_image.entity.fileuri|image_style('content_slider_cards') %}
+        {% set image = content.field_cards_content[loop.index0]['#paragraph'].field_cards_content_image.entity.fileuri|image_style('cards_image') %}
         {% set image_alt = content.field_cards_content[loop.index0]['#paragraph'].field_cards_content_image.alt %}
         {% set title = content.field_cards_content[loop.index0]['#paragraph'].field_cards_content_title.value %}
         {% set body = content.field_cards_content[loop.index0]['#paragraph'].field_cards_content_body.value %}
