@@ -4,9 +4,22 @@
     "type": "drupal-theme",
     "minimum-stability": "dev",
     "require": {
-        "drupal/bootstrap4": "2.1.5",
-        "drupal/bootstrap5": "^2.0",
-        "drupal/tb_megamenu" : "^1.0@RC",
+        "drupal/bootstrap4": "^3.0",
+        "drupal/bootstrap5": "^3.0",
+        "drupal/tb_megamenu" : "^2.0@alpha||^3.0@alpha",
+        "cweagans/composer-patches": "^1.7",
         "drupal/scss_compiler": "^1.1"
+    },
+    "extra": {
+        "enable-patching": true,
+        "patches": {
+            "drupal/scss_compiler": {
+                "3298001 - Drupal 10 compatibility fixes": "https://www.drupal.org/files/issues/2023-03-23/scss_compiler-drupal10.patch",
+                "change value of core version requriement": "docroot/themes/contrib/illinois_framework_theme/patches/scss-compiler-version.patch"
+            }
+        },
+        "drupal-lenient": {
+            "allowed-list": ["drupal/scss_compiler"]
+        }
     }
 }
