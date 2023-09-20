@@ -1,0 +1,50 @@
+{
+  "id": "{{{testname}}}",
+  "viewports": [
+    {{#viewports}}
+    {
+      "label": "{{{label}}}",
+      "width": {{{width}}},
+      "height": {{{height}}}
+    }{{^last}}, {{/last}}
+    {{/viewports}}
+  ],
+  "scenarios": [
+    {{#urls}}
+    {
+      "label": "{{{label}}}",
+      "url": "{{{prod}}}{{{url}}}",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 1500,
+      "hideSelectors": [],
+      "removeSelectors": ["#onetrust-consent-sdk"],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
+    }{{^last}}, {{/last}}
+    {{/urls}}
+  ],
+  "paths": {
+    "bitmaps_reference": "backstop_data/bitmaps_reference_templates",
+    "bitmaps_test": "backstop_data/bitmaps_test_templates",
+    "engine_scripts": "backstop_data/engine_scripts_templates",
+    "html_report": "backstop_data/html_report_templates",
+    "ci_report": "backstop_data/ci_report_templates"
+  },
+  "report": ["json"],
+  "engine": "puppeteer",
+  "engineOptions": {
+    "args": ["--no-sandbox"]
+  },
+  "asyncCaptureLimit": 2,
+  "asyncCompareLimit": 10,
+  "debug": false,
+  "debugWindow": false
+}

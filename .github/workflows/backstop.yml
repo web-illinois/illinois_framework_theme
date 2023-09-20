@@ -1,5 +1,23 @@
-name: screenshot check
+name: Visual Regression Test
 on: [workflow_dispatch]
 jobs:
-  call-workflow-in-another-repo:
-    uses: web-illinois/ilfw_backstop_tests/.github/workflows/backstop.yml@v3
+  Visual-Regression-Test:
+    name: Visual Regression Test
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: '16' 
+    - name: install dependencies   
+      run: npm --prefix backstop install
+    - name: create screenshots
+      run: npm --prefix backstop run backstop_create_prod_screenshots
+    - name: compare screenshots
+      run: npm --prefix backstop run backstop_test
+    - name: upload
+      uses: actions/upload-artifact@v3
+      if: failure()
+      with:
+        name: screenshots
+        path: backstop/backstop_data/
