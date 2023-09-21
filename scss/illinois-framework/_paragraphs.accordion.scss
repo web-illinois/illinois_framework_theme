@@ -27,3 +27,9 @@
     }
   }
 }
+.paragraph--type--accordion-content {
+  border: none !important;
+  .field--name-field-accordion-summary {
+    margin-bottom: 0 !important;
+  }
+}
