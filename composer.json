@@ -4,9 +4,7 @@
     "type": "drupal-theme",
     "minimum-stability": "dev",
     "require": {
-        "drupal/bootstrap4": "^3.0",
         "drupal/bootstrap5": "^3.0",
-        "drupal/tb_megamenu" : "^2.0@alpha||^3.0@alpha",
         "cweagans/composer-patches": "^1.7",
         "drupal/scss_compiler": "^1.1"
     },
