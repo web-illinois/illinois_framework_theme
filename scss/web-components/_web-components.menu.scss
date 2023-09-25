@@ -4,6 +4,11 @@ il-nav-section {
     color: unset;
     text-decoration: unset;
   }
+
+  // If top-level nav item doesn't have a link, change the cursor to default
+  a:not([href]):not([class]), a:not([href]):not([class]):hover {
+    cursor: default;
+  }
 }
 il-nav-link {
   a {

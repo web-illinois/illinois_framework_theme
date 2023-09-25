@@ -32,7 +32,12 @@
       {% set item_length = items|length %}
       {% if menu_level == 0 and item.below %}
         <il-nav-section {% if item_length >= 5 and loop.index > (item_length - 2) %}right="true"{% endif %}>
-          <a href="{{ item.url }}" slot="label">{{ item.title }}</a>
+          {# Check if there's <nolink> in the top-level menu link and remove the href if there is no link #}
+          {% if item.url.toString is not empty -%}
+            <a href={{ item.url }} slot="label">{{ item.title }}</a>
+          {% else %}
+            <a role="button" slot="label" tabindex="0">{{ item.title }}</a>
+          {% endif -%}
           <ul class="il-subnav">
             {% for item in item.below %}
               <li>
