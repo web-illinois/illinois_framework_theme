@@ -72,8 +72,8 @@
   {# look for url #}
   {% set url = url('<current>') %}
 
-    {# if a side navigation exists and /'latest' is not in the url then spoof the content region #}
-    {% if node.field_sidebar.0.value == "sidebar" and '/latest' not in url|render|render %}
+  {# if a side navigation exists and /'latest' is not in the url then spoof the content region #}
+  {% if node.field_sidebar.0.value == "sidebar" and '/latest' not in url|render|render %}
 
   <a name="main-content" aria-label="Start of content region"></a>
   <main{{ attributes.addClass(mainClasses) }} role="main">
