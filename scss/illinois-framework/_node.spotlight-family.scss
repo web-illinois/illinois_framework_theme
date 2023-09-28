@@ -34,17 +34,51 @@ article.spotlight {
 
 //used for spotlight feature display view
 .node-feature {
-  padding: 65px 0 75px;
-  overflow: auto;
-  .body {
-    margin-bottom: 1.813rem;
+  background-image: url(images/fingerprint-left.png);
+  background-size: cover;
+  padding: calc(var(--il-content-margin) * 2) 0;
+  background-color: var(--il-blue);
+  .feature-title a {
+    color: var(--il-cloud);
+    text-decoration: none;
+  }
+  .field.field--name-body {
+    padding: 45px 45px 60px;
+    margin-bottom: 1.25rem;
+      p {
+      color: var(--il-cloud-1);
+    }
+  }
+  .field.field--name-field-more-details {
+    background-color: var(--il-altgeld);
+  }
+  .field.field--name-field-more-details a {
+    color: var(--il-cloud);
+    text-decoration: none;
   }
   .spotlight-feature-image {
-    float: right;
     padding-left: calc(var(--il-content-margin) * 1.5);
   }
-  .il-button{
-    margin: 0.625rem 0;
+
+  .il-button {
+    color: white !important;
+    --il-button-background-color: var(--il-blue) !important;
+    --il-button-foreground-color: white !important;
+    --il-button-border-color: white !important;
+
+    &:visited {
+      color: white !important;
+      --il-button-background-color: var(--il-blue) !important;
+      --il-button-foreground-color: white !important;
+      --il-button-border-color: white !important;
+    }
+    &:hover,
+    &:focus {
+      color: var(--il-blue) !important;
+      --il-focused-button-background-color: white !important;
+      --il-focused-button-foreground-color: var(--il-blue) !important;
+      --il-focused-button-border-color: white !important;
+    }
   }
 
 }
