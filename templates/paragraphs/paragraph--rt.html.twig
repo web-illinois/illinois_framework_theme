@@ -54,6 +54,10 @@
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
+    <div class="paragraph--type--menu__wrapper d-flex fixed-width">
+    {% if content.field_menu_reference %}
+    {{ content.field_menu_reference }}
+    {% endif %}
       <div class="col-lg-12 col-md-12 col-sm-12 d-flex row paragraph--type--rt__wrapper fixed-width">
         {% if content.field_rt_title['#items'] %}
           <div class="col-lg-12 col-md-12 col-sm-12 paragraph--type--rt__title">
@@ -74,6 +78,7 @@
         </div>
         {% endfor %}
       </div>
+    </div>
     {% endblock %}
   </div>
 {% endblock paragraph %}
