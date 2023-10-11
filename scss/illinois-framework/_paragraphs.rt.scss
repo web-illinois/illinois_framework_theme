@@ -92,9 +92,18 @@
   }
 }
 
-.field--name-field-menu-reference {
-  flex: 0 0 274px;
-  padding: 0;
+.paragraph--type--menu__wrapper{
+  display: flex;
+  @media screen and (max-width: 991px){
+    display: block;
+  }
+  .field--name-field-menu-reference {
+    flex: 0 0 274px;
+    padding: 0;
+    @media screen and (max-width: 991px){
+      padding: 0 0 1.875rem 0;
+    }
+  }
 }
 
 .il-content {
