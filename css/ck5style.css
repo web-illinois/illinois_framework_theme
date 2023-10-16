@@ -15208,7 +15208,7 @@ a > .ck-content code {
 .ck-content .il-content .field--name-body {
   padding-bottom: 30px;
 }
-.ck-content p {
+.ck-content p, .ck-content ol, .ck-content ul, .ck-content table {
   font-family: var(--il-source-sans);
 }
 .ck-content .il-button {

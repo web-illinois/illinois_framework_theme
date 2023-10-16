@@ -2,7 +2,7 @@
   @import './style.scss';
 }
 .ck-content {
-  p {
+  p, ol, ul, table {
     font-family: var(--il-source-sans);
   }
   .il-button {
