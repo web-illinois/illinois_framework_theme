@@ -1,9 +1,9 @@
 name: 'Illinois Framework Theme'
 type: theme
 description: 'The Illinois Framework Theme'
-core_version_requirement: ^8 || ^9
+core_version_requirement: ^9 || ^10
 base theme: bootstrap5
-version: '3.2'
+version: '4.0'
 
 dependencies:
   - bootstrap5
@@ -19,6 +19,10 @@ libraries-override:
 libraries:
   - illinois_framework_theme/global-styling
   - illinois_framework_theme/web-components
+
+ckeditor5-stylesheets:
+  - css/ck5style.css
+  - css/components.css
 
 # Regions
 regions:

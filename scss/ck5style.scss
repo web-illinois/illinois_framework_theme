@@ -1,0 +1,103 @@
+.ck-content {
+  @import './style.scss';
+}
+.ck-content {
+  p, ol, ul, table {
+    font-family: var(--il-source-sans);
+  }
+  .il-button {
+    --color-primary: white;
+    --color-secondary: var(--il-blue);
+
+    background-color: var(--il-button-background-color);
+    color: var(--il-button-foreground-color);
+    display: inline-block;
+    margin: 6px 0;
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 0.25em;
+    border: 2px solid var(--il-button-border-color);
+    font: 700 rem(19px) / rem(20px) var(--il-font-sans);
+    letter-spacing: .01em;
+    transition: background-color 0.3s;
+    cursor: pointer;
+
+    &:visited {
+      outline: 0;
+      background-color: var(--il-button-background-color);
+      color: var(--il-button-foreground-color);
+      border: 2px solid var(--il-button-border-color);
+    }
+
+    &:hover,
+    &:focus {
+      outline: 0;
+      background-color: var(--il-focused-button-background-color);
+      color: var(--il-focused-button-foreground-color);
+      border-color: var(--il-focused-button-border-color);
+    }
+
+    &.il-white-blue {
+      --il-button-background-color: white;
+      --il-button-foreground-color: var(--il-blue);
+      --il-button-border-color: var(--il-blue);
+      --il-focused-button-background-color: var(--il-blue);
+      --il-focused-button-foreground-color: white;
+      --il-focused-button-border-color: var(--il-blue);
+    }
+
+    &.il-white-orange {
+      color: var(--il-orange) !important;
+      --il-button-background-color: white !important;
+      --il-button-foreground-color: var(--il-orange) !important;
+      --il-button-border-color: var(--il-orange) !important;
+      --il-focused-button-background-color: var(--il-orange) !important;
+      --il-focused-button-foreground-color: white !important;
+      --il-focused-button-border-color: var(--il-orange) !important;
+      &:hover,
+      &:focus {
+        color: white !important;
+        --il-focused-button-background-color: var(--il-orange) !important;
+        --il-focused-button-foreground-color: white !important;
+        --il-focused-button-border-color: var(--il-orange) !important;
+      }
+    }
+
+    &.il-blue {
+      color: white !important;
+      --il-button-background-color: var(--il-blue) !important;
+      --il-button-foreground-color: white !important;
+      --il-button-border-color: var(--il-blue) !important;
+      --il-focused-button-background-color: white !important;
+      --il-focused-button-foreground-color: var(--il-blue) !important;
+      --il-focused-button-border-color: var(--il-blue)!important;
+
+      &:hover,
+      &:focus {
+        color: var(--il-blue) !important;
+        --il-focused-button-background-color: white !important;
+        --il-focused-button-foreground-color: var(--il-blue) !important;
+        --il-focused-button-border-color: var(--il-blue) !important;
+      }
+    }
+
+    &.il-orange {
+      color: white !important;
+      --il-button-background-color: var(--il-orange) !important;
+      --il-button-foreground-color: white !important;
+      --il-button-border-color: var(--il-orange) !important;
+      --il-focused-button-background-color: white !important;
+      --il-focused-button-foreground-color: var(--il-orange) !important;
+      --il-focused-button-border-color: var(--il-orange) !important;
+
+      &:hover,
+      &:focus {
+        color: var(--il-orange) !important;
+        --il-focused-button-background-color: white !important;
+        --il-focused-button-foreground-color: var(--il-orange) !important;
+        --il-focused-button-border-color: var(--il-orange) !important;
+      }
+    }
+  }
+}
