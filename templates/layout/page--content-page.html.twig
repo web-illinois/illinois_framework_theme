@@ -53,7 +53,7 @@
     'l-region--content'
   ]
 %}
-
+{% set url = url('<current>') %}
 {% if node.field_sidebar.0.value == "sidebar" %}
 {%
   set mainClasses = mainClasses|merge([
@@ -62,15 +62,18 @@
 %}
 {% endif %}
 
-
 <div class="layout-container">
   {{ page.header }}
   {{ page.breadcrumb }}
   {{ page.highlighted }}
   {{ page.help }}
   {{ page.tabs }}
-  {# if a side navigation exists the spoof the content region #}
-  {% if node.field_sidebar.0.value == "sidebar" %}
+
+  {# look for url #}
+  {% set url = url('<current>') %}
+
+  {# if a side navigation exists and /'latest' is not in the url then spoof the content region #}
+  {% if node.field_sidebar.0.value == "sidebar" and '/latest' not in url|render|render %}
 
   <a name="main-content" aria-label="Start of content region"></a>
   <main{{ attributes.addClass(mainClasses) }} role="main">
@@ -78,6 +81,7 @@
     {{ page.sidebar_first }}
     {{ page.sidebar_second }}
     <div class="il-content">
+
       {% if node.body %}
         {{ drupal_field('body','node', node.id ) }}
       {% endif %}
@@ -97,8 +101,11 @@
     {% endfor %}
     {{ attach_library('illinois_framework_theme/content-adjust') }}
   </main>
+
+  {# if a there is no sidebar #}
   {% else %}
-    {{ page.content }}
+  {{ page.content }}
   {% endif %}
+
   {{ page.footer }}
 </div>{# /.layout-container #}
