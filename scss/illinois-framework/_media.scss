@@ -62,7 +62,7 @@ TODO: Consider making the feature video styles use this responsive video setup.
 
   &.align-left,
   &.align-right {
-    width: 50%;
+    max-width: 50%;
     padding-bottom: rem(25px);
   }
 
@@ -80,5 +80,35 @@ TODO: Consider making the feature video styles use this responsive video setup.
     justify-content: center;
     clear: both;
     padding-bottom: rem(25px);
+  }
+}
+
+/*Styles for right and left align media with CKEditor captions*/
+.il-formatted{
+  figure{
+    margin: 0 !important;
+    padding-bottom: 1.5625rem !important;
+    max-width: 50%;
+    &.caption-drupal-media{
+      &.align-left{
+        padding-right: 1.25rem;
+      }
+      &.align-right{
+        padding-left: 1.25rem;
+      }
+    }
+  }
+  figcaption{
+    font-size: 1em !important;
+    margin: 0.25rem 0 !important;
+    font-style: italic;
+    border-bottom: none !important;
+  }
+}
+
+/*Styles for media with Media captions*/
+.field--name-field-if-media-image-caption{
+  .field__item{
+    font-style: italic;
   }
 }
