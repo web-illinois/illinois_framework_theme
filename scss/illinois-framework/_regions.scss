@@ -1,3 +1,10 @@
+.layout-container {
+  margin: 0 auto;
+  max-width: 1920px;
+  width: 100%;
+  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.2);
+}
+
 .l-region {
 
   &--header {
