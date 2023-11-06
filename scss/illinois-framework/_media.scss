@@ -57,53 +57,49 @@ TODO: Consider making the feature video styles use this responsive video setup.
 }
 
 /*Styles for right and left align media*/
+.il-formatted figure,
 .media,
 .media--type-remote-video {
 
   &.align-left,
   &.align-right {
-    max-width: 50%;
-    padding-bottom: rem(25px);
+    max-width: 40%;
+    padding-bottom: var(--il-content-margin);;
   }
 
   &.align-left {
     justify-content: left;
-    padding-right: rem(20px);
+    padding-right: var(--il-content-margin);;
   }
 
   &.align-right {
     justify-content: right;
-    padding-left: rem(20px);
+    padding-left: var(--il-content-margin);;
   }
 
   &.align-center {
+    max-width: 60%;
     justify-content: center;
     clear: both;
-    padding-bottom: rem(25px);
+    display: block;
+    margin: 0.888889em auto 0;
+  }
+
+  &.align-center {
+    img {
+      width: 100%;
+    }
+  }
+
+  figcaption{
+    margin: rem(5px) 0 !important;
+    border-bottom: none !important;
   }
 }
 
-/*Styles for right and left align media with CKEditor captions*/
-.il-formatted{
-  figure{
-    margin: 0 !important;
-    padding-bottom: 1.5625rem !important;
-    max-width: 50%;
-    &.caption-drupal-media{
-      &.align-left{
-        padding-right: 1.25rem;
-      }
-      &.align-right{
-        padding-left: 1.25rem;
-      }
-    }
-  }
-  figcaption{
-    font-size: 1em !important;
-    margin: 0.25rem 0 !important;
-    font-style: italic;
-    border-bottom: none !important;
-  }
+/* Remove top margin for embedded image if it's the first element in the body */
+div.field--type-text-with-summary > figure:first-child {
+  margin-top: 0;
 }
 
 /*Styles for media with Media captions*/
