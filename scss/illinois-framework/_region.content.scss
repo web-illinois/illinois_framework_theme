@@ -6,3 +6,15 @@
     padding: 0 !important;
   }
 }
+
+
+/* Show message on content that is unpublished */
+article.is-unpublished:before {
+  content: "This page is not published and will not be visible to unauthenticated users";
+  text-align: center;
+  padding: 2em;
+  margin-bottom: 2em;
+  background-color: pink;
+  display: block;
+  font-weight: bold;
+}
