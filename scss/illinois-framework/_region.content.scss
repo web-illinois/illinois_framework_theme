@@ -9,8 +9,9 @@
 
 
 /* Show message on content that is unpublished */
-article.is-unpublished:before {
-  content: "This page is not published and will not be visible to unauthenticated users";
+article.is-unpublished:before,
+main.is-unpublished:before {
+  content: "This page is unpublished and is only visible to site editors";
   text-align: center;
   padding: 2em;
   margin-bottom: 2em;
