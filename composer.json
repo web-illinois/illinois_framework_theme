@@ -5,6 +5,8 @@
     "minimum-stability": "dev",
     "require": {
         "drupal/bootstrap5": "^3.0",
-        "drupal/scss_compiler": "^1.2"
+        "drupal/scss_compiler": "^1.2",
+        "drupal/stable": "^2.0",
+        "drupal/classy": "^1.0"
     }
 }
