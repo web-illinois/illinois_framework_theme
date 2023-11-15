@@ -1,4 +1,5 @@
 <?php
+use Drupal\Core\Url;
 use Drupal\block\Entity\Block;
 use Drupal\Core\Site\Settings;
 use Drupal\Core\Template\Attribute;
@@ -10,7 +11,7 @@ function illinois_framework_theme_preprocess(&$variables) {
   // path variables
   // TODO: condense these into a single array like ['path_vars']['var']
   $current_path = \Drupal::service('path.current')->getPath();
-  $canoncial_url = \Drupal\Core\Url::fromRoute('<current>', [], ['absolute' => 'true'])->toString();
+  $canoncial_url = Url::fromRoute('<current>', [], ['absolute' => 'true'])->toString();
   $base_path = \Drupal::request()->getHost();
   $base_path_http = \Drupal::request()->getSchemeAndHttpHost();
   $theme_path = \Drupal::theme()->getActiveTheme()->getPath();

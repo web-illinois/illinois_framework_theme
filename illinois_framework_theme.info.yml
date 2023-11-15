@@ -10,6 +10,7 @@ dependencies:
 
 stylesheets-remove:
   - '@bootstrap5/css/style.css'
+  - '@classy/css/components/details.css'
 
 libraries-override:
   filter/caption: false
