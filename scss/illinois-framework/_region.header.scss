@@ -2,3 +2,10 @@
   position: relative;
   z-index: 101;
 }
+il-nav[compact] {//fix for last element in mobile menu not having a border if there is only the top level link
+  il-nav-link:last-child {
+    a  {
+      border-bottom: 1px solid #c0c0c0;
+    }
+  }
+}
