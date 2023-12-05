@@ -358,9 +358,6 @@ article.news {
           -webkit-line-clamp: 3; /* number of lines to show */
                   line-clamp: 3;
           -webkit-box-orient: vertical;
-          .field--name-body {
-            padding: 0;
-          }
         }
         .hvrbox-layer_slideup {
           -moz-transform: translateY(50%);
@@ -375,6 +372,10 @@ article.news {
       overflow: hidden;
       height: auto;
       border: 1px solid #707070;
+      .field--name-field-if-meda-featured-image {
+        padding: 0;
+        float:  none;
+      }
         img {
           max-width: 100%;
           width: 100%;
@@ -400,6 +401,9 @@ article.news {
           -webkit-transition: all 0.4s ease-in-out 0s;
           -ms-transition: all 0.4s ease-in-out 0s;
           transition: all 0.4s ease-in-out 0s;
+          .field--name-body {
+            padding: 0 !important;
+          }
         }
         .hvrbox-layer_bottom {
           display: block;
