@@ -120,6 +120,10 @@
       {% endif %}
       </div>
 
+      {% if content.field_if_meda_featured_image['#items'] %}
+      {{ content.field_if_meda_featured_image }}
+      {% endif %}
+
       {% if content.body['#items'] %}
       <div class="body">{{ content.body }}</div>
       {% endif %}

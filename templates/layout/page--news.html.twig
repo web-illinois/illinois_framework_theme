@@ -50,13 +50,7 @@
   {{ page.highlighted }}
   {{ page.help }}
   {{ page.tabs }}
-  {% if page.sidebar_first or page.sidebar_second %}
-  <div class="il-content-with-section-nav">
-  {% else %}
-  <div>
-  {% endif %}
-    {{ page.sidebar_first }}
-    {{ page.sidebar_second }}
+  <div class="fixed-width">
     <div class="il-content">
       {{ page.content }}
     </div>
