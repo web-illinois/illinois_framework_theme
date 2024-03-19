@@ -72,13 +72,14 @@
  * @ingroup themeable
  */
 #}
-{% set classes = [
-  node.bundle|clean_class,
-  node.isPromoted() ? 'is-promoted',
-  node.isSticky() ? 'is-sticky',
-  not node.isPublished() ? 'is-unpublished',
-  view_mode ? view_mode|clean_class,
-  'clearfix',
+{%
+  set classes = [
+    node.bundle|clean_class,
+    node.isPromoted() ? 'is-promoted',
+    node.isSticky() ? 'is-sticky',
+    not node.isPublished() ? 'is-unpublished',
+    view_mode ? view_mode|clean_class,
+    'clearfix',
   ]
 %}
 <article{{ attributes.addClass(classes) }}>
@@ -104,43 +105,39 @@
   <div{{ content_attributes.addClass('content') }}>
     <div class="fixed-width">
       {% if content.field_if_subtitle['#items'] %}
-        <div class="subtitle">{{ content.field_if_subtitle }}</div>
+      <div class="subtitle">{{ content.field_if_subtitle }}</div>
       {% endif %}
 
       <div class="byline">
-        {% if content.field_if_author['#items'] %}
-          <div class="author">{{ content.field_if_author }}</div>
-        {% endif %}
-        {% if content.field_if_author['#items'] and content.field_if_date['#items'] %}
-          <div class="byline-vr"></div>
-        {% endif %}
-        {% if content.field_if_date['#items'] %}
-          <div class="date">{{ content.field_if_date }}</div>
-        {% endif %}
+      {% if content.field_if_author['#items'] %}
+      <div class="author">{{ content.field_if_author }}</div>
+      {% endif %}
+      {% if content.field_if_author['#items'] and content.field_if_date['#items'] %}
+      <div class="byline-vr"></div>
+      {% endif %}
+      {% if content.field_if_date['#items'] %}
+      <div class="date">{{ content.field_if_date }}</div>
+      {% endif %}
       </div>
 
-      {% if content.field_if_meda_featured_image['#items'] %}
-        <div class="">{{ content.field_if_meda_featured_image }}</div>
-      {% endif %}
-
       {% if content.body['#items'] %}
-        <div class="body">{{ content.body }}</div>
+      <div class="body">{{ content.body }}</div>
       {% endif %}
 
       {% if content.field_paragraph['#items'] %}
-        {{ content.field_paragraph }}
+      {{ content.field_paragraph }}
       {% endif %}
 
       {% if content.field_if_story_source['#items'] %}
-        <div class="source">{{ content.field_if_story_source }}</div>
+      <div class="source">{{ content.field_if_story_source }}</div>
       {% endif %}
 
       {% if content.field_tags['#items'] %}
-        <div class="tag-wrapper">Related topics: <span class="tags"> {{ content.field_tags }}</span></div>
+      <div class="tag-wrapper">Related topics: <span class="tags"> {{ content.field_tags }}</span></div>
       {% endif %}
 
       {% if content.field_if_related_people['#items'] %}
-        <p><div><span> {{ content.field_if_related_people }}</span></div></p>
+      <p><div><span> {{ content.field_if_related_people }}</span></div></p>
       {% endif %}
 
     </div>
