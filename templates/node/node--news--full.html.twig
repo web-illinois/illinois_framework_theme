@@ -136,6 +136,10 @@
       <div class="tag-wrapper">Related topics: <span class="tags"> {{ content.field_tags }}</span></div>
       {% endif %}
 
+      {% if content.field_if_related_people['#items'] %}
+      <p><div><span> {{ content.field_if_related_people }}</span></div></p>
+      {% endif %}
+
     </div>
   </div>
 
