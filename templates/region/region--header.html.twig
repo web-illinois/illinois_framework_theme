@@ -28,9 +28,9 @@
   {% endif %}
   {% if if_secondary_site_title %}
     {% if if_secondary_site_link %}
-      <a slot="parent-unit" href="{{ if_secondary_site_link }}">{{ if_secondary_site_title }}</a>
+      <a slot="primary-unit" href="{{ if_secondary_site_link }}">{{ if_secondary_site_title }}</a>
     {% else %}
-      <a slot="site-name" href="#">{{ if_secondary_site_title }}</a>
+      <a slot="primary-unit" href="#">{{ if_secondary_site_title }}</a>
     {% endif %}
   {% endif %}
   <a slot="site-name" href="/">{{ drupal_config('system.site', 'name') | raw }}</a>
