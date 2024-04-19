@@ -63,11 +63,11 @@
 {% endif %}
 
 <div class="layout-container">
-  {{ page.header }}
-  {{ page.breadcrumb }}
-  {{ page.highlighted }}
-  {{ page.help }}
-  {{ page.tabs }}
+  <il-page>
+    <il-header slot="header" data-compact="false">
+      {{ page.header }}
+    </il-header>
+
 
   {# look for url #}
   {% set url = url('<current>') %}
@@ -80,11 +80,13 @@
   {% set mainClasses = mainClasses|merge(unpublished) %}
 
   <a name="main-content" aria-label="Start of content region"></a>
-  <main{{ attributes.addClass(mainClasses) }} role="main">
-  <div class="il-content-with-section-nav section-nav-example">
+  <main{{ attributes.addClass(mainClasses) }} slot="main" role="main">
+    {{ page.breadcrumb }}
+    {{ page.highlighted }}
+    {{ page.help }}
+    {{ page.tabs }}
     {{ page.sidebar_first }}
     {{ page.sidebar_second }}
-    <div class="il-content">
 
       {% if node.body %}
         {{ drupal_field('body','node', node.id ) }}
@@ -96,20 +98,21 @@
           {{ drupal_entity('paragraph', item.target_id) }}
         {% endif %}
       {% endfor %}
-    </div>
-  </div>
     {% for item in node.fields.field_paragraph %}
       {% if loop.index0 >= paragraph_number %}
         {{ drupal_entity('paragraph', item.target_id) }}
       {% endif %}
     {% endfor %}
     {{ attach_library('illinois_framework_theme/content-adjust') }}
-  </main>
 
   {# if a there is no sidebar #}
   {% else %}
   {{ page.content }}
   {% endif %}
+</main>
 
-  {{ page.footer }}
+    <il-footer slot="footer">
+      {{ page.footer }}
+    </il-footer>
+  </il-page>
 </div>{# /.layout-container #}

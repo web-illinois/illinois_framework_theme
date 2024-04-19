@@ -45,13 +45,16 @@
 */
 #}
 <div class="layout-container">
-  {{ page.header }}
-  {{ page.breadcrumb }}
-  {{ page.highlighted }}
-  {{ page.help }}
-  {{ page.tabs }}
+  <il-page>
+    <il-header slot="header" data-compact="false">
+      {{ page.header }}
+    </il-header>
   <a name="main-content" aria-label="Start of content region"></a>
-  <main class="region region-content l-region l-region--content" role="main">
+  <main slot="main" class="region region-content l-region l-region--content" role="main">
+    {{ page.breadcrumb }}
+    {{ page.highlighted }}
+    {{ page.help }}
+    {{ page.tabs }}
   {% if page.sidebar_first|render|trim is not empty or page.sidebar_second|render|trim is not empty %}
   <div class="il-content-with-section-nav">
     {{ page.sidebar_first }}
@@ -64,6 +67,8 @@
     </div>
   </div>
   </main>
-
-  {{ page.footer }}
+    <il-footer slot="footer">
+    {{ page.footer }}
+    </il-footer>
+  </il-page>
 </div>{# /.layout-container #}

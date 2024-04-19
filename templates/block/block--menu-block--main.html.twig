@@ -41,17 +41,17 @@
 %}
 {# {{ kint() }}#}
 {% set heading_id = attributes.id ~ '-menu'|clean_id %}
-<il-section-nav aria-labelledby="{{ heading_id }}"{{ attributes.addClass(classes)|without('role', 'aria-labelledby') }}>
-  {# Label. If not displayed, we still provide it for screen readers. #}
-  {% if not configuration.label_display %}
-    {% set title_attributes = title_attributes.addClass('visually-hidden') %}
-  {% endif %}
-  {{ title_prefix }}
-  <h3>{{ configuration.label }}</h3>
-  {{ title_suffix }}
+  <il-sidebar-nav slot="sidebar">
+    {# Label. If not displayed, we still provide it for screen readers. #}
+    {% if not configuration.label_display %}
+      {% set title_attributes = title_attributes.addClass('visually-hidden') %}
+    {% endif %}
+    {{ title_prefix }}
+    <h3>{{ configuration.label }}</h3>
+    {{ title_suffix }}
 
-  {# Menu. #}
-  {% block content %}
-    {{ content }}
-  {% endblock %}
-</il-section-nav>
+    {# Menu. #}
+    {% block content %}
+      {{ content }}
+    {% endblock %}
+  </il-sidebar-nav>
