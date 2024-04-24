@@ -21,15 +21,34 @@
   'l-region--' ~ region|clean_class,
 ]
 %}
-<footer{{ attributes.addClass(classes) }} role="contentinfo">
-    <div slot="contact" class="il-footer-contact uofi_address">
       {% if if_footer['if_footer_address']['if_footer_address_unit'] %}
-        <p><a href="/" id="link-1">{{ if_footer['if_footer_address']['if_footer_address_unit'] }}</a></p>
+        <p slot="primary-unit"><a href="/" id="link-1">{{ if_footer['if_footer_address']['if_footer_address_unit'] }}</a></p>
+        <p slot="site-name"><a href="/">{{ drupal_config('system.site', 'name')| raw }}</a></p>
       {% elseif drupal_config('system.site', 'name') %}
-        <p><a href="/">{{ drupal_config('system.site', 'name')| raw }}</a></p>
+        <p slot="site-name"><a href="/">{{ drupal_config('system.site', 'name')| raw }}</a></p>
       {% else %}
-        <p><a href="https://illinois.edu">University of Illinois</a></p>
+        <p slot="site-name"><a href="https://illinois.edu">University of Illinois</a></p>
       {% endif %}
+<address slot="address">
+  <nav aria-label="Social media" class="il-social">
+    <ul>
+      {% if if_footer['if_footer_social']['if_footer_social_instagram'] %}
+        <li><a data-service="instagram" href="{{ if_footer['if_footer_social']['if_footer_social_instagram'] }}">Instagram</a></li>
+      {% endif %}
+      {% if if_footer['if_footer_social']['if_footer_social_facebook'] %}
+        <li><a data-service="facebook" href="{{ if_footer['if_footer_social']['if_footer_social_facebook'] }}">Facebook</a></li>
+      {% endif %}
+      {% if if_footer['if_footer_social']['if_footer_social_twitter'] %}
+        <li><a data-service="twitter" href="{{ if_footer['if_footer_social']['if_footer_social_twitter'] }}">Twitter</a></li>
+      {% endif %}
+      {% if if_footer['if_footer_social']['if_footer_social_youtube'] %}
+        <li><a data-service="youtube" href="{{ if_footer['if_footer_social']['if_footer_social_youtube'] }}">YouTube</a></li>
+      {% endif %}
+      {% if if_footer['if_footer_social']['if_footer_social_linkedin'] %}
+        <li><a data-service="linkedin" href="{{ if_footer['if_footer_social']['if_footer_social_linkedin'] }}">LinkedIn</a></li>
+      {% endif %}
+    </ul>
+  </nav>
       <p>
         {% if if_footer['if_footer_address']['if_footer_address_street_one'] %}
           {{ if_footer['if_footer_address']['if_footer_address_street_one'] }}
@@ -51,28 +70,9 @@
       {% if if_footer['if_footer_address']['if_footer_address_email'] %}
         <p>Email: <a href="mailto:{{ if_footer['if_footer_address']['if_footer_address_email'] }}">{{ if_footer['if_footer_address']['if_footer_address_email'] }}</a></p>
       {% endif %}
-    </div>
-    <div slot="social" class="il-footer-social">
-      <ul>
-        {% if if_footer['if_footer_social']['if_footer_social_instagram'] %}
-          <li><a href="{{ if_footer['if_footer_social']['if_footer_social_instagram'] }}"><span class="visible-hidden">Instagram</span></a></li>
-        {% endif %}
-        {% if if_footer['if_footer_social']['if_footer_social_facebook'] %}
-          <li><a href="{{ if_footer['if_footer_social']['if_footer_social_facebook'] }}"><span class="visible-hidden">Facebook</span></a></li>
-        {% endif %}
-        {% if if_footer['if_footer_social']['if_footer_social_twitter'] %}
-          <li><a href="{{ if_footer['if_footer_social']['if_footer_social_twitter'] }}"><span class="visible-hidden">Twitter</span></a></li>
-        {% endif %}
-        {% if if_footer['if_footer_social']['if_footer_social_youtube'] %}
-          <li><a href="{{ if_footer['if_footer_social']['if_footer_social_youtube'] }}"><span class="visible-hidden">YouTube</span></a></li>
-        {% endif %}
-        {% if if_footer['if_footer_social']['if_footer_social_linkedin'] %}
-          <li><a href="{{ if_footer['if_footer_social']['if_footer_social_linkedin'] }}"><span class="visible-hidden">LinkedIn</span></a></li>
-        {% endif %}
-      </ul>
-    </div>
+</address>
     {% if if_footer_colleges %}
-      <div slot="parent" class="il-footer-parent">
+      <div class="il-footer-parent">
         {% if if_secondary_site_title %}
           <p><a href="{{ if_secondary_site_link }}">{{ if_secondary_site_title| raw }}</a></p>
         {% endif %}
@@ -109,33 +109,16 @@
             {{ drupal_entity('block', 'footermenufourth') }}
           </nav>
         {% endif %}
-        <div id="google_translate_element"></div>
-        <script>
-          function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-              pageLanguage: 'en',
-              layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-              autoDisplay: false
-            }, 'google_translate_element');
-          }
-        </script>
-        <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
       </div>
     </div>
-    <nav slot="links" class="il-footer-links" aria-label="Legal notices">
-      <h2 class="il-invisible">Additional links</h2>
-      <ul>
-        <li><button id="ot-sdk-btn" class="ot-sdk-show-settings">About Cookies</button></li>
-        <li><a href="https://www.vpaa.uillinois.edu/resources/web_privacy">Privacy Policy</a></li>
-        <li><a href="https://illinois.edu/resources/website/copyright.html">© {{ "now"|date("Y") }} University of Illinois Board of Trustees</a></li>
+    <div slot="actions">
         {% for subfooter_link in if_subfooter %}
           {% set link = if_subfooter[loop.index0][1] %}
           {% set text = if_subfooter[loop.index0][0] %}
           {% if link != NULL or text != NULL %}
-            <li><a href="{{ link }}">{{ text }}</a></li>
+            <il-action href="{{ link }}">{{ text }}</il-action>
           {% endif %}
         {% endfor %}
-        <li><a href="/user">Login</a></li>
-      </ul>
-    </nav>
-</footer>
+        <il-action href="/user">Login</il-action>
+    </div>
+<button slot="cookies-button" id="ot-sdk-btn" class="ot-sdk-show-settings">About Cookies</button>
