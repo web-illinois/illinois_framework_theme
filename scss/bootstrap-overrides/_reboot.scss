@@ -16,6 +16,12 @@ body {
   text-align: left; // 3
   background-color: $body-bg; // 2
 }
+// overrides _reboot.scss line 93
+h1 {
+  @include font-size(3rem);
+  font-weight: $headings-font-weight;
+}
+
 
 // overrides _reboot.scss line 97
 p {
@@ -56,7 +62,7 @@ dl {
 a {
   color: $link-color;
   text-decoration: $link-decoration;
-  background-color: transparent; // Remove the gray background on active links in IE 10.
+  //background-color: transparent; // Remove the gray background on active links in IE 10.
 
   &:hover {
     color: $link-hover-color;
