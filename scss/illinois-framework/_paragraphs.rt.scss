@@ -1,11 +1,12 @@
 .paragraph--type--rt {
-  @extend %paragraphs-padding;
-
   h3 {
     color: var(--il-blue) !important;
   }
 
   &.background--color--gray {
+    padding-top: 60px;
+    padding-bottom: 75px;
+    margin-bottom: 60px;
     .paragraph--type--rt__title h2 {
     }
      h2 {
