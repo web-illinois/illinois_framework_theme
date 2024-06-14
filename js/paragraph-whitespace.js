@@ -12,3 +12,12 @@ jQuery(function ($) {
       }
     });
 });
+
+ // remove top padding from first paragraph element if no body field is present
+jQuery(function ($) {
+  if($('.field--name-body').length){ }
+    else {
+       // find next div with paragraph class after title div then add a class to remove padding
+      $('#block-illinois-framework-theme-page-title').next('.paragraph').addClass('remove-padding--top');
+    }
+  });

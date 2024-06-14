@@ -1,4 +1,5 @@
 .paragraph--type--rt {
+  @extend %paragraphs-padding;
   h3 {
     color: var(--il-blue) !important;
   }
