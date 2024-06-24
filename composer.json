@@ -72,7 +72,7 @@
         },
         "patches": {
             "drupal/core": {
-                "2869592 - Disabled update module shouldn't produce a status report warning": "https://www.drupal.org/files/issues/2020-02-07/2869592-remove-update-warning-34.patch"
+                "Disabled update module shouldn't produce a status report warning #67":"https://www.drupal.org/files/issues/2024-06-14/2869592-disabled-update-module-63.patch"
             }
         }
     },
