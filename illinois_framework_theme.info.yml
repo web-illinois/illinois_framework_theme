@@ -20,6 +20,10 @@ libraries:
   - illinois_framework_theme/global-styling
   - illinois_framework_theme/web-components
 
+ckeditor5-stylesheets:
+  - css/ck5style.css
+  - css/components.css
+
 # Regions
 regions:
   header: Header
