@@ -1,3 +1,4 @@
+uuid: fea72c07-5eb9-4881-8f7d-5f23db463676
 langcode: en
 status: true
 dependencies:
@@ -5,11 +6,13 @@ dependencies:
     - field.storage.node.field_tags
     - node.type.news
     - taxonomy.vocabulary.tags
+_core:
+  default_config_hash: 4GXvCX317UIJ5CDANOe1ike44Hj22OD--ZgWuQxxJCA
 id: node.news.field_tags
 field_name: field_tags
 entity_type: node
 bundle: news
-label: Tags
+label: 'Related topics'
 description: ''
 required: false
 translatable: true

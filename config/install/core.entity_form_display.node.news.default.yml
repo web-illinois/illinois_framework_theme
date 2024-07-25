@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.news.body
+    - field.field.node.news.field_featured_image_toggle
     - field.field.node.news.field_if_author
     - field.field.node.news.field_if_date
     - field.field.node.news.field_if_meda_featured_image
@@ -23,7 +24,7 @@ dependencies:
     - path
     - text
 _core:
-  default_config_hash: q2-l1nwPL8YS6Ioa4WpfjcPLkcnPhSF1kL9PUx82W8k
+  default_config_hash: ZMmKx7SpyxuNcVM_QJPPJBdewunQiLYsfzIb-JbkNio
 id: node.news.default
 targetEntityType: node
 bundle: news
@@ -44,6 +45,13 @@ content:
     weight: 5
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_featured_image_toggle:
+    type: boolean_checkbox
+    weight: 27
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   field_if_author:
     type: string_textfield
