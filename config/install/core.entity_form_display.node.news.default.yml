@@ -24,7 +24,7 @@ dependencies:
     - path
     - text
 _core:
-  default_config_hash: ZMmKx7SpyxuNcVM_QJPPJBdewunQiLYsfzIb-JbkNio
+  default_config_hash: q2-l1nwPL8YS6Ioa4WpfjcPLkcnPhSF1kL9PUx82W8k
 id: node.news.default
 targetEntityType: node
 bundle: news
