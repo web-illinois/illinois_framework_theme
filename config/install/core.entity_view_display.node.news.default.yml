@@ -23,7 +23,7 @@ dependencies:
     - text
     - user
 _core:
-  default_config_hash: ZO9zTnYdmjDJHt7O-ezadwaUS5dEIl2U7axkOxSkUPs
+  default_config_hash: c3XTXCyTjieO1Yqoe-b10sFGdxQ64-IcS00D2tiR3rY
 id: node.news.default
 targetEntityType: node
 bundle: news
