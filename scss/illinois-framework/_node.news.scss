@@ -81,8 +81,7 @@ article.news {
 
  /* hides featured image if featured_image_toggle field is true */
  &.hide-image {
-  .field--name-field-media-image,
-  .field--name-field-if-media-image-caption {
+  .field--name-field-if-meda-featured-image {
     display: none;
   }
  }
