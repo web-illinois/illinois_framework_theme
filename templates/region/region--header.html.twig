@@ -26,24 +26,20 @@
 {% else %}
   {% set menu_type = 'simple' %}
 {% endif %}
-<header{{ attributes.addClass(classes) }} role="banner" aria-label="Site Header">
-  <il-header view="full">
-    <div slot="wordmark">
-      <il-unit-wordmark>
         {% if if_secondary_site_title %}
-          <p class="il-primary-unit">
             {% if if_secondary_site_link %}
-              <a href="{{ if_secondary_site_link }}">{{ if_secondary_site_title }}</a>
+              <a slot="primary-unit" href="{{ if_secondary_site_link }}">{{ if_secondary_site_title }}</a>
             {% else %}
-              <a href="#">{{ if_secondary_site_title }}</a>
+              <a slot="site-name" href="#">{{ if_secondary_site_title }}</a>
             {% endif %}
-          </p>
         {% endif %}
-        <h1><a href="/">{{ drupal_config('system.site', 'name') | raw }}</a></h1>
-      </il-unit-wordmark>
-    </div>
-    <il-search slot="search" action="/search/node" method="get" searchname="keys"></il-search>
-    <nav slot="links" class="il-links" aria-label="featured links">
+        <a slot="site-name" href="/">{{ drupal_config('system.site', 'name') | raw }}</a>
+    <form slot="search" method="get" action="/search/node" role="search">
+      <input type="search" name="keys" aria-labelledby="search-button">
+      <button id="search-button" type="submit">Search</button>
+    </form>
+
+    <nav slot="links" aria-label="Utility">
       <ul>
         {% for header_link in if_header_links %}
           {% set link = if_header_links[loop.index0][1] %}
@@ -54,14 +50,12 @@
         {% endfor %}
       </ul>
     </nav>
-    <il-nav slot="navigation">
+    <il-header-nav slot="navigation">
       {% if menu_type == 'mega' %}
         {{ drupal_entity('block', 'mainnavigation', check_access=false) }}
       {% else %}
 {#        {{ drupal_entity('block', 'illinoisframeworkmenu', check_access=false) }}#}
         {{ drupal_entity('block', 'illinois_framework_theme_main_menu', check_access=false) }}
       {% endif %}
-    </il-nav>
-  </il-header>
-</header>
+    </il-header-nav>
 {% endif %}

@@ -24,34 +24,37 @@
   We call a macro which calls itself to render the full tree.
   @see http://twig.sensiolabs.org/doc/tags/macro.html
 #}
-{{ menus.menu_links(items, attributes, 0) }}
-{% macro menu_links(items, attributes, menu_level) %}
+{% import _self as menus %}
+{#
+We call a macro which calls itself to render the full tree.
+@see http://twig.sensiolabs.org/doc/tags/macro.html
+#}
+{{ menus.build_menu(items, attributes, 0) }}
+
+{% macro build_menu(items, attributes, menu_level) %}
   {% import _self as menus %}
   {% if items %}
-    {% for item in items %}
-      {% set item_length = items|length %}
-      {% if menu_level == 0 and item.below %}
-        <il-nav-section {% if item_length >= 5 and loop.index > (item_length - 2) %}right="true"{% endif %}>
-          {# Check if there's <nolink> in the top-level menu link and remove the href if there is no link #}
-          {% if item.url.toString is not empty -%}
-            <a href={{ item.url }} slot="label">{{ item.title }}</a>
-          {% else %}
-            <a role="button" slot="label" tabindex="0">{{ item.title }}</a>
-          {% endif -%}
-          <ul class="il-subnav">
-            {% for item in item.below %}
-              <li>
-                <a href="{{ item.url }}">{{ item.title }}</a>
-              </li>
-            {% endfor %}
-          </ul>
-        </il-nav-section>
-      {% else %}
-        <il-nav-link>
-          <a href="{{ item.url }}" target="_self">{{ item.title }}</a>
-        </il-nav-link>
-      {% endif %}
-     {% endfor %}
+    <ul>
+      {% for item in items %}
+        {{ menus.add_link(item, attributes, menu_level) }}
+      {% endfor %}
+    </ul>
   {% endif %}
+{% endmacro %}
+
+{% macro add_link(item, attributes, menu_level) %}
+  {% import _self as menus %}
+  <li>
+    {% if item.below %}
+      <il-header-nav-section-with-link>
+        <a slot="link" href="{{ item.url }}">{{ item.title }}</a>
+        {{ menus.build_menu(item.below, attributes, menu_level + 1) }}
+      </il-header-nav-section-with-link>
+    {% elseif item.url.toString is not empty -%}
+      <a href="{{ item.url }}">{{ item.title }}</a>
+    {% else %}
+      <a role="button" slot="label" tabindex="0">{{ item.title }}</a>
+    {% endif -%}
+  </li>
 {% endmacro %}
 
