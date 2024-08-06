@@ -40,6 +40,13 @@ ils-contentslider:
     https://contrib.webtheme.illinois.edu/ils-contentslider/contentslider.min.js:
       type: external
       minified: true
+il-header:
+  header: true
+  css:
+    theme:
+      https://cdn.brand.illinois.edu/components/il-header.css:
+        type: external
+        minified: true
 content-adjust:
   js:
     js/content.js: {}
