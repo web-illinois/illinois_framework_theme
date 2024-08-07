@@ -47,6 +47,13 @@ il-header:
       https://cdn.brand.illinois.edu/components/il-header.css:
         type: external
         minified: true
+il-footer:
+  header: true
+  css:
+    theme:
+      https://cdn.brand.illinois.edu/components/il-footer.css:
+        type: external
+        minified: true
 content-adjust:
   js:
     js/content.js: {}

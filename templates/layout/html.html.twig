@@ -35,7 +35,6 @@
     <link rel="dns-prefetch" href="//cdn.toolkit.illinois.edu">
     <link rel="dns-prefetch" href="//cdn.disability.illinois.edu">
     <link rel="dns-prefetch" href="//onetrust.techservices.illinois.edu">
-      <script type="module" async src="https://cdn.brand.illinois.edu/components/il-header.mjs"></script>
     {#
       UIUC Cookie banner: needs to be placed before any other
       script tags to function. Won't be included if running on
@@ -46,6 +45,8 @@
       <script src="https://onetrust.techservices.illinois.edu/scripttemplates/otSDKStub.js"  type="text/javascript" charset="UTF-8" data-domain-script="26be7d61-2017-4ea7-8a8b-8f1704889763"></script>
       <script type="text/javascript">function OptanonWrapper() { }</script>
     {%- endif %}
+      <script type="module" async src="https://cdn.brand.illinois.edu/components/il-header.mjs"></script>
+      <script type="module" async src="https://cdn.brand.illinois.edu/components/il-footer.mjs"></script>
     <title>{{ head_title|safe_join(' | ') }} | Illinois</title>
     <css-placeholder token="{{ placeholder_token }}">
     <js-placeholder token="{{ placeholder_token }}">
