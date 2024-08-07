@@ -21,16 +21,33 @@
   'l-region--' ~ region|clean_class,
 ]
 %}
-<footer{{ attributes.addClass(classes) }} role="contentinfo">
-  <il-footer>
-    <div slot="contact" class="il-footer-contact uofi_address">
       {% if if_footer['if_footer_address']['if_footer_address_unit'] %}
-        <p><a href="/" id="link-1">{{ if_footer['if_footer_address']['if_footer_address_unit'] }}</a></p>
+        <a slot="primary-unit" href="/" id="link-1">{{ if_footer['if_footer_address']['if_footer_address_unit'] }}</a>
       {% elseif drupal_config('system.site', 'name') %}
-        <p><a href="/">{{ drupal_config('system.site', 'name')| raw }}</a></p>
+        <a slot="site-name" href="/">{{ drupal_config('system.site', 'name')| raw }}</a>
       {% else %}
-        <p><a href="https://illinois.edu">University of Illinois</a></p>
+        <a slot="site-name" href="https://illinois.edu">University of Illinois</a>
       {% endif %}
+      <nav slot="social" aria-label="Social media">
+        <ul>
+          {% if if_footer['if_footer_social']['if_footer_social_instagram'] %}
+            <li><a data-service="instagram" href="{{ if_footer['if_footer_social']['if_footer_social_instagram'] }}">Instagram</a></li>
+          {% endif %}
+          {% if if_footer['if_footer_social']['if_footer_social_facebook'] %}
+            <li><a data-service="facebook" href="{{ if_footer['if_footer_social']['if_footer_social_facebook'] }}">Facebook</a></li>
+          {% endif %}
+          {% if if_footer['if_footer_social']['if_footer_social_twitter'] %}
+            <li><a data-service="twitter" href="{{ if_footer['if_footer_social']['if_footer_social_twitter'] }}">Twitter</a></li>
+          {% endif %}
+          {% if if_footer['if_footer_social']['if_footer_social_youtube'] %}
+            <li><a data-service="youtube" href="{{ if_footer['if_footer_social']['if_footer_social_youtube'] }}">YouTube</a></li>
+          {% endif %}
+          {% if if_footer['if_footer_social']['if_footer_social_linkedin'] %}
+            <li><a data-service="linkedin" href="{{ if_footer['if_footer_social']['if_footer_social_linkedin'] }}">LinkedIn</a></li>
+          {% endif %}
+        </ul>
+      </nav>
+      <address slot="address">
       <p>
         {% if if_footer['if_footer_address']['if_footer_address_street_one'] %}
           {{ if_footer['if_footer_address']['if_footer_address_street_one'] }}
@@ -52,26 +69,7 @@
       {% if if_footer['if_footer_address']['if_footer_address_email'] %}
         <p>Email: <a href="mailto:{{ if_footer['if_footer_address']['if_footer_address_email'] }}">{{ if_footer['if_footer_address']['if_footer_address_email'] }}</a></p>
       {% endif %}
-    </div>
-    <div slot="social" class="il-footer-social">
-      <ul>
-        {% if if_footer['if_footer_social']['if_footer_social_instagram'] %}
-          <li><a href="{{ if_footer['if_footer_social']['if_footer_social_instagram'] }}"><span class="visible-hidden">Instagram</span></a></li>
-        {% endif %}
-        {% if if_footer['if_footer_social']['if_footer_social_facebook'] %}
-          <li><a href="{{ if_footer['if_footer_social']['if_footer_social_facebook'] }}"><span class="visible-hidden">Facebook</span></a></li>
-        {% endif %}
-        {% if if_footer['if_footer_social']['if_footer_social_twitter'] %}
-          <li><a href="{{ if_footer['if_footer_social']['if_footer_social_twitter'] }}"><span class="visible-hidden">Twitter</span></a></li>
-        {% endif %}
-        {% if if_footer['if_footer_social']['if_footer_social_youtube'] %}
-          <li><a href="{{ if_footer['if_footer_social']['if_footer_social_youtube'] }}"><span class="visible-hidden">YouTube</span></a></li>
-        {% endif %}
-        {% if if_footer['if_footer_social']['if_footer_social_linkedin'] %}
-          <li><a href="{{ if_footer['if_footer_social']['if_footer_social_linkedin'] }}"><span class="visible-hidden">LinkedIn</span></a></li>
-        {% endif %}
-      </ul>
-    </div>
+      </address>
     {% if if_footer_colleges %}
       <div slot="parent" class="il-footer-parent">
         {% if if_secondary_site_title %}
@@ -139,5 +137,3 @@
         <li><a href="/user">Login</a></li>
       </ul>
     </nav>
-  </il-footer>
-</footer>
