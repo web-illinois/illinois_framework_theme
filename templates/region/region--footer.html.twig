@@ -21,13 +21,14 @@
   'l-region--' ~ region|clean_class,
 ]
 %}
-      {% if if_footer['if_footer_address']['if_footer_address_unit'] %}
-        <a slot="primary-unit" href="/" id="link-1">{{ if_footer['if_footer_address']['if_footer_address_unit'] }}</a>
-      {% elseif drupal_config('system.site', 'name') %}
-        <a slot="site-name" href="/">{{ drupal_config('system.site', 'name')| raw }}</a>
-      {% else %}
-        <a slot="site-name" href="https://illinois.edu">University of Illinois</a>
-      {% endif %}
+{% if if_secondary_site_title %}
+  {% if if_secondary_site_link %}
+    <a slot="primary-unit" href="{{ if_secondary_site_link }}">{{ if_secondary_site_title }}</a>
+  {% else %}
+    <a slot="primary-unit" href="#">{{ if_secondary_site_title }}</a>
+  {% endif %}
+{% endif %}
+<a slot="site-name" href="/">{{ drupal_config('system.site', 'name') | raw }}</a>
       <nav slot="social" aria-label="Social media">
         <ul>
           {% if if_footer['if_footer_social']['if_footer_social_instagram'] %}
@@ -70,6 +71,16 @@
         <p>Email: <a href="mailto:{{ if_footer['if_footer_address']['if_footer_address_email'] }}">{{ if_footer['if_footer_address']['if_footer_address_email'] }}</a></p>
       {% endif %}
       </address>
+<div slot="actions">
+  {% for subfooter_link in if_subfooter %}
+    {% set link = if_subfooter[loop.index0][1] %}
+    {% set text = if_subfooter[loop.index0][0] %}
+    {% if link != NULL or text != NULL %}
+      <a href="{{ link }}">{{ text }}</a>
+    {% endif %}
+  {% endfor %}
+  <a href="/user">Login</a>
+</div>
     {% if if_footer_colleges %}
       <div slot="parent" class="il-footer-parent">
         {% if if_secondary_site_title %}
