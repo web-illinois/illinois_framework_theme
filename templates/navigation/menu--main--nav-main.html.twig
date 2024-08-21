@@ -45,15 +45,20 @@ We call a macro which calls itself to render the full tree.
 {% macro add_link(item, attributes, menu_level) %}
   {% import _self as menus %}
   <li>
-    {% if item.below %}
+    {% if item.below and item.url.toString is not empty %}
       <il-header-nav-section-with-link>
         <a slot="link" href="{{ item.url }}">{{ item.title }}</a>
         {{ menus.build_menu(item.below, attributes, menu_level + 1) }}
       </il-header-nav-section-with-link>
+    {% elseif item.below %}
+      <il-header-nav-section>
+        <span slot="label">{{ item.title }}</span>
+        {{ menus.build_menu(item.below, attributes, menu_level + 1) }}
+      </il-header-nav-section>
     {% elseif item.url.toString is not empty -%}
       <a href="{{ item.url }}">{{ item.title }}</a>
     {% else %}
-      <a role="button" slot="label" tabindex="0">{{ item.title }}</a>
+      <span slot="label">{{ item.title }}</span>
     {% endif -%}
   </li>
 {% endmacro %}
