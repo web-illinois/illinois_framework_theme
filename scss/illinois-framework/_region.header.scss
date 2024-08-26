@@ -2,3 +2,12 @@ il-header {
   position: relative;
   z-index: 101;
 }
+il-header a[slot="site-name"], il-header a[slot="primary-unit"] {
+  text-decoration: none;
+  color: var(--il-blue);
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+    color: var(--il-altgeld);
+  }
+}
