@@ -1,10 +1,27 @@
 il-footer {
 
-  &[slot="parent"] {
-
-    p {
-      font-size: initial;
-      line-height: initial;
+  #block-footermenufirst,
+  #block-footermenusecond,
+  #block-footermenuthird,
+  #block-footermenufourth {
+  }
+  .footer-menus {
+    h2 {
+      font: 600 1.5rem/1.25 var(--il-font-sans);
+      //margin-bottom: 0;
+    }
+    .col-md {
+      @include media-breakpoint-up(lg) {
+        padding-left: 0;
+      }
+    }
+    .navbar-nav {
+      .nav-item {
+        .nav-link {
+          font: 400 18px/30px var(--il-font-sans);;
+          padding: .2rem 0;
+        }
+      }
     }
   }
 }

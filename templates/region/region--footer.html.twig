@@ -38,7 +38,7 @@
             <li><a data-service="facebook" href="{{ if_footer['if_footer_social']['if_footer_social_facebook'] }}">Facebook</a></li>
           {% endif %}
           {% if if_footer['if_footer_social']['if_footer_social_twitter'] %}
-            <li><a data-service="twitter" href="{{ if_footer['if_footer_social']['if_footer_social_twitter'] }}">Twitter</a></li>
+            <li><a data-service="x" href="{{ if_footer['if_footer_social']['if_footer_social_twitter'] }}">x</a></li>
           {% endif %}
           {% if if_footer['if_footer_social']['if_footer_social_youtube'] %}
             <li><a data-service="youtube" href="{{ if_footer['if_footer_social']['if_footer_social_youtube'] }}">YouTube</a></li>
@@ -70,6 +70,17 @@
       {% if if_footer['if_footer_address']['if_footer_address_email'] %}
         <p>Email: <a href="mailto:{{ if_footer['if_footer_address']['if_footer_address_email'] }}">{{ if_footer['if_footer_address']['if_footer_address_email'] }}</a></p>
       {% endif %}
+        {% if if_footer_colleges %}
+        <div class="footer-colleges">
+        {% for item in if_footer_colleges %}
+          {% if if_footer_colleges[loop.index0][0] != "" %}
+            {% set title = if_footer_colleges[loop.index0][0] %}
+            {% set url = if_footer_colleges[loop.index0][1] %}
+            <div><a href="{{ url }}">{{ title }}</a></div>
+          {% endif %}
+        {% endfor %}
+        </div>
+        {% endif %}
       </address>
 <div slot="actions">
   {% for subfooter_link in if_subfooter %}
@@ -81,57 +92,41 @@
   {% endfor %}
   <a href="/user">Login</a>
 </div>
-    {% if if_footer_colleges %}
-      <div slot="parent" class="il-footer-parent">
-        {% if if_secondary_site_title %}
-          <p><a href="{{ if_secondary_site_link }}">{{ if_secondary_site_title| raw }}</a></p>
-        {% endif %}
-        {% for item in if_footer_colleges %}
-          {% if if_footer_colleges[loop.index0][0] != "" %}
-            {% set title = if_footer_colleges[loop.index0][0] %}
-            {% set url = if_footer_colleges[loop.index0][1] %}
-            <p><a href="{{ url }}">{{ title }}</a></p>
-          {% endif %}
-        {% endfor %}
-      </div>
-    {% endif %}
-    <div class="il-footer-navigation">
-      <div class="il-footer-navigation-column">
+
+
+    <div class="footer-menus row">
         {% if drupal_entity('block', 'footermenufirst') %}
-          <nav aria-label="Campus Footer Links">
+          <nav aria-label="Campus Footer Links" class="col-12 col-md">
             {{ drupal_entity('block', 'footermenufirst') }}
           </nav>
         {% endif %}
         {% if drupal_entity('block', 'footermenusecond') %}
-          <nav aria-label="Campus Footer Links 2">
+          <nav aria-label="Campus Footer Links 2" class="col-12 col-md">
             {{ drupal_entity('block', 'footermenusecond') }}
           </nav>
         {% endif %}
-      </div>
-      <div class="il-footer-navigation-column">
-        {% if drupal_entity('block', 'footermenuthird') %}
-          <nav aria-label="Campus Footer Links 3">
-            {{ drupal_entity('block', 'footermenuthird') }}
+        {% if drupal_entity('block', 'illinois_framework_theme_footermenuthird') %}
+          <nav aria-label="Campus Footer Links 3" class="col-12 col-md">
+            {{ drupal_entity('block', 'illinois_framework_theme_footermenuthird') }}
           </nav>
         {% endif %}
         {% if drupal_entity('block', 'footermenufourth') %}
-          <nav aria-label="Campus Footer Links 4">
+          <nav aria-label="Campus Footer Links 4" class="col-12 col-md">
             {{ drupal_entity('block', 'footermenufourth') }}
           </nav>
         {% endif %}
-        <div id="google_translate_element"></div>
-        <script>
-          function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-              pageLanguage: 'en',
-              layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-              autoDisplay: false
-            }, 'google_translate_element');
-          }
-        </script>
-        <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-      </div>
     </div>
+<div id="google_translate_element"></div>
+<script>
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay: false
+    }, 'google_translate_element');
+  }
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <nav slot="links" class="il-footer-links" aria-label="Legal notices">
       <h2 class="il-invisible">Additional links</h2>
       <ul>
