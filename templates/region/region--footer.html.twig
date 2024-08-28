@@ -94,27 +94,31 @@
 </div>
 
 
-    <div class="footer-menus row">
+    <div class="footer-menus">
+      <div>
         {% if drupal_entity('block', 'footermenufirst') %}
-          <nav aria-label="Campus Footer Links" class="col-12 col-md">
+          <nav aria-label="Campus Footer Links">
             {{ drupal_entity('block', 'footermenufirst') }}
           </nav>
         {% endif %}
         {% if drupal_entity('block', 'footermenusecond') %}
-          <nav aria-label="Campus Footer Links 2" class="col-12 col-md">
+          <nav aria-label="Campus Footer Links 2">
             {{ drupal_entity('block', 'footermenusecond') }}
           </nav>
         {% endif %}
-        {% if drupal_entity('block', 'footermenuthird') %}
-          <nav aria-label="Campus Footer Links 3" class="col-12 col-md">
+      </div>
+      <div>
+      {% if drupal_entity('block', 'footermenuthird') %}
+          <nav aria-label="Campus Footer Links 3">
             {{ drupal_entity('block', 'footermenuthird') }}
           </nav>
         {% endif %}
         {% if drupal_entity('block', 'footermenufourth') %}
-          <nav aria-label="Campus Footer Links 4" class="col-12 col-md">
+          <nav aria-label="Campus Footer Links 4">
             {{ drupal_entity('block', 'footermenufourth') }}
           </nav>
         {% endif %}
+      </div>
     </div>
 <div id="google_translate_element"></div>
 <script>
@@ -127,19 +131,3 @@
   }
 </script>
 <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    <nav slot="links" class="il-footer-links" aria-label="Legal notices">
-      <h2 class="il-invisible">Additional links</h2>
-      <ul>
-        <li><button id="ot-sdk-btn" class="ot-sdk-show-settings">About Cookies</button></li>
-        <li><a href="https://www.vpaa.uillinois.edu/resources/web_privacy">Privacy Policy</a></li>
-        <li><a href="https://illinois.edu/resources/website/copyright.html">© {{ "now"|date("Y") }} University of Illinois Board of Trustees</a></li>
-        {% for subfooter_link in if_subfooter %}
-          {% set link = if_subfooter[loop.index0][1] %}
-          {% set text = if_subfooter[loop.index0][0] %}
-          {% if link != NULL or text != NULL %}
-            <li><a href="{{ link }}">{{ text }}</a></li>
-          {% endif %}
-        {% endfor %}
-        <li><a href="/user">Login</a></li>
-      </ul>
-    </nav>

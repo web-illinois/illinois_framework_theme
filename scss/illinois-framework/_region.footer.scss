@@ -1,14 +1,22 @@
 il-footer {
 
-  #block-footermenufirst,
-  #block-footermenusecond,
-  #block-footermenuthird,
-  #block-footermenufourth {
-  }
   .footer-menus {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 0;
+    @include media-breakpoint-up(lg) {
+      grid-template-columns: repeat(2,1fr);
+      grid-gap: 60px;
+    }
+    nav {
+      @include media-breakpoint-up(lg) {
+        margin-bottom: 1rem;
+      }
+    }
+
     h2 {
       font: 600 1.5rem/1.25 var(--il-font-sans);
-      //margin-bottom: 0;
+      margin-bottom: .75rem;
     }
     .col-md {
       @include media-breakpoint-up(lg) {
@@ -23,5 +31,10 @@ il-footer {
         }
       }
     }
+  }
+}
+il-footer *[slot=actions] a {
+  @include media-breakpoint-down(lg) {
+    margin: 0 .5rem .5rem 0 !important;
   }
 }
