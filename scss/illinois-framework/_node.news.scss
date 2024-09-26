@@ -4,18 +4,21 @@ article.news {
   margin: 0 auto;
   max-width: var(--il-framework--fixed-width);
   padding: 0 var(--il-content-margin) 75px;
-  width: 100%;
   @media screen and (min-width: 992px) {
     padding-left: 50px !important;
   }
 
   .field {
-    &--name-body {
-      padding: 0 0 50px !important;
-      h2 {
-        color: var(--il-orange) !important;
-      }
+    // adjustments to main content width
+    &--name-body,
+    &--name-field-if-story-source,
+    &--name-field-tags,
+    &--name-field-paragraph {
+      max-width: 900px !important;
+      margin: 0 auto;
     }
+    //
+
     &--name-field-if-subtitle {
       font-weight: 600;
       font-size: rem(32px);
@@ -44,7 +47,26 @@ article.news {
       line-height: 1.75rem;
       color: var(--il-blue);
       font-weight: 600;
-      margin: 0 0 1.875rem 0;
+      margin: 0 0 1.87
+      5rem 0;
+    }
+    &--name-field-if-meda-featured-image {
+      float: none;
+      padding: 1.875rem 1.5rem 0;
+      max-width: 600px;
+      margin: 0 auto;
+      .field__item {
+        display: flex;
+        img {
+          margin: 0 auto;
+        }
+      }
+    }
+    &--name-body {
+      padding: 1.875rem 0 !important;
+      h2 {
+        color: var(--il-orange) !important;
+      }
     }
     &--name-field-if-story-source {
       font-weight: 600;
