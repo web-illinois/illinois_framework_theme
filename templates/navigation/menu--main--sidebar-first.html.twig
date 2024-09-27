@@ -21,26 +21,35 @@
 {% import _self as menus %}
 
 {#
-  We call a macro which calls itself to render the full tree.
-  @see http://twig.sensiolabs.org/doc/tags/macro.html
+We call a macro which calls itself to render the full tree.
+@see http://twig.sensiolabs.org/doc/tags/macro.html
 #}
+
+
 {{ menus.menu_links(items, attributes, 0) }}
+
 {% macro menu_links(items, attributes, menu_level) %}
   {% import _self as menus %}
- {% if items %}
+  {% if items %}
     {% if menu_level == 0 %}
-<ul{{ attributes.addClass('menu') }}>
+<ul>
   {% else %}
-  <ul class="menu">
+  <ul>
     {% endif %}
     {% for item in items %}
       <li>
-        {{ link(item.title, item.url) }}
-        {% if item.below %}
+        {% if loop.first and menu_level == 0 %}
+          {{ link(item.title, item.url, {'class': ['ilw-section-nav--root']}) }}
+        {% else %}
+          {{ link(item.title, item.url) }}
+        {% endif %}
+
+        {# Only render the nested <ul> if item.below exists and has child items #}
+        {% if item.below and item.below|length > 0 %}
           {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
         {% endif %}
       </li>
     {% endfor %}
   </ul>
   {% endif %}
-{% endmacro %}
+  {% endmacro %}
