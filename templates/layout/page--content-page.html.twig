@@ -63,14 +63,16 @@
 {% endif %}
 
 <div class="layout-container">
+  <ilw-page>
   <il-header>
     {{ page.header }}
   </il-header>
+    <ilw-content width="auto">
   {{ page.breadcrumb }}
   {{ page.highlighted }}
   {{ page.help }}
   {{ page.tabs }}
-
+    </ilw-content>
   {# look for url #}
   {% set url = url('<current>') %}
 
@@ -81,13 +83,15 @@
   {% set unpublished = [not node.isPublished() ? 'is-unpublished'] %}
   {% set mainClasses = mainClasses|merge(unpublished) %}
 
-  <a name="main-content" aria-label="Start of content region"></a>
-  <main{{ attributes.addClass(mainClasses) }} role="main">
-  <div class="il-content-with-section-nav section-nav-example">
+  <main{{ attributes.addClass(mainClasses) }}><a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+    <ilw-columns mode="1x2" width="auto" gap="20px">
+      <ilw-section-nav>
+
     {{ page.sidebar_first }}
     {{ page.sidebar_second }}
-    <div class="il-content">
-
+      </ilw-section-nav>
+      <div>
+        <ilw-content>
       {% if node.body %}
         {{ drupal_field('body','node', node.id ) }}
       {% endif %}
@@ -98,22 +102,28 @@
           {{ drupal_entity('paragraph', item.target_id) }}
         {% endif %}
       {% endfor %}
+        </ilw-content>
     </div>
-  </div>
+    </ilw-columns>
     {% for item in node.fields.field_paragraph %}
       {% if loop.index0 >= paragraph_number %}
         {{ drupal_entity('paragraph', item.target_id) }}
       {% endif %}
     {% endfor %}
     {{ attach_library('illinois_framework_theme/content-adjust') }}
-  </main>
 
   {# if a there is no sidebar #}
   {% else %}
-  {{ page.content }}
+    <div>
+      <ilw-content>
+        {{ page.content }}
+      </ilw-content>
+    </div>
   {% endif %}
+  </main>
 
   <il-footer>
     {{ page.footer }}
   </il-footer>
+  </ilw-page>
 </div>{# /.layout-container #}

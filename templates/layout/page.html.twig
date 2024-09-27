@@ -45,6 +45,7 @@
 */
 #}
 <div class="layout-container">
+  <ilw-page>
   <il-header>
     {{ page.header }}
   </il-header>
@@ -52,21 +53,29 @@
   {{ page.highlighted }}
   {{ page.help }}
   {{ page.tabs }}
-  <a name="main-content" aria-label="Start of content region"></a>
-  <main class="region region-content l-region l-region--content" role="main">
+  <main class="region region-content l-region l-region--content"><a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
   {% if page.sidebar_first|render|trim is not empty or page.sidebar_second|render|trim is not empty %}
-  <div class="il-content-with-section-nav">
+    <ilw-columns mode="1x2" width="auto" gap="20px">
+      <ilw-section-nav>
     {{ page.sidebar_first }}
     {{ page.sidebar_second }}
+      </ilw-section-nav>
+      <div>
+        <ilw-content>
+          {{ page.content }}
+        </ilw-content>
+      </div>
+    </ilw-columns>
   {% else %}
   <div>
-  {% endif %}
-  <div class="il-content">
+    <ilw-content>
       {{ page.content }}
-    </div>
+    </ilw-content>
   </div>
+  {% endif %}
   </main>
   <il-footer>
     {{ page.footer }}
   </il-footer>
+  </ilw-page>
 </div>{# /.layout-container #}
