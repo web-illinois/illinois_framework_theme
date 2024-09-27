@@ -22,13 +22,16 @@ web-components:
   header: true
   css:
     theme:
-      https://contrib.webtheme.illinois.edu/toolkit-lite-v2/toolkit.css:
+      https://dev.toolkit.illinois.edu/3.0.0-beta/toolkit.css:
         type: external
         minified: true
   js:
-    https://contrib.webtheme.illinois.edu/toolkit-lite-v2/toolkit.js:
+    https://dev.toolkit.illinois.edu/3.0.0-beta/toolkit.js:
       type: external
       minified: true
+      attributes:
+        type: module
+        blocking: render
 brand-styles:
   header: true
   css:
