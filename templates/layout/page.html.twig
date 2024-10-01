@@ -56,10 +56,8 @@
   <main class="region region-content l-region l-region--content"><a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
   {% if page.sidebar_first|render|trim is not empty or page.sidebar_second|render|trim is not empty %}
     <ilw-columns mode="1x2" width="auto" gap="20px">
-      <ilw-section-nav>
     {{ page.sidebar_first }}
     {{ page.sidebar_second }}
-      </ilw-section-nav>
       <div>
         <ilw-content>
           {{ page.content }}

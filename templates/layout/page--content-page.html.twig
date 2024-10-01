@@ -85,11 +85,8 @@
 
   <main{{ attributes.addClass(mainClasses) }}><a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
     <ilw-columns mode="1x2" width="auto" gap="20px">
-      <ilw-section-nav>
-
     {{ page.sidebar_first }}
     {{ page.sidebar_second }}
-      </ilw-section-nav>
       <div>
         <ilw-content>
       {% if node.body %}
