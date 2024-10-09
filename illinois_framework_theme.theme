@@ -174,3 +174,29 @@ function illinois_framework_theme_preprocess_breadcrumb(&$variables) {
     }
   }
 }
+
+function illinois_framework_theme_preprocess_menu(&$variables) {
+  /** @var \Drupal\Core\Menu\MenuLinkManagerInterface $menu_link_manager */
+  $menu_link_manager = \Drupal::service('plugin.manager.menu.link');
+  $first = reset($variables['items']);
+  if ($first) {
+    $item = $first['original_link'];
+    // If the first item has a parent, add that parent to the template so we
+    // can render it in the same list.
+    if ($item?->getParent()) {
+      /** @var \Drupal\Core\Utility\LinkGenerator $link_generator */
+      $link_generator = \Drupal::service('link_generator');
+      $parent = $menu_link_manager->createInstance($item->getParent());
+      $variables['parent_name'] = $parent->getTitle();
+      $variables['parent_url'] = $parent->getUrlObject();
+
+      // Required for Drupal to manage the aria-current attribute
+      $variables['parent_url']->setOption('set_active_class', TRUE);
+
+      $variables['parent_url']->setOption('attributes', ['class' => 'ilw-section-nav--root']);
+
+      // Create the render array we'll use in the template
+      $variables['parent_a'] = $link_generator->generate($parent->getTitle(), $variables['parent_url']);
+    }
+  }
+}
