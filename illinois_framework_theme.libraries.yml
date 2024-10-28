@@ -22,11 +22,11 @@ web-components:
   header: true
   css:
     theme:
-      https://dev.toolkit.illinois.edu/3.0.0-beta/toolkit.css:
+      https://cdn.toolkit.illinois.edu/3/toolkit.css:
         type: external
         minified: true
   js:
-    https://dev.toolkit.illinois.edu/3.0.0-beta/toolkit.js:
+    https://cdn.toolkit.illinois.edu/3/toolkit.js:
       type: external
       minified: true
       attributes:
