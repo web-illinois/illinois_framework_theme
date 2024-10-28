@@ -50,23 +50,23 @@
 {% set background = content.field_hero_background['#items'].0.value %}
 {% set bg_alignment = content.field_hero_alignment.0['#markup'] %}
   {% if bg_alignment == 'tl' %}
-    {% set alignment = 'top left' %}
+    {% set alignment = 'top-left' %}
   {% elseif bg_alignment == "cl" %}
-    {% set alignment = 'center left' %}
+    {% set alignment = 'left' %}
   {% elseif bg_alignment == "bl" %}
-    {% set alignment = 'bottom left' %}
+    {% set alignment = 'bottom-left' %}
   {% elseif bg_alignment == "tc" %}
-    {% set alignment = 'top center' %}
+    {% set alignment = 'top' %}
   {% elseif bg_alignment == "cc" %}
-    {% set alignment = 'center center' %}
+    {% set alignment = '' %}
   {% elseif bg_alignment == "bc" %}
-    {% set alignment = 'bottom center' %}
+    {% set alignment = 'bottom' %}
   {% elseif bg_alignment == "tr" %}
-    {% set alignment = 'top right' %}
+    {% set alignment = 'top-right' %}
   {% elseif bg_alignment == "cr" %}
-    {% set alignment = 'center right' %}
+    {% set alignment = 'right' %}
   {% elseif bg_alignment == "br" %}
-    {% set alignment = 'bottom right' %}
+    {% set alignment = 'bottom-right' %}
   {% elseif bg_alignment == "default" %}
     {% set alignment = '' %}
   {% endif %}
@@ -74,22 +74,26 @@
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
-      {% if background == 'image' or background == 'imageblue' %}
-        <il-hero {% if background == 'imageblue' %}class="blue--buttons"{% endif %} alt="{{ content.field_hero_image['#items'].0.alt }}" background="{{ content.field_hero_image.0['#markup'] }}" align="{{ alignment }}">
-      {% elseif background == 'orange' %}
-        <il-hero color="orange" align="{{ alignment }}">
-      {% else %}
-        <il-hero color="blue" align="{{ alignment }}">
-      {% endif  %}
-          <h1>{{ content.field_hero_title.0['#context'].value }}</h1>
-          <ul>
-            {% for item in content.field_hero_button['#items'] %}
-            <li>
-              <a {% if background == 'imageblue' %}class="il-button il-blue"{% endif %} href="{{ content.field_hero_button[loop.index0]['#url'] }}">{{ content.field_hero_button[loop.index0]['#title'] }}</a>
-            </li>
-            {% endfor %}
-          </ul>
-        </il-hero>
-    {% endblock %}
+    {% if background == 'image' %}
+    <ilw-hero align="{{ alignment }}" width="full">
+      <img src="{{ content.field_hero_image.0['#markup'] }}" alt="{{ content.field_hero_image['#items'].0.alt }}" slot="background">
+      {% elseif background == 'imageblue' %}
+      <ilw-hero theme="orange" align="{{ alignment }}">
+        <img src="{{ content.field_hero_image.0['#markup'] }}" alt="{{ content.field_hero_image['#items'].0.alt }}" slot="background">
+        {% elseif background == 'orange' %}
+        <ilw-hero theme="orange" align="{{ alignment }}">
+          {% else %}
+          <ilw-hero theme="blue" align="{{ alignment }}">
+            {% endif  %}
+            <h1>{{ content.field_hero_title.0['#context'].value }}</h1>
+            <ul class="ilw-buttons">
+              {% for item in content.field_hero_button['#items'] %}
+                <li>
+                  <a href="{{ content.field_hero_button[loop.index0]['#url'] }}">{{ content.field_hero_button[loop.index0]['#title'] }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </ilw-hero>
+          {% endblock %}
   </div>
 {% endblock paragraph %}
