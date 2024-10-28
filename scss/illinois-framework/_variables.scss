@@ -6,6 +6,7 @@
   --il-framework--max-width: 1200px;
   --il-framework--fixed-width: 1200px;
   --il-framework--full-width: 100%;
+  --il-content-margin: 20px;
   --il-button-foreground-color: var(--il-blue);
   --il-button-background-color: #fff;
   --il-button-border-color: var(--il-blue);
@@ -13,4 +14,7 @@
   --il-focused-button-background-color: var(--il-blue);
   --il-focused-button-border-color: #fff;
   --il-link-hover-color: var(--il-altgeld);
+  @media (min-width: 768px) {
+    --il-content-margin: 30px;
+  }
 }

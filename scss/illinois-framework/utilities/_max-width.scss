@@ -12,6 +12,9 @@
 }
 .fixed-width {
  @extend %fixed-width;
+  @include media-breakpoint-down(md) {
+    margin: 1.875rem;
+  }
 }
 .fixed-width-900 {
 	margin:0 auto;

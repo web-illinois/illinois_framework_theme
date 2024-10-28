@@ -1,5 +1,6 @@
 //il-formatted ovrrride for h2
 article.spotlight {
+  font-family: var(--il-font-sans);
   .content {
     margin: 0 auto;
     max-width: var(--il-framework--fixed-width);

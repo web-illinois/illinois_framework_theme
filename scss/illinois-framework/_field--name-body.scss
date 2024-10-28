@@ -1,6 +1,6 @@
 .content {
   .field--name-body {
-    padding: 0 25px 75px 50px !important;
+    padding: 0 0 75px 0 !important;
 
     .field__item {
       padding: 0 !important;
@@ -17,4 +17,6 @@
     }
   }
 }
-
+.field--name-body {
+  font-family: var(--il-font-sans);
+}

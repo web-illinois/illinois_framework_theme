@@ -87,15 +87,14 @@
           margin-top: rem(5px);
           margin-bottom: rem(5px);
           padding: 0 rem(15px) rem(15px) 0;
+          font-family: var(--il-font-sans);
         }
       }
     }
   }
 }
-.il-content {
-  .background--color--white {
-    .paragraph--type--rt__wrapper {
-      padding: 0 !important;
-    }
+.background--color--white {
+  .paragraph--type--rt__wrapper {
+    padding: 0 !important;
   }
 }
