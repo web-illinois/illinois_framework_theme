@@ -52,6 +52,7 @@
 
 {% block paragraph %}
   {# Paragraph ID used for anchor linking #}
+  <ilw-content>
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
       <div class="col-lg-12 col-md-12 col-sm-12 d-flex row paragraph--type--rt__wrapper fixed-width">
@@ -76,4 +77,5 @@
       </div>
     {% endblock %}
   </div>
+  </ilw-content>
 {% endblock paragraph %}
