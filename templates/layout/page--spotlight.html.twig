@@ -64,30 +64,44 @@
 
 
 <div class="layout-container">
-  <il-header>
-    {{ page.header }}
-  </il-header>
+  <ilw-page>
+    <header slot="header">
+      <il-header>
+        {{ page.header }}
+      </il-header>
+    </header>
+    <ilw-content width="auto">
+      <ilw-spacer></ilw-spacer>
   {{ page.breadcrumb }}
   {{ page.highlighted }}
   {{ page.help }}
   {{ page.tabs }}
-  <a name="main-content" aria-label="Start of content region"></a>
-  <main class="region region-content l-region l-region--content" role="main">
-  {% if node.field_sidebar.0.value == "sidebar" %}
-  <div class="il-content-with-section-nav">
+    </ilw-content>
+    <main class="region region-content l-region l-region--content"><a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+      {% if node.field_sidebar.0.value == "sidebar" %}
+      <ilw-columns mode="1x2" width="auto" gap="40px">
     {{ page.sidebar_first }}
     {{ page.sidebar_second }}
+        <div>
+          <ilw-content>
+            {{ page.content }}
+          </ilw-content>
+        </div>
+      </ilw-columns>
   {% else %}
-  <div>
-  {% endif %}
-  <div class="il-content">
-      {{ page.content }}
+    <div>
+      <ilw-content width="auto">
+        {{ page.content }}
+      </ilw-content>
     </div>
-  </div>
+  {% endif %}
   </main>
 
-  <il-footer>
-    {{ page.footer }}
-  </il-footer>
+    <footer slot="footer">
+      <il-footer>
+        {{ page.footer }}
+      </il-footer>
+    </footer>
+  </ilw-page>
 </div>{# /.layout-container #}
 

@@ -46,21 +46,26 @@
 */
 #}
 <div class="layout-container">
-  <il-header>
-    {{ page.header }}
-  </il-header>
+  <ilw-page>
+    <header slot="header">
+      <il-header>
+        {{ page.header }}
+      </il-header>
+    </header>
+    <ilw-content width="auto">
+      <ilw-spacer></ilw-spacer>
   {{ page.breadcrumb }}
   {{ page.highlighted }}
   {{ page.help }}
   {{ page.tabs }}
-  <a name="main-content" aria-label="Start of content region"></a>
-  <main class="region region-content l-region l-region--content" role="main">
-    <div class="il-content fixed-width">
-      {{ page.content }}
-    </div>
-  </div>
+    <main{{ attributes.addClass(mainClasses) }}><a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+          {{ page.content }}
   </main>
-  <il-footer>
-    {{ page.footer }}
-  </il-footer>
+    </ilw-content>
+    <footer slot="footer">
+      <il-footer>
+        {{ page.footer }}
+      </il-footer>
+    </footer>
+</ilw-page>
 </div>{# /.layout-container #}

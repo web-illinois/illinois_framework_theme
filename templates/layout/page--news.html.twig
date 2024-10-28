@@ -45,27 +45,44 @@
 */
 #}
 <div class="layout-container">
-  <il-header>
-    {{ page.header }}
-  </il-header>
-  {{ page.breadcrumb }}
-  {{ page.highlighted }}
-  {{ page.help }}
-  {{ page.tabs }}
-  {% if page.sidebar_first or page.sidebar_second %}
-  <div class="il-content-with-section-nav">
-  {% else %}
-  <div>
-  {% endif %}
-    {{ page.sidebar_first }}
-    {{ page.sidebar_second }}
-    <div class="il-content">
-      {{ page.content }}
-    </div>
-    {{ attach_library('illinois_framework_theme/content-adjust') }}
-  </div>
-    <il-footer>
-      {{ page.footer }}
-    </il-footer>
-  </div>{# /.layout-container #}
+  <ilw-page>
+    <header slot="header">
+      <il-header>
+        {{ page.header }}
+      </il-header>
+    </header>
+    <ilw-content width="auto">
+      <ilw-spacer></ilw-spacer>
+    {{ page.breadcrumb }}
+    {{ page.highlighted }}
+    {{ page.help }}
+    {{ page.tabs }}
+    </ilw-content>
+    <main class="region region-content l-region l-region--content"><a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+      {% if page.sidebar_first|render|trim is not empty or page.sidebar_second|render|trim is not empty %}
+        <ilw-columns mode="1x2" width="auto" gap="40px">
+          {{ page.sidebar_first }}
+          {{ page.sidebar_second }}
+          <div>
+            <ilw-content>
+              {{ page.content }}
+            </ilw-content>
+          </div>
+        </ilw-columns>
+      {% else %}
+        <div>
+          <ilw-content width="auto">
+            {{ page.content }}
+          </ilw-content>
+        </div>
+      {% endif %}
+    </main>
+    <footer slot="footer">
+      <il-footer>
+        {{ page.footer }}
+      </il-footer>
+    </footer>
+  </ilw-page>
+</div>{# /.layout-container #}
+
 
