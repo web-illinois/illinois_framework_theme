@@ -23,8 +23,8 @@ settings:
   file_directory: paragraphs/feature-split
   file_extensions: 'png gif jpg jpeg'
   max_filesize: 5MB
-  max_resolution: 1280x920
-  min_resolution: 640x460
+  max_resolution: ''
+  min_resolution: 640x640
   alt_field: true
   alt_field_required: true
   title_field: true
