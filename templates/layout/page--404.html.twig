@@ -45,21 +45,28 @@
 */
 #}
 <div class="layout-container">
-  <il-header>
-    {{ page.header }}
-  </il-header>
-  {{ page.breadcrumb }}
-  {{ page.highlighted }}
-  {{ page.help }}
-  {{ page.tabs }}
+  <ilw-page>
+    <header slot="header">
+      <il-header>
+        {{ page.header }}
+      </il-header>
+    </header>
+    <ilw-content width="auto">
+      <ilw-spacer></ilw-spacer>
+      {{ page.breadcrumb }}
+      {{ page.highlighted }}
+      {{ page.help }}
+      {{ page.tabs }}
+    </ilw-content>
   {# if a side navigation exists the spoof the content region #}
   {% if node.field_sidebar.0.value == "sidebar" %}
-    <a name="main-content" aria-label="Start of content region"></a>
-    <main class="region region-content l-region l-region--content" role="main">
-      <div class="il-content-with-section-nav section-nav-example">
+    <main{{ attributes.addClass(mainClasses) }}><a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+
+      <ilw-columns mode="1x2" width="auto" gap="40px">
         {{ page.sidebar_first }}
         {{ page.sidebar_second }}
-        <div class="il-content">
+        <div>
+          <ilw-content>
           {% if node.body %}
             {{ node.body.0.value|raw }}
           {% endif %}
@@ -70,22 +77,30 @@
               {{ drupal_entity('paragraph', item.target_id) }}
             {% endif %}
           {% endfor %}
+          </ilw-content>
         </div>
-      </div>
+      </ilw-columns>
+      <ilw-content>
       {% for item in node.fields.field_paragraph %}
         {% if loop.index0 >= paragraph_number %}
           {{ drupal_entity('paragraph', item.target_id) }}
         {% endif %}
       {% endfor %}
       {{ attach_library('illinois_framework_theme/content-adjust') }}
-    </main>
+      </ilw-content>
   {% else %}
-    <div class="fixed-width">
-    {{ page.content }}
+    <div>
+      <ilw-content width="auto">
+        {{ page.content }}
+      </ilw-content>
     </div>
   {% endif %}
-  <il-footer>
-    {{ page.footer }}
-  </il-footer>
+    </main>
+    <footer slot="footer">
+      <il-footer>
+        {{ page.footer }}
+      </il-footer>
+    </footer>
+  </ilw-page>
 </div>{# /.layout-container #}
 
