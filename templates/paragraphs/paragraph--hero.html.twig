@@ -43,8 +43,7 @@
   'paragraph',
   'paragraph--type--' ~ paragraph.bundle|clean_class,
   view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
-  not paragraph.isPublished() ? 'paragraph--unpublished',
-  'col-lg-12 col-md-12 col-sm-12 p-0 d-flex row full-width'
+  not paragraph.isPublished() ? 'paragraph--unpublished'
 ]
 %}
 {% set background = content.field_hero_background['#items'].0.value %}
@@ -75,13 +74,18 @@
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
     {% if background == 'image' %}
-    <ilw-hero align="{{ alignment }}" width="full">
+    <ilw-hero align="{{ alignment }}">
       <img src="{{ content.field_hero_image.0['#markup'] }}" alt="{{ content.field_hero_image['#items'].0.alt }}" slot="background">
       {% elseif background == 'imageblue' %}
       <ilw-hero theme="orange" align="{{ alignment }}">
         <img src="{{ content.field_hero_image.0['#markup'] }}" alt="{{ content.field_hero_image['#items'].0.alt }}" slot="background">
+        {% elseif background == 'imagewhite' %}
+        <ilw-hero theme="white" align="{{ alignment }}">
+          <img src="{{ content.field_hero_image.0['#markup'] }}" alt="{{ content.field_hero_image['#items'].0.alt }}" slot="background">
         {% elseif background == 'orange' %}
         <ilw-hero theme="orange" align="{{ alignment }}">
+          {% elseif background == 'white' %}
+          <ilw-hero theme="white" align="{{ alignment }}">
           {% else %}
           <ilw-hero theme="blue" align="{{ alignment }}">
             {% endif  %}
