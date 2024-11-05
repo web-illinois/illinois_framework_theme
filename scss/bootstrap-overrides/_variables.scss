@@ -27,7 +27,7 @@ $enable-pointer-cursor-for-buttons:           true !default;
 // Font, line-height, and color for body text, headings, and more.
 
 // stylelint-disable value-keyword-case
-$font-family-sans-serif:      var(--il-source-sans);
+$font-family-sans-serif:      var(--il-font-sans);
 $font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
 $font-family-base:            $font-family-sans-serif;
 
