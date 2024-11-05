@@ -48,9 +48,12 @@
 %}
 {% block paragraph %}
   {# Paragraph ID used for anchor linking #}
-  <details {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
+  <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
-      {{ content }}
+      <ilw-accordion-panel>
+        <h3 slot="summary">{{ content.field_accordion_summary }}</h3>
+        {{ content.field_accordion_details }}
+      </ilw-accordion-panel>
     {% endblock %}
-  </details>
+  </div>
 {% endblock paragraph %}
