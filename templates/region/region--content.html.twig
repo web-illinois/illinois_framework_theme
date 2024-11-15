@@ -21,8 +21,7 @@
   ]
 %}
 {% if content %}
-  <main{{ attributes.addClass(classes) }} role="main">
-    <a name="main-content" aria-label="Start of content region"></a>
+  <div{{ attributes.addClass(classes) }}>
     {{ content }}
-  </main>
+  </div>
 {% endif %}
