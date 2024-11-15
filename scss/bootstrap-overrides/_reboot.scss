@@ -17,6 +17,10 @@ body {
   background-color: $body-bg; // 2
   overflow-x: hidden;// Prevent horizontal scroll from ilw-content width: 100vw
 }
+// overrides _reboot.scss line 35 for back to top button
+:root {
+  scroll-behavior: auto !important;
+}
 
 // overrides _reboot.scss line 97
 p {
