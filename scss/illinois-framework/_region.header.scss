@@ -1,6 +1,6 @@
 il-header {
   position: relative;
-  z-index: 101;
+  z-index: 101 !important;
 }
 il-header a[slot="site-name"], il-header a[slot="primary-unit"] {
   text-decoration: none;
