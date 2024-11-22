@@ -11,3 +11,6 @@ il-header a[slot="site-name"], il-header a[slot="primary-unit"] {
     color: var(--il-altgeld);
   }
 }
+il-header-nav-section-with-link > a[slot="link"] {
+  white-space: wrap !important;
+}
