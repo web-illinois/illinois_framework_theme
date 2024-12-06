@@ -1,0 +1,15 @@
+uuid: 3e3678d7-28fb-4687-9254-bdb692ed265c
+langcode: en
+status: true
+dependencies: {  }
+name: large_content
+label: 'Large content'
+effects:
+  72c2d2ff-4220-4cab-8c12-8979d7fbacf9:
+    uuid: 72c2d2ff-4220-4cab-8c12-8979d7fbacf9
+    id: image_scale
+    weight: 1
+    data:
+      width: 1200
+      height: null
+      upscale: true

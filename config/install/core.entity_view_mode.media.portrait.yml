@@ -1,0 +1,11 @@
+uuid: 55dd7d00-0fbd-4455-91ed-97eb07b6c9bf
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.portrait
+label: 'Portrait 3:2'
+description: ''
+targetEntityType: media
+cache: true
