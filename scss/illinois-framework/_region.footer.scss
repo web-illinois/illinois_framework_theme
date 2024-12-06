@@ -15,8 +15,11 @@ il-footer {
     }
 
     h2 {
-      font: 600 1.5rem/1.25 var(--il-font-sans);
+      font: 600 1.25rem/1.5 var(--il-font-sans);
       margin-bottom: .75rem;
+      font-weight: 700;
+      border-bottom: 1px solid var(--il-blue);
+      padding-bottom: .75rem;
     }
     .col-md {
       @include media-breakpoint-up(lg) {
