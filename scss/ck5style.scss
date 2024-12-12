@@ -100,4 +100,18 @@
       }
     }
   }
+/* Set image size to match image style*/
+  .drupal-media {
+    img{
+      min-width: inherit !important;
+    }
+  }
+
+  /* Override max-width for original size images */
+  .align-left,
+  .align-right {
+    &.media--view-mode-original-size{
+      max-width: none !important;
+    }
+  }
 }
