@@ -81,6 +81,9 @@ il-footer:
 content-adjust:
   js:
     js/content.js: {}
+paragraph-rt:
+  js:
+    js/paragraph-rt.js: {}
 paragraph--hero--section:
   js:
     js/paragraph--hero--section.js: {}
