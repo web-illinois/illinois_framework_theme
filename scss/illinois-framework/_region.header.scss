@@ -1,6 +1,6 @@
 il-header {
   position: relative;
-  z-index: 101;
+  z-index: 101 !important;
 }
 il-header a[slot="site-name"], il-header a[slot="primary-unit"] {
   text-decoration: none;
@@ -10,4 +10,7 @@ il-header a[slot="site-name"], il-header a[slot="primary-unit"] {
     text-decoration: underline;
     color: var(--il-altgeld);
   }
+}
+il-header-nav-section-with-link > a[slot="link"] {
+  white-space: wrap !important;
 }
