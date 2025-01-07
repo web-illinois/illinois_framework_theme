@@ -2,31 +2,15 @@
   @extend %paragraphs-padding;
 
   .field--name-field-accordion-title {
-    margin-bottom: 1.25rem;
-  }
-
-  .media,
-  .media--type-remote-video {
-    padding-bottom: rem(25px);
-  }
-
-  &.fixed-width {
-    max-width: 1200px;
-    padding: rem(60px) var(--il-content-margin) rem(75px);
+    margin-bottom: 1.5rem;
   }
 
   .field--name-field-accordion-body {
-    padding-bottom: rem(25px);
+    padding-bottom: 1.5rem;
   }
 }
-.il-content {
-  .paragraph--type--accordion {
-    &.fixed-width {
-      padding: rem(45px) 0 rem(60px) 0;
-      max-width: 1200px;
-    }
+ilw-columns {
+  ilw-accordion[width="page"] {//this overrides the accordion width to be full width when next to the sidebar
+    --ilw-margin--side: 0;
   }
-}
-.paragraph--type--accordion-content {
-  border: none !important;
 }
