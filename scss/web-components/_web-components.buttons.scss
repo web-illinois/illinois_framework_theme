@@ -1,33 +1,80 @@
-* {
-  a.il-button {
-    &:focus,
-    &:hover {
-      text-decoration: none !important;
-    }
-    &:visited {
-      color: transparent !important;
-    }
-  }
+:root {
+  --ilw-button--background-color: white;
+  --ilw-button--foreground-color: var(--il-blue);
+  --ilw-button--border-color: var(--il-blue);
+  --ilw-button--focused-background-color: var(--il-blue);
+  --ilw-button--focused-foreground-color: white;
+  --ilw-button--focused-border-color: var(--il-blue);
+  --ilw-button--active-color: white;
+  --ilw-button--active-background-color: var(--il-orange);
+  --ilw-button--active-border-color: var(--il-blue);
 }
-/* The Illinois Framework Theme default is il-white-blue button instead of
-   il-blue which is specified as the default in the Illinois Toolkit */
-p a.il-button {
-  color: var(--il-blue) !important;
-  --il-button-background-color: white !important;
-  --il-button-foreground-color: var(--il-blue) !important;
-  --il-button-border-color: var(--il-blue) !important;
+a.il-button, button.il-button, ul.il-buttons a, ul.il-buttons button {
+  background-color: var(--ilw-button--background-color);
+  color: var(--ilw-button--foreground-color);
+  border: 2px solid var(--ilw-button--border-color);
+  font: 700 1.188rem / 1.25rem var(--il-font-sans);
+  display: inline-block;
+  margin: 6px 0;
+  padding: 12px 20px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 0.25em;
+  letter-spacing: .01em;
+  transition: background-color 0.3s;
+  cursor: pointer;
 
   &:visited {
-    color: var(--il-blue) !important;
-    --il-button-background-color: white !important;
-    --il-button-foreground-color: var(--il-blue) !important;
-    --il-button-border-color: var(--il-blue) !important;
+    outline: 0;
+    background-color: var(--ilw-button--background-color);
+    color: var(--ilw-button--foreground-color);
+    border: 2px solid var(--ilw-button--border-color);
   }
-  &:hover,
+
+  &:hover {
+    outline: 0;
+    background-color: var(--ilw-button--focused-background-color);
+    color: var(--ilw-button--focused-foreground-color);
+    border-color: var(--ilw-button--focused-border-color);
+    text-decoration: underline;
+  }
   &:focus {
-    color: white !important;
-    --il-focused-button-background-color: var(--il-blue) !important;
-    --il-focused-button-foreground-color: white !important;
-    --il-focused-button-border-color: var(--il-blue) !important;
+    background-color: var(--ilw-link--focus-background-color);
+    color: var(--ilw-link--focus-color);
+    border-color: var(--ilw-link--focus-color);
+    text-decoration: underline;
+    outline: var(--ilw-link--focus-outline);
+  }
+  &:active {
+    background-color: var(--ilw-button--active-background-color);
+    color: var(--ilw-button--active-color);
+    border-color: var(--ilw-button--active-border-color);
+    outline: solid var(--ilw-button--active-border-color) 2px;
+  }
+  &.il-orange {
+    --ilw-button--background-color: var(--il-orange);
+    --ilw-button--foreground-color: white;
+    --ilw-button--border-color: var(--il-orange);
+    --ilw-button--active-background-color: var(--il-blue);
+    --ilw-button--active-border-color: var(--il-orange);
+    --ilw-button--focused-background-color: white;
+    --ilw-button--focused-foreground-color: var(--il-orange);
+    --ilw-button--focused-border-color: var(--il-orange);
+
+
+    &:visited {
+      color: white !important;
+      --il-button-background-color: var(--il-orange) !important;
+      --il-button-foreground-color: white !important;
+      --il-button-border-color: var(--il-orange) !important;
+    }
+    &:hover,
+    &:focus {
+      color: var(--il-orange) !important;
+      --il-focused-button-background-color: white !important;
+      --il-focused-button-foreground-color: var(--il-orange) !important;
+      --il-focused-button-border-color: var(--il-orange) !important;
+    }
   }
 }
+
