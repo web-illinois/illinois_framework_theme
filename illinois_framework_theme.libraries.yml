@@ -84,6 +84,9 @@ content-adjust:
 paragraph-rt:
   js:
     js/paragraph-rt.js: {}
+paragraph-list-content:
+  js:
+    js/paragraph-list-content.js: {}
 paragraph--hero--section:
   js:
     js/paragraph--hero--section.js: {}

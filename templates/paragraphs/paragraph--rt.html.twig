@@ -75,7 +75,7 @@
           {% endfor %}
         </ilw-content>
       {% else %}
-      <ilw-columns theme="{{ theme }}" width="page" gap="40px">
+      <ilw-columns theme="{{ theme }}" width="auto" gap="40px">
         {% for item in content.field_rt_column['#items'] %}
           {% set title = content.field_rt_column[loop.index0]['#paragraph'].field_rt_content_title.value %}
           {% set body = content.field_rt_column[loop.index0]['#paragraph'].field_rt_content_body.value|render %}

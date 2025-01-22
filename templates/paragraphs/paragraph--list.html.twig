@@ -38,24 +38,22 @@
  * @ingroup themeable
  */
 #}
+{{ attach_library('illinois_framework_theme/paragraph-list-content') }}
 {%
   set classes = [
   'paragraph',
-  'il-formatted',
   'paragraph--type--' ~ paragraph.bundle|clean_class,
   view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
-  not paragraph.isPublished() ? 'paragraph--unpublished',
-  'col-lg-12 col-md-12 col-sm-12 p-0 d-flex full-width' ~ flex_row_class ~ max_width,
-  'background--color--white'
+  not paragraph.isPublished() ? 'paragraph--unpublished'
 ]
 %}
 {% block paragraph %}
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
-      <div class="field--name-field-list__wrapper {{ content.field_list_content_layout['#items'].0.value }} full-width">
         {% if content.field_list_title['#items'] or content.field_list_subtitle['#items']  %}
-          <div class="field--name-field-list-text__wrapper fixed-width">
+          <ilw-content width="auto">
+          <div class="field--name-field-list-text__wrapper">
             {% if content.field_list_title['#items'] %}
               <h2 class="field--name-field-list__title title">{{ content.field_list_title }}</h2>
             {% endif %}
@@ -63,11 +61,45 @@
               <div class="field--name-field-list__subtitle subtitle">{{ content.field_list_subtitle }}</div>
             {% endif %}
           </div>
+          </ilw-content>
         {% endif %}
-        {% if content.field_list_content %}
-          {{ content.field_list_content }}
+      {% for key, item in content.field_list_content|filter((value, key) => key|first != '#') %}
+        {% set paragraph = item['#paragraph'] %}
+        {% set image_side = paragraph.field_list_content_layout.value %}
+        {% set image = paragraph.field_list_content_image.entity.fileuri %}
+        {% set alt_text = paragraph.field_list_content_image.alt %}
+        {% set body = paragraph.field_list_content_body.value|render %}
+        {% set padding = '20px 0' %}
+
+        {% if loop.index is even %}
+          {% set theme = 'gray' %}
+        {% else %}
+          {% set theme = '' %}
         {% endif %}
-      </div>
+
+          {% if image %}
+            <ilw-content theme="{{ theme }}" width="auto">
+              <div class="field--name-field-list-content__wrapper {{ image_side }}">
+                <div class="field--name-field-list-content-img__wrapper">
+                  <img src="{{ file_url(image|image_style('list_collection_image')) }}" alt="{{ alt_text }}">
+                </div>
+              <div class="field--name-field-list-content-text__wrapper">
+                {% if body|trim %}
+                  <div class="field--name-field-list-content__body body">{{ body|check_markup('basic_html') }}</div>
+                {% endif %}
+              </div>
+            </div>
+            </ilw-content>
+          {% else %}
+            <ilw-content theme="{{ theme }}" width="auto" padding="{{ padding }}">
+            <div class="field--name-field-list-content-text__wrapper">
+              {% if body|trim %}
+                <div class="field--name-field-list-content__body body">{{ body|check_markup('basic_html') }}</div>
+              {% endif %}
+            </div>
+            {% endif %}
+        </ilw-content>
+      {% endfor %}
     {% endblock %}
   </div>
 {% endblock paragraph %}

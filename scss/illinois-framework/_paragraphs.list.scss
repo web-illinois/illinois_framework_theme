@@ -9,7 +9,6 @@
         font-weight: 600;
         font-size: rem(32px);
         color: var(--il-orange);
-        padding-bottom: rem(40px);
       }
       .subtitle {
         font-weight: 600;
@@ -19,10 +18,6 @@
       }
     }
   }
-}
-
-.paragraph--type--list-content {
-
   .field--name-field-list-content {
 
     &__wrapper {
@@ -74,6 +69,7 @@
     }
   }
 }
+
 
 .field--name-field-list-content-img__wrapper
   + .field--name-field-list-content-text__wrapper {
