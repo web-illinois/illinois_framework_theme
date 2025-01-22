@@ -69,7 +69,7 @@
         {{ page.header }}
       </il-header>
     </header>
-    <ilw-content width="page">
+    <ilw-content width="auto">
       <ilw-spacer></ilw-spacer>
   {{ page.breadcrumb }}
   {{ page.highlighted }}
@@ -87,7 +87,7 @@
   {% set mainClasses = mainClasses|merge(unpublished) %}
 
   <main{{ attributes.addClass(mainClasses) }}><a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
-    <ilw-columns mode="1x2" width="page" gap="40px">
+    <ilw-columns mode="1x2" width="auto" gap="40px">
     {{ page.sidebar_first }}
     {{ page.sidebar_second }}
       <div>
