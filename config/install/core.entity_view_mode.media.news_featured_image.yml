@@ -1,0 +1,11 @@
+uuid: 45a09f73-c404-47c2-accb-ce0b009d0e0e
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.news_featured_image
+label: 'News Featured Image'
+description: 'Featured Image display/style that shows up above the news story'
+targetEntityType: media
+cache: true

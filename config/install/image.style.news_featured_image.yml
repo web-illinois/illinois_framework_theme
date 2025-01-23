@@ -1,0 +1,24 @@
+uuid: 45e24914-cf77-4ec4-b996-fec86d60f230
+langcode: en
+status: true
+dependencies:
+  module:
+    - imagick
+name: news_featured_image
+label: 'News Featured Image (Max 1000x1000)'
+effects:
+  ea8cf907-a5f1-4da2-a4c3-61e05a07ed9d:
+    uuid: ea8cf907-a5f1-4da2-a4c3-61e05a07ed9d
+    id: image_scale
+    weight: 1
+    data:
+      width: 1000
+      height: 1000
+      upscale: true
+  77c993bd-df56-4eb8-8d36-89c30be9651f:
+    uuid: 77c993bd-df56-4eb8-8d36-89c30be9651f
+    id: image_convert
+    weight: 2
+    data:
+      format: webp
+      quality: '85'
