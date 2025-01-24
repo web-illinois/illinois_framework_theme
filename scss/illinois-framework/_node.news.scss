@@ -1,76 +1,112 @@
 /* article.news */
 
 article.news {
-  padding-bottom: rem(50px);
+  margin: 0 auto;
+  max-width: var(--il-framework--fixed-width);
+  padding: 0 var(--il-content-margin) 75px;
+  @media screen and (min-width: 992px) {
+    padding-left: 50px !important;
+  }
 
   .field {
+    // adjustments to main content width
+    &--name-body,
+    &--name-field-if-story-source,
+    &--name-field-tags,
+    &--name-field-paragraph {
+      max-width: 900px !important;
+      margin: 0 auto;
+    }
+    //
+
+    &--name-field-if-subtitle {
+      font-weight: 600;
+      font-size: rem(32px);
+      line-height: rem(40px);
+      margin-bottom: 1.875rem;
+      color: var(--il-orange);
+    }
+    &--name-field-if-author {
+      padding: 1rem 0;
+      color: var(--il-blue);
+      font-weight: 600;
+      float: left;
+        &:after{
+          content: "";
+          display: inline-block;
+          width: 2px;
+          height: 35px;
+          background-color: var(--il-orange);
+          margin: -10px 1rem;
+        }
+    }
+    &--name-field-if-date {
+      border-top: 1px solid #d8d8d8;
+      border-bottom: 1px solid #d8d8d8;
+      padding: 1rem 0;
+      line-height: 1.75rem;
+      color: var(--il-blue);
+      font-weight: 600;
+      margin: 0 0 1.87
+      5rem 0;
+    }
+    &--name-field-if-meda-featured-image {
+      float: none;
+      padding: 1.875rem 1.5rem 0;
+      max-width: 600px;
+      margin: 0 auto;
+      .field__item {
+        display: flex;
+        img {
+          margin: 0 auto;
+        }
+      }
+    }
     &--name-body {
-      padding: 0 !important;
+      padding: 1.875rem 0 !important;
       h2 {
         color: var(--il-orange) !important;
       }
     }
+    &--name-field-if-story-source {
+      font-weight: 600;
+      font-style: oblique;
+      color: var(--il-blue);
+      padding: 1.125rem 0;
+      display: flex;
+      gap: 1rem;
+      .field__label{
+        &:after{
+          content: ":";
+        }
+      }
+    }
+    &--name-field-tags {
+      font-style: oblique;
+      font-weight: 600;
+      color: var(--il-blue);
+      border-top: 1px solid #d8d8d8;
+      padding: 1.125rem 0;
+      display: flex;
+      gap: 1rem;
+      .field__label{
+        &:after{
+          content: ":";
+        }
+      }
+      .field__items {
+        display: flex;
+        gap: 1rem;
+      }
+    }
   }
 
-  .subtitle {
-    font-weight: 600;
-    font-size: rem(32px);
-    line-height: rem(40px);
-    margin-bottom: 1.875rem;
-    color: var(--il-orange);
+ /* hides featured image if featured_image_toggle field is true */
+ &.hide-image {
+  .field--name-field-if-meda-featured-image {
+    display: none;
   }
-
-  .byline {
-    display: flex;
-    border-top: 1px solid #d8d8d8;
-    border-bottom: 1px solid #d8d8d8;
-    padding: 1rem 0;
-    color: var(--il-blue);
-    font-weight: 600;
-    margin: 0 0 1.875rem 0;
-  }
-
-  .byline-vr {
-    display: block;
-    width: 2px;
-    background-color: var(--il-orange);
-    margin: 0 1rem;
-  }
-
-  .source {
-    font-weight: 600;
-    font-style: oblique;
-    color: var(--il-blue);
-    padding: 1.125rem 0;
-  }
-
-  .tag-wrapper {
-    display: flex;
-    font-size: 20px;
-    font-style: oblique;
-    font-weight: 600;
-    color: var(--il-blue);
-    border-top: 1px solid #d8d8d8;
-    padding: 1.125rem 0;
-  }
-
-  .field--name-field-tags {
-    display: flex;
-  }
-
-  .tags .field__item {
-    padding: 0 0.25rem;
-  }
-
-  .tags .field__item:after {
-    content: "/";
-    padding-left: 0.5rem;
-    color: var(--il-orange);
-  }
-
-  .tags .field__item:last-child:after {
-    content: "";
-  }
+ }
 }
 
 /* news archive page and news archive block */
