@@ -5,11 +5,13 @@ dependencies:
     - field.storage.node.field_tags
     - node.type.news
     - taxonomy.vocabulary.tags
+
+
 id: node.news.field_tags
 field_name: field_tags
 entity_type: node
 bundle: news
-label: Tags
+label: 'Related topics'
 description: ''
 required: false
 translatable: true
