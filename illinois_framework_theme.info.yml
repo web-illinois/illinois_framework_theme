@@ -20,8 +20,7 @@ libraries:
   - illinois_framework_theme/global-styling
   - illinois_framework_theme/web-components
   - illinois_framework_theme/brand-styles
-  - illinois_framework_theme/il-header
-  - illinois_framework_theme/il-footer
+  - illinois_framework_theme/toolkit-3
 
 # Regions
 regions:
