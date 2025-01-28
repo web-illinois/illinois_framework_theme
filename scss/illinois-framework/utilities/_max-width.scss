@@ -1,7 +1,7 @@
 %fixed-width {
   margin: 0 auto;
-  max-width: var(--il-framework--fixed-width);
-  padding: 0 var(--il-content-margin);
+  //max-width: var(--il-framework--fixed-width);
+  padding: 0 var(--ilw-margin--side, 0);
   width: 100%;
 }
 %full-width {
