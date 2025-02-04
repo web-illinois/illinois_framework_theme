@@ -209,6 +209,9 @@ article.news {
   max-width: var(--il-framework--fixed-width);
   margin: 0 auto;
   max-width: 900px;
+  &.fixed-width {
+    padding: 0;
+  }
   .item-list {
     width: auto;
     ul {
