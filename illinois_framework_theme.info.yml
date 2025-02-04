@@ -19,7 +19,6 @@ libraries-override:
 libraries:
   - illinois_framework_theme/global-styling
   - illinois_framework_theme/web-components
-  - illinois_framework_theme/brand-styles
   - illinois_framework_theme/toolkit-3
 
 # Regions

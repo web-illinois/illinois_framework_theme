@@ -22,20 +22,13 @@ web-components:
   header: true
   css:
     theme:
-      https://contrib.webtheme.illinois.edu/toolkit-lite-v2/toolkit.css:
+      https://cdn.toolkit.illinois.edu/2.16/toolkit.css:
         type: external
         minified: true
   js:
-    https://contrib.webtheme.illinois.edu/toolkit-lite-v2/toolkit.js:
+    https://cdn.toolkit.illinois.edu/2.16/toolkit.js:
       type: external
       minified: true
-brand-styles:
-  header: true
-  css:
-    theme:
-      https://cdn.brand.illinois.edu/illinois.css:
-        type: external
-        minified: true
 toolkit-3:
   header: true
   css:
@@ -61,34 +54,6 @@ ils-contentslider:
     https://contrib.webtheme.illinois.edu/ils-contentslider/contentslider.min.js:
       type: external
       minified: true
-il-header:
-  header: true
-  css:
-    theme:
-      https://cdn.brand.illinois.edu/components/il-header.css:
-        type: external
-        minified: true
-  js:
-    https://cdn.brand.illinois.edu/components/il-header.mjs:
-      type: external
-      minified: true
-      attributes:
-        type: module
-        blocking: render
-il-footer:
-  header: true
-  css:
-    theme:
-      https://cdn.brand.illinois.edu/components/il-footer.css:
-        type: external
-        minified: true
-  js:
-    https://cdn.brand.illinois.edu/components/il-footer.mjs:
-      type: external
-      minified: true
-      attributes:
-        type: module
-        blocking: render
 content-adjust:
   js:
     js/content.js: {}
