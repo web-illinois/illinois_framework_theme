@@ -1,6 +1,7 @@
 //overrides to the web components
 .il-content-with-section-nav {
-  padding: 0;
+  //padding: 0;
+  padding: 0 var(--ilw-margin--side, 0) !important;
 
   il-section-nav {
     h3 {
@@ -40,7 +41,7 @@
     margin-left: 0;
     margin-right: 0;
     grid-gap: 0;
-    grid-template-columns: auto 274px 44px 822px auto !important;
+    grid-template-columns: 0 274px 44px 822px auto !important;
     grid-template-areas: ". nav . content .";
   }
 }

@@ -51,7 +51,7 @@
     'paragraph--type--' ~ paragraph.bundle|clean_class,
     view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
     not paragraph.isPublished() ? 'paragraph--unpublished',
-    'col-lg-12 col-md-12 col-sm-12 p-0 fixed-width' ~ flex_row_class ~ max_width
+    'col-lg-12 col-md-12 col-sm-12 fixed-width' ~ flex_row_class ~ max_width
   ]
 %}
 {% block paragraph %}
@@ -69,7 +69,10 @@
       </div>
       <div class="field__items">
         {% for item in content.field_cards_content['#items'] %}
-        {% set image = content.field_cards_content[loop.index0]['#paragraph'].field_cards_content_image.entity.fileuri|image_style('cards_image') %}
+        {% set image = content.field_cards_content[loop.index0]['#paragraph'].field_cards_content_image.entity.fileuri %}
+          {% if image is not empty %}
+            {% set image = image|image_style('cards_image') %}
+          {% endif %}
         {% set image_alt = content.field_cards_content[loop.index0]['#paragraph'].field_cards_content_image.alt %}
         {% set title = content.field_cards_content[loop.index0]['#paragraph'].field_cards_content_title.value %}
         {% set body = content.field_cards_content[loop.index0]['#paragraph'].field_cards_content_body.value %}

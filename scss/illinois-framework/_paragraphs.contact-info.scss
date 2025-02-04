@@ -178,3 +178,19 @@
     }
   }
 }
+.il-content {
+  .paragraph--type--contact {
+    .fixed-width {
+      padding: 0;
+    }
+  }
+}
+.il-content {
+  .paragraph--type--contact {
+    &.background--color--gray {
+      .fixed-width {
+        padding: 0 30px;
+      }
+    }
+  }
+}

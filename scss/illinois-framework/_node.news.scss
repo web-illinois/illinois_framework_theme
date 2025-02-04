@@ -75,6 +75,9 @@ article.news {
 
 /* news archive page and news archive block */
 .news-page {
+  &.fixed-width {
+    padding: 0;
+  }
   form {
     max-width: 900px;
   .form--inline {

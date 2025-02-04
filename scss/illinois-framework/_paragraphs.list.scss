@@ -103,3 +103,18 @@
   //title/subtitle don't indent weird
   padding-left: 0;
 }
+.il-content {
+  .paragraph--type--list {
+    .fixed-width {
+      padding: 0;
+    }
+    .field--name-field-list-content {
+      .field__item {
+        &:nth-of-type(even) {
+          background: #f4f4f4;
+          padding: 0 30px;
+        }
+      }
+    }
+  }
+}

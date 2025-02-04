@@ -162,3 +162,12 @@
     }
   }
 }
+.il-content {
+  .paragraph--type--cta {
+    .fixed-width {
+      @include media-breakpoint-up(md) {
+        padding: 0;
+      }
+    }
+  }
+}
