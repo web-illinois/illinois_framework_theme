@@ -32,13 +32,6 @@ web-components:
       attributes:
         type: module
         blocking: render
-brand-styles:
-  header: true
-  css:
-    theme:
-      https://cdn.brand.illinois.edu/illinois.css:
-        type: external
-        minified: true
 ils-contentslider:
   header: true
   css:
@@ -50,34 +43,6 @@ ils-contentslider:
     https://contrib.webtheme.illinois.edu/ils-contentslider/contentslider.min.js:
       type: external
       minified: true
-il-header:
-  header: true
-  css:
-    theme:
-      https://cdn.brand.illinois.edu/components/il-header.css:
-        type: external
-        minified: true
-  js:
-    https://cdn.brand.illinois.edu/components/il-header.mjs:
-      type: external
-      minified: true
-      attributes:
-        type: module
-        blocking: render
-il-footer:
-  header: true
-  css:
-    theme:
-      https://cdn.brand.illinois.edu/components/il-footer.css:
-        type: external
-        minified: true
-  js:
-    https://cdn.brand.illinois.edu/components/il-footer.mjs:
-      type: external
-      minified: true
-      attributes:
-        type: module
-        blocking: render
 content-adjust:
   js:
     js/content.js: {}
