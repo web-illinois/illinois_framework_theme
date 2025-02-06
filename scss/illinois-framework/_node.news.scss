@@ -77,6 +77,9 @@ article.news {
 .news-page {
   &.fixed-width {
     padding: 0;
+    .fixed-width {
+      padding: 0;
+    }
   }
   form {
     max-width: 900px;

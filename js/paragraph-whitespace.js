@@ -17,7 +17,10 @@ jQuery(function ($) {
 jQuery(function ($) {
   if($('.field--name-body').length){ }
     else {
-       // find next div with paragraph class after title div then add a class to remove padding
-      $('#block-illinois-framework-theme-page-title').next('.paragraph').addClass('remove-padding--top');
+       // find next div with paragraph class after title div then add a class to remove padding, unless the nex paragraph is rich text with a gray background
+    var $nextParagraph = $('#block-illinois-framework-theme-page-title').next('.paragraph');
+    if (!$nextParagraph.hasClass('paragraph--type--rt') || !$nextParagraph.hasClass('background--color--gray')) {
+      $nextParagraph.addClass('remove-padding--top');
+    }
     }
   });

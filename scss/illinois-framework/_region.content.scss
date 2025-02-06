@@ -1,12 +1,22 @@
 .region-content {
   padding-top: 20px !important;
+  @include media-breakpoint-up(sm) {
+    padding-top: 40px !important;
+  }
 }
 .il-content {
   .region-content {
     padding: 0 !important;
   }
 }
-
+/* Removing fixed-width padding when there is a view next to a sidebar */
+.il-content-with-section-nav {
+  .views-element-container {
+    .fixed-width {
+      padding: 0;
+    }
+  }
+}
 
 /* Show message on content that is unpublished */
 article.is-unpublished:before,

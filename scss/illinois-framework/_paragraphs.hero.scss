@@ -1,5 +1,8 @@
 .paragraph--type--hero {
   margin-top: -20px !important;
+  @include media-breakpoint-up(sm) {
+    margin-top: -40px !important;
+  }
 
   il-hero {
     width: 100%;
