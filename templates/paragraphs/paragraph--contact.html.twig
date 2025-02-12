@@ -59,11 +59,10 @@
 {%
   set classes = [
   'paragraph',
-  'il-formatted',
   'paragraph--type--' ~ paragraph.bundle|clean_class,
   view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
   not paragraph.isPublished() ? 'paragraph--unpublished',
-  'il-formatting col-lg-12 col-md-12 col-sm-12 full-width ' ~ 'background--color--' ~ background_color
+  'col-lg-12 col-md-12 col-sm-12 full-width ' ~ 'background--color--' ~ background_color
 ]
 %}
 
