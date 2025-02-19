@@ -6,7 +6,7 @@ article.spotlight {
     padding: 0 var(--ilw-margin--side, 0);
     width: 100%;
   .field--name-body {
-    padding: 0;
+    padding: 0 !important;
     h2 {
       color: var(--il-orange);
     }
