@@ -20,20 +20,21 @@
   'l-region--' ~ region|clean_class
 ]
 %}
-{% if content %}
 {% if if_megamenu.if_menu_select %}
   {% set menu_type = if_megamenu.if_menu_select %}
 {% else %}
   {% set menu_type = 'simple' %}
 {% endif %}
-        {% if if_secondary_site_title %}
-            {% if if_secondary_site_link %}
-              <a slot="primary-unit" href="{{ if_secondary_site_link }}">{{ if_secondary_site_title }}</a>
-            {% else %}
-              <a slot="site-name" href="#">{{ if_secondary_site_title }}</a>
-            {% endif %}
-        {% endif %}
-        <a slot="site-name" href="/">{{ drupal_config('system.site', 'name') | raw }}</a>
+{% if content %}
+<ilw-header>
+  {% if if_secondary_site_title %}
+    {% if if_secondary_site_link %}
+      <a slot="primary-unit" href="{{ if_secondary_site_link }}">{{ if_secondary_site_title }}</a>
+    {% else %}
+      <a slot="site-name" href="#">{{ if_secondary_site_title }}</a>
+    {% endif %}
+  {% endif %}
+  <a slot="site-name" href="/">{{ drupal_config('system.site', 'name') | raw }}</a>
     <form slot="search" method="get" action="/search/node" role="search">
       <input type="search" name="keys" aria-labelledby="search-button">
       <button id="search-button" type="submit">Search</button>
@@ -58,4 +59,5 @@
         {{ drupal_entity('block', 'illinois_framework_theme_main_menu', check_access=false) }}
       {% endif %}
     </ilw-header-menu>
+</ilw-header>
 {% endif %}
