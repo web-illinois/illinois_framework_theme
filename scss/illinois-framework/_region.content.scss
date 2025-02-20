@@ -1,9 +1,9 @@
-.region-content {
-  padding-top: 20px !important;
-  @include media-breakpoint-up(sm) {
-    padding-top: 40px !important;
-  }
+/* Add margin to the top of the content when there is a section nav */
+main > .il-content-with-section-nav {
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
+
 .il-content {
   .region-content {
     padding: 0 !important;
