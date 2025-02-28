@@ -161,3 +161,10 @@ function illinois_framework_update_9002() {
 function illinois_framework_update_9003() {
   \Drupal::service('theme_installer')->install(['bootstrap5']);
 }
+
+/**
+ * Enable the CKEditor5 module
+ */
+function illinois_framework_update_9004() {
+  \Drupal::service('module_installer')->install(['ckeditor5']);
+}

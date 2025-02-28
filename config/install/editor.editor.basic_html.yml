@@ -4,60 +4,90 @@ dependencies:
   config:
     - filter.format.basic_html
   module:
+    - ckeditor5
 format: basic_html
-editor: ckeditor
+editor: ckeditor5
 settings:
   toolbar:
-    rows:
-      -
-        -
-          name: Formatting
-          items:
-            - Bold
-            - Italic
-            - Subscript
-            - Superscript
-        -
-          name: Linking
-          items:
-            - DrupalLink
-            - DrupalUnlink
-            - Anchor
-        -
-          name: Lists
-          items:
-            - BulletedList
-            - NumberedList
-        -
-          name: Media
-          items:
-            - Blockquote
-            - video_embed
-            - DrupalMediaLibrary
-        -
-          name: 'Block Formatting'
-          items:
-            - Format
-            - Styles
-        -
-          name: Tools
-          items:
-            - Table
-            - Source
-        -
-          name: 'Paste Text'
-          items:
-            - PasteText
-            - PasteFromWord
+    items:
+      - bold
+      - italic
+      - subscript
+      - superscript
+      - '|'
+      - link
+      - drupalMedia
+      - videoEmbed
+      - '|'
+      - bulletedList
+      - numberedList
+      - '|'
+      - alignment
+      - blockQuote
+      - horizontalLine
+      - '|'
+      - heading
+      - style
+      - '|'
+      - insertTable
+      - sourceEditing
   plugins:
-    drupallink:
+    ckeditor5_alignment:
+      enabled_alignments:
+        - center
+        - justify
+        - left
+        - right
+    ckeditor5_heading:
+      enabled_headings:
+        - heading2
+        - heading3
+        - heading4
+        - heading5
+        - heading6
+    ckeditor5_list:
+      properties:
+        reversed: false
+        startIndex: false
+      multiBlock: true
+    ckeditor5_sourceEditing:
+      allowed_tags:
+        - '<h2 id>'
+        - '<h3 id>'
+        - '<h4 id>'
+        - '<h5 id>'
+        - '<h6 id>'
+        - '<img src alt data-entity-type data-entity-uuid data-align data-caption width height>'
+        - '<cite>'
+        - '<dl>'
+        - '<dt>'
+        - '<dd>'
+        - '<q>'
+        - '<address>'
+        - '<div>'
+    ckeditor5_style:
+      styles:
+        -
+          label: 'Base Button'
+          element: '<a class="il-button">'
+        -
+          label: 'White with blue button'
+          element: '<a class="il-button il-white-blue">'
+        -
+          label: 'White with orange button'
+          element: '<a class="il-button il-white-orange">'
+        -
+          label: 'Solid blue button'
+          element: '<a class="il-button il-blue">'
+        -
+          label: 'Solid orange button'
+          element: '<a class="il-button il-orange">'
+    linkit_extension:
       linkit_enabled: true
       linkit_profile: default
-    stylescombo:
-      styles: "a.il-button|Base Button\r\na.il-button.il-white-blue|White with blue button\r\na.il-button.il-white-orange|White with orange button\r\na.il-button.il-blue|Solid blue button\r\na.il-button.il-orange|Solid orange button"
-    language:
-      language_list: un
-    video_embed:
+    media_media:
+      allow_view_mode_override: true
+    video_embed_wysiwyg_video_embed:
       defaults:
         children:
           autoplay: false
@@ -65,10 +95,4 @@ settings:
           width: '854'
           height: '480'
 image_upload:
-  status: true
-  scheme: public
-  directory: inline-images
-  max_size: ''
-  max_dimensions:
-    width: null
-    height: null
+  status: false
