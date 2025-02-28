@@ -1,6 +1,13 @@
 langcode: en
 status: true
 dependencies:
+  config:
+    - core.entity_view_mode.media.full_width
+    - core.entity_view_mode.media.medium_400
+    - core.entity_view_mode.media.original_size
+    - core.entity_view_mode.media.portrait
+    - core.entity_view_mode.media.small_250
+    - core.entity_view_mode.media.square
   module:
     - editor
     - linkit
@@ -9,40 +16,19 @@ dependencies:
     - video_embed_wysiwyg
 name: 'Basic HTML'
 format: basic_html
-weight: 0
+weight: -10
 filters:
-  filter_html:
-    id: filter_html
-    provider: filter
-    status: true
-    weight: -50
-    settings:
-      allowed_html: '<em> <strong> <cite> <blockquote cite> <code> <ul type class=""> <ol type start class=""> <li class=""> <dl class=""> <dt class=""> <dd class=""> <h2 id class=""> <h3 id class=""> <h4 id class=""> <h5 id class=""> <h6 id class=""> <p class=""> <br> <img src alt data-entity-type data-entity-uuid data-align data-caption width height class=""> <sup> <sub> <hr> <table role aria-label class=""> <caption> <tbody> <thead> <tfoot class=""> <th id class=""> <td id class=""> <tr id class=""> <q class=""> <address class=""> <div class=""> <span id class=""> <drupal-media alt data-align data-caption data-view-mode data-entity-uuid data-entity-type title> <a href hreflang name data-entity-substitution data-entity-type data-entity-uuid title class=" il-button il-white-blue il-white-orange il-blue il-orange">'
-      filter_html_help: false
-      filter_html_nofollow: false
-  filter_align:
-    id: filter_align
-    provider: filter
-    status: true
-    weight: -46
-    settings: {  }
-  filter_caption:
-    id: filter_caption
-    provider: filter
-    status: true
-    weight: -45
-    settings: {  }
-  filter_html_image_secure:
-    id: filter_html_image_secure
-    provider: filter
-    status: true
-    weight: -44
-    settings: {  }
   editor_file_reference:
     id: editor_file_reference
     provider: editor
     status: true
     weight: -43
+    settings: {  }
+  filter_align:
+    id: filter_align
+    provider: filter
+    status: true
+    weight: -46
     settings: {  }
   filter_autop:
     id: filter_autop
@@ -50,18 +36,55 @@ filters:
     status: false
     weight: -49
     settings: {  }
-  filter_htmlcorrector:
-    id: filter_htmlcorrector
+  filter_caption:
+    id: filter_caption
     provider: filter
     status: true
-    weight: -42
+    weight: -45
     settings: {  }
+  filter_html:
+    id: filter_html
+    provider: filter
+    status: true
+    weight: -50
+    settings:
+      allowed_html: '<br> <p class="text-align-left text-align-center text-align-right text-align-justify"> <h2 id class="text-align-left text-align-center text-align-right text-align-justify"> <h3 id class="text-align-left text-align-center text-align-right text-align-justify"> <h4 id class="text-align-left text-align-center text-align-right text-align-justify"> <h5 id class="text-align-left text-align-center text-align-right text-align-justify"> <h6 id class="text-align-left text-align-center text-align-right text-align-justify"> <a class href data-entity-type data-entity-uuid data-entity-substitution aria-label title id target="_blank" rel> <img src alt data-entity-type data-entity-uuid data-align data-caption width height> <cite> <dl> <dt> <dd> <q> <address> <div class="text-align-left text-align-center text-align-right text-align-justify"> <strong> <em> <sub> <sup> <blockquote> <ul> <ol> <li> <hr> <table> <tr> <td rowspan colspan> <th rowspan colspan> <thead> <tbody> <tfoot> <caption> <drupal-media data-entity-type data-entity-uuid alt data-view-mode data-caption data-align>'
+      filter_html_help: false
+      filter_html_nofollow: false
   filter_html_escape:
     id: filter_html_escape
     provider: filter
     status: false
     weight: -39
     settings: {  }
+  filter_html_image_secure:
+    id: filter_html_image_secure
+    provider: filter
+    status: false
+    weight: -44
+    settings: {  }
+  filter_htmlcorrector:
+    id: filter_htmlcorrector
+    provider: filter
+    status: true
+    weight: -42
+    settings: {  }
+  filter_image_lazy_load:
+    id: filter_image_lazy_load
+    provider: filter
+    status: true
+    weight: -42
+    settings: {  }
+  filter_pathologic:
+    id: filter_pathologic
+    provider: pathologic
+    status: true
+    weight: -38
+    settings:
+      settings_source: global
+      local_settings:
+        protocol_style: full
+        local_paths: ''
   filter_url:
     id: filter_url
     provider: filter
@@ -69,25 +92,6 @@ filters:
     weight: -47
     settings:
       filter_url_length: 72
-  media_embed:
-    id: media_embed
-    provider: media
-    status: true
-    weight: -41
-    settings:
-      default_view_mode: default
-      allowed_view_modes: {  }
-      allowed_media_types: {  }
-  filter_pathologic:
-    id: filter_pathologic
-    provider: pathologic
-    status: false
-    weight: -38
-    settings:
-      settings_source: global
-      local_settings:
-        protocol_style: full
-        local_paths: ''
   linkit:
     id: linkit
     provider: linkit
@@ -95,6 +99,21 @@ filters:
     weight: -40
     settings:
       title: true
+  media_embed:
+    id: media_embed
+    provider: media
+    status: true
+    weight: -41
+    settings:
+      default_view_mode: medium_400
+      allowed_view_modes:
+        full_width: full_width
+        medium_400: medium_400
+        original_size: original_size
+        portrait: portrait
+        small_250: small_250
+        square: square
+      allowed_media_types: {  }
   video_embed_wysiwyg:
     id: video_embed_wysiwyg
     provider: video_embed_wysiwyg
