@@ -84,6 +84,7 @@ TODO: Consider making the feature video styles use this responsive video setup.
     clear: both;
     display: block;
     margin: 0.888889em auto 0;
+    max-width: fit-content;
   }
 
   &.align-center {
