@@ -111,11 +111,20 @@ div.field--type-text-with-summary > figure:first-child {
   margin-top: 0;
 }
 
+/* Without this, left and right aligned remote media will not show up */
+.media.media--type-remote-video {
+  width: 100%;
+}
+
 /*Sets width for media view modes*/
 .media--view-mode-small-250 {
   max-width: 250px;
   + figcaption{
     max-width: 250px;
+  }
+
+  &.media--type-remote-video {
+    min-width: 250px;
   }
 }
 
@@ -124,6 +133,10 @@ div.field--type-text-with-summary > figure:first-child {
   + figcaption{
     max-width: 250px;
   }
+
+  &.media--type-remote-video {
+    min-width: 250px;
+  }
 }
 
 .media--view-mode-square{
@@ -131,12 +144,20 @@ div.field--type-text-with-summary > figure:first-child {
   + figcaption{
     max-width: 300px;
   }
+
+  &.media--type-remote-video {
+    min-width: 300px;
+  }
 }
 
 .media--view-mode-medium-400{
   max-width: 400px;
   + figcaption{
     max-width: 400px;
+  }
+
+  &.media--type-remote-video {
+    min-width: 400px;
   }
 }
 
