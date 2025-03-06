@@ -37,7 +37,6 @@ The Illinois Framework Core module includes the config to create a predefined se
 - [Redirect](https://www.drupal.org/project/redirect)
 - [Twig Field Value](https://www.drupal.org/project/twig_field_value)
 - [Twig Tweak](https://www.drupal.org/project/twig_tweak)
-- [Video Embed Field](https://www.drupal.org/project/video_embed_field)
 
 # Contributing
 The WIGG Drupal group is welcoming contributions from anyone on campus. Please see the [WIGG Drupal webpage](https://webguidelines.web.illinois.edu/subcommittees/drupal/) for more information.
