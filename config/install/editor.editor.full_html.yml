@@ -98,13 +98,6 @@ settings:
       linkit_profile: default
     media_media:
       allow_view_mode_override: false
-    video_embed_wysiwyg_video_embed:
-      defaults:
-        children:
-          autoplay: false
-          responsive: false
-          width: '42'
-          height: '42'
 image_upload:
   status: true
   scheme: public
