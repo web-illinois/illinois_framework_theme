@@ -13,7 +13,6 @@ dependencies:
     - linkit
     - media
     - pathologic
-    - video_embed_wysiwyg
 name: 'Basic HTML'
 format: basic_html
 weight: -10
@@ -117,6 +116,6 @@ filters:
   video_embed_wysiwyg:
     id: video_embed_wysiwyg
     provider: video_embed_wysiwyg
-    status: true
+    status: false
     weight: -48
     settings: {  }

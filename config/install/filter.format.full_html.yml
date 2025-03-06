@@ -6,7 +6,6 @@ dependencies:
     - linkit
     - media
     - pathologic
-    - video_embed_wysiwyg
 name: 'Full HTML'
 format: full_html
 weight: 2
@@ -104,6 +103,6 @@ filters:
   video_embed_wysiwyg:
     id: video_embed_wysiwyg
     provider: video_embed_wysiwyg
-    status: true
+    status: false
     weight: -50
     settings: {  }
