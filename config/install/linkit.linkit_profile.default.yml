@@ -14,20 +14,39 @@ matchers:
     id: 'entity:node'
     uuid: 556010a3-e317-48b3-b4ed-854c10f4b950
     settings:
-      metadata: 'by [node:author] | [node:created:medium]'
-      bundles: {  }
-      group_by_bundle: false
+      metadata: '[node:content-type] by [node:author] | last updated [node:changed]'
+      bundles:
+        awards: awards
+        award_winner: award_winner
+        blog: blog
+        highlighted_course: highlighted_course
+        news: news
+        spotlight: spotlight
+      group_by_bundle: true
       substitution_type: canonical
-      limit: 100
+      limit: 20
       include_unpublished: false
-    weight: 0
+    weight: -9
   06281624-f6d1-470f-86b2-3d6d7221dbce:
     id: 'entity:media'
     uuid: 06281624-f6d1-470f-86b2-3d6d7221dbce
     settings:
-      metadata: ''
-      bundles: {  }
+      metadata: '[media:bundle] media'
+      bundles:
+        document: document
       group_by_bundle: false
+      substitution_type: media_file_redirect
+      limit: 20
+    weight: -8
+  0551d4d8-a69d-40c0-8c91-680b6049c188:
+    id: 'entity:node'
+    uuid: 0551d4d8-a69d-40c0-8c91-680b6049c188
+    settings:
+      metadata: '[node:content-type] by [node:author] last updated [node:changed]'
+      bundles:
+        content_page: content_page
+      group_by_bundle: true
       substitution_type: canonical
-      limit: 100
-    weight: 0
+      limit: 20
+      include_unpublished: false
+    weight: -10

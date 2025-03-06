@@ -6,12 +6,12 @@ dependencies:
 id: blog_article
 label: 'Blog Article'
 type: 'canonical_entities:node'
-pattern: 'blog/[node:field_if_date:value]/[node:title]'
+pattern: 'blog/[node:field_if_date:date:html_date]/[node:title]'
 selection_criteria:
-  3cbda6bf-6ccf-4218-8f44-08230c0eec1d:
+  602ad386-050e-422e-9983-209fbcea37a1:
     id: 'entity_bundle:node'
     negate: false
-    uuid: 3cbda6bf-6ccf-4218-8f44-08230c0eec1d
+    uuid: 602ad386-050e-422e-9983-209fbcea37a1
     context_mapping:
       node: node
     bundles:

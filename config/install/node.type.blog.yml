@@ -13,4 +13,4 @@ description: 'The Blog CT is used for shorter news stories, sometimes with comme
 help: ''
 new_revision: true
 preview_mode: 1
-display_submitted: true
+display_submitted: false
