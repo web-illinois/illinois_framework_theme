@@ -22,7 +22,7 @@ install:
   - block_content
   - block_exclude_pages
   - breakpoint
-  - ckeditor
+  - ckeditor5
   - config
   - config_sync
   - contextual
