@@ -113,9 +113,3 @@ filters:
         small_250: small_250
         square: square
       allowed_media_types: {  }
-  video_embed_wysiwyg:
-    id: video_embed_wysiwyg
-    provider: video_embed_wysiwyg
-    status: false
-    weight: -48
-    settings: {  }
