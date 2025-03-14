@@ -12,6 +12,11 @@ article.spotlight {
     }
   }
 }
+  .paragraph {
+    .fixed-width {
+      padding: 0;
+    }
+  }
 }
 
 //works around having the need for items after a body

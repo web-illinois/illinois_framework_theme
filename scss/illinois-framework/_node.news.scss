@@ -100,6 +100,11 @@ article.news {
       }
     }
   }
+  .paragraph {
+    .fixed-width {
+      padding: 0;
+    }
+  }
 
  /* hides featured image if featured_image_toggle field is true */
  &.hide-image {
