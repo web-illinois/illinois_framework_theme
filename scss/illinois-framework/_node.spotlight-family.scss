@@ -2,14 +2,21 @@
 article.spotlight {
   .content {
     margin: 0 auto;
-    max-width: var(--il-framework--fixed-width);
+    //max-width: var(--il-framework--fixed-width);
+    padding: 0 var(--ilw-margin--side, 0);
     width: 100%;
   .field--name-body {
+    padding: 0 !important;
     h2 {
       color: var(--il-orange);
     }
   }
 }
+  .paragraph {
+    .fixed-width {
+      padding: 0;
+    }
+  }
 }
 
 //works around having the need for items after a body

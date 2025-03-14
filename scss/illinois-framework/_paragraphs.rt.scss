@@ -92,10 +92,17 @@
     }
   }
 }
-.il-content {
+.il-content-with-section-nav {
   .background--color--white {
     .paragraph--type--rt__wrapper {
-      padding: 0 !important;
+      padding: 0;
+    }
+  }
+}
+.il-content-with-section-nav {
+  .background--color--gray {
+    .paragraph--type--rt__wrapper {
+      padding: 0 30px;
     }
   }
 }

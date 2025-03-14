@@ -100,6 +100,11 @@ article.news {
       }
     }
   }
+  .paragraph {
+    .fixed-width {
+      padding: 0;
+    }
+  }
 
  /* hides featured image if featured_image_toggle field is true */
  &.hide-image {
@@ -111,7 +116,14 @@ article.news {
 
 /* news archive page and news archive block */
 .news-page {
+  &.fixed-width {
+    padding: 0;
+    .fixed-width {
+      padding: 0;
+    }
+  }
   form {
+    margin: 0 auto;
     max-width: 900px;
   .form--inline {
     display: flex;
@@ -242,6 +254,9 @@ article.news {
   max-width: var(--il-framework--fixed-width);
   margin: 0 auto;
   max-width: 900px;
+  &.fixed-width {
+    padding: 0;
+  }
   .item-list {
     width: auto;
     ul {

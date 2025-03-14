@@ -53,7 +53,7 @@
   {% if page.sidebar_first or page.sidebar_second %}
   <div class="il-content-with-section-nav">
   {% else %}
-  <div>
+  <div class="il-content-without-section-nav">
   {% endif %}
     {{ page.sidebar_first }}
     {{ page.sidebar_second }}
@@ -62,6 +62,6 @@
     </div>
     {{ attach_library('illinois_framework_theme/content-adjust') }}
   </div>
-  {{ page.footer }}
-</div>{# /.layout-container #}
+      {{ page.footer }}
+  </div>{# /.layout-container #}
 

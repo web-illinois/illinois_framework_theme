@@ -1,10 +1,43 @@
-il-footer {
+ilw-footer {
 
-  &[slot="parent"] {
-
-    p {
-      font-size: initial;
-      line-height: initial;
+  .footer-menus {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 0;
+    @include media-breakpoint-up(lg) {
+      grid-template-columns: repeat(2,1fr);
+      grid-gap: 60px;
     }
+    nav {
+      @include media-breakpoint-up(lg) {
+        margin-bottom: 1rem;
+      }
+    }
+
+    h2 {
+      font: 600 1.25rem/1.5 var(--il-font-sans);
+      margin-bottom: .75rem;
+      font-weight: 700;
+      border-bottom: 1px solid var(--il-blue);
+      padding-bottom: .75rem;
+    }
+    .col-md {
+      @include media-breakpoint-up(lg) {
+        padding-left: 0;
+      }
+    }
+    .navbar-nav {
+      .nav-item {
+        .nav-link {
+          font: 400 18px/30px var(--il-font-sans);;
+          padding: .2rem 0;
+        }
+      }
+    }
+  }
+}
+ilw-footer *[slot=actions] a {
+  @include media-breakpoint-down(lg) {
+    margin: 0 .5rem .5rem 0 !important;
   }
 }

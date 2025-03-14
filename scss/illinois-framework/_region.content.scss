@@ -1,12 +1,22 @@
-.region-content {
-  padding-top: 20px !important;
+/* Add margin to the top of the content when there is a section nav */
+main > .il-content-with-section-nav {
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
+
 .il-content {
   .region-content {
     padding: 0 !important;
   }
 }
-
+/* Removing fixed-width padding when there is a view next to a sidebar */
+.il-content-with-section-nav {
+  .views-element-container {
+    .fixed-width {
+      padding: 0;
+    }
+  }
+}
 
 /* Show message on content that is unpublished */
 article.is-unpublished:before,

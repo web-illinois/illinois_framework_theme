@@ -76,3 +76,10 @@
     }
   }
 }
+.il-content-with-section-nav {
+  .paragraph--type--cards {
+    &.fixed-width {
+      padding: 0;
+    }
+  }
+}
