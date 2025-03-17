@@ -2,10 +2,9 @@
 
 article.blog {
   margin: 0 auto;
-  max-width: var(--il-framework--fixed-width);
-  padding: 0 var(--il-content-margin) 75px;
+  padding: 0 var(--ilw-margin--side, 0);
   @media screen and (min-width: 992px) {
-    padding-left: 50px !important;
+    //padding-left: 50px !important;
   }
 
   .field {
