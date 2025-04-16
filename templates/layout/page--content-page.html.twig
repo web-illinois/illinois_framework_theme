@@ -72,38 +72,38 @@
   {# look for url #}
   {% set url = url('<current>') %}
 
+  {# Add an is-unpublished class to main tag if the node is unpublished #}
+  {% set unpublished = [not node.isPublished() ? 'is-unpublished'] %}
+  {% set mainClasses = mainClasses|merge(unpublished) %}
+  <main{{ attributes.addClass(mainClasses) }} id="main-content" tabindex="-1" role="main">
   {# if a side navigation exists and /'latest' is not in the url then spoof the content region #}
   {% if node.field_sidebar.0.value == "sidebar" and '/latest' not in url|render|render %}
-    {# Add an is-unpublished class to main tag if the node is unpublished #}
-    {% set unpublished = [not node.isPublished() ? 'is-unpublished'] %}
-    {% set mainClasses = mainClasses|merge(unpublished) %}
-    <main{{ attributes.addClass(mainClasses) }} id="main-content" tabindex="-1" role="main">
-      <div class="il-content-with-section-nav">
-        {{ page.sidebar_first }}
-        {{ page.sidebar_second }}
-        <div class="il-content">
-          {% if node.body %}
-            {{ drupal_field('body','node', node.id ) }}
-          {% endif %}
-          {% set paragraph_number = node.field_sidebar_paragraphs.0.value %}
-          {% set paragraph_count = node.fields.field_paragraph|length %}
-          {% for item in node.fields.field_paragraph %}
-            {% if loop.index0 < paragraph_number %}
-              {{ drupal_entity('paragraph', item.target_id) }}
-            {% endif %}
-          {% endfor %}
-        </div>
-      </div>
-      {% for item in node.fields.field_paragraph %}
-        {% if loop.index0 >= paragraph_number %}
-          {{ drupal_entity('paragraph', item.target_id) }}
+    <div class="il-content-with-section-nav">
+      {{ page.sidebar_first }}
+      {{ page.sidebar_second }}
+      <div class="il-content">
+        {% if node.body %}
+          {{ drupal_field('body','node', node.id ) }}
         {% endif %}
-      {% endfor %}
-      {{ attach_library('illinois_framework_theme/content-adjust') }}
-    </main>
+        {% set paragraph_number = node.field_sidebar_paragraphs.0.value %}
+        {% set paragraph_count = node.fields.field_paragraph|length %}
+        {% for item in node.fields.field_paragraph %}
+          {% if loop.index0 < paragraph_number %}
+            {{ drupal_entity('paragraph', item.target_id) }}
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    {% for item in node.fields.field_paragraph %}
+      {% if loop.index0 >= paragraph_number %}
+        {{ drupal_entity('paragraph', item.target_id) }}
+      {% endif %}
+    {% endfor %}
+    {{ attach_library('illinois_framework_theme/content-adjust') }}
   {# if a there is no sidebar #}
   {% else %}
     {{ page.content }}
   {% endif %}
+  </main>
   {{ page.footer }}
 </div>{# /.layout-container #}
