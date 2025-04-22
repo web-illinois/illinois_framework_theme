@@ -18,6 +18,10 @@
     }
   }
 
+  &-content__wrapper{
+    margin-bottom: 3rem;
+  }
+
   .left {
     .paragraph--type--bb__wrapper {
       justify-content: left;
@@ -92,7 +96,6 @@
 // fixes to match style in toolkit
 ilw-card[clickable]{
   width: 100%;
-  margin-bottom: 3rem;
   &>h2 {
     a {
       font-size: rem(27.84px);
