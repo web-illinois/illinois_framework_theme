@@ -1,46 +1,6 @@
 .paragraph--type--bb {
   @extend %paragraphs-padding;
 
-  &.background--color {
-    &--illiniblue {
-      background-color: transparent !important;
-
-      a.field--name-field-bb-content__link {
-        background-color: var(--il-blue);
-        color: white;
-
-        &:hover,
-        &:focus {
-          background-color: white;
-          color: #252525;
-
-          h2 {
-            color: var(--il-orange);
-          }
-        }
-      }
-    }
-
-    &--white {
-      background-color: transparent;
-
-      a.field--name-field-bb-content__link {
-        background-color: white;
-        color: inherit;
-        margin-bottom: rem(48px);
-
-        &:hover,
-        &:focus {
-          background-color: var(--il-blue);
-          color: white;
-
-          h2 {
-            color: white;
-          }
-        }
-      }
-    }
-  }
   .field--name-field-bb {
     &__title {
       padding: 0 15px;
@@ -56,6 +16,10 @@
       line-height: rem(32px);
       color: var(--il-blue);
     }
+  }
+
+  &-content__wrapper{
+    margin-bottom: 3rem;
   }
 
   .left {
@@ -92,128 +56,6 @@
     }
   }
 
-  a.field--name-field-bb-content__link {
-    h2:after {
-      content: '\f101';
-      font-family: FontAwesome;
-      vertical-align: bottom;
-      padding: 0 0.5rem;
-    }
-
-    .background--color {
-
-      &--illiniblue {
-        background-color: var(--il-blue);
-
-        &:hover,
-        &:focus {
-          background-color: white;
-
-          h2 {
-            color: var(--il-orange);
-          }
-          .body {
-            .field__item {
-              color: var(--il-blue);
-            }
-          }
-        }
-      }
-
-      &--white {
-        background-color: transparent;
-
-        h2 {
-          color: var(--il-orange);
-        }
-        .body {
-          .field__item {
-            color: var(--il-blue);
-          }
-        }
-
-        &:hover,
-        &:focus {
-          background-color: var(--il-blue);
-
-          h2 {
-            color: white;
-          }
-          .body {
-            .field__item {
-              color: white;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  .field--name-field-bb-content {
-
-    &__link {
-      color: inherit;
-      display: flex;
-      margin-bottom: rem(15px);
-      text-decoration: none;
-      width: 100%
-    }
-
-    &__image {
-
-      &__wrapper {
-
-      }
-    }
-
-    &__content {
-      width: 100%;
-
-      &__wrapper {
-        border: 1px solid #707070;
-        border-bottom: 3px solid var(--il-orange);
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        padding: 0 0 rem(30px) 0;
-        width: 100%;
-      }
-
-      img {
-        width: 100%;
-      }
-    }
-
-    &__title {
-
-      .field__item {
-        color: inherit;
-        font-family: var(--il-source-sans);
-        font-size: rem(21px);
-        font-weight: 700;
-        line-height: rem(33px);
-        opacity: 1;
-        padding: rem(30px) rem(30px) 0 rem(30px);
-      }
-    }
-
-    &__body {
-
-      .field__item {
-        font-size: rem(20px);
-        line-height: rem(27px);
-        opacity: 1;
-        padding: 0 rem(30px) rem(30px) rem(30px);
-      }
-    }
-  }
-
-  .field--name-field-bb-content__content__wrapper {
-    &:hover {
-      border-bottom: 3px solid var(--il-industrial-blue-1);
-    }
-  }
-
   &.full-width {
     padding: 0 var(--il-content-margin);
 
@@ -242,12 +84,40 @@
   }
 }
 .il-content {
-
   .paragraph--type--bb {
-
     &.fixed-width,
     &.full-width {
       padding: 0;
     }
   }
+}
+
+
+// fixes to match style in toolkit
+ilw-card[clickable]{
+  width: 100%;
+  &>h2 {
+    a {
+      font-size: rem(27.84px);
+      font-weight: 700;
+      line-height: 2.25rem;
+      border-bottom: 3px solid transparent;
+      &:visited{
+          color: var(--ilw-card--heading-color);
+      }
+      &:focus{
+        border-bottom: 3px solid var(--il-blue);
+        outline: none !important;
+      }
+    }
+  }
+  p {
+    color: var(--ilw-card--text-color);
+  }
+  &:hover {
+    p {
+      color: var(--ilw-card--hover--text-color);
+    }
+  }
+
 }
