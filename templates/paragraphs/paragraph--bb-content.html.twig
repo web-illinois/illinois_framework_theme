@@ -1,0 +1,39 @@
+{% set card_attributes = create_attribute() %}
+{% set card_attributes = card_attributes.setAttribute('clickable', 'true') %}
+{# bb_background is populated in a preprocess hook in the theme #}
+{# It is the value of the field_bb_background in the parent paragraph #}
+{% if bb_background == 'illiniblue' %}
+  {% set card_attributes = card_attributes.setAttribute('theme', 'blue') %}
+{% endif %}
+
+<div class="col-lg-4 col-md-6 col-sm-12 d-flex paragraph--type--bb-content__wrapper">
+  {% block content %}
+    <ilw-card{{ card_attributes }}>
+
+      {# --- Render Image using drupal_image() --- #}
+      {# Check if the image field is not empty #}
+      {% if not paragraph.field_bb_content_image.isEmpty %}
+        {# Get the image URI from the file entity #}
+        {% set image_uri = paragraph.field_bb_content_image.entity.getFileUri() %}
+        {# Get the alt text from the field item (provide a default) #}
+        {% set image_alt = paragraph.field_bb_content_image.alt|default('') %}
+        {# Define image style #}
+        {% set image_style = 'big_button_image' %}
+
+        {# Render the image using drupal_image #}
+        {{ drupal_image(image_uri, image_style, {alt: image_alt, slot: 'image'}) }}
+      {% endif %}
+
+      {# Render Title Field #}
+      {% if content.field_bb_content_title %}
+        <h2><a href="{{ content.field_bb_content_link[0]['#url'] | render }}">{{ content.field_bb_content_title }}</a></h2>
+      {% endif %}
+
+      {# Render Body Field - CONFIGURE formatter (e.g., Filtered Text) in Manage Display #}
+      {% if content.field_bb_content_body %}
+        {{ content.field_bb_content_body }}
+      {% endif %}
+
+    </ilw-card>
+  {% endblock %}
+</div>
