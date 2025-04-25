@@ -81,7 +81,7 @@
         {% set background = content.field_cards_background[loop.index0]['#paragraph'].field_cards_background.value %}
         <div class="col-lg-4 col-md-6 col-sm-12 d-flex paragraph--type--cards__wrapper">
 
-          <ilw-card theme="{{ background_color }}">
+          <ilw-card theme="{{ background_color }}" align="center">
             {% if image %}
             <img src="{{ base_path_http ~ file_url(image) }}" alt="{{ image_alt }}" slot="image" />
             {% endif %}
