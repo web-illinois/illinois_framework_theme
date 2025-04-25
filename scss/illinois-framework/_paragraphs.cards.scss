@@ -1,7 +1,7 @@
 .paragraph--type--cards {
   @extend %paragraphs-padding;
-  &--row{
-    &__wrapper{
+  &--row {
+    &__wrapper {
       justify-content: space-evenly;
     }
   }
@@ -38,13 +38,10 @@
       }
     }
   }
-}
 
-.il-formatted {
   ilw-card {
     width: 100%;
     height: 100%;
-    text-align: center;
     & > h2 {
       font-size: rem(27.84px);
       font-weight: 700;
@@ -77,36 +74,6 @@
   }
 }
 
-//v2 styles for content slider (still using v2 cards) remove after updating to v3
-.il-formatted {
-  il-card {
-    width: rem(350px);
-    height: 100%;
-    padding: 0 !important;
-    &.il-theme-blue {
-      p {
-        color: white;
-      }
-      .il-button {
-        background-color: var(--il-blue);
-        border-color: white;
-        color: white !important;
-        &:hover {
-          background-color: white;
-          color: var(--il-blue) !important;
-        }
-      }
-    }
-    img {
-      margin: 0 !important;
-    }
-        .il-card-text{
-        &__wrapper{
-          padding: rem(30px) rem(30px) rem(45px);
-        }
-    }
-  }
-}
 .il-content-with-section-nav {
   .paragraph--type--cards {
     &.fixed-width {
@@ -114,4 +81,3 @@
     }
   }
 }
-
