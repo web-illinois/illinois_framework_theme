@@ -5,7 +5,7 @@
       flex-direction: column !important;
     }
     &.flex-row-reverse {
-      flex-direction: column-reverse !important;
+      flex-direction: column !important;
     }
   }
 
@@ -140,6 +140,13 @@
     video {
       height: 100%;
       width: 100%;
+    }
+  }
+}
+.il-content-with-section-nav {
+  .paragraph--type--feature-video {
+    &.fixed-width {
+      padding: 0;
     }
   }
 }
