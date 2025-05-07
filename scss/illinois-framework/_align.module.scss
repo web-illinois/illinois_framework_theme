@@ -1,0 +1,15 @@
+/**
+ * @file
+ * override of /core/themes/stable9/css/system/components/align.module.css
+ to align headings in ck editor
+ */
+
+.text-align-right {
+  text-align: right !important;
+}
+.text-align-center {
+  text-align: center !important;
+}
+.text-align-justify {
+  text-align: justify !important;
+}

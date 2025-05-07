@@ -72,6 +72,11 @@
   /* Without this, left and right aligned remote media will not show up */
   /*Sets width for media view modes*/
   /*Styles for media with Media captions*/
+  /**
+   * @file
+   * override of /core/themes/stable9/css/system/components/align.module.css
+   to align headings in ck editor
+   */
 }
 .ck-content :root,
 .ck-content [data-bs-theme=light] {
@@ -15635,7 +15640,15 @@ a > .ck-content code {
   display: flex;
   gap: 1rem;
 }
-
+.ck-content .text-align-right {
+  text-align: right !important;
+}
+.ck-content .text-align-center {
+  text-align: center !important;
+}
+.ck-content .text-align-justify {
+  text-align: justify !important;
+}
 .ck-content {
   /* Set image size to match image style*/
   /* Override max-width for original size images */
