@@ -13481,6 +13481,9 @@ a > .ck-content code {
 .ck-content .paragraph--type--feature-split .field--name-field-feature-split__buttons a:first-child {
   margin-right: 1.875rem;
 }
+.ck-content .il-content-with-section-nav .paragraph--type--feature-split.fixed-width {
+  padding: 0;
+}
 @media (max-width: 575.98px) {
   .ck-content .paragraph--type--cta {
     padding: 0 !important;
@@ -13666,7 +13669,7 @@ a > .ck-content code {
     flex-direction: column !important;
   }
   .ck-content .paragraph--type--feature-video.flex-row-reverse {
-    flex-direction: column-reverse !important;
+    flex-direction: column !important;
   }
 }
 .ck-content .paragraph--type--feature-video .field--name-field-feature-video__video {
@@ -13776,6 +13779,9 @@ a > .ck-content code {
 .ck-content .paragraph--type--feature-video .field--name-field-media-video-file video {
   height: 100%;
   width: 100%;
+}
+.ck-content .il-content-with-section-nav .paragraph--type--feature-video.fixed-width {
+  padding: 0;
 }
 .ck-content .paragraph--type--feature-boxed .field--name-field-feature-boxed__image {
   background-position: center bottom;
@@ -15643,7 +15649,6 @@ a > .ck-content code {
 .ck-content .text-align-justify {
   text-align: justify !important;
 }
-
 .ck-content {
   /* Set image size to match image style*/
   /* Override max-width for original size images */
