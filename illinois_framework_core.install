@@ -191,5 +191,11 @@ function illinois_framework_core_update_9400() {
       }
     }
   }
+}
 
+/**
+ * Uninstall Video Embed WYSIWYG and Video Embed Field modules
+ */
+function illinois_framework_core_update_9500() {
+  \Drupal::service('module_installer')->uninstall(['video_embed_wysiwyg','video_embed_field']);
 }
