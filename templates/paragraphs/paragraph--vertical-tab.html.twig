@@ -38,23 +38,33 @@
  * @ingroup themeable
  */
 #}
+{% if content.field_vertical_tab_background['#items'].0.value == 'il-theme-gray' %}
+  {% set background = 'background--color--gray' %}
+{% elseif content.field_vertical_tab_background['#items'].0.value == 'il-theme-blue' %}
+  {% set background = 'background--color--illiniblue' %}
+{% else %}
+  {% set background = 'background--color--white' %}
+{% endif %}
 {%
   set classes = [
     'paragraph',
     'paragraph--type--' ~ paragraph.bundle|clean_class,
     view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
     not paragraph.isPublished() ? 'paragraph--unpublished',
-    'col-lg-12 col-md-12 col-sm-12 full-width il-formatted' ~ flex_row_class ~ max_width
+    'col-lg-12 col-md-12 col-sm-12 full-width il-formatted ' ~ flex_row_class ~ max_width ~ background
   ]
 %}
 {% block paragraph %}
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
-    <il-vertical-tab class="{{ content.field_vertical_tab_background['#items'].0.value }}">
-      <h2 slot="title">{{ content.field_vertical_tab_title }}</h2>
-      {{ content.field_vertical_tab }}
-    </il-vertical-tab>
+      <div class="fixed-width">
+        <il-vertical-tab class="{{ content.field_vertical_tab_background['#items'].0.value }}">
+        <h2 slot="title">{{ content.field_vertical_tab_title }}</h2>
+        {{ content.field_vertical_tab }}
+        </il-vertical-tab>
+      </div>
+
 
     {% endblock %}
   </div>
