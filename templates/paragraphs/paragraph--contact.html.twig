@@ -39,13 +39,15 @@
  */
 #}
 
-{% set background_color = content.field_contact_background['#items'].0.value %}
+{% set theme = content.field_contact_background['#items'].0.value %}
 {% set layout = content.field_contact_layouts.0['#markup'] %}
 {% set image_float = content.field_contact_layouts %}
 {% if layout == 'left' %}
+  {% set reverse = 'true' %}
   {% set text_position = 'order-0' %}
   {% set image_body_position = 'order-first' %}
 {% else %}
+  {% set reverse = '' %}
   {% set text_position = 'order-first' %}
   {% set image_body_position = 'order-0' %}
 {% endif %}
@@ -61,22 +63,24 @@
   'paragraph',
   'paragraph--type--' ~ paragraph.bundle|clean_class,
   view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
-  not paragraph.isPublished() ? 'paragraph--unpublished',
-  'col-lg-12 col-md-12 col-sm-12 full-width ' ~ 'background--color--' ~ background_color
+  not paragraph.isPublished() ? 'paragraph--unpublished'
 ]
 %}
+{{ attach_library('illinois_framework_theme/paragraph-rt') }}
 
 {% block paragraph %}
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
       {% if content.field_contact_title['#items'] %}
-        <div class="col-lg-12 paragraph--type--contact__title">
-          <h2>{{ paragraph_title }}</h2>
-        </div>
+        <ilw-content theme="{{ theme }}">
+          <div class="paragraph--type--contact__title">
+            <h2>{{ paragraph_title }}</h2>
+          </div>
+        </ilw-content>
       {% endif %}
-      <div class="row col-lg-12 col-md-12 fixed-width">
-        <div class="field--name-field-contact__content__wrapper col-lg-6 col-md-12 col-sm-12 flex-column {{ text_position }} {{ layout }}">
+      <ilw-columns theme="{{ theme }}" width="auto" gap="40px" {% if reverse %}reverse="{{ reverse }}"{% endif %}>
+        <div class="field--name-field-contact__content__wrapper {{ text_position }} {{ layout }}">
             <div class="field--name-field-contact__content__title">{{ content_title }}</div>
             {% if subtitle %}
               <div class="field--name-field-contact__content__subtitle">{{ subtitle }}</div>
@@ -101,13 +105,13 @@
             {% endif %}
           </div>
         {% if content.field_contact_content.0['#paragraph'].field_contact_content_body.0.value %}
-        <div class="field--name-field-contact__content__body__wrapper col-lg-6 col-md-12 col-sm-12 {{ image_body_position}}">
-          <div class="{{ layout }}">
+        <div class="field--name-field-contact__content__body__wrapper {{ image_body_position}}">
+          <div class="">
             {{ content.field_contact_content.0['#paragraph'].field_contact_content_body.0.value|raw }}
           </div>
         </div>
         {% elseif content.field_contact_content.0['#paragraph'].field_contact_content_image.0 %}
-        <div class="field--name-field-contact__content__image__wrapper col-lg-6 col-md-12 col-sm-12 {{ image_body_position }} {{ layout }}">
+        <div class="field--name-field-contact__content__image__wrapper {{ image_body_position }} {{ layout }}">
   {#        <div class="{{ layout }}">#}
             <img alt="{{ content.field_contact_content.0['#paragraph'].field_contact_content_image.alt }}" title="{{ content.field_contact_content.0['#paragraph'].field_contact_content_image.title }}" src="{{ base_path_http ~ file_url(content.field_contact_content.0['#paragraph'].field_contact_content_image.0.entity.uri.value) }}"/>
   {#        </div>#}
@@ -115,7 +119,7 @@
         {% else %}
           <div class="alert alert-danger" role="alert">Please go back and add an image or body text</div>
         {% endif %}
-      </div>
+      </ilw-columns>
     {% endblock %}
   </div>
 {% endblock paragraph %}

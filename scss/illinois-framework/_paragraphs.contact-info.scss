@@ -1,6 +1,13 @@
 .paragraph--type--contact {
   padding: 0;
   @extend %paragraphs-padding;
+  ilw-columns {
+    .d-flex {
+      @include media-breakpoint-down(sm) {
+        display: block !important;
+      }
+    }
+  }
 
   .paragraph--type--contact__title {
 
