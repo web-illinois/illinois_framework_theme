@@ -9,7 +9,37 @@ use Drupal\paragraphs\ParagraphInterface;
  */
 function illinois_framework_theme_preprocess(&$variables) {
 
-  // path variables
+  // Get the current user service.
+  $current_user = \Drupal::currentUser();
+
+  // Check if the user is authenticated to dynamically set the login/logout link.
+  if ($current_user->isAuthenticated()) {
+    // --- USER IS LOGGED IN ---
+    // Set the link text to "Logout".
+    $variables['login_logout_text'] = t('Logout');
+
+    $variables['login_logout_url'] = Url::fromRoute('user.logout');
+  }
+  else {
+    // --- USER IS LOGGED OUT ---
+    // Set the link text to "Login".
+    $variables['login_logout_text'] = t('Login');
+
+    // Get the current page path to use as the destination parameter for the redirect.
+    $destination = \Drupal::service('redirect.destination')->getAsArray();
+
+    // Check if simplesamlphp_auth is enabled for login.
+    if (\Drupal::moduleHandler()->moduleExists('simplesamlphp_auth')) {
+      // The module is enabled, so point to the Shibboleth login with the destination.
+      $login_url = Url::fromRoute('simplesamlphp_auth.saml_login', [], ['query' => $destination]);
+    }
+    else {
+      // The module is not enabled, so use the standard Drupal login with the destination.
+      $login_url = Url::fromRoute('user.login', [], ['query' => $destination]);
+    }
+    $variables['login_logout_url'] = $login_url;
+  }
+
   // TODO: condense these into a single array like ['path_vars']['var']
   $current_path = \Drupal::service('path.current')->getPath();
   $canoncial_url = Url::fromRoute('<current>', [], ['absolute' => 'true'])->toString();
