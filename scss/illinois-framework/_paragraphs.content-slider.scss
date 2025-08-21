@@ -1,4 +1,5 @@
 .paragraph--type--content-slider{
+@extend %paragraphs-padding;
   &__wrapper{
     padding: 0 var(--il-content-margin);
   }
