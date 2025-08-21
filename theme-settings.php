@@ -12,7 +12,7 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, FormS
   // Add Links to the upper right-hand corner of the website
   $form['if_header_links'] = array(
     '#type' => 'details',
-    '#title' => t('Header Link List'),
+    '#title' => t('Feature Link List'),
     '#description' => t('Add up to 3 links in the upper right-hand corner of the header'),
     '#weight' => -105,
     '#open' => FALSE,
@@ -126,8 +126,8 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, FormS
   );
   $form['if_footer']['if_footer_social']['if_footer_social_twitter'] = array(
     '#type'          => 'url',
-    '#placeholder' => 'https://twitter.com',
-    '#title'         => t('Enter the link to your Twitter page'),
+    '#placeholder' => 'https://x.com',
+    '#title'         => t('Enter the link to your X page'),
     '#size'          => 128,
     '#default_value' => theme_get_setting('if_footer_social_twitter'),
   );
@@ -144,6 +144,20 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, FormS
     '#title'         => t('Enter the link to your LinkedIn page'),
     '#size'          => 128,
     '#default_value' => theme_get_setting('if_footer_social_linkedin'),
+  );
+  $form['if_footer']['if_footer_social']['if_footer_social_bluesky'] = array(
+    '#type'          => 'url',
+    '#placeholder' => 'https://bsky.app/',
+    '#title'         => t('Enter the link to your Bluesky page'),
+    '#size'          => 128,
+    '#default_value' => theme_get_setting('if_footer_social_bluesky'),
+  );
+  $form['if_footer']['if_footer_social']['if_footer_social_calendar'] = array(
+    '#type'          => 'url',
+    '#placeholder' => 'https://calendars.illinois.edu/list/xxx',
+    '#title'         => t('Enter the link to your calendar page'),
+    '#size'          => 128,
+    '#default_value' => theme_get_setting('if_footer_social_calendar'),
   );
 
   // Start of Address Block

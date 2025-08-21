@@ -3,6 +3,7 @@ use Drupal\Core\Url;
 use Drupal\block\Entity\Block;
 use Drupal\Core\Site\Settings;
 use Drupal\Core\Template\Attribute;
+use Drupal\paragraphs\ParagraphInterface;
 /**
  * Implements hook_preprocess().
  */
@@ -47,6 +48,8 @@ function illinois_framework_theme_preprocess(&$variables) {
   $variables['if_footer']['if_footer_social']['if_footer_social_instagram'] = theme_get_setting('if_footer_social_instagram');
   $variables['if_footer']['if_footer_social']['if_footer_social_youtube'] = theme_get_setting('if_footer_social_youtube');
   $variables['if_footer']['if_footer_social']['if_footer_social_linkedin'] = theme_get_setting('if_footer_social_linkedin');
+  $variables['if_footer']['if_footer_social']['if_footer_social_bluesky'] = theme_get_setting('if_footer_social_bluesky');
+  $variables['if_footer']['if_footer_social']['if_footer_social_calendar'] = theme_get_setting('if_footer_social_calendar');
   $variables['if_footer_colleges'][0][0] = theme_get_setting('if_footer_college_text_1');
   $variables['if_footer_colleges'][0][1] = theme_get_setting('if_footer_college_link_1');
   $variables['if_footer_colleges'][1][0] = theme_get_setting('if_footer_college_text_2');
@@ -157,6 +160,38 @@ function illinois_framework_theme_preprocess_paragraph(&$variables) {
     $variables['animal_selected'] = $animal;
     $discipline = \Drupal::request()->query->get('discipline'); // form param
     $variables['discipline_selected'] = $discipline;
+  }
+
+  /** @var \Drupal\paragraphs\ParagraphInterface $paragraph */
+  $bbContentParagraph = $variables['paragraph'];
+
+  // This code passes the background color setting from the parent
+  // paragraph to the child paragraph.
+  if ($bbContentParagraph->bundle() === 'bb_content') {
+
+    // Get the parent entity (the container paragraph)
+    $parent = $bbContentParagraph->getParentEntity();
+
+    // Check if the parent exists, is a Paragraph, and is the correct parent type
+    if ($parent instanceof ParagraphInterface && $parent->bundle() === 'bb') {
+
+      // Check if the parent has the background field and it's not empty
+      if ($parent->hasField('field_bb_background') && !$parent->get('field_bb_background')->isEmpty()) {
+
+        // Get the raw value from the parent field
+        $background_value = $parent->get('field_bb_background')->value;
+        // Add it (or a processed version) to the child's variables
+        $variables['bb_background'] = $background_value;
+
+      } else {
+
+        // Provide a default value if the parent field is missing or empty
+        $variables['bb_background'] = 'white';
+      }
+    } else {
+      // Optional: Provide a default if not nested in the expected parent
+      $variables['bb_background'] = $parent->bundle();
+   }
   }
 }
 

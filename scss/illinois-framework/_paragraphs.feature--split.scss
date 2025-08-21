@@ -89,3 +89,10 @@
     }
   }
 }
+.il-content-with-section-nav {
+  .paragraph--type--feature-split {
+    &.fixed-width {
+      padding: 0;
+    }
+  }
+}

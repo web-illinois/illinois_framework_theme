@@ -6,7 +6,7 @@
   &-text__wrapper {
     text-align: center;
     h2 {
-      &.title{
+      &.title {
         text-align: center;
         padding-bottom: rem(40px);
       }
@@ -18,10 +18,9 @@
       padding-bottom: rem(40px);
     }
   }
-}
 
-.il-formatted {
-  ils-contentslider{
+  ils-contentslider {
+    padding-bottom: 1rem;
     .field__items {
       display: flex;
       justify-content: space-evenly;
@@ -37,9 +36,34 @@
       flex-direction: column;
       margin-bottom: 2rem;
     }
-}
-}
-
-.ils-contentslider {
-    padding-bottom: 1rem;
   }
+
+  //v2 styles for content slider (still using v2 cards) remove after updating to v3
+  il-card {
+    width: rem(350px);
+    height: 100%;
+    padding: 0 !important;
+    &.il-theme-blue {
+      p {
+        color: white;
+      }
+      .il-button {
+        background-color: var(--il-blue);
+        border-color: white;
+        color: white !important;
+        &:hover {
+          background-color: white;
+          color: var(--il-blue) !important;
+        }
+      }
+    }
+    img {
+      margin: 0 !important;
+    }
+    .il-card-text {
+      &__wrapper {
+        padding: rem(30px) rem(30px) rem(45px);
+      }
+    }
+  }
+}

@@ -47,6 +47,12 @@
       {% if if_footer['if_footer_social']['if_footer_social_linkedin'] %}
         <li><a data-service="linkedin" href="{{ if_footer['if_footer_social']['if_footer_social_linkedin'] }}">LinkedIn</a></li>
       {% endif %}
+      {% if if_footer['if_footer_social']['if_footer_social_bluesky'] %}
+        <li><a data-service="bluesky" href="{{ if_footer['if_footer_social']['if_footer_social_bluesky'] }}">Bluesky</a></li>
+      {% endif %}
+      {% if if_footer['if_footer_social']['if_footer_social_calendar'] %}
+        <li><a data-service="calendar" href="{{ if_footer['if_footer_social']['if_footer_social_calendar'] }}">Calendar</a></li>
+      {% endif %}
     </ul>
   </nav>
   <address slot="address">

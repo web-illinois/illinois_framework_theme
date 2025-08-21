@@ -1,5 +1,14 @@
 .paragraph--type--cards {
   @extend %paragraphs-padding;
+  &--row {
+    &__wrapper {
+      justify-content: space-evenly;
+    }
+  }
+
+  &__wrapper {
+    margin-bottom: 3rem;
+  }
 
   .field--name-field-cards {
     &-text {
@@ -30,52 +39,41 @@
     }
   }
 
-  .field__items {
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    @include media-breakpoint-down(sm) {
-      flex-direction: column;
-      align-items: center;
-    }
-  }
-
-  .field__item {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 2rem;
-  }
-}
-
-.il-formatted {
-  il-card {
-    width: rem(350px);
+  ilw-card {
+    width: 100%;
     height: 100%;
-    padding: 0 !important;
-    &.il-theme-blue {
-      p {
-        color: white;
-      }
-      .il-button {
-        background-color: var(--il-blue);
-        border-color: white;
-        color: white !important;
+    & > h2 {
+      font-size: rem(27.84px);
+      font-weight: 700;
+      line-height: 2.25rem;
+      color: var(--ilw-card--heading-color);
+      text-align: center;
+    }
+    p {
+      color: var(--ilw-card--text-color);
+      margin-bottom: 1rem !important;
+    }
+    a {
+      &.ilw-button {
+        color: var(--ilw-button--foreground-color);
+        text-decoration: none;
+        &:visited {
+          color: var(--ilw-button--foreground-color);
+        }
         &:hover {
-          background-color: white;
+          color: var(--ilw-button--focused-foreground-color);
+        }
+        &:focus {
+          background-color: var(--ilw-link--focus-background-color);
+          border-color: var(--ilw-link--focus-color);
           color: var(--il-blue) !important;
+          outline: var(--ilw-link--focus-outline);
         }
       }
-    }
-    img {
-      margin: 0 !important;
-    }
-        .il-card-text{
-        &__wrapper{
-          padding: rem(30px) rem(30px) rem(45px);
-        }
     }
   }
 }
+
 .il-content-with-section-nav {
   .paragraph--type--cards {
     &.fixed-width {
