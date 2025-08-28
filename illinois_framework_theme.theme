@@ -9,7 +9,48 @@ use Drupal\paragraphs\ParagraphInterface;
  */
 function illinois_framework_theme_preprocess(&$variables) {
 
-  // path variables
+  // Get the current user service.
+  $current_user = \Drupal::currentUser();
+
+  // Check if the user is authenticated to dynamically set the login/logout link.
+  if ($current_user->isAuthenticated()) {
+    // --- USER IS LOGGED IN ---
+    // Set the link text to "Logout".
+    $variables['login_logout_text'] = t('Logout');
+    $variables['login_logout_url'] = Url::fromRoute('user.logout');
+  }
+  else {
+    // --- USER IS LOGGED OUT ---
+    // Set the link text to "Login".
+    $variables['login_logout_text'] = t('Login');
+
+    // Get the current page path to use as the destination parameter for the redirect.
+    $destination = \Drupal::service('redirect.destination')->getAsArray();
+
+    // Get the theme setting for direct Shibboleth login.
+    $shibboleth_direct_login = theme_get_setting('if_shibboleth_login_direct');
+
+    // Default SAML status to inactive.
+    $saml_is_active = FALSE;
+    // First, check if the simplesamlphp_auth module exists before trying to access its configuration.
+    if (\Drupal::moduleHandler()->moduleExists('simplesamlphp_auth')) {
+      // If it exists, get the configuration and check if it's active.
+      $saml_config = \Drupal::config('simplesamlphp_auth.settings');
+      $saml_is_active = $saml_config->get('activate');
+    }
+
+    // Check if the theme setting is enabled and the SAML module is active for authentication.
+    if ($shibboleth_direct_login && $saml_is_active) {
+      // The module is enabled and active, so point to the Shibboleth login with the destination.
+      $login_url = Url::fromRoute('simplesamlphp_auth.saml_login', [], ['query' => $destination]);
+    }
+    else {
+      // The module is not enabled, so use the standard Drupal login with the destination.
+      $login_url = Url::fromRoute('user.login', [], ['query' => $destination]);
+    }
+    $variables['login_logout_url'] = $login_url;
+  }
+
   // TODO: condense these into a single array like ['path_vars']['var']
   $current_path = \Drupal::service('path.current')->getPath();
   $canoncial_url = Url::fromRoute('<current>', [], ['absolute' => 'true'])->toString();
@@ -35,6 +76,7 @@ function illinois_framework_theme_preprocess(&$variables) {
   $variables['if_header_links'][1][1] = theme_get_setting('if_header_link_2');
   $variables['if_header_links'][2][0] = theme_get_setting('if_header_text_3');
   $variables['if_header_links'][2][1] = theme_get_setting('if_header_link_3');
+  $variables['if_footer_google_translate'] = theme_get_setting('if_footer_google_translate');
   $variables['if_footer']['if_footer_address']['if_footer_address_unit'] = theme_get_setting('if_footer_address_unit');
   $variables['if_footer']['if_footer_address']['if_footer_address_street_one'] = theme_get_setting('if_footer_address_street_one');
   $variables['if_footer']['if_footer_address']['if_footer_address_street_two'] = theme_get_setting('if_footer_address_street_two');
@@ -50,6 +92,12 @@ function illinois_framework_theme_preprocess(&$variables) {
   $variables['if_footer']['if_footer_social']['if_footer_social_linkedin'] = theme_get_setting('if_footer_social_linkedin');
   $variables['if_footer']['if_footer_social']['if_footer_social_bluesky'] = theme_get_setting('if_footer_social_bluesky');
   $variables['if_footer']['if_footer_social']['if_footer_social_calendar'] = theme_get_setting('if_footer_social_calendar');
+  $variables['if_footer']['if_footer_social']['if_footer_social_tiktok'] = theme_get_setting('if_footer_social_tiktok');
+  $variables['if_footer']['if_footer_social']['if_footer_social_threads'] = theme_get_setting('if_footer_social_threads');
+  $variables['if_footer']['if_footer_social']['if_footer_social_pinterest'] = theme_get_setting('if_footer_social_pinterest');
+  $variables['if_footer']['if_footer_social']['if_footer_social_snapchat'] = theme_get_setting('if_footer_social_snapchat');
+  $variables['if_footer']['if_footer_social']['if_footer_social_weibo'] = theme_get_setting('if_footer_social_weibo');
+  $variables['if_footer']['if_footer_social']['if_footer_social_whatsapp'] = theme_get_setting('if_footer_social_whatsapp');
   $variables['if_footer_colleges'][0][0] = theme_get_setting('if_footer_college_text_1');
   $variables['if_footer_colleges'][0][1] = theme_get_setting('if_footer_college_link_1');
   $variables['if_footer_colleges'][1][0] = theme_get_setting('if_footer_college_text_2');

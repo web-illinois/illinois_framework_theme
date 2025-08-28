@@ -53,6 +53,24 @@
       {% if if_footer['if_footer_social']['if_footer_social_calendar'] %}
         <li><a data-service="calendar" href="{{ if_footer['if_footer_social']['if_footer_social_calendar'] }}">Calendar</a></li>
       {% endif %}
+      {% if if_footer['if_footer_social']['if_footer_social_tiktok'] %}
+        <li><a data-service="tiktok" href="{{ if_footer['if_footer_social']['if_footer_social_tiktok'] }}">TikTok</a></li>
+      {% endif %}
+      {% if if_footer['if_footer_social']['if_footer_social_pinterest'] %}
+        <li><a data-service="pinterest" href="{{ if_footer['if_footer_social']['if_footer_social_pinterest'] }}">Pinterest</a></li>
+      {% endif %}
+      {% if if_footer['if_footer_social']['if_footer_social_snapchat'] %}
+        <li><a data-service="snapchat" href="{{ if_footer['if_footer_social']['if_footer_social_snapchat'] }}">Snapchat</a></li>
+      {% endif %}
+      {% if if_footer['if_footer_social']['if_footer_social_weibo'] %}
+        <li><a data-service="weibo" href="{{ if_footer['if_footer_social']['if_footer_social_weibo'] }}">Weibo</a></li>
+      {% endif %}
+      {% if if_footer['if_footer_social']['if_footer_social_whatsapp'] %}
+        <li><a data-service="whatsapp" href="{{ if_footer['if_footer_social']['if_footer_social_whatsapp'] }}">WhatsApp</a></li>
+      {% endif %}
+      {% if if_footer['if_footer_social']['if_footer_social_threads'] %}
+        <li><a data-service="threads" href="{{ if_footer['if_footer_social']['if_footer_social_threads'] }}">Threads</a></li>
+      {% endif %}
     </ul>
   </nav>
   <address slot="address">
@@ -101,7 +119,7 @@
         <a href="{{ link }}">{{ text }}</a>
       {% endif %}
     {% endfor %}
-    <a href="/user">Login</a>
+    <a href="{{ login_logout_url }}" rel="nofollow">{{ login_logout_text }}</a>
   </div>
   <div class="footer-menus">
     <div>
@@ -121,15 +139,17 @@
       {% endif %}
     </div>
   </div>
-  <div id="google_translate_element"></div>
-  <script>
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'en',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-        autoDisplay: false
-      }, 'google_translate_element');
-    }
-  </script>
-  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
+  {% if if_footer_google_translate ?? true %}
+    <div id="google_translate_element"></div>
+    <script>
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'en',
+          layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          autoDisplay: false
+        }, 'google_translate_element');
+      }
+    </script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
+  {% endif %}
 </ilw-footer>
