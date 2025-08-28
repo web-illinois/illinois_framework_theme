@@ -4,8 +4,6 @@
     "type": "drupal-module",
     "license": "GPL-2.0-or-later",
     "require": {
-        "drupal-ckeditor-libraries-group/fakeobjects": "^4.17",
-        "drupal-ckeditor-libraries-group/link": "^4.17",
         "drupal/admin_toolbar": "^3.0",
         "drupal/advanced_text_formatter": "^3.0@RC",
         "drupal/anchor_link": "^2.4",
@@ -15,6 +13,7 @@
         "drupal/colorbox": "^2.0",
         "drupal/config_sync": "^3.0@alpha",
         "drupal/ckeditor": "^1.0",
+        "drupal/ckeditor5_bookmark": "^1.0",
         "drupal/diff": "^1.0",
         "drupal/entity_usage": "^2.0@beta",
         "drupal/extlink": "^1.3",
