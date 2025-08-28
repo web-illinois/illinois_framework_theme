@@ -80,24 +80,6 @@ article.news {
         }
       }
     }
-    &--name-field-tags {
-      font-style: oblique;
-      font-weight: 600;
-      color: var(--il-blue);
-      border-top: 1px solid #d8d8d8;
-      padding: 1.125rem 0;
-      display: flex;
-      gap: 1rem;
-      .field__label{
-        &:after{
-          content: ":";
-        }
-      }
-      .field__items {
-        display: flex;
-        gap: 1rem;
-      }
-    }
   }
   .paragraph {
     .fixed-width {
@@ -178,7 +160,6 @@ article.news {
         border-bottom: 2px solid #d8d8d8;
         margin: 0;
         list-style: none !important;
-        overflow: auto;
       }
     }
   }
@@ -373,17 +354,6 @@ article.news {
           flex-basis: 100%;
           }
       }
-      header {
-        flex: 0 0 100%;
-        margin-bottom: -2.25rem; //overrides flex gap to remove excess space between header and news cards
-      }
-      footer {
-        flex: 0 0 100%;
-        p{
-          text-align: center;
-          margin-bottom: 2.25rem;
-        }
-      }
       .hvrbox {
         .hvrbox-title {
           font-size: rem(29px);
@@ -393,17 +363,6 @@ article.news {
             font-size: rem(20px);
             line-height: rem(27px);
             }
-        }
-          .hvrbox-body {
-          overflow: hidden;
-          text-overflow: ellipsis;
-          display: -webkit-box;
-          -webkit-line-clamp: 6; /* number of lines to show */
-                  line-clamp: 6;
-          -webkit-box-orient: vertical;
-          .field--name-body {
-            padding: 0;
-          }
         }
       }
 
@@ -418,17 +377,6 @@ article.news {
             flex-basis: 100%;
             }
       }
-      header {
-        flex: 0 0 100%;
-        margin-bottom: -2.25rem; //overrides flex gap to remove excess space between header and news cards
-      }
-      footer {
-        flex: 0 0 100%;
-        p{
-          text-align: center;
-          margin-bottom: 2.25rem;
-        }
-      }
       .hvrbox {
         .hvrbox-title {
           font-size: rem(20px);
@@ -442,6 +390,9 @@ article.news {
           -webkit-line-clamp: 3; /* number of lines to show */
                   line-clamp: 3;
           -webkit-box-orient: vertical;
+          .field--name-body {
+            padding: 0;
+          }
         }
         .hvrbox-layer_slideup {
           -moz-transform: translateY(50%);
@@ -456,10 +407,6 @@ article.news {
       overflow: hidden;
       height: auto;
       border: 1px solid #707070;
-      .field--name-field-if-meda-featured-image {
-        padding: 0;
-        float:  none;
-      }
         img {
           max-width: 100%;
           width: 100%;
@@ -485,9 +432,6 @@ article.news {
           -webkit-transition: all 0.4s ease-in-out 0s;
           -ms-transition: all 0.4s ease-in-out 0s;
           transition: all 0.4s ease-in-out 0s;
-          .field--name-body {
-            padding: 0 !important;
-          }
         }
         .hvrbox-layer_bottom {
           display: block;

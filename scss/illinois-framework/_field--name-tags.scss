@@ -1,7 +1,7 @@
 .field--name-field-tags {
   margin: 0 auto;
   max-width: var(--il-framework--fixed-width);
-  padding: 25px 25px 75px 50px;
+  padding: 25px 0px 75px 0px;
   font-style: oblique;
   font-weight: 600;
   color: var(--il-blue);
@@ -9,6 +9,7 @@
   gap: 1rem;
 
   .field__label{
+    flex: 0 0 13%;
     &:after{
       content: ":";
     }
@@ -16,6 +17,7 @@
 
   .field__items {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
   }
 }
