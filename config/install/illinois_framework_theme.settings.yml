@@ -49,6 +49,7 @@ if_footer_address_zip: ''
 if_footer_address_email: ''
 if_footer_address_tel: ''
 if_footer_menu_block_checkbox: 0
+if_footer_google_translate: true
 if_subfooter_text_1: ''
 if_subfooter_link_1: ''
 if_subfooter_text_2: ''
