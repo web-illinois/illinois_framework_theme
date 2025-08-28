@@ -16,6 +16,7 @@ settings:
       - superscript
       - '|'
       - link
+      - bookmark
       - drupalMedia
       - '|'
       - bulletedList
