@@ -5,6 +5,9 @@
   p, ol, ul, table {
     font-family: var(--il-source-sans);
   }
+  hr{
+    background: var(--il-industrial-blue);
+  }
   .il-button {
     --color-primary: white;
     --color-secondary: var(--il-blue);
