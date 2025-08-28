@@ -165,6 +165,48 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, FormS
     '#size'          => 128,
     '#default_value' => theme_get_setting('if_footer_social_calendar'),
   );
+  $form['if_footer']['if_footer_social']['if_footer_social_tiktok'] = array(
+    '#type'          => 'url',
+    '#placeholder' => 'https://tiktok.com',
+    '#title'         => t('Enter the link to your TikTok page'),
+    '#size'          => 128,
+    '#default_value' => theme_get_setting('if_footer_social_tiktok'),
+  );
+  $form['if_footer']['if_footer_social']['if_footer_social_threads'] = array(
+    '#type'          => 'url',
+    '#placeholder' => 'https://threads.net',
+    '#title'         => t('Enter the link to your Threads page'),
+    '#size'          => 128,
+    '#default_value' => theme_get_setting('if_footer_social_threads'),
+  );
+  $form['if_footer']['if_footer_social']['if_footer_social_pinterest'] = array(
+    '#type'          => 'url',
+    '#placeholder' => 'https://pinterest.com',
+    '#title'         => t('Enter the link to your Pinterest page'),
+    '#size'          => 128,
+    '#default_value' => theme_get_setting('if_footer_social_pinterest'),
+  );
+  $form['if_footer']['if_footer_social']['if_footer_social_snapchat'] = array(
+    '#type'          => 'url',
+    '#placeholder' => 'https://snapchat.com',
+    '#title'         => t('Enter the link to your Snapchat page'),
+    '#size'          => 128,
+    '#default_value' => theme_get_setting('if_footer_social_snapchat'),
+  );
+  $form['if_footer']['if_footer_social']['if_footer_social_weibo'] = array(
+    '#type'          => 'url',
+    '#placeholder' => 'https://weibo.com',
+    '#title'         => t('Enter the link to your Weibo page'),
+    '#size'          => 128,
+    '#default_value' => theme_get_setting('if_footer_social_weibo'),
+  );
+  $form['if_footer']['if_footer_social']['if_footer_social_whatsapp'] = array(
+    '#type'          => 'url',
+    '#placeholder' => 'https://whatsapp.com',
+    '#title'         => t('Enter the link to your WhatsApp page'),
+    '#size'          => 128,
+    '#default_value' => theme_get_setting('if_footer_social_whatsapp'),
+  );
 
   // Start of Address Block
   $form['if_footer']['if_footer_address'] = array(
