@@ -38,6 +38,11 @@
  * @ingroup themeable
  */
 #}
+{% if content.field_cards_background['#items'].0.value == 'white' %}
+  {% set background_color = 'white' %}
+{% else %}
+  {% set background_color = 'blue' %}
+{% endif %}
 
 {%
   set classes = [
@@ -46,7 +51,7 @@
   'paragraph--type--' ~ paragraph.bundle|clean_class,
   view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
   not paragraph.isPublished() ? 'paragraph--unpublished',
-  'background--color--white',
+  'background--color--white', 'full-width',
 ]
 %}
 
@@ -73,16 +78,29 @@
       {% set body = content.field_cards_content[loop.index0]['#paragraph'].field_cards_content_body.value %}
       {% set link = content.field_cards_content[loop.index0]['#paragraph'].field_cards_content_button[0] | view %}
       {% set background = content.field_content_slider_background[loop.index0]['#paragraph'].field_content_slider_background.value %}
-        <il-card class="{{ content.field_content_slider_background['#items'].0.value }}">
-          <img src="{{ base_path_http ~ file_url(image) }}" alt="{{ image_alt }}" />
-          <div class="il-card-text__wrapper">
-          <h2>{{ title }}</h2>
-          <p class="body">{{ body }}</p>
-          {% if link is not empty %}
-          <p class="il-buttons"><a class="il-button" href="{{ link['#url'] | render }}">{{ link['#title'] | render }}</a></p>
-          {% endif %}
-          </div>
-        </il-card>
+
+        <div class="col-lg-4 col-md-6 col-sm-12 d-flex paragraph--type--cards__wrapper">
+
+          <ilw-card theme="{{ background_color }}" align="center">
+            {% if image %}
+            <img src="{{ base_path_http ~ file_url(image) }}" alt="{{ image_alt }}" slot="image" />
+            {% endif %}
+
+            {% if title %}
+            <h2>{{ title }}</h2>
+            {% endif %}
+            {% if body %}
+            <p class="body">{{ body }}</p>
+            {% endif %}
+            {% if link is not empty %}
+            <div slot="footer">
+            <p class="il-buttons"><a class="ilw-button" href="{{ link['#url'] | render }}">{{ link['#title'] | render }}</a></p>
+            </div>
+            {% endif %}
+
+          </ilw-card>
+
+        </div>
       {% endfor %}
       </ils-contentslider>
 
