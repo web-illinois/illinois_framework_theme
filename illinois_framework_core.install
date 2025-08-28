@@ -201,9 +201,9 @@ function illinois_framework_core_update_9500() {
 }
 
 /**
- * Install CKEditor5 bookmark module. Uninstall anchor_link, fakeobjects, and ckeditor modules
+ * Install CKEditor5 bookmark module. Uninstall anchor_link, fakeobjectsmodules
  */
 function illinois_framework_core_update_9600() {
-  \Drupal::service('module_installer')->uninstall(['anchor_link','fakeobjects','ckeditor']);
+  \Drupal::service('module_installer')->uninstall(['anchor_link','fakeobjects']);
   \Drupal::service('module_installer')->install(['ckeditor5_bookmark']);
 }
