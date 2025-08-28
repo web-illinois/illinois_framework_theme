@@ -9,7 +9,48 @@ use Drupal\paragraphs\ParagraphInterface;
  */
 function illinois_framework_theme_preprocess(&$variables) {
 
-  // path variables
+  // Get the current user service.
+  $current_user = \Drupal::currentUser();
+
+  // Check if the user is authenticated to dynamically set the login/logout link.
+  if ($current_user->isAuthenticated()) {
+    // --- USER IS LOGGED IN ---
+    // Set the link text to "Logout".
+    $variables['login_logout_text'] = t('Logout');
+    $variables['login_logout_url'] = Url::fromRoute('user.logout');
+  }
+  else {
+    // --- USER IS LOGGED OUT ---
+    // Set the link text to "Login".
+    $variables['login_logout_text'] = t('Login');
+
+    // Get the current page path to use as the destination parameter for the redirect.
+    $destination = \Drupal::service('redirect.destination')->getAsArray();
+
+    // Get the theme setting for direct Shibboleth login.
+    $shibboleth_direct_login = theme_get_setting('if_shibboleth_login_direct');
+
+    // Default SAML status to inactive.
+    $saml_is_active = FALSE;
+    // First, check if the simplesamlphp_auth module exists before trying to access its configuration.
+    if (\Drupal::moduleHandler()->moduleExists('simplesamlphp_auth')) {
+      // If it exists, get the configuration and check if it's active.
+      $saml_config = \Drupal::config('simplesamlphp_auth.settings');
+      $saml_is_active = $saml_config->get('activate');
+    }
+
+    // Check if the theme setting is enabled and the SAML module is active for authentication.
+    if ($shibboleth_direct_login && $saml_is_active) {
+      // The module is enabled and active, so point to the Shibboleth login with the destination.
+      $login_url = Url::fromRoute('simplesamlphp_auth.saml_login', [], ['query' => $destination]);
+    }
+    else {
+      // The module is not enabled, so use the standard Drupal login with the destination.
+      $login_url = Url::fromRoute('user.login', [], ['query' => $destination]);
+    }
+    $variables['login_logout_url'] = $login_url;
+  }
+
   // TODO: condense these into a single array like ['path_vars']['var']
   $current_path = \Drupal::service('path.current')->getPath();
   $canoncial_url = Url::fromRoute('<current>', [], ['absolute' => 'true'])->toString();

@@ -105,6 +105,12 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, FormS
       '#title' => t('Footer Example'),
       '#weight' => -93,
   );
+  $form['if_footer']['if_shibboleth_login_direct'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Link Login button directly to the Shibboleth login (if enabled)'),
+    '#description' => "Select this to have the login button link directly to the Shibboleth login page.",
+    '#default_value' => theme_get_setting('if_shibboleth_login_direct'),
+  );
   // Select Social Media to display in the footer
   $form['if_footer']['if_footer_social'] = array(
     '#type' => 'fieldset',
