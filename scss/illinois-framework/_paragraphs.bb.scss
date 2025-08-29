@@ -92,7 +92,7 @@
         line-height: 2.25rem;
         border-bottom: 3px solid transparent;
         &:visited {
-          color: var(--ilw-card--heading-color);
+          color: var(--ilw-card--clickable--heading-color);
         }
         &:focus {
           border-bottom: 3px solid var(--il-blue);
@@ -106,6 +106,11 @@
     &:hover {
       p {
         color: var(--ilw-card--hover--text-color);
+      }
+      a {
+      &:visited {
+          color: var(--ilw-card--hover--heading-color);
+        }
       }
     }
   }
