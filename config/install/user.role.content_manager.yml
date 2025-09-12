@@ -36,6 +36,7 @@ permissions:
   - 'bypass node access'
   - 'create media'
   - 'create url aliases'
+  - 'delete any file'
   - 'delete any media'
   - 'delete media'
   - 'update any media'
