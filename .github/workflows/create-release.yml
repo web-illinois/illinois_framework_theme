@@ -1,0 +1,67 @@
+# .github/workflows/create-release.yml
+# This workflow is triggered manually to create a new release.
+# It updates the version, commits, tags, and creates a GitHub Release.
+
+name: Create New Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'The new version number (e.g., 1.2.3)'
+        required: true
+        type: string
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    permissions:
+      # Give the default GITHUB_TOKEN write permission to commit, tag, and release.
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure Git
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+      - name: Update version in info.yml
+        run: |
+          # The version is taken directly from the manual input.
+          VERSION=${{ github.event.inputs.version }}
+          # Use sed to find the line starting with "version:" and replace it.
+          # The single quotes are important for Drupal's YAML parser.
+          sed -i "s/^version: .*/version: '$VERSION'/" illinois_framework_theme.info.yml
+
+      - name: Commit version update
+        id: commit
+        run: |
+          git add illinois_framework_theme.info.yml
+          # Check if there are any changes to commit
+          if ! git diff --staged --quiet; then
+            git commit -m "Chore: Bump version to ${{ github.event.inputs.version }}"
+            echo "changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "No version change detected."
+            echo "changes=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create Git Tag and Push
+        if: steps.commit.outputs.changes == 'true'
+        run: |
+          git tag "${{ github.event.inputs.version }}"
+          git push origin HEAD --follow-tags
+
+      - name: Create GitHub Release
+        if: steps.commit.outputs.changes == 'true'
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: "${{ github.event.inputs.version }}"
+          release_name: "Release ${{ github.event.inputs.version }}"
+          generate_release_notes: true
+          draft: false
+          prerelease: false
