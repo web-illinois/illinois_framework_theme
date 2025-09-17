@@ -207,3 +207,10 @@ function illinois_framework_core_update_9600() {
   \Drupal::service('module_installer')->uninstall(['anchor_link','fakeobjects']);
   \Drupal::service('module_installer')->install(['ckeditor5_bookmark']);
 }
+
+/**
+ * Install the editoria11y module
+ */
+function illinois_framework_core_update_9700() {
+  \Drupal::service('module_installer')->install(['editoria11y']);
+}

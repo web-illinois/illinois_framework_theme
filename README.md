@@ -21,6 +21,7 @@ The Illinois Framework Core module includes the config to create a predefined se
 - [Devel](https://www.drupal.org/project/devel)
 - [Diff](https://www.drupal.org/project/diff)
 - [Drush](https://www.drupal.org/project/drush)
+- [Editoria11y](https://www.drupal.org/project/editoria11y)
 - [Entity Usage](https://www.drupal.org/project/entity_usage)
 - [Extlink](https://www.drupal.org/project/extlink)
 - [Google Analytics](https://www.drupal.org/project/google_analytics)
