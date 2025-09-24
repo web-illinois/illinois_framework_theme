@@ -213,4 +213,16 @@ function illinois_framework_core_update_9600() {
  */
 function illinois_framework_core_update_9700() {
   \Drupal::service('module_installer')->install(['editoria11y']);
+  // Also update the following configs:
+  // ignore_elements: '.region-sidebar-first *, .contextual *, .paragraph--type--calendar *, .paragraph--type--block-reference *'
+  // panel_no_cover: 'ilw-back-to-top, il-back-to-top'
+  // live_h2: 'form[id^="node-"] #edit-body-wrapper .ck-content'
+  // live_h3: '.paragraph-type--cta .ck-editor__editable'
+  $config_factory = \Drupal::configFactory();
+  $editoria11y_config = $config_factory->getEditable('editoria11y.settings');
+  $editoria11y_config->set('ignore_elements', '.region-sidebar-first *, .contextual *, .paragraph--type--calendar *, .paragraph--type--block-reference *');
+  $editoria11y_config->set('panel_no_cover', 'ilw-back-to-top, il-back-to-top');
+  $editoria11y_config->set('live_h2', 'form[id^="node-"] #edit-body-wrapper .ck-content');
+  $editoria11y_config->set('live_h3', '.paragraph-type--cta .ck-editor__editable');
+  $editoria11y_config->save(TRUE);
 }
