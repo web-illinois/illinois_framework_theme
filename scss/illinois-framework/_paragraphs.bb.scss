@@ -92,7 +92,7 @@
         line-height: 2.25rem;
         border-bottom: 3px solid transparent;
         &:visited {
-          color: var(--ilw-card--clickable--heading-color);
+          color: var(--ilw-color--heading);
         }
         &:focus {
           border-bottom: 3px solid var(--il-blue);
@@ -101,15 +101,15 @@
       }
     }
     p {
-      color: var(--ilw-card--text-color);
+      color: var(--ilw-color--text);
     }
     &:hover {
       p {
-        color: var(--ilw-card--hover--text-color);
+        color: var(--ilw-color--background);
       }
       a {
       &:visited {
-          color: var(--ilw-card--hover--heading-color);
+          color: var(--ilw-color--link);
         }
       }
     }

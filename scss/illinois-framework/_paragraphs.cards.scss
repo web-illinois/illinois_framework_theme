@@ -46,11 +46,11 @@
       font-size: rem(27.84px);
       font-weight: 700;
       line-height: 2.25rem;
-      color: var(--ilw-card--heading-color);
+      color: var(--ilw-color--heading);
       text-align: center;
     }
     p {
-      color: var(--ilw-card--text-color);
+      color: var(--ilw-color--text);
       margin-bottom: 1rem !important;
     }
     a {
@@ -62,6 +62,7 @@
         }
         &:hover {
           color: var(--ilw-button--focused-foreground-color);
+          text-decoration: underline;
         }
         &:focus {
           background-color: var(--ilw-link--focus-background-color);
