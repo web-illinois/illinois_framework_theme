@@ -32,6 +32,7 @@ install:
   - diff
   - dynamic_page_cache
   - editor
+  - editoria11y
   - ctools_entity_mask
   - entity_reference_revisions
   - entity_usage
