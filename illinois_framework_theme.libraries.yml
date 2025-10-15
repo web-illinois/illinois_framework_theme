@@ -33,11 +33,11 @@ toolkit-3:
   header: true
   css:
     theme:
-      https://dev.toolkit.illinois.edu/latest/toolkit.css:
+      https://dev.toolkit.illinois.edu/3.7.1-beta1/toolkit.css:
         type: external
         minified: true
   js:
-    https://dev.toolkit.illinois.edu/latest/toolkit.js:
+    https://dev.toolkit.illinois.edu/3.7.1-beta1/toolkit.js:
       type: external
       minified: true
       attributes:
