@@ -11,10 +11,9 @@ dependencies:
     - field.field.paragraph.cta.field_cta_layout
     - field.field.paragraph.cta.field_cta_subtitle
     - field.field.paragraph.cta.field_cta_title
-    - image.style.thumbnail
+    - field.field.paragraph.cta.field_icon_row_content_icon
     - paragraphs.paragraphs_type.cta
   module:
-    - image
     - link
     - text
 _core:
@@ -25,63 +24,62 @@ bundle: cta
 mode: default
 content:
   field_cta_background:
+    type: options_select
     weight: 0
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_select
-    region: content
   field_cta_body:
+    type: text_textarea
     weight: 6
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: text_textarea
-    region: content
   field_cta_button:
+    type: link_default
     weight: 7
+    region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-    type: link_default
-    region: content
   field_cta_fingerprint:
-    weight: 1
-    settings: {  }
-    third_party_settings: {  }
     type: options_select
-    region: content
-  field_cta_icon:
-    weight: 3
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
-    third_party_settings: {  }
-    type: image_image
-    region: content
-  field_cta_layout:
     weight: 2
+    region: content
     settings: {  }
     third_party_settings: {  }
+  field_cta_layout:
     type: options_select
+    weight: 3
     region: content
+    settings: {  }
+    third_party_settings: {  }
   field_cta_subtitle:
+    type: string_textfield
     weight: 4
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_cta_title:
+    type: string_textfield
     weight: 5
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
+  field_icon_row_content_icon:
+    type: options_select
+    weight: 1
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   created: true
+  field_cta_icon: true
   status: true

@@ -11,7 +11,7 @@ dependencies:
     - field.field.paragraph.cta.field_cta_layout
     - field.field.paragraph.cta.field_cta_subtitle
     - field.field.paragraph.cta.field_cta_title
-    - image.style.paragraphs_image_large
+    - field.field.paragraph.cta.field_icon_row_content_icon
     - paragraphs.paragraphs_type.cta
   module:
     - image
@@ -26,21 +26,21 @@ bundle: cta
 mode: default
 content:
   field_cta_background:
-    weight: 0
+    type: list_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: list_default
+    weight: 0
     region: content
   field_cta_body:
-    weight: 4
+    type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: text_default
+    weight: 4
     region: content
   field_cta_button:
-    weight: 6
+    type: link
     label: hidden
     settings:
       trim_length: 80
@@ -49,44 +49,51 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    type: link
+    weight: 6
     region: content
   field_cta_fingerprint:
-    weight: 1
+    type: list_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: list_default
+    weight: 1
     region: content
   field_cta_icon:
-    weight: 7
+    type: image_url
     label: hidden
     settings:
       image_style: paragraphs_image_large
     third_party_settings: {  }
-    type: image_url
+    weight: 7
     region: content
   field_cta_layout:
-    weight: 2
+    type: list_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: list_default
+    weight: 2
     region: content
   field_cta_subtitle:
-    weight: 5
+    type: string
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 5
     region: content
   field_cta_title:
-    weight: 3
+    type: string
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 3
+    region: content
+  field_icon_row_content_icon:
+    type: list_key
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 8
     region: content
 hidden: {  }
