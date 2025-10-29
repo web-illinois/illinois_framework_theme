@@ -1,0 +1,24 @@
+uuid: 0601cc16-da7f-4673-a09d-367dfa8b2a74
+langcode: en
+status: true
+dependencies:
+  module:
+    - imagick
+name: medium_400
+label: 'Medium 400px'
+effects:
+  81832ac2-fbff-41a8-8799-a8abd9b557d9:
+    uuid: 81832ac2-fbff-41a8-8799-a8abd9b557d9
+    id: image_scale
+    weight: 1
+    data:
+      width: 400
+      height: null
+      upscale: true
+  a3615da2-1096-4257-86ab-cd129e832bea:
+    uuid: a3615da2-1096-4257-86ab-cd129e832bea
+    id: image_convert
+    weight: 2
+    data:
+      format: jpg
+      quality: '85'

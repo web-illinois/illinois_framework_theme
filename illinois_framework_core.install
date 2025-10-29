@@ -96,3 +96,129 @@ function illinois_framework_core_update_9210() {
 function illinois_framework_core_update_9301() {
   \Drupal::service('module_installer')->install(['metatag_open_graph']);
 }
+
+/**
+ * Convert Video Embed WYSIWYG to Video Embed Media
+ */
+function illinois_framework_core_update_9400() {
+  // This code is adapted from https://www.drupal.org/docs/contributed-modules/video-embed-field/migrating-to-core-media#s-when-using-video-embed-wysiwyg
+
+  // Find all formatted text fields on all content entities (Node, Paragraph, etc).
+  $text_long = \Drupal::service('entity_type.manager')->getStorage('field_storage_config')->loadByProperties(['type' => 'text_long']);
+  $text_with_summary = \Drupal::service('entity_type.manager')->getStorage('field_storage_config')->loadByProperties(['type' => 'text_with_summary']);
+  $fields = array_merge($text_long, $text_with_summary);
+  // Iterate through each formatted text field.
+  foreach ($fields as $field) {
+    // Find all entities (e.g. Nodes) that have a video embedded in this field.
+    $ids = \Drupal::entityTypeManager()
+      ->getStorage($field->getTargetEntityTypeId())
+      ->getQuery()
+      ->condition($field->getName(), '%video_url%', 'LIKE')
+      ->accessCheck(FALSE)
+      ->execute();
+    // Iterate through the entities with embedded videos in this field.
+    foreach ($ids as $id) {
+      // Attempt to load the entity.
+      $entity = \Drupal::entityTypeManager()->getStorage($field->getTargetEntityTypeId())->load($id);
+      if ($entity) {
+        // Find the json representing the embedded videos using a regex match.
+        // The regex pattern is taken from the Video Embed WYSIWYG filter plugin.
+        // @see https://git.drupalcode.org/project/video_embed_field/-/blob/8.x-2.x/modules/video_embed_wysiwyg/src/Plugin/Filter/VideoEmbedWysiwyg.php#L133
+        $matches = [];
+        $text = $entity->{$field->getName()}->value;
+        if (!preg_match_all('/(<p>)?(?<json>{(?=.*preview_thumbnail\b)(?=.*settings\b)(?=.*video_url\b)(?=.*settings_summary)(.*)})(<\/p>)?/', $text, $matches)) {
+          continue;
+        }
+        // Iterate through each of the matches. It's possible for a given
+        // entity to have more than one video embedded in a given field.
+        foreach ($matches['json'] as $delta => $match) {
+          // Ensure the JSON string is valid and decode it.
+          $embed_data = json_decode($match, TRUE);
+          if (!$embed_data || !is_array($embed_data)) {
+            continue;
+          }
+          // Extract the embedded video url from the decoded json data.
+          $video_url = $embed_data['video_url'];
+          if (empty($video_url)) {
+            continue;
+          }
+          // Depending on the form of $video_url, you may have to do additional
+          // processing. The following forms for YouTube urls work well:
+          // * https://youtu.be/ABCDEFG1234
+          // * https://www.youtube.com/watch?v=ABCDEFG1234
+          //
+          // However, some other formats are not allowed by Drupal Media such as:
+          // x https://www.youtube.com/embed/ABCDEFG1234
+          //
+          // Just in case, convert from YouTube "embed" url to a "watch" url.
+          // You may have to add more custom processing depending on your source.
+          $video_url = str_replace('youtube.com/embed/', 'youtube.com/watch?v=',$video_url);
+
+          // Check if the $video_url has mediaspace in the domain and set the
+          // bundle to mediaspace_illinois. Otherwise, set the bundle to remote_video.
+          if (strpos($video_url, 'mediaspace.illinois.edu') !== FALSE) {
+            $media = \Drupal::entityTypeManager()->getStorage('media')->create([
+              'bundle' => 'mediaspace_illinois',
+              'field_media_media_remote' => $video_url,
+            ]);
+          }
+          else {
+            $media = \Drupal::entityTypeManager()->getStorage('media')->create([
+              'bundle' => 'remote_video',
+              'field_media_oembed_video' => $video_url,
+            ]);
+          }
+          try {
+            $media->save();
+          }
+          catch (Drupal\Core\Entity\EntityStorageException $e) {
+            \Drupal::logger('video_embed_wysiwyg_update')->error($e->getMessage());
+            continue;
+          }
+          // Build the media embed code. Note that we align everything in the center for simplicity.
+          // If your case is more demanding you can find additional properties on $embed_data.
+          $embed = "<drupal-media data-align=\"center\" data-entity-type=\"media\" data-entity-uuid=\"{$media->uuid()}\"></drupal-media>";
+          // Replace $match with the embed code in $text
+          $text = str_replace($match, $embed, $text);
+          // Save the entity with the updated field value.
+          $entity->{$field->getName()}->setValue([
+            'value' => $text,
+            'format' => $entity->{$field->getName()}->format,
+            'summary' => $entity->{$field->getName()}->summary,
+          ]);
+          $entity->save();
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Uninstall Video Embed WYSIWYG and Video Embed Field modules
+ */
+function illinois_framework_core_update_9500() {
+  \Drupal::service('module_installer')->uninstall(['video_embed_wysiwyg','video_embed_field']);
+}
+
+/**
+ * Install CKEditor5 bookmark module. Uninstall anchor_link, fakeobjectsmodules
+ */
+function illinois_framework_core_update_9600() {
+  \Drupal::service('module_installer')->uninstall(['anchor_link','fakeobjects']);
+  \Drupal::service('module_installer')->install(['ckeditor5_bookmark']);
+}
+
+/**
+ * Install the editoria11y module
+ */
+function illinois_framework_core_update_9700() {
+  \Drupal::service('module_installer')->install(['editoria11y']);
+  // Also update the editoria11y settings from Illinois Framework theme
+  $config_factory = \Drupal::configFactory();
+  $editoria11y_config = $config_factory->getEditable('editoria11y.settings');
+  $editoria11y_config->set('ignore_elements', '.region-sidebar-first *, .contextual *, .paragraph--type--calendar *, .paragraph--type--block-reference *');
+  $editoria11y_config->set('panel_no_cover', 'ilw-back-to-top, il-back-to-top');
+  $editoria11y_config->set('live_h2', 'form[id^="node-"] #edit-body-wrapper .ck-content');
+  $editoria11y_config->set('live_h3', '.paragraph-type--cta .ck-editor__editable');
+  $editoria11y_config->save(TRUE);
+}

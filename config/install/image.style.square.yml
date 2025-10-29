@@ -1,0 +1,15 @@
+uuid: 2467e0cf-1602-4f1d-946b-f07028af92a7
+langcode: en
+status: true
+dependencies: {  }
+name: square
+label: Square
+effects:
+  4ba46a41-504d-4884-8444-37238466e837:
+    uuid: 4ba46a41-504d-4884-8444-37238466e837
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 300
+      height: 300
+      anchor: center-center

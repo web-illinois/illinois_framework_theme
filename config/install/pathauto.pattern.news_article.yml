@@ -6,12 +6,12 @@ dependencies:
 id: news_article
 label: 'News Article'
 type: 'canonical_entities:node'
-pattern: 'news/[node:field_if_date:value]/[node:title]'
+pattern: 'news/[node:field_if_date:date:html_date]/[node:title]'
 selection_criteria:
-  f0b0ee3f-e10b-45c3-a416-182d93f800ba:
+  712cb8eb-d1a4-48c4-9fc6-b649745bd41c:
     id: 'entity_bundle:node'
     negate: false
-    uuid: f0b0ee3f-e10b-45c3-a416-182d93f800ba
+    uuid: 712cb8eb-d1a4-48c4-9fc6-b649745bd41c
     context_mapping:
       node: node
     bundles:

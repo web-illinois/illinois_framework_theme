@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - field.field.node.news.body
+    - field.field.node.news.field_featured_image_toggle
     - field.field.node.news.field_if_author
     - field.field.node.news.field_if_date
     - field.field.node.news.field_if_meda_featured_image
@@ -32,7 +33,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 3
+    weight: 5
     region: content
   field_if_author:
     type: string
@@ -40,7 +41,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 6
+    weight: 1
     region: content
   field_if_date:
     type: datetime_custom
@@ -49,16 +50,16 @@ content:
       timezone_override: ''
       date_format: 'F j, Y'
     third_party_settings: {  }
-    weight: 7
+    weight: 2
     region: content
   field_if_meda_featured_image:
     type: entity_reference_entity_view
     label: hidden
     settings:
-      view_mode: default
+      view_mode: news_featured_image
       link: false
     third_party_settings: {  }
-    weight: 2
+    weight: 4
     region: content
   field_if_metatags:
     type: metatag_empty_formatter
@@ -69,7 +70,7 @@ content:
     region: content
   field_if_story_source:
     type: link
-    label: inline
+    label: above
     settings:
       trim_length: null
       url_only: false
@@ -77,7 +78,7 @@ content:
       rel: '0'
       target: _blank
     third_party_settings: {  }
-    weight: 8
+    weight: 7
     region: content
   field_if_subtitle:
     type: string
@@ -94,20 +95,20 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 4
+    weight: 6
     region: content
   field_tags:
     type: entity_reference_label
-    label: hidden
+    label: above
     settings:
       link: true
     third_party_settings: {  }
-    weight: 5
+    weight: 8
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 1
+    weight: 3
     region: content
 hidden:
-  field_if_related_people: true
+  field_featured_image_toggle: true

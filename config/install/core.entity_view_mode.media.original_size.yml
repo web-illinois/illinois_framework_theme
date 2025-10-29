@@ -1,0 +1,11 @@
+uuid: 214df76e-ac44-4391-8d92-cda33d68d95d
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.original_size
+label: 'Original size'
+description: ''
+targetEntityType: media
+cache: true

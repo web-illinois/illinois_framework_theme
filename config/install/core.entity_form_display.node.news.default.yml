@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.news.body
+    - field.field.node.news.field_featured_image_toggle
     - field.field.node.news.field_if_author
     - field.field.node.news.field_if_date
     - field.field.node.news.field_if_meda_featured_image
@@ -44,6 +45,13 @@ content:
     weight: 5
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_featured_image_toggle:
+    type: boolean_checkbox
+    weight: 27
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   field_if_author:
     type: string_textfield
