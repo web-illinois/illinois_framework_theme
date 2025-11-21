@@ -69,19 +69,19 @@ settings:
       styles:
         -
           label: 'Base Button'
-          element: '<a class="il-button">'
+          element: '<a class="ilw-button">'
         -
           label: 'White with blue button'
-          element: '<a class="il-button il-white-blue">'
+          element: '<a class="ilw-button ilw-theme-blue">'
         -
           label: 'White with orange button'
-          element: '<a class="il-button il-white-orange">'
+          element: '<a class="ilw-button ilw-theme-orange">'
         -
           label: 'Solid blue button'
-          element: '<a class="il-button il-blue">'
+          element: '<a class="ilw-button ilw-theme-blue-1">'
         -
           label: 'Solid orange button'
-          element: '<a class="il-button il-orange">'
+          element: '<a class="ilw-button ilw-theme-orange-1">'
     linkit_extension:
       linkit_enabled: true
       linkit_profile: default
