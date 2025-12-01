@@ -1,5 +1,4 @@
 .paragraph--type--feature-video {
-
   @include media-breakpoint-down(sm) {
     &.flex-row {
       flex-direction: column !important;
@@ -10,9 +9,7 @@
   }
 
   .field--name-field-feature-video {
-
     &__video {
-
       height: 100%;
       width: 100%;
 
@@ -31,13 +28,10 @@
       }
     }
     &__content {
-
       &__wrapper {
-
       }
     }
     &__title {
-
       .field__item {
         font-family: var(--il-source-sans);
         font-size: rem(36px);
@@ -47,7 +41,6 @@
       }
     }
     &__subtitle {
-
       .field__item {
         font-family: var(--il-source-sans);
         font-size: rem(22px);
@@ -83,7 +76,6 @@
       padding: 0;
     }
     &__buttons {
-
       a {
         margin-bottom: rem(20px);
       }
@@ -105,12 +97,9 @@
       height: 100%;
       width: 100%;
 
-      .media--type-remote-video {
+      article.media {
         height: 100%;
         width: 100%;
-      }
-      .media--type-image {
-        height: 100%;
       }
     }
   }
@@ -124,11 +113,14 @@
       width: 100%;
     }
   }
+  .field--name-field-media-media-remote {
+    height: 100%;
+  }
   .field--name-field-media-oembed-video {
     height: 100%;
     width: 100%;
 
-    iframe.media-oembed-content {
+    iframe {
       height: 100%;
       width: 100%;
     }
