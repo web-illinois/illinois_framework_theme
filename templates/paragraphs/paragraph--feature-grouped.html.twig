@@ -38,36 +38,35 @@
  * @ingroup themeable
  */
 #}
+{% set reverse_attr = content.field_feature_grouped_layout['#items'].0.value == 'left' ? 'reverse="true"' : '' %}
+
 {% set background = content.field_feature_grouped_background['#items'].0.value %}
+{% if background == 'grey' %}
+  {% set theme = 'gray' %}
+  {% set padding = '20px 0 30px' %}
+{% endif %}
 {%
   set classes = [
   'paragraph',
   'paragraph--type--' ~ paragraph.bundle|clean_class,
   view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
-  not paragraph.isPublished() ? 'paragraph--unpublished',
-  'col-lg-12 col-md-9 col-sm-12 d-flex row fixed-width',
-  'background--color--'~background
+  not paragraph.isPublished() ? 'paragraph--unpublished'
 ]
 %}
-
+{{ attach_library('illinois_framework_theme_stable9/paragraph-feature-group') }}
 {% block paragraph %}
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
-      {% set layout = content.field_feature_grouped_layout['#items'].0.value %}
-      {% if layout == 'right' %}
-        {% set row_style = 'flex-row' %}
-      {% else %}
-        {% set row_style = 'flex-row-reverse' %}
-      {% endif %}
+      <ilw-columns width="auto" mode="2x1" gap="40px" {{ reverse_attr }} theme="{{ theme }}" padding="{{ padding }}">
       {% set body = content.field_feature_grouped_body['#items'].0.value %}
-      <div class="m-0 p-0 col-lg-12 col-md-12 col-sm-12 d-flex row {{ row_style }} paragraph--type--feature-grouped__wrapper background--color--{{ background }}">
+      <ilw-content theme="{{ theme }}">
         {% if content.field_feature_grouped_title['#items'] %}
-          <h2 class="p-0 col-lg-12 col-md-12 col-sm-12 field--name-field-feature-grouped__title title">
+          <h2 class="field--name-field-feature-grouped__title title">
             {{ content.field_feature_grouped_title['#items'].0.value }}
           </h2>
         {% endif %}
-        <div class="field--name-field-feature-grouped__content col-lg-8 col-md-8 col-sm-12">
+        <div class="field--name-field-feature-grouped__content">
           {% if content.field_feature_grouped_subtitle['#items'] %}
             <div class="field--name-field-feature-grouped__subtitle subtitle">
               {{ content.field_feature_grouped_subtitle['#items'].0.value }}
@@ -75,23 +74,20 @@
           {% endif %}
           {% set button_number = content.field_feature_grouped_buttons['#items']|length %}
           {% if button_number > 0 %}
-            <div class="field--name-field-feature-grouped__buttons">
+            <ul class="ilw-buttons{{ theme == 'orange-gradient' ? ' ilw-theme-orange-2' }}">{# temp fix until orange-gradient is added to toolkit #}
               {% for item in content.field_feature_grouped_buttons['#items'] %}
-                {% if loop.index0 == 0 %}
-                  <a class="field--name-field-feature-grouped__button il-button il-white-blue" href="{{ content.field_feature_grouped_buttons[loop.index0]['#url'] }}" role="button">{{ content.field_feature_grouped_buttons[loop.index0]['#title'] }}</a>
-                {% else %}
-                  <a class="field--name-field-feature-grouped__button il-button il-white-blue" href="{{ content.field_feature_grouped_buttons[loop.index0]['#url'] }}" role="button">{{ content.field_feature_grouped_buttons[loop.index0]['#title'] }}</a>
-                {% endif %}
+                <li><a href="{{ content.field_feature_grouped_buttons[loop.index0]['#url'] }}">{{ content.field_feature_grouped_buttons[loop.index0]['#title'] }}</a></li>
               {% endfor %}
-            </div>
+            </ul>
           {% endif %}
           {% if content.field_feature_grouped_body['#items'] %}
-            <div class="il-formatted field--name-field-feature-grouped__body body">
+            <div class="field--name-field-feature-grouped__body body">
               {{ body | raw }}
             </div>
           {% endif %}
         </div>
-        <div class="field--name-field-feature-grouped__image__wrapper col-lg-4 col-md-4 col-sm-12">
+      </ilw-content>
+        <div class="field--name-field-feature-grouped__image__wrapper">
           {% if content.field_feature_grouped_image['#items'] %}
             {% for item in content.field_feature_grouped_image['#items'] %}
               <div class="field--name-field-feature-grouped__image">
@@ -100,7 +96,7 @@
             {% endfor %}
           {% endif %}
         </div>
-      </div>
+      </ilw-columns>
     {% endblock %}
   </div>
 {% endblock paragraph %}

@@ -1,0 +1,51 @@
+.paragraph--type--icon-row {
+  h2 {
+    text-align: center;
+    padding: 3rem 0 0 0;
+    margin: 0;
+  }
+  .field--name-field-icon-row-callout {
+    font-size: 2rem;
+    line-height: 2.375rem;
+    font-weight: 600;
+    --ilw-color--text: var(--il-orange);
+  }
+
+  .field--name-field-icon-row-text {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  .field--name-field-icon-row-content {
+    text-align: center;
+    --ilw-color--text: var(--il-blue);
+  }
+
+  .sm-icon {
+    .field--name-field-icon-row-icon_wrapper span {
+      font-size: 4.6875rem;
+    }
+  }
+  .lg-icon {
+    .field--name-field-icon-row-icon_wrapper span {
+      font-size: 9.375rem;
+    }
+  }
+  ilw-icon {
+    color: var(--ilw-color--heading);
+  }
+}
+.paragraph--type--icon-row-content {
+  justify-content: center;
+  display: flex;
+  flex: 1 1 20%;
+  ilw-content {
+    div {
+      color: var(--ilw-color--text);
+    }
+  }
+  ilw-content[theme="gray"]{
+    .field--name-field-icon-row-callout {
+      --ilw-color--text: var(--il-altgeld);
+    }
+  }
+}

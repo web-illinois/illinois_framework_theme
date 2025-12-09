@@ -1,0 +1,5 @@
+.fixed-width {
+  margin: 0 auto;
+  padding: 0 var(--ilw-margin--side, 0);
+  width: 100%;
+}

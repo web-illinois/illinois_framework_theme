@@ -1,0 +1,10 @@
+.local-tasks {
+  background: var(--il-arches-lighter-3);
+  ul {
+    display: flex;
+    justify-content: space-evenly;
+    li {
+      list-style: none;
+    }
+  }
+}

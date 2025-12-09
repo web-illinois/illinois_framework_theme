@@ -1,0 +1,66 @@
+.paragraph--type--image-gallery {
+  .field--name-field-image-gallery-text__wrapper {
+    margin-bottom: 1rem;
+  }
+  .field--name-field-image-gallery__title {
+    color: var(--il-orange);
+  }
+  .field--name-field-image-gallery-subtitle {
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-size: 1.75rem;
+    line-height: 2rem;
+    color: var(--il-blue);
+  }
+  ilw-content[theme="gray"] {
+    .field--name-field-image-gallery__title {
+      color: var(--il-altgeld);
+    }
+    .field--name-field-image-gallery__wrapper {
+      padding-top: 2rem;
+    }
+  }
+  .field--name-field-image-gallery-body {
+    margin-bottom: 2rem;
+  }
+  ilw-grid {
+    .image-gallery-item {
+      height: 200px;
+    }
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      vertical-align: middle;
+    }
+  }
+}
+/*color box style overrides*/
+#cboxCurrent {
+  bottom: 0;
+  font-weight: 600;
+  font-family: var(--il-font-sans);
+  padding: 0 15px;
+  border-left: none;
+  color: var(--il-industrial);
+}
+
+#cboxPrevious, #cboxPrevious:hover {
+  background: url("/themes/contrib/illinois_framework_theme_stable9/images/controls.png") no-repeat 0 -48px;
+  height: 15px;
+  bottom: 5px;
+  &:focus,
+  &:focus-visible{
+    outline: 1px dotted var(--il-industrial);
+  }
+}
+
+#cboxNext, #cboxNext:hover {
+  background: url("/themes/contrib/illinois_framework_theme_stable9/images/controls.png") no-repeat 0 -29px;
+  height: 15px;
+  bottom: 5px;
+  &:focus,
+  &:focus-visible{
+    outline: 1px dotted var(--il-industrial);
+  }
+}

@@ -39,15 +39,13 @@
  */
 #}
 
-{% set background_color = content.field_contact_background['#items'].0.value %}
+{% set theme = content.field_contact_background['#items'].0.value %}
 {% set layout = content.field_contact_layouts.0['#markup'] %}
 {% set image_float = content.field_contact_layouts %}
-{% if layout == 'left' %}
-  {% set text_position = 'order-0' %}
-  {% set image_body_position = 'order-first' %}
+{% if layout == 'right' or layout == 'righttxt' %}
+  {% set reverse = 'true' %}
 {% else %}
-  {% set text_position = 'order-first' %}
-  {% set image_body_position = 'order-0' %}
+  {% set reverse = '' %}
 {% endif %}
 {% set button_number = content.field_contact_content.0['#paragraph'].field_contact_content_button|length %}
 {% set paragraph_title = content.field_contact_title['#items'].0.value %}
@@ -59,64 +57,65 @@
 {%
   set classes = [
   'paragraph',
-  'il-formatted',
   'paragraph--type--' ~ paragraph.bundle|clean_class,
   view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
-  not paragraph.isPublished() ? 'paragraph--unpublished',
-  'il-formatting col-lg-12 col-md-12 col-sm-12 full-width ' ~ 'background--color--' ~ background_color
+  not paragraph.isPublished() ? 'paragraph--unpublished'
 ]
 %}
+{{ attach_library('illinois_framework_theme_stable9/paragraph-contact') }}
 
 {% block paragraph %}
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
       {% if content.field_contact_title['#items'] %}
-        <div class="col-lg-12 paragraph--type--contact__title">
-          <h2>{{ paragraph_title }}</h2>
-        </div>
+        <ilw-content theme="{{ theme }}">
+          <div class="paragraph--type--contact__title">
+            <h2>{{ paragraph_title }}</h2>
+          </div>
+        </ilw-content>
       {% endif %}
-      <div class="row col-lg-12 col-md-12 fixed-width">
-        <div class="field--name-field-contact__content__wrapper col-lg-6 col-md-12 col-sm-12 flex-column {{ text_position }} {{ layout }}">
-            <div class="field--name-field-contact__content__title">{{ content_title }}</div>
-            {% if subtitle %}
-              <div class="field--name-field-contact__content__subtitle">{{ subtitle }}</div>
-            {% endif %}
-            {% if address %}
-              <div class="field--name-field-contact__content__address"><address>{{ address|raw }}</address></div>
-            {% endif %}
-            {% if phone %}
-              <div class="field--name-field-contact__content__phone"><p><a href="tel:{{ phone }}">{{ phone }}</a></p></div>
-            {% endif %}
-            {% if email %}
-              <div class="field--name-field-contact__content__email"><p><a href="mailto:{{ email }}">{{ email }}</a></p></div>
-            {% endif %}
-            {% if button_number > 0 %}
-              <div class="field--name-field-contact__content__button {% if button_number == 2 %} field--name-field-contact__content__button--two {% endif %}">
-                {% for item in content.field_contact_content.0['#paragraph'].field_contact_content_button %}
-                  <div class="field--name-field-contact__content__button--{{ loop.index0 }}">
-                    <a class="il-button {% if background_color == 'gray' %}il-blue{% else %}il-orange{% endif %}" href="{{ content.field_contact_content.0['#paragraph'].field_contact_content_button[loop.index0].uri }}" role="button">{{ content.field_contact_content.0['#paragraph'].field_contact_content_button[loop.index0].title }}</a>
-                  </div>
-                {% endfor %}
-              </div>
-            {% endif %}
-          </div>
+      <ilw-columns theme="{{ theme }}" width="auto" gap="40px" {% if reverse %}reverse="{{ reverse }}"{% endif %}>
         {% if content.field_contact_content.0['#paragraph'].field_contact_content_body.0.value %}
-        <div class="field--name-field-contact__content__body__wrapper col-lg-6 col-md-12 col-sm-12 {{ image_body_position}}">
-          <div class="{{ layout }}">
-            {{ content.field_contact_content.0['#paragraph'].field_contact_content_body.0.value|raw }}
+          <div class="field--name-field-contact__content__body__wrapper {{ image_body_position}}">
+            <div class="">
+              {{ content.field_contact_content.0['#paragraph'].field_contact_content_body.0.value|raw }}
+            </div>
           </div>
-        </div>
         {% elseif content.field_contact_content.0['#paragraph'].field_contact_content_image.0 %}
-        <div class="field--name-field-contact__content__image__wrapper col-lg-6 col-md-12 col-sm-12 {{ image_body_position }} {{ layout }}">
-  {#        <div class="{{ layout }}">#}
+          <div class="field--name-field-contact__content__image__wrapper {{ image_body_position }} {{ layout }}">
+            {#        <div class="{{ layout }}">#}
             <img alt="{{ content.field_contact_content.0['#paragraph'].field_contact_content_image.alt }}" title="{{ content.field_contact_content.0['#paragraph'].field_contact_content_image.title }}" src="{{ base_path_http ~ file_url(content.field_contact_content.0['#paragraph'].field_contact_content_image.0.entity.uri.value) }}"/>
-  {#        </div>#}
-        </div>
+            {#        </div>#}
+          </div>
         {% else %}
           <div class="alert alert-danger" role="alert">Please go back and add an image or body text</div>
         {% endif %}
-      </div>
+        <div class="field--name-field-contact__content__wrapper {{ text_position }} {{ layout }}">
+          <div class="field--name-field-contact__content__title">{{ content_title }}</div>
+          {% if subtitle %}
+            <div class="field--name-field-contact__content__subtitle">{{ subtitle }}</div>
+          {% endif %}
+          {% if address %}
+            <div class="field--name-field-contact__content__address"><address>{{ address|raw }}</address></div>
+          {% endif %}
+          {% if phone %}
+            <div class="field--name-field-contact__content__phone"><p><a href="tel:{{ phone }}">{{ phone }}</a></p></div>
+          {% endif %}
+          {% if email %}
+            <div class="field--name-field-contact__content__email"><p><a href="mailto:{{ email }}">{{ email }}</a></p></div>
+          {% endif %}
+          {% if button_number > 0 %}
+            <div class="field--name-field-contact__content__button {% if button_number == 2 %} field--name-field-contact__content__button--two {% endif %}">
+              {% for item in content.field_contact_content.0['#paragraph'].field_contact_content_button %}
+                <div class="field--name-field-contact__content__button--{{ loop.index0 }}">
+                  <a class="ilw-button {% if theme == 'gray' %}ilw-theme-blue{% else %}ilw-theme-orange-1{% endif %}" href="{{ content.field_contact_content.0['#paragraph'].field_contact_content_button[loop.index0].uri }}" role="button">{{ content.field_contact_content.0['#paragraph'].field_contact_content_button[loop.index0].title }}</a>
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+      </ilw-columns>
     {% endblock %}
   </div>
 {% endblock paragraph %}

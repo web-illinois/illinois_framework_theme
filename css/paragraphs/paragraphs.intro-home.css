@@ -1,0 +1,11 @@
+.paragraph--type--intro-home {
+  .field--name-field-intro-home__buttons {
+    margin-top: 2.8125rem;
+  }
+}
+ilw-content[mode=introduction][align=center] .ilw-buttons {
+  justify-content: center;
+}
+ilw-content[mode=introduction][align=right] .ilw-buttons {
+  justify-content: flex-end;
+}

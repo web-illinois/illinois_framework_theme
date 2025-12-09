@@ -1,0 +1,39 @@
+#views-exposed-form-news-page-1 {
+  .news-form-wrapper {
+    display: flex;
+    flex-direction: column;
+    @media (min-width: 600px) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+    background-color: #f4f4f4;
+    padding: 1rem 1rem 0.8rem;
+    border-top: 1px solid #d8d8d8;
+    border-bottom: 1px solid #d8d8d8;
+    .form-item {
+      margin-bottom: 1rem;
+      margin-top: 0;
+      @media (min-width: 600px) {
+        margin-right: 1rem;
+        display: flex;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      input {
+        width: 100%;
+      }
+      label {
+        flex: 1 0 auto;
+        padding: 0.5rem;
+      }
+    }
+    .form-actions {
+      margin-top: 1.7rem;
+      margin: -3px 0 0;
+    }
+  }
+  #edit-submit-news {
+    width: auto;
+  }
+}

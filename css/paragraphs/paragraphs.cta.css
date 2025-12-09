@@ -1,0 +1,17 @@
+.paragraph--type--cta {
+  ilw-call-to-action[align='right'] {
+    text-align: right;
+    .ilw-buttons {
+      justify-content: flex-end;
+    }
+  }
+  h2 {
+    line-height: 2.5rem;
+  }
+
+  .field--name-field-cta-subtitle {
+    margin-bottom: 0.938rem;
+    font-size: 1.375rem;
+    font-weight: 600;
+  }
+}

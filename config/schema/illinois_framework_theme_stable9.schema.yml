@@ -1,0 +1,8 @@
+# Schema for the configuration files of the Illinois Framework Theme theme.
+illinois_framework_theme_stable9.settings:
+  type: theme_settings
+  label: 'Illinois Framework Theme settings'
+  mapping:
+    example:
+      type: string
+      label: Example

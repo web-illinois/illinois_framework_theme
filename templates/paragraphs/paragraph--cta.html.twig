@@ -43,59 +43,68 @@
 {% else %}
   {% set fingerprint = '' %}
 {% endif %}
+{% if content.field_cta_background['#items'].0.value %}
+  {% set theme = content.field_cta_background['#items'].0.value == 'illiniblue'
+    ? 'blue'
+    : content.field_cta_background['#items'].0.value == 'illiniorange'
+    ? 'orange'
+    : content.field_cta_background['#items'].0.value == 'bluegradient'
+    ? 'blue-gradient'
+    : content.field_cta_background['#items'].0.value == 'orangegradient'
+    ? 'orange-gradient'
+    : content.field_cta_background['#items'].0.value == 'white'
+    ? 'white'
+    : content.field_cta_background['#items'].0.value == 'gray'
+    ? 'gray' %}
+{% endif %}
+{% if content.field_cta_layout['#items'].0.value %}
+  {% set align = content.field_cta_layout['#items'].0.value == 'center'
+    ? 'center'
+    : content.field_cta_layout['#items'].0.value == 'right'
+    ? 'right'
+    : '' %}
+{% endif %}
+
+
 {%
   set classes = [
     'paragraph',
     'paragraph--type--' ~ paragraph.bundle|clean_class,
     view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
-    not paragraph.isPublished() ? 'paragraph--unpublished',
-    'col-lg-12 col-md-12 col-sm-12 p-0 d-flex full-width' ~ flex_row_class ~ max_width,
-    'background--color--' ~ content.field_cta_background['#items'].0.value,
-    fingerprint
-
+    not paragraph.isPublished() ? 'paragraph--unpublished'
   ]
 %}
 {% block paragraph %}
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }} >
     {% block content %}
-    <div class="fixed-width">
-    <div class="field--name-field-cta__wrapper">
-      {% if content.field_cta_icon['#items'] %}
-      <div class="field--name-field-cta_img__wrapper">
-        <img src="{{  base_path_http ~ file_url(content.field_cta_icon.0['#markup']) }}" alt="{{ content.field_cta_icon['#items'].0.alt }}"  />
-      </div>
-      {% endif %}
-
-      <div class="field--name-field-cta-text__wrapper {{ content.field_cta_layout['#items'].0.value }}">
+      <ilw-call-to-action theme="{{ theme }}" align="{{ align }}">
+        {% if content.field_icon_row_content_icon['#items'] %}
+          <ilw-icon slot="icon" icon="{{ cta_icon }}"></ilw-icon>
+        {% elseif content.field_cta_icon['#items'] %}{# this is a deprecated image field replaced by ilw-icon #}
+          <img src="{{ base_path_http ~ file_url(content.field_cta_icon.0['#markup']) }}"
+               alt="{{ content.field_cta_icon['#items'].0.alt }}" slot="icon" />
+        {% endif %}
         {% if content.field_cta_subtitle['#items'] %}
-        <div class="field--name-field-cta__item col">
         <div class="field--name-field-cta__subtitle subtitle">{{ content.field_cta_subtitle }}</div>
-        </div>
         {% endif %}
         {% if content.field_cta_title['#items'] %}
-        <div class="field--name-field-cta__item col">
-        <h2 class="field--name-field-cta__title title">{{ content.field_cta_title }}</h2>
-        </div>
+        <h2>{{ content.field_cta_title }}</h2>
         {% endif %}
         {% if content.field_cta_body['#items'] %}
-        <div class="field--name-field-cta__item col">
         <div class="field--name-field-cta__body body">{{ content.field_cta_body }}</div>
-        </div>
         {% endif %}
         {% set button_number = content.field_cta_button['#items']|length %}
             {% if button_number > 0 %}
-            <div class="field--name-field-cta__item col">
-              <div class="field--name-field-cta__buttons">
+            <ul class="ilw-buttons{{ theme == 'orange-gradient' ? ' ilw-theme-orange-2' }}">{# temp fix until orange-gradient is added to toolkit #}
               {% for item in content.field_cta_button['#items'] %}
-                <a class="field--name-field-cta__button il-button" href="{{ content.field_cta_button[loop.index0]['#url'] }}" role="button">{{ content.field_cta_button[loop.index0]['#title'] }}</a>
+              <li>
+                <a href="{{ content.field_cta_button[loop.index0]['#url'] }}">{{ content.field_cta_button[loop.index0]['#title'] }}</a>
+               </li>
               {% endfor %}
-              </div>
-            </div>
+            </ul>
             {% endif %}
-      </div>
-    </div>
-    </div>
+      </ilw-call-to-action>
     {% endblock %}
   </div>
 {% endblock paragraph %}

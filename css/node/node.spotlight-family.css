@@ -1,0 +1,62 @@
+
+/*works around having the need for items after a body
+to float around an external image to that body.
+keeping it local to prevent compromising others use cases.*/
+.node-feature,
+.spotlight-list-item {
+  .clearfix .clearfix:after {
+    clear: none;
+  }
+}
+
+.field--name-field-if-meda-featured-image {
+  float: right;
+  padding: 0 1.5rem;
+}
+
+/*override to handle extra padding from double applying fixed-width*/
+#block-illinois-framework-theme-content article.fixed-width .field--name-body {
+  padding: 0;
+}
+
+/*used for spotlight feature display view*/
+.node-feature {
+  padding: 65px 0 75px;
+  overflow: auto;
+  .body {
+    margin-bottom: 1.813rem;
+  }
+  .spotlight-feature-image {
+    float: right;
+    padding-left: calc(var(--il-content-margin) * 1.5);
+  }
+
+  .il-button {
+    margin: 0.625rem 0;
+  }
+
+}
+
+/*used for spotlight teaser display view*/
+.spotlight-list-item {
+  ul.inline li {
+    padding: 0;
+  }
+  .media--view-mode-spotlight-list {
+    padding-right: calc(var(--il-content-margin) * 1.5);
+  }
+  .list-title {
+    margin-top: 0;
+  }
+}
+
+.views-row .spotlight-list-item {
+  padding-top: var(--il-content-margin);
+  padding-bottom: var(--il-content-margin);
+}
+
+.spotlight-list{
+.views-row:nth-child(even){
+  background-color:var(--il-cloud-1);
+}
+}

@@ -1,0 +1,224 @@
+.paragraph--type--calendar {
+  margin: 2rem 0;
+  .field--name-field-calendar-title {
+    color: var(--il-orange);
+  }
+  ul[id*="content-list"]{
+    list-style-type: none;
+    padding-inline-start:0;
+  }
+  li[id*="event"]{
+    padding: 1.875rem;
+  }
+  .field--name-field-calendar__more{
+    font-weight: 700;
+    a{
+      text-decoration: none;
+      &:after {
+        content: '\f101';
+        font-family: FontAwesome;
+        vertical-align: top;
+        padding-left: 0.5rem;
+      }
+      &:hover{
+        text-decoration: none;
+        border-bottom: 1px solid;
+      }
+    }
+  }
+  .calendar--type--1{
+    li[id*="event"]{
+      &:nth-of-type(odd){
+        background: #f4f4f4;
+        }
+    }
+    .field--name-field-calendar__more{
+      margin: 2rem 0 0 2rem;
+    }
+  }
+  .calendar--type--5{
+    li[id*="event"]{
+      border-bottom: 1px solid #707070;
+      &:first-of-type{
+        padding-top: 0;
+        }
+    }
+    div[class*="time-with-title"]{
+      font-weight: 600;
+      font-size: 1.25rem;
+      color: var(--il-blue);
+    }
+    div[class*="title-with-date"]{
+      font-size: 1.5625rem;
+      font-weight: 600;
+      a {
+        text-decoration: none;
+        border-bottom: 2px solid transparent;
+        &:after {
+          content: '\f101';
+          font-family: FontAwesome;
+          vertical-align: top;
+          padding: 0 0.5rem;
+        }
+        &:hover {
+          border-bottom: 2px solid var(--il-altgeld);
+        }
+      }
+
+    }
+    .field--name-field-calendar__more{
+      margin: 2rem 0 0 2rem;
+    }
+
+  }
+
+  div[class*="section-box"]{
+
+    div[class*="item-title"]{
+    font-size: 1.5625rem;
+    font-weight: 600;
+    line-height: 1.8125rem;
+    }
+    div[class*="time"]{
+      font-weight: 600;
+      font-size: 1.25rem;
+     line-height: 2.5rem;
+    }
+    span[class*="label"]{
+      font-weight: 600;
+    }
+  }
+
+  .calendar--type--3{
+    #content-list {
+      li {
+        padding: 0;
+        margin-bottom: 2rem;
+        clear: both;
+        @media (min-width: 600px) {
+          min-height: 130px;
+          margin-bottom: 1rem;
+        }
+      }
+      .cw3-date-image {
+        float: left;
+        display: block;
+        width: 75px;
+        height: 75px;
+        margin: .4375rem 0 0;
+        background-color: var(--il-orange);
+        border-radius: 10px 0px 10px 0px;
+        .date{
+          color: #fff;
+          line-height: 1.875rem;
+          .date-month{
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1.375rem;
+            padding-top: 14px;
+            text-transform: uppercase;
+            text-align: center;
+          }
+          .date-day{
+            font-size: 2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-align: center;
+          }
+        }
+      }
+      .cw3-content {
+        margin-left: 5.625rem;
+      }
+      .cw3-time-with-title{
+        font-weight: 600;
+        font-size: 1.25rem;
+        color: var(--il-blue);
+      }
+      .cw3-title-with-date{
+        font-size: 1.3125rem;
+        font-weight: 700;
+        line-height: 1.875rem;
+        a {
+          text-decoration: none;
+          border-bottom: 2px solid transparent;
+          &:after {
+            content: '\f101';
+            font-family: FontAwesome;
+            vertical-align: top;
+            padding: 0 0.5rem;
+          }
+          &:hover {
+            border-bottom: 2px solid var(--il-altgeld);
+          }
+        }
+      }
+    }
+  }
+
+  .calendar--type--13{
+    ul#content-list{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      gap: 3rem;
+    }
+    li{
+      &.title_date_only{
+        border: 1px solid #707070;
+        max-width: 100%;
+        padding: 1.875rem 1.25rem 2.8125rem;
+        @media (min-width: 701px) {
+          max-width: 30%;
+          flex: 1 1 29%;
+        }
+      }
+    }
+    .cw3-date-image{
+      display: block;
+      margin: 0 auto;
+    .date{
+      color: var(--il-orange);
+      text-align: center;
+      font-weight: 700;
+      .date-month{
+        font-size: 3.5rem;
+        line-height: 3.5rem;
+        text-transform: uppercase;
+      }
+      .date-day{
+        font-size: 4rem;
+        line-height: 3.5rem;
+      }
+    }
+    }
+    .cw3-time {
+      text-align: center;
+      margin: 0 0 1rem;
+      padding: .625rem 0 0;
+      color: var(--il-orange);
+      font-weight: 700;
+      font-size: 1.1875rem;
+    }
+    .cw3-title-with-date {
+      font-weight: 700;
+      text-align: center;
+      font-size: 1.3125rem;
+      padding: 0 .625rem;
+
+    }
+    .field--name-field-calendar__more{
+      margin: 2rem auto 0;
+      text-align: center;
+      a{
+        &:after {
+          content: '';
+          padding: 0;
+        }
+        &:hover {
+          border-bottom: 0.125rem solid var(--il-orange);
+        }
+      }
+    }
+  }
+}

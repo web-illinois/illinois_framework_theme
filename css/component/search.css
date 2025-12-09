@@ -1,0 +1,15 @@
+ol.search-results {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+  padding-top: 1rem;
+  li {
+    border-bottom: 1px solid #e9e9e9;
+  }
+}
+.search-form {
+  input {
+    width: auto;
+  }
+}
+

@@ -1,0 +1,22 @@
+.paragraph--type--cards {
+  ilw-grid {
+    margin: 0 auto;
+  }
+  ilw-card {
+    max-width: 400px;
+    margin: 0 auto;
+    h3, p {
+      font-family: var(--ilw-card--font);
+    }
+  }
+  .subtitle {
+    font-weight: 700;
+    font-size: 1.75rem;
+    padding-bottom: 2.5rem;
+    text-align: center;
+
+    .field__item {
+      margin-bottom: 0;
+    }
+  }
+}

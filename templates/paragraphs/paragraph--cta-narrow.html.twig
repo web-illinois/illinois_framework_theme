@@ -38,44 +38,53 @@
  * @ingroup themeable
  */
 #}
+{% if content.field_cta_narrow_background['#items'].0.value %}
+  {% set theme = content.field_cta_narrow_background['#items'].0.value == 'illiniblue'
+    ? 'blue'
+    : content.field_cta_narrow_background['#items'].0.value == 'illiniorange'
+    ? 'orange'
+    : content.field_cta_narrow_background['#items'].0.value == 'bluegradient'
+    ? 'blue-gradient'
+    : content.field_cta_narrow_background['#items'].0.value == 'orangegradient'
+    ? 'orange-gradient' %}
+{% endif %}
 {%
   set classes = [
-    'paragraph',
-    'paragraph--type--' ~ paragraph.bundle|clean_class,
-    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
-    not paragraph.isPublished() ? 'paragraph--unpublished',
-    'col-lg-12 col-md-12 col-sm-12 p-0 d-flex full-width' ~ flex_row_class ~ max_width,
-    'background--color--'~ content.field_cta_narrow_background['#items'].0.value,
-  ]
+  'paragraph',
+  'paragraph--type--' ~ paragraph.bundle|clean_class,
+  view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+  not paragraph.isPublished() ? 'paragraph--unpublished',
+]
 %}
+{{ attach_library('illinois_framework_theme_stable9/paragraph-cta-narrow') }}
 {% block paragraph %}
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
-      <div class="fixed-width">
-        <div class="field--name-field-cta-narrow__wrapper">
+        <ilw-content theme="{{ theme }}" padding="2.813rem 1rem">
+          <div class="cta-narrow-wrapper fixed-width">
           {% if content.field_cta_narrow_title['#items'] %}
-          <div class="field--name-field-cta-narrow__item col">
-          <h2 class="field--name-field-cta-narrow__title title">{{ content.field_cta_narrow_title }}</h2>
-          </div>
+            <div class="field--name-field-cta-narrow__item">
+              <h2 class="field--name-field-cta-narrow__title title">{{ content.field_cta_narrow_title }}</h2>
+            </div>
           {% endif %}
           {% if content.field_cta_narrow_body['#items'] %}
-          <div class="field--name-field-cta-narrow__item col">
-          <div class="field--name-field-cta-narrow__body body">{{ content.field_cta_narrow_body }}</div>
-          </div>
+            <div class="field--name-field-cta-narrow__item">
+             {{ content.field_cta_narrow_body }}
+            </div>
           {% endif %}
           {% set button_number = content.field_cta_narrow_button['#items']|length %}
-              {% if button_number > 0 %}
-              <div class="field--name-field-cta-narrow__item col">
-                <div class="field--name-field-cta-narrow__buttons">
+          {% if button_number > 0 %}
+            <div class="field--name-field-cta-narrow__item">
+              <div class="field--name-field-cta-narrow__buttons">
                 {% for item in content.field_cta_narrow_button['#items'] %}
-                  <a class="field--name-field-cta-narrow__button il-button" href="{{ content.field_cta_narrow_button[loop.index0]['#url'] }}" role="button">{{ content.field_cta_narrow_button[loop.index0]['#title'] }}</a>
+                  <a class="field--name-field-cta-narrow__button ilw-button{{ theme == 'orange-gradient' ? ' ilw-theme-orange-2' }}" href="{{ content.field_cta_narrow_button[loop.index0]['#url'] }}">{{ content.field_cta_narrow_button[loop.index0]['#title'] }}</a>
                 {% endfor %}
-                </div>
               </div>
-              {% endif %}
-        </div>
-      </div>
+            </div>
+          {% endif %}
+          </div>
+      </ilw-content>
     {% endblock %}
   </div>
 {% endblock paragraph %}

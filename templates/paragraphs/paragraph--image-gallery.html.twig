@@ -38,20 +38,26 @@
  * @ingroup themeable
  */
 #}
+{% set background = content.field_image_gallery_background[0]['#markup'] %}
+{% if background == 'Gray' %}
+  {% set theme = 'gray' %}
+{% endif %}
+
 {%
   set classes = [
-    'paragraph',
-    'paragraph--type--' ~ paragraph.bundle|clean_class,
-    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
-    not paragraph.isPublished() ? 'paragraph--unpublished', 'full-width',
-    (content.field_image_gallery_background[0]['#markup'] == 'Gray') ? 'background--color--gray' : 'background--color--white'
-  ]
+  'paragraph',
+  'paragraph--type--' ~ paragraph.bundle|clean_class,
+  view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+  not paragraph.isPublished() ? 'paragraph--unpublished', 'full-width'
+]
 %}
+{{ attach_library('illinois_framework_theme_stable9/paragraph-image-gallery') }}
 {% block paragraph %}
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
-    <div class="field--name=field-image-gallery__wrapper fixed-width">
+      <ilw-content theme="{{ theme }}" width="auto">
+      <div class="field--name-field-image-gallery__wrapper">
         <div class="field--name-field-image-gallery-text__wrapper">
           {% if content.field_image_gallery_title.0 %}
             <h2 class="field--name-field-image-gallery__title title">{{ content.field_image_gallery_title }}</h2>
@@ -63,10 +69,11 @@
             <div class="field--name-field-image-gallery__body body">{{ content.field_image_gallery_body }}</div>
           {% endif %}
         </div>
-        <div class="field--name-field-image-gallery__wrapper d-flex col-lg-12 col-md-12 col-sm-12 row">
+        <ilw-grid theme="{{ theme }}" width="auto">
           {{ content.field_image_gallery_img }}
-        </div>
-    </div>
+        </ilw-grid>
+      </div>
+      </ilw-content>
     {% endblock %}
   </div>
 {% endblock paragraph %}

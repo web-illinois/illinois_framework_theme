@@ -1,0 +1,16 @@
+.paragraph--type--feature-grouped {
+  @media (min-width: 600px) {
+    margin: 1.75rem 0;
+  }
+  ul.ilw-buttons {
+    justify-content: left;
+  }
+  .field--name-field-feature-grouped__image {
+    margin-bottom: 2.8125rem;
+  }
+  .field--name-field-feature-grouped__subtitle {
+    font-size: 1.625rem;
+    line-height: 2rem;
+    margin: 0 1.875rem 1.875rem 0;
+  }
+}

@@ -40,42 +40,41 @@
 #}
 {%
   set classes = [
-    'paragraph',
-    'paragraph--type--' ~ paragraph.bundle|clean_class,
-    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
-    not paragraph.isPublished() ? 'paragraph--unpublished', 'fixed-width',
-    'background--color--white',
-  ]
+  'paragraph',
+  'paragraph--type--' ~ paragraph.bundle|clean_class,
+  view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+  not paragraph.isPublished() ? 'paragraph--unpublished'
+]
 %}
+{{ attach_library('illinois_framework_theme_stable9/paragraph-calendar') }}
 {% block paragraph %}
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
-    {% if content.field_calendar_title['#items'] %}
-    <h2 class="field--name-field-calendar__title title">{{ content.field_calendar_title }}</h2>
-    {% endif %}
-
-    {% if content.field_calendar_type['#items'].0.value == '13' %}
-    <div class="calendar--type--{{ content.field_calendar_type['#items'].0.value }}">
-    <script src='https://files.calendars.illinois.edu/pc/{{ content.field_calendar_id['#items'].0.value }}/20.js'></script>
-
-    {% elseif content.field_calendar_type['#items'].0.value == '3' %}
-    <div class="calendar--type--{{ content.field_calendar_type['#items'].0.value }}">
-    <script src='https://files.calendars.illinois.edu/pc/{{ content.field_calendar_id['#items'].0.value }}/21.js'></script>
-
-    {% else %}
-    <div class="calendar--type--{{ content.field_calendar_type['#items'].0.value }}">
-    <script src='https://files.calendars.illinois.edu/pc/{{ content.field_calendar_id['#items'].0.value }}/{{ content.field_calendar_type['#items'].0.value }}.js'></script>
-
-    {% endif %}
-
-      {% if content.field_calendar_more['#items'] %}
-      <div class="field--name-field-calendar__more ">
-      <a class="il-button" href="https://calendars.illinois.edu/list/{{ content.field_calendar_id['#items'].0.value }}">View all events</a>
-      </div>
+      <ilw-content width="auto">
+      {% if content.field_calendar_title['#items'] %}
+        <h2 class="field--name-field-calendar__title title">{{ content.field_calendar_title }}</h2>
       {% endif %}
 
-    </div>
+      {% set calendar_type = content.field_calendar_type['#items'].0.value %}
+      {% set calendar_id = content.field_calendar_id['#items'].0.value %}
+
+      <div class="calendar--type--{{ calendar_type }}">
+        {% if calendar_type == '13' %}
+          <script src='https://files.calendars.illinois.edu/pc/{{ calendar_id }}/20.js'></script>
+        {% elseif calendar_type == '3' %}
+          <script src='https://files.calendars.illinois.edu/pc/{{ calendar_id }}/21.js'></script>
+        {% else %}
+          <script src='https://files.calendars.illinois.edu/pc/{{ calendar_id }}/{{ calendar_type }}.js'></script>
+        {% endif %}
+
+        {% if content.field_calendar_more['#items'] %}
+          <div class="field--name-field-calendar__more ">
+            <a class="il-button" href="https://calendars.illinois.edu/list/{{ calendar_id }}">View all events</a>
+          </div>
+        {% endif %}
+      </div>
+      </ilw-content>
     {% endblock %}
   </div>
 {% endblock paragraph %}

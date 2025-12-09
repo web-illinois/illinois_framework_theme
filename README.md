@@ -1,6 +1,6 @@
 # Illinois Drupal Framework Theme
 
-**NOTE:** This theme is intended to be used as part of the Illinois Drupal Framework Distribution. Using this theme without the profile and core module is not supported. Instructions on how to set up the Illinois Drupal Framework Distribution within cPanel can be found at https://github.com/web-illinois/illinois_framework_project. 
+**NOTE:** This theme is intended to be used as part of the Illinois Drupal Framework Distribution. Using this theme without the profile and core module is not supported. Instructions on how to set up the Illinois Drupal Framework Distribution within cPanel can be found at https://github.com/web-illinois/illinois_framework_project.
 
 # Customizing your site by creating a sub-theme
 
@@ -13,7 +13,7 @@ If you wish to customize the look and feel of your Illinois Drupal Framework web
 
 ![image](https://user-images.githubusercontent.com/56594946/155361524-e709a6b9-264a-4643-be67-de69fa224041.png)
 
-After generating your sub-theme with Drush, you'll need to modify the regions of your theme to match the Illinois Framework Theme. Replace "MY_THEME" with the machine name of your sub-theme. 
+After generating your sub-theme with Drush, you'll need to modify the regions of your theme to match the Illinois Framework Theme. Replace "MY_THEME" with the machine name of your sub-theme.
 
 * Edit the file `~/illinois_framework/docroot/themes/MY_THEME/MY_THEME.info.yml
 * Replace the `regions:` section of the file with:
@@ -38,11 +38,11 @@ After your sub-theme is created, you'll need to set it as your site's theme. To 
 * Login to your site as an administrator
 * Click "Appearance" in the admin toolbar
 * Scroll down to "Uninstalled Themes"
-* Find your sub-theme and click the "Install and set as default" button 
+* Find your sub-theme and click the "Install and set as default" button
 
 # Contributing to the Illinois Framework Theme
 
-If you encounter any issues with the Illinois Framwork, please feel free to submit an issue to our [issue queue](https://github.com/web-illinois/illinois_framework_theme/issues). 
+If you encounter any issues with the Illinois Framwork, please feel free to submit an issue to our [issue queue](https://github.com/web-illinois/illinois_framework_theme/issues).
 
 The WIGG Drupal group is welcoming contributions from anyone on campus. Please see the [WIGG Drupal webpage](https://webguidelines.web.illinois.edu/subcommittees/drupal/) for more information.
 

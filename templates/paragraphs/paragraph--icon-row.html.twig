@@ -38,32 +38,36 @@
  * @ingroup themeable
  */
 #}
+{% if content.field_icon_row_background['#items'].0.value %}
+  {% set theme = content.field_icon_row_background['#items'].0.value == 'illiniblue'
+    ? 'blue'
+    : content.field_icon_row_background['#items'].0.value == 'gray'
+    ? 'gray'
+    : content.field_icon_row_background['#items'].0.value %}
+{% endif %}
 {%
   set classes = [
-    'paragraph',
-    'paragraph--type--' ~ paragraph.bundle|clean_class,
-    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
-    not paragraph.isPublished() ? 'paragraph--unpublished',
-    'col-lg-12 col-md-12 col-sm-12 p-0 d-flex full-width' ~ flex_row_class ~ max_width,
-    'background--color--' ~ content.field_icon_row_background['#items'].0.value
-  ]
+  'paragraph',
+  'paragraph--type--' ~ paragraph.bundle|clean_class,
+  view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+  not paragraph.isPublished() ? 'paragraph--unpublished'
+]
 %}
+{{ attach_library('illinois_framework_theme_stable9/paragraph-icon-row') }}
 {% block paragraph %}
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
-    <div class="field--name-field-icon-row__wrapper icon-size--{{ content.field_icon_row_icon_size['#items'].0.value }} w-100">
-      <div class="fixed-width">
-        {% if content.field_icon_row_title['#items'] %}
-        <div class="field--name-field-icon-row__item col">
+      {% if content.field_icon_row_title['#items'] %}
+        <ilw-content theme="{{ theme }}" width="auto">
           <h2 class="field--name-field-icon-row__title title">{{ content.field_icon_row_title }}</h2>
-        </div>
-        {% endif %}
-          <div class="flex">
+        </ilw-content>
+      {% endif %}
+      <div class="field--name-field-icon-row-content {{ content.field_icon_row_icon_size['#items'].0.value }}">
+      <ilw-grid theme="{{ theme }}" width="page" padding="3rem 0" innerwidth="200px" gap="40px">
             {{ content.field_icon_row_content }}
-          </div>
+      </ilw-grid>
       </div>
-    </div>
     {% endblock %}
   </div>
 {% endblock paragraph %}

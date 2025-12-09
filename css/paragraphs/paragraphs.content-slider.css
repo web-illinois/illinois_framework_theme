@@ -1,0 +1,42 @@
+.paragraph--type--content-slider{
+  .paragraph--type--content-slider__wrapper{
+    padding: 0 30px;
+  }
+  ilw-content {
+    text-align: center;
+    h2 {
+      &.title{
+        text-align: center;
+        padding-bottom: 1.5rem;
+      }
+    }
+    .subtitle {
+      color: var(--il-alma-mater);
+      font-weight: 600;
+      font-size: 1.75rem;
+      padding-bottom: 1.5rem;
+    }
+  }
+  .paragraph--type--cards__wrapper{
+    width: auto;
+    margin-bottom: 1.875rem;
+  }
+}
+
+ils-contentslider{
+  ilw-card {
+      width: 100%;
+      max-width: 400px;
+      height: 100%;
+      & > h2 {
+        text-align: center;
+      }
+      p {
+        margin-bottom: 1rem !important;
+      }
+  }
+}
+
+.ils-contentslider {
+    padding-bottom: 1rem;
+  }

@@ -43,43 +43,60 @@
 {% else %}
   {% set fingerprint = '' %}
 {% endif %}
+{% if content.field_intro_home_background['#items'].0.value %}
+  {% set theme = content.field_intro_home_background['#items'].0.value == 'illiniblue'
+    ? 'blue'
+    : content.field_intro_home_background['#items'].0.value == 'illiniorange'
+    ? 'orange'
+    : content.field_intro_home_background['#items'].0.value %}
+{% endif %}
+{#  {% set padding = theme in ['gray', 'orange', 'blue'] ? '20px 0 30px 0' : '' %}#}
 {%
   set classes = [
     'paragraph',
     'paragraph--type--' ~ paragraph.bundle|clean_class,
     view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
-    not paragraph.isPublished() ? 'paragraph--unpublished',
-    'col-lg-12 col-md-12 col-sm-12 p-0 d-flex full-width' ~ flex_row_class ~ max_width,
-    'background--color--' ~ content.field_intro_home_background['#items'].0.value,
-     fingerprint
+    not paragraph.isPublished() ? 'paragraph--unpublished'
   ]
 %}
+{{ attach_library('illinois_framework_theme_stable9/paragraph-intro') }}
 {% block paragraph %}
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
-    <div class="field--name-field-intro-home__wrapper my-0 mx-auto">
-      <div class="{{ content.field_intro_home_layout['#items'].0.value }}">
-      {% if content.field_intro_home_text_lg['#items'] %}
-      <div class="field--name-field-intro-home-text-lg body">
-        {{ content.field_intro_home_text_lg }}
-      </div>
-      {% endif %}
-      {% if content.field_intro_home_text_sm['#items'] %}
-      <div class="field--name-field-intro-home-text-sm body">{{ content.field_intro_home_text_sm }}</div>
-      {% endif %}
-      {% set button_number = content.field_intro_home_button['#items']|length %}
-          {% if button_number > 0 %}
-          <div class="field--name-field-intro-home__item">
+      <ilw-content mode="introduction" width="auto" padding="20px 0 30px 0" theme="{{ theme }}" align="{{ content.field_intro_home_layout['#items'].0.value }}">
+        {% if content.field_intro_home_text_lg['#items'] %}
+          <p><em>
+            {{ content.field_intro_home_text_lg }}
+            </em>
+          </p>
+        {% endif %}
+        {% if content.field_intro_home_text_sm['#items'] %}
+            <p>{{ content.field_intro_home_text_sm }}</p>
+        {% endif %}
+        {% set button_number = content.field_intro_home_button['#items']|length %}
+        {% if button_number == 1 %}
             <div class="field--name-field-intro-home__buttons">
-            {% for item in content.field_intro_home_button['#items'] %}
-              <a class="field--name-field-intro-home__button il-button" href="{{ content.field_intro_home_button[loop.index0]['#url'] }}" role="button">{{ content.field_intro_home_button[loop.index0]['#title'] }}</a>
-            {% endfor %}
+              {% for item in content.field_intro_home_button['#items'] %}
+                <a class="ilw-button {% if theme == "blue" %}ilw-theme-blue-2{% endif %}" href="{{ content.field_intro_home_button[loop.index0]['#url'] }}" role="button">{{ content.field_intro_home_button[loop.index0]['#title'] }}</a>
+              {% endfor %}
             </div>
-          </div>
-          {% endif %}
-    </div>
-    </div>
+          {% elseif button_number > 1 %}
+            <div class="field--name-field-intro-home__buttons">
+            <ul class="ilw-buttons {% if theme == "blue" %}ilw-theme-blue-2{% endif %}">
+              {% for item in content.field_intro_home_button['#items'] %}
+                <li>
+                  <a href="{{ content.field_intro_home_button[loop.index0]['#url'] }}" role="button">{{ content.field_intro_home_button[loop.index0]['#title'] }}</a>
+                 </li>
+                {% endfor %}
+              </ul>
+            </div>
+
+          {% else %}
+        {% endif %}
+
+      </ilw-content>
+
     {% endblock %}
   </div>
 {% endblock paragraph %}

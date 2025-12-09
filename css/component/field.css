@@ -1,0 +1,22 @@
+.field--name-field-tags {
+  padding: 25px 25px 75px 50px;
+  font-style: oblique;
+  font-weight: 600;
+  color: var(--il-blue);
+  display: flex;
+  gap: 1rem;
+
+  .field__label{
+    &:after{
+      content: ":";
+    }
+  }
+
+  .field__items {
+    display: flex;
+    gap: 1rem;
+  }
+}
+.field__label {
+  font-weight: bold;
+}

@@ -38,24 +38,51 @@
  * @ingroup themeable
  */
 #}
+{% if content.field_vertical_tab_background['#items'].0.value %}
+  {% set theme = content.field_vertical_tab_background['#items'].0.value == 'il-theme-blue'
+    ? 'blue'
+    : content.field_vertical_tab_background['#items'].0.value == 'il-theme-white'
+    ? 'white'
+    : content.field_vertical_tab_background['#items'].0.value == 'il-theme-gray'
+    ? 'gray' %}
+{% endif %}
 {%
   set classes = [
     'paragraph',
     'paragraph--type--' ~ paragraph.bundle|clean_class,
     view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
-    not paragraph.isPublished() ? 'paragraph--unpublished',
-    'col-lg-12 col-md-12 col-sm-12 full-width il-formatted' ~ flex_row_class ~ max_width
+    not paragraph.isPublished() ? 'paragraph--unpublished'
   ]
 %}
+{{ attach_library('illinois_framework_theme_stable9/paragraph-vertical-tabs') }}
 {% block paragraph %}
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
-    <il-vertical-tab class="{{ content.field_vertical_tab_background['#items'].0.value }}">
-      <h2 slot="title">{{ content.field_vertical_tab_title }}</h2>
-      {{ content.field_vertical_tab }}
-    </il-vertical-tab>
+      <ilw-content width="auto" theme="{{ theme }}">
+        <h2>{{ content.field_vertical_tab_title }}</h2>
+      </ilw-content>
 
+      <ilw-tabs width="auto" theme="{{ theme }}">
+        {% for item in content.field_vertical_tab['#items'] %}
+          {% set title = content.field_vertical_tab[loop.index0]['#paragraph'].field_vertical_tab_panel_title.value %}
+          {% set body = content.field_vertical_tab[loop.index0]['#paragraph'].field_vertical_tab_panel_body.value %}
+
+          <div slot="tabs">
+            <button role="tab" aria-controls="panel-{{ loop.index }}">
+              {{ title }}
+            </button>
+          </div>
+
+          <div id="panel-{{ loop.index }}">
+            <h3>{{ title }}</h3>
+            <p class="field--name-field-vertical-tab-panel__body">
+              {{ body }}
+            </p>
+          </div>
+        {% endfor %}
+      </ilw-tabs>
     {% endblock %}
   </div>
+
 {% endblock paragraph %}

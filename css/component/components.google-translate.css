@@ -1,0 +1,10 @@
+#google_translate_element {
+  padding: 20px 0 0 0;
+
+  img {
+    display: inline;
+  }
+  a {
+    color: black !important;
+  }
+}

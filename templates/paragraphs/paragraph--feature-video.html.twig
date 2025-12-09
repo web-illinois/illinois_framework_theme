@@ -38,24 +38,33 @@
  * @ingroup themeable
  */
 #}
-{% if content.field_feature_video_vid_align['#items'].0.value == 'left' %}
-  {% set flex_row_class = 'flex-row' %}
-{% else %}
-  {% set flex_row_class = 'flex-row-reverse' %}
-{% endif %}
+{% set reverse_attr = content.field_feature_video_vid_align['#items'].0.value == 'right' ? 'reverse="true"' : '' %}
 {% if content.field_feature_video_vid_width ['#items'].0.value == 'fixed' %}
   {% set max_width = ' fixed-width' %}
 {% else %}
   {% set max_width = ' full-width' %}
 {% endif %}
-
+{% if content.field_feature_video_background['#items'].0.value %}
+  {% set theme = content.field_feature_video_background['#items'].0.value == 'illiniblue'
+    ? 'blue'
+    : content.field_feature_video_background['#items'].0.value == 'illiniorange'
+    ? 'orange'
+    : content.field_feature_video_background['#items'].0.value == 'bluegradient'
+    ? 'blue-gradient'
+    : content.field_feature_video_background['#items'].0.value == 'orangegradient'
+    ? 'orange-gradient'
+    : content.field_feature_video_background['#items'].0.value == 'white'
+    ? 'white'
+    : content.field_feature_video_background['#items'].0.value == 'gray'
+    ? 'gray' %}
+{% endif %}
 {%
   set classes = [
   'paragraph',
   'paragraph--type--' ~ paragraph.bundle|clean_class,
   view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
   not paragraph.isPublished() ? 'paragraph--unpublished',
-  'col-lg-12 col-md-12 col-sm-12 d-flex ' ~ flex_row_class ~ max_width,
+  max_width,
 ]
 %}
 {#{{ kint(content) }}#}
@@ -63,12 +72,10 @@
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
-      <div class="field--name-field-feature-video__video__wrapper col-lg-6 col-md-6 col-sm-12 p-0">
+      <ilw-columns theme="{{ theme }}" padding="0" {{ reverse_attr }}>
         <div class="field--name-field-feature-video__video">{{ content.field_feature_video_video }}</div>
-      </div>
-      <div class="col-lg-6 col-md-6 col-sm p-0">
-        <div class="field--name-field-feature-video__content__wrapper content__wrapper background--color--{{ content.field_feature_video_background['#items'].0.value }}">
-          {% if content.field_feature_video_subtitle['#items'] %}
+        <ilw-content transparent="true" mode="inset">
+        {% if content.field_feature_video_subtitle['#items'] %}
             <div class="field--name-field-feature-video__subtitle subtitle">{{ content.field_feature_video_subtitle }}</div>
           {% endif %}
           {% if content.field_feature_video_title['#items'] %}
@@ -85,14 +92,14 @@
           {% endif %}
           {% set button_number = content.field_feature_video_button['#items']|length %}
           {% if button_number > 0 %}
-            <div class="field--name-field-feature-video__buttons">
-              {% for item in content.field_feature_video_button['#items'] %}
-                <a class="field--name-field-feature-video__button il-button" href="{{ content.field_feature_video_button[loop.index0]['#url'] }}" role="button">{{ content.field_feature_video_button[loop.index0]['#title'] }}</a>
-              {% endfor %}
-            </div>
+              <ul class="ilw-buttons{{ theme == 'orange-gradient' ? ' ilw-theme-orange-2' }}">{# temp fix until orange-gradient is added to toolkit #}
+                {% for item in content.field_feature_video_button['#items'] %}
+                  <li><a href="{{ content.field_feature_video_button[loop.index0]['#url'] }}">{{ content.field_feature_video_button[loop.index0]['#title'] }}</a></li>
+                {% endfor %}
+              </ul>
           {% endif %}
-        </div>
-      </div>
+        </ilw-content>
+      </ilw-columns>
     {% endblock %}
   </div>
 {% endblock paragraph %}

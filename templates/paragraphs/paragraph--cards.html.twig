@@ -43,67 +43,66 @@
 {% else %}
   {% set background_color = 'blue' %}
 {% endif %}
+{% set cards_count = content.field_cards_content['#items']|length %}
 
 {%
   set classes = [
-    'paragraph',
-    'il-formatted',
-    'paragraph--type--' ~ paragraph.bundle|clean_class,
-    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
-    not paragraph.isPublished() ? 'paragraph--unpublished',
-    'col-lg-12 col-md-12 col-sm-12 fixed-width' ~ flex_row_class ~ max_width
-  ]
+  'paragraph',
+  'paragraph--type--' ~ paragraph.bundle|clean_class,
+  view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+  not paragraph.isPublished() ? 'paragraph--unpublished'
+]
 %}
+{{ attach_library('illinois_framework_theme_stable9/paragraph-card') }}
+
 {% block paragraph %}
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
-    <div class="p-0 card--color--{{ content.field_cards_background['#items'].0.value }}">
-      <div class="field--name-field-cards-text__wrapper {{ content.field_cards_layout['#items'].0.value }}">
-        {% if content.field_cards_title.0 %}
-          <h2 class="field--name-field-cards__title title">{{ content.field_cards_title }}</h2>
-        {% endif %}
-        {% if content.field_cards_subtitle.0 %}
-          <div class="field--name-field-cards__subtitle subtitle">{{ content.field_cards_subtitle }}</div>
-        {% endif %}
-      </div>
-
-      <div class="row d-flex paragraph--type--cards--row__wrapper">
-        {% for item in content.field_cards_content['#items'] %}
-        {% set image = content.field_cards_content[loop.index0]['#paragraph'].field_cards_content_image.entity.fileuri %}
-          {% if image is not empty %}
-            {% set image = image|image_style('cards_image') %}
+          {% if content.field_cards_title.0 %}
+            <ilw-content width="page" align="center">
+            <h2 class="field--name-field-cards__title title">{{ content.field_cards_title }}</h2>
+            </ilw-content>
           {% endif %}
-        {% set image_alt = content.field_cards_content[loop.index0]['#paragraph'].field_cards_content_image.alt %}
-        {% set title = content.field_cards_content[loop.index0]['#paragraph'].field_cards_content_title.value %}
-        {% set body = content.field_cards_content[loop.index0]['#paragraph'].field_cards_content_body.value %}
-        {% set link = content.field_cards_content[loop.index0]['#paragraph'].field_cards_content_button[0] | view %}
-        {% set background = content.field_cards_background[loop.index0]['#paragraph'].field_cards_background.value %}
-        <div class="col-lg-4 col-md-6 col-sm-12 d-flex paragraph--type--cards__wrapper">
+          {% if content.field_cards_subtitle.0 %}
+            <ilw-content width="page">
+            <div class="field--name-field-cards__subtitle subtitle">{{ content.field_cards_subtitle }}</div>
+            </ilw-content>
+          {% endif %}
+      <ilw-grid width="page" theme="{{ content.field_cards_background['#items'].0.value }}" gap="20px">
 
-          <ilw-card theme="{{ background_color }}" align="center">
-            {% if image %}
-            <img src="{{ base_path_http ~ file_url(image) }}" alt="{{ image_alt }}" slot="image" />
+          {% for item in content.field_cards_content['#items'] %}
+            {% set image = content.field_cards_content[loop.index0]['#paragraph'].field_cards_content_image.entity.fileuri %}
+            {% if image is not empty %}
+              {% set image = image|image_style('cards_image') %}
             {% endif %}
+            {% set image_alt = content.field_cards_content[loop.index0]['#paragraph'].field_cards_content_image.alt %}
+            {% set title = content.field_cards_content[loop.index0]['#paragraph'].field_cards_content_title.value %}
+            {% set body = content.field_cards_content[loop.index0]['#paragraph'].field_cards_content_body.value %}
+            {% set link = content.field_cards_content[loop.index0]['#paragraph'].field_cards_content_button[0] | view %}
+            {% set background = content.field_cards_background[loop.index0]['#paragraph'].field_cards_background.value %}
 
-            {% if title %}
-            <h2>{{ title }}</h2>
-            {% endif %}
-            {% if body %}
-            <p class="body">{{ body }}</p>
-            {% endif %}
-            {% if link is not empty %}
-            <div slot="footer">
-            <p class="il-buttons"><a class="ilw-button" href="{{ link['#url'] | render }}">{{ link['#title'] | render }}</a></p>
-            </div>
-            {% endif %}
+              <ilw-card theme="{{ background_color }}" align="center">
+                {% if image %}
+                  <img src="{{ base_path_http ~ file_url(image) }}" alt="{{ image_alt }}" slot="image" />
+                {% endif %}
+                {% if title %}
+                  <h3>{{ title }}</h3>
+                {% endif %}
+                {% if body %}
+                  <p>{{ body }}</p>
+                {% endif %}
+                {% if link is not empty %}
+                  <div slot="footer">
+                    <p><a class="ilw-button" href="{{ link['#url'] | render }}">{{ link['#title'] | render }}</a></p>
+                  </div>
+                {% endif %}
 
-          </ilw-card>
+              </ilw-card>
 
-        </div>
-        {% endfor %}
-      </div>
-    </div>
+          {% endfor %}
+    </ilw-grid>
     {% endblock %}
   </div>
 {% endblock paragraph %}
+

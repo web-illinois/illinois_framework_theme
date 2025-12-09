@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Default theme implementation for the basic structure of a single Drupal page.
+ * Theme override for the basic structure of a single Drupal page.
  *
  * Variables:
  * - logged_in: A flag indicating if user is logged in.
@@ -19,52 +19,51 @@
  * - db_offline: A flag indicating if the database is offline.
  * - placeholder_token: The token for generating head, css, js and js-bottom
  *   placeholders.
- * - base_path_success: pulls the root path and theme path for the base url
  *
  * @see template_preprocess_html()
- *
- * @ingroup themeable
  */
 #}
-
 <!DOCTYPE html>
 <html{{ html_attributes }}>
   <head>
     <head-placeholder token="{{ placeholder_token }}">
-    <link rel="dns-prefetch" href="//cdn.brand.illinois.edu">
-    <link rel="dns-prefetch" href="//cdn.toolkit.illinois.edu">
-    <link rel="dns-prefetch" href="//cdn.disability.illinois.edu">
-    <link rel="dns-prefetch" href="//onetrust.techservices.illinois.edu">
-    {#
+      <link rel="dns-prefetch" href="//cdn.brand.illinois.edu">
+      <link rel="dns-prefetch" href="//cdn.toolkit.illinois.edu">
+      <link rel="dns-prefetch" href="//cdn.disability.illinois.edu">
+      <link rel="dns-prefetch" href="//onetrust.techservices.illinois.edu">
+      {#
       UIUC Cookie banner: needs to be placed before any other
       script tags to function. Won't be included if running on
       a localhost development environment.
-    #}
-    {%- set site_url = url("<current>") -%}
-    {% if 'localhost' not in site_url|render|render -%}
-      <script src="https://onetrust.techservices.illinois.edu/scripttemplates/otSDKStub.js"  type="text/javascript" charset="UTF-8" data-domain-script="26be7d61-2017-4ea7-8a8b-8f1704889763"></script>
-      <script type="text/javascript">function OptanonWrapper() { }</script>
-    {%- endif %}
-    <title>{{ head_title|safe_join(' | ') }} | Illinois</title>
+      #}
+      {%- set site_url = url("<current>") -%}
+      {% if 'ddev' not in site_url|render|render -%}
+        <script src="https://onetrust.techservices.illinois.edu/scripttemplates/otSDKStub.js"  type="text/javascript" charset="UTF-8" data-domain-script="26be7d61-2017-4ea7-8a8b-8f1704889763"></script>
+        <script type="text/javascript">function OptanonWrapper() { }</script>
+      {%- endif %}
+      <title>{{ head_title|safe_join(' | ') }} | Illinois</title>
     <css-placeholder token="{{ placeholder_token }}">
     <js-placeholder token="{{ placeholder_token }}">
   </head>
   {%
-  set classes = [
+    set classes = [
     logged_in ? 'logged-in' : 'logged-out'
   ]
   %}
-  <body{{ attributes.addClass(classes) }}>
+  <body{{ attributes }}>
     {#
       Keyboard navigation/accessibility link to main content section in
       page.html.twig.
     #}
-    <div class="visually-hidden-focusable skip-link p-3 container">
-      <a href="#main-content" class="p-2">{{ 'Skip to main content'|t }}</a>
+    <div>
+      <a href="#main-content" class="visually-hidden focusable">
+        {{ 'Skip to main content'|t }}
+      </a>
     </div>
     {{ page_top }}
     {{ page }}
     {{ page_bottom }}
+    <ilw-back-to-top></ilw-back-to-top>
     <js-bottom-placeholder token="{{ placeholder_token }}">
   </body>
 </html>

@@ -43,13 +43,32 @@
 {% else %}
   {% set max_width = 'full-width' %}
 {% endif %}
+{% if content.field_feature_boxed_background['#items'].0.value %}
+  {% set theme = content.field_feature_boxed_background['#items'].0.value == 'illiniblue'
+    ? 'blue'
+    : content.field_feature_boxed_background['#items'].0.value == 'illiniorange'
+    ? 'orange'
+    : content.field_feature_boxed_background['#items'].0.value == 'bluegradient'
+    ? 'blue-gradient'
+    : content.field_feature_boxed_background['#items'].0.value == 'orangegradient'
+    ? 'orange-gradient'
+    : content.field_feature_boxed_background['#items'].0.value == 'gray'
+    ? 'gray'
+    : content.field_feature_boxed_background['#items'].0.value %}
+{% endif %}
+{% if content.field_feature_boxed_align['#items'].0.value == 'right' %}
+  {% set align = 'right' %}
+{% else %}
+  {% set align = '' %}
+{% endif %}
+
 {%
   set classes = [
   'paragraph',
   'paragraph--type--' ~ paragraph.bundle|clean_class,
   view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
   not paragraph.isPublished() ? 'paragraph--unpublished',
-  'col-lg-12 col-md-12 col-sm-12 d-flex ' ~ max_width
+  max_width
 ]
 %}
 {#{{ kint(content) }}#}
@@ -57,28 +76,31 @@
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
-      <div class="col-lg-12 col-md-12 col-sm-12 p-0">
-          <div class="field--name-field-feature-boxed__image" style="background-image: url('{{ base_path_http ~ file_url(content.field_feature_boxed_img['#items'].entity.uri.value) }}')" alt="{{ content.field_feature_boxed_img.0['#item'].alt}}"></div>
-          <div class="col-lg-4 offset-lg-1 col-md-12 col-sm-12 field--name-field-feature-boxed__content__wrapper content__wrapper {{ content.field_feature_boxed_align['#items'].0.value }} background--color--{{ content.field_feature_boxed_background['#items'].0.value }}">
+      <div class="feature-box">
+        <div class="ilw-image-cover">
+          <img src="{{ base_path_http ~ file_url(content.field_feature_boxed_img['#items'].entity.uri.value) }}" alt="{{ content.field_feature_boxed_img['#items'].entity.alt }}" />
+        </div>
+        <ilw-card theme="{{ theme }}" class="{{ align }}">
           {% if content.field_feature_boxed_subtitle['#items'] %}
             <div class="field--name-field-feature-boxed__subtitle subtitle">{{ content.field_feature_boxed_subtitle }}</div>
           {% endif %}
           {% if content.field_feature_boxed_title['#items'] %}
-            <h2 class="field--name-field-feature-boxed__title title il-formatted">{{ content.field_feature_boxed_title }}</h2>
+            <h2>{{ content.field_feature_boxed_title }}</h2>
           {% endif %}
           {% if content.field_feature_boxed_body['#items'] %}
-            <div class="field--name-field-feature-boxed__body body il-formatted">{{ content.field_feature_boxed_body }}</div>
+            <div class="">{{ content.field_feature_boxed_body }}</div>
           {% endif %}
           {% set button_number = content.field_feature_boxed_button['#items']|length %}
           {% if button_number > 0 %}
-            <div class="field--name-field-feature-boxed__buttons">
-              {% for item in content.field_feature_boxed_button['#items'] %}
-                <a class="field--name-field-feature-boxed__button il-button" href="{{ content.field_feature_boxed_button[loop.index0]['#url'] }}" role="button">{{ content.field_feature_boxed_button[loop.index0]['#title'] }}</a>
+          <ul class="ilw-buttons{{ theme == 'orange-gradient' ? ' ilw-theme-orange-2' }}">{# temp fix until orange-gradient is added to toolkit #}
+            {% for item in content.field_feature_boxed_button['#items'] %}
+                <li><a href="{{ content.field_feature_boxed_button[loop.index0]['#url'] }}">{{ content.field_feature_boxed_button[loop.index0]['#title'] }}</a></li>
               {% endfor %}
-            </div>
+          </ul>
           {% endif %}
-        </div>
+        </ilw-card>
       </div>
+
     {% endblock %}
   </div>
 {% endblock paragraph %}
