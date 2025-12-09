@@ -238,6 +238,9 @@ article.news {
   &.fixed-width {
     padding: 0;
   }
+  &-content {
+    flex: 1;
+  }
   .item-list {
     width: auto;
     ul {
