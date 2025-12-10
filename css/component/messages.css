@@ -1,0 +1,30 @@
+.messages {
+  --msg-bg: #f1f1f1;
+  --msg-border: #ccc;
+  --msg-text: #222;
+
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  border-radius: 0.25rem;
+  border: 1px solid var(--msg-border);
+  background-color: var(--msg-bg);
+  color: var(--msg-text);
+}
+
+.messages--status {
+  --msg-bg: #e6f4ea;
+  --msg-border: #34a853;
+  --msg-text: #155724;
+}
+
+.messages--warning {
+  --msg-bg: #fff4e5;
+  --msg-border: #fbbc05;
+  --msg-text: #7c4a03;
+}
+
+.messages--error {
+  --msg-bg: #fdecea;
+  --msg-border: #ea4335;
+  --msg-text: #7f1d1d;
+}

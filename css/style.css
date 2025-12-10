@@ -13,6 +13,7 @@
 @import "component/components.google-translate.css";
 @import "component/menu.css";
 @import "component/field.css";
+@import "component/messages.css";
 @import "paragraphs/paragraphs.accordion.css";
 @import "paragraphs/paragraphs.cards.css";
 @import "paragraphs/paragraphs.list.css";

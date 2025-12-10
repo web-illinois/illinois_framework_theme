@@ -9,9 +9,7 @@ global:
       type: external
       attributes:
         async: true
-    js/search.js: { }
-    js/side-nav-title-append.js: { }
-    js/paragraph-whitespace.js: { }
+    #js/side-nav-title-append.js: { }
   dependencies:
     - core/jquery
   css:
@@ -20,23 +18,6 @@ global:
       fonts/font-awesome-4.7.0/css/font-awesome.css: { }
       fonts/font-awesome-4.7.0/css/illinois-icons.css: { }
       css/theme/print.css: { media: print }
-    base:
-      css/base/elements.css: {}
-    component:
-      css/component/block.css: {}
-      css/component/breadcrumb.css: {}
-      css/component/field.css: {}
-      css/component/form.css: {}
-      css/component/header.css: {}
-      css/component/menu.css: {}
-      css/component/messages.css: {}
-      css/component/node.css: {}
-      css/component/sidebar.css: {}
-      css/component/table.css: {}
-      css/component/tabs.css: {}
-      css/component/buttons.css: {}
-    layout:
-      css/layout/layout.css: {}
 web-components:
   header: true
   css:
@@ -62,14 +43,6 @@ ils-contentslider:
     https://contrib.webtheme.illinois.edu/ils-contentslider/contentslider.min.js:
       type: external
       minified: true
-content-adjust:
-  js:
-    js/content.js: {}
-paragraph--hero--section:
-  js:
-    js/paragraph--hero--section.js: {}
-  dependencies:
-    - core/jquery
 google-cse:
   js:
     js/google-cse.js: { attributes: { async: true } }
