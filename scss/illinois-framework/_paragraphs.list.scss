@@ -35,8 +35,7 @@
       &.left {
 
         .field--name-field-list-content-img__wrapper {
-
-          margin-right: rem(30px);
+          padding: 0 30px;
           @include media-breakpoint-down(sm) {
             margin-right: 0;
             margin-bottom: rem(30px);
@@ -112,7 +111,6 @@
       .field__item {
         &:nth-of-type(even) {
           background: #f4f4f4;
-          padding: 0 30px;
         }
       }
     }
