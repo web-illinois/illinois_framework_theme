@@ -26,3 +26,12 @@
     padding: rem(10px) var(--il-content-margin);
   }
 }
+
+//adds formatting to custom content types
+.custom-content-page {
+  article {
+  .field--name-body {
+     padding: 0 !important;
+  }
+  }
+}
