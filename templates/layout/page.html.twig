@@ -44,63 +44,25 @@
 * @ingroup themeable
 */
 #}
-
-{%
-  set mainClasses = [
-    'region',
-    'region-content',
-    'l-region',
-    'l-region--content'
-  ]
-%}
-{% set url = url('<current>') %}
-{% if node.field_sidebar.0.value == "sidebar" %}
-{%
-  set mainClasses = mainClasses|merge([
-    'has-sidebar'
-  ])
-%}
-{% endif %}
-
+{{ attach_library('illinois_framework_theme/content-adjust') }}
 <div class="layout-container">
   {{ page.header }}
   {{ page.breadcrumb }}
   {{ page.highlighted }}
   {{ page.help }}
   {{ page.tabs }}
-
-  {# look for url #}
-  {% set url = url('<current>') %}
-
-  <main{{ attributes.addClass(mainClasses) }} id="main-content" tabindex="-1" role="main">
-  {# if a side navigation exists and /'latest' is not in the url then spoof the content region #}
-  {% if node.field_sidebar.0.value == "sidebar" and '/latest' not in url|render|render %}
-    <div class="il-content-with-section-nav">
-      {{ page.sidebar_first }}
-      {{ page.sidebar_second }}
-      <div class="il-content">
-        {% if node.body %}
-          {{ drupal_field('body','node', node.id ) }}
-        {% endif %}
-        {% set paragraph_number = node.field_sidebar_paragraphs.0.value %}
-        {% set paragraph_count = node.fields.field_paragraph|length %}
-        {% for item in node.fields.field_paragraph %}
-          {% if loop.index0 < paragraph_number %}
-            {{ drupal_entity('paragraph', item.target_id) }}
-          {% endif %}
-        {% endfor %}
+  <main id="main-content" tabindex="-1" class="region region-content l-region l-region--content" role="main">
+    {% if page.sidebar_first|render|trim is not empty or page.sidebar_second|render|trim is not empty %}
+      <div class="il-content-with-section-nav">
+        {{ page.sidebar_first }}
+        {{ page.sidebar_second }}
+    {% else %}
+      <div class="il-content-without-section-nav">
+    {% endif %}
+        <div class="il-content">
+          {{ page.content }}
+        </div>
       </div>
-    </div>
-    {% for item in node.fields.field_paragraph %}
-      {% if loop.index0 >= paragraph_number %}
-        {{ drupal_entity('paragraph', item.target_id) }}
-      {% endif %}
-    {% endfor %}
-    {{ attach_library('illinois_framework_theme/content-adjust') }}
-  {# if a there is no sidebar #}
-  {% else %}
-    {{ page.content }}
-  {% endif %}
   </main>
   {{ page.footer }}
 </div>{# /.layout-container #}
