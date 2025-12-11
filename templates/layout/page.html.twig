@@ -44,6 +44,15 @@
 * @ingroup themeable
 */
 #}
+
+{# Define the content types to EXCLUDE #}
+{% set excluded_types = ['content_page', 'news', 'spotlight', 'blog'] %}
+
+{# Check if the 'node' variable exists AND if its bundle (content type) is NOT one of the excluded types #}
+{% if node and node.bundle not in excluded_types %}
+  {% set mainClasses = 'custom-content-page' %}
+{% endif %}
+
 {{ attach_library('illinois_framework_theme/content-adjust') }}
 <div class="layout-container">
   {{ page.header }}
@@ -51,7 +60,7 @@
   {{ page.highlighted }}
   {{ page.help }}
   {{ page.tabs }}
-  <main id="main-content" tabindex="-1" class="region region-content l-region l-region--content" role="main">
+  <main id="main-content" tabindex="-1" class="region region-content l-region l-region--content {{ mainClasses }}" role="main">
     {% if page.sidebar_first|render|trim is not empty or page.sidebar_second|render|trim is not empty %}
       <div class="il-content-with-section-nav">
         {{ page.sidebar_first }}
