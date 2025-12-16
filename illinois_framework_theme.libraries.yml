@@ -1,9 +1,4 @@
-global-styling:
-  css:
-    theme:
-      fonts/font-awesome-4.7.0/css/font-awesome.css: {}
-      fonts/font-awesome-4.7.0/css/illinois-icons.css: {}
-      scss/style.scss: { }
+global:
   js:
     https://emergency.publicaffairs.illinois.edu/illinois.js:
       type: external
@@ -13,23 +8,15 @@ global-styling:
       type: external
       attributes:
         async: true
-    js/search.js: {}
-    js/side-nav-title-append.js: {}
-    js/paragraph-whitespace.js: {}
   dependencies:
     - core/jquery
-web-components:
-  header: true
   css:
     theme:
-      https://cdn.toolkit.illinois.edu/2.16/toolkit.css:
-        type: external
-        minified: true
-  js:
-    https://cdn.toolkit.illinois.edu/2.16/toolkit.js:
-      type: external
-      minified: true
-toolkit-3:
+      css/style.css: {}
+      fonts/font-awesome-4.7.0/css/font-awesome.css: { }
+      fonts/font-awesome-4.7.0/css/illinois-icons.css: { }
+      css/theme/print.css: { media: print }
+web-components:
   header: true
   css:
     theme:
@@ -54,17 +41,59 @@ ils-contentslider:
     https://contrib.webtheme.illinois.edu/ils-contentslider/contentslider.min.js:
       type: external
       minified: true
-content-adjust:
-  js:
-    js/content.js: {}
-paragraph--hero--section:
-  js:
-    js/paragraph--hero--section.js: {}
-  dependencies:
-    - core/jquery
 google-cse:
   js:
     js/google-cse.js: { attributes: { async: true } }
   dependencies:
     - core/jquery
     - core/drupalSettings
+ils-forms:
+  css:
+    theme:
+      https://contrib.webtheme.illinois.edu/ils-input/input3.min.css:
+        type: external
+        minified: true
+  js:
+    https://contrib.webtheme.illinois.edu/ils-input/input3.min.js:
+      type: external
+      minified: true
+paragraph-rt:
+  js:
+    js/paragraph-rt.js: {}
+  dependencies:
+    - core/jquery
+paragraph-list-content:
+  js:
+      js/paragraph-list-content.js: {}
+  dependencies:
+    - core/jquery
+paragraph-contact:
+  js:
+    js/paragraph-contact.js: {}
+paragraph-intro:
+  js:
+    js/paragraph-intro-home.js: {}
+paragraph-bb:
+  js:
+    js/paragraph-bb.js: {}
+paragraph-card:
+  js:
+    js/paragraph-card.js: {}
+paragraph-cta-narrow:
+  js:
+    js/paragraph-cta-narrow.js: {}
+paragraph-feature-group:
+  js:
+    js/paragraph-feature-group.js: {}
+paragraph-icon-row:
+  js:
+    js/paragraph-icon-row.js: {}
+paragraph-image-gallery:
+  js:
+    js/paragraph-image-gallery.js: {}
+paragraph-vertical-tabs:
+  js:
+    js/paragraph-vertical-tab.js: {}
+paragraph-calendar:
+  js:
+    js/paragraph-calendar.js: {}

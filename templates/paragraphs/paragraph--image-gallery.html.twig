@@ -51,7 +51,7 @@
   not paragraph.isPublished() ? 'paragraph--unpublished', 'full-width'
 ]
 %}
-{{ attach_library('illinois_framework_theme_stable9/paragraph-image-gallery') }}
+{{ attach_library('illinois_framework_theme/paragraph-image-gallery') }}
 {% block paragraph %}
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>

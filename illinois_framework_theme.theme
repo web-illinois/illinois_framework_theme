@@ -1,9 +1,13 @@
 <?php
+
+declare(strict_types=1);
+
 use Drupal\Core\Url;
 use Drupal\block\Entity\Block;
 use Drupal\Core\Site\Settings;
 use Drupal\Core\Template\Attribute;
 use Drupal\paragraphs\ParagraphInterface;
+
 /**
  * Implements hook_preprocess().
  */
@@ -125,21 +129,7 @@ function illinois_framework_theme_preprocess(&$variables) {
 }
 
 function illinois_framework_theme_theme_suggestions_page_alter(&$suggestions, $vars, $hook) {
-  $current_uri = \Drupal::request()->getRequestUri();
-
-  $args = explode('?', $current_uri);
-  $args = explode('/', ltrim($args[0], '/'));
-  $cumulative = 'page';
-
-  // Check for a template for each component of the path up to the full thing
-  foreach ($args as $arg) {
-    $arg = str_replace(array("/", "\\", "\0", '-'), array('', '', '', '_'), $arg);
-    $cumulative .= '__' . $arg;
-    $suggestions[] = $cumulative;
-  }
-  /**
-   * error page template suggestions.
-   */
+  // error page template suggestions.
   if (!is_null(Drupal::requestStack()->getCurrentRequest()->attributes->get('exception'))) {
     $status_code = Drupal::requestStack()->getCurrentRequest()->attributes->get('exception')->getStatusCode();
     $suggestions[] = 'page__' . (string) $status_code;
@@ -150,24 +140,6 @@ function illinois_framework_theme_theme_suggestions_page_alter(&$suggestions, $v
 	$suggestions[] = 'page__' . $node->bundle();
   }
 
-}
-
-/**
- * callback action on submit (custom method plus bas)
- *
- * @param $form
- * @param \Drupal\Core\Form\FormStateInterface $form_state
- * @param $form_id
- */
-use \Drupal\Core\Form\FormStateInterface;
-function illinois_framework_theme_form_user_login_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-
-  $form['actions']['submit'] = [
-    '#type' => 'submit',
-    '#value' => t('Log in'),
-    '#attributes' => array('class' => array('btn--login')),
-  ];
-  $form['simplesamlphp_auth_login_link']['#attributes']['class'] = 'btn btn-primary text-decoration-none';
 }
 
 /**
@@ -197,49 +169,379 @@ function illinois_framework_theme_theme_suggestions_menu_alter(&$suggestions, ar
 }
 
 /**
+ * Implements hook_preprocess_HOOK() for page.html.twig.
+ *
+ * this provides the number of paragraphs next to the sidebar for the 'content_page' content type.
+ * It also rearranges the blocks and paragraphs based on whether sidebar mode is enabled.
+ *
+ */
+function illinois_framework_theme_preprocess_page(array &$variables): void {
+
+  // Only continue if this is a content page node.
+  if (!isset($variables['node']) || $variables['node']->getType() !== 'content_page') {
+    return;
+  }
+
+  $node = $variables['node'];
+
+  // Check if sidebar mode is enabled.
+  $has_sidebar = $node->hasField('field_sidebar') &&
+    !$node->get('field_sidebar')->isEmpty() &&
+    $node->get('field_sidebar')->value === 'sidebar';
+
+  // Extract blocks from page.content and remove the node (do this for BOTH cases).
+  $content_blocks = isset($variables['page']['content']) ? $variables['page']['content'] : [];
+  $preserved_blocks = [];
+
+  foreach ($content_blocks as $key => $block) {
+    // Skip render metadata keys.
+    if (strpos($key, '#') === 0) {
+      continue;
+    }
+
+    // Skip the node content block - it's typically named with 'content' in the key.
+    // Common patterns: 'content', '{theme}_content', 'system_main'
+    if (strpos($key, '_content') !== false || $key === 'content' || $key === 'system_main') {
+      unset($variables['page']['content'][$key]);
+      continue;
+    }
+
+    // Also check for node entity type.
+    if (isset($block['#node']) || (isset($block['#entity_type']) && $block['#entity_type'] === 'node')) {
+      unset($variables['page']['content'][$key]);
+      continue;
+    }
+
+    $preserved_blocks[$key] = $block;
+    // Also remove from original content region.
+    unset($variables['page']['content'][$key]);
+  }
+
+  // Render the node body if it exists (respecting display settings).
+  $body_render = [];
+  if ($node->hasField('body') && !$node->get('body')->isEmpty()) {
+    // Load the display settings for the 'default' view mode.
+    $view_display = \Drupal::entityTypeManager()
+      ->getStorage('entity_view_display')
+      ->load('node.content_page.default');
+
+    if ($view_display && $view_display->getRenderer('body')) {
+      // Build render array using those display settings.
+      $body_render = $view_display->getRenderer('body')->view($node->get('body'), ['label' => 'hidden']);
+    }
+  }
+
+  if (!$has_sidebar) {
+    // No sidebar case
+    // For no sidebar, render blocks and paragraphs in page.content.
+    $paragraphs = [];
+    if ($node->hasField('field_paragraph')) {
+      foreach ($node->get('field_paragraph')->referencedEntities() as $paragraph) {
+        $paragraphs[] = $paragraph;
+      }
+    }
+
+    // Add preserved blocks back to page.content with their original weights.
+    foreach ($preserved_blocks as $key => $block) {
+      $variables['page']['content'][$key] = $block;
+      // Keep the block's original weight from Block UI
+    }
+
+    // Add body with a special flag so template knows to wrap it.
+    if (!empty($body_render)) {
+      $variables['page']['content']['body'] = $body_render;
+      $variables['page']['content']['body']['#weight'] = 0;
+      $variables['page']['content']['body']['#needs_page_width'] = TRUE;
+    }
+
+    // Add paragraphs with high weights to ensure they come after body.
+    $paragraph_view_builder = \Drupal::entityTypeManager()->getViewBuilder('paragraph');
+    $para_weight = 100;
+    foreach ($paragraphs as $i => $para) {
+      $variables['page']['content']['paragraph_' . $i] = $paragraph_view_builder->view($para, 'default');
+      $variables['page']['content']['paragraph_' . $i]['#weight'] = $para_weight++;
+    }
+
+    return;
+  }
+
+  // Get the number of paragraphs to display next to the sidebar.
+  $paragraph_number = 0;
+  if ($node->hasField('field_sidebar_paragraphs') && !$node->get('field_sidebar_paragraphs')->isEmpty()) {
+    $paragraph_number = (int) $node->get('field_sidebar_paragraphs')->value;
+  }
+
+  // Gather all referenced paragraphs.
+  $paragraphs = [];
+  if ($node->hasField('field_paragraph')) {
+    foreach ($node->get('field_paragraph')->referencedEntities() as $paragraph) {
+      $paragraphs[] = $paragraph;
+    }
+  }
+
+  // Split paragraphs into two groups.
+  $sidebar_paragraphs = array_slice($paragraphs, 0, $paragraph_number);
+  $full_paragraphs = array_slice($paragraphs, $paragraph_number);
+
+  $paragraph_view_builder = \Drupal::entityTypeManager()->getViewBuilder('paragraph');
+
+  // Render the sidebar paragraphs.
+  $render_sidebar = [];
+  foreach ($sidebar_paragraphs as $p) {
+    $render_sidebar[] = $paragraph_view_builder->view($p, 'default');
+  }
+
+  // Render the remaining (full-width) paragraphs.
+  $render_full = [];
+  foreach ($full_paragraphs as $p) {
+    $render_full[] = $paragraph_view_builder->view($p, 'default');
+  }
+
+  // Build a container for main content (body + sidebar paragraphs).
+  $main_content = [
+    '#type' => 'container',
+    '#attributes' => ['class' => ['main-content']],
+    '#weight' => 0, // Main content gets weight 0
+  ];
+
+  // Add body first.
+  if (!empty($body_render)) {
+    $main_content['body'] = $body_render;
+    $main_content['body']['#weight'] = 0;
+  }
+
+  // Add sidebar paragraphs.
+  foreach ($render_sidebar as $i => $para) {
+    $main_content['paragraph_' . $i] = $para;
+    $main_content['paragraph_' . $i]['#weight'] = 10 + $i;
+  }
+
+  // Build sidebar_content: blocks + main content in correct order.
+  $variables['page']['sidebar_content'] = [
+    '#type' => 'container',
+    '#attributes' => ['class' => ['sidebar-content']],
+  ];
+
+  // Add preserved blocks - they keep their original weights from Block UI.
+  // Blocks with negative weights will appear before main_content (weight 0).
+  // Blocks with positive weights will appear after main_content.
+  foreach ($preserved_blocks as $key => $block) {
+    $variables['page']['sidebar_content'][$key] = $block;
+    // Keep the block's original weight from Block UI
+  }
+
+  // Add the main content to sidebar_content.
+  $variables['page']['sidebar_content']['main_content'] = $main_content;
+
+  // Build full_width_paragraphs: remaining paragraphs only.
+  $variables['page']['full_width_paragraphs'] = [
+    '#type' => 'container',
+    '#attributes' => ['class' => ['full-width-paragraphs']],
+  ];
+
+  foreach ($render_full as $i => $para) {
+    $variables['page']['full_width_paragraphs']['paragraph_full_' . $i] = $para;
+    $variables['page']['full_width_paragraphs']['paragraph_full_' . $i]['#weight'] = $i;
+  }
+
+} // END illinois_framework_theme_preprocess_page()
+
+
+/**
+ * Implements hook_preprocess_HOOK() for menu.html.twig.
+ *
+ * Add the parent item to the template for the side navigation.
+ */
+function illinois_framework_theme_preprocess_menu(&$variables) {
+  /** @var \Drupal\Core\Menu\MenuLinkManagerInterface $menu_link_manager */
+  $menu_link_manager = \Drupal::service('plugin.manager.menu.link');
+  $first = reset($variables['items']);
+  if ($first) {
+    $item = $first['original_link'];
+    // If the first item has a parent, add that parent to the template so we
+    // can render it in the same list.
+    if ($item?->getParent()) {
+      /** @var \Drupal\Core\Utility\LinkGenerator $link_generator */
+      $link_generator = \Drupal::service('link_generator');
+      $parent = $menu_link_manager->createInstance($item->getParent());
+      $variables['parent_name'] = $parent->getTitle();
+      $variables['parent_url'] = $parent->getUrlObject();
+
+      // Required for Drupal to manage the aria-current attribute
+      $variables['parent_url']->setOption('set_active_class', TRUE);
+
+      $variables['parent_url']->setOption('attributes', ['class' => 'ilw-section-nav--root']);
+
+      // Create the render array we'll use in the template
+      $variables['parent_a'] = $link_generator->generate($parent->getTitle(), $variables['parent_url']);
+    }
+  }
+}
+
+/**
  * Implements hook_preprocess_HOOK().
  *
  * For Faculty Explorer paragraphs, create a variable
  * to track the animal and discipline the user has chosen.
  */
 function illinois_framework_theme_preprocess_paragraph(&$variables) {
-  if ($variables['paragraph']->getType() == 'faculty_explorer') {
-    $animal = \Drupal::request()->query->get('animal'); // query string param
-    $variables['animal_selected'] = $animal;
-    $discipline = \Drupal::request()->query->get('discipline'); // form param
-    $variables['discipline_selected'] = $discipline;
-  }
-
   /** @var \Drupal\paragraphs\ParagraphInterface $paragraph */
   $bbContentParagraph = $variables['paragraph'];
-
   // This code passes the background color setting from the parent
   // paragraph to the child paragraph.
-  if ($bbContentParagraph->bundle() === 'bb_content') {
 
-    // Get the parent entity (the container paragraph)
+  // Get the parent entity (the container paragraph)
+  if (
+    $bbContentParagraph->bundle() === 'bb_content' ||
+    $bbContentParagraph->bundle() === 'icon_row_content'
+  ) {
     $parent = $bbContentParagraph->getParentEntity();
-
     // Check if the parent exists, is a Paragraph, and is the correct parent type
-    if ($parent instanceof ParagraphInterface && $parent->bundle() === 'bb') {
-
-      // Check if the parent has the background field and it's not empty
-      if ($parent->hasField('field_bb_background') && !$parent->get('field_bb_background')->isEmpty()) {
-
+    if (
+      $parent instanceof ParagraphInterface &&
+      ($parent->bundle() === 'bb' || $parent->bundle() === 'icon_row')
+    ) {
+      // Choose the correct field based on parent bundle
+      if ($parent->bundle() === 'bb' && $parent->hasField('field_bb_background') && !$parent->get('field_bb_background')->isEmpty()) {
+        // Check if the parent has the background field and it's not empty
+        $variables['bb_background'] = $parent->get('field_bb_background')->value;
         // Get the raw value from the parent field
-        $background_value = $parent->get('field_bb_background')->value;
-        // Add it (or a processed version) to the child's variables
-        $variables['bb_background'] = $background_value;
-
+      } elseif ($parent->bundle() === 'icon_row' && $parent->hasField('field_icon_row_background') && !$parent->get('field_icon_row_background')->isEmpty()) {
+        $variables['bb_background'] = $parent->get('field_icon_row_background')->value;
       } else {
-
-        // Provide a default value if the parent field is missing or empty
         $variables['bb_background'] = 'white';
       }
     } else {
-      // Optional: Provide a default if not nested in the expected parent
       $variables['bb_background'] = $parent->bundle();
-   }
+    }
+  }
+
+  $paragraph = $variables['paragraph'] ?? ($variables['elements']['#paragraph'] ?? null);
+
+  if (!$paragraph instanceof ParagraphInterface) {
+    return;
+  }
+
+  // --- Background propagation for bb_content and icon_row_content ---
+  $bundle = $paragraph->bundle();
+  if ($bundle === 'bb_content' || $bundle === 'icon_row_content') {
+    $parent = $paragraph->getParentEntity();
+    if ($parent instanceof ParagraphInterface && ($parent->bundle() === 'bb' || $parent->bundle() === 'icon_row')) {
+      if ($parent->bundle() === 'bb' && $parent->hasField('field_bb_background') && !$parent->get('field_bb_background')->isEmpty()) {
+        $variables['bb_background'] = $parent->get('field_bb_background')->value;
+      } elseif ($parent->bundle() === 'icon_row' && $parent->hasField('field_icon_row_background') && !$parent->get('field_icon_row_background')->isEmpty()) {
+        $variables['bb_background'] = $parent->get('field_icon_row_background')->value;
+      } else {
+        $variables['bb_background'] = 'white';
+      }
+    } else {
+      // Fallback default when no suitable parent found.
+      $variables['bb_background'] = 'white';
+    }
+  }
+
+  // --- Icon mapping for paragraph cta and icon_row_content ---
+  $bundle = $paragraph->bundle();
+  if ($bundle === 'cta' || $bundle === 'icon_row_content') {
+    $icon_key = '';
+    if ($paragraph->hasField('field_icon_row_content_icon') && !$paragraph->get('field_icon_row_content_icon')->isEmpty()) {
+      $first = $paragraph->get('field_icon_row_content_icon')->first();
+      if ($first) {
+        $val = $first->getValue();
+        $icon_key = (string) ($val['value'] ?? $val['target_id'] ?? '');
+      }
+    }
+
+
+    $icon_map = [
+      'il-icon-admissions'    => 'admissions-line',
+      'il-icon-alumni'        => 'alumni-line',
+      'il-icon-apply-now'     => 'apply-now-line',
+      'il-icon-audio'         => 'audio-line',
+      'audio-transcript'      => 'audio-transcript-line',
+      'il-icon-back'          => 'back-line',
+      'bluesky'               => 'bluesky-line',
+      'il-icon-calendar'      => 'calendar-line',
+      'il-icon-cancel-exit'   => 'cancel-line',
+      'check'                 => 'check-line',
+      'il-icon-comment'       => 'comment-line',
+      'il-icon-directory'     => 'directory-line',
+      'il-icon-document'      => 'document-line',
+      'il-icon-donor'         => 'donor-line',
+      'il-icon-download'      => 'download-line',
+      'il-icon-email'         => 'email-line',
+      'il-icon-event'         => 'event-line',
+      'il-icon-facebook'      => 'facebook-line',
+      'il-icon-faculty-staff' => 'faculty-line',
+      'il-icon-faq'           => 'faq-line',
+      'il-icon-favorite'      => 'favorite-line',
+      'flickr'                => 'flickr-line',
+      'github'                => 'github-line',
+      'il-icon-give-gift'     => 'gift-line',
+      'il-icon-google-plus'   => 'google-plus-line',
+      'il-icon-handbook-manual'=> 'handbook-line',
+      'il-icon-home'          => 'home-line',
+      'il-icon-hours'         => 'hours-line',
+      'il-icon-hr'            => 'hr-line',
+      'il-icon-image'         => 'image-line',
+      'il-icon-inclusive'     => 'inclusive-line',
+      'il-icon-info'          => 'info-line',
+      'il-icon-instagram'     => 'instagram-line',
+      'il-icon-intranet'      => 'intranet-line',
+      'il-icon-job-employment'=> 'employment-line',
+      'il-icon-less'          => 'less-line',
+      'il-icon-link'          => 'link-line',
+      'il-icon-linkedin'      => 'linkedin-line',
+      'il-icon-location'      => 'location-line',
+      'mastodon'              => 'mastodon-line',
+      'il-icon-menu'          => 'menu-line',
+      'il-icon-more'          => 'more-line',
+      'il-icon-news'          => 'news-line',
+      'il-icon-next'          => 'next-line',
+      'il-icon-notification'  => 'notification-line',
+      'il-icon-parent-family' => 'family-line',
+      'il-icon-partners'      => 'partners-line',
+      'il-icon-pay-bill'      => 'pay-line',
+      'pause'                 => 'pause-line',
+      'pdf'                   => 'pdf-line',
+      'play'                  => 'play-line',
+      'il-icon-phone-call'    => 'phone-line',
+      'il-icon-pinterest'     => 'pinterest-line',
+      'il-icon-plan'          => 'plan-line',
+      'il-icon-program-of-study'=> 'program-of-study-line',
+      'reddit'                => 'reddit-line',
+      'il-icon-research'      => 'research-line',
+      'il-icon-resources'     => 'resources-line',
+      'il-icon-safety'        => 'safety-line',
+      'il-icon-search'        => 'search-line',
+      'il-icon-send'          => 'send-line',
+      'il-icon-settings'      => 'settings-line',
+      'il-icon-shop'          => 'shop-line',
+      'il-icon-sitemap'       => 'sitemap-line',
+      'il-icon-snapchat'      => 'snapchat-line',
+      'spotify'               => 'spotify-line',
+      'il-icon-students'      => 'students-line',
+      'il-icon-submit'        => 'submit-line',
+      'il-icon-team'          => 'team-line',
+      'threads'               => 'threads-line',
+      'tiktok'                => 'tiktok-line',
+      'il-icon-tickets'       => 'tickets-line',
+      'il-icon-trash'         => 'trash-line',
+      'il-icon-twitter'       => 'twitter-line',
+      'il-icon-unit'          => 'unit-line',
+      'il-icon-user'          => 'user-line',
+      'il-icon-video'         => 'video-line',
+      'il-icon-volume'        => 'volume-line',
+      'il-icon-website'       => 'website-line',
+      'il-icon-weibo'         => 'weibo-line',
+      'il-icon-whatsapp'      => 'whatsapp-line',
+      'il-icon-workshop-training'=> 'workshop-line',
+      'x'                     => 'x-line',
+      'yelp'                  => 'yelp-line',
+      'il-icon-youtube'       => 'youtube-line',
+    ];
+
+    $variables['cta_icon'] = $icon_map[$icon_key] ?? '';
   }
 }
 

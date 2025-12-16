@@ -2,30 +2,17 @@ name: 'Illinois Framework Theme'
 type: theme
 description: 'The Illinois Framework Theme'
 core_version_requirement: ^9 || ^10
-base theme: bootstrap5
-version: '4.3'
+base theme: stable9
+version: '5.0'
 
-dependencies:
-  - bootstrap5
-
-stylesheets-remove:
-  - '@bootstrap5/css/style.css'
-  - '@classy/css/components/details.css'
-
-libraries-override:
-  filter/caption: false
-
-# Defines libraries group in which we can add css/js.
 libraries:
-  - illinois_framework_theme/global-styling
+  - illinois_framework_theme/global
   - illinois_framework_theme/web-components
-  - illinois_framework_theme/toolkit-3
+  - illinois_framework_theme/ils-forms
 
 ckeditor5-stylesheets:
   - css/ck5style.css
-  - css/components.css
 
-# Regions
 regions:
   header: Header
   nav_main: 'Main navigation region'
