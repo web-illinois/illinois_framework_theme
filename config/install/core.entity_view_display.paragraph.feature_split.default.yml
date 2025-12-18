@@ -13,11 +13,11 @@ dependencies:
     - field.field.paragraph.feature_split.field_feature_split_subtitle
     - field.field.paragraph.feature_split.field_feature_split_tagline
     - field.field.paragraph.feature_split.field_feature_split_title
+    - image.style.image_gallery_full
     - paragraphs.paragraphs_type.feature_split
   module:
     - image
     - link
-    - options
     - text
 _core:
   default_config_hash: 3tnXr8oIvur_KcqGg9SZ1LjzbALbMxUTwBcnDbrgLIQ
@@ -26,23 +26,16 @@ targetEntityType: paragraph
 bundle: feature_split
 mode: default
 content:
-  field_feature_split_background:
-    weight: 1
-    label: visually_hidden
-    settings: {  }
-    third_party_settings: {  }
-    type: list_default
-    region: content
   field_feature_split_body:
-    weight: 4
-    label: visually_hidden
+    type: text_default
+    label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: text_default
+    weight: 3
     region: content
   field_feature_split_button:
-    weight: 5
-    label: visually_hidden
+    type: link
+    label: hidden
     settings:
       trim_length: 80
       url_only: false
@@ -50,61 +43,52 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    type: link
+    weight: 6
     region: content
   field_feature_split_callout:
-    weight: 8
-    label: visually_hidden
+    type: string
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 4
     region: content
   field_feature_split_img:
-    weight: 3
-    label: visually_hidden
-    settings:
-      image_style: image_gallery_full
-      image_link: ''
-    third_party_settings: {  }
     type: image
-    region: content
-  field_feature_split_img_align:
-    weight: 2
-    label: visually_hidden
-    settings: {  }
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: image_gallery_full
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
-    type: list_default
-    region: content
-  field_feature_split_img_width:
-    weight: 6
-    label: visually_hidden
-    settings: {  }
-    third_party_settings: {  }
-    type: list_default
+    weight: 0
     region: content
   field_feature_split_subtitle:
-    weight: 7
-    label: visually_hidden
+    type: string
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 2
     region: content
   field_feature_split_tagline:
-    weight: 9
-    label: visually_hidden
+    type: string
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 5
     region: content
   field_feature_split_title:
-    weight: 0
-    label: visually_hidden
+    type: string
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 1
     region: content
-hidden: {  }
+hidden:
+  field_feature_split_background: true
+  field_feature_split_img_align: true
+  field_feature_split_img_width: true
