@@ -559,3 +559,43 @@ function illinois_framework_theme_preprocess_breadcrumb(&$variables) {
     }
   }
 }
+
+/**
+ * Implements template_preprocess_paragraph__feature_split().
+ */
+function illinois_framework_theme_preprocess_paragraph__feature_split(&$variables) {
+  $paragraph = $variables['paragraph'];
+
+  // Reverse attribute.
+  $variables['reverse'] = FALSE;
+  if (!$paragraph->field_feature_split_img_align->isEmpty()) {
+    $variables['reverse'] = $paragraph->field_feature_split_img_align->value === 'right';
+  }
+
+  // Max width class.
+  $variables['max_width_class'] = 'full-width';
+  if (!$paragraph->field_feature_split_img_width->isEmpty()) {
+    if ($paragraph->field_feature_split_img_width->value === 'fixed') {
+      $variables['max_width_class'] = 'fixed-width';
+    }
+  }
+
+  // Theme.
+  $variables['theme'] = '';
+  if (!$paragraph->field_feature_split_background->isEmpty()) {
+    $background_value = $paragraph->field_feature_split_background->value;
+    switch ($background_value) {
+      case 'illiniblue':
+        $variables['theme'] = 'blue';
+        break;
+      case 'bluegradient':
+        $variables['theme'] = 'blue-gradient';
+        break;
+      case 'orangegradient':
+        $variables['theme'] = 'orange-gradient';
+        break;
+      default:
+        $variables['theme'] = $background_value;
+    }
+  }
+}

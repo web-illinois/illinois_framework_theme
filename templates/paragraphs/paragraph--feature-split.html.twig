@@ -38,62 +38,23 @@
  * @ingroup themeable
  */
 #}
-{% set reverse_attr = content.field_feature_split_img_align['#items'].0.value == 'right' ? 'reverse="true"' : '' %}
-{% if content.field_feature_split_img_width ['#items'].0.value == 'fixed' %}
-  {% set max_width = ' fixed-width' %}
-{% else %}
-  {% set max_width = ' full-width' %}
-{% endif %}
-{% if content.field_feature_split_background['#items'].0.value %}
-  {% set theme = content.field_feature_split_background['#items'].0.value == 'illiniblue'
-    ? 'blue'
-    : content.field_feature_split_background['#items'].0.value == 'bluegradient'
-    ? 'blue-gradient'
-    : content.field_feature_split_background['#items'].0.value == 'orangegradient'
-    ? 'orange-gradient'
-    : content.field_feature_split_background['#items'].0.value %}
-{% endif %}
-
 {%
   set classes = [
-  'paragraph',
-  'paragraph--type--' ~ paragraph.bundle|clean_class,
-  view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
-  not paragraph.isPublished() ? 'paragraph--unpublished',
-  max_width
-]
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished',
+  ]
 %}
 
 {% block paragraph %}
   {# Paragraph ID used for anchor linking #}
-  <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
+  <div{{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id()).addClass(classes) }}>
     {% block content %}
-      <ilw-columns theme="{{ theme }}" padding="0" {{ reverse_attr }}>
+      <ilw-columns theme="{{ theme }}" padding="0"{% if reverse %} reverse="true"{% endif %}>
         <div class="ilw-image-cover">{{ content.field_feature_split_img }}</div>
         <ilw-content transparent="true" mode="inset">
-          {% if content.field_feature_split_subtitle['#items'] %}
-            <div class="field--name-field-feature-split__subtitle subtitle">{{ content.field_feature_split_subtitle }}</div>
-          {% endif %}
-          {% if content.field_feature_split_title['#items'] %}
-            <h2 class="field--name-field-feature-split__title title">{{ content.field_feature_split_title }}</h2>
-          {% endif %}
-          {% if content.field_feature_split_body['#items'] %}
-            <div class="field--name-field-feature-split__body body">{{ content.field_feature_split_body }}</div>
-          {% endif %}
-          {% if content.field_feature_split_callout['#items'] %}
-            <div class="field--name-field-feature-split__callout{% if content.field_feature_split_callout['#items'] and content.field_feature_split_tagline['#items'] %}{% else %} no-tagline{% endif %}">{{ content.field_feature_split_callout }}</div>
-          {% endif %}
-          {% if content.field_feature_split_tagline['#items'] %}
-            <div class="field--name-field-feature-split__tagline">{{ content.field_feature_split_tagline }}</div>
-          {% endif %}
-          {% set button_number = content.field_feature_split_button['#items']|length %}
-          {% if button_number > 0 %}
-            <ul class="ilw-buttons{{ theme == 'orange-gradient' ? ' ilw-theme-orange-2' }}">{# temp fix until orange-gradient is added to toolkit #}
-              {% for item in content.field_feature_split_button['#items'] %}
-                <li><a href="{{ content.field_feature_split_button[loop.index0]['#url'] }}">{{ content.field_feature_split_button[loop.index0]['#title'] }}</a></li>
-              {% endfor %}
-            </ul>
-          {% endif %}
+          {{ content|without('field_feature_split_img','field_feature_split_img_align','field_feature_split_background','field_feature_split_img_width') }}
         </ilw-content>
       </ilw-columns>
     {% endblock %}
