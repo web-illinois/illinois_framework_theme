@@ -6,13 +6,11 @@
     "require": {
         "drupal/admin_toolbar": "^3.0",
         "drupal/advanced_text_formatter": "^3.0@RC",
-        "drupal/anchor_link": "^2.4",
         "drupal/backup_migrate": "^5.0",
         "drupal/bamboo_twig": "^6.0",
         "drupal/block_exclude_pages": "^2.1@beta",
         "drupal/colorbox": "^2.0",
         "drupal/config_sync": "^3.0@alpha",
-        "drupal/ckeditor": "^1.0",
         "drupal/ckeditor5_bookmark": "^1.0",
         "drupal/diff": "^1.0",
         "drupal/editoria11y": "^2.2",
@@ -35,9 +33,6 @@
         "drupal/redirect": "^1.6",
         "drupal/twig_field_value": "^2.0",
         "drupal/twig_tweak": "^3.2",
-        "drupal/video_embed_field": "^2.4",
-        "npm-asset/blazy": "~1.0",
-        "npm-asset/slick-carousel": "~1.0",
         "bower-asset/colorbox": "^1.6"
     },
     "config": {
