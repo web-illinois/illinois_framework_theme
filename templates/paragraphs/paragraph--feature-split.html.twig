@@ -63,15 +63,15 @@
   max_width
 ]
 %}
-{#{{ kint(content) }}#}
+
 {% block paragraph %}
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
       <ilw-columns theme="{{ theme }}" padding="0" {{ reverse_attr }}>
-        <div class="ilw-image-cover"><img src="{{ base_path_http ~ file_url(content.field_feature_split_img['#items'].entity.uri.value) }}" alt="{{ content.field_feature_split_img.0['#item'].alt.value }}"/></div>
+        <div class="ilw-image-cover">{{ content.field_feature_split_img }}</div>
         <ilw-content transparent="true" mode="inset">
-        {% if content.field_feature_split_subtitle['#items'] %}
+          {% if content.field_feature_split_subtitle['#items'] %}
             <div class="field--name-field-feature-split__subtitle subtitle">{{ content.field_feature_split_subtitle }}</div>
           {% endif %}
           {% if content.field_feature_split_title['#items'] %}

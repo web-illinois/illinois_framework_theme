@@ -356,7 +356,7 @@ function illinois_framework_theme_preprocess_menu(&$variables) {
   /** @var \Drupal\Core\Menu\MenuLinkManagerInterface $menu_link_manager */
   $menu_link_manager = \Drupal::service('plugin.manager.menu.link');
   $first = reset($variables['items']);
-  if ($first) {
+  if ($first && isset($first['original_link'])) {
     $item = $first['original_link'];
     // If the first item has a parent, add that parent to the template so we
     // can render it in the same list.
