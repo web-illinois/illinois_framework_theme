@@ -356,7 +356,7 @@ function illinois_framework_theme_preprocess_menu(&$variables) {
   /** @var \Drupal\Core\Menu\MenuLinkManagerInterface $menu_link_manager */
   $menu_link_manager = \Drupal::service('plugin.manager.menu.link');
   $first = reset($variables['items']);
-  if ($first) {
+  if ($first && isset($first['original_link'])) {
     $item = $first['original_link'];
     // If the first item has a parent, add that parent to the template so we
     // can render it in the same list.
@@ -556,6 +556,46 @@ function illinois_framework_theme_preprocess_breadcrumb(&$variables) {
         'text' => $page_title,
         'attributes' => new Attribute(['class' => ['active']])
       ];
+    }
+  }
+}
+
+/**
+ * Implements template_preprocess_paragraph__feature_split().
+ */
+function illinois_framework_theme_preprocess_paragraph__feature_split(&$variables) {
+  $paragraph = $variables['paragraph'];
+
+  // Reverse attribute.
+  $variables['reverse'] = FALSE;
+  if (!$paragraph->field_feature_split_img_align->isEmpty()) {
+    $variables['reverse'] = $paragraph->field_feature_split_img_align->value === 'right';
+  }
+
+  // Max width class.
+  $variables['max_width_class'] = 'full-width';
+  if (!$paragraph->field_feature_split_img_width->isEmpty()) {
+    if ($paragraph->field_feature_split_img_width->value === 'fixed') {
+      $variables['max_width_class'] = 'fixed-width';
+    }
+  }
+
+  // Theme.
+  $variables['theme'] = '';
+  if (!$paragraph->field_feature_split_background->isEmpty()) {
+    $background_value = $paragraph->field_feature_split_background->value;
+    switch ($background_value) {
+      case 'illiniblue':
+        $variables['theme'] = 'blue';
+        break;
+      case 'bluegradient':
+        $variables['theme'] = 'blue-gradient';
+        break;
+      case 'orangegradient':
+        $variables['theme'] = 'orange-gradient';
+        break;
+      default:
+        $variables['theme'] = $background_value;
     }
   }
 }
