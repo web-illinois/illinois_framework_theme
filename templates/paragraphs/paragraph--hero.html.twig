@@ -47,6 +47,15 @@
 ]
 %}
 {% set background = content.field_hero_background['#items'].0.value %}
+  {% if background == 'image' %}
+    {% set theme = '' %}
+  {% elseif background == 'imageblue' or background == 'orange' %}
+    {% set theme = 'orange' %}
+  {% elseif background == 'imagewhite' or background == 'white' %}
+    {% set theme = 'white' %}
+  {% else %}
+    {% set theme = 'blue' %}
+  {% endif %}
 {% set bg_alignment = content.field_hero_alignment.0['#markup'] %}
   {% if bg_alignment == 'tl' %}
     {% set alignment = 'top-left' %}
@@ -73,31 +82,19 @@
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
-    {% if background == 'image' %}
-    <ilw-hero align="{{ alignment }}">
-      <img src="{{ content.field_hero_image.0['#markup'] }}" alt="{{ content.field_hero_image['#items'].0.alt }}" slot="background">
-      {% elseif background == 'imageblue' %}
-      <ilw-hero theme="orange" align="{{ alignment }}">
-        <img src="{{ content.field_hero_image.0['#markup'] }}" alt="{{ content.field_hero_image['#items'].0.alt }}" slot="background">
-        {% elseif background == 'imagewhite' %}
-        <ilw-hero theme="white" align="{{ alignment }}">
+      <ilw-hero theme="{{ theme }}" align="{{ alignment }}">
+        {% if content.field_hero_image['#items'] is not empty %}
           <img src="{{ content.field_hero_image.0['#markup'] }}" alt="{{ content.field_hero_image['#items'].0.alt }}" slot="background">
-        {% elseif background == 'orange' %}
-        <ilw-hero theme="orange" align="{{ alignment }}">
-          {% elseif background == 'white' %}
-          <ilw-hero theme="white" align="{{ alignment }}">
-          {% else %}
-          <ilw-hero theme="blue" align="{{ alignment }}">
-            {% endif  %}
-            <h1>{{ content.field_hero_title.0['#context'].value }}</h1>
-            <ul class="ilw-buttons">
-              {% for item in content.field_hero_button['#items'] %}
-                <li>
-                  <a href="{{ content.field_hero_button[loop.index0]['#url'] }}">{{ content.field_hero_button[loop.index0]['#title'] }}</a>
-                </li>
-              {% endfor %}
-            </ul>
-          </ilw-hero>
-          {% endblock %}
+        {% endif %}
+        <h1>{{ content.field_hero_title.0['#context'].value }}</h1>
+        <ul class="ilw-buttons">
+          {% for item in content.field_hero_button['#items'] %}
+            <li>
+              <a href="{{ content.field_hero_button[loop.index0]['#url'] }}">{{ content.field_hero_button[loop.index0]['#title'] }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </ilw-hero>
+    {% endblock %}
   </div>
 {% endblock paragraph %}
