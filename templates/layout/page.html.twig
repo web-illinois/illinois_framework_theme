@@ -29,15 +29,23 @@
  *
  * Regions:
  * - page.header: Items for the header region.
- * - page.primary_menu: Items for the primary menu region.
- * - page.secondary_menu: Items for the secondary menu region.
+ * - page.nav_main: Main navigation region.
+ * - page.breadcrumb: Items for the breadcrumb region.
  * - page.highlighted: Items for the highlighted content region.
  * - page.help: Dynamic help text, mostly for admin pages.
+ * - page.tabs: Items for the tabs region.
  * - page.content: The main content of the current page.
  * - page.sidebar_first: Items for the first sidebar.
  * - page.sidebar_second: Items for the second sidebar.
  * - page.footer: Items for the footer region.
- * - page.breadcrumb: Items for the breadcrumb region.
+ * - page.hidden: Hidden region for referenced blocks.
+ *
+ * Preprocess variables (calculated in illinois_framework_theme.theme):
+ * - show_sidebar: (bool) Whether to use the sidebar layout.
+ * - main_attributes: (Attribute) Attributes for the <main> tag.
+ * - sidebar_main_content: Content for the main column (next to sidebar).
+ * - sidebar_bottom_content: Content below the sidebar columns.
+ * - nosidebar_main_content: Content for the main area when no sidebar is present.
  *
  * @see template_preprocess_page()
  * @see html.html.twig
@@ -46,31 +54,28 @@
 <div class="layout-container">
   <ilw-page>
 
-      <ilw-header slot="header">
-        {{ page.header }}
-      </ilw-header>
+    <ilw-header slot="header">
+      {{ page.header }}
+      {{ page.nav_main }}
+    </ilw-header>
 
-      {{ page.breadcrumb }}
-      {{ page.highlighted }}
-      {{ page.help }}
-      {{ page.tabs }}
-    <main{{ attributes.addClass(mainClasses) }} role="main" id="main-content" tabindex="-1">{# link is in html.html.twig #}
-      {% if page.sidebar_first|render|trim is not empty or page.sidebar_second|render|trim is not empty %}
+    {{ page.breadcrumb }}
+    {{ page.highlighted }}
+    {{ page.help }}
+    {{ page.tabs }}
+
+    <main{{ main_attributes }}>
+      {% if show_sidebar %}
         <ilw-columns mode="sidebar-left" width="auto">
           {{ page.sidebar_first }}
           {{ page.sidebar_second }}
           <div>
-            <ilw-content>
-              {{ page.content }}
-            </ilw-content>
+              {{ sidebar_main_content }}
           </div>
         </ilw-columns>
+        {{ sidebar_bottom_content }}
       {% else %}
-        <div>
-          <ilw-content width="page">
-            {{ page.content }}
-          </ilw-content>
-        </div>
+        {{ nosidebar_main_content }}
       {% endif %}
     </main>
 
@@ -79,4 +84,4 @@
     </ilw-footer>
 
   </ilw-page>
-</div>{# /.layout-container #}
+</div>

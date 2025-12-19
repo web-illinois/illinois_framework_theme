@@ -171,69 +171,78 @@ function illinois_framework_theme_theme_suggestions_menu_alter(&$suggestions, ar
 /**
  * Implements hook_preprocess_HOOK() for page.html.twig.
  *
- * this provides the number of paragraphs next to the sidebar for the 'content_page' content type.
- * It also rearranges the blocks and paragraphs based on whether sidebar mode is enabled.
- *
+ * This function:
+ * 1. Sets main attributes (role, id, unpublished class).
+ * 2. Processes 'content_page' nodes to split content (blocks, body, paragraphs).
+ * 3. Determines the overall layout mode (sidebar vs no-sidebar).
+ * 4. Prepares unified content variables for the Twig template.
  */
 function illinois_framework_theme_preprocess_page(array &$variables): void {
+  // --- 1. Main Attributes Setup ---
+  if (!isset($variables['main_attributes'])) {
+    $variables['main_attributes'] = new Attribute();
+  }
+  $variables['main_attributes']->setAttribute('role', 'main');
+  $variables['main_attributes']->setAttribute('id', 'main-content');
+  $variables['main_attributes']->setAttribute('tabindex', '-1');
 
-  // Only continue if this is a content page node.
-  if (!isset($variables['node']) || $variables['node']->getType() !== 'content_page') {
-    return;
+  // Check for unpublished node and add class.
+  if (isset($variables['node']) && $variables['node'] instanceof \Drupal\node\NodeInterface && !$variables['node']->isPublished()) {
+    $variables['main_attributes']->addClass('is-unpublished');
   }
 
-  $node = $variables['node'];
+  // --- 2. Context Detection ---
+  $node = $variables['node'] ?? null;
+  $is_content_page = ($node && $node->getType() === 'content_page');
 
-  // Check if sidebar mode is enabled.
-  $has_sidebar = $node->hasField('field_sidebar') &&
-    !$node->get('field_sidebar')->isEmpty() &&
-    $node->get('field_sidebar')->value === 'sidebar';
+  $request = \Drupal::request();
+  $current_uri = $request->getRequestUri();
+  $is_latest_page = (strpos($current_uri, '/latest') !== false);
 
-  // Extract blocks from page.content and remove the node (do this for BOTH cases).
-  $content_blocks = isset($variables['page']['content']) ? $variables['page']['content'] : [];
-  $preserved_blocks = [];
+  // Check if standard sidebar regions have content.
+  $has_sidebar_first = !empty($variables['page']['sidebar_first']);
+  $has_sidebar_second = !empty($variables['page']['sidebar_second']);
 
-  foreach ($content_blocks as $key => $block) {
-    // Skip render metadata keys.
-    if (strpos($key, '#') === 0) {
-      continue;
-    }
+  // --- 3. Content Page Processing (Existing Logic) ---
+  // This logic is preserved but wrapped to only run for content pages.
+  // It modifies $variables['page']['content'], 'sidebar_content', and 'full_width_paragraphs'.
+  $content_page_sidebar_active = false;
 
-    // Skip the node content block - it's typically named with 'content' in the key.
-    // Common patterns: 'content', '{theme}_content', 'system_main'
-    if (strpos($key, '_content') !== false || $key === 'content' || $key === 'system_main') {
+  if ($is_content_page) {
+    // Check if sidebar mode is enabled specifically for this content page.
+    $content_page_sidebar_active = $node->hasField('field_sidebar') &&
+      !$node->get('field_sidebar')->isEmpty() &&
+      $node->get('field_sidebar')->value === 'sidebar' &&
+      !$is_latest_page;
+
+    // Extract blocks from page.content.
+    $content_blocks = isset($variables['page']['content']) ? $variables['page']['content'] : [];
+    $preserved_blocks = [];
+
+    foreach ($content_blocks as $key => $block) {
+      if (strpos((string)$key, '#') === 0) continue;
+      if (strpos((string)$key, '_content') !== false || $key === 'content' || $key === 'system_main') {
+        unset($variables['page']['content'][$key]);
+        continue;
+      }
+      if (isset($block['#node']) || (isset($block['#entity_type']) && $block['#entity_type'] === 'node')) {
+        unset($variables['page']['content'][$key]);
+        continue;
+      }
+      $preserved_blocks[$key] = $block;
       unset($variables['page']['content'][$key]);
-      continue;
     }
 
-    // Also check for node entity type.
-    if (isset($block['#node']) || (isset($block['#entity_type']) && $block['#entity_type'] === 'node')) {
-      unset($variables['page']['content'][$key]);
-      continue;
+    // Render the node body.
+    $body_render = [];
+    if ($node->hasField('body') && !$node->get('body')->isEmpty()) {
+      $view_display = \Drupal::entityTypeManager()->getStorage('entity_view_display')->load('node.content_page.default');
+      if ($view_display && $view_display->getRenderer('body')) {
+        $body_render = $view_display->getRenderer('body')->view($node->get('body'), ['label' => 'hidden']);
+      }
     }
 
-    $preserved_blocks[$key] = $block;
-    // Also remove from original content region.
-    unset($variables['page']['content'][$key]);
-  }
-
-  // Render the node body if it exists (respecting display settings).
-  $body_render = [];
-  if ($node->hasField('body') && !$node->get('body')->isEmpty()) {
-    // Load the display settings for the 'default' view mode.
-    $view_display = \Drupal::entityTypeManager()
-      ->getStorage('entity_view_display')
-      ->load('node.content_page.default');
-
-    if ($view_display && $view_display->getRenderer('body')) {
-      // Build render array using those display settings.
-      $body_render = $view_display->getRenderer('body')->view($node->get('body'), ['label' => 'hidden']);
-    }
-  }
-
-  if (!$has_sidebar) {
-    // No sidebar case
-    // For no sidebar, render blocks and paragraphs in page.content.
+    // Process Paragraphs
     $paragraphs = [];
     if ($node->hasField('field_paragraph')) {
       foreach ($node->get('field_paragraph')->referencedEntities() as $paragraph) {
@@ -241,107 +250,132 @@ function illinois_framework_theme_preprocess_page(array &$variables): void {
       }
     }
 
-    // Add preserved blocks back to page.content with their original weights.
-    foreach ($preserved_blocks as $key => $block) {
-      $variables['page']['content'][$key] = $block;
-      // Keep the block's original weight from Block UI
+    if (!$content_page_sidebar_active) {
+      // -- Content Page: NO Sidebar Logic --
+      // Restore blocks
+      foreach ($preserved_blocks as $key => $block) {
+        $variables['page']['content'][$key] = $block;
+      }
+      // Add body
+      if (!empty($body_render)) {
+        $variables['page']['content']['body'] = $body_render;
+        $variables['page']['content']['body']['#weight'] = 0;
+        $variables['page']['content']['body']['#needs_page_width'] = TRUE;
+      }
+      // Add paragraphs
+      $paragraph_view_builder = \Drupal::entityTypeManager()->getViewBuilder('paragraph');
+      $para_weight = 100;
+      foreach ($paragraphs as $i => $para) {
+        $variables['page']['content']['paragraph_' . $i] = $paragraph_view_builder->view($para, 'default');
+        $variables['page']['content']['paragraph_' . $i]['#weight'] = $para_weight++;
+      }
+    } else {
+      // -- Content Page: Sidebar Logic --
+      $paragraph_number = 0;
+      if ($node->hasField('field_sidebar_paragraphs') && !$node->get('field_sidebar_paragraphs')->isEmpty()) {
+        $paragraph_number = (int) $node->get('field_sidebar_paragraphs')->value;
+      }
+
+      $sidebar_paragraphs = array_slice($paragraphs, 0, $paragraph_number);
+      $full_paragraphs = array_slice($paragraphs, $paragraph_number);
+      $paragraph_view_builder = \Drupal::entityTypeManager()->getViewBuilder('paragraph');
+
+      $main_content = [
+        '#type' => 'container',
+        '#attributes' => ['class' => ['main-content']],
+        '#weight' => 0,
+      ];
+
+      if (!empty($body_render)) {
+        $main_content['body'] = $body_render;
+        $main_content['body']['#weight'] = 0;
+      }
+
+      foreach ($sidebar_paragraphs as $i => $p) {
+        $main_content['paragraph_' . $i] = $paragraph_view_builder->view($p, 'default');
+        $main_content['paragraph_' . $i]['#weight'] = 10 + $i;
+      }
+
+      $variables['page']['sidebar_content'] = [
+        '#type' => 'container',
+        '#attributes' => ['class' => ['sidebar-content']],
+      ];
+
+      foreach ($preserved_blocks as $key => $block) {
+        $variables['page']['sidebar_content'][$key] = $block;
+      }
+      $variables['page']['sidebar_content']['main_content'] = $main_content;
+
+      $variables['page']['full_width_paragraphs'] = [
+        '#type' => 'container',
+        '#attributes' => ['class' => ['full-width-paragraphs']],
+      ];
+      foreach ($full_paragraphs as $i => $p) {
+        $variables['page']['full_width_paragraphs']['paragraph_full_' . $i] = $paragraph_view_builder->view($p, 'default');
+        $variables['page']['full_width_paragraphs']['paragraph_full_' . $i]['#weight'] = $i;
+      }
     }
+  } // END if ($is_content_page)
 
-    // Add body with a special flag so template knows to wrap it.
-    if (!empty($body_render)) {
-      $variables['page']['content']['body'] = $body_render;
-      $variables['page']['content']['body']['#weight'] = 0;
-      $variables['page']['content']['body']['#needs_page_width'] = TRUE;
+  // --- 4. Determine Global Show Sidebar ---
+  // Sidebar is shown if:
+  // - We are on a content page AND it has sidebar active.
+  // - OR we have content in standard sidebar regions (and not handled by above).
+  // Note: content_page_sidebar_active takes precedence for content pages.
+  $show_sidebar = $content_page_sidebar_active || $has_sidebar_first || $has_sidebar_second;
+  $variables['show_sidebar'] = $show_sidebar;
+
+  // --- 5. Prepare Output Variables for Twig ---
+
+  if ($show_sidebar) {
+    // LAYOUT: Sidebar
+    if ($content_page_sidebar_active) {
+      // Content Page with Sidebar
+      $variables['sidebar_main_content'] = $variables['page']['sidebar_content'] ?? [];
+      $variables['sidebar_bottom_content'] = $variables['page']['full_width_paragraphs'] ?? [];
+    } else {
+      // Standard Page with Sidebar
+      // Wrap content in ilw-content
+      $variables['sidebar_main_content'] = [
+        '#prefix' => '<ilw-content>',
+        '#suffix' => '</ilw-content>',
+        'content' => $variables['page']['content'],
+      ];
+      $variables['sidebar_bottom_content'] = [];
     }
+  } else {
+    // LAYOUT: No Sidebar
+    if ($is_content_page) {
+      // Content Page No Sidebar
+      // We need to iterate and wrap only items with #needs_page_width
+      $processed_content = [];
+      // Sort content by weight first to ensure order is preserved during loop
+      $content_items = $variables['page']['content'];
+      // uasort($content_items, 'Drupal\Component\Utility\SortArray::sortByWeightProperty'); // Optional if not already sorted
 
-    // Add paragraphs with high weights to ensure they come after body.
-    $paragraph_view_builder = \Drupal::entityTypeManager()->getViewBuilder('paragraph');
-    $para_weight = 100;
-    foreach ($paragraphs as $i => $para) {
-      $variables['page']['content']['paragraph_' . $i] = $paragraph_view_builder->view($para, 'default');
-      $variables['page']['content']['paragraph_' . $i]['#weight'] = $para_weight++;
+      foreach ($content_items as $key => $item) {
+        if (strpos((string)$key, '#') === 0) continue;
+
+        if (isset($item['#needs_page_width']) && $item['#needs_page_width']) {
+           $processed_content[$key] = [
+             '#prefix' => '<ilw-content width="page">',
+             '#suffix' => '</ilw-content>',
+             'content' => $item,
+           ];
+        } else {
+           $processed_content[$key] = $item;
+        }
+      }
+      $variables['nosidebar_main_content'] = $processed_content;
+    } else {
+      // Standard Page No Sidebar
+      // Wrap everything in ilw-content[width="page"]
+      $variables['nosidebar_main_content'] = [
+        '#prefix' => '<ilw-content width="page">',
+        '#suffix' => '</ilw-content>',
+        'content' => $variables['page']['content'],
+      ];
     }
-
-    return;
-  }
-
-  // Get the number of paragraphs to display next to the sidebar.
-  $paragraph_number = 0;
-  if ($node->hasField('field_sidebar_paragraphs') && !$node->get('field_sidebar_paragraphs')->isEmpty()) {
-    $paragraph_number = (int) $node->get('field_sidebar_paragraphs')->value;
-  }
-
-  // Gather all referenced paragraphs.
-  $paragraphs = [];
-  if ($node->hasField('field_paragraph')) {
-    foreach ($node->get('field_paragraph')->referencedEntities() as $paragraph) {
-      $paragraphs[] = $paragraph;
-    }
-  }
-
-  // Split paragraphs into two groups.
-  $sidebar_paragraphs = array_slice($paragraphs, 0, $paragraph_number);
-  $full_paragraphs = array_slice($paragraphs, $paragraph_number);
-
-  $paragraph_view_builder = \Drupal::entityTypeManager()->getViewBuilder('paragraph');
-
-  // Render the sidebar paragraphs.
-  $render_sidebar = [];
-  foreach ($sidebar_paragraphs as $p) {
-    $render_sidebar[] = $paragraph_view_builder->view($p, 'default');
-  }
-
-  // Render the remaining (full-width) paragraphs.
-  $render_full = [];
-  foreach ($full_paragraphs as $p) {
-    $render_full[] = $paragraph_view_builder->view($p, 'default');
-  }
-
-  // Build a container for main content (body + sidebar paragraphs).
-  $main_content = [
-    '#type' => 'container',
-    '#attributes' => ['class' => ['main-content']],
-    '#weight' => 0, // Main content gets weight 0
-  ];
-
-  // Add body first.
-  if (!empty($body_render)) {
-    $main_content['body'] = $body_render;
-    $main_content['body']['#weight'] = 0;
-  }
-
-  // Add sidebar paragraphs.
-  foreach ($render_sidebar as $i => $para) {
-    $main_content['paragraph_' . $i] = $para;
-    $main_content['paragraph_' . $i]['#weight'] = 10 + $i;
-  }
-
-  // Build sidebar_content: blocks + main content in correct order.
-  $variables['page']['sidebar_content'] = [
-    '#type' => 'container',
-    '#attributes' => ['class' => ['sidebar-content']],
-  ];
-
-  // Add preserved blocks - they keep their original weights from Block UI.
-  // Blocks with negative weights will appear before main_content (weight 0).
-  // Blocks with positive weights will appear after main_content.
-  foreach ($preserved_blocks as $key => $block) {
-    $variables['page']['sidebar_content'][$key] = $block;
-    // Keep the block's original weight from Block UI
-  }
-
-  // Add the main content to sidebar_content.
-  $variables['page']['sidebar_content']['main_content'] = $main_content;
-
-  // Build full_width_paragraphs: remaining paragraphs only.
-  $variables['page']['full_width_paragraphs'] = [
-    '#type' => 'container',
-    '#attributes' => ['class' => ['full-width-paragraphs']],
-  ];
-
-  foreach ($render_full as $i => $para) {
-    $variables['page']['full_width_paragraphs']['paragraph_full_' . $i] = $para;
-    $variables['page']['full_width_paragraphs']['paragraph_full_' . $i]['#weight'] = $i;
   }
 
 } // END illinois_framework_theme_preprocess_page()

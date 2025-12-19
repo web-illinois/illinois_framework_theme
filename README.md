@@ -54,7 +54,32 @@ The WIGG Drupal group is welcoming contributions from anyone on campus. Please s
 
 ## Developing the theme
 
+### CSS Methodology
+The theme utilizes the **ITCSS** (Inverted Triangle CSS) architecture and follows **BEM** (Block Element Modifier) naming conventions.
 
+#### ITCSS Structure
+Styles are imported in `css/style.css` following specificity layers:
+1.  **Generic/Base:** `base/reset.css`, `base/elements.img.css` (Resets and base HTML elements)
+2.  **Objects/Layout:** `layout/layout.css` (Grid and structural classes)
+3.  **Components:**
+    *   `base/buttons.css` (Button components)
+    *   `component/` (Drupal components like `messages.css`, `search.css`)
+    *   `paragraphs/` (Specific paragraph styles like `paragraphs.accordion.css`)
+    *   `regions/` (Region-specific styles like `region.footer.css`)
+
+#### BEM Naming Examples
+*   **Block:** `.paragraph--type--contact`, `.messages`
+*   **Element:** `.paragraph--type--contact__title`, `.field__items`
+*   **Modifier:** `.messages--status`, `.messages--warning`
+
+- **Plain CSS Only:** All styles must be written in plain CSS. **Do not use SCSS or SASS.** While an `scss/` directory exists for legacy purposes, it is not used for compilation.
+
+### How to Contribute
+1. **Branching:** Create a new branch from the latest dev branch, currently `5.x`. Use descriptive prefixes such as `feature/`, `fix/`, or `refactor/`.
+2. **Coding Standards:** Follow Drupal's [CSS](https://www.drupal.org/docs/develop/standards/css-coding-standards) and [Twig](https://www.drupal.org/docs/develop/standards/twig-coding-standards) coding standards. Use the included `.editorconfig` to maintain formatting.
+3. **Preprocessing:** Keep Twig templates clean by moving complex logic into the `illinois_framework_theme.theme` file using preprocess functions.
+4. **Testing:** Verify changes across various content types and layout modes (e.g., with and without sidebars).
+5. **Pull Requests:** Submit a pull request to the `main` branch with a clear description of the problem solved or feature added.
 
 ## Twig Templating with Twig Tweak
 If you are looking to modify the twig templates there are some shortcuts provided by the [Twig Tweak Module](https://www.drupal.org/project/twig_tweak).  See the [cheat sheet](https://www.drupal.org/docs/contributed-modules/twig-tweak/cheat-sheet).
