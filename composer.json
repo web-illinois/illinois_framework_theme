@@ -7,7 +7,6 @@
         "ext-dom": "*",
         "web-illinois/illinois_framework_core": "5.x-dev",
         "web-illinois/illinois_framework_theme": "5.x-dev",
-        "cweagans/composer-patches": "^2.0",
         "drupal/core-recommended": "^10.5",
         "drupal/gin": "^4.0",
         "drupal/gin_toolbar": "^2.0",
