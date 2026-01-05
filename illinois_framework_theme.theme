@@ -473,7 +473,7 @@ function illinois_framework_theme_preprocess_paragraph(&$variables) {
       'il-icon-event'         => 'event-line',
       'il-icon-facebook'      => 'facebook-line',
       'il-icon-faculty-staff' => 'faculty-line',
-      'il-icon-faq'           => 'faq-line',
+      'faq'                   => 'faq-line',
       'il-icon-favorite'      => 'favorite-line',
       'flickr'                => 'flickr-line',
       'github'                => 'github-line',

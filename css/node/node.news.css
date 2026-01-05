@@ -229,18 +229,17 @@ article.news.hide-image {
     }
   }
   .highlighted-news-wrapper {
-    display: flex;
-    @include media-breakpoint-down(sm) {
-      display: block;
+    display: block;
+    @media (min-width: 600px)  {
+      display: flex;
+    }
+    .highlighted-news-image {
+      width: 100%;
+      margin-top: 20px;
     }
     .highlighted-news-content {
       max-width: 850px;
       padding-right: 50px;
-
-      @include media-breakpoint-down(sm) {
-        min-height: auto;
-       padding-right: 0;
-      }
 
       .title h2 {
         color: var(--il-orange);
