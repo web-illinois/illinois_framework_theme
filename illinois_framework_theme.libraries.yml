@@ -41,6 +41,9 @@ ils-contentslider:
     https://contrib.webtheme.illinois.edu/ils-contentslider/contentslider.min.js:
       type: external
       minified: true
+    js/paragraph-content-slider.js: { }
+  dependencies:
+    - core/jquery
 google-cse:
   js:
     js/google-cse.js: { attributes: { async: true } }
