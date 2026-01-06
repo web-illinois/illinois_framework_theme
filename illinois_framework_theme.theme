@@ -580,6 +580,17 @@ function illinois_framework_theme_preprocess_paragraph__feature_split(&$variable
     }
   }
 
+  // Ensure the class is added to the renderable attributes and classes array
+  if (empty($variables['attributes']) || !($variables['attributes'] instanceof Attribute)) {
+    $variables['attributes'] = new Attribute();
+  }
+  $variables['attributes']->addClass($variables['max_width_class']);
+
+  if (empty($variables['classes']) || !is_array($variables['classes'])) {
+    $variables['classes'] = [];
+  }
+  $variables['classes'][] = $variables['max_width_class'];
+
   // Theme.
   $variables['theme'] = '';
   if (!$paragraph->field_feature_split_background->isEmpty()) {
