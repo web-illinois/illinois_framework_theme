@@ -8,10 +8,8 @@ ilw-footer {
       grid-template-columns: repeat(2,1fr);
       grid-gap: 60px;
     }
-    nav {
-      @include media-breakpoint-up(lg) {
-        margin-bottom: 1rem;
-      }
+    @include media-breakpoint-up(lg) {
+      margin-bottom: 1rem;
     }
 
     h2 {
