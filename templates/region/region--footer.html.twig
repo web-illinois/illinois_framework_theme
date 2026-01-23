@@ -121,24 +121,28 @@
     {% endfor %}
     <a href="{{ login_logout_url }}" rel="nofollow">{{ login_logout_text }}</a>
   </div>
+  {# This variable footermenus helps with initial render (render once), shortens the section for the menu footers and 
+  enables checking if content is present. #}
+ {% set footermenus = [ drupal_entity('block', 'footermenufirst')|render, 
+                         drupal_entity('block', 'footermenusecond')|render, 
+                         drupal_entity('block', 'footermenuthird')|render, 
+                         drupal_entity('block', 'footermenufourth')|render ] 
+  %}
+{# if any footermenu rendered, show the container #}
+  {% if footermenus is not empty %}
   <div class="footer-menus">
+    {% if footermenus[0] is not empty or footermenus[1] is not empty%}
     <div>
-      {% if drupal_entity('block', 'footermenufirst') %}
-        <nav aria-label="Campus Footer Links">{{ drupal_entity('block', 'footermenufirst') }}</nav>
-      {% endif %}
-      {% if drupal_entity('block', 'footermenusecond') %}
-        <nav aria-label="Campus Footer Links 2">{{ drupal_entity('block', 'footermenusecond') }}</nav>
-      {% endif %}
+      {{ footermenus[0] }}
+      {{ footermenus[1] }}
     </div>
+    {% if footermenus[2] is not empty or footermenus[3] is not empty%}
     <div>
-      {% if drupal_entity('block', 'footermenuthird') %}
-        <nav aria-label="Campus Footer Links 3">{{ drupal_entity('block', 'footermenuthird') }}</nav>
-      {% endif %}
-      {% if drupal_entity('block', 'footermenufourth') %}
-        <nav aria-label="Campus Footer Links 4">{{ drupal_entity('block', 'footermenufourth') }}</nav>
-      {% endif %}
-    </div>
+      {{ footermenus[2] }}
+      {{ footermenus[3] }}
+    {% endif %}
   </div>
+  {% endif %}
   {% if if_footer_google_translate ?? true %}
     <div id="google_translate_element"></div>
     <script>
