@@ -23,45 +23,9 @@
 {% if if_footer['if_footer_social'] %}
 <nav slot="social" aria-label="Social media">
   <ul>
-    {% if if_footer['if_footer_social']['if_footer_social_instagram'] %}
-      <li><a data-service="instagram" href="{{ if_footer['if_footer_social']['if_footer_social_instagram'] }}">Instagram</a></li>
-    {% endif %}
-    {% if if_footer['if_footer_social']['if_footer_social_facebook'] %}
-      <li><a data-service="facebook" href="{{ if_footer['if_footer_social']['if_footer_social_facebook'] }}">Facebook</a></li>
-    {% endif %}
-    {% if if_footer['if_footer_social']['if_footer_social_twitter'] %}
-      <li><a data-service="x" href="{{ if_footer['if_footer_social']['if_footer_social_twitter'] }}">x</a></li>
-    {% endif %}
-    {% if if_footer['if_footer_social']['if_footer_social_youtube'] %}
-      <li><a data-service="youtube" href="{{ if_footer['if_footer_social']['if_footer_social_youtube'] }}">YouTube</a></li>
-    {% endif %}
-    {% if if_footer['if_footer_social']['if_footer_social_linkedin'] %}
-      <li><a data-service="linkedin" href="{{ if_footer['if_footer_social']['if_footer_social_linkedin'] }}">LinkedIn</a></li>
-    {% endif %}
-    {% if if_footer['if_footer_social']['if_footer_social_bluesky'] %}
-      <li><a data-service="bluesky" href="{{ if_footer['if_footer_social']['if_footer_social_bluesky'] }}">Bluesky</a></li>
-    {% endif %}
-    {% if if_footer['if_footer_social']['if_footer_social_calendar'] %}
-      <li><a data-service="calendar" href="{{ if_footer['if_footer_social']['if_footer_social_calendar'] }}">Calendar</a></li>
-    {% endif %}
-    {% if if_footer['if_footer_social']['if_footer_social_tiktok'] %}
-      <li><a data-service="tiktok" href="{{ if_footer['if_footer_social']['if_footer_social_tiktok'] }}">TikTok</a></li>
-    {% endif %}
-    {% if if_footer['if_footer_social']['if_footer_social_pinterest'] %}
-      <li><a data-service="pinterest" href="{{ if_footer['if_footer_social']['if_footer_social_pinterest'] }}">Pinterest</a></li>
-    {% endif %}
-    {% if if_footer['if_footer_social']['if_footer_social_snapchat'] %}
-      <li><a data-service="snapchat" href="{{ if_footer['if_footer_social']['if_footer_social_snapchat'] }}">Snapchat</a></li>
-    {% endif %}
-    {% if if_footer['if_footer_social']['if_footer_social_weibo'] %}
-      <li><a data-service="weibo" href="{{ if_footer['if_footer_social']['if_footer_social_weibo'] }}">Weibo</a></li>
-    {% endif %}
-    {% if if_footer['if_footer_social']['if_footer_social_whatsapp'] %}
-      <li><a data-service="whatsapp" href="{{ if_footer['if_footer_social']['if_footer_social_whatsapp'] }}">WhatsApp</a></li>
-    {% endif %}
-    {% if if_footer['if_footer_social']['if_footer_social_threads'] %}
-      <li><a data-service="threads" href="{{ if_footer['if_footer_social']['if_footer_social_threads'] }}">Threads</a></li>
-    {% endif %}
+  {% for socialname, sociallink in if_footer['if_footer_social'] %}
+    <li><a data-service="{{ socialname }}" href="{{ sociallink }}">{{ socialname|capitalize }}</a></li>
+  {% endfor %}
   </ul>
 </nav>
 {% endif %}
