@@ -123,18 +123,18 @@
 {% if footermenus[0] is not empty or footermenus[1] is not empty or
 footermenus[2] is not empty or footermenus[3] is not empty %}
 <div class="footer-menus">
+  <div>{# Keep the div even if blank so that CSS grid works properly #}
   {% if footermenus[0] is not empty or footermenus[1] is not empty%}
-  <div>
     {{ footermenus[0] }}
     {{ footermenus[1] }}
-  </div>
   {% endif %}
+  </div>
+  <div>{# Keep the div even if blank so that CSS grid works properly #}
   {% if footermenus[2] is not empty or footermenus[3] is not empty%}
-  <div>
     {{ footermenus[2] }}
     {{ footermenus[3] }}
-  </div>
   {% endif %}
+  </div>
 </div>
 {% endif %}
 {% if if_footer_google_translate ?? true %}
