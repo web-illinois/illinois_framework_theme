@@ -30,6 +30,7 @@
     {% endif %}
   {% endif %}
   <a slot="site-name" href="/">{{ drupal_config('system.site', 'name') | raw }}</a>
+ {% if if_footer['if_footer_social'] %}
   <nav slot="social" aria-label="Social media">
     <ul>
       {% if if_footer['if_footer_social']['if_footer_social_instagram'] %}
@@ -73,6 +74,7 @@
       {% endif %}
     </ul>
   </nav>
+  {% endif %}
   <address slot="address">
     <p>
       {% if if_footer['if_footer_address']['if_footer_address_street_one'] %}
