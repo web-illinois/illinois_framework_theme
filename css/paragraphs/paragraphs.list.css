@@ -10,10 +10,20 @@
   }
   .image-side-right {
     .list-image-wrapper {
-      padding: 0;
+      padding: 1.875rem 0;
       @media (min-width: 600px) {
         padding: 1.875rem 0 0 1.875rem;
       }
+    }
+  }
+  ilw-columns[theme="gray"] {
+    .list-image-wrapper {
+      padding: 1.875rem 0 0 1.875rem;
+    }
+  }
+  ilw-columns[theme="gray"][width="page"] {
+    .list-image-wrapper {
+      padding: 1.875rem 1.875rem 0 0;
     }
   }
 }
