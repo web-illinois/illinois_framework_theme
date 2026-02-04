@@ -9,12 +9,14 @@
       line-height: 2.125rem;
       font-size: 1.5rem;
     }
-    .field__item {
+    &.field__item {
       padding-bottom: 1.5rem;
     }
   }
   .field--name-field-feature-split-subtitle {
     color: var(--ilw-color--heading);
+    font-size: 1.375rem;
+    line-height: 1.2;
   }
 
   .field--name-field-feature-split-callout {

@@ -473,7 +473,7 @@ function illinois_framework_theme_preprocess_paragraph(&$variables) {
       'il-icon-event'         => 'event-line',
       'il-icon-facebook'      => 'facebook-line',
       'il-icon-faculty-staff' => 'faculty-line',
-      'il-icon-faq'           => 'faq-line',
+      'faq'                   => 'faq-line',
       'il-icon-favorite'      => 'favorite-line',
       'flickr'                => 'flickr-line',
       'github'                => 'github-line',
@@ -579,6 +579,17 @@ function illinois_framework_theme_preprocess_paragraph__feature_split(&$variable
       $variables['max_width_class'] = 'fixed-width';
     }
   }
+
+  // Ensure the class is added to the renderable attributes and classes array
+  if (empty($variables['attributes']) || !($variables['attributes'] instanceof Attribute)) {
+    $variables['attributes'] = new Attribute();
+  }
+  $variables['attributes']->addClass($variables['max_width_class']);
+
+  if (empty($variables['classes']) || !is_array($variables['classes'])) {
+    $variables['classes'] = [];
+  }
+  $variables['classes'][] = $variables['max_width_class'];
 
   // Theme.
   $variables['theme'] = '';
