@@ -89,19 +89,31 @@ function illinois_framework_theme_preprocess(&$variables) {
   $variables['if_footer']['if_footer_address']['if_footer_address_zip'] = theme_get_setting('if_footer_address_zip');
   $variables['if_footer']['if_footer_address']['if_footer_address_tel'] = theme_get_setting('if_footer_address_tel');
   $variables['if_footer']['if_footer_address']['if_footer_address_email'] = theme_get_setting('if_footer_address_email');
-  $variables['if_footer']['if_footer_social']['if_footer_social_facebook'] = theme_get_setting('if_footer_social_facebook');
-  $variables['if_footer']['if_footer_social']['if_footer_social_twitter'] = theme_get_setting('if_footer_social_twitter');
-  $variables['if_footer']['if_footer_social']['if_footer_social_instagram'] = theme_get_setting('if_footer_social_instagram');
-  $variables['if_footer']['if_footer_social']['if_footer_social_youtube'] = theme_get_setting('if_footer_social_youtube');
-  $variables['if_footer']['if_footer_social']['if_footer_social_linkedin'] = theme_get_setting('if_footer_social_linkedin');
-  $variables['if_footer']['if_footer_social']['if_footer_social_bluesky'] = theme_get_setting('if_footer_social_bluesky');
-  $variables['if_footer']['if_footer_social']['if_footer_social_calendar'] = theme_get_setting('if_footer_social_calendar');
-  $variables['if_footer']['if_footer_social']['if_footer_social_tiktok'] = theme_get_setting('if_footer_social_tiktok');
-  $variables['if_footer']['if_footer_social']['if_footer_social_threads'] = theme_get_setting('if_footer_social_threads');
-  $variables['if_footer']['if_footer_social']['if_footer_social_pinterest'] = theme_get_setting('if_footer_social_pinterest');
-  $variables['if_footer']['if_footer_social']['if_footer_social_snapchat'] = theme_get_setting('if_footer_social_snapchat');
-  $variables['if_footer']['if_footer_social']['if_footer_social_weibo'] = theme_get_setting('if_footer_social_weibo');
-  $variables['if_footer']['if_footer_social']['if_footer_social_whatsapp'] = theme_get_setting('if_footer_social_whatsapp');
+
+  // Set the social media links into a variable so we can use array_filter to exclude empty items
+  $if_footer_social = [
+
+    // Use the lowercase name of the social media supported by the framework.
+    'instagram' => theme_get_setting('if_footer_social_instagram'),
+    'facebook' => theme_get_setting('if_footer_social_facebook'),
+    // add an override for the setting to adjust for renaming twitter to x.
+    'x' => theme_get_setting('if_footer_social_twitter'),
+    'youtube' => theme_get_setting('if_footer_social_youtube'),
+    'linkedin' => theme_get_setting('if_footer_social_linkedin'),
+    'bluesky' => theme_get_setting('if_footer_social_bluesky'),
+    'calendar' => theme_get_setting('if_footer_social_calendar'),
+    'tiktok' => theme_get_setting('if_footer_social_tiktok'),
+    'pinterest' => theme_get_setting('if_footer_social_pinterest'),
+    'snapchat' => theme_get_setting('if_footer_social_snapchat'),
+    'weibo' => theme_get_setting('if_footer_social_weibo'),
+    'whatsapp' => theme_get_setting('if_footer_social_whatsapp'),
+    'threads' => theme_get_setting('if_footer_social_threads'),
+    
+  ];
+
+  // Remove empty elements and set them to the right variable
+  $variables['if_footer']['if_footer_social'] = array_filter($if_footer_social);
+
   $variables['if_footer_colleges'][0][0] = theme_get_setting('if_footer_college_text_1');
   $variables['if_footer_colleges'][0][1] = theme_get_setting('if_footer_college_link_1');
   $variables['if_footer_colleges'][1][0] = theme_get_setting('if_footer_college_text_2');
