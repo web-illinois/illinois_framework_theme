@@ -96,7 +96,8 @@ function illinois_framework_theme_preprocess(&$variables) {
     // Use the lowercase name of the social media supported by the framework.
     'instagram' => theme_get_setting('if_footer_social_instagram'),
     'facebook' => theme_get_setting('if_footer_social_facebook'),
-    'twitter' => theme_get_setting('if_footer_social_twitter'),
+    // add an override for the setting to adjust for renaming twitter to x.
+    'x' => theme_get_setting('if_footer_social_twitter'),
     'youtube' => theme_get_setting('if_footer_social_youtube'),
     'linkedin' => theme_get_setting('if_footer_social_linkedin'),
     'bluesky' => theme_get_setting('if_footer_social_bluesky'),
