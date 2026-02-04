@@ -73,31 +73,34 @@ TODO: Consider making the feature video styles use this responsive video setup.
 }
 
 /*Styles for right and left align media*/
-.il-formatted figure,
+figure,
 .media,
 .media--type-remote-video,
 .media--type-mediaspace-illinois {
 
   &.align-left,
   &.align-right {
-    padding-bottom: var(--il-content-margin);
+    padding: 1rem 0;
     &.media--view-mode-original-size{
       max-width: 50%;
     }
   }
 
   &.align-left {
-    justify-content: left;
-    padding-right: var(--il-content-margin);
+    margin: 0;
+    @media (min-width: 600px) {
+      margin: 0 1rem 0 0;
+    }
   }
 
   &.align-right {
-    justify-content: right;
-    padding-left: var(--il-content-margin);
+    margin: 0;
+    @media (min-width: 600px) {
+      margin: 1rem 0 0 1rem;
+    }
   }
 
   &.align-center {
-    justify-content: center;
     clear: both;
     display: block;
     margin: 0.888889em auto 0;
@@ -111,8 +114,12 @@ TODO: Consider making the feature video styles use this responsive video setup.
   }
 
   figcaption{
-    margin: rem(5px) 0 !important;
+    margin: 0.3125rem 0 !important;
     border-bottom: none !important;
+    box-sizing: border-box;
+    font-size: .7777777778em;
+    font-weight: 400;
+    line-height: 1.6428571429em;
   }
 }
 
