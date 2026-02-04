@@ -8,217 +8,254 @@
     padding-inline-start:0;
   }
   li[id*="event"]{
-    padding: 1.875rem;
+    padding: 0 0 1.875rem;
   }
-  .field--name-field-calendar__more{
-    font-weight: 700;
-    a{
-      text-decoration: none;
-      &:after {
-        content: '\f101';
-        font-family: FontAwesome;
-        vertical-align: top;
-        padding-left: 0.5rem;
-      }
-      &:hover{
-        text-decoration: none;
-        border-bottom: 1px solid;
-      }
-    }
-  }
-  .calendar--type--1{
-    li[id*="event"]{
-      &:nth-of-type(odd){
-        background: #f4f4f4;
-        }
-    }
-    .field--name-field-calendar__more{
-      margin: 2rem 0 0 2rem;
-    }
-  }
-  .calendar--type--5{
-    li[id*="event"]{
-      border-bottom: 1px solid #707070;
-      &:first-of-type{
-        padding-top: 0;
-        }
-    }
-    div[class*="time-with-title"]{
-      font-weight: 600;
-      font-size: 1.25rem;
-      color: var(--il-blue);
-    }
-    div[class*="title-with-date"]{
-      font-size: 1.5625rem;
-      font-weight: 600;
-      a {
-        text-decoration: none;
-        border-bottom: 2px solid transparent;
-        &:after {
-          content: '\f101';
-          font-family: FontAwesome;
-          vertical-align: top;
-          padding: 0 0.5rem;
-        }
-        &:hover {
-          border-bottom: 2px solid var(--il-altgeld);
-        }
-      }
-
-    }
-    .field--name-field-calendar__more{
-      margin: 2rem 0 0 2rem;
-    }
-
-  }
+/*hides webtools "more events" button*/
+.more-button-wrapper,
+.more-pod {
+  display: none;
+}
 
   div[class*="section-box"]{
-
-    div[class*="item-title"]{
-    font-size: 1.5625rem;
-    font-weight: 600;
-    line-height: 1.8125rem;
-    }
     div[class*="time"]{
       font-weight: 600;
       font-size: 1.25rem;
-     line-height: 2.5rem;
+      line-height: 2.5rem;
     }
     span[class*="label"]{
       font-weight: 600;
     }
   }
 
-  .calendar--type--3{
-    #content-list {
-      li {
-        padding: 0;
-        margin-bottom: 2rem;
-        clear: both;
-        @media (min-width: 600px) {
-          min-height: 130px;
-          margin-bottom: 1rem;
+
+/*Full list with descriptions
+Webtools: Generic 1a(1)*/
+.calendar--type--1{
+  div[class*="-item-title"]{
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    background-color: var(--il-storm-lighter-4) !important;
+    padding: 5px 10px;
+    a {
+      color: var(--il-blue) !important;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+      &:focus {
+        color: var(--il-blue) !important;
+        text-decoration: none;
+        background-color: var(--il-arches-90);
+        border-bottom: 1px solid var(--il-blue);
+      }
+    }
+  }
+  div[class*="-time"]{
+    font-size: 1.125rem !important;
+    color: var(--il-blue) !important;
+    font-weight: 600 !important;
+    font-style: italic !important;
+  }
+  div[class*="-extra-info"]{
+    font-size: 1.125rem !important;
+  }
+  li{
+    &.title_date_only{
+      div[class*="-time-with-title"]{
+        background-color: var(--il-storm-lighter-4) !important;
+        padding: 5px 10px;
+        & div[class*="-time"]{
+          font-size: 1.125rem !important;
+          color: var(--il-blue) !important;
+          font-weight: 700 !important;
+          font-style: normal !important;
+          margin-bottom:0 !important;
         }
       }
-      .cw3-date-image {
-        float: left;
-        display: block;
-        width: 75px;
-        height: 75px;
-        margin: .4375rem 0 0;
-        background-color: var(--il-orange);
-        border-radius: 10px 0px 10px 0px;
-        .date{
-          color: #fff;
-          line-height: 1.875rem;
-          .date-month{
-            font-size: 1.5rem;
-            font-weight: 700;
-            line-height: 1.375rem;
-            padding-top: 14px;
-            text-transform: uppercase;
-            text-align: center;
-          }
-          .date-day{
-            font-size: 2rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            text-align: center;
-          }
-        }
-      }
-      .cw3-content {
-        margin-left: 5.625rem;
-      }
-      .cw3-time-with-title{
-        font-weight: 600;
-        font-size: 1.25rem;
-        color: var(--il-blue);
-      }
-      .cw3-title-with-date{
-        font-size: 1.3125rem;
-        font-weight: 700;
-        line-height: 1.875rem;
+      div[class*="-title-with-date"]{
+        font-size: 1.125rem !important;
+        font-weight: 600 !important;
+        padding: 5px 10px;
         a {
           text-decoration: none;
-          border-bottom: 2px solid transparent;
-          &:after {
-            content: '\f101';
-            font-family: FontAwesome;
-            vertical-align: top;
-            padding: 0 0.5rem;
-          }
           &:hover {
-            border-bottom: 2px solid var(--il-altgeld);
+            text-decoration: underline;
+          }
+          &:focus {
+            text-decoration: none;
+            color: var(--il-blue) !important;
+            background-color: var(--il-arches-90);
+            border-bottom: 1px solid var(--il-blue);
           }
         }
       }
     }
   }
+}
 
-  .calendar--type--13{
-    ul#content-list{
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-evenly;
-      gap: 3rem;
+/*Simple list with title and date
+Webtools: Generic 1b(5)*/
+.calendar--type--5{
+  li {
+    margin-bottom: 45px;
+  }
+  .event-section {
+    border-left: 3px solid var(--il-orange);
+    padding-left: 25px;
+  }
+  div[class*="-item-title"]{
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    line-height: 1.75rem !important;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--il-storm-80);
+    a {
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+      &:focus {
+        color: var(--il-blue);
+        text-decoration: none;
+        background-color: var(--il-arches-90);
+        border-bottom: 1px solid var(--il-blue);
+      }
     }
-    li{
-      &.title_date_only{
-        border: 1px solid #707070;
-        max-width: 100%;
-        padding: 1.875rem 1.25rem 2.8125rem;
-        @media (min-width: 701px) {
-          max-width: 30%;
-          flex: 1 1 29%;
+  }
+  div[class*="-time"]{
+    font-size: 1.125rem !important;
+    color: var(--il-blue) !important;
+    font-weight: 600 !important;
+    font-style: italic;
+    padding-top: 15px;
+  }
+  div[class*="-extra-info"]{
+    font-size: 1.125rem !important;
+  }
+  li{
+    padding-bottom: 0 !important;
+    &.title_date_only{
+      border-left: 3px solid var(--il-orange);
+      padding-left: 25px;
+      div[class*="-time-with-title"]{
+        padding-bottom: 15px;
+        padding-top: 0 !important;
+        border-bottom: 1px solid var(--il-storm-80);
+        & div[class*="-time"]{
+          padding-top: 0 !important;
         }
       }
-    }
-    .cw3-date-image{
-      display: block;
-      margin: 0 auto;
-    .date{
-      color: var(--il-orange);
-      text-align: center;
-      font-weight: 700;
-      .date-month{
-        font-size: 3.5rem;
-        line-height: 3.5rem;
-        text-transform: uppercase;
-      }
-      .date-day{
-        font-size: 4rem;
-        line-height: 3.5rem;
-      }
-    }
-    }
-    .cw3-time {
-      text-align: center;
-      margin: 0 0 1rem;
-      padding: .625rem 0 0;
-      color: var(--il-orange);
-      font-weight: 700;
-      font-size: 1.1875rem;
-    }
-    .cw3-title-with-date {
-      font-weight: 700;
-      text-align: center;
-      font-size: 1.3125rem;
-      padding: 0 .625rem;
-
-    }
-    .field--name-field-calendar__more{
-      margin: 2rem auto 0;
-      text-align: center;
-      a{
-        &:after {
-          content: '';
-          padding: 0;
-        }
-        &:hover {
-          border-bottom: 0.125rem solid var(--il-orange);
+      div[class*="-title-with-date"]{
+        font-size: 1.25rem !important;
+        font-weight: 700 !important;
+        line-height: 1.75rem !important;
+        padding-top: 15px;
+        a{
+          text-decoration: none !important;
+          &:hover{
+            text-decoration: underline !important;
+          }
+          &:focus {
+            color: var(--il-blue);
+            text-decoration: none !important;
+            background-color: var(--il-arches-90);
+            border-bottom: 1px solid var(--il-blue);
+          }
         }
       }
     }
   }
+}
+
+
+/*Simple list with icons
+Webtools: Small date icons (21)*/
+.calendar--type--3{
+  .list-event{
+    clear: both;
+    padding-bottom: 45px;
+  }
+  .event-type{
+    color: var(--il-alma-mater) !important;
+    text-transform: none !important;
+    a {
+      color: var(--il-alma-mater) !important;
+      &:focus {
+        color: var(--il-blue) !important;
+        text-decoration: none !important;
+        background-color: var(--il-arches-90);
+        border-bottom: 1px solid var(--il-blue);
+      }
+    }
+  }
+  .event-date {
+    background-color: var(--il-storm-95) !important;
+    border: 1px solid var(--il-blue);
+    width: 95px !important;
+    height: 100px;
+    margin-top: 8px;
+    padding: 0 !important;
+  }
+  .event-month {
+    background-color: var(--il-blue);
+    padding: 10px 0;
+    font-size: 18px !important;
+    font-weight: 700;
+  }
+  .event-day {
+    font-size: 36px !important;
+    padding: 15px 0;
+    color: var(--il-blue);
+    font-weight: 700;
+  }
+  .event-title{
+    a{
+      &:focus {
+        color: var(--il-blue) !important;
+        text-decoration: none !important;
+        background-color: var(--il-arches-90);
+        border-bottom: 1px solid var(--il-blue);
+      }
+    }
+  }
+}
+
+/*Calendar Cards
+Webtools: Horizontal layout (20)*/
+.calendar--type--13 {
+  div[id*="calendar-"] {
+    padding-bottom: 35px;
+  }
+
+  .event-pod {
+    border: 1px solid #707372 !important;
+    border-bottom: 5px solid var(--il-orange) !important;
+    padding: 35px 35px 45px !important;
+  }
+
+  .event-date {
+    float: none !important;
+  }
+
+  .event-content {
+    padding: 15px 0 0 !important;
+    font-family: inherit !important;
+  }
+
+  .event-time {
+    font-size: 1.125rem !important;
+    color: #252525 !important
+  }
+
+  .event-title {
+    a {
+      &:focus {
+        color: var(--il-blue) !important;
+        text-decoration: none !important;
+        background-color: var(--il-arches-90);
+        border-bottom: 1px solid var(--il-blue);
+      }
+    }
+  }
+}
 }
