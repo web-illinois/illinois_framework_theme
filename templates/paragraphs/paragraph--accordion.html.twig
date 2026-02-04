@@ -40,20 +40,22 @@
 #}
 {%
   set classes = [
-    'il-formatted',
-    'fixed-width',
-    'paragraph',
-    'paragraph--type--' ~ paragraph.bundle|clean_class,
-    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
-    not paragraph.isPublished() ? 'paragraph--unpublished',
-    'background--color--white',
-  ]
+  'paragraph',
+  'paragraph--type--' ~ paragraph.bundle|clean_class,
+  view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+  not paragraph.isPublished() ? 'paragraph--unpublished',
+]
 %}
 {% block paragraph %}
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
-      {{ content }}
+      <ilw-accordion width="page">
+        {% if content.field_accordion_title['#items'] %}
+          <h2>{{ content.field_accordion_title }}</h2>
+        {% endif %}
+        {{ content|without('field_accordion_title') }}
+      </ilw-accordion>
     {% endblock %}
   </div>
 {% endblock paragraph %}
