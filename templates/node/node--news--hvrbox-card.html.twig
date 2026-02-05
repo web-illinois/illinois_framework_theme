@@ -65,16 +65,13 @@
  *
  * @see template_preprocess_node()
  *
- * @todo Remove the id attribute (or make it a class), because if that gets
- *   rendered twice on a page this is invalid CSS for example: two lists
- *   in different view modes.
  */
 #}
 
 <div class="hvrbox">
 	{{content.field_if_meda_featured_image|raw}}
 	<div class="hvrbox-layer_top hvrbox-layer_slideup">
-        <a href="{{ url }}"></a>
+        <a href="{{ url }}" aria-label="{{ label|render|striptags|trim }}"></a>
         <div class="hvrbox-text">
             <div class="hvrbox-title">{{ label }}</div>
             <div class="hvrbox-body">{{ content.body }}</div>
@@ -82,4 +79,3 @@
         
 	</div>
 </div>
-
