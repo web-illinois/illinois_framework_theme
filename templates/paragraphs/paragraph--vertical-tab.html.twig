@@ -46,6 +46,7 @@
     : content.field_vertical_tab_background['#items'].0.value == 'il-theme-gray'
     ? 'gray' %}
 {% endif %}
+{% set tabs_id = 'vt-' ~ paragraph.id() %}
 {%
   set classes = [
     'paragraph',
@@ -69,12 +70,12 @@
           {% set body = content.field_vertical_tab[loop.index0]['#paragraph'].field_vertical_tab_panel_body.value %}
 
           <div slot="tabs">
-            <button role="tab" aria-controls="panel-{{ loop.index }}">
+            <button role="tab" aria-controls="{{ tabs_id }}-panel-{{ loop.index }}">
               {{ title }}
             </button>
           </div>
 
-          <div id="panel-{{ loop.index }}">
+          <div id="{{ tabs_id }}-panel-{{ loop.index }}">
             <h3>{{ title }}</h3>
             <p class="field--name-field-vertical-tab-panel__body">
               {{ body }}

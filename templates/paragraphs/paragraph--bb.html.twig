@@ -60,27 +60,21 @@
 {% block paragraph %}
 <div{{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id()).addClass(classes) }}>
   {% block content %}
-  <ilw-content width="{{ width_setting }}">
-      {# Render the background image if it exists #}
-      {# This respects the formatter and hides it if empty #}
-      {{ content.field_bb_background_image }}
-
-      {# Render the content field, which includes title and subtitle #}
-      {# This respects the formatter and hides it if empty #}
-      {{ content.field_bb_content }}
-
-      {# Render Title and Subtitle using the content variable #}
-      {# This respects their formatters and hides them if empty #}
-    {% if layout_setting == 'center' and (content.field_bb_title or content.field_bb_subtitle) %}
-      <div class="{{ layout_setting }}">
-        {{ content.field_bb_title }}
-        {{ content.field_bb_subtitle }}
-      </div>
-    {% else %}
-        {{ content.field_bb_title }}
-        {{ content.field_bb_subtitle }}
+    {% if content.field_bb_title['#items'] or content.field_bb_subtitle['#items'] %}
+      <ilw-content width="{{ width_setting }}">
+        {# Render Title and Subtitle using the content variable #}
+        {# This respects their formatters and hides them if empty #}
+        {% if layout_setting == 'center' and (content.field_bb_title or content.field_bb_subtitle) %}
+          <div class="{{ layout_setting }}">
+            {{ content.field_bb_title }}
+            {{ content.field_bb_subtitle }}
+          </div>
+        {% else %}
+          {{ content.field_bb_title }}
+          {{ content.field_bb_subtitle }}
+        {% endif %}
+      </ilw-content>
     {% endif %}
-    </ilw-content>
 
     {# --- Render the nested paragraphs field ('field_bb') --- #}
     {# Drupal will now use the template for the referenced paragraphs #}

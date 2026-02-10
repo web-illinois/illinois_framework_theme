@@ -20,49 +20,15 @@
   {% endif %}
 {% endif %}
 <a slot="site-name" href="/">{{ drupal_config('system.site', 'name') | raw }}</a>
+{% if if_footer['if_footer_social'] %}
 <nav slot="social" aria-label="Social media">
   <ul>
-    {% if if_footer['if_footer_social']['if_footer_social_instagram'] %}
-      <li><a data-service="instagram" href="{{ if_footer['if_footer_social']['if_footer_social_instagram'] }}">Instagram</a></li>
-    {% endif %}
-    {% if if_footer['if_footer_social']['if_footer_social_facebook'] %}
-      <li><a data-service="facebook" href="{{ if_footer['if_footer_social']['if_footer_social_facebook'] }}">Facebook</a></li>
-    {% endif %}
-    {% if if_footer['if_footer_social']['if_footer_social_twitter'] %}
-      <li><a data-service="x" href="{{ if_footer['if_footer_social']['if_footer_social_twitter'] }}">x</a></li>
-    {% endif %}
-    {% if if_footer['if_footer_social']['if_footer_social_youtube'] %}
-      <li><a data-service="youtube" href="{{ if_footer['if_footer_social']['if_footer_social_youtube'] }}">YouTube</a></li>
-    {% endif %}
-    {% if if_footer['if_footer_social']['if_footer_social_linkedin'] %}
-      <li><a data-service="linkedin" href="{{ if_footer['if_footer_social']['if_footer_social_linkedin'] }}">LinkedIn</a></li>
-    {% endif %}
-    {% if if_footer['if_footer_social']['if_footer_social_bluesky'] %}
-      <li><a data-service="bluesky" href="{{ if_footer['if_footer_social']['if_footer_social_bluesky'] }}">Bluesky</a></li>
-    {% endif %}
-    {% if if_footer['if_footer_social']['if_footer_social_calendar'] %}
-      <li><a data-service="calendar" href="{{ if_footer['if_footer_social']['if_footer_social_calendar'] }}">Calendar</a></li>
-    {% endif %}
-    {% if if_footer['if_footer_social']['if_footer_social_tiktok'] %}
-      <li><a data-service="tiktok" href="{{ if_footer['if_footer_social']['if_footer_social_tiktok'] }}">TikTok</a></li>
-    {% endif %}
-    {% if if_footer['if_footer_social']['if_footer_social_pinterest'] %}
-      <li><a data-service="pinterest" href="{{ if_footer['if_footer_social']['if_footer_social_pinterest'] }}">Pinterest</a></li>
-    {% endif %}
-    {% if if_footer['if_footer_social']['if_footer_social_snapchat'] %}
-      <li><a data-service="snapchat" href="{{ if_footer['if_footer_social']['if_footer_social_snapchat'] }}">Snapchat</a></li>
-    {% endif %}
-    {% if if_footer['if_footer_social']['if_footer_social_weibo'] %}
-      <li><a data-service="weibo" href="{{ if_footer['if_footer_social']['if_footer_social_weibo'] }}">Weibo</a></li>
-    {% endif %}
-    {% if if_footer['if_footer_social']['if_footer_social_whatsapp'] %}
-      <li><a data-service="whatsapp" href="{{ if_footer['if_footer_social']['if_footer_social_whatsapp'] }}">WhatsApp</a></li>
-    {% endif %}
-    {% if if_footer['if_footer_social']['if_footer_social_threads'] %}
-      <li><a data-service="threads" href="{{ if_footer['if_footer_social']['if_footer_social_threads'] }}">Threads</a></li>
-    {% endif %}
+  {% for socialname, sociallink in if_footer['if_footer_social'] %}
+    <li><a data-service="{{ socialname }}" href="{{ sociallink }}">{{ socialname|capitalize }}</a></li>
+  {% endfor %}
   </ul>
 </nav>
+{% endif %}
 <address slot="address">
   <p>
     {% if if_footer['if_footer_address']['if_footer_address_street_one'] %}
@@ -111,24 +77,32 @@
   {% endfor %}
   <a href="{{ login_logout_url }}" rel="nofollow">{{ login_logout_text }}</a>
 </div>
+
+{# This variable footermenus helps with initial render (render once), shortens the section for the menu footers and
+  enables checking if content is present. #}
+{% set footermenus = [ drupal_entity('block', 'footermenufirst')|render,
+                        drupal_entity('block', 'footermenusecond')|render,
+                        drupal_entity('block', 'footermenuthird')|render,
+                        drupal_entity('block', 'footermenufourth')|render ]
+%}
+{# if any footermenu rendered, show the container #}
+{% if footermenus[0] is not empty or footermenus[1] is not empty or
+footermenus[2] is not empty or footermenus[3] is not empty %}
 <div class="footer-menus">
-  <div>
-    {% if drupal_entity('block', 'footermenufirst') %}
-      <nav aria-label="Campus Footer Links">{{ drupal_entity('block', 'footermenufirst') }}</nav>
-    {% endif %}
-    {% if drupal_entity('block', 'footermenusecond') %}
-      <nav aria-label="Campus Footer Links 2">{{ drupal_entity('block', 'footermenusecond') }}</nav>
-    {% endif %}
+  <div>{# Keep the div even if blank so that CSS grid works properly #}
+  {% if footermenus[0] is not empty or footermenus[1] is not empty%}
+    {{ footermenus[0] }}
+    {{ footermenus[1] }}
+  {% endif %}
   </div>
-  <div>
-    {% if drupal_entity('block', 'footermenuthird') %}
-      <nav aria-label="Campus Footer Links 3">{{ drupal_entity('block', 'footermenuthird') }}</nav>
-    {% endif %}
-    {% if drupal_entity('block', 'footermenufourth') %}
-      <nav aria-label="Campus Footer Links 4">{{ drupal_entity('block', 'footermenufourth') }}</nav>
-    {% endif %}
+  <div>{# Keep the div even if blank so that CSS grid works properly #}
+  {% if footermenus[2] is not empty or footermenus[3] is not empty%}
+    {{ footermenus[2] }}
+    {{ footermenus[3] }}
+  {% endif %}
   </div>
 </div>
+{% endif %}
 {% if if_footer_google_translate ?? true %}
   <div class="google-translate-wrapper">
     <div id="google_translate_element"></div>
