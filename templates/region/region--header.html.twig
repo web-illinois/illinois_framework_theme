@@ -24,17 +24,26 @@
   <input type="search" name="keys" aria-labelledby="search-button">
   <button id="search-button" type="submit">Search</button>
 </form>
-<nav slot="links" aria-label="Utility">
-  <ul>
-    {% for header_link in if_header_links %}
-      {% set link = if_header_links[loop.index0][1] %}
-      {% set text = if_header_links[loop.index0][0] %}
-      {% if link != NULL and text != NULL %}
-        <li><a id="il-link--{{ loop.index }}" href="{{ link }}">{{ text }}</a></li>
-      {% endif %}
-    {% endfor %}
-  </ul>
-</nav>
+{% set valid_header_links = [] %}
+
+  {% for header_link in if_header_links %}
+    {% if header_link[0] is not empty and header_link[1] is not empty %}
+      {% set valid_header_links = valid_header_links|merge([header_link]) %}
+    {% endif %}
+  {% endfor %}
+  {% if valid_header_links|length > 0 %}
+    <nav slot="links" aria-label="Utility">
+      <ul>
+        {% for header_link in valid_header_links %}
+          <li>
+            <a id="il-link--{{ loop.index }}" href="{{ header_link[1] }}">
+              {{ header_link[0] }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  {% endif %}
 <ilw-header-menu slot="navigation">
     {{ drupal_entity('block', 'illinois_framework_theme_main_menu', check_access=false) }}
 </ilw-header-menu>
