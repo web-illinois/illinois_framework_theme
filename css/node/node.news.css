@@ -450,7 +450,8 @@ article.news.hide-image {
           transform: translateY(65%);
         }
         &:hover,
-        &.active {
+        &:focus-within,
+        &:active {
           .hvrbox-layer_slideup {
           -moz-transform: translateY(0);
           -webkit-transform: translateY(0);
