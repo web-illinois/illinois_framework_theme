@@ -440,6 +440,7 @@ article.news.hide-image {
               height: 100%;
               z-index: 1001;
               text-decoration: none;
+              background-color: transparent;
             }
         }
         .hvrbox-layer_slideup {
