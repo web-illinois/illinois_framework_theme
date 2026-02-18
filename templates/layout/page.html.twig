@@ -46,7 +46,7 @@
 <div class="layout-container">
   <ilw-page>
 
-      <ilw-header slot="header">
+      <ilw-header source="{{ site_name_source }}" slot="header">
         {{ page.header }}
       </ilw-header>
 
@@ -74,7 +74,7 @@
       {% endif %}
     </main>
 
-    <ilw-footer slot="footer">
+    <ilw-footer source="{{ site_name_source }}" slot="footer">
       {{ page.footer }}
     </ilw-footer>
 

@@ -60,6 +60,7 @@ function illinois_framework_theme_preprocess(&$variables) {
   $canoncial_url = Url::fromRoute('<current>', [], ['absolute' => 'true'])->toString();
   $base_path = \Drupal::request()->getHost();
   $base_path_http = \Drupal::request()->getSchemeAndHttpHost();
+  $variables['site_name_source'] = get_clean_system_site_name();
   $theme_path = \Drupal::theme()->getActiveTheme()->getPath();
   $variables['current_uri'] = \Drupal::request()->getRequestUri();
   $variables['canoncial_url'] = $canoncial_url;
@@ -138,6 +139,31 @@ function illinois_framework_theme_preprocess(&$variables) {
   $variables['if_subfooter'][3][1] = theme_get_setting('if_subfooter_link_4');
   $variables['if_subfooter'][4][0] = theme_get_setting('if_subfooter_text_5');
   $variables['if_subfooter'][4][1] = theme_get_setting('if_subfooter_link_5');
+}
+
+/**
+ * A helper function to transform the site name into a machine safe name
+ * for use in the ilw-header and ilw-footer as a source attribute
+ *
+ * Returns a string
+ */
+function get_clean_system_site_name(){
+  $name = Drupal::config('system.site')->get('name');
+
+  // Replaces:
+  // Ampersand to "and"
+  $name = preg_replace('/[&]/u', 'and', $name);
+  // Dashes and spaces to an underscore
+  $name = preg_replace('/[- ]/u', '_', $name);
+  // Any non-alphanumeric with nothing
+  $name = preg_replace('/[^_a-zA-Z0-9]/u', '', $name);
+  
+  // And then:
+  // Make string all lowercase
+  $name = strtolower($name);
+
+  return $name;
+
 }
 
 function illinois_framework_theme_theme_suggestions_page_alter(&$suggestions, $vars, $hook) {
