@@ -63,15 +63,17 @@
       {# if a side navigation exists and /'latest' is not in the url #}
       {% if node.field_sidebar.0.value == 'sidebar' and '/latest' not in url|render|render %}
         <ilw-columns mode="sidebar-left" width="auto">
-          {{ page.sidebar_first }}
-          {{ page.sidebar_second }}
+          <div>
+            {{ page.sidebar_first }}
+            {{ page.sidebar_second }}
+          </div>
           <div>
               {# Render only the sidebar content here (blocks + body + sidebar paragraphs) #}
               {{ page.sidebar_content }}
           </div>
         </ilw-columns>
         {# Full-width paragraphs appear outside the columns #}
-          {{ page.full_width_paragraphs }}
+        {{ page.full_width_paragraphs }}
       {% else %}
         {# No sidebar - render everything from page.content, wrapping body with page width #}
         {% for key, item in page.content %}
