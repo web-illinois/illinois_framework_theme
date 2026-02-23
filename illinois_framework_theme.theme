@@ -3,8 +3,10 @@
 declare(strict_types=1);
 
 use Drupal\Core\Url;
+use Drupal\node\NodeInterface;
 use Drupal\block\Entity\Block;
 use Drupal\Core\Site\Settings;
+use Drupal\Core\Render\Element;
 use Drupal\Core\Template\Attribute;
 use Drupal\paragraphs\ParagraphInterface;
 
@@ -108,7 +110,7 @@ function illinois_framework_theme_preprocess(&$variables) {
     'weibo' => theme_get_setting('if_footer_social_weibo'),
     'whatsapp' => theme_get_setting('if_footer_social_whatsapp'),
     'threads' => theme_get_setting('if_footer_social_threads'),
-    
+
   ];
 
   // Remove empty elements and set them to the right variable
@@ -183,180 +185,81 @@ function illinois_framework_theme_theme_suggestions_menu_alter(&$suggestions, ar
 /**
  * Implements hook_preprocess_HOOK() for page.html.twig.
  *
- * this provides the number of paragraphs next to the sidebar for the 'content_page' content type.
- * It also rearranges the blocks and paragraphs based on whether sidebar mode is enabled.
- *
+ * This provides the logic to split paragraphs for the 'content_page' content type
+ * based on the integer field_sidebar_paragraphs.
  */
 function illinois_framework_theme_preprocess_page(array &$variables): void {
+  // Get the current node from the route match.
+  $node = \Drupal::routeMatch()->getParameter('node');
 
-  // Only continue if this is a content page node.
-  if (!isset($variables['node']) || $variables['node']->getType() !== 'content_page') {
-    return;
-  }
+  // Logic should only run for the 'content_page' content type.
+  if ($node instanceof NodeInterface && $node->bundle() === 'content_page') {
 
-  $node = $variables['node'];
+    // Only proceed if sidebar mode is active.
+    if ($node->hasField('field_sidebar') && $node->get('field_sidebar')->value === 'sidebar') {
 
-  // Check if sidebar mode is enabled.
-  $has_sidebar = $node->hasField('field_sidebar') &&
-    !$node->get('field_sidebar')->isEmpty() &&
-    $node->get('field_sidebar')->value === 'sidebar';
+      // Determine the split point.
+      $split_at = 0;
+      if ($node->hasField('field_sidebar_paragraphs') && !$node->get('field_sidebar_paragraphs')->isEmpty()) {
+        $split_at = (int) $node->get('field_sidebar_paragraphs')->value;
+      }
 
-  // Extract blocks from page.content and remove the node (do this for BOTH cases).
-  $content_blocks = isset($variables['page']['content']) ? $variables['page']['content'] : [];
-  $preserved_blocks = [];
+      // Check if the paragraph field exists.
+      if ($node->hasField('field_paragraph') && !$node->get('field_paragraph')->isEmpty()) {
+        $view_builder = \Drupal::entityTypeManager()->getViewBuilder('paragraph');
+        $full_width_render = [];
+        $items = $node->get('field_paragraph')->referencedEntities();
 
-  foreach ($content_blocks as $key => $block) {
-    // Skip render metadata keys.
-    if (strpos($key, '#') === 0) {
-      continue;
-    }
+        // Build individual render arrays for the paragraphs that should be full-width.
+        foreach ($items as $index => $paragraph) {
+          if ($index >= $split_at) {
+            $full_width_render[] = $view_builder->view($paragraph, 'full');
+          }
+        }
 
-    // Skip the node content block - it's typically named with 'content' in the key.
-    // Common patterns: 'content', '{theme}_content', 'system_main'
-    if (strpos($key, '_content') !== false || $key === 'content' || $key === 'system_main') {
-      unset($variables['page']['content'][$key]);
-      continue;
-    }
-
-    // Also check for node entity type.
-    if (isset($block['#node']) || (isset($block['#entity_type']) && $block['#entity_type'] === 'node')) {
-      unset($variables['page']['content'][$key]);
-      continue;
-    }
-
-    $preserved_blocks[$key] = $block;
-    // Also remove from original content region.
-    unset($variables['page']['content'][$key]);
-  }
-
-  // Render the node body if it exists (respecting display settings).
-  $body_render = [];
-  if ($node->hasField('body') && !$node->get('body')->isEmpty()) {
-    // Load the display settings for the 'default' view mode.
-    $view_display = \Drupal::entityTypeManager()
-      ->getStorage('entity_view_display')
-      ->load('node.content_page.default');
-
-    if ($view_display && $view_display->getRenderer('body')) {
-      // Build render array using those display settings.
-      $body_render = $view_display->getRenderer('body')->view($node->get('body'), ['label' => 'hidden']);
-    }
-  }
-
-  if (!$has_sidebar) {
-    // No sidebar case
-    // For no sidebar, render blocks and paragraphs in page.content.
-    $paragraphs = [];
-    if ($node->hasField('field_paragraph')) {
-      foreach ($node->get('field_paragraph')->referencedEntities() as $paragraph) {
-        $paragraphs[] = $paragraph;
+        // Assign the clean list of render arrays to the page-level variable.
+        if (!empty($full_width_render)) {
+          $variables['page']['full_width_paragraphs'] = $full_width_render;
+        }
       }
     }
-
-    // Add preserved blocks back to page.content with their original weights.
-    foreach ($preserved_blocks as $key => $block) {
-      $variables['page']['content'][$key] = $block;
-      // Keep the block's original weight from Block UI
-    }
-
-    // Add body with a special flag so template knows to wrap it.
-    if (!empty($body_render)) {
-      $variables['page']['content']['body'] = $body_render;
-      $variables['page']['content']['body']['#weight'] = 0;
-      $variables['page']['content']['body']['#needs_page_width'] = TRUE;
-    }
-
-    // Add paragraphs with high weights to ensure they come after body.
-    $paragraph_view_builder = \Drupal::entityTypeManager()->getViewBuilder('paragraph');
-    $para_weight = 100;
-    foreach ($paragraphs as $i => $para) {
-      $variables['page']['content']['paragraph_' . $i] = $paragraph_view_builder->view($para, 'default');
-      $variables['page']['content']['paragraph_' . $i]['#weight'] = $para_weight++;
-    }
-
-    return;
   }
-
-  // Get the number of paragraphs to display next to the sidebar.
-  $paragraph_number = 0;
-  if ($node->hasField('field_sidebar_paragraphs') && !$node->get('field_sidebar_paragraphs')->isEmpty()) {
-    $paragraph_number = (int) $node->get('field_sidebar_paragraphs')->value;
-  }
-
-  // Gather all referenced paragraphs.
-  $paragraphs = [];
-  if ($node->hasField('field_paragraph')) {
-    foreach ($node->get('field_paragraph')->referencedEntities() as $paragraph) {
-      $paragraphs[] = $paragraph;
-    }
-  }
-
-  // Split paragraphs into two groups.
-  $sidebar_paragraphs = array_slice($paragraphs, 0, $paragraph_number);
-  $full_paragraphs = array_slice($paragraphs, $paragraph_number);
-
-  $paragraph_view_builder = \Drupal::entityTypeManager()->getViewBuilder('paragraph');
-
-  // Render the sidebar paragraphs.
-  $render_sidebar = [];
-  foreach ($sidebar_paragraphs as $p) {
-    $render_sidebar[] = $paragraph_view_builder->view($p, 'default');
-  }
-
-  // Render the remaining (full-width) paragraphs.
-  $render_full = [];
-  foreach ($full_paragraphs as $p) {
-    $render_full[] = $paragraph_view_builder->view($p, 'default');
-  }
-
-  // Build a container for main content (body + sidebar paragraphs).
-  $main_content = [
-    '#type' => 'container',
-    '#attributes' => ['class' => ['main-content']],
-    '#weight' => 0, // Main content gets weight 0
-  ];
-
-  // Add body first.
-  if (!empty($body_render)) {
-    $main_content['body'] = $body_render;
-    $main_content['body']['#weight'] = 0;
-  }
-
-  // Add sidebar paragraphs.
-  foreach ($render_sidebar as $i => $para) {
-    $main_content['paragraph_' . $i] = $para;
-    $main_content['paragraph_' . $i]['#weight'] = 10 + $i;
-  }
-
-  // Build sidebar_content: blocks + main content in correct order.
-  $variables['page']['sidebar_content'] = [
-    '#type' => 'container',
-    '#attributes' => ['class' => ['sidebar-content']],
-  ];
-
-  // Add preserved blocks - they keep their original weights from Block UI.
-  // Blocks with negative weights will appear before main_content (weight 0).
-  // Blocks with positive weights will appear after main_content.
-  foreach ($preserved_blocks as $key => $block) {
-    $variables['page']['sidebar_content'][$key] = $block;
-    // Keep the block's original weight from Block UI
-  }
-
-  // Add the main content to sidebar_content.
-  $variables['page']['sidebar_content']['main_content'] = $main_content;
-
-  // Build full_width_paragraphs: remaining paragraphs only.
-  $variables['page']['full_width_paragraphs'] = [
-    '#type' => 'container',
-    '#attributes' => ['class' => ['full-width-paragraphs']],
-  ];
-
-  foreach ($render_full as $i => $para) {
-    $variables['page']['full_width_paragraphs']['paragraph_full_' . $i] = $para;
-    $variables['page']['full_width_paragraphs']['paragraph_full_' . $i]['#weight'] = $i;
-  }
-
 } // END illinois_framework_theme_preprocess_page()
+
+/**
+ * Implements hook_preprocess_HOOK() for node.html.twig.
+ *
+ * This provides the logic to remove paragraphs from the node content that were
+ * moved to a page variable in the page preprocess function for the
+ * 'content_page' content type when sidebar mode is active.
+ */
+function illinois_framework_theme_preprocess_node(array &$variables): void {
+  $node = $variables['node'];
+
+  // Logic should only run for 'content_page' in 'full' view mode.
+  if ($node->bundle() === 'content_page' && $variables['view_mode'] === 'full') {
+
+    // If sidebar mode is active, hide the paragraphs that were moved to the page variable.
+    if ($node->hasField('field_sidebar') && $node->get('field_sidebar')->value === 'sidebar') {
+
+      $split_at = 0;
+      if ($node->hasField('field_sidebar_paragraphs') && !$node->get('field_sidebar_paragraphs')->isEmpty()) {
+        $split_at = (int) $node->get('field_sidebar_paragraphs')->value;
+      }
+
+      if (isset($variables['content']['field_paragraph'])) {
+        $children = Element::children($variables['content']['field_paragraph']);
+        foreach ($children as $index => $key) {
+          // Remove paragraphs from index $split_at and beyond.
+          if ($index >= $split_at) {
+            unset($variables['content']['field_paragraph'][$key]);
+          }
+        }
+      }
+    }
+  }
+}
+
 
 
 /**
