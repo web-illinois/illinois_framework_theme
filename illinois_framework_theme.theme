@@ -210,18 +210,20 @@ function illinois_framework_theme_theme_suggestions_menu_alter(&$suggestions, ar
 
 /**
  * Implements hook_preprocess_HOOK() for page.html.twig.
- *
- * This provides the logic to split paragraphs for the 'content_page' content type
- * based on the integer field_sidebar_paragraphs.
  */
 function illinois_framework_theme_preprocess_page(array &$variables): void {
   // Get the current node from the route match.
   $node = \Drupal::routeMatch()->getParameter('node');
 
-  // Logic should only run for the 'content_page' content type.
-  if ($node instanceof NodeInterface && $node->bundle() === 'content_page') {
+  if ($node instanceof NodeInterface) {
 
-    // Only proceed if sidebar mode is active.
+    // Determine if the sidebar should be shown.
+    $variables['show_sidebar'] = TRUE;
+    if ($node->hasField('field_sidebar') && $node->get('field_sidebar')->value === 'nosidebar') {
+      $variables['show_sidebar'] = FALSE;
+    }
+
+    // Only proceed with paragraph splitting if sidebar mode is active.
     if ($node->hasField('field_sidebar') && $node->get('field_sidebar')->value === 'sidebar') {
 
       // Determine the split point.
@@ -254,16 +256,12 @@ function illinois_framework_theme_preprocess_page(array &$variables): void {
 
 /**
  * Implements hook_preprocess_HOOK() for node.html.twig.
- *
- * This provides the logic to remove paragraphs from the node content that were
- * moved to a page variable in the page preprocess function for the
- * 'content_page' content type when sidebar mode is active.
  */
 function illinois_framework_theme_preprocess_node(array &$variables): void {
   $node = $variables['node'];
 
-  // Logic should only run for 'content_page' in 'full' view mode.
-  if ($node->bundle() === 'content_page' && $variables['view_mode'] === 'full') {
+  // Logic should only run in 'full' view mode.
+  if ($variables['view_mode'] === 'full') {
 
     // If sidebar mode is active, hide the paragraphs that were moved to the page variable.
     if ($node->hasField('field_sidebar') && $node->get('field_sidebar')->value === 'sidebar') {
@@ -285,8 +283,6 @@ function illinois_framework_theme_preprocess_node(array &$variables): void {
     }
   }
 }
-
-
 
 /**
  * Implements hook_preprocess_HOOK() for menu.html.twig.
