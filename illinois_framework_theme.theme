@@ -189,10 +189,11 @@ function illinois_framework_theme_preprocess_page(array &$variables): void {
   // Get the current node from the route match.
   $node = \Drupal::routeMatch()->getParameter('node');
 
+  // The default is to show the sidebar unless the node has a field_sidebar value of 'nosidebar'
+  $variables['show_sidebar'] = TRUE;
   if ($node instanceof NodeInterface) {
 
-    // Determine if the sidebar should be shown.
-    $variables['show_sidebar'] = TRUE;
+    // Determine if the sidebar should be hidden
     if ($node->hasField('field_sidebar') && $node->get('field_sidebar')->value === 'nosidebar') {
       $variables['show_sidebar'] = FALSE;
     }
