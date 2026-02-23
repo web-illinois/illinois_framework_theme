@@ -57,8 +57,10 @@
 
     {# Add an is-unpublished class to main tag if the node is unpublished #}
     {% set unpublished = not node.isPublished() ? 'is-unpublished' : '' %}
-    <main{{ attributes.addClass(mainClasses) }} role="main" id="main-content" tabindex="-1">{# link is in html.html.twig #}
-      {% if page.sidebar_first|render|trim is not empty or page.sidebar_second|render|trim is not empty %}
+    {% set has_sidebar = (page.sidebar_first|render|trim is not empty or page.sidebar_second|render|trim is not empty) and show_sidebar %}
+    {% set sidebar_class = has_sidebar ? 'with-sidebar' : 'without-sidebar' %}
+    <main{{ attributes.addClass(unpublished, sidebar_class) }} role="main" id="main-content" tabindex="-1">{# link is in html.html.twig #}
+      {% if has_sidebar %}
         <ilw-columns mode="sidebar-left" width="page">
           <div class="page-sidebar-wrapper">
             {{ page.sidebar_first }}
@@ -68,11 +70,11 @@
             {{ page.content }}
           </div>
         </ilw-columns>
-        {# Full-width paragraphs appear outside the columns #}
-        {{ page.full_width_paragraphs }}
       {% else %}
         {{ page.content }}
       {% endif %}
+      {# Full-width paragraphs appear outside the columns #}
+      {{ page.full_width_paragraphs }}
     </main>
 
     <ilw-footer slot="footer">

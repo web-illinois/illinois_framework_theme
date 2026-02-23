@@ -1,3 +1,7 @@
 .field--name-body {
   margin-bottom: 2rem;
 }
+
+main.without-sidebar .field--name-body {
+  margin: var(--ilw-content--main-margin, 0);
+}
