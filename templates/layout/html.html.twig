@@ -53,13 +53,15 @@
   <body{{ attributes }}>
     {#
       Keyboard navigation/accessibility link to main content section in
-      page.html.twig.
+      page.html.twig.  Applying Skipto.js for the campus instead of the hidden Skip to main
     #}
-    <div>
+    {{ attach_library('illinois_framework_theme/skipto-campus') }}
+    {# <div>
       <a href="#main-content" class="visually-hidden focusable">
         {{ 'Skip to main content'|t }}
       </a>
     </div>
+    #}
     {{ page_top }}
     {{ page }}
     {{ page_bottom }}
