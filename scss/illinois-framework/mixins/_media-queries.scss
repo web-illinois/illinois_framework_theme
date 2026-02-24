@@ -1,9 +1,0 @@
-// adds in the media queries for Internet Explorer versions
-@mixin IE($version) {
-  @if $version == 9 {
-    @media screen and (min-width:0\0) { @content; } /* IE9 and IE10 rule sets go here */
-  }
-  @if $version == 10 or $version == 11 {
-    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) { @content; } /* IE10/11-specific styles go here */
-  }
-}
