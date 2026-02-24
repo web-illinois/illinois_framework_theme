@@ -48,7 +48,8 @@
   'paragraph',
   'paragraph--type--' ~ paragraph.bundle|clean_class,
   view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
-  not paragraph.isPublished() ? 'paragraph--unpublished', 'full-width'
+  not paragraph.isPublished() ? 'paragraph--unpublished',
+  'full-width', 'layout-overflow'
 ]
 %}
 {{ attach_library('illinois_framework_theme/paragraph-image-gallery') }}
