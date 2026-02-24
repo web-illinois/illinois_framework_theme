@@ -5,6 +5,8 @@ dependencies:
   module:
     - options
     - paragraphs
+_core:
+  default_config_hash: azY0ckDz-EGqCl2Nd9Q9oMoCfoTVVpyxs0f8BmV0YgA
 id: paragraph.field_hero_background
 field_name: field_hero_background
 entity_type: paragraph
@@ -13,22 +15,13 @@ settings:
   allowed_values:
     -
       value: blue
-      label: 'Blue'
+      label: Blue
     -
       value: orange
-      label: 'Orange'
-    -
-      value: image
-      label: 'Image with Blue Background'
-    -
-      value: imageblue
-      label: 'Image with Orange Background'
-    -
-      value: imagewhite
-      label: 'Image with White Background'
+      label: Orange
     -
       value: white
-      label: 'White'
+      label: White
   allowed_values_function: ''
 module: options
 locked: false

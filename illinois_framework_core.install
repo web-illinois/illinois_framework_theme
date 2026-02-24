@@ -222,3 +222,37 @@ function illinois_framework_core_update_9700() {
   $editoria11y_config->set('live_h3', '.paragraph-type--cta .ck-editor__editable');
   $editoria11y_config->save(TRUE);
 }
+
+/**
+ * Converts Hero Background field to use only current theme settings from il-hero component
+ */
+function illinois_framework_core_update_10500() {
+  $query = \Drupal::entityQuery('paragraph');
+  $results = $query 
+  ->accessCheck(true)
+  ->condition('field_hero_background', NULL, 'IS NOT NULL')
+  ->execute();
+  foreach ($results as $result) {
+    $paragraph = \Drupal::entityTypeManager()->getStorage('paragraph')->load($result);
+    $background = $paragraph->field_hero_background;
+    $settings = explode(",", $background->getString());
+      switch($settings[0]){  
+        case 'image':
+          $background->set(0, 'blue');
+          \Drupal::messenger()->addMessage("Found image, set to blue");
+          break;
+        case 'imageblue':
+          $background->set(0, 'orange');
+          \Drupal::messenger()->addMessage("Found imageblue, set to orange");
+          break;
+        case 'imagewhite':
+          $background->set(0, 'white');
+          \Drupal::messenger()->addMessage("Found imagewhite, set to white");
+          break;
+        default:
+          \Drupal::messenger()->addMessage($result . ": No matches.");
+        }
+    $paragraph->set('field_hero_background',$background->getString());
+    $paragraph->save();
+  }
+}
