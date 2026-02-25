@@ -100,3 +100,9 @@ paragraph-vertical-tabs:
 paragraph-calendar:
   js:
     js/paragraph-calendar.js: {}
+skipto-campus:
+  js:
+    https://skipto-landmarks-headings.github.io/page-script-5/dist/skipto.min.js:
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
