@@ -46,31 +46,32 @@
 <div class="layout-container">
   <ilw-page>
 
-      <ilw-header source="{{ site_name_source }}" slot="header">
-        {{ page.header }}
-      </ilw-header>
+    <ilw-header source="{{ site_name_source }}" slot="header">
+      {{ page.header }}
+    </ilw-header>
 
-      {{ page.breadcrumb }}
-      {{ page.highlighted }}
-      {{ page.help }}
-      {{ page.tabs }}
+    {{ page.breadcrumb }}
+    {{ page.highlighted }}
+    {{ page.help }}
+    {{ page.tabs }}
+
+    {# Add an is-unpublished class to main tag if the node is unpublished #}
+    {% set unpublished = not node.isPublished() ? 'is-unpublished' : '' %}
     <main{{ attributes.addClass(mainClasses) }} role="main" id="main-content" tabindex="-1">{# link is in html.html.twig #}
       {% if page.sidebar_first|render|trim is not empty or page.sidebar_second|render|trim is not empty %}
-        <ilw-columns mode="sidebar-left" width="auto">
-          {{ page.sidebar_first }}
-          {{ page.sidebar_second }}
-          <div>
-            <ilw-content>
-              {{ page.content }}
-            </ilw-content>
+        <ilw-columns mode="sidebar-left" width="page">
+          <div class="page-sidebar-wrapper">
+            {{ page.sidebar_first }}
+            {{ page.sidebar_second }}
+          </div>
+          <div class="page-content-wrapper">
+            {{ page.content }}
           </div>
         </ilw-columns>
+        {# Full-width paragraphs appear outside the columns #}
+        {{ page.full_width_paragraphs }}
       {% else %}
-        <div>
-          <ilw-content width="page">
-            {{ page.content }}
-          </ilw-content>
-        </div>
+        {{ page.content }}
       {% endif %}
     </main>
 
