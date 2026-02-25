@@ -13,22 +13,13 @@ settings:
   allowed_values:
     -
       value: blue
-      label: 'Blue Background'
+      label: Blue
     -
       value: orange
-      label: 'Orange Background'
-    -
-      value: image
-      label: 'Image with Blue Background'
-    -
-      value: imageblue
-      label: 'Image with Orange Background'
-    -
-      value: imagewhite
-      label: 'Image with White Background'
+      label: Orange
     -
       value: white
-      label: 'White Background'
+      label: White
   allowed_values_function: ''
 module: options
 locked: false
