@@ -8,10 +8,11 @@ article.news {
   .field--name-field-tags,
   .field--name-field-paragraph {
     max-width: 900px !important;
-    margin: 0 auto;
+    margin: 0 auto !important;
   }
 
   .field--name-field-if-subtitle {
+    margin: var(--ilw-content--main-margin, 0);
     font-weight: 600;
     font-size: 2rem;
     line-height: 2.5rem;
