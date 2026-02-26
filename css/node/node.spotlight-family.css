@@ -1,4 +1,11 @@
-
+article.spotlight.full {
+  margin: 0 auto;
+  padding: 0 var(--ilw-margin--side, 0);
+  width: 100%;
+  .node-body-field-full-display {
+    margin: 0;
+  }
+}
 /*works around having the need for items after a body
 to float around an external image to that body.
 keeping it local to prevent compromising others use cases.*/
@@ -10,8 +17,11 @@ keeping it local to prevent compromising others use cases.*/
 }
 
 .field--name-field-if-meda-featured-image {
-  float: right;
-  padding: 0 1.5rem;
+  padding: 0 0 1.5rem 0;
+  @media (min-width: 600px) {
+    float: right;
+    padding: 0 0 1.5rem 1.5rem;
+  }
 }
 
 /*override to handle extra padding from double applying fixed-width*/

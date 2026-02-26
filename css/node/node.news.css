@@ -8,11 +8,12 @@ article.news {
   .field--name-field-tags,
   .field--name-field-paragraph {
     max-width: 900px !important;
-    margin: 0 auto !important;
+    @media (min-width: 1000px)  {
+      margin: 0 auto !important;
+    }
   }
 
   .field--name-field-if-subtitle {
-    margin: var(--ilw-content--main-margin, 0);
     font-weight: 600;
     font-size: 2rem;
     line-height: 2.5rem;
@@ -131,6 +132,10 @@ article.news.hide-image {
 .news-block {
   margin: 0 auto;
   max-width: 900px;
+  padding: 0 var(--ilw-margin--side, 0);
+  @media (min-width: 600px) {
+    padding: 0;
+  }
   .item-list {
     width: auto;
     ul {
