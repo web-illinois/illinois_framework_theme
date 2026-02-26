@@ -112,7 +112,11 @@
   {% endif %}
 
   <div{{ content_attributes.addClass('content') }}>
-    {{ content }}
+    <div class="fixed-width">
+      {{ content.field_if_subtitle }}
+      {{ content.field_if_author }}{{ content.field_if_date }}
+    </div>
+      {{ content|without('field_if_subtitle', 'field_if_author', 'field_if_date') }}
   </div>
 
 </article>
