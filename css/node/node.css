@@ -5,3 +5,14 @@
 main.without-sidebar div.node-body-field-full-display {
   margin: var(--ilw-content--main-margin, 0);
 }
+
+/* Show message on content that is unpublished */
+main.is-unpublished:before {
+  content: "This page is unpublished and is only visible to site editors";
+  text-align: center;
+  padding: 2em;
+  margin-bottom: 2em;
+  background-color: pink;
+  display: block;
+  font-weight: bold;
+}
