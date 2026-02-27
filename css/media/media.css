@@ -105,9 +105,7 @@ figure,
     display: block;
     margin: 0.888889em auto 0;
     max-width: fit-content;
-  }
 
-  &.align-center {
     img {
       width: 100%;
     }
