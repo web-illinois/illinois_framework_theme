@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Drupal\Core\Url;
+use \Drupal\Core\Form\FormStateInterface;
 use Drupal\node\NodeInterface;
 use Drupal\block\Entity\Block;
 use Drupal\Core\Site\Settings;
@@ -220,6 +221,32 @@ function illinois_framework_theme_theme_suggestions_menu_alter(array &$suggestio
   if (isset($variables['attributes']['region'])) {
     $suggestion = 'menu__' . $variables['menu_name'] . '__' . $variables['attributes']['region'];
     $suggestions[] = str_replace('-', '_', $suggestion);
+  }
+}
+
+/**
+ * Adds a button class to the UofI login button
+ *
+ * @param $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ * @param $form_id
+ */
+function illinois_framework_theme_form_user_login_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
+  $form['actions']['submit'] = [
+    '#type' => 'submit',
+    '#value' => t('Log in'),
+    '#attributes' => array('class' => array('btn--login')),
+  ];
+  if (isset($form['simplesamlphp_auth_login_link'])) {
+    $form['simplesamlphp_auth_login_link']['#attributes']['class'] = 'ilw-button ilw-theme-orange-solid ilw-button-large simplesamlphp-auth-login-link';
+    $form['simplesamlphp_auth_login_link']['#weight'] = -100; // Ensure the button appears before the standard submit button.
+    $form['simplesamlphp_auth_login_link']['#suffix'] = '<h2 class="local-login">' . t('Admin Login') . '</h2>';
+    $form['simplesamlphp_auth_login_link']['#attributes']['autofocus'] = 'autofocus';
+
+    if (isset($form['name'])) {
+      unset($form['name']['#attributes']['autofocus']);
+    }
   }
 }
 
