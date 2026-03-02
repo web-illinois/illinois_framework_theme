@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.large_600px
+label: 'Large 600px'
+description: 'A large size for embedding items.'
+targetEntityType: media
+cache: true
