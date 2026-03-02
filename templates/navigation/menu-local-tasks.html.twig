@@ -13,15 +13,17 @@
 #}
 {% if primary %}
   <ilw-content width="page">
-    <div class="local-tasks">
-  <h2 class="visually-hidden">{{ 'Primary tabs'|t }}</h2>
-  <ul>{{ primary }}</ul>
+    <div class="local-tasks local-tasks--primary">
+      <h2 class="visually-hidden">{{ 'Primary tabs'|t }}</h2>
+      <ul>{{ primary }}</ul>
     </div>
   </ilw-content>
 {% endif %}
 {% if secondary %}
-<ilw-content width="page">
-<h2 class="visually-hidden">{{ 'Secondary tabs'|t }}</h2>
-  <ul>{{ secondary }}</ul>
-</ilw-content>
+  <ilw-content width="page">
+    <div class="local-tasks local-tasks--secondary">
+      <h2 class="visually-hidden">{{ 'Secondary tabs'|t }}</h2>
+      <ul>{{ secondary }}</ul>
+    </div>
+  </ilw-content>
 {% endif %}

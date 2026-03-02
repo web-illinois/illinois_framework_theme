@@ -268,7 +268,7 @@ function illinois_framework_theme_preprocess_page(array &$variables): void {
 
   // The default is to show the sidebar unless the node has a field_sidebar value of 'nosidebar'
   $variables['show_sidebar'] = TRUE;
-  $variables['node_has_sidebar'] = FALSE;
+  $variables['node_has_sidebar'] = TRUE;
 
   if ($node instanceof NodeInterface) {
     // Determine if the sidebar should be hidden
@@ -276,9 +276,7 @@ function illinois_framework_theme_preprocess_page(array &$variables): void {
       $sidebar_value = $node->get('field_sidebar')->value;
       if ($sidebar_value === 'nosidebar') {
         $variables['show_sidebar'] = FALSE;
-      }
-      if ($sidebar_value === 'sidebar') {
-        $variables['node_has_sidebar'] = TRUE;
+        $variables['node_has_sidebar'] = FALSE;
       }
     }
 
@@ -413,6 +411,36 @@ function illinois_framework_theme_preprocess_node(array &$variables): void {
           // Remove paragraphs from index $split_at and beyond.
           if ($index >= $split_at) {
             unset($variables['content']['field_paragraph'][$key]);
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for menu_local_tasks.
+ *
+ * Remove the "Delete" tab from the local tasks (tabs).
+ */
+function illinois_framework_theme_preprocess_menu_local_tasks(&$variables) {
+  foreach (['primary', 'secondary'] as $type) {
+    if (!empty($variables[$type])) {
+      foreach (\Drupal\Core\Render\Element::children($variables[$type]) as $key) {
+        // Hide standard entity delete form tabs
+        if (strpos((string) $key, 'delete_form') !== FALSE) {
+          unset($variables[$type][$key]);
+          continue;
+        }
+
+        // Additional check by route name just in case the key differs
+        if (isset($variables[$type][$key]['#link']['url'])) {
+          $url = $variables[$type][$key]['#link']['url'];
+          if ($url instanceof \Drupal\Core\Url) {
+            $route_name = $url->getRouteName();
+            if (strpos($route_name, '.delete_form') !== FALSE) {
+              unset($variables[$type][$key]);
+            }
           }
         }
       }

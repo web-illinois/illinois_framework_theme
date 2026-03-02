@@ -1,10 +1,106 @@
+/* Local Tasks (Tabs) styling */
+
 .local-tasks {
-  background: var(--il-arches-lighter-3);
-  ul {
-    display: flex;
-    justify-content: space-evenly;
-    li {
-      list-style: none;
-    }
-  }
+  margin: 1.5rem 0;
+  clear: both;
+}
+
+.local-tasks ul {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.local-tasks ul li {
+  margin-right: 0.25rem !important;
+  list-style: none !important;
+  padding: 0 !important;
+}
+
+.local-tasks ul li a {
+  display: block !important;
+  text-decoration: none !important;
+  color: var(--il-blue, #003c71) !important;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.local-tasks ul li a:hover,
+.local-tasks ul li a:focus {
+  text-decoration: underline !important;
+}
+
+/* Primary Tabs Specifics */
+.local-tasks--primary ul {
+  border-bottom: 3px solid var(--il-blue, #003c71) !important;
+}
+
+.local-tasks--primary ul li a {
+  padding: 0.5rem 1rem !important;
+  background: var(--il-arches-90, #f4f4f4) !important;
+  border: 1px solid #ccc !important;
+  border-bottom: none !important;
+  border-radius: 4px 4px 0 0 !important;
+  font-weight: 500 !important;
+  margin-bottom: 0 !important;
+}
+
+.local-tasks--primary ul li a:hover,
+.local-tasks--primary ul li a:focus {
+  background: #e8e8e8 !important;
+  color: var(--il-blue, #13294b) !important;
+  text-decoration: none !important;
+}
+
+/* Active states for Primary Tabs */
+.local-tasks--primary ul li.is-active a,
+.local-tasks--primary ul li a.is-active {
+  background: white !important;
+  border-color: var(--il-blue, #003c71) !important;
+  border-bottom: 3px solid white !important;
+  margin-bottom: -3px !important;
+  color: var(--il-blue, #003c71) !important;
+  font-weight: 700 !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Secondary Tabs Specifics */
+.local-tasks--secondary {
+  margin-top: 1rem;
+}
+
+.local-tasks--secondary ul {
+  padding-left: 0.5rem !important;
+}
+
+.local-tasks--secondary ul li a {
+  padding: 0.25rem 0.75rem !important;
+  font-size: 0.938rem !important;
+  border-radius: 4px !important;
+  background: transparent !important;
+}
+
+.local-tasks--secondary ul li a:hover,
+.local-tasks--secondary ul li a:focus {
+  background: #f0f0f0 !important;
+  text-decoration: none !important;
+}
+
+.local-tasks--secondary ul li.is-active a,
+.local-tasks--secondary ul li a.is-active {
+  background: var(--il-blue, #003c71) !important;
+  color: white !important;
+}
+
+/* Visually hidden helper - just in case it's missing from the global CSS */
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden !important;
 }

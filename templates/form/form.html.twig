@@ -10,8 +10,8 @@
  * @see template_preprocess_form()
  */
 #}
-<ilw-content width="page">
-<form{{ attributes }}>
+<ilw-content>
+<form{{ attributes.addClass('fixed-width') }}>
   {{ children }}
 </form>
 </ilw-content>

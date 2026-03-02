@@ -111,6 +111,7 @@ article.news {
 }
 .news-page .item-list ul {
   list-style: none;
+  padding-inline-start: 0;
 }
 .news-page .item-list li {
   padding: 1.875rem 0;
@@ -138,7 +139,7 @@ article.news {
   .item-list {
     width: auto;
     ul {
-
+      padding-inline-start: 0;
       li {
         padding: 1.0rem 0;
         border-bottom: 1px solid #C6C7C7;
@@ -194,6 +195,7 @@ article.news {
     width: auto;
     ul {
       list-style: none;
+      padding-inline-start: 0;
       li {
         padding: 1.875rem 0;
         border-bottom: 2px solid var(--il-cloud-3);
