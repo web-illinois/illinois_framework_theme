@@ -10,6 +10,7 @@
   --ilw-button--active-background-color: var(--il-orange);
   --ilw-button--active-border-color: var(--il-blue);
 }
+
 .il-button {
   background-color: var(--ilw-button--background-color);
   color: var(--ilw-button--foreground-color);
@@ -41,11 +42,11 @@
   }
 
   &:focus {
-    background-color: var(--ilw-link--focus-background-color);
-    color: var(--ilw-link--focus-color);
-    border-color: var(--ilw-link--focus-color);
+    background-color: var(--ilw-color--focus--background);
+    color: var(--ilw-color--focus--text);
+    border-color: var(--ilw-color--focus--text);
     text-decoration: underline;
-    outline: var(--ilw-link--focus-outline);
+    outline: var(--ilw-color--focus--outline);
   }
 
   &:active {
@@ -91,6 +92,7 @@
     --ilw-button--focused-border-color: var(--il-orange);
   }
 }
+
 ilw-content[theme="gray"] {
   .il-button {
     &.il-white-orange,
