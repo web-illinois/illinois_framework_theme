@@ -1,3 +1,4 @@
+uuid: 2980b19b-8458-4060-a2bd-9a2cf95cf9de
 langcode: en
 status: true
 dependencies:
@@ -77,6 +78,7 @@ filters:
       local_settings:
         protocol_style: full
         local_paths: ''
+        keep_language_prefix: false
   filter_url:
     id: filter_url
     provider: filter
