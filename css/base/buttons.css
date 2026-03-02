@@ -1,3 +1,7 @@
+a.ilw-button.ilw-theme-orange-1{
+  border: 2px solid var(--ilw-color--control);/* adding this from toolkit3 css, the override isn't working without it */
+}
+
 /* adding toolkit 3 button css to toolkit 2 button classes */
 :root {
   --ilw-button--background-color: white;
