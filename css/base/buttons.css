@@ -4,19 +4,23 @@ a.ilw-button.ilw-theme-orange-1{
 
 /* adding toolkit 3 button css to toolkit 2 button classes */
 :root {
-  --ilw-button--background-color: white;
-  --ilw-button--foreground-color: var(--il-blue);
-  --ilw-button--border-color: var(--il-blue);
-  --ilw-button--focused-background-color: var(--il-blue);
-  --ilw-button--focused-foreground-color: white;
-  --ilw-button--focused-border-color: var(--il-blue);
+  --ilw-color--white--control: #fff;
+  --ilw-color--white--control-text: var(--il-blue);
+  --ilw-color--control: var(--ilw-color--white--control);
+  --ilw-color--control-text: var(--ilw-color--white--control-text);
+  --ilw-button--background-color: var(--ilw-color--control);
+  --ilw-button--foreground-color: var(--ilw-color--control-text);
+  --ilw-button--border-color: var(--ilw-color--control-text);
+  --ilw-button--focused-background-color: var(--ilw-color--focus--background);
+  --ilw-button--focused-foreground-color: var(--ilw-color--focus--text);
+  --ilw-button--focused-border-color: var(--ilw-color--focus--text);
   --ilw-button--active-color: white;
   --ilw-button--active-background-color: var(--il-orange);
   --ilw-button--active-border-color: var(--il-blue);
 }
 
 .il-button {
-  background-color: var(--ilw-button--background-color);
+  background: var(--ilw-button--background-color);
   color: var(--ilw-button--foreground-color);
   border: 2px solid var(--ilw-button--border-color);
   font: 700 1.188rem / 1.25rem var(--il-font-sans);
@@ -32,21 +36,21 @@ a.ilw-button.ilw-theme-orange-1{
 
   &:visited {
     outline: 0;
-    background-color: var(--ilw-button--background-color);
+    background: var(--ilw-button--background-color);
     color: var(--ilw-button--foreground-color);
     border: 2px solid var(--ilw-button--border-color);
   }
 
   &:hover {
     outline: 0;
-    background-color: var(--ilw-button--focused-background-color);
-    color: var(--ilw-button--focused-foreground-color);
-    border-color: var(--ilw-button--focused-border-color);
+    background: var(--ilw-button--foreground-color);
+    color: var(--ilw-button--background-color);
+    border-color: var(--ilw-button--border-color);
     text-decoration: underline;
   }
 
   &:focus {
-    background-color: var(--ilw-color--focus--background);
+    background: var(--ilw-color--focus--background);
     color: var(--ilw-color--focus--text);
     border-color: var(--ilw-color--focus--text);
     text-decoration: underline;
