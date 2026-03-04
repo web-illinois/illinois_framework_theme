@@ -11,7 +11,7 @@ field_name: field_icon_row_content_icon
 entity_type: paragraph
 bundle: cta
 label: Icon
-description: ''
+description: '<a href="https://cdn.brand.illinois.edu/icons.html" target="_blank">View examples of all icons (opens a new tab)</a>'
 required: false
 translatable: false
 default_value: {  }
