@@ -1,10 +1,15 @@
 ilw-columns {
-  ilw-accordion[width="page"] {/*this overrides the accordion width to be full width when next to the sidebar*/
+  ilw-accordion[width="page"] {/* this overrides the accordion width to be full width when next to the sidebar */
     --ilw-margin--side: 0;
   }
 }
+
 article.news, article.spotlight {
-  ilw-accordion[width="page"] {/*fixes width on paragraph on news content type*/
+  ilw-accordion[width="page"] {/* fixes width on paragraph on news content type */
     --ilw-margin--side: 0;
   }
+}
+
+.paragraph--type--accordion {
+  margin-bottom: 3rem;
 }
