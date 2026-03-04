@@ -11,6 +11,14 @@ body {
 ilw-columns {
   overflow: hidden;
 }
+/* fix for toolkit components that overflow and cause horizontal scrollbar*/
+.layout-overflow {
+  overflow-x: clip;
+}
+/* fallback */
+@supports not (overflow: clip) {
+  .layout-overflow { overflow-x: hidden; }
+}
 a {
   color: var(--ilw-link--color);
   text-decoration: underline;
