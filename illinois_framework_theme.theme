@@ -3,15 +3,29 @@
 declare(strict_types=1);
 
 use Drupal\Core\Url;
+use \Drupal\Core\Form\FormStateInterface;
+use Drupal\node\NodeInterface;
 use Drupal\block\Entity\Block;
 use Drupal\Core\Site\Settings;
+use Drupal\Core\Render\Element;
 use Drupal\Core\Template\Attribute;
+use Drupal\Core\Menu\MenuTreeParameters;
 use Drupal\paragraphs\ParagraphInterface;
 
 /**
  * Implements hook_preprocess().
  */
-function illinois_framework_theme_preprocess(&$variables) {
+function illinois_framework_theme_preprocess(array &$variables) {
+  // Set the 'node' attribute in the request during previews so blocks and
+  // menu trees can correctly identify the node context. This must happen
+  // early in the rendering process.
+  $route_match = \Drupal::routeMatch();
+  if ($route_match->getRouteName() === 'entity.node.preview') {
+    $node = $route_match->getParameter('node_preview');
+    if ($node instanceof NodeInterface) {
+      \Drupal::request()->attributes->set('node', $node);
+    }
+  }
 
   // Get the current user service.
   $current_user = \Drupal::currentUser();
@@ -52,10 +66,10 @@ function illinois_framework_theme_preprocess(&$variables) {
       // The module is not enabled, so use the standard Drupal login with the destination.
       $login_url = Url::fromRoute('user.login', [], ['query' => $destination]);
     }
-    $variables['login_logout_url'] = $login_url;
+      $variables['login_logout_url'] = $login_url;
   }
 
-  // TODO: condense these into a single array like ['path_vars']['var']
+  // TODO: Condense these into a single array like ['path_vars']['var'].
   $current_path = \Drupal::service('path.current')->getPath();
   $canoncial_url = Url::fromRoute('<current>', [], ['absolute' => 'true'])->toString();
   $base_path = \Drupal::request()->getHost();
@@ -67,12 +81,12 @@ function illinois_framework_theme_preprocess(&$variables) {
   $variables['current_path'] = $current_path;
   $variables['base_path'] = $base_path;
   $variables['base_path_http'] = $base_path_http;
-  $variables['base_path_success'] = (array_key_exists('HTTPS', $_SERVER) ? 'https' : 'http').'://'.$_SERVER['HTTP_HOST'].'/';
+  $variables['base_path_success'] = (array_key_exists('HTTPS', $_SERVER) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/';
   $variables['theme_path'] = $theme_path;
   $variables['files_path'] = $base_path_http . '/sites/' . $base_path . '/files/';
   $variables['#attached']['drupalSettings']['google_cse']['google_api'] = Settings::get('google_api', 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
 
-  // theme variables
+  // Theme variables.
   $variables['if_secondary_site_title'] = theme_get_setting('if_secondary_site_title');
   $variables['if_secondary_site_link'] = theme_get_setting('if_secondary_site_link');
   $variables['if_header_links'][0][0] = theme_get_setting('if_header_text_1');
@@ -93,11 +107,10 @@ function illinois_framework_theme_preprocess(&$variables) {
 
   // Set the social media links into a variable so we can use array_filter to exclude empty items
   $if_footer_social = [
-
     // Use the lowercase name of the social media supported by the framework.
     'instagram' => theme_get_setting('if_footer_social_instagram'),
     'facebook' => theme_get_setting('if_footer_social_facebook'),
-    // add an override for the setting to adjust for renaming twitter to x.
+    // Add an override for the setting to adjust for renaming twitter to x.
     'x' => theme_get_setting('if_footer_social_twitter'),
     'youtube' => theme_get_setting('if_footer_social_youtube'),
     'linkedin' => theme_get_setting('if_footer_social_linkedin'),
@@ -109,7 +122,6 @@ function illinois_framework_theme_preprocess(&$variables) {
     'weibo' => theme_get_setting('if_footer_social_weibo'),
     'whatsapp' => theme_get_setting('if_footer_social_whatsapp'),
     'threads' => theme_get_setting('if_footer_social_threads'),
-    
   ];
 
   // Remove empty elements and set them to the right variable
@@ -127,7 +139,6 @@ function illinois_framework_theme_preprocess(&$variables) {
   $variables['if_footer_colleges'][4][1] = theme_get_setting('if_footer_college_link_5');
   $variables['if_footer_colleges']['if_footer_colleges_one'] = theme_get_setting('if_footer_colleges_one');
 
-
   $variables['if_footer']['if_footer_menu_block_checkbox'] = theme_get_setting('if_footer_menu_block_checkbox');
   $variables['if_subfooter'][0][0] = theme_get_setting('if_subfooter_text_1');
   $variables['if_subfooter'][0][1] = theme_get_setting('if_subfooter_link_1');
@@ -142,255 +153,307 @@ function illinois_framework_theme_preprocess(&$variables) {
 }
 
 /**
- * A helper function to transform the site name into a machine safe name
- * for use in the ilw-header and ilw-footer as a source attribute
+ * A helper function to transform the site name into a machine safe name.
  *
- * Returns a string
+ * This is used in the ilw-header and ilw-footer as a source attribute.
+ *
+ * @return string
+ *   The cleaned site name string.
  */
-function get_clean_system_site_name(){
+function get_clean_system_site_name() {
   $name = Drupal::config('system.site')->get('name');
 
   // Replaces:
-  // Ampersand to "and"
+  // Ampersand to "and".
   $name = preg_replace('/[&]/u', 'and', $name);
-  // Dashes and spaces to an underscore
+  // Dashes and spaces to an underscore.
   $name = preg_replace('/[- ]/u', '_', $name);
-  // Any non-alphanumeric with nothing
+  // Any non-alphanumeric with nothing.
   $name = preg_replace('/[^_a-zA-Z0-9]/u', '', $name);
-  
+
   // And then:
-  // Make string all lowercase
+  // Make string all lowercase.
   $name = strtolower($name);
 
   return $name;
-
 }
 
-function illinois_framework_theme_theme_suggestions_page_alter(&$suggestions, $vars, $hook) {
-  // error page template suggestions.
-  if (!is_null(Drupal::requestStack()->getCurrentRequest()->attributes->get('exception'))) {
-    $status_code = Drupal::requestStack()->getCurrentRequest()->attributes->get('exception')->getStatusCode();
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for page.html.twig.
+ */
+function illinois_framework_theme_theme_suggestions_page_alter(array &$suggestions, array $variables, $hook) {
+  // Error page template suggestions.
+  $exception = Drupal::requestStack()->getCurrentRequest()->attributes->get('exception');
+  if ($exception !== NULL) {
+    $status_code = $exception->getStatusCode();
     $suggestions[] = 'page__' . (string) $status_code;
   }
 
-  //provide page template suggestions per content type
-  if ($node = \Drupal::routeMatch()->getParameter('node')) {
-	$suggestions[] = 'page__' . $node->bundle();
+  // Provide page template suggestions per content type.
+  $node = \Drupal::routeMatch()->getParameter('node') ?: \Drupal::routeMatch()->getParameter('node_preview');
+  if ($node instanceof NodeInterface) {
+    $suggestions[] = 'page__' . $node->bundle();
   }
-
 }
 
 /**
- * Implements hook_preprocess_HOOK().
+ * Implements hook_preprocess_HOOK() for block.html.twig.
  *
  * Pass block region value to content so this can be used in
- * MYTHEME_theme_suggestions_menu_alter.
+ * illinois_framework_theme_theme_suggestions_menu_alter.
  */
 function illinois_framework_theme_preprocess_block(&$variables) {
   if (isset($variables['elements']['#id'])) {
-    $region = Block::load($variables['elements']['#id'])->getRegion();
-    $variables['content']['#attributes']['region'] = $region;
+    $block_entity = Block::load($variables['elements']['#id']);
+    if ($block_entity) {
+      $region = $block_entity->getRegion();
+      $variables['content']['#attributes']['region'] = $region;
+    }
   }
 }
 
 /**
- * Implements hook_theme_suggestions_HOOK_alter().
+ * Implements hook_theme_suggestions_HOOK_alter() for menu.html.twig.
  *
  * Provide region based menu suggestions.
  */
-function illinois_framework_theme_theme_suggestions_menu_alter(&$suggestions, array $variables) {
+function illinois_framework_theme_theme_suggestions_menu_alter(array &$suggestions, array $variables) {
   if (isset($variables['attributes']['region'])) {
     $suggestion = 'menu__' . $variables['menu_name'] . '__' . $variables['attributes']['region'];
-    $suggestion = str_replace('-', '_', $suggestion);
-    $suggestions[] = $suggestion;
+    $suggestions[] = str_replace('-', '_', $suggestion);
+  }
+}
+
+/**
+ * Adds a button class to the UofI login button
+ *
+ * @param $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ * @param $form_id
+ */
+function illinois_framework_theme_form_user_login_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
+  $form['actions']['submit'] = [
+    '#type' => 'submit',
+    '#value' => t('Log in'),
+    '#attributes' => array('class' => array('btn--login')),
+  ];
+  if (isset($form['simplesamlphp_auth_login_link'])) {
+    $form['simplesamlphp_auth_login_link']['#attributes']['class'] = 'ilw-button ilw-theme-orange-solid ilw-button-large simplesamlphp-auth-login-link';
+    $form['simplesamlphp_auth_login_link']['#weight'] = -100; // Ensure the button appears before the standard submit button.
+    $form['simplesamlphp_auth_login_link']['#suffix'] = '<h2 class="local-login">' . t('Admin Login') . '</h2>';
+    $form['simplesamlphp_auth_login_link']['#attributes']['autofocus'] = 'autofocus';
+
+    if (isset($form['name'])) {
+      unset($form['name']['#attributes']['autofocus']);
+    }
   }
 }
 
 /**
  * Implements hook_preprocess_HOOK() for page.html.twig.
- *
- * this provides the number of paragraphs next to the sidebar for the 'content_page' content type.
- * It also rearranges the blocks and paragraphs based on whether sidebar mode is enabled.
- *
  */
 function illinois_framework_theme_preprocess_page(array &$variables): void {
+  // Get the current node from the route match.
+  $route_match = \Drupal::routeMatch();
+  $node = $route_match->getParameter('node') ?: $route_match->getParameter('node_preview');
 
-  // Only continue if this is a content page node.
-  if (!isset($variables['node']) || $variables['node']->getType() !== 'content_page') {
-    return;
+  // Ensure 'node' is available in the page template (especially for previews).
+  if ($node instanceof NodeInterface && !isset($variables['node'])) {
+    $variables['node'] = $node;
   }
 
-  $node = $variables['node'];
+  // Handle preview specific logic.
+  $variables['is_preview'] = $route_match->getRouteName() === 'entity.node.preview';
 
-  // Check if sidebar mode is enabled.
-  $has_sidebar = $node->hasField('field_sidebar') &&
-    !$node->get('field_sidebar')->isEmpty() &&
-    $node->get('field_sidebar')->value === 'sidebar';
+  // The default is to show the sidebar unless the node has a field_sidebar value of 'nosidebar'
+  $variables['show_sidebar'] = TRUE;
+  $variables['node_has_sidebar'] = TRUE;
 
-  // Extract blocks from page.content and remove the node (do this for BOTH cases).
-  $content_blocks = isset($variables['page']['content']) ? $variables['page']['content'] : [];
-  $preserved_blocks = [];
-
-  foreach ($content_blocks as $key => $block) {
-    // Skip render metadata keys.
-    if (strpos($key, '#') === 0) {
-      continue;
-    }
-
-    // Skip the node content block - it's typically named with 'content' in the key.
-    // Common patterns: 'content', '{theme}_content', 'system_main'
-    if (strpos($key, '_content') !== false || $key === 'content' || $key === 'system_main') {
-      unset($variables['page']['content'][$key]);
-      continue;
-    }
-
-    // Also check for node entity type.
-    if (isset($block['#node']) || (isset($block['#entity_type']) && $block['#entity_type'] === 'node')) {
-      unset($variables['page']['content'][$key]);
-      continue;
-    }
-
-    $preserved_blocks[$key] = $block;
-    // Also remove from original content region.
-    unset($variables['page']['content'][$key]);
-  }
-
-  // Render the node body if it exists (respecting display settings).
-  $body_render = [];
-  if ($node->hasField('body') && !$node->get('body')->isEmpty()) {
-    // Load the display settings for the 'default' view mode.
-    $view_display = \Drupal::entityTypeManager()
-      ->getStorage('entity_view_display')
-      ->load('node.content_page.default');
-
-    if ($view_display && $view_display->getRenderer('body')) {
-      // Build render array using those display settings.
-      $body_render = $view_display->getRenderer('body')->view($node->get('body'), ['label' => 'hidden']);
-    }
-  }
-
-  if (!$has_sidebar) {
-    // No sidebar case
-    // For no sidebar, render blocks and paragraphs in page.content.
-    $paragraphs = [];
-    if ($node->hasField('field_paragraph')) {
-      foreach ($node->get('field_paragraph')->referencedEntities() as $paragraph) {
-        $paragraphs[] = $paragraph;
+  if ($node instanceof NodeInterface) {
+    // Determine if the sidebar should be hidden
+    if ($node->hasField('field_sidebar') && !$node->get('field_sidebar')->isEmpty()) {
+      $sidebar_value = $node->get('field_sidebar')->value;
+      if ($sidebar_value === 'nosidebar') {
+        $variables['show_sidebar'] = FALSE;
+        $variables['node_has_sidebar'] = FALSE;
       }
     }
 
-    // Add preserved blocks back to page.content with their original weights.
-    foreach ($preserved_blocks as $key => $block) {
-      $variables['page']['content'][$key] = $block;
-      // Keep the block's original weight from Block UI
+    // During preview, if sidebar_first is empty but we expect a sidebar,
+    // manually inject the menu tree into the region.
+    if ($variables['is_preview'] && empty($variables['page']['sidebar_first']) && $variables['node_has_sidebar']) {
+      $menu_build = _illinois_framework_theme_get_preview_sidebar_menu($node);
+      if (!empty($menu_build)) {
+        $variables['page']['sidebar_first']['sidenavigation'] = $menu_build;
+      }
     }
 
-    // Add body with a special flag so template knows to wrap it.
-    if (!empty($body_render)) {
-      $variables['page']['content']['body'] = $body_render;
-      $variables['page']['content']['body']['#weight'] = 0;
-      $variables['page']['content']['body']['#needs_page_width'] = TRUE;
-    }
+    // Only proceed with paragraph splitting if sidebar mode is active.
+    if ($variables['node_has_sidebar']) {
+      // Determine the split point.
+      $split_at = 0;
+      if ($node->hasField('field_sidebar_paragraphs') && !$node->get('field_sidebar_paragraphs')->isEmpty()) {
+        $split_at = (int) $node->get('field_sidebar_paragraphs')->value;
+      }
 
-    // Add paragraphs with high weights to ensure they come after body.
-    $paragraph_view_builder = \Drupal::entityTypeManager()->getViewBuilder('paragraph');
-    $para_weight = 100;
-    foreach ($paragraphs as $i => $para) {
-      $variables['page']['content']['paragraph_' . $i] = $paragraph_view_builder->view($para, 'default');
-      $variables['page']['content']['paragraph_' . $i]['#weight'] = $para_weight++;
-    }
+      // Check if the paragraph field exists.
+      if ($node->hasField('field_paragraph') && !$node->get('field_paragraph')->isEmpty()) {
+        $view_builder = \Drupal::entityTypeManager()->getViewBuilder('paragraph');
+        $full_width_render = [];
+        $items = $node->get('field_paragraph')->referencedEntities();
 
-    return;
-  }
+        // Build individual render arrays for the paragraphs that should be full-width.
+        foreach ($items as $index => $paragraph) {
+          if ($index >= $split_at) {
+            $full_width_render[] = $view_builder->view($paragraph, 'full');
+          }
+        }
 
-  // Get the number of paragraphs to display next to the sidebar.
-  $paragraph_number = 0;
-  if ($node->hasField('field_sidebar_paragraphs') && !$node->get('field_sidebar_paragraphs')->isEmpty()) {
-    $paragraph_number = (int) $node->get('field_sidebar_paragraphs')->value;
-  }
-
-  // Gather all referenced paragraphs.
-  $paragraphs = [];
-  if ($node->hasField('field_paragraph')) {
-    foreach ($node->get('field_paragraph')->referencedEntities() as $paragraph) {
-      $paragraphs[] = $paragraph;
+        // Assign the clean list of render arrays to the page-level variable.
+        if (!empty($full_width_render)) {
+          $variables['page']['full_width_paragraphs'] = $full_width_render;
+        }
+      }
     }
   }
+}
 
-  // Split paragraphs into two groups.
-  $sidebar_paragraphs = array_slice($paragraphs, 0, $paragraph_number);
-  $full_paragraphs = array_slice($paragraphs, $paragraph_number);
+/**
+ * Helper function to retrieve the sidebar menu render array during previews.
+ *
+ * @param \Drupal\node\NodeInterface $node
+ *   The node currently being previewed.
+ *
+ * @return array
+ *   A render array representing the active menu trail, or an empty array.
+ */
+function _illinois_framework_theme_get_preview_sidebar_menu(NodeInterface $node): array {
+  $menu_name = 'main';
+  $parent_id = NULL;
 
-  $paragraph_view_builder = \Drupal::entityTypeManager()->getViewBuilder('paragraph');
-
-  // Render the sidebar paragraphs.
-  $render_sidebar = [];
-  foreach ($sidebar_paragraphs as $p) {
-    $render_sidebar[] = $paragraph_view_builder->view($p, 'default');
+  // 1. Try to get menu parent from node's unsaved menu settings.
+  if (isset($node->menu) && is_array($node->menu) && !empty($node->menu['enabled'])) {
+    $menu_name = $node->menu['menu_name'] ?? 'main';
+    $parent_id = $node->menu['parent'] ?? NULL;
+    if ($parent_id && str_contains($parent_id, ':')) {
+      // The parent string often contains the menu name prefix (e.g. 'main:plugin_id').
+      $parts = explode(':', $parent_id, 2);
+      $parent_id = $parts[1] ?? NULL;
+    }
   }
 
-  // Render the remaining (full-width) paragraphs.
-  $render_full = [];
-  foreach ($full_paragraphs as $p) {
-    $render_full[] = $paragraph_view_builder->view($p, 'default');
+  // 2. Fallback: Search existing links for this node via the link manager.
+  if (!$parent_id && $node->id()) {
+    $menu_link_manager = \Drupal::service('plugin.manager.menu.link');
+    $links = $menu_link_manager->loadLinksByRoute('entity.node.canonical', ['node' => $node->id()]);
+    if ($links) {
+      $link = reset($links);
+      $parent_id = $link->getParent();
+      $menu_name = $link->getMenuName();
+      // If the node itself is at level 1, use its own link as root to show children.
+      if (!$parent_id) {
+        $parent_id = $link->getPluginId();
+      }
+    }
   }
 
-  // Build a container for main content (body + sidebar paragraphs).
-  $main_content = [
-    '#type' => 'container',
-    '#attributes' => ['class' => ['main-content']],
-    '#weight' => 0, // Main content gets weight 0
+  $menu_tree = \Drupal::menuTree();
+  $parameters = new MenuTreeParameters();
+
+  if ($parent_id) {
+    $parameters->setRoot($parent_id);
+    $parameters->excludeRoot();
+    $parameters->setActiveTrail([$parent_id]);
+  }
+  else {
+    // 3. Last resort fallback: Show the top levels of the main menu.
+    $parameters->setMaxDepth(2);
+  }
+
+  $tree = $menu_tree->load($menu_name, $parameters);
+  $manipulators = [
+    ['callable' => 'menu.default_tree_manipulators:checkAccess'],
+    ['callable' => 'menu.default_tree_manipulators:generateIndexAndSort'],
   ];
+  $tree = $menu_tree->transform($tree, $manipulators);
 
-  // Add body first.
-  if (!empty($body_render)) {
-    $main_content['body'] = $body_render;
-    $main_content['body']['#weight'] = 0;
+  if (!empty($tree)) {
+    $menu_build = $menu_tree->build($tree);
+    // Enforce the specific theme suggestion for the sidebar navigation block.
+    // The double 'menu__' matches the template file 'menu--menu--side-bar-first.html.twig'.
+    $menu_build['#theme'] = 'menu__menu__side_bar_first';
+    $menu_build['#menu_name'] = $menu_name;
+    return $menu_build;
   }
 
-  // Add sidebar paragraphs.
-  foreach ($render_sidebar as $i => $para) {
-    $main_content['paragraph_' . $i] = $para;
-    $main_content['paragraph_' . $i]['#weight'] = 10 + $i;
+  return [];
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for node.html.twig.
+ */
+function illinois_framework_theme_preprocess_node(array &$variables): void {
+  $node = $variables['node'];
+
+  // Logic should only run in 'full' or 'preview' view mode.
+  if ($variables['view_mode'] === 'full' || $variables['view_mode'] === 'preview') {
+    // If sidebar mode is active, hide the paragraphs that were moved to the page variable.
+    if ($node->hasField('field_sidebar') && $node->get('field_sidebar')->value === 'sidebar') {
+      $split_at = 0;
+      if ($node->hasField('field_sidebar_paragraphs') && !$node->get('field_sidebar_paragraphs')->isEmpty()) {
+        $split_at = (int) $node->get('field_sidebar_paragraphs')->value;
+      }
+
+      if (isset($variables['content']['field_paragraph'])) {
+        $children = Element::children($variables['content']['field_paragraph']);
+        foreach ($children as $index => $key) {
+          // Remove paragraphs from index $split_at and beyond.
+          if ($index >= $split_at) {
+            unset($variables['content']['field_paragraph'][$key]);
+          }
+        }
+      }
+    }
   }
+}
 
-  // Build sidebar_content: blocks + main content in correct order.
-  $variables['page']['sidebar_content'] = [
-    '#type' => 'container',
-    '#attributes' => ['class' => ['sidebar-content']],
-  ];
+/**
+ * Implements hook_preprocess_HOOK() for menu_local_tasks.
+ *
+ * Remove the "Delete" tab from the local tasks (tabs).
+ */
+function illinois_framework_theme_preprocess_menu_local_tasks(&$variables) {
+  foreach (['primary', 'secondary'] as $type) {
+    if (!empty($variables[$type])) {
+      foreach (\Drupal\Core\Render\Element::children($variables[$type]) as $key) {
+        // Hide standard entity delete form tabs
+        if (strpos((string) $key, 'delete_form') !== FALSE) {
+          unset($variables[$type][$key]);
+          continue;
+        }
 
-  // Add preserved blocks - they keep their original weights from Block UI.
-  // Blocks with negative weights will appear before main_content (weight 0).
-  // Blocks with positive weights will appear after main_content.
-  foreach ($preserved_blocks as $key => $block) {
-    $variables['page']['sidebar_content'][$key] = $block;
-    // Keep the block's original weight from Block UI
+        // Additional check by route name just in case the key differs
+        if (isset($variables[$type][$key]['#link']['url'])) {
+          $url = $variables[$type][$key]['#link']['url'];
+          if ($url instanceof \Drupal\Core\Url) {
+            $route_name = $url->getRouteName();
+            if (strpos($route_name, '.delete_form') !== FALSE) {
+              unset($variables[$type][$key]);
+            }
+          }
+        }
+      }
+    }
   }
-
-  // Add the main content to sidebar_content.
-  $variables['page']['sidebar_content']['main_content'] = $main_content;
-
-  // Build full_width_paragraphs: remaining paragraphs only.
-  $variables['page']['full_width_paragraphs'] = [
-    '#type' => 'container',
-    '#attributes' => ['class' => ['full-width-paragraphs']],
-  ];
-
-  foreach ($render_full as $i => $para) {
-    $variables['page']['full_width_paragraphs']['paragraph_full_' . $i] = $para;
-    $variables['page']['full_width_paragraphs']['paragraph_full_' . $i]['#weight'] = $i;
-  }
-
-} // END illinois_framework_theme_preprocess_page()
-
+}
 
 /**
  * Implements hook_preprocess_HOOK() for menu.html.twig.
  *
  * Add the parent item to the template for the side navigation.
  */
-function illinois_framework_theme_preprocess_menu(&$variables) {
+function illinois_framework_theme_preprocess_menu(array &$variables) {
   /** @var \Drupal\Core\Menu\MenuLinkManagerInterface $menu_link_manager */
   $menu_link_manager = \Drupal::service('plugin.manager.menu.link');
   $first = reset($variables['items']);
@@ -405,81 +468,54 @@ function illinois_framework_theme_preprocess_menu(&$variables) {
       $variables['parent_name'] = $parent->getTitle();
       $variables['parent_url'] = $parent->getUrlObject();
 
-      // Required for Drupal to manage the aria-current attribute
+      // Required for Drupal to manage the aria-current attribute.
       $variables['parent_url']->setOption('set_active_class', TRUE);
 
-      $variables['parent_url']->setOption('attributes', ['class' => 'ilw-section-nav--root']);
+      $variables['parent_url']->setOption('attributes', ['class' => ['ilw-section-nav--root']]);
 
-      // Create the render array we'll use in the template
+      // Create the render array we'll use in the template.
       $variables['parent_a'] = $link_generator->generate($parent->getTitle(), $variables['parent_url']);
     }
   }
 }
 
 /**
- * Implements hook_preprocess_HOOK().
+ * Implements hook_preprocess_HOOK() for paragraph.html.twig.
  *
- * For Faculty Explorer paragraphs, create a variable
- * to track the animal and discipline the user has chosen.
+ * This function handles propagating background colors from parent paragraphs
+ * (like bb and icon_row) to their children, and maps icon keys to CSS classes.
  */
-function illinois_framework_theme_preprocess_paragraph(&$variables) {
-  /** @var \Drupal\paragraphs\ParagraphInterface $paragraph */
-  $bbContentParagraph = $variables['paragraph'];
-  // This code passes the background color setting from the parent
-  // paragraph to the child paragraph.
-
-  // Get the parent entity (the container paragraph)
-  if (
-    $bbContentParagraph->bundle() === 'bb_content' ||
-    $bbContentParagraph->bundle() === 'icon_row_content'
-  ) {
-    $parent = $bbContentParagraph->getParentEntity();
-    // Check if the parent exists, is a Paragraph, and is the correct parent type
-    if (
-      $parent instanceof ParagraphInterface &&
-      ($parent->bundle() === 'bb' || $parent->bundle() === 'icon_row')
-    ) {
-      // Choose the correct field based on parent bundle
-      if ($parent->bundle() === 'bb' && $parent->hasField('field_bb_background') && !$parent->get('field_bb_background')->isEmpty()) {
-        // Check if the parent has the background field and it's not empty
-        $variables['bb_background'] = $parent->get('field_bb_background')->value;
-        // Get the raw value from the parent field
-      } elseif ($parent->bundle() === 'icon_row' && $parent->hasField('field_icon_row_background') && !$parent->get('field_icon_row_background')->isEmpty()) {
-        $variables['bb_background'] = $parent->get('field_icon_row_background')->value;
-      } else {
-        $variables['bb_background'] = 'white';
-      }
-    } else {
-      $variables['bb_background'] = $parent->bundle();
-    }
-  }
-
-  $paragraph = $variables['paragraph'] ?? ($variables['elements']['#paragraph'] ?? null);
+function illinois_framework_theme_preprocess_paragraph(array &$variables) {
+  $paragraph = $variables['paragraph'] ?? ($variables['elements']['#paragraph'] ?? NULL);
 
   if (!$paragraph instanceof ParagraphInterface) {
     return;
   }
 
   // --- Background propagation for bb_content and icon_row_content ---
+  // This code passes the background color setting from the parent
+  // paragraph down to the child paragraph.
   $bundle = $paragraph->bundle();
   if ($bundle === 'bb_content' || $bundle === 'icon_row_content') {
     $parent = $paragraph->getParentEntity();
     if ($parent instanceof ParagraphInterface && ($parent->bundle() === 'bb' || $parent->bundle() === 'icon_row')) {
       if ($parent->bundle() === 'bb' && $parent->hasField('field_bb_background') && !$parent->get('field_bb_background')->isEmpty()) {
         $variables['bb_background'] = $parent->get('field_bb_background')->value;
-      } elseif ($parent->bundle() === 'icon_row' && $parent->hasField('field_icon_row_background') && !$parent->get('field_icon_row_background')->isEmpty()) {
+      }
+      elseif ($parent->bundle() === 'icon_row' && $parent->hasField('field_icon_row_background') && !$parent->get('field_icon_row_background')->isEmpty()) {
         $variables['bb_background'] = $parent->get('field_icon_row_background')->value;
-      } else {
+      }
+      else {
         $variables['bb_background'] = 'white';
       }
-    } else {
-      // Fallback default when no suitable parent found.
+    }
+    else {
+      // Fallback default when no suitable parent is found.
       $variables['bb_background'] = 'white';
     }
   }
 
   // --- Icon mapping for paragraph cta and icon_row_content ---
-  $bundle = $paragraph->bundle();
   if ($bundle === 'cta' || $bundle === 'icon_row_content') {
     $icon_key = '';
     if ($paragraph->hasField('field_icon_row_content_icon') && !$paragraph->get('field_icon_row_content_icon')->isEmpty()) {
@@ -583,7 +619,10 @@ function illinois_framework_theme_preprocess_paragraph(&$variables) {
   }
 }
 
-function illinois_framework_theme_preprocess_breadcrumb(&$variables) {
+/**
+ * Implements hook_preprocess_HOOK() for breadcrumb.html.twig.
+ */
+function illinois_framework_theme_preprocess_breadcrumb(array &$variables) {
   if ($variables['breadcrumb']) {
     $request = \Drupal::request();
     $route_match = \Drupal::routeMatch();
@@ -592,16 +631,16 @@ function illinois_framework_theme_preprocess_breadcrumb(&$variables) {
     if (!empty($page_title)) {
       $variables['breadcrumb'][] = [
         'text' => $page_title,
-        'attributes' => new Attribute(['class' => ['active']])
+        'attributes' => new Attribute(['class' => ['active']]),
       ];
     }
   }
 }
 
 /**
- * Implements template_preprocess_paragraph__feature_split().
+ * Implements hook_preprocess_HOOK() for paragraph--feature-split.html.twig.
  */
-function illinois_framework_theme_preprocess_paragraph__feature_split(&$variables) {
+function illinois_framework_theme_preprocess_paragraph__feature_split(array &$variables) {
   $paragraph = $variables['paragraph'];
 
   // Reverse attribute.
@@ -645,6 +684,26 @@ function illinois_framework_theme_preprocess_paragraph__feature_split(&$variable
         break;
       default:
         $variables['theme'] = $background_value;
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for field.html.twig.
+ */
+function illinois_framework_theme_preprocess_field(array &$variables) {
+  // 1. Check if we are dealing with the 'body' field on a 'node' entity.
+  // This implicitly excludes paragraphs or blocks that might also have a body field.
+  if ($variables['entity_type'] === 'node' && $variables['field_name'] === 'body') {
+    $view_mode = $variables['element']['#view_mode'];
+
+    if ($view_mode === 'default' || $view_mode === 'full') {
+      // Inject the custom CSS class into the field's wrapper attributes.
+      // Ensure the attributes object exists and is an Attribute instance (usually is).
+      if (!isset($variables['attributes']['class'])) {
+        $variables['attributes']['class'] = [];
+      }
+      $variables['attributes']['class'][] = 'node-body-field-full-display';
     }
   }
 }

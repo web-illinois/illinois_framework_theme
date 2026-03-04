@@ -54,40 +54,11 @@
     {{ page.highlighted }}
     {{ page.help }}
     {{ page.tabs }}
-    {# look for url #}
-    {% set url = url('<current>') %}
 
-    {# Add an is-unpublished class to main tag if the node is unpublished #}
-    {% set unpublished = not node.isPublished() ? 'is-unpublished' : '' %}
-    <main{{ attributes.addClass(unpublished) }} role="main" id="main-content" tabindex="-1">{# link is in html.html.twig #}
-      {# if a side navigation exists and /'latest' is not in the url #}
-      {% if node.field_sidebar.0.value == 'sidebar' and '/latest' not in url|render|render %}
-        <ilw-columns mode="sidebar-left" width="auto">
-          {{ page.sidebar_first }}
-          {{ page.sidebar_second }}
-          <div>
-              {# Render only the sidebar content here (blocks + body + sidebar paragraphs) #}
-              {{ page.sidebar_content }}
-          </div>
-        </ilw-columns>
-        {# Full-width paragraphs appear outside the columns #}
-          {{ page.full_width_paragraphs }}
-      {% else %}
-        {# No sidebar - render everything from page.content, wrapping body with page width #}
-        {% for key, item in page.content %}
-          {% if key starts with '#' %}
-            {# Skip metadata #}
-          {% elseif item['#needs_page_width'] is defined and item['#needs_page_width'] %}
-            <ilw-content width="page">
-              {{ item }}
-            </ilw-content>
-          {% else %}
-            {{ item }}
-          {% endif %}
-        {% endfor %}
-      {% endif %}
-
-
+    <main role="main" id="main-content" tabindex="-1">{# link is in html.html.twig #}
+      <ilw-content width="page">
+        {{ page.content }}
+      </ilw-content>
     </main>
 
     <ilw-footer source="{{ site_name_source }}" slot="footer">
@@ -95,4 +66,4 @@
     </ilw-footer>
 
   </ilw-page>
-</div>
+</div>{# /.layout-container #}
