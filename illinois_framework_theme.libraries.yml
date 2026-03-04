@@ -103,6 +103,8 @@ paragraph-calendar:
 skipto-campus:
   js:
     https://skipto-landmarks-headings.github.io/page-script-5/dist/skipto.min.js:
+      attributes:
+        data-skipto: "displayOption: popup;"
   dependencies:
     - core/jquery
     - core/drupalSettings
