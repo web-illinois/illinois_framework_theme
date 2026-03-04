@@ -42,9 +42,6 @@
     #}
     {%- set site_url = url("<current>") -%}
     {% if 'localhost' not in site_url|render|render -%}
-      {# Removing call to onetrust call per issue #1162 - hpleas
-      <script src="https://onetrust.techservices.illinois.edu/scripttemplates/otSDKStub.js"  type="text/javascript" charset="UTF-8" data-domain-script="26be7d61-2017-4ea7-8a8b-8f1704889763"></script>
-      #}
       <script type="text/javascript">function OptanonWrapper() { }</script>
     {%- endif %}
     <title>{{ head_title|safe_join(' | ') }} | Illinois</title>
