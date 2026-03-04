@@ -3,41 +3,52 @@
 *::after {
   box-sizing: border-box;
 }
+
 body {
   margin: 0;
   font: 400 1.125rem/1.667rem var(--il-font-sans);
   color: var(--ilw-text--color);
 }
+
 ilw-columns {
   overflow: hidden;
 }
-/* fix for toolkit components that overflow and cause horizontal scrollbar*/
+
+/* fix for toolkit components that overflow and cause horizontal scrollbar */
 .layout-overflow {
   overflow-x: clip;
 }
+
 /* fallback */
 @supports not (overflow: clip) {
-  .layout-overflow { overflow-x: hidden; }
+  .layout-overflow { overflow-x: hidden;
+  }
 }
+
 a {
-  color: var(--ilw-link--color);
+  color: var(--ilw-color--link);
   text-decoration: underline;
-  cursor:pointer
+  cursor:pointer;
 }
+
 a:visited {
-  color:var(--ilw-link--visited-color)
+  color:var(--ilw-color--link-visited);
 }
+
 a:hover {
-  color:var(--ilw-link--focused-color)
+  color:var(--ilw-color--link-hover);
 }
+
 a:focus {
-  background-color:var(--ilw-link--focus-background-color);
-  color:var(--ilw-link--focus-color);
-  outline:var(--ilw-link--focus-outline)
+  background-color:var(--ilw-color--focus--background);
+  color:var(--ilw-color--focus--text);
+  outline:var(--ilw-link--focus-outline);
 }
+
 img {
   vertical-align: middle;
 }
+
 img,
 video,
 iframe {
