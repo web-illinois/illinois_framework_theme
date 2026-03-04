@@ -190,6 +190,18 @@ div.field--type-text-with-summary > figure:first-child {
   }
 }
 
+.media--view-mode-large-600px{
+  max-width: 600px;
+  + figcaption{
+    max-width: 600px;
+  }
+
+  &.media--type-remote-video,
+  &.media--type-mediaspace-illinois {
+    min-width: 600px;
+  }
+}
+
 /*Styles for media with Media captions*/
 .field--name-field-if-media-image-caption{
   .field__item{
