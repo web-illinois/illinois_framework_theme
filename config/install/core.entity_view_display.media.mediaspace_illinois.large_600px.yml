@@ -1,0 +1,34 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.large_600px
+    - field.field.media.mediaspace_illinois.field_media_media_remote
+    - media.type.mediaspace_illinois
+  module:
+    - layout_builder
+    - media_remote
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: media.mediaspace_illinois.large_600px
+targetEntityType: media
+bundle: mediaspace_illinois
+mode: large_600px
+content:
+  field_media_media_remote:
+    type: media_remote_illinois_mediaspace
+    label: visually_hidden
+    settings:
+      width: 960
+      height: 600
+      formatter_class: Drupal\illinois_framework_core\Plugin\Field\FieldFormatter\MediaRemoteMediaSpaceFormatter
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  name: true
+  thumbnail: true
+  uid: true

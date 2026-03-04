@@ -1,0 +1,37 @@
+uuid: d9068c30-6696-485e-9359-3eca3f4dba75
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.full_width
+    - field.field.media.mediaspace_illinois.field_media_media_remote
+    - media.type.mediaspace_illinois
+  module:
+    - layout_builder
+    - media_remote
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+_core:
+  default_config_hash: u4pv5hCl4OwBf67-F94n4ogddqP149ecdpUo-JtEVoI
+id: media.mediaspace_illinois.full_width
+targetEntityType: media
+bundle: mediaspace_illinois
+mode: full_width
+content:
+  field_media_media_remote:
+    type: media_remote_illinois_mediaspace
+    label: visually_hidden
+    settings:
+      width: ''
+      height: ''
+      formatter_class: Drupal\illinois_framework_core\Plugin\Field\FieldFormatter\MediaRemoteMediaSpaceFormatter
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  name: true
+  thumbnail: true
+  uid: true
