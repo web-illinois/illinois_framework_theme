@@ -46,12 +46,17 @@
   not paragraph.isPublished() ? 'paragraph--unpublished',
 ]
 %}
+{% set has_title = has_parent_title|default(false) %}
 {% block paragraph %}
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
       <ilw-accordion-panel>
-        <h3 slot="summary">{{ content.field_accordion_summary }}</h3>
+        {% if has_title %}
+          <h3 slot="summary">{{ content.field_accordion_summary }}</h3>
+        {% else %}
+          <h2 slot="summary">{{ content.field_accordion_summary }}</h2>
+        {% endif %}
         {{ content.field_accordion_details }}
       </ilw-accordion-panel>
     {% endblock %}
