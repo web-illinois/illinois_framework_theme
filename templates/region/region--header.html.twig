@@ -16,17 +16,13 @@
   {% if if_secondary_site_link %}
     <a slot="primary-unit" href="{{ if_secondary_site_link }}">{{ if_secondary_site_title }}</a>
   {% else %}
-    {% if is_front %}
-      <h1 slot="site-name" ><a href="#">{{ if_secondary_site_title }}</a></h1>
-    {% else %}
-      <a slot="site-name" href="#">{{ if_secondary_site_title }}</a>
-    {% endif %}
+    <div slot="primary-unit">{{ if_secondary_site_title }}</div>
   {% endif %}
 {% endif %}
 {% if is_front %}
-    <h1 slot="site-name" ><a href="/">{{ drupal_config('system.site', 'name') | raw }}</a></h1>
+  <h1 slot="site-name" ><a href="/">{{ drupal_config('system.site', 'name') | raw }}</a></h1>
 {% else %}
-<a slot="site-name" href="/">{{ drupal_config('system.site', 'name') | raw }}</a>
+  <a slot="site-name" href="/">{{ drupal_config('system.site', 'name') | raw }}</a>
 {% endif %}
 <form slot="search" method="get" action="/search/node" role="search">
   <input type="search" name="keys" aria-labelledby="search-button">
