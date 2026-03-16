@@ -27,13 +27,13 @@ settings:
       label: Audio
     -
       value: audio_transcript
-      label: audio-transcript
+      label: 'Audio Transcript'
     -
       value: il-icon-back
       label: Back
     -
       value: bluesky
-      label: bluesky
+      label: Bluesky
     -
       value: il-icon-calendar
       label: Calendar
@@ -42,7 +42,7 @@ settings:
       label: Cancel/Exit
     -
       value: check
-      label: check
+      label: Check
     -
       value: il-icon-comment
       label: Comment
@@ -66,19 +66,19 @@ settings:
       label: Faculty/Staff
     -
       value: faq
-      label: faq
+      label: Faq
     -
       value: il-icon-favorite
       label: Favorite
     -
       value: flickr
-      label: flickr
+      label: Flickr
     -
       value: il-icon-give-gift
       label: Gift
     -
       value: github
-      label: github
+      label: Github
     -
       value: il-icon-handbook-manual
       label: Handbook/Manual
@@ -114,7 +114,7 @@ settings:
       label: Location
     -
       value: mastodon
-      label: mastodon
+      label: Mastodon
     -
       value: il-icon-more
       label: More
@@ -135,13 +135,13 @@ settings:
       label: Partners
     -
       value: pause
-      label: pause
+      label: Pause
     -
       value: il-icon-pay-bill
       label: Pay/Wallet
     -
       value: pdf
-      label: pdf
+      label: PDF
     -
       value: il-icon-phone-call
       label: Phone
@@ -150,13 +150,13 @@ settings:
       label: Plan
     -
       value: play
-      label: play
+      label: Play
     -
       value: il-icon-program-of-study
       label: 'Program of study'
     -
       value: reddit
-      label: reddit
+      label: Reddit
     -
       value: il-icon-research
       label: Research
@@ -183,7 +183,7 @@ settings:
       label: Sitemap
     -
       value: spotify
-      label: spotify
+      label: Spotify
     -
       value: il-icon-students
       label: Students/Backpack
@@ -195,13 +195,13 @@ settings:
       label: Team
     -
       value: threads
-      label: threads
+      label: Threads
     -
       value: il-icon-tickets
       label: Tickets
     -
       value: tiktok
-      label: tiktok
+      label: Tiktok
     -
       value: il-icon-trash
       label: Trash
@@ -228,7 +228,7 @@ settings:
       label: x
     -
       value: yelp
-      label: yelp
+      label: Yelp
   allowed_values_function: ''
 module: options
 locked: false
