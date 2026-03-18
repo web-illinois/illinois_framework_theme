@@ -31,15 +31,6 @@
       <link rel="dns-prefetch" href="//cdn.toolkit.illinois.edu">
       <link rel="dns-prefetch" href="//cdn.disability.illinois.edu">
       <link rel="dns-prefetch" href="//onetrust.techservices.illinois.edu">
-      {#
-      UIUC Cookie banner: needs to be placed before any other
-      script tags to function. Won't be included if running on
-      a localhost development environment.
-      #}
-      {%- set site_url = url("<current>") -%}
-      {% if 'ddev' not in site_url|render|render -%}
-        <script type="text/javascript">function OptanonWrapper() { }</script>
-      {%- endif %}
       <title>{{ head_title|safe_join(' | ') }} | Illinois</title>
     <css-placeholder token="{{ placeholder_token }}">
     <js-placeholder token="{{ placeholder_token }}">
