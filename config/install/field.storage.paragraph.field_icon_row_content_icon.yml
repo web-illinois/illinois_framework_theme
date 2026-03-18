@@ -26,7 +26,7 @@ settings:
       value: il-icon-audio
       label: Audio
     -
-      value: audio_transcript
+      value: audio-transcript
       label: 'Audio Transcript'
     -
       value: il-icon-back
