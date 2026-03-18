@@ -728,3 +728,11 @@ function illinois_framework_theme_preprocess_field(array &$variables) {
     }
   }
 }
+/**
+ * Implements hook_preprocess_HOOK() for region.html.twig.
+ *
+ * This adds a variable to identify if the current page is the front page, which can be used for conditional logic in region templates.
+ */
+function illinois_framework_theme_preprocess_region(array &$variables): void {
+  $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
+}
