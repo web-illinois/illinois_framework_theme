@@ -2,7 +2,7 @@
   margin-top: 2rem;
   ilw-columns {
     .d-flex {
-      @include media-breakpoint-down(sm) {
+      @media (max-width: 575.98px) {
         display: block !important;
       }
     }
@@ -18,7 +18,6 @@
 
   .field--name-field-contact__content__image__wrapper.left {
     img {
-      display: block;
       margin-left: auto;
       margin-right: auto;
       @media (min-width: 600px) {
@@ -35,21 +34,9 @@
     }
   }
 
-  .field--name-field-contact__content__image__wrapper.right {
-    img {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      @media (min-width: 600px) {
-        margin-right: auto;
-        margin-left: 0;
-      }
-    }
-  }
-
+  .field--name-field-contact__content__image__wrapper.right,
   .field--name-field-contact__content__image__wrapper.righttxt {
     img {
-      display: block;
       margin-left: auto;
       margin-right: auto;
       @media (min-width: 600px) {

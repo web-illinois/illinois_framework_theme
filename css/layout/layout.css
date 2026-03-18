@@ -1,5 +1,19 @@
+/* The fixed-width class is a utility class that will restrict the content
+** from stretching the full width of the browser. Useful in views.
+*/
 .fixed-width {
   margin: 0 auto;
   padding: 0 var(--ilw-margin--side, 0);
   width: 100%;
+}
+
+/* Remove the fixed width padding when:
+**   1) it is inside a two-column layout. The page-content-wrapper class is applied in the page.html.twig template
+**   2) it is inside the ilw-content element with the width set to page
+**   3) it is nested inside another fixed-width element. This allows for nested fixed-width elements without the padding stacking up.
+*/
+.page-content-wrapper .fixed-width,
+ilw-content[width="page"] .fixed-width,
+.fixed-width :where(.fixed-width) {
+  padding: 0;
 }

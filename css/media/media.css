@@ -105,9 +105,7 @@ figure,
     display: block;
     margin: 0.888889em auto 0;
     max-width: fit-content;
-  }
 
-  &.align-center {
     img {
       width: 100%;
     }
@@ -187,6 +185,18 @@ div.field--type-text-with-summary > figure:first-child {
   &.media--type-remote-video,
   &.media--type-mediaspace-illinois {
     min-width: 400px;
+  }
+}
+
+.media--view-mode-large-600px{
+  max-width: 600px;
+  + figcaption{
+    max-width: 600px;
+  }
+
+  &.media--type-remote-video,
+  &.media--type-mediaspace-illinois {
+    min-width: 600px;
   }
 }
 

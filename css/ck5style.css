@@ -1,4 +1,5 @@
 @import url("https://cdn.brand.illinois.edu/illinois.css");
+
 .ck-content {
   p, caption, blockquote, dd, dt {
     font: 400 1.125rem/1.667rem var(--il-font-sans);
@@ -46,7 +47,6 @@
   h4, h5,
   h6, p.ilw-heading {
     display: block;
-    color: inherit;
     line-height: 1.2;
     font-style: normal;
     font-weight: 700;
@@ -95,7 +95,7 @@
 
   h4, h5, h6, p.ilw-heading {
     margin-top: 1.3125rem;
-    margin-bottom: 0rem;
+    margin-bottom: 0;
   }
 
   ul, ol {
@@ -107,26 +107,32 @@
     font: 400 1.125rem/1.667 var(--il-font-sans);
     color: var(--ilw-color--text);
   }
+
   ol, ul, table {
     font-family: var(--il-font-sans);
   }
+
   h1, h2, h3, h4, h5, h6 {
     color: var(--il-blue);
   }
+
   hr{
     background: var(--il-industrial-blue);
   }
-  :root {
-    --ilw-button--background-color: white;
-    --ilw-button--foreground-color: var(--il-blue);
-    --ilw-button--border-color: var(--il-blue);
-    --ilw-button--focused-background-color: var(--il-blue);
-    --ilw-button--focused-foreground-color: white;
-    --ilw-button--focused-border-color: var(--il-blue);
-    --ilw-button--active-color: white;
-    --ilw-button--active-background-color: var(--il-orange);
-    --ilw-button--active-border-color: var(--il-blue);
-  }
+
+  --ilw-color--white--control: #fff;
+  --ilw-color--white--control-text: var(--il-blue);
+  --ilw-color--control: var(--ilw-color--white--control);
+  --ilw-color--control-text: var(--ilw-color--white--control-text);
+  --ilw-button--background-color: var(--ilw-color--control);
+  --ilw-button--foreground-color: var(--ilw-color--control-text);
+  --ilw-button--border-color: var(--ilw-color--control-text);
+  --ilw-button--focused-background-color: var(--ilw-color--focus--background);
+  --ilw-button--focused-foreground-color: var(--ilw-color--focus--text);
+  --ilw-button--focused-border-color: var(--ilw-color--focus--text);
+  --ilw-button--active-color: white;
+  --ilw-button--active-background-color: var(--il-orange);
+  --ilw-button--active-border-color: var(--il-blue);
 
   .ilw-theme-orange {
     --ilw-button--background-color: white;
@@ -202,11 +208,12 @@
 
     &:hover {
       outline: 0;
-      background-color: var(--ilw-button--focused-background-color);
-      color: var(--ilw-button--focused-foreground-color);
-      border-color: var(--ilw-button--focused-border-color);
+      background-color: var(--ilw-button--foreground-color);
+      color: var(--ilw-button--background-color);
+      border-color: var(--ilw-button--border-color);
       text-decoration: underline;
     }
+
     &:focus {
       background-color: var(--ilw-link--focus-background-color);
       color: var(--ilw-link--focus-color);
@@ -214,6 +221,7 @@
       text-decoration: underline;
       outline: var(--ilw-link--focus-outline);
     }
+
     &:active {
       background-color: var(--ilw-button--active-background-color);
       color: var(--ilw-button--active-color);
@@ -222,103 +230,88 @@
     }
   }
 
-
   .il-button {
-    --color-primary: white;
-    --color-secondary: var(--il-blue);
-
-    background-color: var(--il-button-background-color);
-    color: var(--il-button-foreground-color);
+    background: var(--ilw-button--background-color);
+    color: var(--ilw-button--foreground-color);
+    border: 2px solid var(--ilw-button--border-color);
+    font: 700 1.188rem / 1.25rem var(--il-font-sans);
     display: inline-block;
     margin: 6px 0;
     padding: 12px 20px;
     text-align: center;
     text-decoration: none;
     border-radius: 0.25em;
-    border: 2px solid var(--il-button-border-color);
-    font: 700 20px var(--il-font-sans);
     letter-spacing: .01em;
     transition: background-color 0.3s;
     cursor: pointer;
 
     &:visited {
       outline: 0;
-      background-color: var(--il-button-background-color);
-      color: var(--il-button-foreground-color);
-      border: 2px solid var(--il-button-border-color);
+      background: var(--ilw-button--background-color);
+      color: var(--ilw-button--foreground-color);
+      border: 2px solid var(--ilw-button--border-color);
     }
 
-    &:hover,
-    &:focus {
+    &:hover {
       outline: 0;
-      background-color: var(--il-focused-button-background-color);
-      color: var(--il-focused-button-foreground-color);
-      border-color: var(--il-focused-button-border-color);
+      background: var(--ilw-button--foreground-color);
+      color: var(--ilw-button--background-color);
+      border-color: var(--ilw-button--border-color);
+      text-decoration: underline;
+    }
+
+    &:focus {
+      background: var(--ilw-color--focus--background);
+      color: var(--ilw-color--focus--text);
+      border-color: var(--ilw-color--focus--text);
+      text-decoration: underline;
+      outline: var(--ilw-color--focus--outline);
+    }
+
+    &:active {
+      background-color: var(--ilw-button--active-background-color);
+      color: var(--ilw-button--active-color);
+      border-color: var(--ilw-button--active-border-color);
+      outline: solid var(--ilw-button--active-border-color) 2px;
     }
 
     &.il-white-blue {
-      --il-button-background-color: white;
-      --il-button-foreground-color: var(--il-blue);
-      --il-button-border-color: var(--il-blue);
-      --il-focused-button-background-color: var(--il-blue);
-      --il-focused-button-foreground-color: white;
-      --il-focused-button-border-color: var(--il-blue);
+      --ilw-button--background-color: white;
+      --ilw-button--foreground-color: var(--il-blue);
+      --ilw-button--border-color: var(--il-blue);
+      --ilw-button--focused-background-color: var(--il-blue);
+      --ilw-button--focused-foreground-color: white;
+      --ilw-button--focused-border-color: var(--il-blue);
     }
 
     &.il-white-orange {
-      color: var(--il-orange) !important;
-      --il-button-background-color: white !important;
-      --il-button-foreground-color: var(--il-orange) !important;
-      --il-button-border-color: var(--il-orange) !important;
-      --il-focused-button-background-color: var(--il-orange) !important;
-      --il-focused-button-foreground-color: white !important;
-      --il-focused-button-border-color: var(--il-orange) !important;
-      &:hover,
-      &:focus {
-        color: white !important;
-        --il-focused-button-background-color: var(--il-orange) !important;
-        --il-focused-button-foreground-color: white !important;
-        --il-focused-button-border-color: var(--il-orange) !important;
-      }
+      --ilw-button--background-color: white;
+      --ilw-button--foreground-color: var(--il-orange);
+      --ilw-button--border-color: var(--il-orange);
+      --ilw-button--focused-background-color: var(--il-orange);
+      --ilw-button--focused-foreground-color: white;
+      --ilw-button--focused-border-color: var(--il-orange);
     }
 
     &.il-blue {
-      color: white !important;
-      --il-button-background-color: var(--il-blue) !important;
-      --il-button-foreground-color: white !important;
-      --il-button-border-color: var(--il-blue) !important;
-      --il-focused-button-background-color: white !important;
-      --il-focused-button-foreground-color: var(--il-blue) !important;
-      --il-focused-button-border-color: var(--il-blue)!important;
-
-      &:hover,
-      &:focus {
-        color: var(--il-blue) !important;
-        --il-focused-button-background-color: white !important;
-        --il-focused-button-foreground-color: var(--il-blue) !important;
-        --il-focused-button-border-color: var(--il-blue) !important;
-      }
+      --ilw-button--background-color: var(--il-blue);
+      --ilw-button--foreground-color: white;
+      --ilw-button--border-color: var(--il-blue);
+      --ilw-button--focused-background-color: white;
+      --ilw-button--focused-foreground-color: var(--il-blue);
+      --ilw-button--focused-border-color: var(--il-blue);
     }
 
     &.il-orange {
-      color: white !important;
-      --il-button-background-color: var(--il-orange) !important;
-      --il-button-foreground-color: white !important;
-      --il-button-border-color: var(--il-orange) !important;
-      --il-focused-button-background-color: white !important;
-      --il-focused-button-foreground-color: var(--il-orange) !important;
-      --il-focused-button-border-color: var(--il-orange) !important;
-
-      &:hover,
-      &:focus {
-        color: var(--il-orange) !important;
-        --il-focused-button-background-color: white !important;
-        --il-focused-button-foreground-color: var(--il-orange) !important;
-        --il-focused-button-border-color: var(--il-orange) !important;
-      }
+      --ilw-button--background-color: var(--il-orange);
+      --ilw-button--foreground-color: white;
+      --ilw-button--border-color: var(--il-orange);
+      --ilw-button--focused-background-color: white;
+      --ilw-button--focused-foreground-color: var(--il-orange);
+      --ilw-button--focused-border-color: var(--il-orange);
     }
-  }
-/* Set image size to match image style*/
+
+/* Set image size to match image style */
   .drupal-media {
     img{
       min-width: inherit !important;
