@@ -254,6 +254,27 @@ function illinois_framework_theme_preprocess_paragraph(&$variables) {
   }
 }
 
+/**
+ * Implements hook_preprocess_HOOK() for paragraph--accordion-content.html.twig.
+ */
+function illinois_framework_theme_preprocess_paragraph__accordion_content(array &$variables) {
+  $variables['has_parent_title'] = FALSE;
+
+  $paragraph = $variables['paragraph'] ?? NULL;
+  if (!$paragraph instanceof ParagraphInterface) {
+    return;
+  }
+
+  $parent = $paragraph->getParentEntity();
+  if (!$parent instanceof ParagraphInterface) {
+    return;
+  }
+
+  if ($parent->hasField('field_accordion_title') && !$parent->get('field_accordion_title')->isEmpty()) {
+    $variables['has_parent_title'] = TRUE;
+  }
+}
+
 function illinois_framework_theme_preprocess_breadcrumb(&$variables) {
   if ($variables['breadcrumb']) {
     $request = \Drupal::request();
