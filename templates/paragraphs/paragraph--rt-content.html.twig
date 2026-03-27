@@ -40,45 +40,20 @@
 #}
 {%
   set classes = [
-  'paragraph',
-  'paragraph--type--' ~ paragraph.bundle|clean_class,
-  view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
-  not paragraph.isPublished() ? 'paragraph--unpublished',
-  'clearfix', 'layout-overflow'
-]
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished',
+  ]
 %}
-{% set column_count = content.field_rt_column['#items']|length %}
-{% set background = content.field_rt_background_color['#items'].0.value %}
-{% if background == 'Gray' %}
-  {% set theme = 'gray' %}
-  {% set padding = '20px 0 30px' %}
-{% endif %}
-
-{{ attach_library('illinois_framework_theme/paragraph-rt') }}
-
 {% block paragraph %}
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
-      {% if column_count == 1 %}
-        <ilw-content theme="{{ theme }}" width="auto" padding="{{ padding }}">
-          {% if content.field_rt_title|render %}
-            <h2>{{ content.field_rt_title }}</h2>
-          {% endif %}
-          {{ content|without('field_rt_title') }}
-        </ilw-content>
-      {% else %}
-      {% if content.field_rt_title|render %}
-         <ilw-content width="auto"><h2>{{ content.field_rt_title }}</h2></ilw-content>
-      {% endif %}
-        <ilw-columns theme="{{ theme }}" width="auto" gap="40px" padding="{{ padding }}">
-          <div>
-            <ilw-content theme="{{ theme }}">
-              {{ content|without('field_rt_title') }}
-            </ilw-content>
-          </div>
-        </ilw-columns>
-      {% endif %}
+    {% if content.field_rt_content_title|render %}
+      <h3>{{content.field_rt_content_title}}</h3>
+    {% endif %}
+      {{ content|without('field_rt_content_title') }}
     {% endblock %}
   </div>
 {% endblock paragraph %}
