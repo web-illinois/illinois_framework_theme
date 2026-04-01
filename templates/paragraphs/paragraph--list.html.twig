@@ -49,6 +49,7 @@
 ]
 %}
 {% block paragraph %}
+
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
@@ -70,6 +71,7 @@
         {% set image = paragraph.field_list_content_image.entity.fileuri %}
         {% set alt_text = paragraph.field_list_content_image.alt %}
         {% set body = paragraph.field_list_content_body.value|render %}
+        {% set body_format = paragraph.field_list_content_body.format %}
         {% set padding = '30px 0 20px 0' %}
 
         {% if loop.index is even %}
@@ -93,7 +95,7 @@
             <ilw-content theme="{{ theme }}" width="auto" padding="{{ padding }}">
             <div class="">
               {% if body|trim %}
-                <div class="">{{ body|check_markup('basic_html') }}</div>
+                <div class="">{{ body|check_markup(body_format) }}</div>
               {% endif %}
             </div>
             {% endif %}
