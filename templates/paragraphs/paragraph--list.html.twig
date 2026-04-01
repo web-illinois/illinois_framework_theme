@@ -86,7 +86,7 @@
             <ilw-content theme="{{ theme }}">
               <div class="">
                 {% if body|trim %}
-                  <div class="">{{ body|check_markup('basic_html') }}</div>
+                  <div class="">{{ body|check_markup(body_format) }}</div>
                 {% endif %}
               </div>
             </ilw-content>
