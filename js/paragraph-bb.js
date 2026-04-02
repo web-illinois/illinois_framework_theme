@@ -7,10 +7,10 @@ jQuery(function($) {
   function setFullWidthPadding() {
     if (window.matchMedia('(max-width: 599px)').matches) {
       $('.paragraph--type--bb ilw-content[width="full"]').attr('padding', '0 30px');
-      $('.paragraph--type--bb ilw-grid[width="full"]').attr('padding', '0 20px');
+      $('.paragraph--type--bb ilw-grid[width="full"]').attr('padding', '0 20px 30px');
     } else {
       $('.paragraph--type--bb ilw-content[width="full"]').attr('padding', '0 40px');
-      $('.paragraph--type--bb ilw-grid[width="full"]').attr('padding', '0 30px');
+      $('.paragraph--type--bb ilw-grid[width="full"]').attr('padding', '0 30px 30px');
     }
   }
 
