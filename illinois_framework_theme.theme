@@ -254,6 +254,11 @@ function illinois_framework_theme_form_user_login_form_alter(&$form, FormStateIn
  * Implements hook_preprocess_HOOK() for page.html.twig.
  */
 function illinois_framework_theme_preprocess_page(array &$variables): void {
+  //adds a class to 404 page to control margins
+  if (\Drupal::routeMatch()->getRouteName() === 'system.404') {
+    $variables['attributes']['class'][] = 'is-404';
+  }
+
   // Get the current node from the route match.
   $route_match = \Drupal::routeMatch();
   $node = $route_match->getParameter('node') ?: $route_match->getParameter('node_preview');
