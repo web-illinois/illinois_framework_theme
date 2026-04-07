@@ -109,6 +109,7 @@ article.news {
 .news-page .news-title {
   font-weight: 600;
 }
+
 .news-page .item-list ul {
   list-style: none;
   padding-inline-start: 0;
@@ -124,6 +125,33 @@ article.news {
   padding-left: 7.8125rem;
 }
 .news-page .views-field-field-if-meda-featured-image {
+  float: left;
+}
+
+/* taxonomy page and related content */
+.taxonomy-page .news-title {
+  font-weight: 600;
+}
+.taxonomy-page h2 {
+  display: inline-block;
+  width: 100%;
+}
+.taxonomy-page .item-list ul {
+  list-style: none;
+  padding-inline-start: 0;
+  margin-top: -1.875rem;
+}
+.taxonomy-page .item-list li {
+  padding: 1.875rem 0;
+  border-bottom: 2px solid #d8d8d8;
+  margin: 0;
+  list-style: none;
+  overflow: auto;
+}
+.taxonomy-page .views-field-body {
+  padding-left: 7.8125rem;
+}
+.taxonomy-page .views-field-field-if-meda-featured-image {
   float: left;
 }
 
