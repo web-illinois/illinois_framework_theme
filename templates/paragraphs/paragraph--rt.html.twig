@@ -87,6 +87,7 @@
           {% for item in content.field_rt_column['#items'] %}
             {% set title = content.field_rt_column[loop.index0]['#paragraph'].field_rt_content_title.value %}
             {% set body = content.field_rt_column[loop.index0]['#paragraph'].field_rt_content_body.value|render %}
+            {% set body_format= content.field_rt_column[loop.index0]['#paragraph'].field_rt_content_body.format %}
             <div>
               <ilw-content theme="{{ theme }}">
               {% if title %}
