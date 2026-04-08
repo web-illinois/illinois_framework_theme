@@ -32,6 +32,5 @@
  */
 #}
 {% if items %}
-  {% set total_pages = items.last.href ? items.last.href|split('=')|last|number_format(0, '', '', '') : current %}
-  <ilw-pagination zerostart="true" pages="{{ total_pages }}" page="{{ current - 1 }}"></ilw-pagination>
+  <ilw-pagination zerostart="true" pages="{{ items.pages|length }}" page="{{ current - 1 }}"></ilw-pagination>
 {% endif %}
