@@ -59,7 +59,6 @@
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
       <ilw-columns width="auto" mode="2x1" gap="40px" {{ reverse_attr }} theme="{{ theme }}" padding="{{ padding }}">
-      {% set body = content.field_feature_grouped_body['#items'].0.value %}
       <ilw-content theme="{{ theme }}">
         {% if content.field_feature_grouped_title['#items'] %}
           <h2 class="field--name-field-feature-grouped__title title">
@@ -82,7 +81,7 @@
           {% endif %}
           {% if content.field_feature_grouped_body['#items'] %}
             <div class="field--name-field-feature-grouped__body body">
-              {{ body | raw }}
+              {{ content.field_feature_grouped_body }}
             </div>
           {% endif %}
         </div>

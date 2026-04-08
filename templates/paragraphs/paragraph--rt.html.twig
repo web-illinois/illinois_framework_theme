@@ -68,11 +68,12 @@
           {% for item in content.field_rt_column['#items'] %}
             {% set title = content.field_rt_column[loop.index0]['#paragraph'].field_rt_content_title.value %}
             {% set body = content.field_rt_column[loop.index0]['#paragraph'].field_rt_content_body.value|render %}
+            {% set body_format= content.field_rt_column[loop.index0]['#paragraph'].field_rt_content_body.format %}
             {% if title %}
               <h3>{{ title }}</h3>
             {% endif %}
             {% if body|trim %}
-              {{ body|check_markup('basic_html') }}
+              {{ body|check_markup(body_format) }}
             {% endif %}
           {% endfor %}
         </ilw-content>
@@ -86,13 +87,14 @@
           {% for item in content.field_rt_column['#items'] %}
             {% set title = content.field_rt_column[loop.index0]['#paragraph'].field_rt_content_title.value %}
             {% set body = content.field_rt_column[loop.index0]['#paragraph'].field_rt_content_body.value|render %}
+            {% set body_format= content.field_rt_column[loop.index0]['#paragraph'].field_rt_content_body.format %}
             <div>
               <ilw-content theme="{{ theme }}">
               {% if title %}
                 <h3>{{ title }}</h3>
               {% endif %}
               {% if body|trim %}
-                {{ body|check_markup('basic_html') }}
+                {{ body|check_markup(body_format) }}
               {% endif %}
               </ilw-content>
             </div>
