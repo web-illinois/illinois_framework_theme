@@ -252,6 +252,12 @@ function illinois_framework_theme_form_user_login_form_alter(&$form, FormStateIn
 
 /**
  * Implements hook_preprocess_HOOK() for page.html.twig.
+ *
+ * This function handles multiple responsibilities related to page preprocessing:
+ * - Puts "full width" paragraphs into a page-level variable so they can be rendered in a different part of the template.
+ * - Adding a class to the body for 404 pages.
+ * - Managing the logic for showing/hiding the sidebar based on node fields.
+ *
  */
 function illinois_framework_theme_preprocess_page(array &$variables): void {
   //adds a class to 404 page to control margins
@@ -294,8 +300,8 @@ function illinois_framework_theme_preprocess_page(array &$variables): void {
       }
     }
 
-    // Only proceed with paragraph splitting if sidebar mode is active.
-    if ($variables['node_has_sidebar']) {
+    // Only proceed with paragraph splitting if it is a content_page and sidebar mode is active.
+    if ($node->bundle() === 'content_page' && $variables['node_has_sidebar']) {
       // Determine the split point.
       $split_at = 0;
       if ($node->hasField('field_sidebar_paragraphs') && !$node->get('field_sidebar_paragraphs')->isEmpty()) {
@@ -397,14 +403,27 @@ function _illinois_framework_theme_get_preview_sidebar_menu(NodeInterface $node)
 
 /**
  * Implements hook_preprocess_HOOK() for node.html.twig.
+ *
+ * This function handles the logic for splitting paragraphs into main content
+ * and sidebar based on the node's field_sidebar_paragraphs value, but only if
+ * the sidebar is active. It also ensures this logic only runs in 'full' or
+ * 'preview' view modes to avoid unintended consequences in teasers or other
+ * view modes.
  */
 function illinois_framework_theme_preprocess_node(array &$variables): void {
   $node = $variables['node'];
 
-  // Logic should only run in 'full' or 'preview' view mode.
-  if ($variables['view_mode'] === 'full' || $variables['view_mode'] === 'preview') {
+  $node_has_sidebar = TRUE;
+  if ($node->hasField('field_sidebar') && !$node->get('field_sidebar')->isEmpty()) {
+    if ($node->get('field_sidebar')->value === 'nosidebar') {
+      $node_has_sidebar = FALSE;
+    }
+  }
+
+  // Only remove paragraphs from the main content if it's a content_page in full or preview mode, and the sidebar is active.
+  if ($node->bundle() === 'content_page' && ($variables['view_mode'] === 'full' || $variables['view_mode'] === 'preview')) {
     // If sidebar mode is active, hide the paragraphs that were moved to the page variable.
-    if ($node->hasField('field_sidebar') && $node->get('field_sidebar')->value === 'sidebar') {
+    if ($node_has_sidebar) {
       $split_at = 0;
       if ($node->hasField('field_sidebar_paragraphs') && !$node->get('field_sidebar_paragraphs')->isEmpty()) {
         $split_at = (int) $node->get('field_sidebar_paragraphs')->value;
