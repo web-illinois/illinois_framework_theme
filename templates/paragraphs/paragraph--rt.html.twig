@@ -62,21 +62,41 @@
     {% block content %}
       {% if column_count == 1 %}
         <ilw-content theme="{{ theme }}" width="auto" padding="{{ padding }}">
-          {% if content.field_rt_title|render %}
+          {% if content.field_rt_title['#items'] %}
             <h2>{{ content.field_rt_title }}</h2>
           {% endif %}
-          {{ content|without('field_rt_title') }}
+          {% for item in content.field_rt_column['#items'] %}
+            {% set title = content.field_rt_column[loop.index0]['#paragraph'].field_rt_content_title.value %}
+            {% set body = content.field_rt_column[loop.index0]['#paragraph'].field_rt_content_body.value|render %}
+            {% if title %}
+              <h3>{{ title }}</h3>
+            {% endif %}
+            {% if body|trim %}
+              {{ body|check_markup('basic_html') }}
+            {% endif %}
+          {% endfor %}
         </ilw-content>
       {% else %}
-      {% if content.field_rt_title|render %}
-         <ilw-content width="auto"><h2>{{ content.field_rt_title }}</h2></ilw-content>
-      {% endif %}
+        <ilw-content width="auto">
+          {% if content.field_rt_title['#items'] %}
+            <h2>{{ content.field_rt_title }}</h2>
+          {% endif %}
+        </ilw-content>
         <ilw-columns theme="{{ theme }}" width="auto" gap="40px" padding="{{ padding }}">
-          <div>
-            <ilw-content theme="{{ theme }}">
-              {{ content|without('field_rt_title') }}
-            </ilw-content>
-          </div>
+          {% for item in content.field_rt_column['#items'] %}
+            {% set title = content.field_rt_column[loop.index0]['#paragraph'].field_rt_content_title.value %}
+            {% set body = content.field_rt_column[loop.index0]['#paragraph'].field_rt_content_body.value|render %}
+            <div>
+              <ilw-content theme="{{ theme }}">
+              {% if title %}
+                <h3>{{ title }}</h3>
+              {% endif %}
+              {% if body|trim %}
+                {{ body|check_markup('basic_html') }}
+              {% endif %}
+              </ilw-content>
+            </div>
+          {% endfor %}
         </ilw-columns>
       {% endif %}
     {% endblock %}
