@@ -16,3 +16,9 @@ main.is-unpublished:before {
   display: block;
   font-weight: bold;
 }
+
+main.is-404 > div:first-of-type {
+  margin: 0 auto;
+  padding: 0 var(--ilw-margin--side, 0) 2rem;
+  width: 100%;
+}
