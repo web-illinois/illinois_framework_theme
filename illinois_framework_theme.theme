@@ -295,8 +295,8 @@ function illinois_framework_theme_preprocess_page(array &$variables): void {
       }
     }
 
-    // Only proceed with paragraph splitting if sidebar mode is active.
-    if ($variables['node_has_sidebar']) {
+    // Only proceed with paragraph splitting if it is a content_page and sidebar mode is active.
+    if ($node->bundle() === 'content_page' && $variables['node_has_sidebar']) {
       // Determine the split point.
       $split_at = 0;
       if ($node->hasField('field_sidebar_paragraphs') && !$node->get('field_sidebar_paragraphs')->isEmpty()) {
@@ -415,8 +415,8 @@ function illinois_framework_theme_preprocess_node(array &$variables): void {
     }
   }
 
-  // Logic should only run in 'full' or 'preview' view mode.
-  if ($variables['view_mode'] === 'full' || $variables['view_mode'] === 'preview') {
+  // Only remove paragraphs from the main content if it's a content_page in full or preview mode, and the sidebar is active.
+  if ($node->bundle() === 'content_page' && ($variables['view_mode'] === 'full' || $variables['view_mode'] === 'preview')) {
     // If sidebar mode is active, hide the paragraphs that were moved to the page variable.
     if ($node_has_sidebar) {
       $split_at = 0;
