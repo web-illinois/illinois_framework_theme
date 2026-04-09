@@ -64,7 +64,6 @@ install:
   - pathologic
   - redirect
   - responsive_image
-  - scss_compiler
   - search
   - shortcut
   - taxonomy
@@ -79,5 +78,4 @@ install:
   - illinois_framework_core
 themes:
   - illinois_framework_theme
-  - claro
   - gin
