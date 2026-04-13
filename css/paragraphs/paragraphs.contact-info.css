@@ -1,12 +1,14 @@
 .paragraph--type--contact {
   margin-top: 2rem;
+
   ilw-columns {
     .d-flex {
-      @media (max-width: 575.98px) {
+      @media (width <= 575.98px) {
         display: block !important;
       }
     }
   }
+
   ilw-content[theme='gray'] {
     .paragraph--type--contact__title {
       h2 {
@@ -16,11 +18,18 @@
     }
   }
 
+  .field--name-field-contact__content__image__wrapper {
+    img {
+      max-width: 250px;
+    }
+  }
+
   .field--name-field-contact__content__image__wrapper.left {
     img {
       margin-left: auto;
       margin-right: auto;
-      @media (min-width: 600px) {
+
+      @media (width >= 600px) {
         margin-right: 0;
         margin-left: auto;
       }
@@ -29,7 +38,8 @@
 
   .field--name-field-contact__content__wrapper.right {
     text-align: center;
-    @media (min-width: 600px) {
+
+    @media (width >= 600px) {
       text-align: right;
     }
   }
@@ -39,7 +49,8 @@
     img {
       margin-left: auto;
       margin-right: auto;
-      @media (min-width: 600px) {
+
+      @media (width >= 600px) {
         margin-right: auto;
         margin-left: 0;
       }
@@ -48,7 +59,8 @@
 
   .field--name-field-contact__content__wrapper.left {
     text-align: center;
-    @media (min-width: 600px) {
+
+    @media (width >= 600px) {
       text-align: left;
     }
   }
@@ -62,6 +74,7 @@
       text-align: center;
     }
   }
+
   .field--name-field-contact__content__title {
     color: var(--il-blue);
     font-family: var(--il-source-sans);
@@ -84,22 +97,14 @@
   .field--name-field-contact__content__address {
     address {
       margin-bottom: 0;
+
       p {
         margin-bottom: 0;
       }
     }
   }
-  a.ilw-button.ilw-theme-orange-1 {
-    border: 2px solid var(--il-orange);/*toolkit override*/
-  }
 
-  ilw-columns[width='auto'] {
-    .field--name-field-contact__content__image__wrapper {
-      img {
-        max-width: 250px;
-        width: 100%;
-        height: auto;
-      }
-    }
+  a.ilw-button.ilw-theme-orange-1 {
+    border: 2px solid var(--il-orange);/* toolkit override */
   }
 }
