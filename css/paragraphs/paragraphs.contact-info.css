@@ -20,7 +20,7 @@
 
   .field--name-field-contact__content__image__wrapper {
     img {
-      max-width: 250px;
+      width: 250px;
     }
   }
 
