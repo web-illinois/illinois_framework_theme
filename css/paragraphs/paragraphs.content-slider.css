@@ -1,6 +1,11 @@
 .paragraph--type--content-slider{
   .paragraph--type--content-slider__wrapper{
-    padding: 0 30px;
+    max-width: 100vw;
+  }
+  @media (min-width: 600px) {
+     .paragraph--type--content-slider__wrapper{
+      padding: 0 30px;
+    }
   }
   ilw-content {
     text-align: center;
