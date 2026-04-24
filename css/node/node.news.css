@@ -211,11 +211,6 @@ article.news {
 /* highlighted news block */
 .highlighted-news {
   margin: 0 auto;
-  max-width: 900px;
-
-  &.fixed-width {
-    padding: 0;
-  }
 
   .item-list {
     width: auto;
@@ -226,7 +221,7 @@ article.news {
 
       li {
         padding: 1.875rem 0;
-        border-bottom: 2px solid var(--il-cloud-3);
+        border-bottom: 2px solid var(--il-storm-lighter-4);
         margin: 0;
         list-style: none !important;
         overflow: auto;
@@ -240,7 +235,6 @@ article.news {
 
   a{
     &.readmore{
-      text-decoration: none;
 
       &::after {
         content: "\f054";
@@ -269,37 +263,60 @@ article.news {
   }
 
   .highlighted-news-wrapper {
-    display: block;
+    display: flex;
+    flex-direction: column; /* Stack elements vertically on mobile */
 
     @media (width >= 600px)  {
-      display: flex;
+      flex-direction: row; /* Switch back to side-by-side on desktop */
+      align-items: flex-start;
     }
 
     .highlighted-news-image {
+      order: -1; /* Forces the image above the content area on mobile */
+      margin-bottom: 15px; /* Adds space between the mobile image and headline */
       width: 100%;
-      margin-top: 20px;
+
+      /* Hides the entire div if it contains no content */
+      &:empty {
+        display: none;
+      }
+
+      @media (width >= 600px) {
+        order: 0; /* Restores normal DOM order (right side) on desktop */
+        margin-bottom: 0; /* Removes mobile spacing */
+        flex: 0 1 300px;
+        max-width: 300px;
+        max-height: 200px;
+        overflow: hidden;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 3 / 2;
+        object-fit: cover;
+        object-position: center; /* Ensures cropping happens evenly on the top and bottom */
+        display: block; /* Removes the slight gap browsers typically add below inline images */
+
+        @media (width >= 600px) {
+          height: 200px;
+        }
+      }
+
     }
 
     .highlighted-news-content {
-      max-width: 850px;
-      padding-right: 50px;
+      padding-right: 0; /* Remove padding on mobile to maximize space */
+      flex: 1;
+
+      @media (width >= 600px) {
+        padding-right: 50px; /* Restore right padding on desktop */
+      }
 
       .title h2 {
-        color: var(--il-orange);
         font-size: 1.625rem;
         line-height: 2rem;
         margin-top: 0;
-
-        a {
-          color: var(--il-orange);
-          text-decoration: none;
-
-          &:hover,
-          &:focus {
-            color: var(--il-altgeld);
-            text-decoration: underline;
-          }
-        }
       }
 
       .button {
