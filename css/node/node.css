@@ -1,7 +1,3 @@
-.field--name-body {
-  padding-bottom: 2rem;
-}
-
 main.without-sidebar div.node-body-field-full-display {
   margin: var(--ilw-content--main-margin, 0);
 }

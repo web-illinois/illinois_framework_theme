@@ -57,7 +57,7 @@
 {% if label_hidden %}
   {% if multiple %}
     <div{{ attributes.addClass(classes, 'field__items') }}>
-      <ilw-content transparent="true" {{ attributes.addClass(classes, 'ilw_content') }}>
+      <ilw-content transparent="true" class="ilw_content">
       {% for item in items %}
         <div{{ item.attributes.addClass('field__item') }}>{{ item.content }}</div>
       {% endfor %}
@@ -65,12 +65,12 @@
     </div>
   {% else %}
     {% for item in items %}
-      <div{{ attributes.addClass(classes, 'field__item') }}><ilw-content transparent="true" {{ attributes.addClass(classes, 'ilw_content') }}>{{ item.content }}</ilw-content></div>
+      <div{{ attributes.addClass(classes, 'field__item') }}><ilw-content transparent="true" class="ilw_content">{{ item.content }}</ilw-content></div>
     {% endfor %}
   {% endif %}
 {% else %}
   <div{{ attributes.addClass(classes) }}>
-    <ilw-content transparent="true" {{ attributes.addClass(classes, 'ilw_content') }}>
+    <ilw-content transparent="true" class="ilw_content">
     <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
     {% if multiple %}
     <div class="field__items">

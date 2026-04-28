@@ -62,10 +62,6 @@ article.news {
     }
   }
 
-  .field--name-body {
-    padding: 1.875rem 0 !important;
-  }
-
   .field--name-field-if-story-source {
     font-weight: 600;
     font-style: oblique;
@@ -382,10 +378,6 @@ article.news {
           -webkit-line-clamp: 6; /* number of lines to show */
                   line-clamp: 6;
           -webkit-box-orient: vertical;
-
-          .field--name-body {
-            padding: 0;
-          }
         }
       }
 
@@ -482,10 +474,6 @@ article.news {
           transition: all 0.4s ease-in-out 0s;
           transition: all 0.4s ease-in-out 0s;
           transition: all 0.4s ease-in-out 0s;
-
-          .field--name-body {
-            padding: 0 !important;
-          }
         }
 
         .hvrbox-layer_bottom {
