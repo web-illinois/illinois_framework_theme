@@ -6,7 +6,7 @@
     color: var(--il-blue);
   }
   .list-image-wrapper {
-    padding: 1.875rem 1.875rem 0 0;
+    padding: 1.875rem;
   }
   .image-side-right {
     .list-image-wrapper {
@@ -16,12 +16,8 @@
       }
     }
   }
-  ilw-columns[theme="gray"] {
-    .list-image-wrapper {
-      padding: 1.875rem 0 0 1.875rem;
-    }
-  }
-  ilw-columns[theme="gray"][width="page"] {
+
+  ilw-columns[width="page"] {
     .list-image-wrapper {
       padding: 1.875rem 1.875rem 0 0;
     }

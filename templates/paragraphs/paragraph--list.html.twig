@@ -77,7 +77,7 @@
         {% if loop.index is even %}
           {% set theme = 'gray' %}
         {% else %}
-          {% set theme = '' %}
+          {% set theme = 'white' %}
         {% endif %}
 
           {% if image %}
@@ -92,7 +92,7 @@
             </ilw-content>
             </ilw-columns>
           {% else %}
-            <ilw-content theme="{{ theme }}" width="auto" padding="{{ padding }}">
+            <ilw-content theme="{{ theme }}" width="page" padding="{{ padding }}">
             <div class="">
               {% if body|trim %}
                 <div class="">{{ body|check_markup(body_format) }}</div>
