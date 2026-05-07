@@ -38,7 +38,7 @@ ils-contentslider:
         type: external
         minified: true
   js:
-    https://contrib.webtheme.illinois.edu/ils-contentslider/contentslider.min.js:
+    themes/contrib/illinois_framework_theme/components/ils-contentslider/contentslider.js:
       type: external
       minified: true
     js/paragraph-content-slider.js: { }
