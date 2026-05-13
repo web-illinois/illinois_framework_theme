@@ -38,9 +38,7 @@ ils-contentslider:
         type: external
         minified: true
   js:
-    themes/contrib/illinois_framework_theme/components/ils-contentslider/contentslider.js:
-      type: external
-      minified: true
+    components/ils-contentslider/contentslider.js: {}
     js/paragraph-content-slider.js: { }
   dependencies:
     - core/jquery

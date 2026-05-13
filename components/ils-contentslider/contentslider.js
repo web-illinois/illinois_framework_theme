@@ -15,7 +15,7 @@ div.ils-contentslider {
     padding-right: 10px;
     scroll-behavior: smooth;
     width: 100%;
-    justify-content: center;
+    justify-content: safe center;
 }
 div.ils-contentslider ::slotted(*) {
     flex-shrink: 0;
