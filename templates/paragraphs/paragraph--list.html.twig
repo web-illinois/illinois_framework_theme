@@ -72,7 +72,6 @@
         {% set alt_text = paragraph.field_list_content_image.alt %}
         {% set body = paragraph.field_list_content_body.value|render %}
         {% set body_format = paragraph.field_list_content_body.format %}
-        {% set padding = '30px 0 20px 0' %}
 
         {% if loop.index is even %}
           {% set theme = 'gray' %}
@@ -81,21 +80,21 @@
         {% endif %}
 
           {% if image %}
-            <ilw-columns mode="1x3" theme="{{ theme }}" width="page" {% if image_side == 'right' %}reverse="true" class="image-side-right" {% endif %}>
+            <ilw-columns mode="1x3" theme="{{ theme }}" width="auto" {% if image_side == 'right' %}reverse="true" class="image-side-right" {% endif %}>
             <div class="list-image-wrapper"><img src="{{ file_url(image|image_style('list_collection_image')) }}" alt="{{ alt_text }}"></div>
             <ilw-content theme="{{ theme }}">
               <div class="">
                 {% if body|trim %}
-                  <div class="">{{ body|check_markup(body_format) }}</div>
+                  <div class="list-body-wrapper">{{ body|check_markup(body_format) }}</div>
                 {% endif %}
               </div>
             </ilw-content>
             </ilw-columns>
           {% else %}
-            <ilw-content theme="{{ theme }}" width="page" padding="{{ padding }}">
+            <ilw-content theme="{{ theme }}" width="auto">
             <div class="">
               {% if body|trim %}
-                <div class="">{{ body|check_markup(body_format) }}</div>
+                <div class="list-body-wrapper">{{ body|check_markup(body_format) }}</div>
               {% endif %}
             </div>
             {% endif %}
