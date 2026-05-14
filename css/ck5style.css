@@ -310,6 +310,7 @@
       --ilw-button--focused-foreground-color: var(--il-orange);
       --ilw-button--focused-border-color: var(--il-orange);
     }
+  }
 
 /* Set image size to match image style */
   .drupal-media {

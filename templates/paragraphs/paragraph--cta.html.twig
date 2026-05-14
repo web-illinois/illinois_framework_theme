@@ -38,11 +38,6 @@
  * @ingroup themeable
  */
 #}
-{% if content.field_cta_fingerprint['#items'].0.value %}
-  {% set fingerprint = 'fingerprint--'~ content.field_cta_fingerprint['#items'].0.value %}
-{% else %}
-  {% set fingerprint = '' %}
-{% endif %}
 {% if content.field_cta_background['#items'].0.value %}
   {% set theme = content.field_cta_background['#items'].0.value == 'illiniblue'
     ? 'blue'
