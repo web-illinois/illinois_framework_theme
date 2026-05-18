@@ -760,3 +760,13 @@ function illinois_framework_theme_preprocess_field(array &$variables) {
 function illinois_framework_theme_preprocess_region(array &$variables): void {
   $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
 }
+
+function illinois_framework_theme_theme_suggestions_node_alter(array &$suggestions, array $variables) {
+  $node = $variables['elements']['#node'];
+  $view_mode = $variables['elements']['#view_mode'];
+
+  // If the view mode is a teaser, add node--teaser to the suggestions array
+  if ($view_mode === 'teaser') {
+    $suggestions[] = 'node__teaser';
+  }
+}
