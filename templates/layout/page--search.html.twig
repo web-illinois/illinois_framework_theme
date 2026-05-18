@@ -51,11 +51,11 @@
     </ilw-header>
 
     {{ page.breadcrumb }}
-    {{ page.highlighted }}
-    {{ page.help }}
-    {{ page.tabs }}
 
     <main role="main" id="main-content" tabindex="-1">{# link is in html.html.twig #}
+      {{ page.highlighted }}
+      {{ page.help }}
+      {{ page.tabs }}
       <ilw-content width="page">
         {{ page.content }}
       </ilw-content>
