@@ -71,15 +71,14 @@
  */
 #}
 
-<div{{ attributes.addClass('spotlight-list-item', 'news-list-item', 'highlighted-news', 'fixed-width') }}>
-<div class="clearfix">
-{{ title_prefix }}
-<h3{{ title_attributes }} class="list-title"><a href="{{ url }}" rel="bookmark">{{ label }}</a></h3>
-{{ title_suffix }}
-  <a href="{{ url }}">{{content.field_if_meda_featured_image}}</a>
-{{content|without('field_if_meda_featured_image', 'links')}}
-{% if content.links|render is not empty %}
-<a class="il-button il-blue" href="{{ url }}">Read full story <span class="hidden">about {{label}}</span></a>
-{% endif %}
-</div>
+<div{{ attributes.addClass('node--teaser', 'spotlight-list-item', 'news-list-item', 'highlighted-news', 'fixed-width') }}>
+  <div class="clearfix">
+    {{ title_prefix }}
+    <h3{{ title_attributes }} class="list-title"><a href="{{ url }}" rel="bookmark">{{ label }}</a></h3>
+    {{ title_suffix }}
+    {% if not node.field_if_meda_featured_image.isEmpty %}
+      <a href="{{ url }}">{{content.field_if_meda_featured_image}}</a>
+    {% endif %}
+    {{content|without('field_if_meda_featured_image','links')}}
+  </div>
 </div>
