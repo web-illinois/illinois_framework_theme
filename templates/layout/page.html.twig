@@ -51,15 +51,15 @@
     </ilw-header>
 
     {{ page.breadcrumb }}
-    {{ page.highlighted }}
-    {{ page.help }}
-    {{ page.tabs }}
 
     {# Add an is-unpublished class to main tag if the node is unpublished #}
     {% set unpublished = (node and not node.isPublished()) ? 'is-unpublished' : '' %}
     {% set has_sidebar = (page.sidebar_first|render|trim is not empty or page.sidebar_second|render|trim is not empty or (is_preview and node_has_sidebar)) and show_sidebar %}
     {% set sidebar_class = has_sidebar ? 'with-sidebar' : 'without-sidebar' %}
     <main{{ attributes.addClass(unpublished, sidebar_class) }} role="main" id="main-content" tabindex="-1">{# link is in html.html.twig #}
+      {{ page.highlighted }}
+      {{ page.help }}
+      {{ page.tabs }}
       {% if has_sidebar %}
         <ilw-columns mode="sidebar-left" width="page">
           <div class="page-sidebar-wrapper">
