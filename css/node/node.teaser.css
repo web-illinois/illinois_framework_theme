@@ -1,0 +1,11 @@
+.node--teaser {
+  margin: 1rem 0 1rem 0;
+
+  .field--name-field-if-meda-featured-image {
+    width: 300px;
+
+    img {
+      margin: 0 auto;
+    }
+  }
+}
