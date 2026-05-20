@@ -15,7 +15,7 @@ global:
       css/style.css: {}
       fonts/font-awesome-4.7.0/css/font-awesome.css: { }
       fonts/font-awesome-4.7.0/css/illinois-icons.css: { }
-      css/theme/print.css: { media: print }
+      css/print.css: { media: print }
 web-components:
   header: true
   css:

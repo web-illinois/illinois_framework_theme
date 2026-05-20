@@ -1,0 +1,27 @@
+@media print {
+  ilw-header[data-initialized="1"] [slot="links"],
+  ilw-header [slot="search"][role="search"] {
+    display: none;
+  }
+
+  ilw-header[data-initialized="1"] {
+    border-top: none;
+    width: 860px;
+  }
+
+  ilw-header-menu {
+    display: none !important;
+  }
+
+  #block-illinois-framework-theme-breadcrumbs {
+    display: none;
+  }
+
+  ilw-footer {
+    display: none;
+  }
+
+  ed11y-element-panel {
+    display: none;
+  }
+}
