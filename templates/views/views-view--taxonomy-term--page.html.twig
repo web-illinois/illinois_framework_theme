@@ -33,10 +33,11 @@
 {%
   set classes = [
     dom_id ? 'js-view-dom-id-' ~ dom_id,
+    'fixed-width',
   ]
 %}
 <div{{ attributes.addClass(classes) }}>
-  <ilw-content width="page">
+  <ilw-content>
   {{ title_prefix }}
   {{ title }}
   {{ title_suffix }}
