@@ -25,26 +25,6 @@ ilw-columns {
   }
 }
 
-a {
-  color: var(--ilw-color--link);
-  text-decoration: underline;
-  cursor:pointer;
-}
-
-a:visited {
-  color:var(--ilw-color--link-visited);
-}
-
-a:hover {
-  color:var(--ilw-color--link-hover);
-}
-
-a:focus {
-  background-color:var(--ilw-color--focus--background);
-  color:var(--ilw-color--focus--text);
-  outline:var(--ilw-link--focus-outline);
-}
-
 img {
   vertical-align: middle;
 }
