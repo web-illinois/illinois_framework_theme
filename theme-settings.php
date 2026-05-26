@@ -89,6 +89,35 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, FormS
       '#title' => t('Link'),
   );
 
+  $library_defaults = illinois_framework_theme_get_web_components_library_defaults();
+
+  $form['if_toolkit'] = array(
+      '#type' => 'details',
+      '#title' => t('Illinois Toolkit Assets'),
+      '#description' => t('Override the Illinois Toolkit asset URLs. Leave a field blank to use the library default.<br><strong>Current library defaults:</strong><br>CSS: <code>@css_url</code><br>JS: <code>@js_url</code>', [
+        '@css_url' => $library_defaults['css'],
+        '@js_url' => $library_defaults['js'],
+      ]),
+      '#weight' => -95,
+      '#open' => FALSE,
+  );
+  $form['if_toolkit']['if_toolkit_css_url'] = array(
+      '#type' => 'url',
+      '#title' => t('Toolkit CSS URL'),
+      '#description' => t('Full URL for the Toolkit stylesheet. Leave blank to use the library default.'),
+      '#size' => 128,
+      '#default_value' => theme_get_setting('if_toolkit_css_url') ?: '',
+      '#placeholder' => $library_defaults['css'],
+  );
+  $form['if_toolkit']['if_toolkit_js_url'] = array(
+      '#type' => 'url',
+      '#title' => t('Toolkit JS URL'),
+      '#description' => t('Full URL for the Toolkit JavaScript module. Leave blank to use the library default.'),
+      '#size' => 128,
+      '#default_value' => theme_get_setting('if_toolkit_js_url') ?: '',
+      '#placeholder' => $library_defaults['js'],
+  );
+
   // Create a section for the footer links
   $form['if_footer'] = array(
       '#type' => 'details',

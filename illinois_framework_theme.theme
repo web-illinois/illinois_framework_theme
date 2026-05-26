@@ -13,6 +13,58 @@ use Drupal\Core\Menu\MenuTreeParameters;
 use Drupal\paragraphs\ParagraphInterface;
 
 /**
+ * Returns the default Toolkit library URLs by parsing the libraries YAML file.
+ *
+ * This reads the raw YAML to avoid circular dependency with
+ * hook_library_info_alter() and to always reflect the file-based defaults
+ * regardless of any runtime overrides.
+ *
+ * @return array<string, string>
+ *   The default CSS and JS URLs.
+ */
+function illinois_framework_theme_get_web_components_library_defaults(): array {
+  static $defaults;
+  if ($defaults !== NULL) {
+    return $defaults;
+  }
+
+  $defaults = [
+    'css' => '',
+    'js' => '',
+  ];
+
+  $theme_path = \Drupal::service('extension.list.theme')->getPath('illinois_framework_theme');
+  $library_file = $theme_path . '/illinois_framework_theme.libraries.yml';
+
+  if (!file_exists($library_file)) {
+    return $defaults;
+  }
+
+  $libraries = \Drupal\Component\Serialization\Yaml::decode(file_get_contents($library_file));
+  if (!is_array($libraries) || empty($libraries['web-components'])) {
+    return $defaults;
+  }
+
+  $library = $libraries['web-components'];
+
+  if (!empty($library['css']['component']) && is_array($library['css']['component'])) {
+    $css_url = array_key_first($library['css']['component']);
+    if (is_string($css_url)) {
+      $defaults['css'] = $css_url;
+    }
+  }
+
+  if (!empty($library['js']) && is_array($library['js'])) {
+    $js_url = array_key_first($library['js']);
+    if (is_string($js_url)) {
+      $defaults['js'] = $js_url;
+    }
+  }
+
+  return $defaults;
+}
+
+/**
  * Implements hook_preprocess().
  */
 function illinois_framework_theme_preprocess(array &$variables) {
@@ -499,6 +551,44 @@ function illinois_framework_theme_preprocess_menu(array &$variables) {
 
       // Create the render array we'll use in the template.
       $variables['parent_a'] = $link_generator->generate($parent->getTitle(), $variables['parent_url']);
+    }
+  }
+}
+
+/**
+ * Implements hook_library_info_alter().
+ *
+ * This hooks allows us to override the default Toolkit library CSS and JS URLs,
+ * using the theme settings if they are provided.
+ *
+ * @param array $libraries
+ *   An associative array of libraries, passed by reference. The array key
+ *   for any particular library will be the name registered in *.libraries.yml.
+ *   In the example below, the array key would be $libraries['foo'].
+ *   @code
+ *   foo:
+ *     js:
+ *       .......
+ *   @endcode
+ * @param string $extension
+ *   Can either be 'core' or the machine name of the extension that registered
+ *   the libraries.
+ *
+ * @see \Drupal\Core\Asset\LibraryDiscoveryParser::parseLibraryInfo()
+ */
+function illinois_framework_theme_library_info_alter(&$libraries, $extension) {
+  if ($extension == 'illinois_framework_theme' && isset($libraries['web-components']) && (!empty(theme_get_setting('if_toolkit_css_url') || !empty(theme_get_setting('if_toolkit_js_url'))))) {
+    if (!empty(theme_get_setting('if_toolkit_css_url'))) {
+      // Clear the current CSS definition and replace it with the CDN URL from theme settings.
+      $libraries['web-components']['css']['component'] = [];
+      $cdn_css = theme_get_setting('if_toolkit_css_url');
+      $libraries['web-components']['css']['component'][$cdn_css] = ['type:' => 'external', 'minified' => TRUE];
+    }
+    if (!empty(theme_get_setting('if_toolkit_js_url'))) {
+      // Clear the current JS definition and replace it with the CDN URL from theme settings.
+      $libraries['web-components']['js'] = [];
+      $cdn_js = theme_get_setting('if_toolkit_js_url');
+      $libraries['web-components']['js'][$cdn_js] = ['type:' => 'external', 'minified' => TRUE, 'attributes' => ['blocking' => 'render', 'type' => 'module']];
     }
   }
 }
