@@ -31,7 +31,6 @@ keeping it local to prevent compromising others use cases.*/
 
 /*used for spotlight feature display view*/
 .node-feature {
-  padding: 65px 0 75px;
   overflow: auto;
   .body {
     margin-bottom: 1.813rem;
