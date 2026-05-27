@@ -6,7 +6,4 @@
   ilw-tabs {
     background: var(--ilw-color--background);
   }
-  ilw-tabs[width="auto"] {
-    padding: 60px 30px 75px;
-  }
 }
