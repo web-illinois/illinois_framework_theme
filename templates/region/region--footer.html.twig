@@ -24,8 +24,8 @@
 <nav slot="social" aria-label="Social media">
   <ul>
   {% for socialname, sociallink in if_footer['if_footer_social'] %}
-    <li><a data-service="{{ socialname }}" href="{{ sociallink }}">{{ socialname|capitalize }}</a></li>
-  {% endfor %}
+        <li><a href="{{ sociallink }}" style="display: block; width: 100%; height: 100%; text-indent: 0;"><ilw-icon alt="{{ socialname }}" icon="{{ socialname }}" size="44px"></ilw-icon></a></li>
+      {% endfor %}
   </ul>
 </nav>
 {% endif %}
