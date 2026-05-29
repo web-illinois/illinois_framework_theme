@@ -152,7 +152,7 @@
     border-bottom: 1px solid var(--il-storm-lighter-3) !important;
     border-left: none !important;
     border-right: none !important;
-    padding: 1.5625rem 1rem 1.875rem !important;
+    padding: .5rem .75rem !important;
     vertical-align: top !important;
   }
 
@@ -183,7 +183,7 @@
   td {
     text-align: left;
     vertical-align: top;
-    padding: 1.5625rem 1rem !important;
+    padding: .5rem .75rem !important;
     border-top: 1px solid var(--il-storm-lighter-3) !important;
     border-bottom: 1px solid var(--il-storm-lighter-3) !important;
     border-left: none !important;
