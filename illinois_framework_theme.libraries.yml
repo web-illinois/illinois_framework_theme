@@ -19,7 +19,7 @@ global:
 web-components:
   header: true
   css:
-    theme:
+    component:
       https://cdn.toolkit.illinois.edu/3/toolkit.css:
         type: external
         minified: true
