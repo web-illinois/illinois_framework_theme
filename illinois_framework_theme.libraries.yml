@@ -73,9 +73,6 @@ paragraph-list-content:
 paragraph-contact:
   js:
     js/paragraph-contact.js: {}
-paragraph-intro:
-  js:
-    js/paragraph-intro-home.js: {}
 paragraph-bb:
   js:
     js/paragraph-bb.js: {}
