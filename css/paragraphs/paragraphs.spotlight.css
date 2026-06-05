@@ -20,11 +20,11 @@
       text-align: center;
       }
       img {
-        border-radius: 50%;;
+        border-radius: 50%;
       }
     }
   .field--name-field-spotlight__subtitle {
-      font-size: rem(22px);
+      font-size: 22px;
       font-weight: 700;
     }
   .field--name-field-spotlight__title.title{
@@ -88,26 +88,27 @@
 
 
 .spotlight-list {
-  .item-list{
-    li{
+  .item-list {
+    li {
       list-style: none;
       display: flex;
       align-items: center;
       margin: 65px 0;
-    .views-field-field-if-meda-featured-image{
+
+      .views-field-field-if-meda-featured-image {
         flex: 1 0 175px;
         padding-right: 25px;
         border-right: 4px solid var(--il-orange);
         img {
           border-radius: 50%;
-          }
-    }
+        }
+      }
+
       .views-field-body{
         margin-left: 25px;
         flex: 1 1 80%;
       }
-
+    }
   }
-}
 }
 
