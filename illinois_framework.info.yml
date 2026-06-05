@@ -38,6 +38,7 @@ install:
   - entity_usage
   - field_ui
   - file
+  - focal_point
   - gin_toolbar
   - help
   - history
@@ -50,6 +51,7 @@ install:
   - linkit_media_library
   - media
   - media_library
+  - media_library_edit
   - menu_block
   - menu_link_content
   - menu_ui
