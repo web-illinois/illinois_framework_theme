@@ -1,6 +1,10 @@
 @import url("https://cdn.brand.illinois.edu/illinois.css");
 
 .ck-content {
+  :root {
+  --il-storm-lighter-3: #C6C7C7
+  }
+
   p, caption, blockquote, dd, dt {
     font: 400 1.125rem/1.667rem var(--il-font-sans);
     color: var(--ilw-color--text);
@@ -118,6 +122,85 @@
 
   hr{
     background: var(--il-industrial-blue);
+  }
+
+  table {
+    box-sizing: border-box;
+    border-collapse: collapse;
+    border: 1px solid var(--il-storm-lighter-3) !important;
+    width: 100%;
+    overflow: auto;
+
+    /* table-layout: fixed; */
+  }
+
+  .table > figcaption {
+    background-color: transparent !important;
+    font-family: var(--il-font-sans);
+    font-size: 1.125rem !important;
+    padding: 0 !important;
+    line-height: 1.667rem;
+    font-weight: 400;
+    color: var(--ilw-color--text);
+  }
+
+  th {
+    text-align: left;
+    font-weight: 700 !important;
+    font-size: 1.2rem;
+    border-top: 1px solid var(--il-storm-lighter-3) !important;
+    border-bottom: 1px solid var(--il-storm-lighter-3) !important;
+    border-left: none !important;
+    border-right: none !important;
+    padding: .5rem .75rem !important;
+    vertical-align: top !important;
+  }
+
+  thead th {
+    background-color: var(--il-industrial) !important;
+    color: white;
+    font-family: var(--il-source-sans);
+  }
+
+  th:first-of-type {
+    border-left: 1px solid var(--il-storm-lighter-3) !important;
+  }
+
+  th:last-of-type {
+    border-right: 1px solid var(--il-storm-lighter-3) !important;
+  }
+
+  thead th {
+    background-color: var(--il-industrial) !important;
+    color: white !important;
+    font-family: var(--il-source-sans);
+  }
+
+  tbody th {
+    color: var(--il-blue);
+  }
+
+  td {
+    text-align: left;
+    vertical-align: top;
+    padding: .5rem .75rem !important;
+    border-top: 1px solid var(--il-storm-lighter-3) !important;
+    border-bottom: 1px solid var(--il-storm-lighter-3) !important;
+    border-left: none !important;
+    border-right: none !important;
+    color: var(--il-blue);
+  }
+
+  td:first-of-type {
+    border-left: 1px solid var(--il-storm-lighter-3) !important;
+  }
+
+  td:last-of-type {
+    border-right: 1px solid var(--il-storm-lighter-3) !important;
+  }
+
+  tr:nth-child(odd) {
+    background-color: var(--il-storm-lighter-4) !important;
   }
 
   --ilw-color--white--control: #fff;
