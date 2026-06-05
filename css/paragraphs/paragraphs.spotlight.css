@@ -1,0 +1,114 @@
+.paragraph--type--spotlight{
+  padding: 65px 0 75px;
+  .field--name-field-spotlight__wrapper{
+    display: flex;
+    align-items: center;
+    @media (max-width: 600px) {
+      display: block;
+    }
+  }
+  .field--name-field-spotlight-text__wrapper{
+    padding: 45px 35px 45px 50px;
+    @media (max-width: 600px) {
+      text-align: center;
+    }
+  }
+  .field--name-field-spotlight-image__wrapper{
+      padding: 0 45px;
+      @media (max-width: 600px) {
+      padding: 45px 0;
+      text-align: center;
+      }
+      img {
+        border-radius: 50%;
+      }
+    }
+  .field--name-field-spotlight__subtitle {
+      font-size: 22px;
+      font-weight: 700;
+    }
+  .field--name-field-spotlight__title.title{
+      color: var(--il-blue);
+      font-weight: 700;
+      @media (max-width: 600px) {
+      text-align: center;
+      }
+    }
+  .field--name-field-spotlight__body {
+      margin-bottom: 45px;
+    }
+}
+.paragraph--type--spotlight.format--small{
+      .field--name-field-spotlight-text__wrapper{
+        flex: 1 1 100%;
+      }
+}
+.paragraph--type--spotlight.format--large{
+      .field--name-field-spotlight-text__wrapper{
+        flex: 1 1 50%;
+      }
+}
+
+.paragraph--type--spotlight.background--color--white{
+  .field--name-field-spotlight__subtitle{
+          color: var(--il-orange);
+  }
+  .field--name-field-spotlight-text__wrapper{
+    border-left: 6px solid var(--il-orange);
+      @media (max-width: 600px) {
+      border-left: none;
+      border-top: 6px solid var(--il-orange);
+      }
+  }
+}
+
+.paragraph--type--spotlight.background--color--gray{
+  background-color: var(--il-storm-95);
+  .field--name-field-spotlight__subtitle{
+          color: var(--il-industrial);
+  }
+  .field--name-field-spotlight-text__wrapper{
+    border-left: 6px solid var(--il-blue);
+      @media (max-width: 600px) {
+      border-left: none;
+      border-top: 6px solid var(--il-blue);
+      }
+  }
+}
+
+.il-content-with-section-nav {
+  .paragraph--type--spotlight {
+    .fixed-width {
+      @media (max-width: 600px) {
+        padding: 0;
+      }
+    }
+  }
+}
+
+
+.spotlight-list {
+  .item-list {
+    li {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      margin: 65px 0;
+
+      .views-field-field-if-meda-featured-image {
+        flex: 1 0 175px;
+        padding-right: 25px;
+        border-right: 4px solid var(--il-orange);
+        img {
+          border-radius: 50%;
+        }
+      }
+
+      .views-field-body{
+        margin-left: 25px;
+        flex: 1 1 80%;
+      }
+    }
+  }
+}
+
