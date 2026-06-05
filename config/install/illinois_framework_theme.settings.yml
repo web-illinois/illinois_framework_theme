@@ -61,3 +61,5 @@ if_subfooter_link_4: ''
 if_subfooter_text_5: ''
 if_subfooter_link_5: ''
 if_shibboleth_login_direct: true
+if_toolkit_css_url: ''
+if_toolkit_js_url: ''

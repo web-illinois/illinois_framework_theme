@@ -1,0 +1,10 @@
+illinois_framework_theme.settings:
+  type: theme_settings
+  label: 'Illinois Framework Theme settings'
+  mapping:
+    if_toolkit_css_url:
+      type: string
+      label: 'Toolkit CSS URL'
+    if_toolkit_js_url:
+      type: string
+      label: 'Toolkit JS URL'
