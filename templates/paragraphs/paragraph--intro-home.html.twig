@@ -68,7 +68,7 @@
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
-      <ilw-content mode="introduction" width="auto" padding="20px 0 30px 0" theme="{{ theme }}" align="{{ content.field_intro_home_layout['#items'].0.value }}">
+      <ilw-content mode="introduction" padding="20px 0 30px 0" theme="{{ theme }}" align="{{ content.field_intro_home_layout['#items'].0.value }}">
         {% if content.field_intro_home_text_lg['#items'] %}
           <p><em>
             {{ content.field_intro_home_text_lg }}
