@@ -1,12 +1,19 @@
 .paragraph--type--vertical-tab {
   h2 {
     padding: 3rem 0 0 0;
-    margin: 0;
+    margin: 0 auto;
+    max-width: 1200px;
+    @media (max-width: 800px) {
+        padding: 3rem 30px 0;
+      }
   }
   ilw-tabs {
     background: var(--ilw-color--background);
   }
-  ilw-tabs[width="auto"] {
-    padding: 60px 30px 75px;
+}
+
+.paragraph--type--vertical-tab.paragraph--view-mode--default{
+  h2{
+    padding: 3rem 0 0 30px;
   }
 }
