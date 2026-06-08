@@ -55,7 +55,7 @@
 {{ attach_library('illinois_framework_theme/paragraph-image-gallery') }}
 {% block paragraph %}
   {# Paragraph ID used for anchor linking #}
-  <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
+  <div {{ attributes.addClass(classes).setAttribute('id', 'paragraph--' ~ paragraph.id()) }}>
     {% block content %}
       <ilw-content theme="{{ theme }}" width="auto">
       <div class="field--name-field-image-gallery__wrapper">
