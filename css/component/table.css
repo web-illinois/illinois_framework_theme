@@ -5,12 +5,18 @@ table {
   width: 100%;
   overflow: auto;
 
+  @media (width <= 599px) {
+    border: none;
+  }
+
   caption {
     padding: 0 0 1rem;
+    width: 100%;
   }
 }
 
 th {
+  box-sizing: border-box;
   text-align: left;
   font-weight: 700 !important;
   font-size: 1.2rem;
@@ -19,21 +25,7 @@ th {
   border-left: none;
   border-right: none;
   padding: .5rem .75rem;
-  vertical-align: top;
-}
-
-thead th {
-  background-color: var(--il-industrial);
-  color: white;
-  font-family: var(--il-source-sans);
-}
-
-th:first-of-type {
-  border-left: 1px solid var(--il-storm-lighter-3);
-}
-
-th:last-of-type {
-  border-right: 1px solid var(--il-storm-lighter-3);
+  vertical-align: middle;
 }
 
 thead th {
@@ -46,7 +38,16 @@ tbody th {
   color: var(--il-blue);
 }
 
+th:first-of-type {
+  border-left: 1px solid var(--il-storm-lighter-3);
+}
+
+th:last-of-type {
+  border-right: 1px solid var(--il-storm-lighter-3);
+}
+
 td {
+  box-sizing: border-box;
   text-align: left;
   vertical-align: top;
   padding: .5rem .75rem;
@@ -69,18 +70,30 @@ tr:nth-child(odd) {
   background-color: var(--il-storm-lighter-4);
 }
 
-.table-responsive-wrapper {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch; /* smoother scroll on iOS */
+.with-sidebar .page-content-wrapper {
+  /* Let responsive tables scroll inside the sidebar column instead of widening it. */
+  min-width: 0;
 }
 
-.table-responsive-wrapper table {
-  @media (width <= 599px) {
-    width: auto;
-  }
+.table-responsive-wrapper {
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 @media (width <= 599px) {
+  .table-responsive-wrapper {
+    display: block;
+    inline-size: min(100%, calc(100vw - 3.75rem));
+    max-inline-size: calc(100vw - 3.75rem);
+  }
+
+  .table-responsive-wrapper > table {
+    width: 100%;
+    min-width: 40rem;
+  }
+
+  table.table-stack,
   .table-stack table,
   .table-stack thead,
   .table-stack tbody,
