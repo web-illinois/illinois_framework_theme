@@ -70,11 +70,6 @@ tr:nth-child(odd) {
   background-color: var(--il-storm-lighter-4);
 }
 
-.with-sidebar .page-content-wrapper {
-  /* Let responsive tables scroll inside the sidebar column instead of widening it. */
-  min-width: 0;
-}
-
 .table-responsive-wrapper {
   max-width: 100%;
   overflow-x: auto;
