@@ -1,15 +1,24 @@
-// Move the responsive class from editor-authored tables to a wrapper so overflow
-// belongs to a real container, including inside sidebar column layouts.
+// Add a responsive wrapper to normal editor-authored tables. Tables using the
+// stacked style or an existing custom wrapper div are left alone.
 (function (Drupal, $) {
   Drupal.behaviors.tableResponsiveWrapper = {
     attach: function (context) {
       $(context)
-        .find('table.table-responsive-wrapper')
-        .add($(context).filter('table.table-responsive-wrapper'))
+        .find('table')
+        .add($(context).filter('table'))
         .each(function () {
           const $table = $(this);
+          const $parent = $table.parent();
 
-          if ($table.parent().hasClass('table-responsive-wrapper')) {
+          if ($table.hasClass('table-stack')) {
+            return;
+          }
+
+          if ($parent.hasClass('table-responsive-wrapper')) {
+            return;
+          }
+
+          if ($parent.is('div[class]')) {
             return;
           }
 
