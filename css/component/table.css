@@ -70,6 +70,7 @@ tr:nth-child(odd) {
   background-color: var(--il-storm-lighter-4);
 }
 
+/* This is the default wrapper for all tables */
 .table-responsive-wrapper {
   max-width: 100%;
   overflow-x: auto;
@@ -88,6 +89,7 @@ tr:nth-child(odd) {
     min-width: 40rem;
   }
 
+  /* This is the stacked class for tables, class needs to be applied in ckeditor or in the html */
   table.table-stack,
   .table-stack table,
   .table-stack thead,
