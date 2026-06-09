@@ -8,7 +8,9 @@ global:
       type: external
       attributes:
         async: true
+    js/table-mobile.js: {}
   dependencies:
+    - core/drupal
     - core/jquery
   css:
     theme:
