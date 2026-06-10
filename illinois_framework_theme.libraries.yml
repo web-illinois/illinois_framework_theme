@@ -105,3 +105,13 @@ skipto-campus:
   dependencies:
     - core/jquery
     - core/drupalSettings
+ils-forms:
+  css:
+    theme:
+      https://contrib.webtheme.illinois.edu/ils-input/input3.min.css:
+        type: external
+        minified: true
+  js:
+    https://contrib.webtheme.illinois.edu/ils-input/input3.min.js:
+      type: external
+      minified: true
