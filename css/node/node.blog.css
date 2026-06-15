@@ -130,9 +130,11 @@ article.blog {
     }
   }
 
-  .paragraph {
-    .fixed-width {
-      padding: 0;
+  @media (width >= 600px) {
+    .paragraph--type--image-gallery {
+      .fixed-width {
+        padding: 0 2rem;
+      }
     }
   }
 
