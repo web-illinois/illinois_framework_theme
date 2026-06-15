@@ -48,8 +48,7 @@
   'paragraph',
   'paragraph--type--' ~ paragraph.bundle|clean_class,
   view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
-  not paragraph.isPublished() ? 'paragraph--unpublished',
-  'full-width', 'layout-overflow'
+  not paragraph.isPublished() ? 'paragraph--unpublished'
 ]
 %}
 {{ attach_library('illinois_framework_theme/paragraph-image-gallery') }}
@@ -57,9 +56,9 @@
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.addClass(classes).setAttribute('id', 'paragraph--' ~ paragraph.id()) }}>
     {% block content %}
-      <ilw-content theme="{{ theme }}" width="auto">
+      <ilw-content theme="{{ theme }}">
       <div class="field--name-field-image-gallery__wrapper">
-        <div class="field--name-field-image-gallery-text__wrapper">
+        <div class="fixed-width field--name-field-image-gallery-text__wrapper">
           {% if content.field_image_gallery_title.0 %}
             <h2 class="field--name-field-image-gallery__title title">{{ content.field_image_gallery_title }}</h2>
           {% endif %}
@@ -70,8 +69,8 @@
             <div class="field--name-field-image-gallery__body body">{{ content.field_image_gallery_body }}</div>
           {% endif %}
         </div>
-        <ilw-grid theme="{{ theme }}" width="auto">
-          {{ content.field_image_gallery_img }}
+        <ilw-grid width="page" theme="{{ theme }}">
+            {{ content.field_image_gallery_img }}
         </ilw-grid>
       </div>
       </ilw-content>
