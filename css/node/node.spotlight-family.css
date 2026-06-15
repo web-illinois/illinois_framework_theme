@@ -2,39 +2,52 @@ article.spotlight.full {
   margin: 0 auto;
   padding: 0 var(--ilw-margin--side, 0);
   width: 100%;
+
   .node-body-field-full-display {
     margin: 0;
   }
+
+  @media (width >= 600px) {
+    .paragraph--type--image-gallery {
+      .fixed-width {
+        padding: 0 2rem ;
+      }
+    }
+  }
 }
-/*works around having the need for items after a body
+
+/* works around having the need for items after a body
 to float around an external image to that body.
-keeping it local to prevent compromising others use cases.*/
+keeping it local to prevent compromising others use cases. */
 .node-feature,
 .spotlight-list-item {
-  .clearfix .clearfix:after {
+  .clearfix .clearfix::after {
     clear: none;
   }
 }
 
 .field--name-field-if-meda-featured-image {
-  padding: 0 0 1.5rem 0;
-  @media (min-width: 600px) {
+  padding: 0 0 1.5rem;
+
+  @media (width >= 600px) {
     float: right;
     padding: 0 0 1.5rem 1.5rem;
   }
 }
 
-/*override to handle extra padding from double applying fixed-width*/
+/* override to handle extra padding from double applying fixed-width */
 #block-illinois-framework-theme-content article.fixed-width .field--name-body {
   padding: 0;
 }
 
-/*used for spotlight feature display view*/
+/* used for spotlight feature display view */
 .node-feature {
   overflow: auto;
+
   .body {
     margin-bottom: 1.813rem;
   }
+
   .spotlight-feature-image {
     float: right;
     padding-left: calc(var(--il-content-margin) * 1.5);
@@ -46,14 +59,16 @@ keeping it local to prevent compromising others use cases.*/
 
 }
 
-/*used for spotlight teaser display view*/
+/* used for spotlight teaser display view */
 .spotlight-list-item {
   ul.inline li {
     padding: 0;
   }
+
   .media--view-mode-spotlight-list {
     padding-right: calc(var(--il-content-margin) * 1.5);
   }
+
   .list-title {
     margin-top: 0;
   }

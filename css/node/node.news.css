@@ -102,9 +102,11 @@ article.news {
     }
   }
 
-  .paragraph {
-    .fixed-width {
-      padding: 0;
+  @media (width >= 600px) {
+    .paragraph {
+      .fixed-width {
+        padding: 0 2rem ;
+      }
     }
   }
 
@@ -500,7 +502,7 @@ article.news {
       height: 100%;
       padding: 10px 15px 0;
       transition: all 0.4s ease-in-out 0s;
-      background: rgb(255 255 255 / 0.8);
+      background: rgb(255 255 255 / 80%);
       inset: 0;
 
       > a {
@@ -523,7 +525,7 @@ article.news {
     &:active {
       .hvrbox-layer_slideup {
         transform: translateY(0);
-        background: rgb(255 255 255 / 1);
+        background: rgb(255 255 255 / 100%);
       }
 
       .hvrbox-body {
