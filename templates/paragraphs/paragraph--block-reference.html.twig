@@ -38,24 +38,22 @@
  * @ingroup themeable
  */
 #}
-{% if content.field_size['#items'].0.value %}
-  {% set size = content.field_size['#items'].0.value == 'small'
-    ? '20'
-    : content.field_size['#items'].0.value == 'large'
-    ? '80'
-    : content.field_size['#items'].0.value == 'medium'
-    ? '40' %}
-{% endif %}
 {%
   set classes = [
     'paragraph',
     'paragraph--type--' ~ paragraph.bundle|clean_class,
     view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
     not paragraph.isPublished() ? 'paragraph--unpublished',
-    'clearfix'
+    'clearfix', 'layout-overflow'
   ]
 %}
-
 {% block paragraph %}
-  <ilw-spacer width="auto" height="{{ size }}px"></ilw-spacer>
+  {# Paragraph ID used for anchor linking #}
+  <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
+    {% block content %}
+      <ilw-content padding="20px 0 30px 0" theme="{{ theme }}" width="auto">
+        {{ content }}
+      </ilw-content>
+    {% endblock %}
+  </div>
 {% endblock paragraph %}

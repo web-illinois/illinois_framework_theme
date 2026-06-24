@@ -105,8 +105,3 @@ skipto-campus:
   dependencies:
     - core/jquery
     - core/drupalSettings
-ils-spacer:
-  js:
-    https://contrib.webtheme.illinois.edu/ilw-spacer/ilw-spacer.ts:
-      type: external
-      minified: true
