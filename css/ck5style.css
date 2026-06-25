@@ -227,13 +227,13 @@
     --ilw-button--focused-border-color: var(--il-orange);
   }
 
-  .ilw-theme-orange-1 {
+  .ilw-theme-orange-1, .ilw-theme-orange-solid {
     --ilw-button--background-color: var(--il-orange);
     --ilw-button--foreground-color: white;
     --ilw-button--border-color: var(--il-orange);
   }
 
-  .ilw-theme-blue-1 {
+  .ilw-theme-blue-1, .ilw-theme-blue-solid {
     --ilw-button--background-color: var(--il-blue);
     --ilw-button--foreground-color: white;
     --ilw-button--border-color: var(--il-blue);
@@ -251,18 +251,18 @@
     --ilw-button--border-color: white;
   }
 
-  .ilw-theme-orange, .ilw-theme-orange-1, .ilw-theme-orange-2 {
+  .ilw-theme-orange, .ilw-theme-orange-1, .ilw-theme-orange-2, .ilw-theme-orange-solid {
     --ilw-button--active-background-color: var(--il-blue);
     --ilw-button--active-border-color: var(--il-orange);
   }
 
-  .ilw-theme-orange-1, .ilw-theme-orange-2 {
+  .ilw-theme-orange-1, .ilw-theme-orange-2, .ilw-theme-orange-solid {
     --ilw-button--focused-background-color: white;
     --ilw-button--focused-foreground-color: var(--il-orange);
     --ilw-button--focused-border-color: var(--il-orange);
   }
 
-  .ilw-theme-blue-1, .ilw-theme-blue-2 {
+  .ilw-theme-blue-1, .ilw-theme-blue-2, .ilw-theme-blue-solid {
     --ilw-button--focused-background-color: white;
     --ilw-button--focused-foreground-color: var(--il-blue);
     --ilw-button--focused-border-color: var(--il-blue);
