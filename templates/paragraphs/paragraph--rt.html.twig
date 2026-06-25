@@ -44,12 +44,14 @@
   'paragraph--type--' ~ paragraph.bundle|clean_class,
   view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
   not paragraph.isPublished() ? 'paragraph--unpublished',
-  'clearfix', 'layout-overflow'
+  'clearfix'
 ]
 %}
 {% set column_count = content.field_rt_column['#items']|length %}
-{% set background = content.field_rt_background_color['#items'].0.value %}
-{% if background == 'Gray' %}
+{% set background = paragraph.field_rt_background_color.value|default('')|trim %}
+{% set theme = '' %}
+{% set padding = '' %}
+{% if background|lower == 'gray' %}
   {% set theme = 'gray' %}
   {% set padding = '20px 0 30px' %}
 {% endif %}
@@ -61,7 +63,8 @@
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
       {% if column_count == 1 %}
-        <ilw-content theme="{{ theme }}" width="auto" padding="{{ padding }}">
+        <ilw-content theme="{{ theme }}" padding="{{ padding }}">
+          <div class="fixed-width">
           {% if content.field_rt_title['#items'] %}
             <h2>{{ content.field_rt_title }}</h2>
           {% endif %}
@@ -76,6 +79,7 @@
               {{ body|check_markup(body_format) }}
             {% endif %}
           {% endfor %}
+          </div>
         </ilw-content>
       {% else %}
         <ilw-content width="auto">
@@ -90,12 +94,12 @@
             {% set body_format= content.field_rt_column[loop.index0]['#paragraph'].field_rt_content_body.format %}
             <div>
               <ilw-content theme="{{ theme }}">
-              {% if title %}
-                <h3>{{ title }}</h3>
-              {% endif %}
-              {% if body|trim %}
-                {{ body|check_markup(body_format) }}
-              {% endif %}
+                {% if title %}
+                  <h3>{{ title }}</h3>
+                {% endif %}
+                {% if body|trim %}
+                  {{ body|check_markup(body_format) }}
+                {% endif %}
               </ilw-content>
             </div>
           {% endfor %}
