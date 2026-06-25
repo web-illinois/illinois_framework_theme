@@ -11,7 +11,6 @@ global:
     js/table-mobile.js: {}
   dependencies:
     - core/drupal
-    - core/jquery
     - core/once
   css:
     theme:
@@ -46,12 +45,14 @@ ils-contentslider:
       minified: true
     js/paragraph-content-slider.js: { }
   dependencies:
-    - core/jquery
+    - core/drupal
+    - core/once
 google-cse:
   js:
     js/google-cse.js: { attributes: { async: true } }
   dependencies:
-    - core/jquery
+    - core/drupal
+    - core/once
     - core/drupalSettings
 ils-forms:
   css:
@@ -67,44 +68,72 @@ paragraph-rt:
   js:
     js/paragraph-rt.js: {}
   dependencies:
-    - core/jquery
+    - core/drupal
+    - core/once
 paragraph-list-content:
   js:
       js/paragraph-list-content.js: {}
   dependencies:
-    - core/jquery
+    - core/drupal
+    - core/once
 paragraph-contact:
   js:
     js/paragraph-contact.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
 paragraph-bb:
   js:
     js/paragraph-bb.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
 paragraph-card:
   js:
     js/paragraph-card.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
 paragraph-cta-narrow:
   js:
     js/paragraph-cta-narrow.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
 paragraph-feature-group:
   js:
     js/paragraph-feature-group.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
 paragraph-icon-row:
   js:
     js/paragraph-icon-row.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
 paragraph-image-gallery:
   js:
     js/paragraph-image-gallery.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
 paragraph-vertical-tabs:
   js:
     js/paragraph-vertical-tab.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
 paragraph-calendar:
   js:
     js/paragraph-calendar.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
 skipto-campus:
   js:
     https://skipto-landmarks-headings.github.io/page-script-5/dist/skipto.min.js:
       attributes:
         data-skipto: "displayOption: popup;"
   dependencies:
-    - core/jquery
     - core/drupalSettings
