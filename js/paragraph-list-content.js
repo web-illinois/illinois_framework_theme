@@ -1,11 +1,21 @@
-jQuery(function($) {
-  $('.paragraph--type--list').filter(function() {
-    return $(this).closest('ilw-columns, article.news, article.spotlight').length;
-  }).each(function() {
-    const $list = $(this);
+(function (Drupal, once) {
+  Drupal.behaviors.paragraphListContent = {
+    attach: function (context) {
+      once('paragraphListContent', '.paragraph--type--list', context).forEach(function (list) {
+        if (!list.closest('ilw-columns, article.news, article.spotlight')) {
+          return;
+        }
 
-    $list.children('ilw-content[width="auto"], ilw-columns[width="page"]').removeAttr('width');
-    $list.children('ilw-columns.list-row').attr('padding', '0 20px');
-    $list.children('ilw-content.list-row').attr('padding', '30px 20px 20px');
-  });
-});
+        list.querySelectorAll(':scope > ilw-content[width="auto"], :scope > ilw-columns[width="page"]').forEach(function (el) {
+          el.removeAttribute('width');
+        });
+        list.querySelectorAll(':scope > ilw-columns.list-row').forEach(function (el) {
+          el.setAttribute('padding', '0 20px');
+        });
+        list.querySelectorAll(':scope > ilw-content.list-row').forEach(function (el) {
+          el.setAttribute('padding', '30px 20px 20px');
+        });
+      });
+    }
+  };
+})(Drupal, once);
