@@ -12,6 +12,7 @@ global:
   dependencies:
     - core/drupal
     - core/jquery
+    - core/once
   css:
     theme:
       css/style.css: {}

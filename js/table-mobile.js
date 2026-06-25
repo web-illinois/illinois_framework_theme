@@ -1,60 +1,53 @@
 // Add a responsive wrapper to normal editor-authored tables. Tables using the
 // stacked style or an existing custom wrapper div are left alone.
-(function (Drupal, $) {
+(function (Drupal, once) {
   Drupal.behaviors.tableResponsiveWrapper = {
     attach: function (context) {
-      $(context)
-        .find('table')
-        .add($(context).filter('table'))
-        .each(function () {
-          const $table = $(this);
-          const $parent = $table.parent();
-
-          if ($table.hasClass('table-stack')) {
-            return;
-          }
-
-          if ($parent.hasClass('table-responsive-wrapper')) {
-            return;
-          }
-
-          if ($parent.is('div[class]')) {
-            return;
-          }
-
-          $table
-            .removeClass('table-responsive-wrapper')
-            .wrap('<div class="table-responsive-wrapper"></div>');
-        });
-    }
-  };
-})(Drupal, jQuery);
-
-// Automatically apply data-label attributes to .table-stack tables
-// so the CSS ::before pseudo-element can display header labels in stacked mobile view.
-(function (Drupal, $) {
-  Drupal.behaviors.tableStackLabels = {
-    attach: function (context) {
-      $(context).find('.table-stack').each(function () {
-        const $table = $(this);
-        const headers = [];
-
-        $table.find('thead th').each(function () {
-          headers.push($(this).text().trim());
-        });
-
-        if (!headers.length) {
+      once('tableResponsiveWrapper', 'table', context).forEach(function (table) {
+        if (table.classList.contains('table-stack')) {
           return;
         }
 
-        $table.find('tbody tr').each(function () {
-          $(this).find('td').each(function (index) {
-            if (headers[index]) {
-              $(this).attr('data-label', headers[index]);
-            }
-          });
-        });
+        const parent = table.parentElement;
+        if (parent && parent.tagName === 'DIV' && parent.hasAttribute('class')) {
+          return;
+        }
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'table-responsive-wrapper';
+        table.replaceWith(wrapper);
+        wrapper.appendChild(table);
       });
     }
   };
-})(Drupal, jQuery);
+})(Drupal, once);
+
+// Automatically apply data-label attributes to .table-stack tables
+// so the CSS ::before pseudo-element can display header labels in stacked mobile view.
+(function (Drupal, once) {
+  Drupal.behaviors.tableStackLabels = {
+    attach: function (context) {
+      once('tableStackLabels', '.table-stack', context).forEach(function (table) {
+        const headerCells = table.querySelectorAll('thead th');
+        if (!headerCells.length) {
+          return;
+        }
+
+        const headers = [];
+        for (let i = 0; i < headerCells.length; i++) {
+          headers.push(headerCells[i].textContent.trim());
+        }
+
+        const rows = table.querySelectorAll('tbody tr');
+        for (let r = 0; r < rows.length; r++) {
+          const cells = rows[r].cells;
+          for (let c = 0; c < cells.length && c < headers.length; c++) {
+            if (headers[c]) {
+              cells[c].setAttribute('data-label', headers[c]);
+            }
+          }
+        }
+      });
+    }
+  };
+})(Drupal, once);
