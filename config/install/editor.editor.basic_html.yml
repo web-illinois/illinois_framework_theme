@@ -82,6 +82,12 @@ settings:
         -
           label: 'Solid orange button'
           element: '<a class="ilw-button ilw-theme-orange-1">'
+        -
+          label: 'Table Scrolls'
+          element: '<table class="table-responsive-wrapper">'
+        -
+          label: 'Table Stacks'
+          element: '<table class="table-stack">'
     linkit_extension:
       linkit_enabled: true
       linkit_profile: default
