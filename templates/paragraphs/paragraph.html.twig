@@ -49,7 +49,7 @@
 %}
 {% block paragraph %}
   {# Paragraph ID used for anchor linking #}
-  <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
+  <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ).addClass(classes) }}>
     {% block content %}
       {{ content }}
     {% endblock %}
