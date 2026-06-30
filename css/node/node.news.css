@@ -239,10 +239,9 @@ article.news {
       &::after {
         display: inline-block;
         padding: 0 0.25rem;
-        content: "\f054";
+        content: "\203A";
         vertical-align: bottom;
         text-decoration: none;
-        font-family: FontAwesome;
         font-size: 0.75rem;
       }
 
@@ -474,9 +473,8 @@ article.news {
       &::after {
         position: absolute;
         padding: 0 0.5rem;
-        content: "\f101";
+        content: "\BB";
         vertical-align: bottom;
-        font-family: FontAwesome;
       }
     }
 
