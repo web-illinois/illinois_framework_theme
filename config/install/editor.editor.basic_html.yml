@@ -78,10 +78,10 @@ settings:
           element: '<a class="ilw-button ilw-theme-orange">'
         -
           label: 'Solid blue button'
-          element: '<a class="ilw-button ilw-theme-blue-1">'
+          element: '<a class="ilw-button ilw-theme-blue-solid">'
         -
           label: 'Solid orange button'
-          element: '<a class="ilw-button ilw-theme-orange-1">'
+          element: '<a class="ilw-button ilw-theme-orange-solid">'
         -
           label: 'Table Scrolls'
           element: '<table class="table-responsive-wrapper">'
