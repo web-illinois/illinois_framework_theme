@@ -38,6 +38,14 @@
  * @ingroup themeable
  */
 #}
+{% if content.field_size['#items'].0.value %}
+  {% set size = content.field_size['#items'].0.value == 'small'
+    ? '20'
+    : content.field_size['#items'].0.value == 'large'
+    ? '80'
+    : content.field_size['#items'].0.value == 'medium'
+    ? '40' %}
+{% endif %}
 {%
   set classes = [
     'paragraph',
@@ -47,11 +55,7 @@
     'clearfix'
   ]
 %}
+
 {% block paragraph %}
-  {# Paragraph ID used for anchor linking #}
-  <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ).addClass(classes) }}>
-    {% block content %}
-      {{ content }}
-    {% endblock %}
-  </div>
+  <ilw-spacer width="auto" height="{{ size }}px"></ilw-spacer>
 {% endblock paragraph %}
