@@ -1,0 +1,74 @@
+.pager {
+  margin: 3rem 0 2rem;
+
+  nav {
+    background: var(--ilw-color--background);
+    padding: 1px 0;
+  }
+
+  nav.page ul {
+    margin: 4px var(--ilw-margin--side, max(1.875rem, calc(50cqw - 37.5rem))) 4px;
+  }
+
+  ul {
+    padding: 0;
+    margin: 4px 0;
+    list-style: none;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  li {
+    padding: 0;
+    list-style: none;
+    margin-bottom: .75rem;
+  }
+
+  a, .pager__item--ellipsis {
+    display: flex;
+    min-width: 24px;
+    justify-content: center;
+    padding: 12px 24px;
+    font-family: var(--il-font-sans);
+    font-size: 1.1875rem;
+    background: var(--ilw-color--background);
+    color: var(--ilw-color--control-text);
+    border-color: var(--ilw-color--control-text);
+    outline: solid thin var(--ilw-color--control-text);
+  }
+
+  .is-active {
+    a {
+      background-color: var(--ilw-color--control-text);
+      color: var(--ilw-color--control);
+    }
+  }
+
+  .pager__item--ellipsis {
+    color: var(--ilw-color--control-text);
+    background: none;
+    outline: none;
+  }
+
+  a {
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--ilw-color--control-text);
+    background: var(--ilw-color--control);
+  }
+
+  a:hover {
+    color: var(--ilw-color--control);
+    background: var(--ilw-color--control-text);
+    text-decoration: underline;
+  }
+
+  a:focus {
+    background: var(--ilw-color--focus--background);
+    color: var(--ilw-color--focus--text);
+    border-color: var(--ilw-color--focus--outline);
+    text-decoration: underline;
+  }
+}
