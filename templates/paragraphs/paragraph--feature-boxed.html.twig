@@ -78,7 +78,7 @@
     {% block content %}
       <div class="feature-box">
         <div class="ilw-image-cover">
-          <img src="{{ base_path_http ~ file_url(content.field_feature_boxed_img['#items'].entity.uri.value) }}" alt="{{ content.field_feature_boxed_img['#items'].entity.alt }}" />
+          {{ content.field_feature_boxed_img }}
         </div>
         <ilw-card theme="{{ theme }}" class="{{ align }}">
           {% if content.field_feature_boxed_subtitle['#items'] %}
