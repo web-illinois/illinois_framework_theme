@@ -8,12 +8,14 @@
 }
 
 /* Remove the fixed width padding when:
-**   1) it is inside a two-column layout. The page-content-wrapper class is applied in the page.html.twig template
-**   2) it is inside the ilw-content element with the width set to page
-**   3) it is nested inside another fixed-width element. This allows for nested fixed-width elements without the padding stacking up.
+**   - it is inside a two-column layout. The page-content-wrapper class is applied in the page.html.twig template
+**   - it is inside the ilw-content element with the width set to page
+**   - it is inside the ilw-columns element with the width set to page
+**   - it is nested inside another fixed-width element. This allows for nested fixed-width elements without the padding stacking up.
 */
 .page-content-wrapper .fixed-width,
 ilw-content[width="page"] .fixed-width,
+ilw-columns[width="page"] .fixed-width,
 .fixed-width :where(.fixed-width) {
   padding: 0;
 }
