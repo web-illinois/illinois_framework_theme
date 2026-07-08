@@ -8,7 +8,7 @@
     }
   }
   .field--name-field-spotlight-text__wrapper{
-    padding: 45px 35px 45px 50px;
+    padding: 45px 35px 45px 45px;
     @media (max-width: 600px) {
       text-align: center;
     }
