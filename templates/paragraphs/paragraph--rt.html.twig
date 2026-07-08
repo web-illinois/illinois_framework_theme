@@ -82,11 +82,13 @@
           </div>
         </ilw-content>
       {% else %}
-        <ilw-content width="auto">
-          {% if content.field_rt_title['#items'] %}
-            <h2>{{ content.field_rt_title }}</h2>
-          {% endif %}
-        </ilw-content>
+    <ilw-content theme="{{ theme }}" padding="{{ padding }}">
+      <div class="fixed-width">
+        {% if content.field_rt_title['#items'] %}
+          <h2>{{ content.field_rt_title }}</h2>
+        {% endif %}
+      </div>
+    </ilw-content>
         <ilw-columns theme="{{ theme }}" width="auto" gap="40px" padding="{{ padding }}">
           {% for item in content.field_rt_column['#items'] %}
             {% set title = content.field_rt_column[loop.index0]['#paragraph'].field_rt_content_title.value %}
