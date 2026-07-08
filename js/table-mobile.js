@@ -1,23 +1,42 @@
 // Add a responsive wrapper to normal editor-authored tables. Tables using the
-// stacked style or an existing custom wrapper div are left alone.
+// stacked style or an existing custom wrapper div are left alone. A fixed-width
+// parent is a layout container, so tables inside it still get an inner wrapper.
 (function (Drupal, once) {
+  const responsiveWrapperClass = 'table-responsive-wrapper';
+  const stackedTableClass = 'table-stack';
+  const fixedWidthClass = 'fixed-width';
+  const responsiveTableSelector = `table:not(.${stackedTableClass})`;
+
   Drupal.behaviors.tableResponsiveWrapper = {
     attach: function (context) {
-      once('tableResponsiveWrapper', 'table', context).forEach(function (table) {
-        if (table.classList.contains('table-stack')) {
-          return;
-        }
+      once('tableResponsiveWrapper', responsiveTableSelector, context).forEach(
+        function (table) {
+          table.classList.remove(responsiveWrapperClass);
 
-        const parent = table.parentElement;
-        if (parent && parent.tagName === 'DIV' && parent.hasAttribute('class')) {
-          return;
-        }
+          if (table.classList.contains(stackedTableClass)) {
+            return;
+          }
 
-        const wrapper = document.createElement('div');
-        wrapper.className = 'table-responsive-wrapper';
-        table.replaceWith(wrapper);
-        wrapper.appendChild(table);
-      });
+          const parent = table.parentElement;
+          if (parent && parent.classList.contains(responsiveWrapperClass)) {
+            return;
+          }
+
+          if (
+            parent &&
+            parent.tagName === 'DIV' &&
+            parent.hasAttribute('class') &&
+            !parent.classList.contains(fixedWidthClass)
+          ) {
+            return;
+          }
+
+          const wrapper = document.createElement('div');
+          wrapper.className = responsiveWrapperClass;
+          table.replaceWith(wrapper);
+          wrapper.appendChild(table);
+        }
+      );
     }
   };
 })(Drupal, once);
@@ -28,6 +47,8 @@
   Drupal.behaviors.tableStackLabels = {
     attach: function (context) {
       once('tableStackLabels', '.table-stack', context).forEach(function (table) {
+        table.classList.remove('table-responsive-wrapper');
+
         const headerCells = table.querySelectorAll('thead th');
         if (!headerCells.length) {
           return;
