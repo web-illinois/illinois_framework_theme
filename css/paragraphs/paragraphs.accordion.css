@@ -10,6 +10,21 @@ article.news, article.spotlight {
   }
 }
 
+/* fixes the bottom border on compact accordion extending the full width of page */
+.paragraph--type--accordion ilw-accordion[compact][width="page"] {
+  border-bottom: 0;
+  position: relative;
+}
+
+.paragraph--type--accordion ilw-accordion[compact][width="page"]::after {
+  border-bottom: 1px solid var(--il-storm-lighter-3, #C6C7C7);
+  bottom: 0;
+  content: "";
+  left: var(--ilw-margin--side, max(1.875rem, calc(50cqw - 35.625rem)));
+  position: absolute;
+  right: var(--ilw-margin--side, max(1.875rem, calc(50cqw - 35.625rem)));
+}
+
 .paragraph--type--accordion {
   margin-bottom: 3rem;
 }
