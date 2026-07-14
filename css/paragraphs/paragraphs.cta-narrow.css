@@ -35,7 +35,6 @@
     margin: 0.5rem 1.875rem;
     flex-grow: 1;
     flex-basis: 0;
-    white-space: nowrap;
     max-width: 19.5rem;
   }
 }
