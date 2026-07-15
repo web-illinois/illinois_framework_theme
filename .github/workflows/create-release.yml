@@ -37,6 +37,18 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
+      - name: Ensure tag does not already exist
+        run: |
+          # Fail fast (before the AI call and any commit) if the release tag
+          # already exists locally or on the remote. The workflow never uses
+          # --force, so a pre-existing tag would otherwise fail later with a
+          # raw git error; this gives a clear message and avoids wasted work.
+          VERSION="${{ github.event.inputs.version }}"
+          if git rev-parse -q --verify "refs/tags/${VERSION}" >/dev/null; then
+            echo "::error::Tag ${VERSION} already exists. Choose a new version or delete the existing tag."
+            exit 1
+          fi
+
       - name: Add packaging metadata to info.yml
         run: |
           # Mirrors the Drupal.org packaging script, which appends a
