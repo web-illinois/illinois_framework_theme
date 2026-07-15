@@ -139,11 +139,15 @@ jobs:
 
           # Build the request body with jq so all content is safely JSON-escaped.
           # v1 API: the model deployment name goes in the body, not the URL.
+          # GPT-5-series (reasoning) models require max_completion_tokens instead
+          # of max_tokens and only accept the default temperature, so temperature
+          # is omitted. The budget is generous because reasoning tokens count
+          # toward max_completion_tokens.
           REQUEST="$(jq -n \
             --arg model "$AZURE_OPENAI_MODEL" \
             --arg sys "$SYSTEM_PROMPT" \
             --arg usr "$USER_PROMPT" \
-            '{model: $model, messages: [{role: "system", content: $sys}, {role: "user", content: $usr}], max_tokens: 800, temperature: 0.3}')"
+            '{model: $model, messages: [{role: "system", content: $sys}, {role: "user", content: $usr}], max_completion_tokens: 2000}')"
 
           # v1 GA API: POST to <base>/chat/completions, no api-version query param.
           URL="${AZURE_OPENAI_BASE_URL%/}/chat/completions"
