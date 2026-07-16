@@ -1,0 +1,320 @@
+# .github/workflows/create-release.yml
+# This workflow is triggered manually to create a new release of the profile.
+# It updates the version in the .info.yml, pins the core/theme dependencies in
+# composer.json to the matching major.minor (~X.Y.0), tags the commit, and opens
+# a DRAFT GitHub Release with auto-generated notes so you can add custom notes
+# before publishing.
+
+name: Create New Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'The new version number (MAJOR.MINOR.PATCH, e.g., 5.2.0)'
+        required: true
+        type: string
+      dry_run:
+        description: 'Dry run: build and print info.yml + composer.json, but do NOT commit, tag, or release.'
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    permissions:
+      # Give the default GITHUB_TOKEN write permission to commit, tag, and release.
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          # Full history + tags are needed to diff against the previous
+          # release when drafting release notes.
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+      - name: Ensure tag does not already exist
+        run: |
+          # Fail fast (before the AI call and any commit) if the release tag
+          # already exists locally or on the remote. The workflow never uses
+          # --force, so a pre-existing tag would otherwise fail later with a
+          # raw git error; this gives a clear message and avoids wasted work.
+          VERSION="${{ github.event.inputs.version }}"
+          if git rev-parse -q --verify "refs/tags/${VERSION}" >/dev/null; then
+            echo "::error::Tag ${VERSION} already exists. Choose a new version or delete the existing tag."
+            exit 1
+          fi
+
+      - name: Validate version and derive Composer constraint
+        run: |
+          # The profile pins its core/theme dependencies to the release's
+          # major.minor, so the version must be a plain MAJOR.MINOR.PATCH with
+          # no pre-release/build suffix. Reject anything else up front.
+          VERSION="${{ github.event.inputs.version }}"
+          if ! printf '%s' "$VERSION" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+$'; then
+            echo "::error::Version must be MAJOR.MINOR.PATCH with no suffix (e.g. 5.2.0). Got: '${VERSION}'"
+            exit 1
+          fi
+
+          # Derive the tilde constraint ~MAJOR.MINOR.0, which Composer expands to
+          # >=MAJOR.MINOR.0 <MAJOR.(MINOR+1).0 — major.minor stays in sync with
+          # the profile release while the patch level may differ.
+          MAJOR="${VERSION%%.*}"
+          REST="${VERSION#*.}"
+          MINOR="${REST%%.*}"
+          CONSTRAINT="~${MAJOR}.${MINOR}.0"
+
+          # Export for later steps (composer pin + dry-run summary).
+          echo "CONSTRAINT=${CONSTRAINT}" >> "$GITHUB_ENV"
+          echo "Derived Composer constraint for core/theme: ${CONSTRAINT}"
+
+      - name: Verify matching core/theme releases exist
+        run: |
+          # Profile pins core/theme to ~MAJOR.MINOR.0, so a matching MAJOR.MINOR.*
+          # release must already exist in both repos or a `composer install` of
+          # this profile release would fail to resolve. ls-remote is read-only and
+          # needs no auth (both repos are public). CONSTRAINT is exported above.
+          MM="${CONSTRAINT#\~}"   # ~5.2.0 -> 5.2.0
+          MM="${MM%.*}"           # 5.2.0 -> 5.2
+          for repo in illinois_framework_core illinois_framework_theme; do
+            url="https://github.com/web-illinois/${repo}.git"
+            if git ls-remote --tags "$url" | grep -Eq "refs/tags/${MM}\.[0-9]+(\^\{\})?$"; then
+              echo "OK: ${repo} has a ${MM}.x release."
+            else
+              echo "::error::${repo} has no ${MM}.x release matching ${CONSTRAINT}. Release core and theme ${MM}.x first."
+              exit 1
+            fi
+          done
+
+      - name: Add packaging metadata to info.yml
+        run: |
+          # Mirrors the Drupal.org packaging script, which appends a
+          # version/project/datestamp block to each .info.yml at build time.
+          VERSION="${{ github.event.inputs.version }}"
+          PROJECT="illinois_framework"
+          INFO_FILE="illinois_framework.info.yml"
+          BUILD_DATE="$(date -u +%Y-%m-%d)"
+          DATESTAMP="$(date -u +%s)"
+
+          # Strip any existing packaging metadata so re-runs stay idempotent
+          # (removes the comment line plus the three generated keys).
+          sed -i \
+            -e '/^# Information added by .* packaging script on /d' \
+            -e '/^version: /d' \
+            -e '/^project: /d' \
+            -e '/^datestamp: /d' \
+            "$INFO_FILE"
+
+          # Drop any trailing blank lines left behind before appending.
+          awk 'NF{last=NR} {line[NR]=$0} END{for(i=1;i<=last;i++) print line[i]}' \
+            "$INFO_FILE" > "$INFO_FILE.tmp" && mv "$INFO_FILE.tmp" "$INFO_FILE"
+
+          # Append a fresh metadata block. Single quotes matter for Drupal's
+          # YAML parser (keeps version strings like '5.0' from becoming floats).
+          # Built with printf (not a heredoc) so the block stays indented inside
+          # this YAML step while still writing column-0 lines to the info file.
+          {
+            printf '\n'
+            printf '# Information added by web-illinois packaging script on %s\n' "$BUILD_DATE"
+            printf "version: '%s'\n" "$VERSION"
+            printf "project: '%s'\n" "$PROJECT"
+            printf 'datestamp: %s\n' "$DATESTAMP"
+          } >> "$INFO_FILE"
+
+          echo "----- Generated $INFO_FILE -----"
+          cat "$INFO_FILE"
+
+      - name: Pin core/theme constraints in composer.json
+        run: |
+          # Lock the profile's Illinois Framework dependencies to the release's
+          # major.minor so a released profile always installs a matching
+          # core/theme. CONSTRAINT (~X.Y.0) is exported by the validation step.
+          #
+          # A targeted sed edits ONLY the two require lines, preserving the
+          # file's existing formatting. The value pattern "[^"]*" matches any
+          # current constraint (e.g. 5.x-dev or a previous ~X.Y.0), so re-runs
+          # are idempotent.
+          sed -i -E \
+            's#("web-illinois/illinois_framework_(core|theme)"[[:space:]]*:[[:space:]]*)"[^"]*"#\1"'"${CONSTRAINT}"'"#g' \
+            composer.json
+
+          # Validate the result: composer.json must still be valid JSON and both
+          # dependencies must now equal the derived constraint. jq -e exits
+          # non-zero if the expression is false/null or the JSON is invalid.
+          if ! jq -e --arg c "${CONSTRAINT}" \
+              '.require["web-illinois/illinois_framework_core"] == $c and .require["web-illinois/illinois_framework_theme"] == $c' \
+              composer.json >/dev/null; then
+            echo "::error::Failed to pin core/theme to ${CONSTRAINT} in composer.json."
+            echo "----- composer.json require -----"
+            jq '.require' composer.json || cat composer.json
+            exit 1
+          fi
+
+          echo "----- Pinned core/theme to ${CONSTRAINT} -----"
+          jq '.require' composer.json
+
+      - name: Determine previous release tag
+        id: prevtag
+        run: |
+          # The release tag isn't created yet, so the newest existing tag is
+          # the previous release. Empty on the very first release.
+          PREV_TAG="$(git tag --sort=-creatordate | head -n1)"
+          echo "prev_tag=$PREV_TAG" >> "$GITHUB_OUTPUT"
+          echo "Previous tag: ${PREV_TAG:-<none>}"
+
+      - name: Collect changes since last release
+        run: |
+          if [ -n "${{ steps.prevtag.outputs.prev_tag }}" ]; then
+            RANGE="${{ steps.prevtag.outputs.prev_tag }}..HEAD"
+          else
+            RANGE="HEAD"
+          fi
+          # Subjects + bodies give the AI enough to spot #issue / #PR references.
+          LOG="$(git log $RANGE --no-merges --pretty=format:'- %s%n%b' | head -c 12000)"
+          {
+            echo "COMMIT_LOG<<COMMIT_LOG_EOF"
+            echo "$LOG"
+            echo "COMMIT_LOG_EOF"
+          } >> "$GITHUB_ENV"
+
+      - name: Draft "Release Notes" section with AI (Azure OpenAI v1)
+        env:
+          # Secret: the Azure OpenAI / Foundry API key (Settings > Secrets and variables > Actions).
+          AZURE_OPENAI_API_KEY: ${{ secrets.AZURE_OPENAI_API_KEY }}
+          # Non-secret Actions variables (Settings > Secrets and variables > Actions > Variables):
+          #   AZURE_OPENAI_BASE_URL  the v1 API base, e.g.
+          #                          https://uiuc-las-ai-agent.openai.azure.com/openai/v1
+          #   AZURE_OPENAI_MODEL     the model deployment name, e.g. gpt-5.6-luna
+          AZURE_OPENAI_BASE_URL: ${{ vars.AZURE_OPENAI_BASE_URL }}
+          AZURE_OPENAI_MODEL: ${{ vars.AZURE_OPENAI_MODEL }}
+          # Passed via env (not inline ${{ }}) to avoid shell script injection.
+          VERSION: ${{ github.event.inputs.version }}
+          PREV_TAG: ${{ steps.prevtag.outputs.prev_tag }}
+          # COMMIT_LOG is exported by the previous step via $GITHUB_ENV.
+        run: |
+          set -euo pipefail
+
+          if [ -z "${AZURE_OPENAI_API_KEY:-}" ] || [ -z "${AZURE_OPENAI_BASE_URL:-}" ] || [ -z "${AZURE_OPENAI_MODEL:-}" ]; then
+            echo "::error::Missing Azure OpenAI config. Set the AZURE_OPENAI_API_KEY secret and the AZURE_OPENAI_BASE_URL / AZURE_OPENAI_MODEL variables."
+            exit 1
+          fi
+
+          # System prompt kept apostrophe-free so single-quoted lines stay simple.
+          SYSTEM_PROMPT="$(printf '%s\n' \
+            'You write release notes for the Illinois Framework Drupal distribution (install profile).' \
+            'Output ONLY Markdown for a single section and nothing else.' \
+            'Start with the level-2 heading exactly: ## Release Notes' \
+            'Then include a "### New Features" list and/or a "### Bug Fixes" list.' \
+            'Omit a subsection that would be empty.' \
+            'Each bullet is a concise, user-facing summary of one change.' \
+            'When a change references an issue or PR number like #123, append it as (#123) so GitHub auto-links it. Never invent numbers.' \
+            'Ignore administrative commits such as version bumps, merges, CI changes, dependency lockfiles, and formatting-only changes.' \
+            'Do not add a pull-request changelog section; it is appended automatically later.' \
+            'If there are no user-facing changes, output the heading ## Release Notes followed by: _No user-facing changes in this release._')"
+
+          USER_PROMPT="$(printf 'Version being released: %s\nPrevious release: %s\n\nCommit log since the previous release:\n%s\n' \
+            "$VERSION" "${PREV_TAG:-none}" "${COMMIT_LOG:-}")"
+
+          # Build the request body with jq so all content is safely JSON-escaped.
+          # v1 API: the model deployment name goes in the body, not the URL.
+          # GPT-5-series (reasoning) models require max_completion_tokens instead
+          # of max_tokens and only accept the default temperature, so temperature
+          # is omitted. The budget is generous because reasoning tokens count
+          # toward max_completion_tokens.
+          REQUEST="$(jq -n \
+            --arg model "$AZURE_OPENAI_MODEL" \
+            --arg sys "$SYSTEM_PROMPT" \
+            --arg usr "$USER_PROMPT" \
+            '{model: $model, messages: [{role: "system", content: $sys}, {role: "user", content: $usr}], max_completion_tokens: 2000}')"
+
+          # v1 GA API: POST to <base>/chat/completions, no api-version query param.
+          URL="${AZURE_OPENAI_BASE_URL%/}/chat/completions"
+
+          # --fail-with-body: on HTTP >=400, print the error body and fail the step.
+          set +e
+          RESP="$(curl -sS --fail-with-body -X POST "$URL" \
+            -H 'Content-Type: application/json' \
+            -H "api-key: ${AZURE_OPENAI_API_KEY}" \
+            -d "$REQUEST")"
+          CURL_EXIT=$?
+          set -e
+          if [ "$CURL_EXIT" -ne 0 ]; then
+            echo "::error::Azure OpenAI request failed (curl exit $CURL_EXIT)."
+            echo "$RESP"
+            exit 1
+          fi
+
+          NOTES="$(printf '%s' "$RESP" | jq -r '.choices[0].message.content // empty')"
+          if [ -z "$NOTES" ]; then
+            NOTES="$(printf '%s\n\n%s\n' '## Release Notes' '_No release notes were generated. Please edit before publishing._')"
+          fi
+
+          printf '%s\n' "$NOTES" > RELEASE_BODY.md
+          echo "----- RELEASE_BODY.md -----"
+          cat RELEASE_BODY.md
+
+      - name: Dry run summary
+        if: github.event.inputs.dry_run == 'true'
+        run: |
+          echo "::notice::Dry run enabled — no commit, tag, or release was created."
+          {
+            echo "### Dry run: generated info.yml"
+            echo '```yaml'
+            cat illinois_framework.info.yml
+            echo '```'
+            echo "### Dry run: composer.json require (core/theme pinned to ${CONSTRAINT})"
+            echo '```json'
+            jq '.require' composer.json
+            echo '```'
+            echo "### Dry run: AI-drafted release notes"
+            echo "_GitHub's \"What's Changed\" PR list is appended automatically at release time._"
+            echo ""
+            cat RELEASE_BODY.md
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Commit version update
+        if: github.event.inputs.dry_run != 'true'
+        id: commit
+        run: |
+          git add illinois_framework.info.yml composer.json
+          # Check if there are any changes to commit
+          if ! git diff --staged --quiet; then
+            git commit -m "Chore: Bump version to ${{ github.event.inputs.version }} (pin core/theme to ${CONSTRAINT})"
+            echo "changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "No version change detected."
+            echo "changes=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create and push tag
+        if: github.event.inputs.dry_run != 'true' && steps.commit.outputs.changes == 'true'
+        run: |
+          # Tag the local version-bump commit, then push ONLY the tag.
+          # The protected branch (e.g. 5.x) is never pushed to, so branch
+          # protection is satisfied. The metadata-bearing commit is reachable
+          # via the tag, which is what the Composer VCS install pulls from.
+          git tag "${{ github.event.inputs.version }}"
+          git push origin "refs/tags/${{ github.event.inputs.version }}"
+
+      - name: Create GitHub Release (draft)
+        if: github.event.inputs.dry_run != 'true' && steps.commit.outputs.changes == 'true'
+        uses: softprops/action-gh-release@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: "${{ github.event.inputs.version }}"
+          name: "Release ${{ github.event.inputs.version }}"
+          # The AI-drafted "## Release Notes" section becomes the top of the
+          # body; generate_release_notes appends GitHub's "## What's Changed"
+          # PR list below it. Created as a draft so you can review and edit the
+          # AI output before publishing.
+          body_path: RELEASE_BODY.md
+          generate_release_notes: true
+          draft: true
+          prerelease: false
