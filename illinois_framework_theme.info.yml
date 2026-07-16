@@ -3,7 +3,7 @@ type: theme
 description: 'The Illinois Framework Theme'
 core_version_requirement: ^9 || ^10
 base theme: stable9
-version: '5.0'
+version: '5.x-dev'
 
 libraries:
   - illinois_framework_theme/global
