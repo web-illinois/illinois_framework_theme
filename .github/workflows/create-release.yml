@@ -74,6 +74,24 @@ jobs:
           echo "CONSTRAINT=${CONSTRAINT}" >> "$GITHUB_ENV"
           echo "Derived Composer constraint for core/theme: ${CONSTRAINT}"
 
+      - name: Verify matching core/theme releases exist
+        run: |
+          # Profile pins core/theme to ~MAJOR.MINOR.0, so a matching MAJOR.MINOR.*
+          # release must already exist in both repos or a `composer install` of
+          # this profile release would fail to resolve. ls-remote is read-only and
+          # needs no auth (both repos are public). CONSTRAINT is exported above.
+          MM="${CONSTRAINT#\~}"   # ~5.2.0 -> 5.2.0
+          MM="${MM%.*}"           # 5.2.0 -> 5.2
+          for repo in illinois_framework_core illinois_framework_theme; do
+            url="https://github.com/web-illinois/${repo}.git"
+            if git ls-remote --tags "$url" | grep -Eq "refs/tags/${MM}\.[0-9]+(\^\{\})?$"; then
+              echo "OK: ${repo} has a ${MM}.x release."
+            else
+              echo "::error::${repo} has no ${MM}.x release matching ${CONSTRAINT}. Release core and theme ${MM}.x first."
+              exit 1
+            fi
+          done
+
       - name: Add packaging metadata to info.yml
         run: |
           # Mirrors the Drupal.org packaging script, which appends a
