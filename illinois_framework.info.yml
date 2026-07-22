@@ -1,8 +1,8 @@
 name: Illinois Framework
-core_version_requirement: ^9 || ^10
+core_version_requirement: ^11
 type: profile
 description: A Drupal distribution tailored for the University of Illinois.
-version: '5.x-dev'
+version: '6.x-dev'
 
 distribution:
   name: Illinois Framework

@@ -5,12 +5,12 @@
     "license": "GPL-2.0-or-later",
     "require": {
         "ext-dom": "*",
-        "web-illinois/illinois_framework_core": "5.x-dev",
-        "web-illinois/illinois_framework_theme": "5.x-dev",
-        "drupal/core-recommended": "^10.5",
+        "web-illinois/illinois_framework_core": "6.x-dev",
+        "web-illinois/illinois_framework_theme": "6.x-dev",
+        "drupal/core-recommended": "^11",
         "drupal/gin": "^4.0",
         "drupal/gin_toolbar": "^2.0",
-        "drush/drush": "^11.0 || ^12.0 || ^13.0 || ^14.0"
+        "drush/drush": "^13.0 || ^14.0"
     },
     "require-dev": {
         "drupal/core-composer-scaffold": "*",
