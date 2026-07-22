@@ -47,7 +47,9 @@ All three repositories share the same base workflow. When you run it, it:
 3. Drafts a `## Release Notes` section with AI from the commit log since the last tag
    (see [Setup](#setup-secrets--variables)).
 4. Commits the version bump, creates the tag, and **pushes only the tag** — the protected
-   branch (e.g. `5.x`) is never pushed to, so branch protection is preserved.
+   branch (e.g. `5.x`) is never pushed to, so branch protection is preserved. The tag is
+   pushed using a short-lived **GitHub App** token that is on the tag ruleset's bypass list
+   (see [Release GitHub App](#release-github-app-tag-pushes)).
 5. Opens a **draft** GitHub Release with the AI notes plus GitHub's auto-generated
    "What's Changed" list. You review, edit, and publish it manually.
 
@@ -62,13 +64,37 @@ For any repo:
 1. Open the repository on GitHub → **Actions** tab.
 2. Select **"Create New Release"** in the left sidebar.
 3. Click **Run workflow**.
-4. Leave the branch set to the default (`5.x`).
+4. **Choose the branch to release from** in the **"Use workflow from"** dropdown. This
+   selection is what decides the release target (see
+   [Which branch gets released?](#which-branch-gets-released) below) — leave it on the
+   default (`5.x`) for a normal release.
 5. Enter the **version** as `MAJOR.MINOR.PATCH` (e.g. `5.2.0`) — no `v` prefix, no suffix.
 6. (Optional) Set **dry_run** to `true` to preview the generated `.info.yml`
    (and, for the profile, the pinned `composer.json`) in the run summary **without**
    committing, tagging, or releasing.
 7. Click **Run workflow** and wait for it to finish.
 8. Go to **Releases**, open the new **draft**, review/edit the notes, and **Publish**.
+
+### Which branch gets released?
+
+The workflow is triggered with `workflow_dispatch`, so the target is **whichever branch you
+pick in the "Use workflow from" dropdown** — it is *not* hardcoded in the workflow.
+
+- The dropdown **defaults to the repository's default branch** (currently `5.x`), which is
+  why a normal release is just "leave it on `5.x`." Selecting a different branch (e.g. a
+  maintenance `4.x`) would release from that branch instead.
+- The **Checkout** step sets no explicit `ref:`, so it checks out the tip of the branch you
+  selected. The workflow then commits the version bump **on top of that tip** and tags **that
+  new commit**.
+- **Only the tag is pushed** (`git push origin refs/tags/X.Y.Z`); the branch itself is never
+  pushed to. The version-bump commit therefore exists *only* as the tagged commit — it is
+  reachable through the tag, not through `5.x`. That is why `5.x` stays at `5.x-dev` and its
+  history does not gain the bump commit, while Composer (which installs from the tag) still
+  gets the correct pinned `version`/metadata.
+
+> ⚠️ Because the branch comes from the dropdown, changing it releases from a **different**
+> branch. Double-check the **"Use workflow from"** value before running — there is currently
+> no guard that forces releases to originate from a specific branch.
 
 ---
 
@@ -145,7 +171,45 @@ three repositories (identical values). Set them under
 | Name | Purpose |
 | --- | --- |
 | `AZURE_OPENAI_API_KEY` | API key for the Azure OpenAI / Foundry deployment used to draft the release notes. |
-| `GITHUB_TOKEN` | **Automatic** — provided by GitHub Actions; you do not create it. The workflow declares `permissions: contents: write` so this token can commit, tag, and create the release. |
+| `RELEASE_APP_CLIENT_ID` | The **Client ID** of the release GitHub App (see [Release GitHub App](#release-github-app-tag-pushes)). The workflow exchanges this plus the private key for a short-lived installation token that pushes the tag. |
+| `RELEASE_APP_PRIVATE_KEY` | A **private key** (`.pem` contents, including the `-----BEGIN/END-----` lines) for the release GitHub App. |
+| `GITHUB_TOKEN` | **Automatic** — provided by GitHub Actions; you do not create it. The workflow declares `permissions: contents: write` so this token can create the draft release. The **tag push** uses the App token instead (see below). |
+
+### Release GitHub App (tag pushes)
+
+The repositories protect tags with a ruleset (**Restrict creations** / **Restrict updates**
+on `refs/tags/**`). The automatic `GITHUB_TOKEN` acts as `github-actions[bot]`, which is
+**not** on the bypass list, so it cannot create the release tag (`GH013: Cannot create ref
+due to creations being restricted`). To push the tag while keeping the ruleset in force, the
+workflow authenticates as a **GitHub App** that *is* on each ruleset's bypass list.
+
+The App mints a fresh, ~1-hour installation token on every run (via
+`actions/create-github-app-token`), so there is **no long-lived token to rotate** — only the
+Client ID and private key are stored as secrets.
+
+**One-time setup (org owner):**
+
+1. **Create the App** — `web-illinois` org → **Settings → Developer settings → GitHub Apps
+   → New GitHub App**.
+   - Name: e.g. `illinois-framework-release`.
+   - Homepage URL: any valid URL (unused).
+   - **Uncheck** Webhook → Active.
+   - **Repository permissions → Contents: Read and write** (the only permission needed).
+   - Where can this app be installed? → **Only on this account**.
+   - **Create GitHub App**, then note the **Client ID** (shown on the App's
+     **General** settings page).
+2. **Generate a private key** — on the App page → **Private keys → Generate a private key**;
+   a `.pem` downloads (shown only once).
+3. **Install the App** — App page → **Install App** → install on `web-illinois` → **Only
+   select repositories** → `illinois_framework_theme`, `illinois_framework_core`,
+   `illinois_framework_profile`.
+4. **Store the secrets** — in **each** repo, add `RELEASE_APP_CLIENT_ID` (the Client ID) and
+   `RELEASE_APP_PRIVATE_KEY` (the full `.pem` contents). *Org-level secrets scoped to the
+   three repos also work, so you set them once.*
+5. **Add the App to each tag ruleset bypass list** — in **each** repo → **Settings → Rules →
+   Rulesets** → open the tag ruleset → **Bypass list → Add bypass** → select the App →
+   **Save changes**. Keep **Restrict creations / updates** enabled — the App on the bypass
+   list is what lets the release workflow through while everything else stays protected.
 
 ### Variables (Settings → Secrets and variables → Actions → *Variables* tab)
 
@@ -170,6 +234,11 @@ three repositories (identical values). Set them under
 - **"Missing Azure OpenAI config"** — set the `AZURE_OPENAI_API_KEY` secret and the
   `AZURE_OPENAI_BASE_URL` / `AZURE_OPENAI_MODEL` variables in that repo (see
   [Setup](#setup-secrets--variables)).
+- **"GH013: Cannot create ref due to creations being restricted"** (tag push fails) — the
+  release GitHub App is not authenticating or is not on the tag ruleset bypass list. Confirm
+  `RELEASE_APP_CLIENT_ID` / `RELEASE_APP_PRIVATE_KEY` are set in that repo, the App is installed on
+  it, and the App is on the tag ruleset's **Bypass list** (see
+  [Release GitHub App](#release-github-app-tag-pushes)).
 - **Preview without side effects** — run with **dry_run = true**. Nothing is committed,
   tagged, or released; the generated files are printed in the run summary.
 - **Nothing is pushed to the protected branch** — the workflow pushes only the tag. The
