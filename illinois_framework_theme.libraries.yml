@@ -1,13 +1,5 @@
 global:
   js:
-    https://emergency.publicaffairs.illinois.edu/illinois.js:
-      type: external
-      attributes:
-        async: true
-    https://enroll.illinois.edu/ping:
-      type: external
-      attributes:
-        async: true
     js/table-mobile.js: {}
   dependencies:
     - core/drupal
