@@ -464,8 +464,8 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, FormS
   // Start of subfooter
   $form['if_subfooter'] = array(
     '#type' => 'details',
-    '#title' => t('Subfooter'),
-    '#description' => t('Add links to the subfooter next to the copyright and privacy policy link.  You must add the text and link or the link will not appear in the footer.'),
+    '#title' => t('Footer buttons'),
+    '#description' => t('Add buttons to the upper right corner of the footer, next to the login button.  You must add the text and link or the button will not appear in the footer.'),
     '#weight' => -92,
     '#open' => FALSE,
   );
