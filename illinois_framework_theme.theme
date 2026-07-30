@@ -865,12 +865,32 @@ function illinois_framework_theme_preprocess_region(array &$variables): void {
   $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
 }
 
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for node.html.twig.
+ */
 function illinois_framework_theme_theme_suggestions_node_alter(array &$suggestions, array $variables) {
-  $node = $variables['elements']['#node'];
-  $view_mode = $variables['elements']['#view_mode'];
+  $node = $variables['elements']['#node'] ?? NULL;
+  $view_mode = $variables['elements']['#view_mode'] ?? NULL;
 
-  // If the view mode is a teaser, add node--teaser to the suggestions array
-  if ($view_mode === 'teaser') {
-    $suggestions[] = 'node__teaser';
+  if (!$node instanceof NodeInterface || $view_mode !== 'teaser') {
+    return;
   }
+
+  $teaser_suggestion = 'node__teaser';
+  $bundle_teaser_suggestion = 'node__' . $node->bundle() . '__teaser';
+
+  // Core puts the generic teaser suggestion before the bundle suggestion. That
+  // makes node--news.html.twig win over node--teaser.html.twig. Move the generic
+  // teaser immediately before the bundle-specific teaser so the lookup order is:
+  // node--news.html.twig, node--teaser.html.twig, node--news--teaser.html.twig.
+  $suggestions = array_values(array_diff($suggestions, [$teaser_suggestion]));
+  $bundle_teaser_index = array_search($bundle_teaser_suggestion, $suggestions, TRUE);
+
+  if ($bundle_teaser_index === FALSE) {
+    $suggestions[] = $teaser_suggestion;
+    $suggestions[] = $bundle_teaser_suggestion;
+    return;
+  }
+
+  array_splice($suggestions, $bundle_teaser_index, 0, [$teaser_suggestion]);
 }
