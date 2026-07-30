@@ -49,15 +49,18 @@ illinois_framework_theme.settings:
     if_toolkit_js_url:
       type: string
       label: 'Toolkit JS URL'
-    # Footer toggles.
+    # Footer toggles. These checkboxes are stored inconsistently across sites
+    # (as booleans from the config defaults, as integers once the theme settings
+    # form is saved), so they use the "ignore" primitive to avoid type-mismatch
+    # schema reports.
     if_shibboleth_login_direct:
-      type: boolean
+      type: ignore
       label: 'Link login directly to Shibboleth'
     if_footer_google_translate:
-      type: boolean
+      type: ignore
       label: 'Enable Google Translate in footer'
     if_footer_menu_block_checkbox:
-      type: boolean
+      type: ignore
       label: 'One column footer layout'
     # Footer social media links.
     if_footer_social_facebook:

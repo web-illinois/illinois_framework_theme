@@ -41,8 +41,8 @@ if_footer_address_state: ''
 if_footer_address_zip: ''
 if_footer_address_email: ''
 if_footer_address_tel: ''
-if_footer_menu_block_checkbox: false
-if_footer_google_translate: true
+if_footer_menu_block_checkbox: 0
+if_footer_google_translate: 1
 if_subfooter_text_1: ''
 if_subfooter_link_1: ''
 if_subfooter_text_2: ''
@@ -53,6 +53,6 @@ if_subfooter_text_4: ''
 if_subfooter_link_4: ''
 if_subfooter_text_5: ''
 if_subfooter_link_5: ''
-if_shibboleth_login_direct: true
+if_shibboleth_login_direct: 1
 if_toolkit_css_url: ''
 if_toolkit_js_url: ''
