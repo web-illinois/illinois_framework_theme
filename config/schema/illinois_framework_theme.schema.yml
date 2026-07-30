@@ -24,6 +24,36 @@ illinois_framework_theme.settings:
     b4_footer_bg_schema:
       type: string
       label: 'Footer background scheme'
+    # Bootstrap 5 subtheme scheme selectors (present on sites upgraded from the
+    # Bootstrap 5 lineage of the theme).
+    b5_top_container:
+      type: string
+      label: 'Top container'
+    b5_top_container_config:
+      type: string
+      label: 'Top container config'
+    b5_body_schema:
+      type: string
+      label: 'Body scheme'
+    b5_body_bg_schema:
+      type: string
+      label: 'Body background scheme'
+    b5_navbar_schema:
+      type: string
+      label: 'Navbar scheme'
+    b5_navbar_bg_schema:
+      type: string
+      label: 'Navbar background scheme'
+    b5_footer_schema:
+      type: string
+      label: 'Footer scheme'
+    b5_footer_bg_schema:
+      type: string
+      label: 'Footer background scheme'
+    # Menu selector.
+    if_menu_select:
+      type: string
+      label: 'Menu selection'
     # Subtheme generator.
     subtheme_folder:
       type: string
