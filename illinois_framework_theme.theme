@@ -120,6 +120,20 @@ function illinois_framework_theme_preprocess(array &$variables) {
     }
       $variables['login_logout_url'] = $login_url;
   }
+  // Only on the Drupal front page.
+  if (\Drupal::service('path.matcher')->isFrontPage()) {
+    $variables['#attached']['html_head'][] = [
+      [
+        '#tag' => 'meta',
+        '#attributes' => [
+          'name' => 'category',
+          'content' => 'homepage',
+        ],
+      ],
+      'category_meta',
+    ];
+  }
+
 
   // TODO: Condense these into a single array like ['path_vars']['var'].
   $current_path = \Drupal::service('path.current')->getPath();
