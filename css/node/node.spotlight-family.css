@@ -84,3 +84,9 @@ keeping it local to prevent compromising others use cases. */
   background-color:var(--il-cloud-1);
 }
 }
+
+/* This is overriding the padding on the spotlight when there is a sidebar */
+.page-content-wrapper article.spotlight.full {
+  padding: 0;
+  padding-inline: 0;
+}
