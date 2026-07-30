@@ -2,9 +2,205 @@ illinois_framework_theme.settings:
   type: theme_settings
   label: 'Illinois Framework Theme settings'
   mapping:
+    # Bootstrap 4 subtheme scheme selectors.
+    b4_top_container:
+      type: string
+      label: 'Top container'
+    b4_body_schema:
+      type: string
+      label: 'Body scheme'
+    b4_body_bg_schema:
+      type: string
+      label: 'Body background scheme'
+    b4_navbar_schema:
+      type: string
+      label: 'Navbar scheme'
+    b4_navbar_bg_schema:
+      type: string
+      label: 'Navbar background scheme'
+    b4_footer_schema:
+      type: string
+      label: 'Footer scheme'
+    b4_footer_bg_schema:
+      type: string
+      label: 'Footer background scheme'
+    # Subtheme generator.
+    subtheme_folder:
+      type: string
+      label: 'Subtheme folder'
+    subtheme_name:
+      type: string
+      label: 'Subtheme name'
+    subtheme_machine_name:
+      type: string
+      label: 'Subtheme machine name'
+    # Header feature links.
+    if_header_text_1:
+      type: string
+      label: 'Header link 1 text'
+    if_header_link_1:
+      type: string
+      label: 'Header link 1 URL'
+    if_header_text_2:
+      type: string
+      label: 'Header link 2 text'
+    if_header_link_2:
+      type: string
+      label: 'Header link 2 URL'
+    if_header_text_3:
+      type: string
+      label: 'Header link 3 text'
+    if_header_link_3:
+      type: string
+      label: 'Header link 3 URL'
+    # Secondary site title.
+    if_secondary_site_title:
+      type: string
+      label: 'Secondary site title'
+    if_secondary_site_link:
+      type: string
+      label: 'Secondary site link'
+    # Toolkit asset overrides.
     if_toolkit_css_url:
       type: string
       label: 'Toolkit CSS URL'
     if_toolkit_js_url:
       type: string
       label: 'Toolkit JS URL'
+    # Footer toggles.
+    if_shibboleth_login_direct:
+      type: boolean
+      label: 'Link login directly to Shibboleth'
+    if_footer_google_translate:
+      type: boolean
+      label: 'Enable Google Translate in footer'
+    if_footer_menu_block_checkbox:
+      type: boolean
+      label: 'One column footer layout'
+    # Footer social media links.
+    if_footer_social_facebook:
+      type: string
+      label: 'Facebook URL'
+    if_footer_social_instagram:
+      type: string
+      label: 'Instagram URL'
+    if_footer_social_twitter:
+      type: string
+      label: 'X (Twitter) URL'
+    if_footer_social_youtube:
+      type: string
+      label: 'YouTube URL'
+    if_footer_social_linkedin:
+      type: string
+      label: 'LinkedIn URL'
+    if_footer_social_bluesky:
+      type: string
+      label: 'Bluesky URL'
+    if_footer_social_calendar:
+      type: string
+      label: 'Calendar URL'
+    if_footer_social_tiktok:
+      type: string
+      label: 'TikTok URL'
+    if_footer_social_threads:
+      type: string
+      label: 'Threads URL'
+    if_footer_social_pinterest:
+      type: string
+      label: 'Pinterest URL'
+    if_footer_social_snapchat:
+      type: string
+      label: 'Snapchat URL'
+    if_footer_social_weibo:
+      type: string
+      label: 'Weibo URL'
+    if_footer_social_whatsapp:
+      type: string
+      label: 'WhatsApp URL'
+    # Footer address.
+    if_footer_address_unit:
+      type: string
+      label: 'Unit name'
+    if_footer_address_street_one:
+      type: string
+      label: 'Street address line one'
+    if_footer_address_street_two:
+      type: string
+      label: 'Street address line two'
+    if_footer_address_city:
+      type: string
+      label: 'City'
+    if_footer_address_state:
+      type: string
+      label: 'State'
+    if_footer_address_zip:
+      type: string
+      label: 'Zip code'
+    if_footer_address_email:
+      type: string
+      label: 'Email address'
+    if_footer_address_tel:
+      type: string
+      label: 'Phone number'
+    # Parent colleges / affiliated organizations.
+    if_footer_college_text_1:
+      type: string
+      label: 'College 1 name'
+    if_footer_college_link_1:
+      type: string
+      label: 'College 1 URL'
+    if_footer_college_text_2:
+      type: string
+      label: 'College 2 name'
+    if_footer_college_link_2:
+      type: string
+      label: 'College 2 URL'
+    if_footer_college_text_3:
+      type: string
+      label: 'College 3 name'
+    if_footer_college_link_3:
+      type: string
+      label: 'College 3 URL'
+    if_footer_college_text_4:
+      type: string
+      label: 'College 4 name'
+    if_footer_college_link_4:
+      type: string
+      label: 'College 4 URL'
+    if_footer_college_text_5:
+      type: string
+      label: 'College 5 name'
+    if_footer_college_link_5:
+      type: string
+      label: 'College 5 URL'
+    # Subfooter links.
+    if_subfooter_text_1:
+      type: string
+      label: 'Subfooter link 1 text'
+    if_subfooter_link_1:
+      type: string
+      label: 'Subfooter link 1 URL'
+    if_subfooter_text_2:
+      type: string
+      label: 'Subfooter link 2 text'
+    if_subfooter_link_2:
+      type: string
+      label: 'Subfooter link 2 URL'
+    if_subfooter_text_3:
+      type: string
+      label: 'Subfooter link 3 text'
+    if_subfooter_link_3:
+      type: string
+      label: 'Subfooter link 3 URL'
+    if_subfooter_text_4:
+      type: string
+      label: 'Subfooter link 4 text'
+    if_subfooter_link_4:
+      type: string
+      label: 'Subfooter link 4 URL'
+    if_subfooter_text_5:
+      type: string
+      label: 'Subfooter link 5 text'
+    if_subfooter_link_5:
+      type: string
+      label: 'Subfooter link 5 URL'
