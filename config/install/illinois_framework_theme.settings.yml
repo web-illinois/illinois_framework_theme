@@ -3,13 +3,6 @@ features:
   comment_user_picture: true
   comment_user_verification: true
   favicon: 1
-b4_top_container: container
-b4_body_schema: none
-b4_body_bg_schema: none
-b4_navbar_schema: none
-b4_navbar_bg_schema: none
-b4_footer_schema: none
-b4_footer_bg_schema: none
 subtheme_folder: ''
 subtheme_name: ''
 subtheme_machine_name: ''
