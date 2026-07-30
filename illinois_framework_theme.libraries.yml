@@ -1,5 +1,9 @@
 global:
   js:
+    https://enroll.illinois.edu/ping:
+      type: external
+      attributes:
+        async: true
     js/table-mobile.js: {}
   dependencies:
     - core/drupal
