@@ -34,6 +34,7 @@ ilw-footer {
   }
 }
 ilw-footer *[slot=actions] a {
+  margin: .5rem .5rem .5rem 0 !important;
   @media (max-width: 991px) {
     margin: 0 .5rem .5rem 0 !important;
   }
