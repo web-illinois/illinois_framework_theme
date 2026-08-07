@@ -68,9 +68,9 @@
   {% endif %}
 </address>
 <div slot="actions">
-  {% for subfooter_link in if_subfooter %}
-    {% set link = if_subfooter[loop.index0][1] %}
-    {% set text = if_subfooter[loop.index0][0] %}
+  {% for subfooter_link in if_subfooter|slice(0,2) %}
+    {% set link = subfooter_link[1] %}
+    {% set text = subfooter_link[0] %}
     {% if link != NULL or text != NULL %}
       <a href="{{ link }}">{{ text }}</a>
     {% endif %}

@@ -497,5 +497,40 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, FormS
     '#title'         => t('Enter the link'),
     '#default_value' => theme_get_setting('if_subfooter_link_2'),
   );
-
+  $form['if_subfooter']['if_subfooter_fieldset']['if_subfooter_text_3'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Enter text to display for the link'),
+    '#size'          => 128,
+    '#default_value' => theme_get_setting('if_subfooter_text_3'),
+  );
+  $form['if_subfooter']['if_subfooter_fieldset']['if_subfooter_link_3'] = array(
+    '#type'          => 'textfield',
+    '#placeholder' => 'https://illinois.edu',
+    '#title'         => t('Enter the link'),
+    '#default_value' => theme_get_setting('if_subfooter_link_3'),
+  );
+  $form['if_subfooter']['if_subfooter_fieldset']['if_subfooter_text_4'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Enter text to display for the link'),
+    '#size'          => 128,
+    '#default_value' => theme_get_setting('if_subfooter_text_4'),
+  );
+  $form['if_subfooter']['if_subfooter_fieldset']['if_subfooter_link_4'] = array(
+    '#type'          => 'textfield',
+    '#placeholder' => 'https://illinois.edu',
+    '#title'         => t('Enter the link'),
+    '#default_value' => theme_get_setting('if_subfooter_link_4'),
+  );
+  $form['if_subfooter']['if_subfooter_fieldset']['if_subfooter_text_5'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Enter text to display for the link'),
+    '#size'          => 128,
+    '#default_value' => theme_get_setting('if_subfooter_text_5'),
+  );
+  $form['if_subfooter']['if_subfooter_fieldset']['if_subfooter_link_5'] = array(
+    '#type'          => 'textfield',
+    '#placeholder' => 'https://illinois.edu',
+    '#title'         => t('Enter the link'),
+    '#default_value' => theme_get_setting('if_subfooter_link_5'),
+  );
 }
