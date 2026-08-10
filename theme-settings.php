@@ -465,7 +465,7 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, FormS
   $form['if_subfooter'] = array(
     '#type' => 'details',
     '#title' => t('Footer buttons'),
-    '#description' => t('Add buttons to the upper right corner of the footer, next to the login button.  You must add the text and link or the button will not appear in the footer.'),
+    '#description' => t('Add buttons to the upper right corner of the footer, next to the login button.  You must add the text and link or the button will not appear in the footer. Only the first two footer buttons will display.'),
     '#weight' => -92,
     '#open' => FALSE,
   );
