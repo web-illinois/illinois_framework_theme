@@ -54,7 +54,7 @@
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
         {% if content.field_list_title['#items'] or content.field_list_subtitle['#items']  %}
-          <ilw-content width="auto">
+          <ilw-content class="list-heading" width="auto" padding="30px 0 20px">
           <div class="field--name-field-list-text__wrapper">
             {% if content.field_list_title['#items'] %}
               <h2 class="field--name-field-list__title title">{{ content.field_list_title }}</h2>
@@ -72,34 +72,34 @@
         {% set alt_text = paragraph.field_list_content_image.alt %}
         {% set body = paragraph.field_list_content_body.value|render %}
         {% set body_format = paragraph.field_list_content_body.format %}
-        {% set padding = '30px 0 20px 0' %}
+        {% set padding = '30px 0 20px' %}
 
-        {% if loop.index is even %}
+        {% if loop.index is odd %}
           {% set theme = 'gray' %}
         {% else %}
           {% set theme = '' %}
         {% endif %}
 
           {% if image %}
-            <ilw-columns mode="1x3" theme="{{ theme }}" width="page" {% if image_side == 'right' %}reverse="true" class="image-side-right" {% endif %}>
+            <ilw-columns class="list-row list-row--media{% if image_side == 'right' %} image-side-right{% endif %}" mode="1x3" theme="{{ theme }}" width="page" padding="0"{% if image_side == 'right' %} reverse="true"{% endif %}>
             <div class="list-image-wrapper"><img src="{{ file_url(image|image_style('list_collection_image')) }}" alt="{{ alt_text }}"></div>
-            <ilw-content theme="{{ theme }}">
+            <ilw-content theme="{{ theme }}" padding="{{ padding }}">
               <div class="">
                 {% if body|trim %}
-                  <div class="">{{ body|check_markup(body_format) }}</div>
+                  <div class="list-body-wrapper">{{ body|check_markup(body_format) }}</div>
                 {% endif %}
               </div>
             </ilw-content>
             </ilw-columns>
           {% else %}
-            <ilw-content theme="{{ theme }}" width="auto" padding="{{ padding }}">
+            <ilw-content class="list-row list-row--text" theme="{{ theme }}" width="auto" padding="{{ padding }}">
             <div class="">
               {% if body|trim %}
-                <div class="">{{ body|check_markup(body_format) }}</div>
+                <div class="list-body-wrapper">{{ body|check_markup(body_format) }}</div>
               {% endif %}
             </div>
-            {% endif %}
-        </ilw-content>
+            </ilw-content>
+          {% endif %}
       {% endfor %}
     {% endblock %}
   </div>
