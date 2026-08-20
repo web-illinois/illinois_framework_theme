@@ -1,4 +1,4 @@
-# Illinois Framework Theme - GEMINI Context
+# Illinois Framework Theme - AGENT Context
 
 ## Project Overview
 This directory contains the `illinois_framework_theme`, a custom Drupal 9/10 theme designed for the Illinois Drupal Framework Distribution. It is a sub-theme of `stable9` and Illinois branding standards.
@@ -15,7 +15,7 @@ This directory contains the `illinois_framework_theme`, a custom Drupal 9/10 the
 *   **`scss/`**: IGNORE THE SCSS DIRECTORY. THIS THEME DOES NOT USE SCSS OR SASS, IT IS THERE FOR LEGACY PURPOSES.
 *   **`templates/`**: Twig templates organized by entity type (block, node, paragraph, etc.).
 *   **`js/`**: Drupal behaviors, mostly specific to paragraph types (e.g., `paragraph-accordion.js`).
-*   **`illinois_framework_theme.libraries.yml`**: Defines asset libraries, including the external Toolkit CDN.
+*   **`illinois_framework_theme.libraries.yml`**: Defines asset libraries, including external CDNs (Toolkit, Font Awesome).
 
 ### 2. Critical Logic (Hidden Knowledge)
 *   **Sidebar Paragraph Splitting (`preprocess_page`)**:
@@ -35,7 +35,8 @@ This directory contains the `illinois_framework_theme`, a custom Drupal 9/10 the
 *   **CKEditor 5:** Uses `css/ck5style.css`.
 
 ### External Dependencies
-*   **Toolkit:** Loads JS/CSS from `cdn.toolkit.illinois.edu`. Icons are rendered via the Toolkit `<ilw-icon>` web component.
+*   **Toolkit:** Loads JS/CSS from `cdn.toolkit.illinois.edu`.
+*   **Font Awesome 4.7.0:** Local copy in `fonts/`.
 
 ### Common Tasks
 *   **Adding a Region:** Update `.info.yml`, add logic in `.theme` (if needed), and update `page.html.twig`.
