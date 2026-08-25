@@ -55,9 +55,15 @@ Webtools: Generic 1a(1)*/
     color: var(--il-blue) !important;
     font-weight: 600 !important;
     font-style: italic !important;
+    padding: 5px 10px;
+  }
+  div[class*="-description"]{
+    font-size: 1.125rem !important;
+    padding: 5px 10px;
   }
   div[class*="-extra-info"]{
     font-size: 1.125rem !important;
+    padding: 5px 10px;
   }
   li{
     &.title_date_only{
@@ -225,6 +231,7 @@ Webtools: Horizontal layout (20)*/
 .calendar--type--13 {
   div[id*="calendar-"] {
     padding-bottom: 35px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
   }
 
   .event-pod {
@@ -240,6 +247,9 @@ Webtools: Horizontal layout (20)*/
   .event-content {
     padding: 15px 0 0 !important;
     font-family: inherit !important;
+    p {
+      display: none;
+    }
   }
 
   .event-time {
