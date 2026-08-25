@@ -1,8 +1,11 @@
 jQuery(function($) {
-  $('ilw-columns .paragraph--type--list ilw-content[width="auto"][theme="gray"]').removeAttr('width').attr('padding', '15px 20px 30px 20px');
-  $('ilw-columns .paragraph--type--list ilw-content[width="auto"]:not([theme="gray"])').removeAttr('width').attr('padding', '30px 0');
-  $('ilw-columns .paragraph--type--list ilw-columns ilw-content[theme="gray"]').attr('padding', '20px');
-  $('ilw-columns .paragraph--type--list ilw-columns[width="page"]').removeAttr('width');
-  $('article.news .paragraph--type--list ilw-content[width="auto"], article.news .paragraph--type--list ilw-columns[width="page"]').removeAttr('width');//fix for paragraphs in news content type
-  $('article.spotlight .paragraph--type--list ilw-content[width="auto"], article.spotlight .paragraph--type--list ilw-columns[width="page"]').removeAttr('width');//fix for paragraphs in spotlight content type
+  $('.paragraph--type--list').filter(function() {
+    return $(this).closest('ilw-columns, article.news, article.spotlight').length;
+  }).each(function() {
+    const $list = $(this);
+
+    $list.children('ilw-content[width="auto"], ilw-columns[width="page"]').removeAttr('width');
+    $list.children('ilw-columns.list-row').attr('padding', '0 20px');
+    $list.children('ilw-content.list-row').attr('padding', '30px 20px 20px');
+  });
 });

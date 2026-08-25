@@ -24,7 +24,7 @@
 <nav slot="social" aria-label="Social media">
   <ul>
   {% for socialname, sociallink in if_footer['if_footer_social'] %}
-        <li><a href="{{ sociallink }}" style="display: block; width: 100%; height: 100%; text-indent: 0;"><ilw-icon alt="{{ socialname }}" icon="{{ socialname }}" size="44px"></ilw-icon></a></li>
+        <li><a href="{{ sociallink }}"><ilw-icon alt="{{ socialname }}" icon="{{ socialname }}" size="44px"></ilw-icon></a></li>
       {% endfor %}
   </ul>
 </nav>
@@ -68,9 +68,9 @@
   {% endif %}
 </address>
 <div slot="actions">
-  {% for subfooter_link in if_subfooter %}
-    {% set link = if_subfooter[loop.index0][1] %}
-    {% set text = if_subfooter[loop.index0][0] %}
+  {% for subfooter_link in if_subfooter|slice(0,2) %}
+    {% set link = subfooter_link[1] %}
+    {% set text = subfooter_link[0] %}
     {% if link != NULL or text != NULL %}
       <a href="{{ link }}">{{ text }}</a>
     {% endif %}
