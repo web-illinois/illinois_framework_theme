@@ -81,7 +81,7 @@ figure,
   &.align-left,
   &.align-right {
     padding: 1rem 0;
-    max-width: 50%;
+    max-width: 60%;
     }
 
   &.align-left {
