@@ -161,7 +161,8 @@ function illinois_framework_theme_preprocess(array &$variables) {
   $variables['if_header_links'][1][1] = theme_get_setting('if_header_link_2');
   $variables['if_header_links'][2][0] = theme_get_setting('if_header_text_3');
   $variables['if_header_links'][2][1] = theme_get_setting('if_header_link_3');
-  $variables['if_footer_google_translate'] = theme_get_setting('if_footer_google_translate');
+  // Remove below per Illinois_Framework_Theme #!313
+  // $variables['if_footer_google_translate'] = theme_get_setting('if_footer_google_translate');
   $variables['if_footer']['if_footer_address']['if_footer_address_unit'] = theme_get_setting('if_footer_address_unit');
   $variables['if_footer']['if_footer_address']['if_footer_address_street_one'] = theme_get_setting('if_footer_address_street_one');
   $variables['if_footer']['if_footer_address']['if_footer_address_street_two'] = theme_get_setting('if_footer_address_street_two');
