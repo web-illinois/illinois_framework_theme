@@ -9,8 +9,31 @@ global:
     - core/drupal
     - core/once
   css:
+    base:
+      css/base/reset.css: {}
+    layout:
+      css/layout/layout.css: {}
+    component:
+      css/regions/region.footer.css: {}
+      css/node/node.css: {}
+      css/node/node.blog.css: {}
+      css/node/node.spotlight-family.css: {}
+      css/node/node.news.css: {}
+      css/node/node.teaser.css: {}
+      css/media/media.css: {}
+      css/base/buttons.css: {}
+      css/base/elements.img.css: {}
+      css/component/search.css: {}
+      css/component/table.css: {}
+      css/component/components.google-translate.css: {}
+      css/component/menu.css: {}
+      css/component/field.css: {}
+      css/component/messages.css: {}
+      css/component/pager.css: {}
+      css/form/form.css: {}
+      css/views/view.news.css: {}
+      css/paragraphs/paragraphs.spotlight.css: {}
     theme:
-      css/style.css: {}
       css/print.css: { media: print }
 web-components:
   header: true
@@ -29,10 +52,11 @@ web-components:
 ils-contentslider:
   header: true
   css:
-    theme:
+    component:
       https://contrib.webtheme.illinois.edu/ils-contentslider/contentslider.min.css:
         type: external
         minified: true
+      css/paragraphs/paragraphs.content-slider.css: {}
   js:
     https://contrib.webtheme.illinois.edu/ils-contentslider/contentslider.min.js:
       type: external
@@ -49,71 +73,128 @@ google-cse:
     - core/once
     - core/drupalSettings
 paragraph-rt:
+  css:
+    component:
+      css/paragraphs/paragraphs.rt.css: {}
   js:
     js/paragraph-rt.js: {}
   dependencies:
     - core/drupal
     - core/once
 paragraph-list-content:
+  css:
+    component:
+      css/paragraphs/paragraphs.list.css: {}
   js:
       js/paragraph-list-content.js: {}
   dependencies:
     - core/drupal
     - core/once
 paragraph-contact:
+  css:
+    component:
+      css/paragraphs/paragraphs.contact-info.css: {}
   js:
     js/paragraph-contact.js: {}
   dependencies:
     - core/drupal
     - core/once
 paragraph-bb:
+  css:
+    component:
+      css/paragraphs/paragraphs.bb.css: {}
   js:
     js/paragraph-bb.js: {}
   dependencies:
     - core/drupal
     - core/once
 paragraph-card:
+  css:
+    component:
+      css/paragraphs/paragraphs.cards.css: {}
   js:
     js/paragraph-card.js: {}
   dependencies:
     - core/drupal
     - core/once
 paragraph-cta-narrow:
+  css:
+    component:
+      css/paragraphs/paragraphs.cta-narrow.css: {}
   js:
     js/paragraph-cta-narrow.js: {}
   dependencies:
     - core/drupal
     - core/once
 paragraph-feature-group:
+  css:
+    component:
+      css/paragraphs/paragraphs.feature-grouped.css: {}
   js:
     js/paragraph-feature-group.js: {}
   dependencies:
     - core/drupal
     - core/once
 paragraph-icon-row:
+  css:
+    component:
+      css/paragraphs/paragraphs.icon-row.css: {}
   js:
     js/paragraph-icon-row.js: {}
   dependencies:
     - core/drupal
     - core/once
 paragraph-image-gallery:
+  css:
+    component:
+      css/paragraphs/paragraphs.image-gallery.css: {}
   js:
     js/paragraph-image-gallery.js: {}
   dependencies:
     - core/drupal
     - core/once
 paragraph-vertical-tabs:
+  css:
+    component:
+      css/paragraphs/paragraphs.vertical-tab.css: {}
   js:
     js/paragraph-vertical-tab.js: {}
   dependencies:
     - core/drupal
     - core/once
 paragraph-calendar:
+  css:
+    component:
+      css/paragraphs/paragraphs.calendar.css: {}
   js:
     js/paragraph-calendar.js: {}
   dependencies:
     - core/drupal
     - core/once
+paragraph-accordion:
+  css:
+    component:
+      css/paragraphs/paragraphs.accordion.css: {}
+paragraph-intro-home:
+  css:
+    component:
+      css/paragraphs/paragraphs.intro-home.css: {}
+paragraph-cta:
+  css:
+    component:
+      css/paragraphs/paragraphs.cta.css: {}
+paragraph-feature-boxed:
+  css:
+    component:
+      css/paragraphs/paragraphs.feature-boxed.css: {}
+paragraph-feature-split:
+  css:
+    component:
+      css/paragraphs/paragraphs.feature-split.css: {}
+paragraph-feature-video:
+  css:
+    component:
+      css/paragraphs/paragraphs.feature-video.css: {}
 skipto-campus:
   js:
     https://skipto-landmarks-headings.github.io/page-script-5/dist/skipto.min.js:

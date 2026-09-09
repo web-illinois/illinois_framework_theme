@@ -81,10 +81,8 @@ figure,
   &.align-left,
   &.align-right {
     padding: 1rem 0;
-    &.media--view-mode-original-size{
-      max-width: 50%;
+    max-width: 60%;
     }
-  }
 
   &.align-left {
     margin: 0;
@@ -154,7 +152,8 @@ div.field--type-text-with-summary > figure:first-child {
 
 .media--view-mode-portrait{
   max-width: 250px;
-  + figcaption{
+  + figcaption,
+  .field--name-field-if-media-image-caption{
     max-width: 250px;
   }
 
@@ -166,7 +165,8 @@ div.field--type-text-with-summary > figure:first-child {
 
 .media--view-mode-square{
   max-width: 300px;
-  + figcaption{
+  + figcaption,
+  .field--name-field-if-media-image-caption{
     max-width: 300px;
   }
 
@@ -178,7 +178,8 @@ div.field--type-text-with-summary > figure:first-child {
 
 .media--view-mode-medium-400{
   max-width: 400px;
-  + figcaption{
+  + figcaption,
+  .field--name-field-if-media-image-caption{
     max-width: 400px;
   }
 
@@ -190,7 +191,8 @@ div.field--type-text-with-summary > figure:first-child {
 
 .media--view-mode-large-600px{
   max-width: 600px;
-  + figcaption{
+  + figcaption,
+  .field--name-field-if-media-image-caption{
     max-width: 600px;
   }
 
