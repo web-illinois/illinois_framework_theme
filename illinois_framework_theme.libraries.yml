@@ -19,11 +19,11 @@ web-components:
   header: true
   css:
     component:
-      https://cdn.toolkit.illinois.edu/3/toolkit.css:
+      https://cdn.toolkit.illinois.edu/3.13/toolkit.css:
         type: external
         minified: true
   js:
-    https://cdn.toolkit.illinois.edu/3/toolkit.js:
+    https://cdn.toolkit.illinois.edu/3.13/toolkit.js:
       type: external
       minified: true
       attributes:
