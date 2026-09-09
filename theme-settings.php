@@ -141,12 +141,6 @@ function illinois_framework_theme_form_system_theme_settings_alter(&$form, FormS
     '#description' => "Select this to have the login button link directly to the Shibboleth login page.",
     '#default_value' => \Drupal::service(ThemeSettingsProvider::class)->getSetting('if_shibboleth_login_direct'),
   );
-  $form['if_footer']['if_footer_google_translate'] = array(
-    '#type' => 'checkbox',
-    '#title' => t('Enable Google Translate option in footer'),
-    '#description' => "Select this to enable Google Translate in the footer.",
-    '#default_value' => \Drupal::service(ThemeSettingsProvider::class)->getSetting('if_footer_google_translate'),
-  );
   // Select Social Media to display in the footer
   $form['if_footer']['if_footer_social'] = array(
     '#type' => 'fieldset',

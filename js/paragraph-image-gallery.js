@@ -1,6 +1,19 @@
-jQuery(function($) {
-  $('ilw-columns .paragraph--type--image-gallery ilw-grid[width="page"]').removeAttr('width');
-  $('article.news .paragraph--type--image-gallery ilw-grid[width="page').removeAttr('width');//fix for paragraphs in other content types
-  $('article.spotlight .paragraph--type--image-gallery ilw-grid[width="page"]').removeAttr('width');
-  $('article.blog .paragraph--type--image-gallery ilw-grid[width="page"]').removeAttr('width');
-});
+(function (Drupal, once) {
+  Drupal.behaviors.paragraphImageGallery = {
+    attach: function (context) {
+      const selector = [
+        'ilw-columns .paragraph--type--image-gallery ilw-grid[width="page"]',
+        // fix for paragraphs in news content type
+        'article.news .paragraph--type--image-gallery ilw-grid[width="page"]',
+        // fix for paragraphs in spotlight content type
+        'article.spotlight .paragraph--type--image-gallery ilw-grid[width="page"]',
+        // fix for paragraphs in blog content type
+        'article.blog .paragraph--type--image-gallery ilw-grid[width="page"]'
+      ].join(', ');
+
+      once('paragraphImageGallery', selector, context).forEach(function (el) {
+        el.removeAttribute('width');
+      });
+    }
+  };
+})(Drupal, once);

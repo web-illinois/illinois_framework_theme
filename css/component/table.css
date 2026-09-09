@@ -1,71 +1,4 @@
-table {
-  box-sizing: border-box;
-  border-collapse: collapse;
-  border: 1px solid var(il-storm-lighter-3);
-  width: 100%;
-  overflow: auto;
-
-  @media (width <= 599px) {
-    border: none;
-  }
-
-  caption {
-    padding: 0 0 1rem;
-    width: 100%;
-  }
-}
-
-th {
-  box-sizing: border-box;
-  text-align: left;
-  font-weight: 700 !important;
-  font-size: 1.2rem;
-  border-top: 1px solid var(--il-storm-lighter-3);
-  border-bottom: 1px solid var(--il-storm-lighter-3);
-  border-left: none;
-  border-right: none;
-  padding: .5rem .75rem;
-  vertical-align: middle;
-}
-
-thead th {
-  background-color: var(--il-industrial);
-  color: white !important;
-  font-family: var(--il-source-sans);
-}
-
-tbody th {
-  color: var(--il-blue);
-}
-
-th:first-of-type {
-  border-left: 1px solid var(--il-storm-lighter-3);
-}
-
-th:last-of-type {
-  border-right: 1px solid var(--il-storm-lighter-3);
-}
-
-td {
-  box-sizing: border-box;
-  text-align: left;
-  vertical-align: top;
-  padding: .5rem .75rem;
-  border-top: 1px solid var(--il-storm-lighter-3);
-  border-bottom: 1px solid var(--il-storm-lighter-3);
-  border-left: none;
-  border-right: none;
-  color: var(--il-blue);
-}
-
-td:first-of-type {
-  border-left: 1px solid var(--il-storm-lighter-3);
-}
-
-td:last-of-type {
-  border-right: 1px solid var(--il-storm-lighter-3);
-}
-
+/* Table striping for odd rows */
 tr:nth-child(odd) {
   background-color: var(--il-storm-lighter-4);
 }
@@ -131,8 +64,16 @@ tr:nth-child(odd) {
   .table-stack td::before {
     content: attr(data-label);
     font-weight: bold;
-    color: var(--il-industrial);
+    color: var(--il-blue);
     flex: 1;
     padding-right: 1rem;
+  }
+
+  .table-stack td:first-of-type {
+    border-left: none;
+  }
+
+  .table-stack td:last-of-type {
+    border-right: none;
   }
 }
