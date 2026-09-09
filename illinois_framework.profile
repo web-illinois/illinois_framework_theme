@@ -47,8 +47,7 @@ function illinois_framework_set_front_page() {
   if (Drupal::moduleHandler()->moduleExists('node')) {
     Drupal::configFactory()
       ->getEditable('system.site')
-      ->set('page.front', '/node')
-      ->save(TRUE);
+      ->set('page.front', '/node')->save();
   }
 }
 
@@ -58,8 +57,7 @@ function illinois_framework_set_front_page() {
 function illinois_framework_disallow_free_registration() {
   Drupal::configFactory()
     ->getEditable('user.settings')
-    ->set('register', UserInterface::REGISTER_ADMINISTRATORS_ONLY)
-    ->save(TRUE);
+    ->set('register', UserInterface::REGISTER_ADMINISTRATORS_ONLY)->save();
 }
 
 /**
@@ -106,15 +104,13 @@ function illinois_framework_set_default_theme() {
   Drupal::configFactory()
     ->getEditable('system.theme')
     ->set('default', 'illinois_framework_theme')
-    ->set('admin', 'gin')
-    ->save(TRUE);
+    ->set('admin', 'gin')->save();
 
   // Use the admin theme for creating content.
   if (Drupal::moduleHandler()->moduleExists('node')) {
     Drupal::configFactory()
       ->getEditable('node.settings')
-      ->set('use_admin_theme', TRUE)
-      ->save(TRUE);
+      ->set('use_admin_theme', TRUE)->save();
   }
 }
 
@@ -136,8 +132,7 @@ function illinois_framework_set_logo() {
       'path' => $illinois_framework_path . '/favicon.ico',
       'url' => '',
       'use_default' => FALSE,
-    ])
-    ->save(TRUE);
+    ])->save();
 }
 
 /**
