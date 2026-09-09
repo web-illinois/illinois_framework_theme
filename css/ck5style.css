@@ -158,7 +158,7 @@
   }
 
   thead th {
-    background-color: var(--il-industrial) !important;
+    background-color: var(--il-blue) !important;
     color: white;
     font-family: var(--il-source-sans);
   }
@@ -172,7 +172,7 @@
   }
 
   thead th {
-    background-color: var(--il-industrial) !important;
+    background-color: var(--il-blue) !important;
     color: white !important;
     font-family: var(--il-source-sans);
   }
