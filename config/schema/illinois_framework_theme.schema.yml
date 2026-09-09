@@ -56,10 +56,6 @@ illinois_framework_theme.settings:
     if_shibboleth_login_direct:
       type: ignore
       label: 'Link login directly to Shibboleth'
-    # Remove calls to Google Translate per Illinois Framework #1313
-    # if_footer_google_translate:
-    #  type: ignore
-    #  label: 'Enable Google Translate in footer'
     if_footer_menu_block_checkbox:
       type: ignore
       label: 'One column footer layout'
