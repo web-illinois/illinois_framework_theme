@@ -3,7 +3,6 @@ type: theme
 description: 'The Illinois Framework Theme'
 core_version_requirement: ^9 || ^10
 base theme: stable9
-version: '5.x-dev'
 
 libraries:
   - illinois_framework_theme/global
@@ -25,3 +24,8 @@ regions:
   sidebar_second: 'Sidebar second'
   footer: Footer
   hidden: 'Hidden region for referenced blocks'
+
+# Information added by web-illinois packaging script on 2026-09-10
+version: '5.2.2'
+project: 'illinois_framework_theme'
+datestamp: 1789054549
