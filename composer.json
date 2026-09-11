@@ -2,5 +2,8 @@
     "name": "web-illinois/illinois_framework_theme",
     "description": "Basic Drupal theme that includes Illinois standards branding",
     "type": "drupal-theme",
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "require": {
+        "drupal/stable9": "^2.0"
+    }
 }
