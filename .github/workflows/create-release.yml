@@ -26,6 +26,8 @@ jobs:
     permissions:
       # Give the default GITHUB_TOKEN write permission to commit, tag, and release.
       contents: write
+      # Needed to read the issues linked to each pull request in the release.
+      issues: read
     steps:
       - name: Generate a token from the release GitHub App
         id: app-token
@@ -178,122 +180,21 @@ jobs:
 
       - name: Determine previous release tag
         id: prevtag
-        run: |
-          # The release tag isn't created yet, so the newest existing tag is
-          # the previous release. Empty on the very first release.
-          PREV_TAG="$(git tag --sort=-creatordate | head -n1)"
-          echo "prev_tag=$PREV_TAG" >> "$GITHUB_OUTPUT"
-          echo "Previous tag: ${PREV_TAG:-<none>}"
-
-      - name: Collect changes since last release
-        run: |
-          if [ -n "${{ steps.prevtag.outputs.prev_tag }}" ]; then
-            RANGE="${{ steps.prevtag.outputs.prev_tag }}..HEAD"
-          else
-            RANGE="HEAD"
-          fi
-          # Subjects + bodies give the AI enough to spot #issue / #PR references.
-          LOG="$(git log $RANGE --no-merges --pretty=format:'- %s%n%b' | head -c 12000)"
-          {
-            echo "COMMIT_LOG<<COMMIT_LOG_EOF"
-            echo "$LOG"
-            echo "COMMIT_LOG_EOF"
-          } >> "$GITHUB_ENV"
-
-      - name: Draft "Release Notes" section with AI (Azure OpenAI v1)
         env:
-          # Secret: the Azure OpenAI / Foundry API key (Settings > Secrets and variables > Actions).
-          AZURE_OPENAI_API_KEY: ${{ secrets.AZURE_OPENAI_API_KEY }}
-          # Non-secret Actions variables (Settings > Secrets and variables > Actions > Variables):
-          #   AZURE_OPENAI_BASE_URL  the v1 API base, e.g.
-          #                          https://uiuc-las-ai-agent.openai.azure.com/openai/v1
-          #   AZURE_OPENAI_MODEL     the model deployment name, e.g. gpt-5.6-luna
-          AZURE_OPENAI_BASE_URL: ${{ vars.AZURE_OPENAI_BASE_URL }}
-          AZURE_OPENAI_MODEL: ${{ vars.AZURE_OPENAI_MODEL }}
-          # Passed via env (not inline ${{ }}) to avoid shell script injection.
           VERSION: ${{ github.event.inputs.version }}
-          PREV_TAG: ${{ steps.prevtag.outputs.prev_tag }}
-          # COMMIT_LOG is exported by the previous step via $GITHUB_ENV.
         run: |
           set -euo pipefail
-
-          if [ -z "${AZURE_OPENAI_API_KEY:-}" ] || [ -z "${AZURE_OPENAI_BASE_URL:-}" ] || [ -z "${AZURE_OPENAI_MODEL:-}" ]; then
-            echo "::error::Missing Azure OpenAI config. Set the AZURE_OPENAI_API_KEY secret and the AZURE_OPENAI_BASE_URL / AZURE_OPENAI_MODEL variables."
-            exit 1
+          # The release tag isn't created yet. Pick the highest MAJOR.MINOR.PATCH
+          # tag strictly BELOW the version being released, so neither tag creation
+          # dates nor a newer release line (e.g. 6.0.0 while patching 5.x) can
+          # pick the wrong predecessor. Empty on the very first release.
+          PREV_TAG="$( { git tag -l | grep -E '^[0-9]+\.[0-9]+\.[0-9]+$'; printf '%s\n' "$VERSION"; } \
+            | sort -V -u | grep -B1 -x -- "$VERSION" | awk 'NR==1' )"
+          if [ "$PREV_TAG" = "$VERSION" ]; then
+            PREV_TAG=""
           fi
-
-          # System prompt kept apostrophe-free so single-quoted lines stay simple.
-          SYSTEM_PROMPT="$(printf '%s\n' \
-            'You write release notes for the Illinois Framework Drupal distribution (install profile).' \
-            'Output ONLY Markdown for a single section and nothing else.' \
-            'Start with the level-2 heading exactly: ## Release Notes' \
-            'Then include a "### New Features" list and/or a "### Bug Fixes" list.' \
-            'Omit a subsection that would be empty.' \
-            'Each bullet is a concise, user-facing summary of one change.' \
-            'When a change references an issue or PR number like #123, append it as (#123) so GitHub auto-links it. Never invent numbers.' \
-            'Ignore administrative commits such as version bumps, merges, CI changes, dependency lockfiles, and formatting-only changes.' \
-            'Do not add a pull-request changelog section; it is appended automatically later.' \
-            'If there are no user-facing changes, output the heading ## Release Notes followed by: _No user-facing changes in this release._')"
-
-          USER_PROMPT="$(printf 'Version being released: %s\nPrevious release: %s\n\nCommit log since the previous release:\n%s\n' \
-            "$VERSION" "${PREV_TAG:-none}" "${COMMIT_LOG:-}")"
-
-          # Build the request body with jq so all content is safely JSON-escaped.
-          # v1 API: the model deployment name goes in the body, not the URL.
-          # GPT-5-series (reasoning) models require max_completion_tokens instead
-          # of max_tokens and only accept the default temperature, so temperature
-          # is omitted. The budget is generous because reasoning tokens count
-          # toward max_completion_tokens.
-          REQUEST="$(jq -n \
-            --arg model "$AZURE_OPENAI_MODEL" \
-            --arg sys "$SYSTEM_PROMPT" \
-            --arg usr "$USER_PROMPT" \
-            '{model: $model, messages: [{role: "system", content: $sys}, {role: "user", content: $usr}], max_completion_tokens: 2000}')"
-
-          # v1 GA API: POST to <base>/chat/completions, no api-version query param.
-          URL="${AZURE_OPENAI_BASE_URL%/}/chat/completions"
-
-          # --fail-with-body: on HTTP >=400, print the error body and fail the step.
-          set +e
-          RESP="$(curl -sS --fail-with-body -X POST "$URL" \
-            -H 'Content-Type: application/json' \
-            -H "api-key: ${AZURE_OPENAI_API_KEY}" \
-            -d "$REQUEST")"
-          CURL_EXIT=$?
-          set -e
-          if [ "$CURL_EXIT" -ne 0 ]; then
-            echo "::error::Azure OpenAI request failed (curl exit $CURL_EXIT)."
-            echo "$RESP"
-            exit 1
-          fi
-
-          NOTES="$(printf '%s' "$RESP" | jq -r '.choices[0].message.content // empty')"
-          if [ -z "$NOTES" ]; then
-            NOTES="$(printf '%s\n\n%s\n' '## Release Notes' '_No release notes were generated. Please edit before publishing._')"
-          fi
-
-          printf '%s\n' "$NOTES" > RELEASE_BODY.md
-          echo "----- RELEASE_BODY.md -----"
-          cat RELEASE_BODY.md
-
-      - name: Dry run summary
-        if: github.event.inputs.dry_run == 'true'
-        run: |
-          echo "::notice::Dry run enabled — no commit, tag, or release was created."
-          {
-            echo "### Dry run: generated info.yml"
-            echo '```yaml'
-            cat illinois_framework.info.yml
-            echo '```'
-            echo "### Dry run: composer.json require (core/theme pinned to ${CONSTRAINT})"
-            echo '```json'
-            jq '.require' composer.json
-            echo '```'
-            echo "### Dry run: AI-drafted release notes"
-            echo "_GitHub's \"What's Changed\" PR list is appended automatically at release time._"
-            echo ""
-            cat RELEASE_BODY.md
-          } >> "$GITHUB_STEP_SUMMARY"
+          echo "prev_tag=$PREV_TAG" >> "$GITHUB_OUTPUT"
+          echo "Previous tag: ${PREV_TAG:-<none>}"
 
       - name: Commit version update
         if: github.event.inputs.dry_run != 'true'
@@ -319,6 +220,120 @@ jobs:
           git tag "${{ github.event.inputs.version }}"
           git push origin "refs/tags/${{ github.event.inputs.version }}"
 
+      - name: Compose release notes
+        id: ghnotes
+        if: github.event.inputs.dry_run == 'true' || steps.commit.outputs.changes == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERSION: ${{ github.event.inputs.version }}
+          PREV_TAG: ${{ steps.prevtag.outputs.prev_tag }}
+          DRY_RUN: ${{ github.event.inputs.dry_run }}
+        run: |
+          set -euo pipefail
+
+          # On a dry run the version-bump commit is never created, so describe the
+          # checked-out branch tip instead; otherwise use the freshly tagged commit.
+          if [ "$DRY_RUN" = "true" ]; then
+            TARGET="$GITHUB_SHA"
+          else
+            TARGET="$(git rev-parse HEAD)"
+          fi
+
+          # GitHub cannot infer the previous tag for these releases: the tagged
+          # version-bump commit lives off-branch (only the tag is pushed), so
+          # earlier release tags are not ancestors of it and the inference falls
+          # back to the last on-branch tag. Pass previous_tag_name explicitly.
+          ARGS=(-f tag_name="$VERSION" -f target_commitish="$TARGET")
+          if [ -n "$PREV_TAG" ]; then
+            ARGS+=(-f previous_tag_name="$PREV_TAG")
+          fi
+
+          if ! BODY="$(gh api --method POST "repos/${GITHUB_REPOSITORY}/releases/generate-notes" "${ARGS[@]}" --jq .body)"; then
+            echo "::warning::generate-notes failed; falling back to the release action's auto-generated notes."
+            printf '%s\n\n%s\n' '## Release Notes' '_Add a short summary of this release here before publishing._' > RELEASE_BODY.md
+            echo "appended=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          # Every PR in the range, taken from the list GitHub just generated.
+          PRS="$(printf '%s' "$BODY" | grep -oE "https://github\.com/${GITHUB_REPOSITORY}/pull/[0-9]+" \
+            | grep -oE '[0-9]+$' | sort -un || true)"
+
+          # Ask for each PR's linked issues -- the ones shown in the PR sidebar's
+          # "Development" section, i.e. closed by merging it. One batched query
+          # with p0..pN aliases keeps this to a single API round trip. Linked
+          # issues may live in a sibling repo (core/profile work is often tracked
+          # in the theme repo), which is why the repo name is requested too.
+          ISSUES=""
+          if [ -n "$PRS" ]; then
+            QUERY='query($owner:String!,$name:String!){repository(owner:$owner,name:$name){'
+            i=0
+            for pr in $PRS; do
+              QUERY="${QUERY}p${i}:pullRequest(number:${pr}){closingIssuesReferences(first:20){nodes{number title url repository{nameWithOwner}}}} "
+              i=$((i+1))
+            done
+            QUERY="${QUERY}}}"
+
+            # gh exits non-zero when ANY alias errors -- e.g. a linked issue in a
+            # repo this token cannot read -- even though the rest of the response
+            # is perfectly usable, so capture the raw JSON and filter it here
+            # instead of with "gh --jq", and keep whatever did resolve.
+            RESP="$(gh api graphql \
+              -F owner="${GITHUB_REPOSITORY%%/*}" -F name="${GITHUB_REPOSITORY##*/}" \
+              -f query="$QUERY" 2>/dev/null || true)"
+
+            if printf '%s' "$RESP" | jq -e 'has("errors")' >/dev/null 2>&1; then
+              echo "::warning::Some linked issues could not be read; the \"Issues Closed\" list may be incomplete."
+            fi
+
+            # Emitted fully qualified, then shortened for issues in this repo so
+            # both same-repo (#12) and cross-repo (owner/repo#12) refs autolink.
+            ISSUES="$(printf '%s' "$RESP" | jq -r '
+                [ .data.repository[]? | select(. != null) | .closingIssuesReferences.nodes[]? ]
+                | unique_by(.url)
+                | sort_by(.repository.nameWithOwner, .number)
+                | .[] | "- \(.title) (\(.repository.nameWithOwner)#\(.number))"' 2>/dev/null \
+              | sed "s|(${GITHUB_REPOSITORY}#|(#|")" || ISSUES=""
+
+            if [ -z "$ISSUES" ]; then
+              echo "No linked issues found for this range; omitting the \"Issues Closed\" section."
+            fi
+          fi
+
+          # The summary line is a placeholder on purpose: releases are created as
+          # drafts, so a maintainer replaces it before publishing.
+          {
+            printf '## Release Notes\n\n'
+            printf '%s\n' '_Add a short summary of this release here before publishing._'
+            if [ -n "$ISSUES" ]; then
+              printf '\n### Issues Closed\n\n%s\n' "$ISSUES"
+            fi
+            printf '\n%s\n' "$BODY"
+          } > RELEASE_BODY.md
+
+          echo "appended=true" >> "$GITHUB_OUTPUT"
+          echo "Previous tag used: ${PREV_TAG:-<none>}"
+          echo "----- RELEASE_BODY.md -----"
+          cat RELEASE_BODY.md
+      - name: Dry run summary
+        if: github.event.inputs.dry_run == 'true'
+        run: |
+          echo "::notice::Dry run enabled — no commit, tag, or release was created."
+          {
+            echo "### Dry run: generated info.yml"
+            echo '```yaml'
+            cat illinois_framework.info.yml
+            echo '```'
+            echo "### Dry run: composer.json require (core/theme pinned to ${CONSTRAINT})"
+            echo '```json'
+            jq '.require' composer.json
+            echo '```'
+            echo "### Dry run: generated release notes"
+            echo "_This is the exact body the draft release would be created with._"
+            echo ""
+            cat RELEASE_BODY.md
+          } >> "$GITHUB_STEP_SUMMARY"
+
       - name: Create GitHub Release (draft)
         if: github.event.inputs.dry_run != 'true' && steps.commit.outputs.changes == 'true'
         uses: softprops/action-gh-release@v2
@@ -327,11 +342,14 @@ jobs:
         with:
           tag_name: "${{ github.event.inputs.version }}"
           name: "Release ${{ github.event.inputs.version }}"
-          # The AI-drafted "## Release Notes" section becomes the top of the
-          # body; generate_release_notes appends GitHub's "## What's Changed"
-          # PR list below it. Created as a draft so you can review and edit the
-          # AI output before publishing.
+          # RELEASE_BODY.md was fully composed by the previous step: the
+          # summary placeholder, the "Issues Closed" list, and GitHub's
+          # "What's Changed" PR list built against the explicit previous tag.
+          # The action's own generate_release_notes is only a fallback for when
+          # that step could not reach the API, because it would otherwise infer
+          # the wrong previous tag. Created as a draft so you can write the
+          # summary and review the notes before publishing.
           body_path: RELEASE_BODY.md
-          generate_release_notes: true
+          generate_release_notes: ${{ steps.ghnotes.outputs.appended != 'true' }}
           draft: true
           prerelease: false
