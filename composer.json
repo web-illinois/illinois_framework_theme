@@ -4,6 +4,6 @@
     "type": "drupal-theme",
     "minimum-stability": "dev",
     "require": {
-        "drupal/stable9": "^2.0"
+        "drupal/stable9": "^1.0"
     }
 }
