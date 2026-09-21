@@ -45,8 +45,18 @@
 ]
 %}
 
+{% if items|length > 1 %}
 <ul class="ilw-buttons{{ theme == 'orange-gradient' ? ' ilw-theme-orange-2' }}">{# temp fix until orange-gradient is added to toolkit #}
 {% for item in items %}
   <li{{ item.attributes.addClass('field__item') }}>{{ item.content }}</li>
 {% endfor %}
 </ul>
+{% else %}
+{% for item in items %}
+  {% set link_options = item.content['#options']|default({}) %}
+  {% set link_attributes = link_options.attributes|default({}) %}
+  {% set link_attributes = link_attributes|merge({'class': (link_attributes.class|default([]))|merge(['ilw-button'])}) %}
+  {% set link_content = item.content|merge({'#options': link_options|merge({'attributes': link_attributes})}) %}
+  <div{{ item.attributes.addClass('field--name-field-feature-split-button') }}>{{ link_content }}</div>
+{% endfor %}
+{% endif %}
