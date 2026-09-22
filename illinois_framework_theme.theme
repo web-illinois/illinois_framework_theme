@@ -884,14 +884,23 @@ function illinois_framework_theme_theme_suggestions_node_alter(array &$suggestio
   // makes node--news.html.twig win over node--teaser.html.twig. Move the generic
   // teaser immediately before the bundle-specific teaser so the lookup order is:
   // node--news.html.twig, node--teaser.html.twig, node--news--teaser.html.twig.
+  // Preserve Drupal's keyed suggestion metadata while reordering the list.
+  $has_deprecated_suggestions = array_key_exists('__DEPRECATED', $suggestions);
+  $deprecated_suggestions = $suggestions['__DEPRECATED'] ?? NULL;
+  unset($suggestions['__DEPRECATED']);
+
   $suggestions = array_values(array_diff($suggestions, [$teaser_suggestion]));
   $bundle_teaser_index = array_search($bundle_teaser_suggestion, $suggestions, TRUE);
 
   if ($bundle_teaser_index === FALSE) {
     $suggestions[] = $teaser_suggestion;
     $suggestions[] = $bundle_teaser_suggestion;
-    return;
+  }
+  else {
+    array_splice($suggestions, $bundle_teaser_index, 0, [$teaser_suggestion]);
   }
 
-  array_splice($suggestions, $bundle_teaser_index, 0, [$teaser_suggestion]);
+  if ($has_deprecated_suggestions) {
+    $suggestions['__DEPRECATED'] = $deprecated_suggestions;
+  }
 }
