@@ -52,11 +52,11 @@
   {# Paragraph ID used for anchor linking #}
   <div {{ attributes.setAttribute('id', 'paragraph--' ~ paragraph.id() ) }} {{ attributes.addClass(classes) }}>
     {% block content %}
-      <ilw-accordion width="page"{% if paragraph.field_accordion_compact.value %} compact="true"{% endif %}>
+      <ilw-accordion width="page"{% if paragraph.field_accordion_compact.value %} compact="true"{% endif %} {% if paragraph.field_expand_all_button.value %} buttons="true"{% endif %}>
         {% if content.field_accordion_title['#items'] %}
           <h2>{{ content.field_accordion_title }}</h2>
         {% endif %}
-        {{ content|without('field_accordion_title', 'field_accordion_compact') }}
+        {{ content|without('field_accordion_title', 'field_accordion_compact', 'field_expand_all_button') }}
       </ilw-accordion>
     {% endblock %}
   </div>
