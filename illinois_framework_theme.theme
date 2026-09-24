@@ -851,27 +851,7 @@ function illinois_framework_theme_preprocess_paragraph__feature_video(array &$va
   // Theme.
   $variables['theme'] = '';
   if (!$paragraph->field_feature_video_background->isEmpty()) {
-    $background_value = $paragraph->field_feature_video_background->value;
-    switch ($background_value) {
-      case 'illiniblue':
-        $variables['theme'] = 'blue';
-        break;
-
-      case 'illiniorange':
-        $variables['theme'] = 'orange';
-        break;
-
-      case 'bluegradient':
-        $variables['theme'] = 'blue-gradient';
-        break;
-
-      case 'orangegradient':
-        $variables['theme'] = 'orange-gradient';
-        break;
-
-      default:
-        $variables['theme'] = $background_value;
-    }
+    $variables['theme'] = $paragraph->field_feature_video_background->value;
   }
 
   if (isset($variables['content']['field_feature_video_button'])) {
