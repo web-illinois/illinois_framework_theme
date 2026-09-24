@@ -1,0 +1,27 @@
+{#
+/**
+ * @file
+ * Theme override for the feature video button field.
+ *
+ * Available variables:
+ * - items: A list of field items, each containing attributes and content.
+ * - theme: The Toolkit theme supplied by paragraph preprocessing.
+ *
+ * @see template_preprocess_field()
+ */
+#}
+{% if items|length > 1 %}
+  <ul class="ilw-buttons">
+    {% for item in items %}
+      <li{{ item.attributes.addClass('field__item') }}>{{ item.content }}</li>
+    {% endfor %}
+  </ul>
+{% else %}
+  {% for item in items %}
+    {% set link_options = item.content['#options']|default({}) %}
+    {% set link_attributes = link_options.attributes|default({}) %}
+    {% set link_attributes = link_attributes|merge({'class': (link_attributes.class|default([]))|merge(['ilw-button'])}) %}
+    {% set link_content = item.content|merge({'#options': link_options|merge({'attributes': link_attributes})}) %}
+    <div{{ item.attributes.addClass('field--name-field-feature-video-button') }}>{{ link_content }}</div>
+  {% endfor %}
+{% endif %}

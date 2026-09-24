@@ -1,0 +1,27 @@
+{#
+/**
+ * @file
+ * Theme override for the feature video title field.
+ *
+ * Available variables:
+ * - items: A list of field items, each containing attributes and content.
+ * - field_name: The name of the field.
+ * - field_type: The field type.
+ * - label_display: The field label display setting.
+ *
+ * @see template_preprocess_field()
+ */
+#}
+{%
+  set classes = [
+    'title',
+    'field',
+    'field--name-' ~ field_name|clean_class,
+    'field--type-' ~ field_type|clean_class,
+    'field--label-' ~ label_display,
+    label_display == 'inline' ? 'clearfix',
+  ]
+%}
+{% for item in items %}
+  <h2{{ item.attributes.addClass(classes, 'field__item') }}>{{ item.content }}</h2>
+{% endfor %}

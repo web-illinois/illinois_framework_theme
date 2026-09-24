@@ -818,6 +818,68 @@ function illinois_framework_theme_preprocess_paragraph__feature_split(array &$va
 }
 
 /**
+ * Implements hook_preprocess_HOOK() for paragraph--feature-video.html.twig.
+ */
+function illinois_framework_theme_preprocess_paragraph__feature_video(array &$variables) {
+  $paragraph = $variables['paragraph'];
+
+  // Reverse attribute.
+  $variables['reverse'] = FALSE;
+  if (!$paragraph->field_feature_video_vid_align->isEmpty()) {
+    $variables['reverse'] = $paragraph->field_feature_video_vid_align->value === 'right';
+  }
+
+  // Max width class.
+  $variables['max_width_class'] = 'full-width';
+  if (!$paragraph->field_feature_video_vid_width->isEmpty()) {
+    if ($paragraph->field_feature_video_vid_width->value === 'fixed') {
+      $variables['max_width_class'] = 'fixed-width';
+    }
+  }
+
+  // Ensure the class is added to the renderable attributes and classes array.
+  if (empty($variables['attributes']) || !($variables['attributes'] instanceof Attribute)) {
+    $variables['attributes'] = new Attribute();
+  }
+  $variables['attributes']->addClass($variables['max_width_class']);
+
+  if (empty($variables['classes']) || !is_array($variables['classes'])) {
+    $variables['classes'] = [];
+  }
+  $variables['classes'][] = $variables['max_width_class'];
+
+  // Theme.
+  $variables['theme'] = '';
+  if (!$paragraph->field_feature_video_background->isEmpty()) {
+    $background_value = $paragraph->field_feature_video_background->value;
+    switch ($background_value) {
+      case 'illiniblue':
+        $variables['theme'] = 'blue';
+        break;
+
+      case 'illiniorange':
+        $variables['theme'] = 'orange';
+        break;
+
+      case 'bluegradient':
+        $variables['theme'] = 'blue-gradient';
+        break;
+
+      case 'orangegradient':
+        $variables['theme'] = 'orange-gradient';
+        break;
+
+      default:
+        $variables['theme'] = $background_value;
+    }
+  }
+
+  if (isset($variables['content']['field_feature_video_button'])) {
+    $variables['content']['field_feature_video_button']['#feature_video_theme'] = $variables['theme'];
+  }
+}
+
+/**
  * Implements hook_preprocess_HOOK() for paragraph--accordion-content.html.twig.
  */
 function illinois_framework_theme_preprocess_paragraph__accordion_content(array &$variables) {
@@ -855,6 +917,10 @@ function illinois_framework_theme_preprocess_field(array &$variables) {
       }
       $variables['attributes']['class'][] = 'node-body-field-full-display';
     }
+  }
+
+  if ($variables['entity_type'] === 'paragraph' && $variables['field_name'] === 'field_feature_video_button') {
+    $variables['theme'] = $variables['element']['#feature_video_theme'] ?? '';
   }
 }
 /**
