@@ -28,6 +28,8 @@
  * - items: List of all the field items. Each item contains:
  *   - attributes: List of HTML attributes for each item.
  *   - content: The field item's content.
+ *   - thumbnail_url: Image gallery mobile style URL.
+ *   - gallery_url: Image gallery full style URL.
  * - entity_type: The entity type to which the field belongs.
  * - field_name: The name of the field.
  * - field_type: The type of the field.
@@ -36,8 +38,14 @@
  * @see template_preprocess_field()
  */
 #}
-{% for item in items %}
-  <div class="image-gallery-item">
-  {{ item.content }}
-  </div>
+{% for delta, item in items %}
+  {% set image = element['#items'][delta] %}
+  <a{{ item.attributes }} data-gallery-item href="{{ item.gallery_url }}" data-gallery-alt="{{ image.alt }}">
+    <ilw-card aspectratio="16/10">
+      <img src="{{ item.thumbnail_url }}" alt="{{ image.alt }}" slot="image">
+      {% if image.title %}
+        <p>{{ image.title }}</p>
+      {% endif %}
+    </ilw-card>
+  </a>
 {% endfor %}

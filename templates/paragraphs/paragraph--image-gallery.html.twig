@@ -69,9 +69,11 @@
             <div class="field--name-field-image-gallery__body body">{{ content.field_image_gallery_body }}</div>
           {% endif %}
         </div>
-        <ilw-grid width="page" theme="{{ theme }}">
-            {{ content.field_image_gallery_img }}
-        </ilw-grid>
+        <ilw-image-gallery theme="{{ theme }}">
+          <ilw-grid width="page" gap="25px" padding="0">
+              {{ content.field_image_gallery_img }}
+          </ilw-grid>
+        </ilw-image-gallery>
       </div>
       </ilw-content>
     {% endblock %}
