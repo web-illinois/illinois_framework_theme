@@ -38,10 +38,7 @@
  * @ingroup themeable
  */
 #}
-{% set background = content.field_image_gallery_background[0]['#markup'] %}
-{% if background == 'Gray' %}
-  {% set theme = 'gray' %}
-{% endif %}
+{% set theme = content.field_image_gallery_background['#items'].value %}
 
 {%
   set classes = [
