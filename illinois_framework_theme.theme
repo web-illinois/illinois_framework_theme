@@ -13,6 +13,7 @@ use Drupal\Core\Render\Element;
 use Drupal\Core\Template\Attribute;
 use Drupal\Core\Menu\MenuTreeParameters;
 use Drupal\paragraphs\ParagraphInterface;
+use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
 
 /**
  * Returns the default Toolkit library URLs by parsing the libraries YAML file.
@@ -251,7 +252,7 @@ function get_clean_system_site_name() {
 function illinois_framework_theme_theme_suggestions_page_alter(array &$suggestions, array $variables, $hook) {
   // Error page template suggestions.
   $exception = Drupal::requestStack()->getCurrentRequest()->attributes->get('exception');
-  if ($exception !== NULL) {
+  if ($exception instanceof HttpExceptionInterface) {
     $status_code = $exception->getStatusCode();
     $suggestions[] = 'page__' . (string) $status_code;
   }
