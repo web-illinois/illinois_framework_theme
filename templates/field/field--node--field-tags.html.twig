@@ -1,0 +1,52 @@
+{#
+/**
+ * @file
+ * Theme override for the Tags field (field_tags) on nodes.
+ *
+ * Displays each tag link as a small Illinois toolkit button. A single tag is
+ * output as one button; multiple tags are output as a list of buttons.
+ */
+#}
+{%
+  set classes = [
+  'field',
+  'field--name-' ~ field_name|clean_class,
+  'field--type-' ~ field_type|clean_class,
+  'field--label-' ~ label_display,
+  label_display == 'inline' ? 'clearfix',
+  'fixed-width'
+
+]
+%}
+{%
+  set title_classes = [
+  'field__label',
+  label_display == 'visually_hidden' ? 'visually-hidden',
+]
+%}
+<div{{ attributes.addClass(classes) }}>
+  {% if not label_hidden %}
+    <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
+  {% endif %}
+  {% if items|length == 1 %}
+    {% set content = items|first.content %}
+    {% if content['#url'] is defined and content['#title'] is defined %}
+      {{ link(content['#title'], content['#url'], {'class': ['ilw-button', 'ilw-button-small']}) }}
+    {% else %}
+      {{ content }}
+    {% endif %}
+  {% else %}
+    <ul class="ilw-buttons ilw-button-small">
+      {% for item in items %}
+        {% set content = item.content %}
+        <li{{ item.attributes }}>
+          {% if content['#url'] is defined and content['#title'] is defined %}
+            {{ link(content['#title'], content['#url']) }}
+          {% else %}
+            {{ content }}
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</div>
