@@ -46,7 +46,11 @@
     : content.field_cta_narrow_background['#items'].0.value == 'bluegradient'
     ? 'blue-gradient'
     : content.field_cta_narrow_background['#items'].0.value == 'orangegradient'
-    ? 'orange-gradient' %}
+    ? 'orange-gradient'
+    : content.field_cta_narrow_background['#items'].0.value == 'white'
+    ? 'white'
+    : content.field_cta_narrow_background['#items'].0.value == 'gray'
+    ? 'gray' %}
 {% endif %}
 {%
   set classes = [
