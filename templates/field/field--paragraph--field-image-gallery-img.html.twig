@@ -40,7 +40,7 @@
 #}
 {% for delta, item in items %}
   {% set image = element['#items'][delta] %}
-  <a{{ item.attributes }} data-gallery-item href="{{ item.gallery_url }}" data-gallery-alt="{{ image.alt }}">
+  <a{{ item.attributes }} data-gallery-item href="{{ item.gallery_url }}" data-gallery-alt="{{ image.alt }}" aria-label="{{ image.alt }}">
     <ilw-card aspectratio="16/10">
       <img src="{{ item.thumbnail_url }}" alt="{{ image.alt }}" slot="image">
       {% if image.title %}
