@@ -48,13 +48,9 @@
 ]
 %}
 {% set column_count = content.field_rt_column['#items']|length %}
-{% set background = paragraph.field_rt_background_color.value|default('')|trim %}
-{% set theme = '' %}
-{% set padding = '' %}
-{% if background|lower == 'gray' %}
-  {% set theme = 'gray' %}
-  {% set padding = '20px 0 30px' %}
-{% endif %}
+{% set background = paragraph.field_rt_background_color.value|default('')|trim|lower %}
+{% set theme = background %}
+{% set padding = background not in ['', 'white'] ? '20px 0 30px' : '' %}
 
 {{ attach_library('illinois_framework_theme/paragraph-rt') }}
 
