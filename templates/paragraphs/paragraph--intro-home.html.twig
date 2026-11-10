@@ -38,20 +38,7 @@
  * @ingroup themeable
  */
 #}
-{% if content.field_intro_home_background['#items'].0.value %}
-  {% set theme = content.field_intro_home_background['#items'].0.value == 'illiniblue'
-    ? 'blue'
-    : content.field_intro_home_background['#items'].0.value == 'illiniorange'
-    ? 'orange'
-    : content.field_intro_home_background['#items'].0.value == 'bluegradient'
-    ? 'blue-gradient'
-    : content.field_intro_home_background['#items'].0.value == 'orangegradient'
-    ? 'orange-gradient'
-    : content.field_intro_home_background['#items'].0.value == 'white'
-    ? 'white'
-    : content.field_intro_home_background['#items'].0.value == 'gray'
-    ? 'gray' %}
-{% endif %}
+{% set theme = content.field_intro_home_background['#items'].0.value|default('') %}
 
 {#  {% set padding = theme in ['gray', 'orange', 'blue'] ? '20px 0 30px 0' : '' %}#}
 {%
