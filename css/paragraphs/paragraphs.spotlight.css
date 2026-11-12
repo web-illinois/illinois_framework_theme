@@ -102,6 +102,11 @@
         img {
           border-radius: 50%;
         }
+        .media--view-mode-news-thumbnail{
+          img {
+            border-radius: unset;
+          }
+        }
       }
 
       .views-field-body{
