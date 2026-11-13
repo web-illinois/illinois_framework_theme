@@ -1,7 +1,7 @@
 .paragraph--type--rt {
   margin-bottom: 2rem;
 
-  ilw-content[theme="gray"] > .fixed-width {
+  ilw-content > .fixed-width {
     display: flow-root;
   }
 }
