@@ -68,8 +68,10 @@
             {% set title = content.field_rt_column[loop.index0]['#paragraph'].field_rt_content_title.value %}
             {% set body = content.field_rt_column[loop.index0]['#paragraph'].field_rt_content_body.value|render %}
             {% set body_format= content.field_rt_column[loop.index0]['#paragraph'].field_rt_content_body.format %}
-            {% if title %}
+            {% if content.field_rt_title['#items'] and title %}
               <h3>{{ title }}</h3>
+            {% elseif title %}
+                <h2>{{ title }}</h2>
             {% endif %}
             {% if body|trim %}
               {{ body|check_markup(body_format) }}
@@ -78,13 +80,13 @@
           </div>
         </ilw-content>
       {% else %}
-    <ilw-content theme="{{ theme }}" padding="{{ padding }}">
-      <div class="fixed-width">
         {% if content.field_rt_title['#items'] %}
-          <h2>{{ content.field_rt_title }}</h2>
+          <ilw-content theme="{{ theme }}" padding="{{ padding }}">
+            <div class="fixed-width">
+                <h2>{{ content.field_rt_title }}</h2>
+            </div>
+          </ilw-content>
         {% endif %}
-      </div>
-    </ilw-content>
         <ilw-columns theme="{{ theme }}" width="auto" gap="40px" padding="{{ padding }}">
           {% for item in content.field_rt_column['#items'] %}
             {% set title = content.field_rt_column[loop.index0]['#paragraph'].field_rt_content_title.value %}
@@ -92,8 +94,10 @@
             {% set body_format= content.field_rt_column[loop.index0]['#paragraph'].field_rt_content_body.format %}
             <div>
               <ilw-content theme="{{ theme }}">
-                {% if title %}
+                {% if content.field_rt_title['#items'] and title %}
                   <h3>{{ title }}</h3>
+                {% elseif title %}
+                    <h2>{{ title }}</h2>
                 {% endif %}
                 {% if body|trim %}
                   {{ body|check_markup(body_format) }}
