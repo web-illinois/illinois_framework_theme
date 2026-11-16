@@ -211,3 +211,14 @@ div.field--type-text-with-summary > figure:first-child {
     line-height: 1.6428571429em;
   }
 }
+
+/*Styles for media with Media credits*/
+.field--name-field-if-media-image-credit{
+  .field__item{
+    box-sizing: border-box;
+    font-size: .7777777778em;
+    font-weight: 400;
+    line-height: 1.6428571429em;
+    font-style: italic;
+  }
+}
